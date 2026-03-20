@@ -305,8 +305,9 @@
             <span id="d-sire-score" class="text-xl font-label font-black text-primary">-</span>
           </div>
           <div>
-            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">PCI差</span>
+            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">ペース展開適性差</span>
             <span id="d-pci-diff" class="text-xl font-label font-black text-primary">-</span>
+            <span id="d-pci-diff-label" class="text-[10px] font-bold block mt-0.5">-</span>
           </div>
           <div>
             <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">外厩ボーナス</span>
@@ -553,6 +554,13 @@ function toggleSort() {
   renderList();
 }
 
+function getPciDiffLabel(diff) {
+  if (diff <= 1.0) return { text: '🎯 ピタリ',    cls: 'text-primary' };
+  if (diff <= 3.0) return { text: '◎ 近い',       cls: 'text-primary' };
+  if (diff <= 6.0) return { text: '△ やや遠い',   cls: 'text-secondary' };
+  return             { text: '✕ 遠い',            cls: 'text-error' };
+}
+
 function getPaceTendency(pci) {
   if (pci >= 55) return 'スロー・瞬発力';
   if (pci >= 50) return '平均・持続力';
@@ -772,6 +780,10 @@ function showDetail(umaname) {
   document.getElementById('d-jockey-score').textContent = h['jockey_score'].toFixed(2);
   document.getElementById('d-sire-score').textContent = h['sire_score'].toFixed(2);
   document.getElementById('d-pci-diff').textContent = h['pci_diff_score'].toFixed(2);
+  const pciLabel = getPciDiffLabel(h['pci_diff_score']);
+  const pciLabelEl = document.getElementById('d-pci-diff-label');
+  pciLabelEl.textContent = pciLabel.text;
+  pciLabelEl.className = `text-[10px] font-bold block mt-0.5 ${pciLabel.cls}`;
   const gaikuBonusVal = h['gaiku_bonus'];
   document.getElementById('d-gaiku-bonus').textContent =
     gaikuBonusVal < 0 ? `+${-gaikuBonusVal}` : gaikuBonusVal === 0 ? '±0' : `-${gaikuBonusVal}`;
