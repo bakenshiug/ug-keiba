@@ -303,6 +303,7 @@
           <div>
             <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">騎手 Score</span>
             <span id="d-jockey-score" class="text-xl font-label font-black text-primary">-</span>
+            <span id="d-jockey-score-label" class="text-xs font-bold text-outline block mt-0.5"></span>
           </div>
           <div>
             <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">血統 Score</span>
@@ -715,6 +716,15 @@ function calcRaceBonus(horse) {
   return 0;
 }
 
+// ===== 騎手グレード =====
+function getJockeyGrade(js) {
+  if (js == null) return null;
+  if (js <= 4.0) return 'S';
+  if (js <= 6.0) return 'A';
+  if (js <= 8.0) return 'B';
+  return 'C';
+}
+
 // ===== 調教評価 =====
 function getTrainingGrade(ts) {
   if (ts == null) return null;
@@ -847,7 +857,22 @@ function showDetail(umaname) {
   const gaikuClass = getGaikuClass(gaikuName);
   document.getElementById('d-gaiku-badge').textContent = gaikuName === '在厩調整' ? '在厩中' : '外厩帰り';
   document.getElementById('d-gaiku-badge').className = `${gaikuClass} text-[10px] px-2 py-0.5 font-bold rounded-sm`;
-  document.getElementById('d-jockey-score').textContent = h['jockey_score'].toFixed(2);
+  const jGrade = getJockeyGrade(h['jockey_score']);
+  const jColors  = { S: 'text-primary', A: 'text-blue-500', B: 'text-outline', C: 'text-error' };
+  const jLabels  = { S: 'S  スペシャル', A: 'A  買い', B: 'B  普通', C: 'C  苦戦' };
+  const jBonus   = { S: '+3.0加点', A: '+1.0加点', B: '±0', C: '-2.0減点' };
+  const jScoreEl = document.getElementById('d-jockey-score');
+  const jLabelEl = document.getElementById('d-jockey-score-label');
+  if (jGrade) {
+    jScoreEl.textContent  = jLabels[jGrade];
+    jScoreEl.className    = `text-xl font-label font-black ${jColors[jGrade]}`;
+    jLabelEl.textContent  = jBonus[jGrade];
+    jLabelEl.className    = `text-xs font-bold block mt-0.5 ${jColors[jGrade]}`;
+  } else {
+    jScoreEl.textContent  = '-';
+    jScoreEl.className    = 'text-xl font-label font-black text-outline';
+    jLabelEl.textContent  = '';
+  }
   document.getElementById('d-sire-score').textContent = h['sire_score'].toFixed(2);
   document.getElementById('d-pci-diff').textContent = h['pci_diff_score'].toFixed(2);
   const pciLabel = getPciDiffLabel(h['pci_diff_score']);
