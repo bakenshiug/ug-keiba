@@ -636,21 +636,27 @@ function getNickComment(horse, gaiku) {
   const prevRank = horse['確定着順'];
   const gaikuBonus = horse['gaiku_bonus'];
 
-  if (mark === '◎') return `前走${horse['レース名']}で${prevRank}着。父${sire}×騎手${jockey}の組み合わせが中心。外厩「${gaiku}」からの仕上がりに注目。総合スコア${score}でこのレースの最高評価馬。`;
-  if (mark === '○') return `前走${prevRank}着からの巻き返しに期待。${jockey}騎手が手綱を取り、コース適性も悪くない。スコア${score}で対抗候補の一頭。`;
-  if (mark === '▲') return `父${sire}の血統が距離適性にプラス。${gaikuBonus < 0 ? `外厩「${gaiku}」ボーナスあり。` : ''}騎手スコアに課題も、条件次第で一発あり。`;
-  if (mark === '△') return `連下候補。前走${prevRank}着からPCI${pci.toFixed(1)}と今回のコースへの適性は計算できる。穴馬として。`;
-  return `データ上は上位から離れている。前走${horse['レース名']}${prevRank}着。波乱要員として一応チェック。`;
+  if (mark === '◎') return `🔥 買い！本命はこれだ。父${sire}×${jockey}、外厩「${gaiku}」で仕上げてきた最高評価馬。スコア${score}、迷わず軸に据えろ。`;
+  if (mark === '○') return `✅ 買い！対抗の一頭。前走${prevRank}着から${jockey}騎手で巻き返す。スコア${score}、相手の筆頭として厚めに押さえろ。`;
+  if (mark === '▲') return `✅ 買い！ヒモで必ず入れとけ。父${sire}の血統が今回の条件に合う。${gaikuBonus < 0 ? `外厩「${gaiku}」加点もある。` : ''}スコア${score}、三連系の軸ヒモに。`;
+  if (mark === '☆') return `⭐ 買い！穴で狙え。スコア${score}で上位評価、人気薄なら旨みあり。${jockey}騎手なら一発ある。馬単・三連の穴ヒモに。`;
+  if (mark === '△') return `🔺 押さえ程度に。PCI${pci.toFixed(1)}でコース適性は悪くない。スコア${score}、三連複の保険として一枚だけ。`;
+  return `❌ 俺は見送るぜ。スコア${score}では上位との差がありすぎる。前走${prevRank}着の内容も買えない。今回は要らない。`;
 }
 
 function getSecretMemo(horse, gaiku) {
   const mark = horse['印'];
-  if (mark === '◎') return `「このスコア、見逃すな。${horse['父馬名']}産駒が中京・中山で爆発する条件が揃っている。${gaiku === '在厩調整' ? '在厩調整でも仕上がり良好との情報あり。' : `${gaiku}からの直行ローテ。陣営本気モードだ。`}ここは本命で買う。」`;
-  if (mark === '○') return `「${horse['騎手名']}は近走このコースで安定している。前走の負けは度外視できる。対抗として厚めに押さえろ。」`;
   const gb = horse['gaiku_bonus'];
   const gbDisp = gb < 0 ? `+${-gb}` : gb === 0 ? '±0' : `-${gb}`;
-  if (mark === '▲') return `「外厩加点${gbDisp}があるのは見逃せない。穴党にとっては美味しい一頭かもしれない。」`;
-  return `「データ的には厳しい評価だが、競馬に絶対はない。押さえ程度に。スコア${horse['total_score'].toFixed(1)}は参考値として。」`;
+  const ts = horse['training_score'];
+  const tsStr = ts != null ? (ts > 0 ? `+${ts}` : `${ts}`) : '－';
+
+  if (mark === '◎') return `「買いだ、絶対に買え。${horse['父馬名']}産駒、外厩${gaiku}からの直行ローテ。陣営は本気モードだ。調教${tsStr}、外厩加点${gbDisp}、全部揃ってる。ここを外したら俺はモグリだ。」`;
+  if (mark === '○') return `「${horse['騎手名']}で対抗本線。前走の負けは度外視、今回は条件が向く。軸の相手筆頭として厚めに入れとけ。買わない理由がない。」`;
+  if (mark === '▲') return `「外厩加点${gbDisp}、これは見逃せない数字だ。穴党にとっては美味しい一頭。三連系のヒモには必ず入れとけ。調教${tsStr}も計算できる。」`;
+  if (mark === '☆') return `「スター候補だ。人気がないなら尚更おいしい。${horse['騎手名']}がうまく乗ればそのまま連突入もある。馬単の穴ヒモで勝負しろ。」`;
+  if (mark === '△') return `「押さえる価値はある。三連複の保険に一枚だけ。ただし厚く張るな、あくまで保険だ。」`;
+  return `「今回は俺はいらない。データが正直に語ってる。この馬に金を使うくらいなら◎の馬を厚く買え。見送り確定。」`;
 }
 
 function getRaceData(race) {
