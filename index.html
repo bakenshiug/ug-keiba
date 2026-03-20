@@ -403,23 +403,61 @@
   <div id="analysis-content" class="space-y-6"></div>
 </div>
 
+<!-- Results Panel -->
+<div id="results-view" style="display:none" class="pb-32 px-5 py-4 space-y-6">
+  <div class="pt-4">
+    <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Race Results</p>
+    <h1 class="serif-headline text-2xl font-bold text-primary">レース結果</h1>
+    <p class="text-xs text-outline mt-1">2026年3月21日</p>
+  </div>
+  <div class="flex gap-1 mb-2">
+    <button onclick="switchResultRace('falcon')" id="rtab-falcon"
+      class="flex-1 py-2 text-xs font-bold rounded-lg bg-primary text-white">ファルコンS</button>
+    <button onclick="switchResultRace('flower')" id="rtab-flower"
+      class="flex-1 py-2 text-xs font-bold rounded-lg text-outline border border-outline/30">フラワーC</button>
+    <button onclick="switchResultRace('wakaba')" id="rtab-wakaba"
+      class="flex-1 py-2 text-xs font-bold rounded-lg text-outline border border-outline/30">若葉S</button>
+  </div>
+  <div id="results-content"></div>
+</div>
+
+<!-- Archive Panel -->
+<div id="archive-view" style="display:none" class="pb-32 px-5 py-4 space-y-6">
+  <div class="pt-4">
+    <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Past Races</p>
+    <h1 class="serif-headline text-2xl font-bold text-primary">アーカイブ</h1>
+  </div>
+  <!-- 日付ボタン -->
+  <div class="flex gap-2 flex-wrap">
+    <button onclick="showArchiveDate('0321')" id="arc-0321"
+      class="px-4 py-2 text-xs font-bold rounded-full bg-primary text-white">3/21(土)</button>
+    <button onclick="showArchiveDate('0322')" id="arc-0322"
+      class="px-4 py-2 text-xs font-bold rounded-full bg-surface-container text-outline">3/22(日)</button>
+  </div>
+  <div id="archive-content" class="space-y-4"></div>
+</div>
+
 <!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 h-20 bg-[#f8faf8]/80 backdrop-blur-xl z-50 border-t border-outline/10">
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 pb-4 h-20 bg-[#f8faf8]/80 backdrop-blur-xl z-50 border-t border-outline/10">
   <div id="nav-races" onclick="showTab('races')" class="flex flex-col items-center justify-center cursor-pointer text-green-900 border-t-2 border-green-900 pt-2 scale-110 transition-all">
-    <span class="material-symbols-outlined">newspaper</span>
-    <span class="font-sans uppercase tracking-widest text-[10px] font-bold">Races</span>
+    <span class="material-symbols-outlined text-xl">newspaper</span>
+    <span class="font-sans uppercase tracking-widest text-[9px] font-bold">Races</span>
   </div>
   <div id="nav-score" onclick="showTab('score')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
-    <span class="material-symbols-outlined">query_stats</span>
-    <span class="font-sans uppercase tracking-widest text-[10px] font-bold">Score</span>
+    <span class="material-symbols-outlined text-xl">query_stats</span>
+    <span class="font-sans uppercase tracking-widest text-[9px] font-bold">Score</span>
+  </div>
+  <div id="nav-results" onclick="showTab('results')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
+    <span class="material-symbols-outlined text-xl">emoji_events</span>
+    <span class="font-sans uppercase tracking-widest text-[9px] font-bold">Results</span>
   </div>
   <div id="nav-stable" onclick="showTab('stable')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
-    <span class="material-symbols-outlined">bedroom_parent</span>
-    <span class="font-sans uppercase tracking-widest text-[10px] font-bold">Stable</span>
+    <span class="material-symbols-outlined text-xl">bedroom_parent</span>
+    <span class="font-sans uppercase tracking-widest text-[9px] font-bold">Stable</span>
   </div>
-  <div id="nav-analysis" onclick="showTab('analysis')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
-    <span class="material-symbols-outlined">description</span>
-    <span class="font-sans uppercase tracking-widest text-[10px] font-bold">Analysis</span>
+  <div id="nav-archive" onclick="showTab('archive')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
+    <span class="material-symbols-outlined text-xl">history</span>
+    <span class="font-sans uppercase tracking-widest text-[9px] font-bold">Archive</span>
   </div>
 </nav>
 
@@ -448,9 +486,44 @@ const FALCON_GAIKU ={"カフェラバー":"ノーザンF天栄","メイクワン
 const FLOWER_GAIKU = {"エアビーアゲイル":"社台ファーム鈴鹿","ナックホワイト":"在厩調整","ゴディアーモ":"在厩調整","ヒルデグリム":"ビッグレッドF","クリスレジーナ":"チャンピオンヒルズ","ラコンチャビエン":"吉澤S-WEST","アーリーハーベスト":"ノーザンFしがらき","イクシード":"ノーザンF天栄","ヴィスコンテッサ":"ノーザンFしがらき","スマートプリエール":"在厩調整","ロンギングセリーヌ":"山元トレセン","バースデイフライト":"千代田牧場","アメティスタ":"チャンピオンヒルズ","カラベルソナ":"社台ファーム鈴鹿","リュクスパトロール":"山元トレセン","コズミックボックス":"ノーザンF天栄"};
 const WAKABA_GAIKU = {"マテンロウゲイル":"チャンピオンヒルズ","コレオシークエンス":"グリーンウッド","コロナドブリッジ":"ノーザンFしがらき","ショウナンバンライ":"在厩調整","エチゴドラゴン":"信楽牧場","ブラックハヤテ":"在厩調整","サヴォアフェール":"チャンピオンヒルズ","エイシンイグニース":"在厩調整","ロードフィレール":"チャンピオンヒルズ","ミリオンクラウン":"在厩調整","コレデヨカロウ":"宇治田原優駿S","キッコベッロ":"在厩調整"};
 
+// ===== 結果データ =====
+// pending:true = 結果待ち / chakujun:[{umaban,umaname,jockey}] / haito:{}
+const RACE_RESULTS = {
+  '0321': {
+    falcon: {
+      pending: true,
+      raceName: 'ファルコンS G3', venue: '中京 芝1400m', time: '15:20',
+      chakujun: [],
+      haito: { tansho: null, fukusho: [], wakuren: null, umaren: null, wide: [], umatan: null, sanrenpuku: null, sanrentan: null }
+    },
+    flower: {
+      pending: true,
+      raceName: 'フラワーC G3', venue: '中山 芝1800m', time: '15:45',
+      chakujun: [],
+      haito: { tansho: null, fukusho: [], wakuren: null, umaren: null, wide: [], umatan: null, sanrenpuku: null, sanrentan: null }
+    },
+    wakaba: {
+      pending: true,
+      raceName: '若葉S', venue: '阪神 芝2000m', time: '15:30',
+      chakujun: [],
+      haito: { tansho: null, fukusho: [], wakuren: null, umaren: null, wide: [], umatan: null, sanrenpuku: null, sanrentan: null }
+    }
+  },
+  '0322': {
+    // 日曜レース（後日追加）
+  }
+};
+
+// アーカイブデータ（読み取り専用 - 結果確定後にここへ移動）
+const ARCHIVE_DATA = {
+  // '0321': { races: [...], results: {...} }  // 結果確定後に自動追加
+};
+
 // ===== ロジック =====
 let currentRace = 'falcon';
 let sortMode = 'umaban'; // 'umaban' | 'score'
+let currentResultRace = 'falcon';
+let currentArchiveDate = '0321';
 
 function toggleSort() {
   sortMode = sortMode === 'umaban' ? 'score' : 'umaban';
@@ -667,26 +740,28 @@ function showList() {
 let currentTab = 'races';
 let currentScoreRace = 'falcon';
 
-const ALL_VIEWS = ['list-view','detail-view','score-view','stable-view','analysis-view'];
-const ALL_NAVS  = ['nav-races','nav-score','nav-stable','nav-analysis'];
+const ALL_VIEWS = ['list-view','detail-view','score-view','stable-view','analysis-view','results-view','archive-view'];
+const ALL_NAVS  = ['nav-races','nav-score','nav-results','nav-stable','nav-archive'];
 
 function showTab(tab) {
-  // 詳細画面から戻る場合はリスト表示に
+  ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
   if (tab === 'races') {
-    ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
     document.getElementById('list-view').style.display = 'block';
   } else if (tab === 'score') {
-    ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
     document.getElementById('score-view').style.display = 'block';
     renderScoreList(currentScoreRace);
   } else if (tab === 'stable') {
-    ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
     document.getElementById('stable-view').style.display = 'block';
     renderStableList();
   } else if (tab === 'analysis') {
-    ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
     document.getElementById('analysis-view').style.display = 'block';
     renderAnalysis();
+  } else if (tab === 'results') {
+    document.getElementById('results-view').style.display = 'block';
+    renderResultsList(currentResultRace);
+  } else if (tab === 'archive') {
+    document.getElementById('archive-view').style.display = 'block';
+    renderArchive(currentArchiveDate);
   }
   currentTab = tab;
   window.scrollTo(0, 0);
@@ -694,13 +769,14 @@ function showTab(tab) {
   // ナビハイライト
   ALL_NAVS.forEach(n => {
     const el = document.getElementById(n);
+    if (!el) return;
     el.className = el.className
       .replace('text-green-900 border-t-2 border-green-900 scale-110','text-zinc-400')
       .replace('text-zinc-400','text-zinc-400');
   });
-  const activeNav = {races:'nav-races',score:'nav-score',stable:'nav-stable',analysis:'nav-analysis'}[tab];
-  const activeEl = document.getElementById(activeNav);
-  activeEl.className = activeEl.className.replace('text-zinc-400','text-green-900 border-t-2 border-green-900 scale-110');
+  const navMap = {races:'nav-races',score:'nav-score',stable:'nav-stable',results:'nav-results',archive:'nav-archive'};
+  const activeEl = document.getElementById(navMap[tab]);
+  if (activeEl) activeEl.className = activeEl.className.replace('text-zinc-400','text-green-900 border-t-2 border-green-900 scale-110');
 }
 
 // ===== スコアランキング =====
@@ -839,6 +915,138 @@ function renderAnalysis() {
         </p>
         <p class="text-right text-[10px] text-zinc-600 mt-3 font-label font-black tracking-widest">BY NICK THE SNATCHER</p>
       </div>
+    </div>`;
+  }).join('');
+}
+
+// ===== 結果タブ切り替え =====
+function switchResultRace(race) {
+  currentResultRace = race;
+  ['falcon','flower','wakaba'].forEach(r => {
+    const el = document.getElementById('rtab-' + r);
+    if (el) el.className = `flex-1 py-2 text-xs font-bold rounded-lg transition-all ${race===r?'bg-primary text-white':'text-outline border border-outline/30'}`;
+  });
+  renderResultsList(race);
+}
+
+function renderResultsList(race) {
+  const el = document.getElementById('results-content');
+  const result = (RACE_RESULTS['0321'] || {})[race];
+  if (!result) { el.innerHTML = '<p class="text-outline text-sm">データなし</p>'; return; }
+
+  if (result.pending) {
+    el.innerHTML = `
+    <div class="bg-surface-container rounded-xl p-8 text-center space-y-3">
+      <span class="material-symbols-outlined text-5xl text-outline/40">hourglass_empty</span>
+      <p class="font-bold text-lg text-on-surface-variant">結果待ち</p>
+      <p class="text-xs text-outline">${result.raceName}（${result.venue}）</p>
+      <p class="text-xs text-outline">発走予定 ${result.time}</p>
+      <div class="mt-4 bg-surface-container-high rounded-lg px-4 py-3 text-[11px] text-outline/70 leading-relaxed">
+        レース終了後、自動または手動で結果が反映されます。
+      </div>
+    </div>`;
+    return;
+  }
+
+  // 着順表示
+  const chakuHTML = result.chakujun.slice(0,3).map((h,i) => {
+    const medals = ['🥇','🥈','🥉'];
+    const data = getRaceData(race);
+    const horse = data.find(d => d['馬名'] === h.umaname) || {};
+    const waku = horse['枠番'] || 0;
+    return `
+    <div class="flex items-center gap-3 py-2 border-b border-outline/10">
+      <span class="text-2xl w-8">${medals[i]}</span>
+      <span class="waku-${waku} text-[9px] font-bold px-1.5 py-0.5 rounded-sm">${h.umaban}番</span>
+      <span class="font-bold serif-headline text-base flex-1">${h.umaname}</span>
+      <span class="text-xs text-outline">${h.jockey || ''}</span>
+    </div>`;
+  }).join('');
+
+  // 配当表示
+  const h = result.haito;
+  const haitoRows = [
+    ['単勝', h.tansho ? `${h.tansho[0]}番 ¥${h.tansho[1].toLocaleString()}` : '-', false],
+    ['複勝', h.fukusho.length ? h.fukusho.map(f=>`${f[0]}番 ¥${f[1].toLocaleString()}`).join(' / ') : '-', false],
+    ['枠連', h.wakuren ? `${h.wakuren[0]} ¥${h.wakuren[1].toLocaleString()}` : '-', false],
+    ['馬連', h.umaren ? `${h.umaren[0]} ¥${h.umaren[1].toLocaleString()}` : '-', false],
+    ['ワイド', h.wide.length ? h.wide.map(w=>`${w[0]} ¥${w[1].toLocaleString()}`).join('<br>') : '-', false],
+    ['馬単', h.umatan ? `${h.umatan[0]} ¥${h.umatan[1].toLocaleString()}` : '-', false],
+    ['3連複', h.sanrenpuku ? `${h.sanrenpuku[0]} ¥${h.sanrenpuku[1].toLocaleString()}` : '-', h.sanrenpuku && h.sanrenpuku[1] >= 10000],
+    ['3連単', h.sanrentan ? `${h.sanrentan[0]} ¥${h.sanrentan[1].toLocaleString()}` : '-', h.sanrentan && h.sanrentan[1] >= 10000],
+  ];
+
+  el.innerHTML = `
+  <div class="bg-surface-container-lowest rounded-xl p-4 space-y-2">
+    <h3 class="serif-headline text-lg font-bold text-primary mb-3">${result.raceName} 着順</h3>
+    ${chakuHTML}
+  </div>
+  <div class="bg-surface-container-lowest rounded-xl overflow-hidden mt-4">
+    <div class="bg-primary px-4 py-2">
+      <h3 class="text-white font-bold text-sm">払い戻し</h3>
+    </div>
+    <table class="w-full text-sm">
+      ${haitoRows.map(([name, val, big]) => `
+      <tr class="border-b border-outline/10">
+        <td class="px-4 py-2.5 font-bold text-outline text-xs w-16">${name}</td>
+        <td class="px-4 py-2.5 ${big ? 'text-tertiary font-black' : 'text-on-surface font-bold'} text-right">${val}</td>
+      </tr>`).join('')}
+    </table>
+  </div>`;
+}
+
+// ===== アーカイブ =====
+function showArchiveDate(date) {
+  currentArchiveDate = date;
+  document.querySelectorAll('[id^="arc-"]').forEach(el => {
+    el.className = el.className.replace('bg-primary text-white','bg-surface-container text-outline');
+  });
+  const activeBtn = document.getElementById('arc-' + date);
+  if (activeBtn) activeBtn.className = activeBtn.className.replace('bg-surface-container text-outline','bg-primary text-white');
+  renderArchive(date);
+}
+
+function renderArchive(date) {
+  const el = document.getElementById('archive-content');
+  const dateLabel = {'0321':'3月21日(土)','0322':'3月22日(日)'}[date] || date;
+  const results = RACE_RESULTS[date] || {};
+  const raceKeys = Object.keys(results);
+
+  if (raceKeys.length === 0) {
+    el.innerHTML = `
+    <div class="bg-surface-container rounded-xl p-8 text-center space-y-2">
+      <span class="material-symbols-outlined text-4xl text-outline/40">event_upcoming</span>
+      <p class="font-bold text-on-surface-variant">${dateLabel}</p>
+      <p class="text-xs text-outline">レースデータは当日追加されます</p>
+    </div>`;
+    return;
+  }
+
+  el.innerHTML = `<p class="text-xs font-bold text-outline uppercase tracking-widest mb-3">${dateLabel}</p>` +
+  raceKeys.map(raceKey => {
+    const r = results[raceKey];
+    const isPending = r.pending;
+    const hasResult = !isPending && r.chakujun.length > 0;
+    return `
+    <div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline/10">
+      <div class="flex items-center justify-between px-4 py-3 bg-surface-container">
+        <div>
+          <p class="font-bold text-sm text-on-surface">${r.raceName}</p>
+          <p class="text-[10px] text-outline">${r.venue} ${r.time}発走</p>
+        </div>
+        <span class="${isPending ? 'bg-surface-container-high text-outline' : 'bg-primary/10 text-primary'} text-[10px] font-bold px-2 py-1 rounded-full">
+          ${isPending ? '結果待ち' : '確定'}
+        </span>
+      </div>
+      ${hasResult ? `
+      <div class="px-4 py-3 space-y-1">
+        ${r.chakujun.slice(0,3).map((h,i) => `
+        <div class="flex items-center gap-2 text-sm">
+          <span class="text-base">${['🥇','🥈','🥉'][i]}</span>
+          <span class="font-bold">${h.umaban}番 ${h.umaname}</span>
+        </div>`).join('')}
+        ${r.haito.sanrentan ? `<p class="text-xs text-tertiary font-black mt-2">3連単 ${r.haito.sanrentan[0]} ¥${r.haito.sanrentan[1].toLocaleString()}</p>` : ''}
+      </div>` : `<div class="px-4 py-3 text-xs text-outline">レース後に結果が表示されます</div>`}
     </div>`;
   }).join('');
 }
