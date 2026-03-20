@@ -314,7 +314,7 @@
             <span id="d-pci-diff-label" class="text-[10px] font-bold block mt-0.5">-</span>
           </div>
           <div>
-            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">外厩ボーナス</span>
+            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">外厩加点</span>
             <span id="d-gaiku-bonus" class="text-xl font-label font-black text-on-secondary-container">-</span>
           </div>
           <div class="col-span-2 border-t border-outline/10 pt-3">
@@ -653,7 +653,9 @@ function getSecretMemo(horse, gaiku) {
   const mark = horse['印'];
   if (mark === '◎') return `「このスコア、見逃すな。${horse['父馬名']}産駒が中京・中山で爆発する条件が揃っている。${gaiku === '在厩調整' ? '在厩調整でも仕上がり良好との情報あり。' : `${gaiku}からの直行ローテ。陣営本気モードだ。`}ここは本命で買う。」`;
   if (mark === '○') return `「${horse['騎手名']}は近走このコースで安定している。前走の負けは度外視できる。対抗として厚めに押さえろ。」`;
-  if (mark === '▲') return `「外厩ボーナス${horse['gaiku_bonus']}があるのは見逃せない。穴党にとっては美味しい一頭かもしれない。」`;
+  const gb = horse['gaiku_bonus'];
+  const gbDisp = gb < 0 ? `+${-gb}` : gb === 0 ? '±0' : `-${gb}`;
+  if (mark === '▲') return `「外厩加点${gbDisp}があるのは見逃せない。穴党にとっては美味しい一頭かもしれない。」`;
   return `「データ的には厳しい評価だが、競馬に絶対はない。押さえ程度に。スコア${horse['total_score'].toFixed(1)}は参考値として。」`;
 }
 
