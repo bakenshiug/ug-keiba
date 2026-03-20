@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&amp;family=Public+Sans:wght@400;700&amp;family=Inter:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;family=Kaisei+Decol:wght@500&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-container": "#4a6b40",
+              "on-primary-fixed-variant": "#005300",
+              "on-primary-container": "#86df72",
+              "secondary-container": "#c4eab5",
+              "secondary-fixed-dim": "#abd19d",
+              "tertiary-fixed-dim": "#ffb0ce",
+              "on-tertiary-container": "#ffb6d2",
+              "surface-tint": "#126e0c",
+              "surface-variant": "#e1e3e1",
+              "on-secondary-fixed-variant": "#2e4e27",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#006400",
+              "surface-bright": "#f8faf8",
+              "surface-container": "#eceeec",
+              "secondary": "#46673c",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#982962",
+              "outline-variant": "#bfcab7",
+              "on-background": "#191c1b",
+              "inverse-primary": "#82db6f",
+              "primary-fixed": "#9df888",
+              "on-error-container": "#93000a",
+              "primary-fixed-dim": "#82db6f",
+              "on-secondary-fixed": "#032102",
+              "secondary-fixed": "#c7edb8",
+              "tertiary-fixed": "#ffd9e5",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#e1e3e1",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#2e3130",
+              "on-primary-fixed": "#002200",
+              "surface": "#f8faf8",
+              "background": "#f8faf8",
+              "surface-container-low": "#f2f4f2",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#851853",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#d8dad9",
+              "on-surface": "#191c1b",
+              "on-tertiary-fixed": "#3e0022",
+              "on-surface-variant": "#404a3b",
+              "tertiary": "#790b4a",
+              "surface-container-high": "#e6e9e7",
+              "inverse-on-surface": "#eff1ef",
+              "primary": "#004900",
+              "outline": "#707a6a"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif JP", "serif"],
+              "body": ["Public Sans", "sans-serif"],
+              "label": ["Inter", "sans-serif"],
+              "memo": ["Kaisei Decol", "serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Public Sans', sans-serif;
+        background-color: #f8faf8;
+        color: #191c1b;
+      }
+      .serif-headline {
+        font-family: 'Noto Serif JP', serif;
+      }
+      .label-data {
+        font-family: 'Inter', sans-serif;
+      }
+      .vigor-gradient {
+        background: linear-gradient(to right, #790b4a, #ffb0ce);
+      }
+      .cta-gradient {
+        background: linear-gradient(to bottom, #006400, #004900);
+      }
+      /* PCI gradient: center (around 46.5) is deep primary green, edges are light */
+      .pci-gradient {
+        background: linear-gradient(90deg, #e1e3e1 0%, #006400 46.5%, #e1e3e1 100%);
+      }
+    </style>
+<style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-48">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 bg-[#f8faf8]/60 dark:bg-zinc-900/60 backdrop-blur-md flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-200/50 transition-colors">
+<span class="material-symbols-outlined text-green-900">arrow_back</span>
+</button>
+<h1 class="font-serif font-bold text-xl tracking-tight text-green-900">馬詳細分析</h1>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-200/50 transition-colors">
+<span class="material-symbols-outlined text-green-900">share</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-6 py-4 space-y-10">
+<!-- Hero Section: Asymmetric & Prestigious -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 shadow-sm border-l-[3px] border-primary">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">bedroom_parent</span>
+</div>
+<div class="flex items-baseline gap-3 mb-2">
+<span class="bg-white border-2 border-on-surface text-on-surface px-3 py-1 text-sm font-bold rounded-sm tracking-tighter">1枠</span>
+<span class="text-4xl font-label font-extrabold text-primary">1</span>
+</div>
+<h2 class="serif-headline text-5xl font-bold text-on-surface mb-4 tracking-tight">エミュー</h2>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Sire</span>
+<span class="text-on-surface-variant font-medium">ハービンジャー</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Dam</span>
+<span class="text-on-surface-variant font-medium">スーリール</span>
+</div>
+</div>
+</section>
+<!-- Stats Grid: Editorial Bento Style -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container rounded-lg p-5 flex flex-col justify-between aspect-square">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold">Overall Score</span>
+<div class="flex items-baseline">
+<span class="text-6xl font-label font-black text-primary leading-none">94</span>
+<span class="text-sm font-bold text-primary ml-1">pts</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-low rounded-lg p-4 h-[calc(50%-0.5rem)] flex items-center justify-between">
+<div>
+<span class="block text-[10px] uppercase tracking-widest text-outline font-bold">Rank</span>
+<span class="text-3xl font-label font-black text-tertiary leading-none">S</span>
+</div>
+<span class="material-symbols-outlined text-tertiary opacity-40">grade</span>
+</div>
+<div class="bg-surface-container-high rounded-lg p-4 h-[calc(50%-0.5rem)] flex items-center justify-between">
+<div>
+<span class="block text-[10px] uppercase tracking-widest text-outline font-bold">Style</span>
+<span class="text-lg font-bold text-on-surface leading-tight">逃げ/先行</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-40">directions_run</span>
+</div>
+</div>
+</section>
+<!-- PCI comparison & Trends Section (New Pro Data) -->
+<section class="grid grid-cols-1 gap-6">
+<!-- PCI Preference Meter -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<h3 class="serif-headline text-xl font-bold text-on-surface">PCI適性</h3>
+<div class="text-right">
+<span class="text-[10px] font-label font-bold text-outline uppercase tracking-widest block">Average: 46.5</span>
+<span class="text-sm font-label font-black text-primary">Current: 48.2</span>
+</div>
+</div>
+<div class="relative w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="pci-gradient h-full w-full opacity-40"></div>
+<!-- Marker for Horse's PCI -->
+<div class="absolute top-0 left-[48.2%] -ml-1 w-2 h-full bg-primary z-10"></div>
+<!-- Marker for Course Average PCI -->
+<div class="absolute top-0 left-[46.5%] -ml-0.5 w-1 h-full bg-on-surface-variant/30 z-0"></div>
+</div>
+<div class="flex justify-between text-[8px] font-bold text-outline uppercase tracking-tighter">
+<span>Slow Pace (0)</span>
+<span>Center (50)</span>
+<span>High Pace (100)</span>
+</div>
+</div>
+<!-- Stable Trends -->
+<div class="bg-surface-container-low p-5 rounded-lg border-l-2 border-tertiary">
+<div class="flex justify-between items-center mb-4">
+<h3 class="serif-headline text-lg font-bold text-on-surface">外厩トレンド <span class="text-xs font-normal text-outline">（直近3週）</span></h3>
+<span class="material-symbols-outlined text-tertiary text-sm">trending_up</span>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-primary/40"></div>
+</div>
+<span class="text-[10px] font-bold text-outline">3W ago</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary/40 flex items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-primary/70"></div>
+</div>
+<span class="text-[10px] font-bold text-outline">2W ago</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary/60 flex items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">Last week</span>
+</div>
+<div class="ml-auto text-right">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">Win Rate</span>
+<span class="text-2xl font-label font-black text-primary">32.4%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Analysis Sections -->
+<section class="space-y-12">
+<!-- Short Review -->
+<div class="space-y-4">
+<h3 class="serif-headline text-xl font-bold flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">visibility</span>
+                    強奪ニックの眼
+                </h3>
+<div class="bg-surface-container-lowest p-6 rounded-lg leading-relaxed text-on-surface border-l-2 border-primary/20">
+                    「前走の走破時計は優秀。今回は絶好の枠順を引き当てた。馬場の内側が荒れていないことが前提だが、このスピード能力なら押し切れる公算が高い。」
+                </div>
+</div>
+<!-- Performance Indicator (Vigor Meter) -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<h3 class="serif-headline text-xl font-bold text-on-surface">コンディション推移</h3>
+<span class="text-[10px] font-label font-bold text-tertiary uppercase tracking-widest">Peak Performance</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="vigor-gradient h-full w-[88%] rounded-full"></div>
+</div>
+</div>
+<!-- Data Trends: Tonal Rows -->
+<div class="space-y-4">
+<h3 class="serif-headline text-xl font-bold text-on-surface">過去3走データ</h3>
+<div class="rounded-lg overflow-hidden border border-outline/10">
+<div class="grid grid-cols-4 bg-surface-container-high px-4 py-2 text-[10px] uppercase font-bold tracking-widest text-outline">
+<span>Race</span>
+<span>Rank</span>
+<span>Time</span>
+<span class="text-right">Diff</span>
+</div>
+<div class="grid grid-cols-4 px-4 py-4 bg-surface-container-lowest items-center">
+<span class="text-xs font-bold">桜花賞</span>
+<span class="text-lg font-label font-bold text-primary">10</span>
+<span class="text-sm font-label">1:33.2</span>
+<span class="text-sm font-label text-right text-error">+1.1</span>
+</div>
+<div class="grid grid-cols-4 px-4 py-4 bg-surface px-4 py-4 items-center border-t border-outline/5">
+<span class="text-xs font-bold">フラワーC</span>
+<span class="text-lg font-label font-bold text-primary">1</span>
+<span class="text-sm font-label">1:53.2</span>
+<span class="text-sm font-label text-right text-on-secondary-container">-0.1</span>
+</div>
+<div class="grid grid-cols-4 px-4 py-4 bg-surface-container-lowest items-center border-t border-outline/5">
+<span class="text-xs font-bold">デイリー杯</span>
+<span class="text-lg font-label font-bold text-primary">2</span>
+<span class="text-sm font-label">1:34.5</span>
+<span class="text-sm font-label text-right text-on-secondary-container">+0.0</span>
+</div>
+</div>
+</div>
+<!-- Stable Info: Card Style -->
+<div class="space-y-4">
+<h3 class="serif-headline text-xl font-bold text-on-surface">外厩情報</h3>
+<div class="bg-surface-container-low p-6 rounded-lg space-y-6">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">Facility</span>
+<div class="flex items-center gap-1">
+<span class="text-lg font-bold text-on-surface">阿見トレセン</span>
+<span class="text-lg" title="High Win Rate">👑</span>
+</div>
+</div>
+<span class="bg-primary text-on-primary text-[10px] px-2 py-0.5 font-bold rounded-sm">入厩中</span>
+</div>
+<div class="grid grid-cols-2 gap-y-6 gap-x-8">
+<div>
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">Check-in</span>
+<span class="text-sm font-label font-medium">2023.10.12</span>
+</div>
+<div>
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">Menu</span>
+<span class="text-sm font-bold">坂路重点調整</span>
+</div>
+<div class="col-span-1">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">複勝率</span>
+<span class="text-xl font-label font-black text-primary">32.4%</span>
+</div>
+<div class="col-span-1">
+<span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">直近トレンド (1週前)</span>
+<span class="text-lg font-label font-bold text-on-surface-variant">28.5%</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed border-t border-outline/10 pt-4">
+                        馬体は絞れており、毛艶も良好。前走の疲れは完全に見られず、勝負気配は高い。
+                    </p>
+</div>
+</div>
+<!-- Nick's Secret Memo (New) -->
+<div class="mt-12 bg-zinc-900 text-zinc-100 p-6 rounded-xl relative overflow-hidden shadow-2xl rotate-1">
+<div class="absolute -top-4 -left-4 w-12 h-12 bg-tertiary rotate-45 opacity-50"></div>
+<div class="flex items-center gap-2 mb-4 border-b border-zinc-700 pb-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">lock</span>
+<h3 class="font-memo text-lg tracking-wider text-zinc-300">監修者メモ</h3>
+</div>
+<p class="font-memo text-base leading-relaxed text-zinc-400 italic">
+    「...実はこの中間、オーナーサイドから極秘のオーダーが入っている。今回の追い切りで見せた『首の低さ』は、明らかに距離延長を意識したもの。陣営はマイルCSではなく、年明けの金鯱賞まで見据えた本気仕上げだ。人気薄ならここは単勝で面白い。」
+  </p>
+<div class="mt-4 flex justify-end">
+<span class="font-label font-black text-xs text-zinc-500 tracking-widest">BY NICK THE SNATCHER</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating CTA: Fixed Above BottomNav -->
+<div class="fixed bottom-24 left-0 w-full px-6 z-40">
+<button class="cta-gradient w-full h-14 rounded-md shadow-[0px_8px_24px_rgba(25,28,27,0.1)] flex items-center justify-center gap-3 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-white font-bold tracking-widest uppercase text-sm">この馬を軸に設定</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 h-20 bg-[#f8faf8]/80 dark:bg-zinc-900/80 backdrop-blur-xl z-50">
+<div class="flex flex-col items-center justify-center text-green-900 dark:text-green-50 border-t-2 border-green-900 dark:border-green-500 pt-2 scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined">blind</span>
+<span class="font-sans uppercase tracking-widest text-[10px] font-bold">Races</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 pt-2 hover:text-green-800 transition-colors">
+<span class="material-symbols-outlined">query_stats</span>
+<span class="font-sans uppercase tracking-widest text-[10px] font-bold">Predictor</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 pt-2 hover:text-green-800 transition-colors">
+<span class="material-symbols-outlined">bedroom_parent</span>
+<span class="font-sans uppercase tracking-widest text-[10px] font-bold">Stable</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 pt-2 hover:text-green-800 transition-colors">
+<span class="material-symbols-outlined">description</span>
+<span class="font-sans uppercase tracking-widest text-[10px] font-bold">Analysis</span>
+</div>
+</nav>
+</body></html>

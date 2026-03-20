@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html class="light" lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-secondary-container": "#4a6b40",
+          "on-primary-fixed-variant": "#005300",
+          "on-primary-container": "#86df72",
+          "secondary-container": "#c4eab5",
+          "secondary-fixed-dim": "#abd19d",
+          "tertiary-fixed-dim": "#ffb0ce",
+          "on-tertiary-container": "#ffb6d2",
+          "surface-tint": "#126e0c",
+          "surface-variant": "#e1e3e1",
+          "on-secondary-fixed-variant": "#2e4e27",
+          "surface-container-lowest": "#ffffff",
+          "primary-container": "#006400",
+          "surface-bright": "#f8faf8",
+          "surface-container": "#eceeec",
+          "secondary": "#46673c",
+          "error-container": "#ffdad6",
+          "tertiary-container": "#982962",
+          "outline-variant": "#bfcab7",
+          "on-background": "#191c1b",
+          "inverse-primary": "#82db6f",
+          "primary-fixed": "#9df888",
+          "on-error-container": "#93000a",
+          "primary-fixed-dim": "#82db6f",
+          "on-secondary-fixed": "#032102",
+          "secondary-fixed": "#c7edb8",
+          "tertiary-fixed": "#ffd9e5",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#e1e3e1",
+          "on-secondary": "#ffffff",
+          "inverse-surface": "#2e3130",
+          "on-primary-fixed": "#002200",
+          "surface": "#f8faf8",
+          "background": "#f8faf8",
+          "surface-container-low": "#f2f4f2",
+          "on-primary": "#ffffff",
+          "on-tertiary-fixed-variant": "#851853",
+          "error": "#ba1a1a",
+          "on-tertiary": "#ffffff",
+          "surface-dim": "#d8dad9",
+          "on-surface": "#191c1b",
+          "on-tertiary-fixed": "#3e0022",
+          "on-surface-variant": "#404a3b",
+          "tertiary": "#790b4a",
+          "surface-container-high": "#e6e9e7",
+          "inverse-on-surface": "#eff1ef",
+          "primary": "#004900",
+          "outline": "#707a6a"
+        },
+        fontFamily: {
+          "headline": ["Noto Serif JP", "serif"],
+          "body": ["Public Sans", "sans-serif"],
+          "label": ["Inter", "sans-serif"],
+          "memo": ["Kaisei Decol", "serif"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Public Sans', sans-serif; background-color: #f8faf8; color: #191c1b; }
+  .serif-headline { font-family: 'Noto Serif JP', serif; }
+  .label-data { font-family: 'Inter', sans-serif; }
+  .vigor-gradient { background: linear-gradient(to right, #790b4a, #ffb0ce); }
+  .cta-gradient { background: linear-gradient(to bottom, #006400, #004900); }
+  .pci-gradient { background: linear-gradient(90deg, #e1e3e1 0%, #006400 46.5%, #e1e3e1 100%); }
+
+  /* 枠番カラー */
+  .waku-1 { background:#fff; color:#000; border:2px solid #999; }
+  .waku-2 { background:#111; color:#fff; }
+  .waku-3 { background:#e02020; color:#fff; }
+  .waku-4 { background:#1a5fd4; color:#fff; }
+  .waku-5 { background:#f0c500; color:#000; }
+  .waku-6 { background:#1a9b2a; color:#fff; }
+  .waku-7 { background:#f07800; color:#fff; }
+  .waku-8 { background:#e05090; color:#fff; }
+
+  /* 印スタイル */
+  .mark-hon  { color:#d4a000; font-weight:900; font-size:1.4rem; }
+  .mark-tai  { color:#1a5fd4; font-weight:900; font-size:1.2rem; }
+  .mark-tan  { color:#e02020; font-weight:900; font-size:1.1rem; }
+  .mark-delta{ color:#444;    font-weight:700; font-size:1rem; }
+
+  /* 外厩バッジ */
+  .gaiku-northern { background:#004900; color:#fff; }
+  .gaiku-shadai   { background:#1a5fd4; color:#fff; }
+  .gaiku-champ    { background:#7b2d8b; color:#fff; }
+  .gaiku-yamamoto { background:#b06000; color:#fff; }
+  .gaiku-zaichu   { background:#888;    color:#fff; }
+  .gaiku-other    { background:#2d7d7d; color:#fff; }
+
+  /* ページ切り替えアニメ */
+  #list-view, #detail-view { transition: opacity 0.2s ease; }
+  #detail-view { display:none; }
+
+  body { min-height: max(884px, 100dvh); }
+
+  .horse-row:active { background:#e6e9e7; }
+</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+
+<!-- ===== LIST VIEW ===== -->
+<div id="list-view">
+
+  <!-- Header -->
+  <header class="sticky top-0 w-full z-50 bg-[#f8faf8]/90 backdrop-blur-md border-b border-outline/10">
+    <div class="px-5 pt-4 pb-1">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Underground Racing Intelligence</p>
+          <h1 class="serif-headline text-2xl font-bold text-primary leading-tight">UG 競馬新聞</h1>
+        </div>
+        <div class="text-right">
+          <p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">最終解析版</p>
+          <p class="text-sm font-label font-black text-on-surface">2026年3月21日</p>
+        </div>
+      </div>
+    </div>
+    <!-- レースタブ -->
+    <div class="flex px-5 mt-3 gap-1">
+      <button id="tab-falcon" onclick="switchRace('falcon')"
+        class="flex-1 py-2.5 text-sm font-bold rounded-t-lg border-b-2 border-primary bg-primary text-white transition-all">
+        ファルコンS G3
+      </button>
+      <button id="tab-flower" onclick="switchRace('flower')"
+        class="flex-1 py-2.5 text-sm font-bold rounded-t-lg border-b-2 border-transparent text-outline transition-all">
+        フラワーC G3
+      </button>
+    </div>
+  </header>
+
+  <!-- レース情報バー -->
+  <div id="race-info-bar" class="px-5 py-3 bg-surface-container text-xs font-label flex gap-4 text-on-surface-variant">
+    <span id="race-venue">📍 中京 芝1400m</span>
+    <span id="race-time">🕒 15:20発走</span>
+    <span id="race-heads">🐎 17頭</span>
+  </div>
+
+  <!-- 印凡例 + ソートボタン -->
+  <div class="px-5 py-2 flex items-center gap-4 text-xs font-bold border-b border-outline/10">
+    <span class="mark-hon">◎</span><span class="text-on-surface-variant">本命</span>
+    <span class="mark-tai">○</span><span class="text-on-surface-variant">対抗</span>
+    <span class="mark-tan">▲</span><span class="text-on-surface-variant">単穴</span>
+    <span class="mark-delta">△</span><span class="text-on-surface-variant">連下</span>
+    <button id="sort-btn" onclick="toggleSort()"
+      class="ml-auto flex items-center gap-1 bg-surface-container px-3 py-1.5 rounded-full text-[10px] font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">
+      <span class="material-symbols-outlined text-sm">swap_vert</span>
+      <span id="sort-label">馬番順</span>
+    </button>
+  </div>
+
+  <!-- 馬リスト -->
+  <main id="horse-list" class="divide-y divide-outline/10"></main>
+
+</div>
+
+<!-- ===== DETAIL VIEW ===== -->
+<div id="detail-view" class="pb-32">
+
+  <!-- TopAppBar -->
+  <header class="sticky top-0 w-full z-50 bg-[#f8faf8]/60 backdrop-blur-md flex items-center justify-between px-6 h-16">
+    <div class="flex items-center gap-4">
+      <button onclick="showList()" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-200/50 transition-colors">
+        <span class="material-symbols-outlined text-green-900">arrow_back</span>
+      </button>
+      <h1 id="detail-title" class="font-serif font-bold text-xl tracking-tight text-green-900">馬詳細分析</h1>
+    </div>
+    <p class="text-[10px] font-bold text-outline">2026.3.21 最終解析版</p>
+  </header>
+
+  <main class="px-6 py-4 space-y-10">
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 shadow-sm border-l-[3px] border-primary">
+      <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+        <span class="material-symbols-outlined text-9xl">bedroom_parent</span>
+      </div>
+      <div class="flex items-baseline gap-3 mb-2">
+        <span id="d-waku" class="px-3 py-1 text-sm font-bold rounded-sm tracking-tighter">1枠</span>
+        <span id="d-umaban" class="text-4xl font-label font-extrabold text-primary">1</span>
+        <span id="d-mark" class="text-3xl mark-hon ml-auto">◎</span>
+      </div>
+      <h2 id="d-umaname" class="serif-headline text-5xl font-bold text-on-surface mb-4 tracking-tight">馬名</h2>
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] uppercase tracking-widest text-outline font-bold">Sire</span>
+          <span id="d-sire" class="text-on-surface-variant font-medium">-</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] uppercase tracking-widest text-outline font-bold">Dam Sire</span>
+          <span id="d-damsire" class="text-on-surface-variant font-medium">-</span>
+        </div>
+        <div class="flex items-center gap-2 mt-2">
+          <span class="text-[10px] uppercase tracking-widest text-outline font-bold">Jockey</span>
+          <span id="d-jockey" class="text-on-surface font-bold">-</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] uppercase tracking-widest text-outline font-bold">Trainer</span>
+          <span id="d-trainer" class="text-on-surface-variant font-medium">-</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] uppercase tracking-widest text-outline font-bold">前走</span>
+          <span id="d-prevrace-hero" class="text-on-surface-variant font-medium">-</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Grid -->
+    <section class="grid grid-cols-2 gap-4">
+      <div class="bg-surface-container rounded-lg p-5 flex flex-col justify-between aspect-square">
+        <span class="text-[10px] uppercase tracking-widest text-outline font-bold">Total Score</span>
+        <div>
+          <div class="flex items-baseline">
+            <span id="d-score-pts" class="text-6xl font-label font-black text-primary leading-none">-</span>
+            <span class="text-sm font-bold text-primary ml-1">pts</span>
+          </div>
+          <p class="text-[10px] text-outline mt-1">※高いほど高評価</p>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-surface-container-low rounded-lg p-4 h-[calc(50%-0.5rem)] flex items-center justify-between">
+          <div>
+            <span class="block text-[10px] uppercase tracking-widest text-outline font-bold">Rank</span>
+            <span id="d-rank" class="text-3xl font-label font-black text-tertiary leading-none">-</span>
+          </div>
+          <span class="material-symbols-outlined text-tertiary opacity-40">grade</span>
+        </div>
+        <div class="bg-surface-container-high rounded-lg p-4 h-[calc(50%-0.5rem)] flex items-center justify-between">
+          <div>
+            <span class="block text-[10px] uppercase tracking-widest text-outline font-bold">前走着順</span>
+            <span id="d-prevrank" class="text-lg font-bold text-on-surface leading-tight">-</span>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant opacity-40">flag</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PCI適性 -->
+    <section class="space-y-3">
+      <div class="flex justify-between items-end">
+        <h3 class="serif-headline text-xl font-bold text-on-surface">PCI適性</h3>
+        <div class="text-right">
+          <span class="text-[10px] font-label font-bold text-outline uppercase tracking-widest block" id="d-pci-avg">Average: 49.5</span>
+          <span id="d-pci-val" class="text-sm font-label font-black text-primary">Current: -</span>
+        </div>
+      </div>
+      <div class="relative w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+        <div class="pci-gradient h-full w-full opacity-40"></div>
+        <div id="d-pci-marker" class="absolute top-0 -ml-1 w-2 h-full bg-primary z-10" style="left:49.5%"></div>
+        <div class="absolute top-0 left-[49.5%] -ml-0.5 w-1 h-full bg-on-surface-variant/30 z-0"></div>
+      </div>
+      <div class="flex justify-between text-[8px] font-bold text-outline uppercase tracking-tighter">
+        <span>Slow Pace (0)</span><span>Center (50)</span><span>High Pace (100)</span>
+      </div>
+    </section>
+
+    <!-- 外厩情報 -->
+    <section class="space-y-4">
+      <h3 class="serif-headline text-xl font-bold text-on-surface">外厩情報</h3>
+      <div class="bg-surface-container-low p-6 rounded-lg space-y-4">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">Facility</span>
+            <div class="flex items-center gap-2">
+              <span id="d-gaiku-name" class="text-lg font-bold text-on-surface">-</span>
+              <span id="d-gaiku-crown" class="text-lg"></span>
+            </div>
+          </div>
+          <span id="d-gaiku-badge" class="text-[10px] px-2 py-0.5 font-bold rounded-sm">-</span>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">Jockey Score</span>
+            <span id="d-jockey-score" class="text-xl font-label font-black text-primary">-</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">Sire Score</span>
+            <span id="d-sire-score" class="text-xl font-label font-black text-primary">-</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">PCI差</span>
+            <span id="d-pci-diff" class="text-xl font-label font-black text-primary">-</span>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">外厩ボーナス</span>
+            <span id="d-gaiku-bonus" class="text-xl font-label font-black text-on-secondary-container">-</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 前走データ -->
+    <section class="space-y-4">
+      <h3 class="serif-headline text-xl font-bold text-on-surface">前走データ</h3>
+      <div class="rounded-lg overflow-hidden border border-outline/10">
+        <div class="grid grid-cols-4 bg-surface-container-high px-4 py-2 text-[10px] uppercase font-bold tracking-widest text-outline">
+          <span>Race</span><span>着順</span><span>場所</span><span class="text-right">PCI</span>
+        </div>
+        <div class="grid grid-cols-4 px-4 py-4 bg-surface-container-lowest items-center">
+          <span id="d-prev-race" class="text-xs font-bold">-</span>
+          <span id="d-prev-chakujun" class="text-lg font-label font-bold text-primary">-</span>
+          <span id="d-prev-basho" class="text-xs font-label">-</span>
+          <span id="d-prev-pci" class="text-sm font-label text-right">-</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 強奪ニックの眼 -->
+    <section class="space-y-4">
+      <h3 class="serif-headline text-xl font-bold flex items-center gap-2 text-primary">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">visibility</span>
+        強奪ニックの眼
+      </h3>
+      <div id="d-nick-comment" class="bg-surface-container-lowest p-6 rounded-lg leading-relaxed text-on-surface border-l-2 border-primary/20 text-sm">
+        -
+      </div>
+    </section>
+
+    <!-- 監修者メモ -->
+    <div class="mt-8 bg-zinc-900 text-zinc-100 p-6 rounded-xl relative overflow-hidden shadow-2xl rotate-1">
+      <div class="absolute -top-4 -left-4 w-12 h-12 bg-tertiary rotate-45 opacity-50"></div>
+      <div class="flex items-center gap-2 mb-4 border-b border-zinc-700 pb-2">
+        <span class="material-symbols-outlined text-tertiary-fixed-dim">lock</span>
+        <h3 class="font-memo text-lg tracking-wider text-zinc-300">監修者メモ</h3>
+      </div>
+      <p id="d-secret-memo" class="font-memo text-base leading-relaxed text-zinc-400 italic">-</p>
+      <div class="mt-4 flex justify-end">
+        <span class="font-label font-black text-xs text-zinc-500 tracking-widest">BY NICK THE SNATCHER</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Floating CTA -->
+  <div class="fixed bottom-24 left-0 w-full px-6 z-40">
+    <button class="cta-gradient w-full h-14 rounded-md shadow-lg flex items-center justify-center gap-3 active:scale-95 transition-all">
+      <span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">stars</span>
+      <span class="text-white font-bold tracking-widest uppercase text-sm">この馬を軸に設定</span>
+    </button>
+  </div>
+
+</div>
+
+<!-- Score Panel -->
+<div id="score-view" style="display:none" class="pb-32 px-5 py-4 space-y-6">
+  <div class="pt-4">
+    <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Underground Racing Intelligence</p>
+    <h1 class="serif-headline text-2xl font-bold text-primary">スコアランキング</h1>
+    <p class="text-xs text-outline mt-1">2026年3月21日 最終解析版　※高いほど高評価</p>
+  </div>
+  <div class="flex gap-1 mb-2">
+    <button onclick="switchScoreRace('falcon')" id="stab-falcon"
+      class="flex-1 py-2 text-sm font-bold rounded-lg bg-primary text-white">ファルコンS</button>
+    <button onclick="switchScoreRace('flower')" id="stab-flower"
+      class="flex-1 py-2 text-sm font-bold rounded-lg text-outline border border-outline/30">フラワーC</button>
+  </div>
+  <div id="score-list" class="space-y-2"></div>
+</div>
+
+<!-- Stable Panel -->
+<div id="stable-view" style="display:none" class="pb-32 px-5 py-4 space-y-4">
+  <div class="pt-4">
+    <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Stable Intelligence</p>
+    <h1 class="serif-headline text-2xl font-bold text-primary">外厩分析</h1>
+    <p class="text-xs text-outline mt-1">2026年3月21日</p>
+  </div>
+  <div id="stable-list" class="space-y-3"></div>
+</div>
+
+<!-- Analysis Panel -->
+<div id="analysis-view" style="display:none" class="pb-32 px-5 py-4 space-y-6">
+  <div class="pt-4">
+    <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Nick's Final Analysis</p>
+    <h1 class="serif-headline text-2xl font-bold text-primary">強奪ニックの最終結論</h1>
+    <p class="text-xs text-outline mt-1">2026年3月21日 最終解析版</p>
+  </div>
+  <div id="analysis-content" class="space-y-6"></div>
+</div>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 h-20 bg-[#f8faf8]/80 backdrop-blur-xl z-50 border-t border-outline/10">
+  <div id="nav-races" onclick="showTab('races')" class="flex flex-col items-center justify-center cursor-pointer text-green-900 border-t-2 border-green-900 pt-2 scale-110 transition-all">
+    <span class="material-symbols-outlined">newspaper</span>
+    <span class="font-sans uppercase tracking-widest text-[10px] font-bold">Races</span>
+  </div>
+  <div id="nav-score" onclick="showTab('score')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
+    <span class="material-symbols-outlined">query_stats</span>
+    <span class="font-sans uppercase tracking-widest text-[10px] font-bold">Score</span>
+  </div>
+  <div id="nav-stable" onclick="showTab('stable')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
+    <span class="material-symbols-outlined">bedroom_parent</span>
+    <span class="font-sans uppercase tracking-widest text-[10px] font-bold">Stable</span>
+  </div>
+  <div id="nav-analysis" onclick="showTab('analysis')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
+    <span class="material-symbols-outlined">description</span>
+    <span class="font-sans uppercase tracking-widest text-[10px] font-bold">Analysis</span>
+  </div>
+</nav>
+
+<script>
+// ===== データ埋め込み =====
+const FALCON_DATA = [{"馬名":"ダイヤモンドノット","年":25,"月":12,"日":21,"曜日":5,"場所":"阪神","回":6,"レース番号":11,"レース名":"フューチG1","クラスコード":195,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"重","性別":"牡","年齢":2,"騎手名":"川田将雅","斤量":56.0,"頭数":14,"確定着順":2,"人気順":2,"col22":0,"タイム差":0.1,"col24":5,"走破タイム":93.3,"col26":1333,"col27":101,"通過1":0,"通過2":0,"通過3":1,"通過4":1,"上がり3F":35.1,"馬体重":472,"調教師":"福永祐一","所属":"栗","単勝オッズ":2800,"馬ID":23105685,"父馬ID":5339,"母父馬ID":1203,"col40":"0925561110","馬主":"金子真人ホールディングス","牧場":"坂東牧場","父馬名":"ブリックスアンドモルタル","母名":"エンドレスノット","母父馬名":"ディープインパクト","毛色":"栗毛","誕生日":230329,"PCI":49.5,"jockey_score":3.5185185185,"sire_score":10.0,"pci_diff_score":0.0279891304,"gaiku_bonus":-1,"total_score":12.546507649,"印":"◎","馬番":9,"枠番":5},{"馬名":"テルヴィセクス","年":25,"月":12,"日":21,"曜日":5,"場所":"中京","回":6,"レース番号":4,"レース名":"未勝利*","クラスコード":7,"芝ダ":"芝","ハンデ":0,"距離":1400,"馬場":"稍","性別":"牡","年齢":2,"騎手名":"団野大成","斤量":56.0,"頭数":18,"確定着順":1,"人気順":1,"col22":0,"タイム差":0.0,"col24":7,"走破タイム":81.9,"col26":1219,"col27":83,"通過1":0,"通過2":0,"通過3":2,"通過4":2,"上がり3F":34.9,"馬体重":476,"調教師":"斉藤崇史","所属":"栗","単勝オッズ":560,"馬ID":23104355,"父馬ID":1180,"母父馬ID":1151,"col40":"0725560415","馬主":"土井久美子","牧場":"錦岡牧場","父馬名":"フォーウィールドライブ","母名":"ジョリーダンス","母父馬名":"ダンスインザダーク","毛色":"芦毛","誕生日":230228,"PCI":51.0,"jockey_score":6.4642857143,"sire_score":10.0,"pci_diff_score":1.5279891304,"gaiku_bonus":-1,"total_score":16.9922748447,"印":"○","馬番":15,"枠番":8},{"馬名":"エイシンディード","年":25,"月":11,"日":15,"曜日":4,"場所":"京都","回":3,"レース番号":11,"レース名":"デイリーG2","クラスコード":179,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牡","年齢":2,"騎手名":"川又賢治","斤量":56.0,"頭数":8,"確定着順":4,"人気順":4,"col22":0,"タイム差":1.1,"col24":6,"走破タイム":94.2,"col26":1342,"col27":91,"通過1":0,"通過2":0,"通過3":1,"通過4":1,"上がり3F":35.6,"馬体重":450,"調教師":"大久保龍","所属":"栗","単勝オッズ":570,"馬ID":23105505,"父馬ID":1213,"母父馬ID":1058,"col40":"0825431101","馬主":"栄進堂","牧場":"山田昇史","父馬名":"ファインニードル","母名":"エーシンエムディー","母父馬名":"キングカメハメハ","毛色":"黒鹿","誕生日":230508,"PCI":48.8,"jockey_score":9.0,"sire_score":10.0,"pci_diff_score":0.6720108696,"gaiku_bonus":-2,"total_score":17.6720108696,"印":"▲","馬番":10,"枠番":5},{"馬名":"フォーゲル","年":26,"月":2,"日":28,"曜日":1,"場所":"阪神","回":3,"レース番号":10,"レース名":"マーガレ(L)","クラスコード":115,"芝ダ":"芝","ハンデ":0,"距離":1200,"馬場":"良","性別":"牡","年齢":3,"騎手名":"吉村誠之","斤量":57.0,"頭数":9,"確定着順":3,"人気順":3,"col22":0,"タイム差":0.3,"col24":4,"走破タイム":68.3,"col26":1083,"col27":0,"通過1":0,"通過2":0,"通過3":4,"通過4":4,"上がり3F":34.2,"馬体重":528,"調教師":"斉藤崇史","所属":"栗","単勝オッズ":530,"馬ID":23105273,"父馬ID":1171,"母父馬ID":1151,"col40":"0926131008","馬主":"林正道","牧場":"ノーザンファーム","父馬名":"アルアイン","母名":"エリカポンシャン","母父馬名":"ロードカナロア","毛色":"鹿毛","誕生日":230219,"PCI":49.7,"jockey_score":7.724137931,"sire_score":10.0,"pci_diff_score":0.2279891304,"gaiku_bonus":0,"total_score":17.9521270615,"印":"△","馬番":14,"枠番":7},{"馬名":"マーゴットブロー","年":26,"月":3,"日":1,"曜日":2,"場所":"中山","回":2,"レース番号":7,"レース名":"１勝ｸﾗｽ*","クラスコード":23,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牡","年齢":3,"騎手名":"横山典弘","斤量":57.0,"頭数":12,"確定着順":3,"人気順":3,"col22":0,"タイム差":0.9,"col24":6,"走破タイム":93.0,"col26":1330,"col27":0,"通過1":0,"通過2":1,"通過3":1,"通過4":2,"上がり3F":34.8,"馬体重":512,"調教師":"伊坂重信","所属":"美","単勝オッズ":210,"馬ID":23105356,"父馬ID":1160,"母父馬ID":1177,"col40":"0626220711","馬主":"前田良平","牧場":"高昭牧場","父馬名":"Twirling Candy","母名":"タフイルマ","母父馬名":"Stormy Atlantic","毛色":"黒鹿","誕生日":230207,"PCI":50.3,"jockey_score":7.5,"sire_score":10.0,"pci_diff_score":0.8279891304,"gaiku_bonus":0,"total_score":18.3279891304,"印":"△","馬番":8,"枠番":4},{"馬名":"プリンセスモコ","年":26,"月":1,"日":17,"曜日":1,"場所":"京都","回":6,"レース番号":10,"レース名":"紅梅Ｓ(L)","クラスコード":115,"芝ダ":"芝","ハンデ":0,"距離":1400,"馬場":"良","性別":"牝","年齢":3,"騎手名":"西塚洸二","斤量":55.0,"頭数":9,"確定着順":2,"人気順":2,"col22":0,"タイム差":0.7,"col24":3,"走破タイム":81.4,"col26":1214,"col27":90,"通過1":0,"通過2":0,"通過3":2,"通過4":2,"上がり3F":34.4,"馬体重":454,"調教師":"藤原英昭","所属":"栗","単勝オッズ":840,"馬ID":23107520,"父馬ID":666,"母父馬ID":1055,"col40":"0826161001","馬主":"三嶋牧場","牧場":"Dixiana Farms LLC","父馬名":"Charlatan","母名":"Tiger Ride","母父馬名":"Candy Ride","毛色":"鹿毛","誕生日":230221,"PCI":52.5,"jockey_score":7.525,"sire_score":10.0,"pci_diff_score":3.0279891304,"gaiku_bonus":-1,"total_score":19.5529891304,"印":"△","馬番":13,"枠番":7},{"馬名":"メイクワンズデイ","年":25,"月":12,"日":27,"曜日":5,"場所":"阪神","回":7,"レース番号":9,"レース名":"万両賞･1勝*","クラスコード":23,"芝ダ":"芝","ハンデ":0,"距離":1400,"馬場":"良","性別":"牡","年齢":2,"騎手名":"松若風馬","斤量":56.0,"頭数":10,"確定着順":2,"人気順":2,"col22":0,"タイム差":0.1,"col24":1,"走破タイム":80.7,"col26":1207,"col27":91,"通過1":0,"通過2":0,"通過3":1,"通過4":1,"上がり3F":34.1,"馬体重":468,"調教師":"宮地貴稔","所属":"栗","単勝オッズ":440,"馬ID":23103160,"父馬ID":1154,"母父馬ID":1211,"col40":"0925570908","馬主":"猪又晶介","牧場":"フジワラフアーム","父馬名":"ベンバトル","母名":"スリーアロー","母父馬名":"アルデバラン2","毛色":"鹿毛","誕生日":230407,"PCI":52.5,"jockey_score":7.7,"sire_score":10.0,"pci_diff_score":3.0279891304,"gaiku_bonus":-1,"total_score":19.7279891304,"印":"△","馬番":2,"枠番":1},{"馬名":"タガノアラリア","年":25,"月":12,"日":21,"曜日":5,"場所":"阪神","回":6,"レース番号":11,"レース名":"フューチG1","クラスコード":195,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"重","性別":"牡","年齢":2,"騎手名":"斎藤新","斤量":56.0,"頭数":14,"確定着順":8,"人気順":8,"col22":0,"タイム差":1.0,"col24":8,"走破タイム":94.2,"col26":1342,"col27":92,"通過1":0,"通過2":0,"通過3":2,"通過4":2,"上がり3F":35.7,"馬体重":452,"調教師":"西園翔太","所属":"栗","単勝オッズ":0,"馬ID":23104313,"父馬ID":5680,"母父馬ID":1196,"col40":"0925561106","馬主":"八木良司","牧場":"新冠タガノファーム","父馬名":"ミスターメロディ","母名":"エイシンジルコン","母父馬名":"ディープインパクト","毛色":"黒鹿","誕生日":230428,"PCI":48.3,"jockey_score":9.7142857143,"sire_score":10.0,"pci_diff_score":1.1720108696,"gaiku_bonus":-1,"total_score":19.8862965839,"印":"","馬番":11,"枠番":6},{"馬名":"アスミル","年":26,"月":2,"日":28,"曜日":1,"場所":"阪神","回":3,"レース番号":10,"レース名":"マーガレ(L)","クラスコード":115,"芝ダ":"芝","ハンデ":0,"距離":1200,"馬場":"良","性別":"牡","年齢":3,"騎手名":"太宰啓介","斤量":57.0,"頭数":9,"確定着順":6,"人気順":6,"col22":0,"タイム差":0.7,"col24":3,"走破タイム":68.7,"col26":1087,"col27":0,"通過1":0,"通過2":0,"通過3":3,"通過4":3,"上がり3F":34.8,"馬体重":490,"調教師":"本田優","所属":"栗","単勝オッズ":0,"馬ID":23104960,"父馬ID":1180,"母父馬ID":1099,"col40":"0926131009","馬主":"村上憲政","牧場":"中脇栄","父馬名":"ダノンプレミアム","母名":"イゾラド","母父馬名":"グラスワンダー","毛色":"鹿毛","誕生日":230320,"PCI":47.4,"jockey_score":8.125,"sire_score":10.0,"pci_diff_score":2.0720108696,"gaiku_bonus":0,"total_score":20.1970108696,"印":"","馬番":5,"枠番":3},{"馬名":"ハッピーエンジェル","年":26,"月":1,"日":31,"曜日":1,"場所":"東京","回":1,"レース番号":10,"レース名":"クロッカ(L)","クラスコード":115,"芝ダ":"芝","ハンデ":0,"距離":1400,"馬場":"良","性別":"牝","年齢":3,"騎手名":"三浦皇成","斤量":55.0,"頭数":15,"確定着順":2,"人気順":2,"col22":0,"タイム差":0.1,"col24":7,"走破タイム":80.8,"col26":1208,"col27":0,"通過1":0,"通過2":0,"通過3":3,"通過4":3,"上がり3F":33.9,"馬体重":436,"調教師":"武市康男","所属":"美","単勝オッズ":840,"馬ID":23100797,"父馬ID":1122,"母父馬ID":1089,"col40":"0526111001","馬主":"矢野まり子","牧場":"クラウン日高牧場","父馬名":"ジョーカプチーノ","母名":"クラウンハッピー","母父馬名":"スウェプトオーヴァーボード","毛色":"芦毛","誕生日":230314,"PCI":53.8,"jockey_score":9.3,"sire_score":10.0,"pci_diff_score":4.3279891304,"gaiku_bonus":-1,"total_score":22.6279891304,"印":"","馬番":6,"枠番":3},{"馬名":"タマモイカロス","年":26,"月":2,"日":28,"曜日":1,"場所":"阪神","回":3,"レース番号":10,"レース名":"マーガレ(L)","クラスコード":115,"芝ダ":"芝","ハンデ":0,"距離":1200,"馬場":"良","性別":"牡","年齢":3,"騎手名":"小沢大仁","斤量":57.0,"頭数":9,"確定着順":1,"人気順":1,"col22":0,"タイム差":-0.1,"col24":2,"走破タイム":68.0,"col26":1080,"col27":0,"通過1":0,"通過2":0,"通過3":7,"通過4":7,"上がり3F":33.3,"馬体重":526,"調教師":"藤岡健一","所属":"栗","単勝オッズ":2100,"馬ID":23103162,"父馬ID":1093,"母父馬ID":1062,"col40":"0926131002","馬主":"タマモ","牧場":"フジワラフアーム","父馬名":"デクラレーションオブウォー","母名":"タマモブリリアン","母父馬名":"ダンスインザダーク","毛色":"鹿毛","誕生日":230210,"PCI":54.2,"jockey_score":8.847826087,"sire_score":10.0,"pci_diff_score":4.7279891304,"gaiku_bonus":0,"total_score":23.5758152174,"印":"","馬番":17,"枠番":8},{"馬名":"フクチャンショウ","年":26,"月":1,"日":31,"曜日":1,"場所":"東京","回":1,"レース番号":10,"レース名":"クロッカ(L)","クラスコード":115,"芝ダ":"芝","ハンデ":0,"距離":1400,"馬場":"良","性別":"牡","年齢":3,"騎手名":"横山武史","斤量":57.0,"頭数":15,"確定着順":3,"人気順":3,"col22":0,"タイム差":0.1,"col24":2,"走破タイム":80.8,"col26":1208,"col27":0,"通過1":0,"通過2":0,"通過3":6,"通過4":6,"上がり3F":33.5,"馬体重":456,"調教師":"加藤征弘","所属":"美","単勝オッズ":530,"馬ID":23103418,"父馬ID":5386,"母父馬ID":1059,"col40":"0526111009","馬主":"福田義明","牧場":"社台ファーム","父馬名":"イスラボニータ","母名":"ザウェイアイアム","母父馬名":"Thewayyouare","毛色":"栗毛","誕生日":230414,"PCI":55.9,"jockey_score":8.6666666667,"sire_score":10.0,"pci_diff_score":6.4279891304,"gaiku_bonus":-1,"total_score":24.0946557971,"印":"","馬番":7,"枠番":4},{"馬名":"カフェラバー","年":25,"月":11,"日":24,"曜日":5,"場所":"東京","回":6,"レース番号":7,"レース名":"新馬","クラスコード":15,"芝ダ":"芝","ハンデ":0,"距離":1400,"馬場":"良","性別":"牝","年齢":2,"騎手名":"舟山瑠泉","斤量":55.0,"頭数":14,"確定着順":1,"人気順":1,"col22":0,"タイム差":-0.4,"col24":3,"走破タイム":82.8,"col26":1228,"col27":81,"通過1":0,"通過2":0,"通過3":5,"通過4":5,"上がり3F":33.1,"馬体重":410,"調教師":"和田正一","所属":"美","単勝オッズ":750,"馬ID":23107276,"父馬ID":5678,"母父馬ID":1114,"col40":"0525560705","馬主":"吉田和美","牧場":"ノーザンファーム","父馬名":"モーリス","母名":"モアナアネラ","母父馬名":"キングカメハメハ","毛色":"鹿毛","誕生日":230228,"PCI":62.6,"jockey_score":3.0,"sire_score":10.0,"pci_diff_score":13.1279891304,"gaiku_bonus":-2,"total_score":24.1279891304,"印":"","馬番":1,"枠番":1},{"馬名":"トライアンフパス","年":25,"月":12,"日":27,"曜日":5,"場所":"阪神","回":7,"レース番号":9,"レース名":"万両賞･1勝*","クラスコード":23,"芝ダ":"芝","ハンデ":0,"距離":1400,"馬場":"良","性別":"牝","年齢":2,"騎手名":"国分恭介","斤量":55.0,"頭数":10,"確定着順":8,"人気順":8,"col22":0,"タイム差":0.9,"col24":6,"走破タイム":81.5,"col26":1215,"col27":83,"通過1":0,"通過2":0,"通過3":10,"通過4":10,"上がり3F":33.6,"馬体重":480,"調教師":"宮徹","所属":"栗","単勝オッズ":0,"馬ID":23106431,"父馬ID":1157,"母父馬ID":1018,"col40":"0925570905","馬主":"サラブレッドクラブ・ラフィアン","牧場":"ビッグレッドファーム","父馬名":"ベンバトル","母名":"エントリーチケット","母父馬名":"マツリダゴッホ","毛色":"栗毛","誕生日":230401,"PCI":56.9,"jockey_score":8.6086956522,"sire_score":10.0,"pci_diff_score":7.4279891304,"gaiku_bonus":-1,"total_score":25.0366847826,"印":"","馬番":3,"枠番":2},{"馬名":"プルヴォワール","年":26,"月":3,"日":1,"曜日":1,"場所":"小倉","回":12,"レース番号":5,"レース名":"未勝利","クラスコード":7,"芝ダ":"芝","ハンデ":0,"距離":1200,"馬場":"良","性別":"牝","年齢":3,"騎手名":"長岡禎仁","斤量":55.0,"頭数":18,"確定着順":1,"人気順":1,"col22":0,"タイム差":-0.1,"col24":7,"走破タイム":69.4,"col26":1094,"col27":0,"通過1":0,"通過2":0,"通過3":2,"通過4":2,"上がり3F":35.8,"馬体重":442,"調教師":"竹内正洋","所属":"美","単勝オッズ":590,"馬ID":23110075,"父馬ID":1095,"母父馬ID":1152,"col40":"10261C0508","馬主":"由井健太郎","牧場":"E.A.R.L. Haras de Grandcamp","父馬名":"Dabirsim","母名":"Almahroosa","母父馬名":"Green Tune","毛色":"鹿毛","誕生日":230202,"PCI":43.9,"jockey_score":10.3684210526,"sire_score":10.0,"pci_diff_score":5.5720108696,"gaiku_bonus":0,"total_score":25.9404319222,"印":"","馬番":12,"枠番":6},{"馬名":"タイセイアストロ","年":26,"月":2,"日":14,"曜日":1,"場所":"東京","回":5,"レース番号":7,"レース名":"１勝ｸﾗｽ*","クラスコード":23,"芝ダ":"芝","ハンデ":0,"距離":1400,"馬場":"良","性別":"牡","年齢":3,"騎手名":"杉原誠人","斤量":57.0,"頭数":16,"確定着順":5,"人気順":5,"col22":0,"タイム差":0.1,"col24":2,"走破タイム":82.0,"col26":1220,"col27":0,"通過1":0,"通過2":0,"通過3":12,"通過4":11,"上がり3F":33.4,"馬体重":456,"調教師":"森一誠","所属":"美","単勝オッズ":82,"馬ID":23103917,"父馬ID":1160,"母父馬ID":1201,"col40":"0526150703","馬主":"田中成奉","牧場":"秋田牧場","父馬名":"ミッキーアイル","母名":"ネオイリュージョン","母父馬名":"ネオユニヴァース","毛色":"鹿毛","誕生日":230219,"PCI":59.1,"jockey_score":7.25,"sire_score":10.0,"pci_diff_score":9.6279891304,"gaiku_bonus":0,"total_score":26.8779891304,"印":"","馬番":4,"枠番":2},{"馬名":"タヤスロレンヌ","年":26,"月":2,"日":28,"曜日":2,"場所":"中山","回":1,"レース番号":1,"レース名":"未勝利・牝","クラスコード":7,"芝ダ":"芝","ハンデ":1,"距離":1200,"馬場":"重","性別":"牝","年齢":3,"騎手名":"江田照男","斤量":55.0,"頭数":16,"確定着順":1,"人気順":1,"col22":0,"タイム差":-0.1,"col24":3,"走破タイム":71.8,"col26":1118,"col27":0,"通過1":0,"通過2":0,"通過3":5,"通過4":5,"上がり3F":37.2,"馬体重":466,"調教師":"岩戸孝樹","所属":"美","単勝オッズ":590,"馬ID":23104232,"父馬ID":689,"母父馬ID":1051,"col40":"0626210114","馬主":"横瀬兼二","牧場":"対馬正","父馬名":"タワーオブロンドン","母名":"ディープブルーム","母父馬名":"ディープブリランテ","毛色":"鹿毛","誕生日":230528,"PCI":43.0,"jockey_score":16.3333333333,"sire_score":10.0,"pci_diff_score":6.4720108696,"gaiku_bonus":0,"total_score":32.8053442029,"印":"","馬番":16,"枠番":8}];
+
+const FLOWER_DATA = [{"馬名":"コズミックボックス","年":25,"月":11,"日":30,"曜日":5,"場所":"東京","回":8,"レース番号":8,"レース名":"ベゴニア･1勝","クラスコード":23,"芝ダ":"芝","ハンデ":0,"距離":1600,"馬場":"良","性別":"牝","年齢":2,"騎手名":"戸崎圭太","斤量":55.0,"頭数":8,"確定着順":4,"人気順":4,"col22":0,"タイム差":0.9,"col24":2,"走破タイム":94.0,"col26":1340,"col27":78,"通過1":0,"通過2":0,"通過3":4,"通過4":3,"上がり3F":34.7,"馬体重":436,"調教師":"中舘英二","所属":"美","単勝オッズ":170,"馬ID":23107353,"父馬ID":5339,"母父馬ID":1153,"col40":"0525580806","馬主":"吉田勝己","牧場":"ノーザンファーム","父馬名":"ブリックスアンドモルタル","母名":"レーヴデトワール","母父馬名":"ゼンノロブロイ","毛色":"黒鹿","誕生日":230308,"PCI":52.5,"jockey_score":5.3835616438,"sire_score":10.0,"pci_diff_score":0.9668923494,"gaiku_bonus":-2,"total_score":14.3504539932,"印":"◎","馬番":16,"枠番":8},{"馬名":"ロンギングセリーヌ","年":26,"月":1,"日":17,"曜日":1,"場所":"中山","回":6,"レース番号":9,"レース名":"菜の花賞･1勝","クラスコード":23,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牝","年齢":3,"騎手名":"石橋脩","斤量":55.0,"頭数":8,"確定着順":3,"人気順":3,"col22":0,"タイム差":0.3,"col24":3,"走破タイム":94.7,"col26":1347,"col27":85,"通過1":0,"通過2":1,"通過3":1,"通過4":1,"上がり3F":34.9,"馬体重":496,"調教師":"竹内正洋","所属":"美","単勝オッズ":290,"馬ID":23105246,"父馬ID":1140,"母父馬ID":1152,"col40":"0626160903","馬主":"坂本浩一","牧場":"社台ファーム","父馬名":"モーリス","母名":"パセンジャーシップ","母父馬名":"ダイワメジャー","毛色":"芦毛","誕生日":230309,"PCI":52.8,"jockey_score":7.4,"sire_score":10.0,"pci_diff_score":0.6668923494,"gaiku_bonus":-1,"total_score":17.0668923494,"印":"○","馬番":11,"枠番":6},{"馬名":"アーリーハーベスト","年":26,"月":1,"日":17,"曜日":1,"場所":"中山","回":6,"レース番号":9,"レース名":"菜の花賞･1勝","クラスコード":23,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牝","年齢":3,"騎手名":"松岡正海","斤量":55.0,"頭数":8,"確定着順":4,"人気順":4,"col22":0,"タイム差":0.4,"col24":4,"走破タイム":94.8,"col26":1348,"col27":84,"通過1":0,"通過2":3,"通過3":3,"通過4":3,"上がり3F":34.6,"馬体重":456,"調教師":"小林真也","所属":"栗","単勝オッズ":170,"馬ID":23107071,"父馬ID":1185,"母父馬ID":1185,"col40":"0626160902","馬主":"吉田和美","牧場":"ノーザンファーム","父馬名":"アドマイヤマーズ","母名":"スターズアンドクラウズ","母父馬名":"Makfi","毛色":"鹿毛","誕生日":230409,"PCI":54.4,"jockey_score":8.5833333333,"sire_score":10.0,"pci_diff_score":0.9331076506,"gaiku_bonus":-2,"total_score":17.516440984,"印":"▲","馬番":7,"枠番":4},{"馬名":"アメティスタ","年":26,"月":1,"日":17,"曜日":1,"場所":"中山","回":6,"レース番号":9,"レース名":"菜の花賞･1勝","クラスコード":23,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牝","年齢":3,"騎手名":"西村淳也","斤量":55.0,"頭数":8,"確定着順":1,"人気順":1,"col22":0,"タイム差":0.0,"col24":2,"走破タイム":94.4,"col26":1344,"col27":88,"通過1":0,"通過2":3,"通過3":3,"通過4":3,"上がり3F":34.2,"馬体重":462,"調教師":"牧浦充徳","所属":"栗","単勝オッズ":1140,"馬ID":23105807,"父馬ID":1170,"母父馬ID":1113,"col40":"0626160901","馬主":"ロードホースクラブ","牧場":"ケイアイファーム","父馬名":"キタサンブラック","母名":"ティアーモ","母父馬名":"キングカメハメハ","毛色":"鹿毛","誕生日":230304,"PCI":55.6,"jockey_score":6.7333333333,"sire_score":10.0,"pci_diff_score":2.1331076506,"gaiku_bonus":-1,"total_score":17.866440984,"印":"△","馬番":13,"枠番":7},{"馬名":"ゴディアーモ","年":25,"月":12,"日":6,"曜日":5,"場所":"中山","回":1,"レース番号":5,"レース名":"新馬","クラスコード":15,"芝ダ":"芝","ハンデ":0,"距離":2000,"馬場":"良","性別":"牝","年齢":2,"騎手名":"津村明秀","斤量":55.0,"頭数":18,"確定着順":1,"人気順":1,"col22":0,"タイム差":-0.3,"col24":1,"走破タイム":121.1,"col26":2011,"col27":76,"通過1":2,"通過2":2,"通過3":1,"通過4":1,"上がり3F":34.9,"馬体重":426,"調教師":"森一誠","所属":"美","単勝オッズ":750,"馬ID":23107159,"父馬ID":5339,"母父馬ID":1201,"col40":"0625510514","馬主":"サンデーレーシング","牧場":"ノーザンファーム","父馬名":"リオンディーズ","母名":"パルティアーモ","母父馬名":"ワークフォース","毛色":"鹿毛","誕生日":230208,"PCI":55.9,"jockey_score":5.5,"sire_score":10.0,"pci_diff_score":2.4331076506,"gaiku_bonus":0,"total_score":17.9331076506,"印":"△","馬番":3,"枠番":2},{"馬名":"ヒルデグリム","年":25,"月":11,"日":23,"曜日":5,"場所":"東京","回":5,"レース番号":9,"レース名":"赤松賞･1勝*","クラスコード":23,"芝ダ":"芝","ハンデ":0,"距離":1600,"馬場":"良","性別":"牝","年齢":2,"騎手名":"柴田大知","斤量":55.0,"頭数":8,"確定着順":7,"人気順":7,"col22":0,"タイム差":2.3,"col24":7,"走破タイム":95.9,"col26":1359,"col27":64,"通過1":0,"通過2":0,"通過3":4,"通過4":4,"上がり3F":35.5,"馬体重":438,"調教師":"小野次郎","所属":"美","単勝オッズ":0,"馬ID":23106457,"父馬ID":1091,"母父馬ID":1125,"col40":"0525550908","馬主":"ビッグレッドファーム","牧場":"ビッグレッドファーム","父馬名":"ゴールドシップ","母名":"ナーゲルリング","母父馬名":"レッドスパーダ","毛色":"栗毛","誕生日":230327,"PCI":52.1,"jockey_score":7.8461538462,"sire_score":10.0,"pci_diff_score":1.3668923494,"gaiku_bonus":-1,"total_score":18.2130461955,"印":"△","馬番":4,"枠番":2},{"馬名":"クリスレジーナ","年":26,"月":1,"日":18,"曜日":1,"場所":"京都","回":7,"レース番号":5,"レース名":"新馬","クラスコード":15,"芝ダ":"芝","ハンデ":0,"距離":2000,"馬場":"良","性別":"牝","年齢":3,"騎手名":"鮫島克駿","斤量":55.0,"頭数":17,"確定着順":1,"人気順":1,"col22":0,"タイム差":-0.2,"col24":2,"走破タイム":123.5,"col26":2035,"col27":75,"通過1":1,"通過2":1,"通過3":2,"通過4":1,"上がり3F":35.4,"馬体重":468,"調教師":"高野友和","所属":"栗","単勝オッズ":650,"馬ID":23102091,"父馬ID":1157,"母父馬ID":1117,"col40":"0826170504","馬主":"ターフ・スポート","牧場":"谷川牧場","父馬名":"エピファネイア","母名":"ファンディーナ","母父馬名":"ディープインパクト","毛色":"青鹿","誕生日":230211,"PCI":56.7,"jockey_score":7.0,"sire_score":10.0,"pci_diff_score":3.2331076506,"gaiku_bonus":-1,"total_score":19.2331076506,"印":"△","馬番":5,"枠番":3},{"馬名":"エアビーアゲイル","年":26,"月":1,"日":4,"曜日":1,"場所":"京都","回":1,"レース番号":6,"レース名":"１勝ｸﾗｽ*","クラスコード":23,"芝ダ":"芝","ハンデ":0,"距離":2000,"馬場":"良","性別":"牝","年齢":3,"騎手名":"岩田望来","斤量":55.0,"頭数":7,"確定着順":2,"人気順":2,"col22":0,"タイム差":0.2,"col24":2,"走破タイム":121.1,"col26":2011,"col27":86,"通過1":3,"通過2":3,"通過3":3,"通過4":3,"上がり3F":34.4,"馬体重":460,"調教師":"辻野泰之","所属":"栗","単勝オッズ":330,"馬ID":23103342,"父馬ID":1174,"母父馬ID":1183,"col40":"0826110604","馬主":"ラッキーフィールド","牧場":"社台ファーム","父馬名":"シスキン","母名":"エアルーティーン","母父馬名":"ハービンジャー","毛色":"鹿毛","誕生日":230404,"PCI":58.0,"jockey_score":5.875,"sire_score":10.0,"pci_diff_score":4.5331076506,"gaiku_bonus":-1,"total_score":19.4081076506,"印":"","馬番":1,"枠番":1},{"馬名":"リュクスパトロール","年":26,"月":1,"日":11,"曜日":1,"場所":"中山","回":4,"レース番号":11,"レース名":"フェアリG3","クラスコード":163,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牝","年齢":3,"騎手名":"田辺裕信","斤量":55.0,"頭数":16,"確定着順":12,"人気順":12,"col22":0,"タイム差":1.0,"col24":14,"走破タイム":94.6,"col26":1346,"col27":80,"通過1":0,"通過2":10,"通過3":10,"通過4":10,"上がり3F":35.5,"馬体重":418,"調教師":"加藤士津","所属":"美","単勝オッズ":0,"馬ID":23105259,"父馬ID":1197,"母父馬ID":1169,"col40":"0626141108","馬主":"田畑憲士","牧場":"社台ファーム","父馬名":"ビーチパトロール","母名":"レイトブルーマー","母父馬名":"ジャングルポケット","毛色":"黒鹿","誕生日":230206,"PCI":49.9,"jockey_score":7.0227272727,"sire_score":10.0,"pci_diff_score":3.5668923494,"gaiku_bonus":-1,"total_score":19.5896196221,"印":"","馬番":15,"枠番":8},{"馬名":"イクシード","年":25,"月":10,"日":12,"曜日":4,"場所":"東京","回":4,"レース番号":5,"レース名":"新馬","クラスコード":15,"芝ダ":"芝","ハンデ":0,"距離":2000,"馬場":"良","性別":"牝","年齢":2,"騎手名":"ルメール","斤量":55.0,"頭数":12,"確定着順":1,"人気順":1,"col22":0,"タイム差":-0.3,"col24":1,"走破タイム":120.2,"col26":2002,"col27":77,"通過1":0,"通過2":9,"通過3":7,"通過4":7,"上がり3F":33.4,"馬体重":472,"調教師":"木村哲也","所属":"美","単勝オッズ":750,"馬ID":23107030,"父馬ID":5339,"母父馬ID":1126,"col40":"0525440512","馬主":"シルクレーシング","牧場":"ノーザンファーム","父馬名":"キタサンブラック","母名":"シャトーブランシュ","母父馬名":"キングヘイロー","毛色":"黒鹿","誕生日":230226,"PCI":61.4,"jockey_score":4.0869565217,"sire_score":10.0,"pci_diff_score":7.9331076506,"gaiku_bonus":-2,"total_score":20.0200641724,"印":"","馬番":8,"枠番":4},{"馬名":"ナックホワイト","年":26,"月":2,"日":15,"曜日":1,"場所":"東京","回":6,"レース番号":5,"レース名":"未勝利","クラスコード":7,"芝ダ":"芝","ハンデ":0,"距離":1800,"馬場":"良","性別":"牝","年齢":3,"騎手名":"大野拓弥","斤量":55.0,"頭数":16,"確定着順":1,"人気順":1,"col22":0,"タイム差":-0.2,"col24":3,"走破タイム":107.8,"col26":1478,"col27":0,"通過1":0,"通過2":1,"通過3":1,"通過4":1,"上がり3F":34.5,"馬体重":474,"調教師":"杉浦宏昭","所属":"美","単勝オッズ":590,"馬ID":23103885,"父馬ID":1160,"母父馬ID":1008,"col40":"0526160514","馬主":"小松欣也","牧場":"レイクヴィラファーム","父馬名":"ブリックスアンドモルタル","母名":"イタリアンホワイト","母父馬名":"ステイゴールド","毛色":"芦毛","誕生日":230308,"PCI":56.2,"jockey_score":7.5151515152,"sire_score":10.0,"pci_diff_score":2.7331076506,"gaiku_bonus":0,"total_score":20.2482591658,"印":"","馬番":2,"枠番":1},{"馬名":"ヴィスコンテッサ","年":26,"月":1,"日":11,"曜日":1,"場所":"中山","回":4,"レース番号":11,"レース名":"フェアリG3","クラスコード":163,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牝","年齢":3,"騎手名":"石川裕紀人","斤量":55.0,"頭数":16,"確定着順":14,"人気順":14,"col22":0,"タイム差":1.1,"col24":9,"走破タイム":94.7,"col26":1347,"col27":79,"通過1":0,"通過2":12,"通過3":16,"通過4":14,"上がり3F":35.3,"馬体重":446,"調教師":"松永幹夫","所属":"栗","単勝オッズ":0,"馬ID":23107244,"父馬ID":1150,"母父馬ID":1092,"col40":"0626141113","馬主":"キャロットファーム","牧場":"ノーザンファーム","父馬名":"シルバーステート","母名":"マルケッサ","母父馬名":"オルフェーヴル","毛色":"青鹿","誕生日":230422,"PCI":51.0,"jockey_score":10.0,"sire_score":10.0,"pci_diff_score":2.4668923494,"gaiku_bonus":-2,"total_score":20.4668923494,"印":"","馬番":9,"枠番":5},{"馬名":"カラペルソナ","年":25,"月":11,"日":29,"曜日":4,"場所":"京都","回":7,"レース番号":11,"レース名":"京都２歳G3","クラスコード":163,"芝ダ":"芝","ハンデ":0,"距離":2000,"馬場":"良","性別":"牝","年齢":2,"騎手名":"プーシャ","斤量":55.0,"頭数":11,"確定着順":5,"人気順":5,"col22":0,"タイム差":0.5,"col24":4,"走破タイム":120.9,"col26":2009,"col27":89,"通過1":3,"通過2":3,"通過3":3,"通過4":3,"上がり3F":35.8,"馬体重":444,"調教師":"斉藤崇史","所属":"栗","単勝オッズ":330,"馬ID":23103371,"父馬ID":5678,"母父馬ID":1151,"col40":"0825471102","馬主":"吉田照哉","牧場":"社台ファーム","父馬名":"エピファネイア","母名":"カリーナミア","母父馬名":"Malibu Moon","毛色":"黒鹿","誕生日":230307,"PCI":51.9,"jockey_score":9.0,"sire_score":10.0,"pci_diff_score":1.5668923494,"gaiku_bonus":0,"total_score":20.5668923494,"印":"","馬番":14,"枠番":7},{"馬名":"ラコンチャビエン","年":26,"月":1,"日":17,"曜日":1,"場所":"京都","回":6,"レース番号":5,"レース名":"未勝利・牝","クラスコード":7,"芝ダ":"芝","ハンデ":0,"距離":2000,"馬場":"良","性別":"牝","年齢":3,"騎手名":"松本大","斤量":55.0,"頭数":18,"確定着順":1,"人気順":1,"col22":0,"タイム差":0.0,"col24":2,"走破タイム":121.1,"col26":2011,"col27":75,"通過1":6,"通過2":5,"通過3":5,"通過4":5,"上がり3F":36.3,"馬体重":436,"調教師":"藤原英昭","所属":"栗","単勝オッズ":590,"馬ID":23102584,"父馬ID":5339,"母父馬ID":1055,"col40":"0826160509","馬主":"モンレーヴ","牧場":"グランド牧場","父馬名":"キズナ","母名":"チェロキーメイドン","母父馬名":"Distorted Humor","毛色":"黒鹿","誕生日":230223,"PCI":50.1,"jockey_score":10.0,"sire_score":10.0,"pci_diff_score":3.3668923494,"gaiku_bonus":-1,"total_score":22.3668923494,"印":"","馬番":6,"枠番":3},{"馬名":"バースデイフライト","年":25,"月":12,"日":20,"曜日":5,"場所":"中山","回":5,"レース番号":9,"レース名":"ひいらぎ･1勝","クラスコード":23,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牝","年齢":2,"騎手名":"岩田康成","斤量":55.0,"頭数":12,"確定着順":6,"人気順":6,"col22":0,"タイム差":1.2,"col24":7,"走破タイム":94.1,"col26":1341,"col27":76,"通過1":0,"通過2":3,"通過3":5,"通過4":5,"上がり3F":35.3,"馬体重":456,"調教師":"新谷功一","所属":"栗","単勝オッズ":0,"馬ID":23102906,"父馬ID":5678,"母父馬ID":1172,"col40":"0625550904","馬主":"飯田良枝","牧場":"千代田牧場","父馬名":"コントレイル","母名":"サマーソワレ","母父馬名":"War Front","毛色":"黒鹿","誕生日":230301,"PCI":49.9,"jockey_score":10.0,"sire_score":10.0,"pci_diff_score":3.5668923494,"gaiku_bonus":-1,"total_score":22.5668923494,"印":"","馬番":12,"枠番":6},{"馬名":"スマートプリエール","年":26,"月":3,"日":1,"曜日":1,"場所":"阪神","回":4,"レース番号":11,"レース名":"チューリG2","クラスコード":179,"芝ダ":"芝","ハンデ":8,"距離":1600,"馬場":"良","性別":"牝","年齢":3,"騎手名":"原優介","斤量":55.0,"頭数":15,"確定着順":6,"人気順":6,"col22":0,"タイム差":0.3,"col24":5,"走破タイム":94.6,"col26":1346,"col27":0,"通過1":0,"通過2":0,"通過3":5,"通過4":4,"上がり3F":33.6,"馬体重":474,"調教師":"大久保龍","所属":"栗","単勝オッズ":0,"馬ID":23107079,"父馬ID":1216,"母父馬ID":1058,"col40":"0926141104","馬主":"大川徹","牧場":"ノーザンファーム","父馬名":"エピファネイア","母名":"スマートレイアー","母父馬名":"ディープインパクト","毛色":"黒鹿","誕生日":230306,"PCI":58.9,"jockey_score":10.0227272727,"sire_score":10.0,"pci_diff_score":5.4331076506,"gaiku_bonus":0,"total_score":25.4558349234,"印":"","馬番":10,"枠番":5}];
+
+const FALCON_GAIKU = {"カフェラバー":"ノーザンF天栄","メイクワンズデイ":"キャニオンF土山","トライアンフパス":"ビッグレッドファーム鉾田","タイセイアストロ":"在厩調整","アスミル":"在厩調整","ハッピーエンジェル":"菅井牧場","フクチャンショウ":"山元トレセン","マーゴットブロー":"在厩調整","ダイヤモンドノット":"キャニオンF土山","エイシンディード":"EISHIN S","タガノアラリア":"宇治田原優駿S","プルヴォワール":"在厩調整","プリンセスモコ":"吉澤SW","フォーゲル":"在厩調整","テルヴィセクス":"宇治田原優駿S","タヤスロレンヌ":"在厩調整","タマモイカロス":"在厩調整"};
+const FLOWER_GAIKU = {"エアビーアゲイル":"社台ファーム鈴鹿","ナックホワイト":"在厩調整","ゴディアーモ":"在厩調整","ヒルデグリム":"ビッグレッドF","クリスレジーナ":"チャンピオンヒルズ","ラコンチャビエン":"吉澤S-WEST","アーリーハーベスト":"ノーザンFしがらき","イクシード":"ノーザンF天栄","ヴィスコンテッサ":"ノーザンFしがらき","スマートプリエール":"在厩調整","ロンギングセリーヌ":"山元トレセン","バースデイフライト":"千代田牧場","アメティスタ":"チャンピオンヒルズ","カラベルソナ":"社台ファーム鈴鹿","リュクスパトロール":"山元トレセン","コズミックボックス":"ノーザンF天栄"};
+
+// ===== ロジック =====
+let currentRace = 'falcon';
+let sortMode = 'umaban'; // 'umaban' | 'score'
+
+function toggleSort() {
+  sortMode = sortMode === 'umaban' ? 'score' : 'umaban';
+  document.getElementById('sort-label').textContent = sortMode === 'umaban' ? '馬番順' : 'スコア順';
+  const btn = document.getElementById('sort-btn');
+  btn.className = sortMode === 'score'
+    ? 'ml-auto flex items-center gap-1 bg-primary px-3 py-1.5 rounded-full text-[10px] font-bold text-white transition-colors'
+    : 'ml-auto flex items-center gap-1 bg-surface-container px-3 py-1.5 rounded-full text-[10px] font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors';
+  renderList();
+}
+
+function getGaikuClass(name) {
+  if (!name || name === '在厩調整') return 'gaiku-zaichu';
+  if (name.includes('ノーザン')) return 'gaiku-northern';
+  if (name.includes('社台')) return 'gaiku-shadai';
+  if (name.includes('チャンピオン') || name.includes('吉澤') || name.includes('EISHIN') || name.includes('宇治田原')) return 'gaiku-champ';
+  if (name.includes('山元') || name.includes('キャニオン') || name.includes('ビッグレッド')) return 'gaiku-yamamoto';
+  return 'gaiku-other';
+}
+
+function getGaikuCrown(name) {
+  if (!name || name === '在厩調整') return '';
+  if (name.includes('ノーザン')) return '👑';
+  if (name.includes('社台')) return '🔵';
+  if (name.includes('チャンピオン') || name.includes('吉澤')) return '⭐';
+  return '🏠';
+}
+
+function getMarkClass(mark) {
+  if (mark === '◎') return 'mark-hon';
+  if (mark === '○') return 'mark-tai';
+  if (mark === '▲') return 'mark-tan';
+  if (mark === '△') return 'mark-delta';
+  return '';
+}
+
+function getRank(mark) {
+  if (mark === '◎') return 'S';
+  if (mark === '○') return 'A';
+  if (mark === '▲') return 'B';
+  if (mark === '△') return 'C';
+  return 'D';
+}
+
+function getNickComment(horse, gaiku) {
+  const mark = horse['印'];
+  const score = horse['total_score'].toFixed(1);
+  const pci = horse['PCI'];
+  const sire = horse['父馬名'];
+  const jockey = horse['騎手名'];
+  const prevRank = horse['確定着順'];
+  const gaikuBonus = horse['gaiku_bonus'];
+
+  if (mark === '◎') return `前走${horse['レース名']}で${prevRank}着。父${sire}×騎手${jockey}の組み合わせが中心。外厩「${gaiku}」からの仕上がりに注目。総合スコア${score}でこのレースの最高評価馬。`;
+  if (mark === '○') return `前走${prevRank}着からの巻き返しに期待。${jockey}騎手が手綱を取り、コース適性も悪くない。スコア${score}で対抗候補の一頭。`;
+  if (mark === '▲') return `父${sire}の血統が距離適性にプラス。${gaikuBonus < 0 ? `外厩「${gaiku}」ボーナスあり。` : ''}騎手スコアに課題も、条件次第で一発あり。`;
+  if (mark === '△') return `連下候補。前走${prevRank}着からPCI${pci.toFixed(1)}と今回のコースへの適性は計算できる。穴馬として。`;
+  return `データ上は上位から離れている。前走${horse['レース名']}${prevRank}着。波乱要員として一応チェック。`;
+}
+
+function getSecretMemo(horse, gaiku) {
+  const mark = horse['印'];
+  if (mark === '◎') return `「このスコア、見逃すな。${horse['父馬名']}産駒が中京・中山で爆発する条件が揃っている。${gaiku === '在厩調整' ? '在厩調整でも仕上がり良好との情報あり。' : `${gaiku}からの直行ローテ。陣営本気モードだ。`}ここは本命で買う。」`;
+  if (mark === '○') return `「${horse['騎手名']}は近走このコースで安定している。前走の負けは度外視できる。対抗として厚めに押さえろ。」`;
+  if (mark === '▲') return `「外厩ボーナス${horse['gaiku_bonus']}があるのは見逃せない。穴党にとっては美味しい一頭かもしれない。」`;
+  return `「データ的には厳しい評価だが、競馬に絶対はない。押さえ程度に。スコア${horse['total_score'].toFixed(1)}は参考値として。」`;
+}
+
+function renderList() {
+  const data = currentRace === 'falcon' ? FALCON_DATA : FLOWER_DATA;
+  const gaiku = currentRace === 'falcon' ? FALCON_GAIKU : FLOWER_GAIKU;
+  const sorted = sortMode === 'score'
+    ? [...data].sort((a, b) => a['total_score'] - b['total_score'])
+    : [...data].sort((a, b) => (a['馬番'] || 99) - (b['馬番'] || 99));
+  const list = document.getElementById('horse-list');
+
+  list.innerHTML = sorted.map(h => {
+    const waku = h['枠番'] || 0;
+    const umaban = h['馬番'] || 0;
+    const mark = h['印'] || '';
+    const markClass = getMarkClass(mark);
+    const gaikuName = gaiku[h['馬名']] || '在厩調整';
+    const gaikuClass = getGaikuClass(gaikuName);
+    const score = (100 - h['total_score']).toFixed(1);
+
+    return `
+    <div class="horse-row flex items-center gap-3 px-4 py-3 cursor-pointer active:bg-surface-container"
+         onclick="showDetail('${h['馬名']}')">
+      <!-- 枠番・馬番 -->
+      <div class="flex flex-col items-center gap-0.5 w-10 shrink-0">
+        <span class="waku-${waku} text-[9px] font-bold px-1.5 py-0.5 rounded-sm w-full text-center">${waku}枠</span>
+        <span class="text-2xl font-label font-black text-on-surface leading-none">${umaban}</span>
+      </div>
+      <!-- 印 -->
+      <div class="w-7 text-center shrink-0">
+        <span class="${markClass} text-xl">${mark || '　'}</span>
+      </div>
+      <!-- 馬名・外厩 -->
+      <div class="flex-1 min-w-0">
+        <p class="serif-headline font-bold text-base text-on-surface truncate">${h['馬名']}</p>
+        <div class="flex items-center gap-1.5 mt-0.5 flex-wrap">
+          <span class="${gaikuClass} text-[9px] px-1.5 py-0.5 rounded font-bold">${gaikuName}</span>
+          <span class="text-[10px] text-outline">${h['騎手名']}</span>
+          <span class="text-[10px] text-outline">／${h['調教師']}厩舎</span>
+        </div>
+        <div class="text-[10px] text-outline/70 mt-0.5">前走：${h['レース名']} <span class="text-outline/50">${h['場所']} ${h['芝ダ']}${h['距離']}m</span></div>
+      </div>
+      <!-- スコア -->
+      <div class="text-right shrink-0">
+        <span class="text-xs text-outline block">score</span>
+        <span class="text-lg font-label font-black ${mark === '◎' ? 'text-primary' : mark === '○' ? 'text-blue-600' : 'text-on-surface-variant'}">${score}</span>
+      </div>
+      <span class="material-symbols-outlined text-outline text-sm">chevron_right</span>
+    </div>`;
+  }).join('');
+}
+
+function switchRace(race) {
+  currentRace = race;
+  document.getElementById('tab-falcon').className = `flex-1 py-2.5 text-sm font-bold rounded-t-lg border-b-2 transition-all ${race === 'falcon' ? 'border-primary bg-primary text-white' : 'border-transparent text-outline'}`;
+  document.getElementById('tab-flower').className = `flex-1 py-2.5 text-sm font-bold rounded-t-lg border-b-2 transition-all ${race === 'flower' ? 'border-primary bg-primary text-white' : 'border-transparent text-outline'}`;
+
+  if (race === 'falcon') {
+    document.getElementById('race-venue').textContent = '📍 中京 芝1400m';
+    document.getElementById('race-time').textContent = '🕒 15:20発走';
+    document.getElementById('race-heads').textContent = '🐎 17頭';
+  } else {
+    document.getElementById('race-venue').textContent = '📍 中山 芝1800m';
+    document.getElementById('race-time').textContent = '🕒 15:45発走';
+    document.getElementById('race-heads').textContent = '🐎 16頭';
+  }
+  renderList();
+}
+
+function showDetail(umaname) {
+  const data = currentRace === 'falcon' ? FALCON_DATA : FLOWER_DATA;
+  const gaiku = currentRace === 'falcon' ? FALCON_GAIKU : FLOWER_GAIKU;
+  const h = data.find(x => x['馬名'] === umaname);
+  if (!h) return;
+
+  const gaikuName = gaiku[umaname] || '在厩調整';
+  const waku = h['枠番'] || 0;
+  const mark = h['印'] || '';
+
+  document.getElementById('detail-title').textContent = h['馬名'];
+  document.getElementById('d-waku').textContent = `${waku}枠`;
+  document.getElementById('d-waku').className = `waku-${waku} px-3 py-1 text-sm font-bold rounded-sm tracking-tighter`;
+  document.getElementById('d-umaban').textContent = h['馬番'] || '-';
+  document.getElementById('d-mark').textContent = mark;
+  document.getElementById('d-mark').className = `text-3xl ml-auto ${getMarkClass(mark)}`;
+  document.getElementById('d-umaname').textContent = umaname;
+  document.getElementById('d-sire').textContent = h['父馬名'] || '-';
+  document.getElementById('d-damsire').textContent = h['母父馬名'] || '-';
+  document.getElementById('d-jockey').textContent = h['騎手名'] || '-';
+  document.getElementById('d-trainer').textContent = h['調教師'] ? h['調教師'] + '厩舎' : '-';
+  document.getElementById('d-prevrace-hero').textContent = `${h['レース名'] || '-'}　${h['場所']} ${h['芝ダ']}${h['距離']}m`;
+  document.getElementById('d-score-pts').textContent = (100 - h['total_score']).toFixed(1);
+  document.getElementById('d-rank').textContent = getRank(mark);
+  document.getElementById('d-prevrank').textContent = `前走 ${h['確定着順']}着`;
+
+  const pci = h['PCI'] || 49.5;
+  const courseAvg = currentRace === 'falcon' ? 49.5 : 53.5;
+  document.getElementById('d-pci-avg').textContent = `Course Avg: ${courseAvg}`;
+  document.getElementById('d-pci-val').textContent = `Horse PCI: ${pci.toFixed(1)}`;
+  document.getElementById('d-pci-marker').style.left = `${Math.min(Math.max(pci, 0), 100)}%`;
+
+  document.getElementById('d-gaiku-name').textContent = gaikuName;
+  document.getElementById('d-gaiku-crown').textContent = getGaikuCrown(gaikuName);
+  const gaikuClass = getGaikuClass(gaikuName);
+  document.getElementById('d-gaiku-badge').textContent = gaikuName === '在厩調整' ? '在厩中' : '外厩帰り';
+  document.getElementById('d-gaiku-badge').className = `${gaikuClass} text-[10px] px-2 py-0.5 font-bold rounded-sm`;
+  document.getElementById('d-jockey-score').textContent = h['jockey_score'].toFixed(2);
+  document.getElementById('d-sire-score').textContent = h['sire_score'].toFixed(2);
+  document.getElementById('d-pci-diff').textContent = h['pci_diff_score'].toFixed(2);
+  document.getElementById('d-gaiku-bonus').textContent = h['gaiku_bonus'];
+
+  document.getElementById('d-prev-race').textContent = h['レース名'] || '-';
+  document.getElementById('d-prev-chakujun').textContent = h['確定着順'] || '-';
+  document.getElementById('d-prev-basho').textContent = h['場所'] || '-';
+  document.getElementById('d-prev-pci').textContent = pci.toFixed(1);
+
+  document.getElementById('d-nick-comment').textContent = getNickComment(h, gaikuName);
+  document.getElementById('d-secret-memo').textContent = getSecretMemo(h, gaikuName);
+
+  document.getElementById('list-view').style.display = 'none';
+  document.getElementById('detail-view').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function showList() {
+  document.getElementById('detail-view').style.display = 'none';
+  document.getElementById('list-view').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+// ===== タブ切り替え =====
+let currentTab = 'races';
+let currentScoreRace = 'falcon';
+
+const ALL_VIEWS = ['list-view','detail-view','score-view','stable-view','analysis-view'];
+const ALL_NAVS  = ['nav-races','nav-score','nav-stable','nav-analysis'];
+
+function showTab(tab) {
+  // 詳細画面から戻る場合はリスト表示に
+  if (tab === 'races') {
+    ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
+    document.getElementById('list-view').style.display = 'block';
+  } else if (tab === 'score') {
+    ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
+    document.getElementById('score-view').style.display = 'block';
+    renderScoreList(currentScoreRace);
+  } else if (tab === 'stable') {
+    ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
+    document.getElementById('stable-view').style.display = 'block';
+    renderStableList();
+  } else if (tab === 'analysis') {
+    ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
+    document.getElementById('analysis-view').style.display = 'block';
+    renderAnalysis();
+  }
+  currentTab = tab;
+  window.scrollTo(0, 0);
+
+  // ナビハイライト
+  ALL_NAVS.forEach(n => {
+    const el = document.getElementById(n);
+    el.className = el.className
+      .replace('text-green-900 border-t-2 border-green-900 scale-110','text-zinc-400')
+      .replace('text-zinc-400','text-zinc-400');
+  });
+  const activeNav = {races:'nav-races',score:'nav-score',stable:'nav-stable',analysis:'nav-analysis'}[tab];
+  const activeEl = document.getElementById(activeNav);
+  activeEl.className = activeEl.className.replace('text-zinc-400','text-green-900 border-t-2 border-green-900 scale-110');
+}
+
+// ===== スコアランキング =====
+function switchScoreRace(race) {
+  currentScoreRace = race;
+  document.getElementById('stab-falcon').className = `flex-1 py-2 text-sm font-bold rounded-lg transition-all ${race==='falcon'?'bg-primary text-white':'text-outline border border-outline/30'}`;
+  document.getElementById('stab-flower').className = `flex-1 py-2 text-sm font-bold rounded-lg transition-all ${race==='flower'?'bg-primary text-white':'text-outline border border-outline/30'}`;
+  renderScoreList(race);
+}
+
+function renderScoreList(race) {
+  const data = race === 'falcon' ? FALCON_DATA : FLOWER_DATA;
+  const gaiku = race === 'falcon' ? FALCON_GAIKU : FLOWER_GAIKU;
+  const sorted = [...data].sort((a,b) => a['total_score'] - b['total_score']);
+  const el = document.getElementById('score-list');
+  el.innerHTML = sorted.map((h, i) => {
+    const pts = (100 - h['total_score']).toFixed(1);
+    const mark = h['印'] || '';
+    const markClass = getMarkClass(mark);
+    const gaikuName = gaiku[h['馬名']] || '在厩調整';
+    const gaikuClass = getGaikuClass(gaikuName);
+    const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':`${i+1}`;
+    return `
+    <div class="flex items-center gap-3 bg-surface-container-lowest rounded-lg px-4 py-3 cursor-pointer"
+         onclick="showDetail('${h['馬名']}'); showTab('races');">
+      <span class="text-lg w-8 text-center font-bold">${medal}</span>
+      <div class="flex-1">
+        <div class="flex items-center gap-2">
+          <span class="${markClass} text-lg">${mark||'　'}</span>
+          <span class="font-bold text-on-surface">${h['馬名']}</span>
+        </div>
+        <span class="${gaikuClass} text-[9px] px-1.5 py-0.5 rounded font-bold mt-0.5 inline-block">${gaikuName}</span>
+      </div>
+      <div class="text-right">
+        <span class="text-2xl font-label font-black ${i<3?'text-primary':'text-on-surface-variant'}">${pts}</span>
+        <span class="text-xs text-outline block">pts</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ===== 外厩分析 =====
+function renderStableList() {
+  const falconAll = FALCON_DATA.map(h => ({...h, gaiku: FALCON_GAIKU[h['馬名']]||'在厩調整', race:'ファルコンS'}));
+  const flowerAll = FLOWER_DATA.map(h => ({...h, gaiku: FLOWER_GAIKU[h['馬名']]||'在厩調整', race:'フラワーC'}));
+  const all = [...falconAll, ...flowerAll];
+
+  // 外厩別グループ
+  const groups = {};
+  all.forEach(h => {
+    const g = h.gaiku;
+    if (!groups[g]) groups[g] = [];
+    groups[g].push(h);
+  });
+
+  const el = document.getElementById('stable-list');
+  el.innerHTML = Object.entries(groups)
+    .sort((a,b) => a[0]==='在厩調整'?1:b[0]==='在厩調整'?-1:a[0].localeCompare(b[0]))
+    .map(([name, horses]) => {
+      const gaikuClass = getGaikuClass(name);
+      const crown = getGaikuCrown(name);
+      const marked = horses.filter(h => h['印']);
+      return `
+      <div class="bg-surface-container-lowest rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="${gaikuClass} text-[10px] px-2 py-0.5 rounded font-bold">${name}</span>
+          <span>${crown}</span>
+          <span class="text-xs text-outline ml-auto">${horses.length}頭</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          ${horses.map(h => {
+            const mark = h['印']||'';
+            const markClass = getMarkClass(mark);
+            return `<span class="text-sm cursor-pointer hover:underline" onclick="showDetail('${h['馬名']}');showTab('races');">
+              <span class="${markClass}">${mark}</span>${h['馬名']}<span class="text-[10px] text-outline ml-1">${h.race}</span>
+            </span>`;
+          }).join('')}
+        </div>
+      </div>`;
+    }).join('');
+}
+
+// ===== 最終分析 =====
+function renderAnalysis() {
+  const el = document.getElementById('analysis-content');
+  const races = [
+    {name:'ファルコンS G3', venue:'中京 芝1400m', data:FALCON_DATA, gaiku:FALCON_GAIKU},
+    {name:'フラワーC G3', venue:'中山 芝1800m', data:FLOWER_DATA, gaiku:FLOWER_GAIKU}
+  ];
+  el.innerHTML = races.map(r => {
+    const hon = r.data.find(h=>h['印']==='◎');
+    const tai = r.data.find(h=>h['印']==='○');
+    const tan = r.data.find(h=>h['印']==='▲');
+    const delta = r.data.filter(h=>h['印']==='△');
+    return `
+    <div class="space-y-3">
+      <div class="border-l-4 border-primary pl-4">
+        <h2 class="serif-headline text-xl font-bold text-primary">${r.name}</h2>
+        <p class="text-xs text-outline">${r.venue}</p>
+      </div>
+      <div class="bg-surface-container-lowest rounded-xl p-5 space-y-4">
+        ${hon?`<div class="flex items-center gap-3">
+          <span class="mark-hon text-3xl w-8">◎</span>
+          <div>
+            <p class="font-bold text-lg">${hon['馬名']}</p>
+            <p class="text-xs text-outline">${r.gaiku[hon['馬名']]||'在厩調整'} / ${hon['騎手名']} / スコア${(100-hon['total_score']).toFixed(1)}pts</p>
+          </div>
+        </div>`:''}
+        ${tai?`<div class="flex items-center gap-3 border-t border-outline/10 pt-3">
+          <span class="mark-tai text-2xl w-8">○</span>
+          <div>
+            <p class="font-bold">${tai['馬名']}</p>
+            <p class="text-xs text-outline">${r.gaiku[tai['馬名']]||'在厩調整'} / ${tai['騎手名']} / スコア${(100-tai['total_score']).toFixed(1)}pts</p>
+          </div>
+        </div>`:''}
+        ${tan?`<div class="flex items-center gap-3 border-t border-outline/10 pt-3">
+          <span class="mark-tan text-xl w-8">▲</span>
+          <div>
+            <p class="font-bold">${tan['馬名']}</p>
+            <p class="text-xs text-outline">${r.gaiku[tan['馬名']]||'在厩調整'} / ${tan['騎手名']} / スコア${(100-tan['total_score']).toFixed(1)}pts</p>
+          </div>
+        </div>`:''}
+        ${delta.length?`<div class="border-t border-outline/10 pt-3">
+          <p class="text-xs text-outline font-bold mb-2">△ 連下候補</p>
+          <div class="flex flex-wrap gap-2">${delta.map(h=>`<span class="bg-surface-container px-2 py-1 rounded text-sm font-bold">${h['馬名']}</span>`).join('')}</div>
+        </div>`:''}
+      </div>
+      <div class="bg-zinc-900 text-zinc-100 p-5 rounded-xl rotate-0.5 shadow-xl">
+        <p class="text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Nick's Conclusion</p>
+        <p class="font-memo text-sm leading-relaxed text-zinc-300 italic">
+          「${hon?hon['馬名']:'本命なし'}を軸に、${tai?tai['馬名']:''}${tan?'・'+tan['馬名']:''}を絡めた馬券が本線。外厩馬の仕上がりに注目。波乱があるとすれば△の中から。」
+        </p>
+        <p class="text-right text-[10px] text-zinc-600 mt-3 font-label font-black tracking-widest">BY NICK THE SNATCHER</p>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// 初期表示
+switchRace('falcon');
+</script>
+</body>
+</html>
