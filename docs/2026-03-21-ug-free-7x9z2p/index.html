@@ -649,7 +649,9 @@ function getSecretMemo(horse, gaiku) {
   const gb = horse['gaiku_bonus'];
   const gbDisp = gb < 0 ? `+${-gb}` : gb === 0 ? '±0' : `-${gb}`;
   const ts = horse['training_score'];
-  const tsStr = ts != null ? (ts > 0 ? `+${ts}` : `${ts}`) : '－';
+  const tGradeForMemo = getTrainingGrade(ts);
+  const tBonusLabel = { S: '+1.5加点', A: '+0.5加点', B: '±0', C: '-1.0減点' };
+  const tsStr = tGradeForMemo ? tBonusLabel[tGradeForMemo] : '－';
 
   if (mark === '◎') return `「買いだ、絶対に買え。${horse['父馬名']}産駒、外厩${gaiku}からの直行ローテ。陣営は本気モードだ。調教${tsStr}、外厩加点${gbDisp}、全部揃ってる。ここを外したら俺はモグリだ。」`;
   if (mark === '○') return `「${horse['騎手名']}で対抗本線。前走の負けは度外視、今回は条件が向く。軸の相手筆頭として厚めに入れとけ。買わない理由がない。」`;
@@ -868,7 +870,8 @@ function showDetail(umaname) {
   if (tGrade) {
     tGradeEl.textContent = tLabels[tGrade];
     tGradeEl.className = `text-xl font-label font-black ${tColors[tGrade]}`;
-    tScoreEl.textContent = `(スコア: ${ts > 0 ? '+' : ''}${ts})`;
+    const tBonusMap = { S: '+1.5加点', A: '+0.5加点', B: '±0', C: '-1.0減点' };
+    tScoreEl.textContent = tBonusMap[tGrade];
   } else {
     tGradeEl.textContent = '－';
     tGradeEl.className = 'text-xl font-label font-black text-outline';
