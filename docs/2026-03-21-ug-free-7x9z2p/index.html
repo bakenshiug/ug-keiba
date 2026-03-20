@@ -318,8 +318,8 @@
             <span id="d-gaiku-bonus" class="text-xl font-label font-black text-on-secondary-container">-</span>
           </div>
           <div class="col-span-2 border-t border-outline/10 pt-3">
-            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">前走着順／レース格ボーナス</span>
-            <span id="d-race-bonus" class="text-xl font-label font-black text-tertiary">-</span>
+            <span class="text-[10px] uppercase tracking-widest text-outline font-bold block mb-1">前走加点</span>
+            <span id="d-race-bonus" class="text-xl font-label font-black text-outline">-</span>
           </div>
         </div>
       </div>
@@ -674,7 +674,7 @@ function getRaceGaiku(race) {
   return AICHI_GAIKU;
 }
 
-// ===== 前走着順ボーナス・レース格ボーナス =====
+// ===== 前走加点（前走着順・レース格） =====
 // ※控えめな加点で予想の面白みを残す設計
 function calcRaceBonus(horse) {
   const cc = horse['クラスコード'] || 0;
@@ -825,7 +825,17 @@ function showDetail(umaname) {
   const gaikuBonusVal = h['gaiku_bonus'];
   document.getElementById('d-gaiku-bonus').textContent =
     gaikuBonusVal < 0 ? `+${-gaikuBonusVal}` : gaikuBonusVal === 0 ? '±0' : `-${gaikuBonusVal}`;
-  document.getElementById('d-race-bonus').textContent = raceBonus === 0 ? '±0' : raceBonus.toFixed(1);
+  const raceBonusEl = document.getElementById('d-race-bonus');
+  if (raceBonus === 0) {
+    raceBonusEl.textContent = '±0';
+    raceBonusEl.className = 'text-xl font-label font-black text-outline';
+  } else if (raceBonus < 0) {
+    raceBonusEl.textContent = `+${(-raceBonus).toFixed(1)}`;
+    raceBonusEl.className = 'text-xl font-label font-black text-primary';
+  } else {
+    raceBonusEl.textContent = `-${raceBonus.toFixed(1)}`;
+    raceBonusEl.className = 'text-xl font-label font-black text-error';
+  }
 
   document.getElementById('d-prev-race').textContent = h['レース名'] || '-';
   document.getElementById('d-prev-chakujun').textContent = h['確定着順'] || '-';
@@ -923,7 +933,7 @@ function renderScoreList(race) {
         </div>
         <div class="flex items-center gap-1.5 mt-0.5 flex-wrap">
           <span class="${gaikuClass} text-[9px] px-1.5 py-0.5 rounded font-bold">${gaikuName}</span>
-          ${bonus !== 0 ? `<span class="text-[9px] px-1.5 py-0.5 rounded font-bold bg-tertiary/10 text-tertiary">前走ボーナス${bonus.toFixed(1)}</span>` : ''}
+          ${bonus < 0 ? `<span class="text-[9px] px-1.5 py-0.5 rounded font-bold bg-primary/10 text-primary">前走加点+${(-bonus).toFixed(1)}</span>` : ''}
         </div>
       </div>
       <div class="text-right">
