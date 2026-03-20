@@ -629,7 +629,7 @@ function getRank(mark) {
 
 function getNickComment(horse, gaiku) {
   const mark = horse['印'];
-  const score = horse['total_score'].toFixed(1);
+  const score = (100 - getEffectiveScore(horse)).toFixed(1);
   const pci = horse['PCI'];
   const sire = horse['父馬名'];
   const jockey = horse['騎手名'];
