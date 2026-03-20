@@ -772,7 +772,9 @@ function showDetail(umaname) {
   document.getElementById('d-jockey-score').textContent = h['jockey_score'].toFixed(2);
   document.getElementById('d-sire-score').textContent = h['sire_score'].toFixed(2);
   document.getElementById('d-pci-diff').textContent = h['pci_diff_score'].toFixed(2);
-  document.getElementById('d-gaiku-bonus').textContent = h['gaiku_bonus'];
+  const gaikuBonusVal = h['gaiku_bonus'];
+  document.getElementById('d-gaiku-bonus').textContent =
+    gaikuBonusVal < 0 ? `+${-gaikuBonusVal}` : gaikuBonusVal === 0 ? '±0' : `-${gaikuBonusVal}`;
   document.getElementById('d-race-bonus').textContent = raceBonus === 0 ? '±0' : raceBonus.toFixed(1);
 
   document.getElementById('d-prev-race').textContent = h['レース名'] || '-';
