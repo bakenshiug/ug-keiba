@@ -555,9 +555,9 @@ const RACE_RESULTS = {
       pending: false,
       raceName: 'ファルコンS G3', venue: '中京 芝1400m', time: '15:20',
       chakujun: [
-        {umaban: 9, umaname: 'ダイヤモンドノット', jockey: '川田将雅'},
-        {umaban:10, umaname: 'エイシンディード',   jockey: '川又賢治'},
-        {umaban: 7, umaname: 'フクチャンショウ',   jockey: '横山武史'}
+        {umaban: 9, umaname: 'ダイヤモンドノット', jockey: '川田将雅', ninki: 1},
+        {umaban:10, umaname: 'エイシンディード',   jockey: '川又賢治', ninki: 8},
+        {umaban: 7, umaname: 'フクチャンショウ',   jockey: '横山武史', ninki: 4}
       ],
       tekichu: ['馬単◎○的中 ¥2,380'],
 
@@ -596,9 +596,9 @@ const RACE_RESULTS = {
       pending: false,
       raceName: '若葉S', venue: '阪神 芝2000m', time: '15:30',
       chakujun: [
-        {umaban: 1, umaname: 'マテンロウゲイル',   jockey: '横山和生'},
-        {umaban: 9, umaname: 'ロードフィレール',   jockey: '坂井瑠星'},
-        {umaban: 7, umaname: 'サヴォアフェール',   jockey: '松山弘平'}
+        {umaban: 1, umaname: 'マテンロウゲイル',   jockey: '横山和生', ninki: 1},
+        {umaban: 9, umaname: 'ロードフィレール',   jockey: '坂井瑠星', ninki: 8},
+        {umaban: 7, umaname: 'サヴォアフェール',   jockey: '松山弘平', ninki: 2}
       ],
       tekichu: ['馬単◎☆的中 ¥1,980', '3連単◎☆○的中 ¥14,000'],
       haito: {
@@ -1287,7 +1287,7 @@ function renderResultsList(race) {
     const horse = data.find(d => d['馬名'] === h.umaname) || {};
     const waku = horse['枠番'] || 0;
     const inn = horse['印'] || '';
-    const ninki = horse['人気順'] || '';
+    const ninki = h.ninki != null ? h.ninki : (horse['人気順'] || '');
     return `
     <div class="flex items-center gap-3 py-2 border-b border-outline/10">
       <span class="text-2xl w-8">${medals[i]}</span>
