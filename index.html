@@ -555,10 +555,24 @@ const RACE_RESULTS = {
       }
     },
     flower: {
-      pending: true,
+      pending: false,
       raceName: 'フラワーC G3', venue: '中山 芝1800m', time: '15:45',
-      chakujun: [],
-      haito: { tansho: null, fukusho: [], wakuren: null, umaren: null, wide: [], umatan: null, sanrenpuku: null, sanrentan: null }
+      chakujun: [
+        {umaban:10, umaname: 'スマートプリエール', jockey: '原優介'},
+        {umaban:11, umaname: 'ロンギングセリーヌ', jockey: '石橋脩'},
+        {umaban: 8, umaname: 'イクシード',         jockey: 'ルメール'}
+      ],
+      tekichu: [],
+      haito: {
+        tansho: [10, 1280],
+        fukusho: [[10,290],[11,870],[8,160]],
+        wakuren: ['5-6', 9500],
+        umaren: ['10-11', 19270],
+        wide: [['10-11',4560],['08-10',780],['08-11',2260]],
+        umatan: ['10-11', 37120],
+        sanrenpuku: ['08-10-11', 22810],
+        sanrentan: ['10-11-08', 213970]
+      }
     },
     wakaba: {
       pending: false,
@@ -1285,6 +1299,15 @@ function renderResultsList(race) {
     <div class="bg-amber-50 px-4 py-3 space-y-1">
       ${result.tekichu.map(t => `<p class="text-sm font-bold text-amber-800">✅ ${t}</p>`).join('')}
     </div>
+  </div>` : (result.tekichu && result.tekichu.length === 0) ? `
+  <div class="rounded-xl overflow-hidden border-2 border-slate-400 mt-0 mb-1">
+    <div class="bg-slate-500 px-4 py-2 flex items-center gap-2">
+      <span class="text-xl">🏴‍☠️</span>
+      <span class="font-black text-sm text-white">UG予想 不的中...</span>
+    </div>
+    <div class="bg-slate-50 px-4 py-3">
+      <p class="text-sm text-slate-600">次回リベンジだ！</p>
+    </div>
   </div>` : '';
 
   el.innerHTML = `
@@ -1361,6 +1384,9 @@ function renderArchive(date) {
         ${(r.tekichu && r.tekichu.length) ? `
         <div class="mt-2 bg-amber-50 border border-amber-300 rounded-lg px-3 py-2">
           <p class="text-[10px] font-black text-amber-700">🎯 ${r.tekichu.join(' / ')}</p>
+        </div>` : (r.tekichu && r.tekichu.length === 0) ? `
+        <div class="mt-2 bg-slate-100 border border-slate-300 rounded-lg px-3 py-2">
+          <p class="text-[10px] font-black text-slate-500">🏴‍☠️ 不的中</p>
         </div>` : ''}
       </div>` : `<div class="px-4 py-3 text-xs text-outline">レース後に結果が表示されます</div>`}
     </div>`;
