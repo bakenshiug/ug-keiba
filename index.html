@@ -451,6 +451,18 @@
     <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Past Races</p>
     <h1 class="serif-headline text-2xl font-bold text-primary">アーカイブ</h1>
   </div>
+  <!-- 全アーカイブページへの導線 -->
+  <a href="./docs/archive.html"
+     class="flex items-center justify-between bg-primary rounded-xl px-4 py-3 text-white no-underline">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-lg">history</span>
+      <div>
+        <p class="text-xs font-black">🤡強奪ニック🤡 過去の戦歴</p>
+        <p class="text-[10px] text-white/70">全アーカイブ一覧ページを見る</p>
+      </div>
+    </div>
+    <span class="material-symbols-outlined text-lg">chevron_right</span>
+  </a>
   <!-- 日付ボタン -->
   <div class="flex gap-2 flex-wrap">
     <button onclick="showArchiveDate('0321')" id="arc-0321"
@@ -480,6 +492,15 @@
     </a>
   </div>
 
+  <!-- アーカイブリンク -->
+  <div class="border-t border-outline/10 pt-3">
+    <a href="./docs/archive.html"
+       class="inline-flex items-center gap-1.5 font-bold text-[11px] text-primary underline underline-offset-2">
+      <span class="material-symbols-outlined text-sm">history</span>
+      過去の的中実績（アーカイブ）はこちら
+    </a>
+  </div>
+
   <!-- 利用規約エリア（将来用） -->
   <div id="footer-terms" class="border-t border-outline/10 pt-3 space-y-1 text-[9px] leading-relaxed text-outline/70">
     <p class="font-bold text-[10px] text-outline">ご利用にあたって</p>
@@ -504,10 +525,10 @@
     <span class="font-sans tracking-widest text-[9px] font-bold">結果</span>
   </div>
 
-  <div id="nav-archive" onclick="showTab('archive')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
+  <a id="nav-archive" href="./docs/archive.html" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all no-underline">
     <span class="material-symbols-outlined text-xl">history</span>
     <span class="font-sans tracking-widest text-[9px] font-bold">履歴</span>
-  </div>
+  </a>
 </nav>
 
 <script>
