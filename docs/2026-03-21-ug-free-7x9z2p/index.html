@@ -1418,11 +1418,19 @@ function renderArchive(date) {
       </div>
       ${hasResult ? `
       <div class="px-4 py-3 space-y-1">
-        ${r.chakujun.slice(0,3).map((h,i) => `
+        ${r.chakujun.slice(0,3).map((h,i) => {
+          const raceData = getRaceData(raceKey);
+          const horse = raceData.find(d => d['馬名'] === h.umaname) || {};
+          const inn = horse['印'] || '';
+          const ninki = h.ninki != null ? h.ninki : (horse['人気順'] || '');
+          return `
         <div class="flex items-center gap-2 text-sm">
           <span class="text-base">${['🥇','🥈','🥉'][i]}</span>
-          <span class="font-bold">${h.umaban}番 ${h.umaname}</span>
-        </div>`).join('')}
+          <span class="waku-${horse['枠番']||0} text-[9px] font-bold px-1 py-0.5 rounded-sm">${h.umaban}</span>
+          <span class="font-bold flex-1">${inn ? `<span class="text-primary font-black">${inn}</span>` : ''}${h.umaname}</span>
+          ${ninki ? `<span class="text-[10px] text-outline">${ninki}人気</span>` : ''}
+        </div>`;
+        }).join('')}
         ${r.haito.sanrentan ? `<p class="text-xs text-tertiary font-black mt-2">3連単 ${r.haito.sanrentan[0]} ¥${r.haito.sanrentan[1].toLocaleString()}</p>` : ''}
         ${(r.tekichu && r.tekichu.length) ? `
         <div class="mt-2 bg-amber-50 border border-amber-300 rounded-lg px-3 py-2">
