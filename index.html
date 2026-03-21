@@ -503,10 +503,7 @@
     <span class="material-symbols-outlined text-xl">emoji_events</span>
     <span class="font-sans uppercase tracking-widest text-[9px] font-bold">Results</span>
   </div>
-  <div id="nav-stable" onclick="showTab('stable')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
-    <span class="material-symbols-outlined text-xl">bedroom_parent</span>
-    <span class="font-sans uppercase tracking-widest text-[9px] font-bold">Stable</span>
-  </div>
+
   <div id="nav-archive" onclick="showTab('archive')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
     <span class="material-symbols-outlined text-xl">history</span>
     <span class="font-sans uppercase tracking-widest text-[9px] font-bold">Archive</span>
@@ -1008,8 +1005,8 @@ function showList() {
 let currentTab = 'races';
 let currentScoreRace = 'falcon';
 
-const ALL_VIEWS = ['list-view','detail-view','score-view','stable-view','analysis-view','results-view','archive-view'];
-const ALL_NAVS  = ['nav-races','nav-score','nav-results','nav-stable','nav-archive'];
+const ALL_VIEWS = ['list-view','detail-view','score-view','analysis-view','results-view','archive-view'];
+const ALL_NAVS  = ['nav-races','nav-score','nav-results','nav-archive'];
 
 function showTab(tab) {
   ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
