@@ -1268,11 +1268,16 @@ function renderResultsList(race) {
     const data = getRaceData(race);
     const horse = data.find(d => d['馬名'] === h.umaname) || {};
     const waku = horse['枠番'] || 0;
+    const inn = horse['印'] || '';
+    const ninki = horse['人気順'] || '';
     return `
     <div class="flex items-center gap-3 py-2 border-b border-outline/10">
       <span class="text-2xl w-8">${medals[i]}</span>
       <span class="waku-${waku} text-[9px] font-bold px-1.5 py-0.5 rounded-sm">${h.umaban}番</span>
-      <span class="font-bold serif-headline text-base flex-1">${h.umaname}</span>
+      <span class="font-bold serif-headline text-base flex-1">
+        ${inn ? `<span class="text-primary font-black">${inn}</span>` : ''}${h.umaname}
+        ${ninki ? `<span class="text-[11px] text-outline font-normal ml-1">（${ninki}番人気）</span>` : ''}
+      </span>
       <span class="text-xs text-outline">${h.jockey || ''}</span>
     </div>`;
   }).join('');
