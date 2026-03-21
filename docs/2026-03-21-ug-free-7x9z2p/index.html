@@ -110,6 +110,18 @@
   body { min-height: max(884px, 100dvh); }
 
   .horse-row:active { background:#e6e9e7; }
+
+  /* 速報ティッカー */
+  .ticker-wrap { overflow: hidden; white-space: nowrap; }
+  .ticker-text {
+    display: inline-block;
+    animation: ticker-scroll 18s linear infinite;
+    padding-left: 100%;
+  }
+  @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
 </style>
 </head>
 <body class="bg-surface text-on-surface min-h-screen pb-32">
@@ -129,10 +141,17 @@
         </div>
         <div class="text-right">
           <p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">最終解析版</p>
-          <p class="text-sm font-label font-black text-on-surface">2026年3月21日</p>
+          <p class="text-sm font-label font-black text-on-surface">2026年3月22日</p>
         </div>
       </div>
     </div>
+    <!-- 速報ティッカー -->
+    <div class="ticker-wrap bg-[#006400] py-1.5 mt-2">
+      <span class="ticker-text text-white text-[11px] font-black tracking-wide">
+        🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; フラワーCは次回リベンジ🏴‍☠️ &nbsp;｜&nbsp; 本日も強奪ニック全力予想🔥 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯
+      </span>
+    </div>
+
     <!-- レースタブ（2日分） -->
     <div class="flex px-5 mt-3 gap-1">
       <button id="tab-falcon" onclick="switchRace('falcon')"
