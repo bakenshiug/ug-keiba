@@ -397,6 +397,8 @@
       class="flex-1 py-2 text-xs font-bold rounded-lg text-outline border border-outline/30">土 若葉S</button>
     <button onclick="switchScoreRace('aichi')" id="stab-aichi"
       class="flex-1 py-2 text-xs font-bold rounded-lg text-outline border border-outline/30">日 愛知杯</button>
+    <button onclick="switchScoreRace('hanshin')" id="stab-hanshin"
+      class="flex-1 py-2 text-xs font-bold rounded-lg text-outline border border-outline/30">日 阪神大賞典</button>
   </div>
   <div id="score-list" class="space-y-2"></div>
 </div>
@@ -437,6 +439,8 @@
       class="flex-1 py-2 text-xs font-bold rounded-lg text-outline border border-outline/30">土 若葉S</button>
     <button onclick="switchResultRace('aichi')" id="rtab-aichi"
       class="flex-1 py-2 text-xs font-bold rounded-lg text-outline border border-outline/30">日 愛知杯</button>
+    <button onclick="switchResultRace('hanshin')" id="rtab-hanshin"
+      class="flex-1 py-2 text-xs font-bold rounded-lg text-outline border border-outline/30">日 阪神大賞典</button>
   </div>
   <div id="results-content"></div>
 </div>
@@ -1003,7 +1007,7 @@ function showTab(tab) {
 // ===== スコアランキング =====
 function switchScoreRace(race) {
   currentScoreRace = race;
-  ['falcon','flower','wakaba','aichi'].forEach(r => {
+  ['falcon','flower','wakaba','aichi','hanshin'].forEach(r => {
     const el = document.getElementById('stab-' + r);
     if (el) el.className = `flex-1 py-2 text-xs font-bold rounded-lg transition-all ${race===r?'bg-primary text-white':'text-outline border border-outline/30'}`;
   });
@@ -1188,7 +1192,7 @@ function renderAnalysis() {
 // ===== 結果タブ切り替え =====
 function switchResultRace(race) {
   currentResultRace = race;
-  ['falcon','flower','wakaba','aichi'].forEach(r => {
+  ['falcon','flower','wakaba','aichi','hanshin'].forEach(r => {
     const el = document.getElementById('rtab-' + r);
     if (el) el.className = `flex-1 py-2 text-xs font-bold rounded-lg transition-all ${race===r?'bg-primary text-white':'text-outline border border-outline/30'}`;
   });
@@ -1197,7 +1201,7 @@ function switchResultRace(race) {
 
 function renderResultsList(race) {
   const el = document.getElementById('results-content');
-  const dateKey = (race === 'aichi') ? '0322' : '0321';
+  const dateKey = (race === 'aichi' || race === 'hanshin') ? '0322' : '0321';
   const result = (RACE_RESULTS[dateKey] || {})[race];
   if (!result) { el.innerHTML = '<p class="text-outline text-sm">データなし</p>'; return; }
 
