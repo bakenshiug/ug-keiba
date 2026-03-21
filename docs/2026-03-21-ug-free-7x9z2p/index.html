@@ -562,14 +562,14 @@ const RACE_RESULTS = {
       tekichu: ['馬単◎○的中 ¥2,380'],
 
       haito: {
-        tansho: [9, 160],
-        fukusho: [[9,110],[10,420],[7,220]],
-        wakuren: ['5-5', 1850],
-        umaren: ['09-10', 1870],
-        wide: [['09-10',690],['07-09',320],['07-10',2990]],
-        umatan: ['09-10', 2380],
-        sanrenpuku: ['07-09-10', 4970],
-        sanrentan: ['09-10-07', 15930]
+        tansho: [9, 160, 1],
+        fukusho: [[9,110,1],[10,420,9],[7,220,2]],
+        wakuren: ['5-5', 1850, 8],
+        umaren: ['09-10', 1870, 8],
+        wide: [['09-10',690,7],['07-09',320,1],['07-10',2990,35]],
+        umatan: ['09-10', 2380, 10],
+        sanrenpuku: ['07-09-10', 4970, 16],
+        sanrentan: ['09-10-07', 15930, 37]
       }
     },
     flower: {
@@ -1302,15 +1302,16 @@ function renderResultsList(race) {
 
   // 配当表示
   const h = result.haito;
+  const nk = v => v != null ? `<span class="text-[10px] text-outline font-normal ml-1">${v}人気</span>` : '';
   const haitoRows = [
-    ['単勝', h.tansho ? `${h.tansho[0]}番 ¥${h.tansho[1].toLocaleString()}` : '-', false],
-    ['複勝', h.fukusho.length ? h.fukusho.map(f=>`${f[0]}番 ¥${f[1].toLocaleString()}`).join(' / ') : '-', false],
-    ['枠連', h.wakuren ? `${h.wakuren[0]} ¥${h.wakuren[1].toLocaleString()}` : '-', false],
-    ['馬連', h.umaren ? `${h.umaren[0]} ¥${h.umaren[1].toLocaleString()}` : '-', false],
-    ['ワイド', h.wide.length ? h.wide.map(w=>`${w[0]} ¥${w[1].toLocaleString()}`).join('<br>') : '-', false],
-    ['馬単', h.umatan ? `${h.umatan[0]} ¥${h.umatan[1].toLocaleString()}` : '-', false],
-    ['3連複', h.sanrenpuku ? `${h.sanrenpuku[0]} ¥${h.sanrenpuku[1].toLocaleString()}` : '-', h.sanrenpuku && h.sanrenpuku[1] >= 10000],
-    ['3連単', h.sanrentan ? `${h.sanrentan[0]} ¥${h.sanrentan[1].toLocaleString()}` : '-', h.sanrentan && h.sanrentan[1] >= 10000],
+    ['単勝', h.tansho ? `${h.tansho[0]}番 ¥${h.tansho[1].toLocaleString()}${nk(h.tansho[2])}` : '-', false],
+    ['複勝', h.fukusho.length ? h.fukusho.map(f=>`${f[0]}番 ¥${f[1].toLocaleString()}${nk(f[2])}`).join('<br>') : '-', false],
+    ['枠連', h.wakuren ? `${h.wakuren[0]} ¥${h.wakuren[1].toLocaleString()}${nk(h.wakuren[2])}` : '-', false],
+    ['馬連', h.umaren ? `${h.umaren[0]} ¥${h.umaren[1].toLocaleString()}${nk(h.umaren[2])}` : '-', false],
+    ['ワイド', h.wide.length ? h.wide.map(w=>`${w[0]} ¥${w[1].toLocaleString()}${nk(w[2])}`).join('<br>') : '-', false],
+    ['馬単', h.umatan ? `${h.umatan[0]} ¥${h.umatan[1].toLocaleString()}${nk(h.umatan[2])}` : '-', false],
+    ['3連複', h.sanrenpuku ? `${h.sanrenpuku[0]} ¥${h.sanrenpuku[1].toLocaleString()}${nk(h.sanrenpuku[2])}` : '-', h.sanrenpuku && h.sanrenpuku[1] >= 10000],
+    ['3連単', h.sanrentan ? `${h.sanrentan[0]} ¥${h.sanrentan[1].toLocaleString()}${nk(h.sanrentan[2])}` : '-', h.sanrentan && h.sanrentan[1] >= 10000],
   ];
 
   const tekichuHTML = (result.tekichu && result.tekichu.length) ? `
