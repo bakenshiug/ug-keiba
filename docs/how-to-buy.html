@@ -17,6 +17,161 @@
   .mark-yoshi{ color:#006400; font-weight:900; }
   .mark-delta{ color:#444;    font-weight:700; }
 </style>
+
+<style id="ug-gold-theme">
+/* ══════════════════════════════════════
+   UG GOLD DARK THEME — 稼げる投資顧問風
+   ══════════════════════════════════════ */
+:root {
+  --ug-bg-deep:   #000000;
+  --ug-bg-dark:   #0a1a0c;
+  --ug-bg-card:   rgba(14,26,14,0.92);
+  --ug-gold:      #d4af37;
+  --ug-gold-lt:   #f1d592;
+  --ug-green:     #28a745;
+  --ug-text:      #dce8dc;
+  --ug-muted:     #7a9a7a;
+  --ug-border:    rgba(212,175,55,0.30);
+}
+
+/* ── Base ─────────────────────────────── */
+html { background: #000 !important; }
+body {
+  background:
+    radial-gradient(ellipse at 15% 40%, rgba(212,175,55,0.045) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(212,175,55,0.055) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 85%, rgba(40,167,69,0.03)  0%, transparent 55%),
+    linear-gradient(160deg, #0a2a12 0%, #061406 45%, #000000 100%)
+    !important;
+  color: var(--ug-text) !important;
+  min-height: 100vh;
+}
+
+/* ── Header ──────────────────────────── */
+header {
+  background: rgba(0,0,0,0.94) !important;
+  border-bottom: 1px solid var(--ug-border) !important;
+  backdrop-filter: blur(14px) !important;
+}
+header p, header span { color: var(--ug-muted) !important; }
+header h1, header a h1 { color: var(--ug-gold-lt) !important; text-shadow: 0 0 18px rgba(212,175,55,0.35) !important; }
+header .text-\[\#004900\], header .text-\[\#707a6a\] { color: var(--ug-muted) !important; }
+
+/* ── Cards / White boxes ─────────────── */
+.bg-white, .card,
+[class*="rounded-2xl"].bg-white,
+[class*="rounded-2xl"].border {
+  background: var(--ug-bg-card) !important;
+  border-color: var(--ug-border) !important;
+  color: var(--ug-text) !important;
+}
+
+/* ── Section boxes (bg-[#f2f4f2]) ─────── */
+.bg-\[\#f2f4f2\] {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(212,175,55,0.12) !important;
+}
+
+/* ── Lead banner ─────────────────────── */
+.bg-\[\#006400\], .bg-\[\#004900\] {
+  background: linear-gradient(135deg, #0a2a12, #071a09) !important;
+  border: 1px solid var(--ug-border) !important;
+}
+
+/* ── Text colors ─────────────────────── */
+.text-\[\#191c1b\], .text-\[\#374151\] { color: var(--ug-text) !important; }
+.text-\[\#707a6a\], .text-\[\#6b7280\] { color: var(--ug-muted) !important; }
+.text-\[\#004900\]                      { color: var(--ug-gold-lt) !important; }
+.text-\[\#2d5a27\]                      { color: var(--ug-gold-lt) !important; }
+.text-sm, .text-base, p, span, li, td  { color: inherit; }
+
+/* ── Ranking summary dark ─────────────── */
+.bg-\[\#004900\].px-5.py-3 {
+  background: linear-gradient(90deg,#0a2a12,#071a09) !important;
+  border-bottom: 1px solid var(--ug-border) !important;
+}
+
+/* ── Info pills (bg-[#eceeec]) ─────────── */
+.bg-\[\#eceeec\] {
+  background: rgba(212,175,55,0.10) !important;
+  color: var(--ug-gold-lt) !important;
+  border: 1px solid rgba(212,175,55,0.18) !important;
+}
+.bg-\[\#c4eab5\] {
+  background: rgba(40,167,69,0.18) !important;
+  color: #6fdd8a !important;
+}
+
+/* ── Hot card (激推し) ─────────────────── */
+.border-2.border-\[\#dc2626\]\/60 {
+  border-color: var(--ug-gold) !important;
+  box-shadow: 0 0 18px rgba(212,175,55,0.20) !important;
+}
+.bg-gradient-to-r.from-\[\#7f1d1d\] {
+  background: linear-gradient(90deg, #1a1000, #2a1e00) !important;
+  border-bottom: 1px solid var(--ug-gold) !important;
+}
+
+/* ── Grade badges — keep colors ─────── */
+.grade-S  { background:#6d28d9!important; color:#fff!important; }
+.grade-A  { background:#b45309!important; color:#fff!important; }
+.grade-Bp { background:#004900!important; color:#fff!important; }
+.grade-B  { background:#166534!important; color:#fff!important; }
+.grade-C  { background:#374151!important; color:#fff!important; }
+.grade-D  { background:#6b7280!important; color:#fff!important; }
+.grade-E  { background:#dc2626!important; color:#fff!important; }
+.grade-none { background:#1e2e1e!important; color:#5a7a5a!important; border:1px solid rgba(212,175,55,0.15)!important; }
+
+/* ── Border left colored lines ────────── */
+.border-A  { border-left: 4px solid #b45309 !important; }
+.border-Bp { border-left: 4px solid #004900 !important; }
+.border-B  { border-left: 4px solid #166534 !important; }
+.border-C  { border-left: 4px solid #374151 !important; }
+.border-D  { border-left: 4px solid #6b7280 !important; }
+.border-E  { border-left: 4px solid #dc2626 !important; }
+
+/* ── Buttons ─────────────────────────── */
+a.race-pill {
+  background: linear-gradient(135deg, #1a4a22, #0e2e14) !important;
+  border: 1px solid var(--ug-border) !important;
+  color: var(--ug-gold-lt) !important;
+  transition: all 0.18s ease !important;
+}
+a.race-pill:hover, a.race-pill:active {
+  background: linear-gradient(135deg, var(--ug-gold), #b8860b) !important;
+  color: #000 !important;
+  box-shadow: 0 0 14px rgba(212,175,55,0.50) !important;
+}
+.race-pill-locked {
+  background: rgba(30,30,30,0.6) !important;
+  border: 1px solid rgba(100,100,100,0.25) !important;
+  color: #5a6a5a !important;
+}
+
+/* ── Data source footer ──────────────── */
+.bg-\[\#f2f4f2\].rounded-2xl {
+  background: rgba(10,20,10,0.7) !important;
+  border: 1px solid rgba(212,175,55,0.12) !important;
+}
+.text-\[\#707a6a\].leading-relaxed { color: #5a7a5a !important; }
+
+/* ── Footer nav ─────────────────────── */
+footer {
+  background: rgba(0,0,0,0.96) !important;
+  border-top: 1px solid var(--ug-border) !important;
+}
+footer a { color: var(--ug-muted) !important; }
+footer a:first-child { color: var(--ug-gold-lt) !important; }
+footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-gold-lt) !important; }
+
+/* ── Archive / how-to-buy ─────────────── */
+.bg-amber-500 { background: linear-gradient(135deg,#7a4a00,#3a2000) !important; border:1px solid var(--ug-border)!important; }
+.bg-\[\#4b5563\] { background: rgba(20,20,20,0.9) !important; }
+
+/* ── Scrollbar ──────────────────────── */
+::-webkit-scrollbar { width: 4px; background: #0a1a0c; }
+::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.30); border-radius: 2px; }
+</style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
 
