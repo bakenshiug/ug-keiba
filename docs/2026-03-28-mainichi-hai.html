@@ -205,6 +205,26 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
 /* ── Scrollbar ──────────────────────── */
 ::-webkit-scrollbar { width: 4px; background: #0a1a0c; }
 ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.30); border-radius: 2px; }
+
+/* ── 診断カード白背景オーバーライド ──── */
+.border-A, .border-Bp, .border-B, .border-Cp, .border-C, .border-D, .border-E,
+.border-2.border-\[\#dc2626\]\/60, .border-2.border-\[\#7c3aed\]\/60 {
+  background: #ffffff !important;
+  color: #191c1b !important;
+}
+:is(.border-A, .border-Bp, .border-B, .border-Cp, .border-C, .border-D, .border-E) .bg-\[\#f2f4f2\],
+.border-2.border-\[\#dc2626\]\/60 .bg-\[\#f2f4f2\],
+.border-2.border-\[\#7c3aed\]\/60 .bg-\[\#f2f4f2\] {
+  background: #f2f4f2 !important;
+  border: 1px solid rgba(191,202,183,0.50) !important;
+  color: #191c1b !important;
+}
+:is(.border-A, .border-Bp, .border-B, .border-Cp, .border-C, .border-D, .border-E) .text-\[\#707a6a\],
+.border-2.border-\[\#dc2626\]\/60 .text-\[\#707a6a\],
+.border-2.border-\[\#7c3aed\]\/60 .text-\[\#707a6a\] { color: #707a6a !important; }
+:is(.border-A, .border-Bp, .border-B, .border-Cp, .border-C, .border-D, .border-E) .text-\[\#004900\],
+.border-2.border-\[\#dc2626\]\/60 .text-\[\#004900\],
+.border-2.border-\[\#7c3aed\]\/60 .text-\[\#004900\] { color: #004900 !important; }
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
@@ -309,8 +329,8 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       <div class="flex items-center gap-3">
         <span class="shrink-0 text-[10px] font-black px-2.5 py-1 rounded-lg bg-[#7c3aed] text-white tracking-wider">複勝激推し①</span>
         <div>
-          <p class="font-black text-[#004900] text-base">ローベルクランツ</p>
-          <p class="text-[11px] text-[#707a6a] leading-relaxed mt-0.5">レース適性S×外厩しがらきSでポテンシャルは本物だ。きさらぎ賞7着で人気落ちするが展開依存の一発屋。複勝でひっそり構えるぞ。</p>
+          <p class="font-black text-[#004900] text-base">ウップヘリーア</p>
+          <p class="text-[11px] text-[#707a6a] leading-relaxed mt-0.5">ノーザンＦ天栄帰りでルメール鞍上確定。若竹賞2着から直行で人気が甘いが仕上がりは本番級。外厩天栄×天才騎手の組み合わせは複勝で絶対外せないぞ。</p>
         </div>
       </div>
       <div class="border-t border-[#f2f4f2]"></div>
@@ -403,7 +423,12 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   </div>
 
   <!-- ② アルトラムス 総合A（外厩加点 B+→A） -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-A">
+  <div class="bg-white rounded-2xl border-2 border-[#dc2626]/60 shadow-lg overflow-hidden">
+    <div class="bg-gradient-to-r from-[#dc2626] to-[#b91c1c] px-5 py-2 flex items-center gap-2">
+      <span class="text-base">🔥</span>
+      <p class="text-white font-black text-xs tracking-widest uppercase">穴馬　単勝激推し</p>
+      <span class="text-base">🔥</span>
+    </div>
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：シンザン記念 3着　岩田望騎手</p>
@@ -479,7 +504,12 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   </div>
 
   <!-- ③ ウップヘリーア 総合A（外厩加点 B→A） -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-A">
+  <div class="bg-white rounded-2xl border-2 border-[#7c3aed]/60 shadow-lg overflow-hidden">
+    <div class="bg-gradient-to-r from-[#7c3aed] to-[#6d28d9] px-5 py-2 flex items-center gap-2">
+      <span class="text-base">🔥</span>
+      <p class="text-white font-black text-xs tracking-widest uppercase">穴馬　複勝激推し</p>
+      <span class="text-base">🔥</span>
+    </div>
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：若竹賞 2着　ルメール騎手</p>
@@ -555,12 +585,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   </div>
 
   <!-- ④ ローベルクランツ 総合B+（外厩加点 B→B+） -->
-  <div class="bg-white rounded-2xl border-2 border-[#dc2626]/60 shadow-lg overflow-hidden">
-    <div class="bg-gradient-to-r from-[#dc2626] to-[#b91c1c] px-5 py-2 flex items-center gap-2">
-      <span class="text-base">🔥</span>
-      <p class="text-white font-black text-xs tracking-widest uppercase">穴馬　単勝激推し</p>
-      <span class="text-base">🔥</span>
-    </div>
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-Bp">
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：きさらぎ賞 7着　松山弘騎手</p>
