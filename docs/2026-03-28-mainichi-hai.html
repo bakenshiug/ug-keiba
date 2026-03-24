@@ -207,24 +207,101 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
 ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.30); border-radius: 2px; }
 
 /* ── 診断カード白背景オーバーライド ──── */
-.border-A, .border-Bp, .border-B, .border-Cp, .border-C, .border-D, .border-E,
-.border-2.border-\[\#dc2626\]\/60, .border-2.border-\[\#7c3aed\]\/60 {
+/* specificity [0,2,0] で UG テーマの [class*="rounded-2xl"].border に勝つ */
+[class*="rounded-2xl"].border-A,
+[class*="rounded-2xl"].border-Bp,
+[class*="rounded-2xl"].border-B,
+[class*="rounded-2xl"].border-Cp,
+[class*="rounded-2xl"].border-C,
+[class*="rounded-2xl"].border-D,
+[class*="rounded-2xl"].border-E,
+[class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
+[class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60 {
   background: #ffffff !important;
   color: #191c1b !important;
+  border-color: initial;
 }
-:is(.border-A, .border-Bp, .border-B, .border-Cp, .border-C, .border-D, .border-E) .bg-\[\#f2f4f2\],
-.border-2.border-\[\#dc2626\]\/60 .bg-\[\#f2f4f2\],
-.border-2.border-\[\#7c3aed\]\/60 .bg-\[\#f2f4f2\] {
+[class*="rounded-2xl"].border-A  { border-left: 4px solid #b45309 !important; }
+[class*="rounded-2xl"].border-Bp { border-left: 4px solid #004900 !important; }
+[class*="rounded-2xl"].border-B  { border-left: 4px solid #166534 !important; }
+[class*="rounded-2xl"].border-Cp { border-left: 4px solid #1d4ed8 !important; }
+[class*="rounded-2xl"].border-C  { border-left: 4px solid #374151 !important; }
+[class*="rounded-2xl"].border-D  { border-left: 4px solid #9ca3af !important; }
+[class*="rounded-2xl"].border-E  { border-left: 4px solid #dc2626 !important; }
+[class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60 { border: 2px solid rgba(220,38,38,0.60) !important; }
+[class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60 { border: 2px solid rgba(124,58,237,0.60) !important; }
+
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-Cp,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
+  [class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60
+) .bg-\[\#f2f4f2\] {
   background: #f2f4f2 !important;
   border: 1px solid rgba(191,202,183,0.50) !important;
   color: #191c1b !important;
 }
-:is(.border-A, .border-Bp, .border-B, .border-Cp, .border-C, .border-D, .border-E) .text-\[\#707a6a\],
-.border-2.border-\[\#dc2626\]\/60 .text-\[\#707a6a\],
-.border-2.border-\[\#7c3aed\]\/60 .text-\[\#707a6a\] { color: #707a6a !important; }
-:is(.border-A, .border-Bp, .border-B, .border-Cp, .border-C, .border-D, .border-E) .text-\[\#004900\],
-.border-2.border-\[\#dc2626\]\/60 .text-\[\#004900\],
-.border-2.border-\[\#7c3aed\]\/60 .text-\[\#004900\] { color: #004900 !important; }
+
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-Cp,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
+  [class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60
+) .text-\[\#707a6a\] { color: #707a6a !important; }
+
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-Cp,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
+  [class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60
+) .text-\[\#004900\] { color: #004900 !important; }
+
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-Cp,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
+  [class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60
+) .text-\[\#191c1b\], :is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-Cp,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
+  [class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60
+) p, :is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-Cp,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
+  [class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60
+) span { color: inherit !important; }
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
