@@ -32,6 +32,10 @@
 <style>
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   body { font-family: 'Public Sans', sans-serif; background-color: #f8faf8; color: #191c1b; }
+  /* 速報ティッカー */
+  .ticker-wrap { overflow: hidden; white-space: nowrap; }
+  .ticker-text { display: inline-block; animation: ticker-scroll 20s linear infinite; padding-left: 100%; }
+  @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
   .serif-headline { font-family: 'Noto Serif JP', serif; }
   .label-data { font-family: 'Inter', sans-serif; }
   .grade-S  { background:#6d28d9; color:#fff; }
@@ -219,6 +223,13 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     </div>
   </div>
 </header>
+
+<!-- 速報ティッカー -->
+<div class="ticker-wrap py-1.5 sticky top-[calc(var(--header-h,60px))] z-40" style="background:#006400;">
+  <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
+    🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; フラワーCは次回リベンジ🏴‍☠️ &nbsp;｜&nbsp; 今週は毎日杯・日経賞を全力解析中🔥 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯
+  </span>
+</div>
 
 <main class="px-4 py-5 max-w-lg mx-auto space-y-4">
 

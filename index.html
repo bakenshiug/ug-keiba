@@ -24,6 +24,10 @@
   a.card { transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.18s ease; }
   a.card:hover { border-color: rgba(212,175,55,0.65); box-shadow: 0 0 20px rgba(212,175,55,0.18); transform: translateY(-1px); }
   a.card:active { transform: scale(0.97); }
+  /* 速報ティッカー */
+  .ticker-wrap { overflow: hidden; white-space: nowrap; }
+  .ticker-text { display: inline-block; animation: ticker-scroll 20s linear infinite; padding-left: 100%; }
+  @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
   .race-pill {
     display: flex; flex-direction: column; align-items: flex-start;
     background: linear-gradient(135deg, #1a4a22, #0e2e14);
@@ -62,6 +66,12 @@
   <!-- 的中実績バナー -->
   <div style="background:linear-gradient(90deg,rgba(212,175,55,0.12),rgba(212,175,55,0.06));border-top:1px solid rgba(212,175,55,0.20);border-bottom:1px solid rgba(212,175,55,0.20);" class="px-4 py-2 max-w-lg mx-auto">
     <p class="text-[11px] font-black text-center" style="color:#f1d592;text-shadow:0 0 12px rgba(212,175,55,0.35);">🏆 5戦3勝の衝撃。次はキミの番だ。</p>
+  </div>
+  <!-- 速報ティッカー -->
+  <div class="ticker-wrap py-1.5" style="background:#006400;">
+    <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
+      🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; フラワーCは次回リベンジ🏴‍☠️ &nbsp;｜&nbsp; 今週は毎日杯・日経賞を全力解析中🔥 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯
+    </span>
   </div>
 </header>
 
