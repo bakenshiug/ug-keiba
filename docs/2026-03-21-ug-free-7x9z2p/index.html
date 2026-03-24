@@ -640,10 +640,24 @@ const RACE_RESULTS = {
       haito: { tansho: null, fukusho: [], wakuren: null, umaren: null, wide: [], umatan: null, sanrenpuku: null, sanrentan: null }
     },
     hanshin: {
-      pending: true,
+      pending: false,
       raceName: '阪神大賞典 G2', venue: '阪神 芝3000m', time: '15:25',
-      chakujun: [],
-      haito: { tansho: null, fukusho: [], wakuren: null, umaren: null, wide: [], umatan: null, sanrenpuku: null, sanrentan: null }
+      chakujun: [
+        {umaban: 1, umaname: 'アドマイヤテラ',  jockey: '武豊',    ninki: 3},
+        {umaban: 4, umaname: 'アクアヴァーナル', jockey: '川田将雅', ninki: 2},
+        {umaban: 5, umaname: 'ダノンシーマ',    jockey: '横山武史', ninki: 1}
+      ],
+      tekichu: ['ボックス的中🎯 馬連・馬単・3連複・3連単 全的中！'],
+      haito: {
+        tansho:    [1, 310],
+        fukusho:   [[1,130],[4,170],[5,110]],
+        wakuren:   null,
+        umaren:    ['01-04', 1690],
+        wide:      [],
+        umatan:    ['01-04', 2540],
+        sanrenpuku:['01-04-05', 1540],
+        sanrentan: ['01-04-05', 8030]
+      }
     }
   }
 };
@@ -1192,8 +1206,8 @@ const NICK_COMMENTS = {
     comment: '「ナムラクララは文句なし。血統Sのモーリス産駒がチャンピオンヒルズで仕上げて中京芝に臨む。この舞台のコース適性は別格で、スコアもぶっちぎりのトップ。対抗シンバーシアは天栄帰りのロードカナロア産駒、団野騎乗で外厩バックアップも万全。単穴マサノカナリアは前走の上がり強化が不気味、侮れない一頭だ。」'
   },
   '阪神大賞典 G2': {
-    point: '🌹 日経新春杯G2 2着×調教S×外厩S、ファミリータイムが長距離頂点へ',
-    comment: '「ファミリータイムが本命だ。前走日経新春杯G2で2着と好走、松山弘平（騎手S）×リアルスティール×調教S評価が揃った。対抗ダノンシーマは川田将雅（S）×キタサンブラック（S）×調教S×しがらきと全項目が高水準。単穴アドマイヤテラは有馬記念GIを11着と凡走したが武豊×調教S×しがらきで巻き返しを狙う。◎ファミリータイム本命、○ダノンシーマへの馬連が軸だ。」'
+    point: '🎯 ボックス4点全的中！アドマイヤテラ×ダノンシーマの軸が炸裂',
+    comment: '「アドマイヤテラ（単勝310円）が武豊×しがらき仕上げの一発で1着。ダノンシーマが3着に食い込みボックス4点が全て的中した。馬連1,690円・馬単2,540円・3連複1,540円・3連単8,030円――ニックが事前に指名した単穴アドマイヤテラが軸となりBOXで仕留めた。武豊×調教S×しがらきの組み合わせは信頼できることが証明されたぞ。」'
   }
 };
 
