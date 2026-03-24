@@ -126,8 +126,83 @@
 </head>
 <body class="bg-surface text-on-surface min-h-screen pb-32">
 
+<!-- ===== HOME VIEW ===== -->
+<div id="home-view">
+
+  <!-- イントロ -->
+  <div class="px-5 pt-5 pb-3">
+    <p class="text-[10px] text-outline font-bold uppercase tracking-widest">2026年3月22日 更新</p>
+    <p class="text-sm text-on-surface mt-1.5 leading-relaxed"><span class="font-black">ファルコンS・若葉S的中、阪神大賞典はBOX的中。</span>今週も強奪の準備は整ってる。</p>
+  </div>
+
+  <!-- 4ナビカード -->
+  <div class="px-4 pb-4 grid grid-cols-2 gap-3">
+
+    <!-- 重賞展望 -->
+    <a href="./docs/2026-03-28-mainichi-hai.html" class="bg-surface-container-lowest rounded-2xl border border-outline-variant/60 shadow-sm p-4 flex flex-col gap-2 no-underline hover:bg-surface-container transition-colors">
+      <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings:'FILL' 1;">star</span>
+      <div>
+        <p class="serif-headline font-bold text-primary text-sm">重賞展望</p>
+        <p class="text-[10px] text-outline mt-0.5">毎日杯 全頭診断 公開中</p>
+      </div>
+      <span class="text-[9px] font-black text-primary bg-secondary-container rounded-full px-2 py-0.5 self-start">NEW</span>
+    </a>
+
+    <!-- 先週結果 -->
+    <button onclick="showTab('results')" class="bg-surface-container-lowest rounded-2xl border border-outline-variant/60 shadow-sm p-4 flex flex-col gap-2 items-start text-left hover:bg-surface-container transition-colors w-full">
+      <span class="material-symbols-outlined text-[#b45309] text-2xl" style="font-variation-settings:'FILL' 1;">emoji_events</span>
+      <div>
+        <p class="serif-headline font-bold text-on-surface text-sm">先週結果</p>
+        <p class="text-[10px] text-outline mt-0.5">3/21-22 ファルコンS他</p>
+      </div>
+      <span class="text-[9px] font-black text-[#b45309] bg-[#fef3c7] rounded-full px-2 py-0.5 self-start">更新中</span>
+    </button>
+
+    <!-- 過去レース -->
+    <a href="./docs/archive.html" class="bg-surface-container-lowest rounded-2xl border border-outline-variant/60 shadow-sm p-4 flex flex-col gap-2 no-underline hover:bg-surface-container transition-colors">
+      <span class="material-symbols-outlined text-outline text-2xl" style="font-variation-settings:'FILL' 1;">folder_open</span>
+      <div>
+        <p class="serif-headline font-bold text-on-surface text-sm">過去レース</p>
+        <p class="text-[10px] text-outline mt-0.5">アーカイブ一覧</p>
+      </div>
+    </a>
+
+    <!-- 今週レース (locked) -->
+    <div class="bg-surface-container rounded-2xl border border-outline-variant/30 p-4 flex flex-col gap-2 cursor-not-allowed">
+      <span class="material-symbols-outlined text-[#9ca3af] text-2xl" style="font-variation-settings:'FILL' 1;">lock</span>
+      <div>
+        <p class="serif-headline font-bold text-[#9ca3af] text-sm">今週レース</p>
+        <p class="text-[10px] text-[#9ca3af] mt-0.5">土曜朝8時公開</p>
+      </div>
+      <span class="text-[9px] font-black text-[#9ca3af] bg-surface-container-high rounded-full px-2 py-0.5 self-start">3/28 8:00〜</span>
+    </div>
+
+  </div>
+
+  <!-- フッター（ホーム内） -->
+  <div class="mx-4 mb-4 rounded-2xl bg-surface-container border border-outline/10 px-5 py-4 text-[10px] text-outline space-y-3">
+    <div class="space-y-1">
+      <p class="font-black text-[11px] text-on-surface tracking-wide">運営事務局</p>
+      <p>サラブレッドアンダーグランド製作委員会</p>
+      <p>スタッフ：強奪ニック / AI看守犬ギーニョ</p>
+    </div>
+    <div>
+      <a href="https://note.com/gaikyukeiba_ace" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-1.5 font-bold text-primary underline underline-offset-2">
+        <span class="material-symbols-outlined text-sm">open_in_new</span>
+        note で読む
+      </a>
+    </div>
+    <div class="border-t border-outline/10 pt-3 text-[9px] leading-relaxed text-outline/70">
+      <p>本サイトの予想情報はエンターテインメント目的です。投票は自己責任でお願いします。</p>
+      <p class="mt-1">© 2026 サラブレッドアンダーグランド製作委員会</p>
+    </div>
+  </div>
+
+</div>
+
 <!-- ===== LIST VIEW ===== -->
-<div id="list-view">
+<div id="list-view" style="display:none">
 
   <!-- Header -->
   <header class="sticky top-0 w-full z-50 bg-[#f8faf8]/90 backdrop-blur-md border-b border-outline/10">
@@ -148,7 +223,7 @@
     <!-- 速報ティッカー -->
     <div class="ticker-wrap bg-[#006400] py-1.5 mt-2">
       <span class="ticker-text text-white text-[11px] font-black tracking-wide">
-        🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; フラワーCは次回リベンジ🏴‍☠️ &nbsp;｜&nbsp; 本日も強奪ニック全力予想🔥 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯
+        🎯 速報 &nbsp;｜&nbsp; ファルコンS／若葉S 🎯的中🎯 &nbsp;｜&nbsp; 阪神大賞典 🎯BOX的中🎯 &nbsp;｜&nbsp; 必見！重賞展望公開中！ &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; ファルコンS／若葉S 🎯的中🎯 &nbsp;｜&nbsp; 阪神大賞典 🎯BOX的中🎯
       </span>
     </div>
 
@@ -531,9 +606,13 @@
 
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 pb-4 h-20 bg-[#f8faf8]/80 backdrop-blur-xl z-50 border-t border-outline/10">
-  <div id="nav-races" onclick="showTab('races')" class="flex flex-col items-center justify-center cursor-pointer text-green-900 border-t-2 border-green-900 pt-2 scale-110 transition-all">
+  <div id="nav-home" onclick="showTab('home')" class="flex flex-col items-center justify-center cursor-pointer text-green-900 border-t-2 border-green-900 pt-2 scale-110 transition-all">
+    <span class="material-symbols-outlined text-xl">home</span>
+    <span class="font-sans tracking-widest text-[9px] font-bold">ホーム</span>
+  </div>
+  <div id="nav-races" onclick="showTab('races')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
     <span class="material-symbols-outlined text-xl">newspaper</span>
-    <span class="font-sans tracking-widest text-[9px] font-bold">予想</span>
+    <span class="font-sans tracking-widest text-[9px] font-bold">今週</span>
   </div>
   <div id="nav-score" onclick="showTab('score')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
     <span class="material-symbols-outlined text-xl">query_stats</span>
@@ -541,7 +620,7 @@
   </div>
   <div id="nav-results" onclick="showTab('results')" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all">
     <span class="material-symbols-outlined text-xl">emoji_events</span>
-    <span class="font-sans tracking-widest text-[9px] font-bold">結果</span>
+    <span class="font-sans tracking-widest text-[9px] font-bold">先週結果</span>
   </div>
 
   <a id="nav-archive" href="./docs/archive.html" class="flex flex-col items-center justify-center cursor-pointer text-zinc-400 pt-2 hover:text-green-800 transition-all no-underline">
@@ -1042,15 +1121,17 @@ function showList() {
 }
 
 // ===== タブ切り替え =====
-let currentTab = 'races';
+let currentTab = 'home';
 let currentScoreRace = 'falcon';
 
-const ALL_VIEWS = ['list-view','detail-view','score-view','analysis-view','results-view','archive-view'];
-const ALL_NAVS  = ['nav-races','nav-score','nav-results','nav-archive'];
+const ALL_VIEWS = ['home-view','list-view','detail-view','score-view','analysis-view','results-view','archive-view'];
+const ALL_NAVS  = ['nav-home','nav-races','nav-score','nav-results','nav-archive'];
 
 function showTab(tab) {
   ALL_VIEWS.forEach(v => document.getElementById(v).style.display = 'none');
-  if (tab === 'races') {
+  if (tab === 'home') {
+    document.getElementById('home-view').style.display = 'block';
+  } else if (tab === 'races') {
     document.getElementById('list-view').style.display = 'block';
   } else if (tab === 'score') {
     document.getElementById('score-view').style.display = 'block';
@@ -1079,7 +1160,7 @@ function showTab(tab) {
       .replace('text-green-900 border-t-2 border-green-900 scale-110','text-zinc-400')
       .replace('text-zinc-400','text-zinc-400');
   });
-  const navMap = {races:'nav-races',score:'nav-score',stable:'nav-stable',results:'nav-results',archive:'nav-archive'};
+  const navMap = {home:'nav-home',races:'nav-races',score:'nav-score',stable:'nav-stable',results:'nav-results',archive:'nav-archive'};
   const activeEl = document.getElementById(navMap[tab]);
   if (activeEl) activeEl.className = activeEl.className.replace('text-zinc-400','text-green-900 border-t-2 border-green-900 scale-110');
 }
