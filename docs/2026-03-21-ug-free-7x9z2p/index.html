@@ -643,9 +643,9 @@ const RACE_RESULTS = {
       pending: false,
       raceName: '阪神大賞典 G2', venue: '阪神 芝3000m', time: '15:25',
       chakujun: [
-        {umaban: 1, umaname: 'アドマイヤテラ',  jockey: '武豊',    ninki: 3, shirushi: '▲'},
-        {umaban: 4, umaname: 'アクアヴァーナル', jockey: '川田将雅', ninki: 2, shirushi: '☆'},
-        {umaban: 5, umaname: 'ダノンシーマ',    jockey: '横山武史', ninki: 1, shirushi: '○'}
+        {umaban: 1, umaname: 'アドマイヤテラ',  ninki: 1, shirushi: '▲'},
+        {umaban: 4, umaname: 'アクアヴァーナル', ninki: 6, shirushi: '☆'},
+        {umaban: 5, umaname: 'ダノンシーマ',    ninki: 2, shirushi: '○'}
       ],
       tekichu: ['ボックス的中🎯 馬連・馬単・3連複・3連単 全的中！'],
       haito: {
@@ -1329,7 +1329,6 @@ function renderResultsList(race) {
         ${inn ? `<span class="text-primary font-black">${inn}</span>` : ''}${h.umaname}
         ${ninki ? `<span class="text-[11px] text-outline font-normal ml-1">（${ninki}番人気）</span>` : ''}
       </span>
-      <span class="text-xs text-outline">${h.jockey || ''}</span>
     </div>`;
   }).join('');
 
