@@ -392,6 +392,12 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
   [class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60
 ) .grade-E { color: #fff !important; }
+
+/* 総合グレードラベル: 強制白文字・大きめサイズ */
+.label-data[class*="grade-"] {
+  color: #fff !important;
+  font-size: 1.25rem !important;
+}
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
@@ -453,26 +459,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     </div>
     <div class="px-5 py-4 space-y-1.5 label-data text-sm">
       <div class="flex items-center gap-2">
-        <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
-        <span class="font-bold">カフジエメンタール・アルトラムス・ウップヘリーア</span>
+        <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
+        <span class="font-bold">カフジエメンタール・ローベルクランツ・ウップヘリーア・アルトラムス</span>
       </div>
       <div class="flex items-center gap-2">
-        <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
-        <span class="font-bold">ローベルクランツ</span>
-        <span class="text-[10px] text-[#707a6a]">ノーザンＦしがらきSで加点</span>
+        <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
+        <span class="font-bold">アンジュドジョワ</span>
+        <span class="text-[10px] text-[#707a6a]">社台ＦＳ鈴鹿で加点</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
-        <span class="font-bold">ブリガンティン・アンジュドジョワ</span>
-        <span class="text-[10px] text-[#707a6a]">アンジュドジョワは社台ＦＳで加点</span>
+        <span class="font-bold">ブリガンティン・テルヒコウ</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
-        <span class="font-bold text-[#707a6a]">シーズザスローン / テルヒコウ / レッドリガーレ</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-E">E</span>
-        <span class="font-bold text-[#707a6a]">フレイムスター</span>
+        <span class="font-bold text-[#707a6a]">シーズザスローン / レッドリガーレ / フレイムスター</span>
       </div>
     </div>
   </div>
@@ -513,8 +514,8 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
 
   <p class="text-[10px] text-[#707a6a] font-bold uppercase tracking-widest px-1">全頭診断カード</p>
 
-  <!-- ① カフジエメンタール 総合A -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-A">
+  <!-- ① カフジエメンタール 総合B+ -->
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-Bp">
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：アルメリア賞 1着　武豊騎手</p>
@@ -527,7 +528,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
           <span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🏠 在厩</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-A label-data mt-1 shrink-0">総合 A</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-Bp label-data mt-1 shrink-0">総合 B+</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -665,7 +666,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     </div>
   </div>
 
-  <!-- ③ ウップヘリーア 総合A（外厩加点 B→A） -->
+  <!-- ③ ウップヘリーア 総合B+（外厩加点 B→B+） -->
   <div class="bg-white rounded-2xl border-2 border-[#7c3aed]/60 shadow-lg overflow-hidden">
     <div class="bg-gradient-to-r from-[#7c3aed] to-[#6d28d9] px-5 py-2 flex items-center gap-2">
       <span class="text-base">🔥</span>
@@ -684,7 +685,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
           <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 ノーザンＦ天栄</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-A label-data mt-1 shrink-0">総合 A</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-Bp label-data mt-1 shrink-0">総合 B+</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -746,7 +747,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     </div>
   </div>
 
-  <!-- ② アルトラムス 総合A（外厩加点 B+→A） -->
+  <!-- ② アルトラムス 総合B+（外厩加点 B→B+） -->
   <div class="bg-white rounded-2xl border-2 border-[#dc2626]/60 shadow-lg overflow-hidden">
     <div class="bg-gradient-to-r from-[#dc2626] to-[#b91c1c] px-5 py-2 flex items-center gap-2">
       <span class="text-base">🔥</span>
@@ -765,7 +766,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
           <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 社台ＦＳ鈴鹿</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-A label-data mt-1 shrink-0">総合 A</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-Bp label-data mt-1 shrink-0">総合 B+</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -827,7 +828,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     </div>
   </div>
 
-  <!-- ⑥ アンジュドジョワ 総合C（外厩加点 D→C） -->
+  <!-- ⑥ アンジュドジョワ 総合B（外厩加点 D→B） -->
   <div class="bg-white rounded-2xl border-2 border-[#7c3aed]/60 shadow-lg overflow-hidden">
     <div class="bg-gradient-to-r from-[#7c3aed] to-[#6d28d9] px-5 py-2 flex items-center gap-2">
       <span class="text-base">🔥</span>
@@ -846,7 +847,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
           <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 社台ＦＳ鈴鹿</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-C label-data mt-1 shrink-0">総合 C</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-B label-data mt-1 shrink-0">総合 B</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -986,10 +987,8 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     </div>
   </div>
 
-  <p class="text-[10px] text-[#707a6a] font-bold uppercase tracking-widest px-1 pt-2">D評価グループ</p>
-
-  <!-- ⑧ テルヒコウ D -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-D">
+  <!-- ⑧ テルヒコウ C -->
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-C">
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：スプリングS 14着　坂井瑠騎手</p>
@@ -1002,7 +1001,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
           <span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🏠 在厩</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1 shrink-0">総合 D</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-C label-data mt-1 shrink-0">総合 C</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -1063,6 +1062,8 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
     </div>
   </div>
+
+  <p class="text-[10px] text-[#707a6a] font-bold uppercase tracking-widest px-1 pt-2">D評価グループ</p>
 
   <!-- ⑦ シーズザスローン D -->
   <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-D">
@@ -1216,10 +1217,8 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     </div>
   </div>
 
-  <p class="text-[10px] text-[#707a6a] font-bold uppercase tracking-widest px-1 pt-2">E評価</p>
-
-  <!-- ⑩ フレイムスター E -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-E">
+  <!-- ⑩ フレイムスター D -->
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-D">
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：スプリングS 16着　石川裕騎手</p>
@@ -1232,7 +1231,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
           <span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🏠 在厩</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-E label-data mt-1 shrink-0">総合 E</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1 shrink-0">総合 D</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
