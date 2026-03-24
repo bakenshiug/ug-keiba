@@ -634,10 +634,24 @@ const RACE_RESULTS = {
   },
   '0322': {
     aichi: {
-      pending: true,
+      pending: false,
       raceName: '愛知杯 G3', venue: '中京 芝1400m', time: '15:15',
-      chakujun: [],
-      haito: { tansho: null, fukusho: [], wakuren: null, umaren: null, wide: [], umatan: null, sanrenpuku: null, sanrentan: null }
+      chakujun: [
+        {umaban: 18, umaname: 'アイサンサン',  ninki: null},
+        {umaban:  8, umaname: 'ソルトクィーン', ninki: null},
+        {umaban: 10, umaname: 'セフィロ',      ninki: null}
+      ],
+      tekichu: ['🏴‍☠️ 不的中 — 馬連16,560円・3連単733,950円の波乱'],
+      haito: {
+        tansho:    null,
+        fukusho:   [],
+        wakuren:   null,
+        umaren:    ['08-18', 16560],
+        wide:      [],
+        umatan:    ['18-08', 31830],
+        sanrenpuku:['08-10-18', 162740],
+        sanrentan: ['18-08-10', 733950]
+      }
     },
     hanshin: {
       pending: false,
@@ -1346,7 +1360,19 @@ function renderResultsList(race) {
     ['3連単', h.sanrentan ? `${h.sanrentan[0]} ¥${h.sanrentan[1].toLocaleString()}${nk(h.sanrentan[2])}` : '-', h.sanrentan && h.sanrentan[1] >= 10000],
   ];
 
-  const tekichuHTML = (result.tekichu && result.tekichu.length) ? `
+  const _isFumato = result.tekichu && result.tekichu.length > 0 && result.tekichu[0].includes('不的中');
+  const tekichuHTML = (result.tekichu && result.tekichu.length) ? (
+    _isFumato ? `
+  <div class="rounded-xl overflow-hidden border-2 border-slate-400 mt-0 mb-1">
+    <div class="bg-slate-600 px-4 py-2 flex items-center gap-2">
+      <span class="text-xl">🏴‍☠️</span>
+      <span class="font-black text-sm text-white">UG予想 不的中...</span>
+    </div>
+    <div class="bg-slate-50 px-4 py-3 space-y-1">
+      ${result.tekichu.map(t => `<p class="text-sm font-bold text-slate-600">${t}</p>`).join('')}
+      <p class="text-xs text-slate-400 mt-1">次回リベンジだ！</p>
+    </div>
+  </div>` : `
   <div class="rounded-xl overflow-hidden border-2 border-amber-400 mt-0 mb-1">
     <div class="bg-amber-400 px-4 py-2 flex items-center gap-2">
       <span class="text-xl">🎯</span>
@@ -1355,7 +1381,7 @@ function renderResultsList(race) {
     <div class="bg-amber-50 px-4 py-3 space-y-1">
       ${result.tekichu.map(t => `<p class="text-sm font-bold text-amber-800">✅ ${t}</p>`).join('')}
     </div>
-  </div>` : (result.tekichu && result.tekichu.length === 0) ? `
+  </div>`) : (result.tekichu && result.tekichu.length === 0) ? `
   <div class="rounded-xl overflow-hidden border-2 border-slate-400 mt-0 mb-1">
     <div class="bg-slate-500 px-4 py-2 flex items-center gap-2">
       <span class="text-xl">🏴‍☠️</span>
