@@ -13,28 +13,17 @@
       extend: {
         colors: {
           "primary": "#004900",
-          "primary-container": "#006400",
-          "on-primary": "#ffffff",
           "secondary": "#46673c",
           "secondary-container": "#c4eab5",
           "tertiary": "#790b4a",
           "surface": "#f8faf8",
-          "surface-container": "#eceeec",
-          "surface-container-low": "#f2f4f2",
-          "surface-container-lowest": "#ffffff",
-          "surface-container-high": "#e6e9e7",
-          "surface-container-highest": "#e1e3e1",
-          "on-surface": "#191c1b",
-          "on-surface-variant": "#404a3b",
           "outline": "#707a6a",
           "outline-variant": "#bfcab7",
           "inverse-primary": "#82db6f",
         },
         fontFamily: {
           "headline": ["Noto Serif JP", "serif"],
-          "body": ["Public Sans", "sans-serif"],
           "label": ["Inter", "sans-serif"],
-          "memo": ["Kaisei Decol", "serif"],
         },
       },
     },
@@ -69,8 +58,7 @@
 <header class="sticky top-0 z-50 bg-[#f8faf8]/90 backdrop-blur-md border-b border-[#bfcab7]/40">
   <div class="px-5 pt-4 pb-3">
     <div class="flex items-center gap-3">
-      <a href="./archive.html"
-         class="flex items-center justify-center w-9 h-9 rounded-full bg-[#eceeec] text-[#004900] hover:bg-[#c4eab5] transition-colors">
+      <a href="./archive.html" class="flex items-center justify-center w-9 h-9 rounded-full bg-[#eceeec] text-[#004900] hover:bg-[#c4eab5] transition-colors">
         <span class="material-symbols-outlined text-xl">arrow_back</span>
       </a>
       <div>
@@ -87,8 +75,8 @@
   <!-- リード -->
   <div class="bg-[#006400] rounded-2xl px-5 py-4 text-white">
     <p class="text-xs font-bold leading-relaxed">
-      📋 競馬ブック「前走インタビュー」＋スピード指数をもとに全頭を独自診断。<br>
-      <span class="text-[#82db6f]">前走内容</span>＝スピード指数加重評価　／　<span class="text-[#82db6f]">前走評価</span>＝騎手コメント分析　／　<span class="text-[#82db6f]">前走レース内容</span>＝次走メモ分析
+      📋 競馬ブック「前走インタビュー」にスピード指数と外厩情報を加えて全頭を独自に診断してるよ。<br>
+      <span class="text-[#82db6f]">前走内容</span>＝指数加重評価　／　<span class="text-[#82db6f]">前走評価</span>＝騎手コメント　／　<span class="text-[#82db6f]">前走レース内容</span>＝次走メモ　／　<span class="text-[#82db6f]">外厩評価</span>＝施設ランク加点
     </p>
     <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] font-black">
       <span class="px-2 py-0.5 rounded-full grade-S">S</span>
@@ -105,31 +93,26 @@
   <!-- ランキングサマリー -->
   <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden">
     <div class="bg-[#004900] px-5 py-3">
-      <p class="text-white font-bold text-sm">📊 総合ランキング</p>
+      <p class="text-white font-bold text-sm">📊 総合ランキング（外厩加点反映済）</p>
     </div>
     <div class="px-5 py-4 space-y-1.5 label-data text-sm">
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
-        <span class="font-bold">カフジエメンタール</span>
-        <span class="text-[10px] text-[#707a6a]">前走内容A・評価A・内容A</span>
+        <span class="font-bold">カフジエメンタール・アルトラムス・ウップヘリーア</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
-        <span class="font-bold">アルトラムス</span>
-        <span class="text-[10px] text-[#707a6a]">前走内容S・評価C・内容B</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
-        <span class="font-bold">ウップヘリーア　ローベルクランツ</span>
+        <span class="font-bold">ローベルクランツ</span>
+        <span class="text-[10px] text-[#707a6a]">ノーザンＦしがらきSで加点</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
-        <span class="font-bold">ブリガンティン</span>
-        <span class="text-[10px] text-[#707a6a]">前走内容D・評価B・内容B+</span>
+        <span class="font-bold">ブリガンティン・アンジュドジョワ</span>
+        <span class="text-[10px] text-[#707a6a]">アンジュドジョワは社台ＦＳで加点</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
-        <span class="font-bold text-[#707a6a]">アンジュドジョワ / シーズザスローン / テルヒコウ / レッドリガーレ</span>
+        <span class="font-bold text-[#707a6a]">シーズザスローン / テルヒコウ / レッドリガーレ</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-E">E</span>
@@ -154,7 +137,7 @@
           <span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🏠 在厩</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-A label-data mt-1">総合 A</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-A label-data mt-1 shrink-0">総合 A</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -162,27 +145,34 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">高水準の指数。出走馬上位クラス。重賞でも通用する能力値。</p>
+        <p class="text-sm leading-relaxed">このメンバーの中で頭一つ抜けてる数値だ。重賞でも普通に戦えるやつっていうこっちゃね。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">武豊「<span class="font-bold text-[#004900]">反応がとても良かった</span>」「<span class="font-bold text-[#004900]">まだまだ良くなる・素質を感じる</span>」。追走がつらくても直線一変。上昇余地大。</p>
+        <p class="text-sm leading-relaxed">武豊が「<span class="font-bold text-[#004900]">反応がとても良かった</span>」「<span class="font-bold text-[#004900]">まだまだ良くなる・素質を感じる</span>」って言うんだよ。追走しんどそうだったのに直線でガラッと変わった。まだ伸びしろがある馬だ。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
-        <p class="text-sm leading-relaxed">４番手から追走。直線で<span class="font-bold text-[#004900]">1ハロン標で一気に突き抜け</span>。縦長隊列を差し切る強い勝ち方。</p>
+        <p class="text-sm leading-relaxed">４番手から追走して直線で<span class="font-bold text-[#004900]">1ハロン標から一気に突き抜け</span>たんだよ。縦長のレースをズバッと差し切る強い勝ち方だ。</p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed text-[#707a6a]">在厩だな。外厩加点なし。それでもAっていうこっちゃ、地力で評価してる馬だよ。</p>
       </div>
     </div>
   </div>
 
-  <!-- ② アルトラムス 総合B+ -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-Bp">
+  <!-- ② アルトラムス 総合A（外厩加点 B+→A） -->
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-A">
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：シンザン記念 3着　岩田望騎手</p>
@@ -195,7 +185,7 @@
           <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 社台ＦＳ鈴鹿</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-Bp label-data mt-1">総合 B+</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-A label-data mt-1 shrink-0">総合 A</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -203,27 +193,34 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed"><span class="font-bold text-[#6d28d9]">出走馬中最高の指数</span>。G3 3着でこの数値は際立つ。数値面での総合力トップ。</p>
+        <p class="text-sm leading-relaxed"><span class="font-bold text-[#6d28d9]">このメンバーで指数トップだ</span>。G3で3着してこの数値はそうそう出ないって。数値だけ見たらぶっちぎりのナンバーワンだよ。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#790b4a]">2走目でイレ込みがきつかった</span>」「<span class="font-bold text-[#790b4a]">出遅れ</span>」とネガ多め。「<span class="font-bold text-[#004900]">最後はいい脚</span>」「これからに期待」は中立評価。</p>
+        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#790b4a]">2走目でイレ込みがきつかった</span>」「<span class="font-bold text-[#790b4a]">出遅れ</span>」ってネガが多いんだよな……「<span class="font-bold text-[#004900]">最後はいい脚</span>」とは言ってるけど、これからに期待ってことで現状は半信半疑だ。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
-        <p class="text-sm leading-relaxed">出遅れ・最後方から外展開。「<span class="font-bold text-[#004900]">1ハロン標からの脚は目についた</span>」と記録。末脚の潜在力は評価できる。</p>
+        <p class="text-sm leading-relaxed">出遅れて最後方から外に出したんだけどな。「<span class="font-bold text-[#004900]">1ハロン標からの脚は目についた</span>」って記録にある。末脚だけは本物ってことだよ。</p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed"><span class="font-bold text-[#004900]">社台ファームSS鈴鹿</span>で調整してきてる。いい外厩だ。指数Sのベースに外厩Aが加わって、B+→<span class="font-bold text-[#b45309]">A</span>に格上げだよ。</p>
       </div>
     </div>
   </div>
 
-  <!-- ③ ウップヘリーア 総合B -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-B">
+  <!-- ③ ウップヘリーア 総合A（外厩加点 B→A） -->
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-A">
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：若竹賞 2着　ルメール騎手</p>
@@ -236,7 +233,7 @@
           <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 ノーザンＦ天栄</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-B label-data mt-1">総合 B</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-A label-data mt-1 shrink-0">総合 A</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -244,27 +241,34 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">標準以上の指数。14kg増の太め残りで記録した数値のため、絞れた今回は上積み期待。</p>
+        <p class="text-sm leading-relaxed">標準以上の指数なんだけど、これ14kg増の太め残りで出した数値なんだよ。絞れてきた今回は上積みが見込めるってことだ。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">「今日は<span class="font-bold text-[#790b4a]">太かった</span>」ネガあり。一方「<span class="font-bold text-[#004900]">距離は1800〜2000がいい</span>」と今回への適性言及。「これから楽しみ」。絞れた今回は上積み期待。</p>
+        <p class="text-sm leading-relaxed">「今日は<span class="font-bold text-[#790b4a]">太かった</span>」ってネガはあるんだよな。でも「<span class="font-bold text-[#004900]">距離は1800〜2000がいい</span>」って今回にバッチリ当てはまる発言をしてる。絞れてきた今回はやれるとみていい。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
-        <p class="text-sm leading-relaxed">外からフタをされる<span class="font-bold text-[#790b4a]">不利あり</span>。内を進出し直線スペース確保後、<span class="font-bold text-[#004900]">残り1ハロンからグイグイ伸びて2着</span>。展開次第で逆転十分。</p>
+        <p class="text-sm leading-relaxed">外からフタされる<span class="font-bold text-[#790b4a]">不利があってな</span>。それでも内をコジ開けて直線スペースを確保して、<span class="font-bold text-[#004900]">残り1ハロンからグイグイ伸びて2着</span>だ。展開さえ向けば逆転十分だよ。</p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed"><span class="font-bold text-[#004900]">ノーザンファーム天栄</span>で調整してきてる。外厩界のトップだよ、ここは。仕上がり精度がちがう。それでB→<span class="font-bold text-[#b45309]">A</span>に格上げだ。</p>
       </div>
     </div>
   </div>
 
-  <!-- ④ ローベルクランツ 総合B -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-B">
+  <!-- ④ ローベルクランツ 総合B+（外厩加点 B→B+） -->
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-Bp">
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：きさらぎ賞 7着　松山弘騎手</p>
@@ -277,7 +281,7 @@
           <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 ノーザンＦしがらき</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-B label-data mt-1">総合 B</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-Bp label-data mt-1 shrink-0">総合 B+</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -285,21 +289,28 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">7着ながら高水準の指数をマーク。潜在能力は高いが、評価・レース内容面との乖離あり。</p>
+        <p class="text-sm leading-relaxed">7着でこの指数はおもろいんだよな。能力は間違いなくある。ただ評価とレース内容との乖離がちょっと引っかかる。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">落ち着き◎はポジ。しかし「<span class="font-bold text-[#790b4a]">勝負どころでズブくなっている</span>」ネガ。「今後の成長に期待」→現時点では半信半疑。</p>
+        <p class="text-sm leading-relaxed">落ち着きがいいのはポジなんだけど「<span class="font-bold text-[#790b4a]">勝負どころでズブくなっている</span>」ってネガがある。「今後の成長に期待」ってことで現時点では半信半疑ってとこだな。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
-        <p class="text-sm leading-relaxed">後方大外。右手前のまま伸びるも「<span class="font-bold text-[#790b4a]">上がりが速過ぎた</span>」→展開依存で信頼度低め。</p>
+        <p class="text-sm leading-relaxed">後方大外から右手前のまま伸びてきたんだけど「<span class="font-bold text-[#790b4a]">上がりが速過ぎた</span>」らしい。展開依存型で信頼度は低めだ。</p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed"><span class="font-bold text-[#004900]">ノーザンファームしがらき</span>から来てる。最高峰の外厩だ。指数Aの下地にしがらきSの加点でB→<span class="font-bold text-[#004900]">B+</span>に格上げしてる。</p>
       </div>
     </div>
   </div>
@@ -315,10 +326,10 @@
           <span class="text-[10px] bg-[#eceeec] rounded px-1.5 py-0.5">父 ベンバトル</span>
           <span class="text-[10px] bg-[#eceeec] rounded px-1.5 py-0.5">母父 ステイゴールド</span>
           <span class="text-[10px] bg-[#eceeec] rounded px-1.5 py-0.5">松山将厩舎 美浦</span>
-          <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 ビッグレッドＦ鉾田</span>
+          <span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🌿 ビッグレッドＦ鉾田</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-C label-data mt-1">総合 C</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-C label-data mt-1 shrink-0">総合 C</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -326,29 +337,36 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">未勝利クラスの指数のため低評価。ただし騎手コメントと次走メモの内容で補完できる。</p>
+        <p class="text-sm leading-relaxed">未勝利クラスの指数だから数値は低い。でもな、騎手コメントと次走メモで補完できるやつだ。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#004900]">ベンバトル産駒は2戦目で変わる傾向</span>」根拠あり。攻め馬感触◎。信頼感あり。</p>
+        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#004900]">ベンバトル産駒は2戦目で変わる傾向</span>」って根拠がある発言だ。攻め馬の感触も◎。重賞2戦目でガラッと変わってくる可能性がある。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
-        <p class="text-sm leading-relaxed">出遅れ最後方から<span class="font-bold text-[#790b4a]">大外</span>に持ち出し差し切り。「<span class="font-bold text-[#004900]">今日は切れる脚を使えた</span>」。末脚は本物。</p>
+        <p class="text-sm leading-relaxed">出遅れ最後方から<span class="font-bold text-[#790b4a]">大外</span>に持ち出して差し切ったんだよ。「<span class="font-bold text-[#004900]">今日は切れる脚を使えた</span>」って本人も言ってる。末脚は本物だ。</p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed">ビッグレッドＦ鉾田で調整。中堅どころだな。指数DにC外厩で総合はCを維持っていうこっちゃ。</p>
       </div>
     </div>
   </div>
 
-  <p class="text-[10px] text-[#707a6a] font-bold uppercase tracking-widest px-1 pt-2">D評価グループ</p>
+  <p class="text-[10px] text-[#707a6a] font-bold uppercase tracking-widest px-1 pt-2">C評価グループ</p>
 
-  <!-- ⑥ アンジュドジョワ D -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-D">
+  <!-- ⑥ アンジュドジョワ 総合C（外厩加点 D→C） -->
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-C">
     <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">
       <div>
         <p class="text-[10px] text-[#707a6a] font-bold">前走：3歳新馬 1着　小沢大騎手</p>
@@ -361,7 +379,7 @@
           <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 社台ＦＳ鈴鹿</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1">総合 D</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-C label-data mt-1 shrink-0">総合 C</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -369,24 +387,33 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-E">E</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">新馬戦1戦のみで指数の信頼性が低い。重賞レベルでの指数実績なし。</p>
+        <p class="text-sm leading-relaxed">新馬1戦だけだから指数の信頼性が低いんだよな。重賞で通用するかどうかまだ全然わからん。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#004900]">素質はあると感じていた</span>」「<span class="font-bold text-[#004900]">次も安心して臨めそう</span>」。テンション安定◎。渋太さが武器。ただし新馬勝ちで重賞は未知数。</p>
+        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#004900]">素質はあると感じていた</span>」「<span class="font-bold text-[#004900]">次も安心して臨めそう</span>」ってポジティブな言葉が出てる。テンションが安定してるのはいい。ただ新馬勝ちで重賞は未知数ってのは否めないけどな。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
-        <p class="text-sm leading-relaxed">３番手外。折り合いが利き、ためがきいた。外の追い上げに抵抗しながらスパート。「<span class="font-bold text-[#004900]">センスあり</span>」と記録。</p>
+        <p class="text-sm leading-relaxed">３番手外で折り合いがきいてためがきいた。外からの追い上げに抵抗しながらスパートして「<span class="font-bold text-[#004900]">センスあり</span>」って記録にある。新馬でこれはおもろいな。</p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed"><span class="font-bold text-[#004900]">社台ファームSS鈴鹿</span>で調整してきてる。高水準の外厩がE指数を引き上げてくれてD→<span class="font-bold text-[#374151]">C</span>に格上げだよ。</p>
       </div>
     </div>
   </div>
+
+  <p class="text-[10px] text-[#707a6a] font-bold uppercase tracking-widest px-1 pt-2">D評価グループ</p>
 
   <!-- ⑦ シーズザスローン D -->
   <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden border-D">
@@ -402,7 +429,7 @@
           <span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🏠 在厩</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1">総合 D</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1 shrink-0">総合 D</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -410,21 +437,28 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">ダート戦での指数のため芝では参考値。ダート→芝替わりで実績未知数。</p>
+        <p class="text-sm leading-relaxed">前走ダート戦の指数だからな、芝では参考値扱いだ。ダート→芝替わりで実績がないからどうなるかわからん。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed text-[#707a6a]">騎手コメント掲載なし。<span class="font-bold">強調材料なし。</span></p>
+        <p class="text-sm leading-relaxed text-[#707a6a]">騎手コメントがないんだよ。<span class="font-bold">強調する材料がない。</span></p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
-        <p class="text-sm leading-relaxed">テンから<span class="font-bold text-[#790b4a]">力み加減</span>で追走。直線で<span class="font-bold text-[#790b4a]">脚を使えず</span>。ダート→芝替わりでさらに疑問符。</p>
+        <p class="text-sm leading-relaxed">テンから<span class="font-bold text-[#790b4a]">力み加減</span>で追走して直線で<span class="font-bold text-[#790b4a]">脚を使えなかった</span>。ダート→芝替わりでさらに疑問符がつくな。</p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed text-[#707a6a]">在厩だな。外厩加点なし。総合D維持っていうこっちゃ。</p>
       </div>
     </div>
   </div>
@@ -443,7 +477,7 @@
           <span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🏠 在厩</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1">総合 D</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1 shrink-0">総合 D</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -451,21 +485,28 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">最高指数は高いが前走14着で急落。前走の失速を加重計算すると中程度の評価。</p>
+        <p class="text-sm leading-relaxed">最高指数は高いんだよ。でも前走14着で急落してる。加重計算したら中程度の評価にしかならんってことだな。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">「雰囲気は悪くなかったが<span class="font-bold text-[#790b4a]">展開が厳しかった</span>」。言い訳として弱め。14着という大敗の説明には不十分。</p>
+        <p class="text-sm leading-relaxed">「雰囲気は悪くなかったが<span class="font-bold text-[#790b4a]">展開が厳しかった</span>」か……言い訳としては弱いんだよな。14着の大敗を説明するには不十分だ。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
-        <p class="text-sm leading-relaxed"><span class="font-bold text-[#790b4a]">残り3ハロンで余力なし</span>。直線も粘れず後退。力不足が明確。</p>
+        <p class="text-sm leading-relaxed"><span class="font-bold text-[#790b4a]">残り3ハロンで余力がなくなって</span>直線も粘れず後退。力不足が明確だ。</p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed text-[#707a6a]">在厩だな。外厩加点なし。総合D維持のまま。</p>
       </div>
     </div>
   </div>
@@ -484,7 +525,7 @@
           <span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 吉澤ＳＷＥＳＴ</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1">総合 D</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-D label-data mt-1 shrink-0">総合 D</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -492,14 +533,14 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">G1出走も大敗で指数が低い。成長曲線が見えない状況。</p>
+        <p class="text-sm leading-relaxed">G1に出て大敗してるから指数が低い。成長曲線が全然見えないんだよな。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#790b4a]">まだこれから先かな</span>」のみ。現時点の能力への疑問を騎手自身が示している。</p>
+        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#790b4a]">まだこれから先かな</span>」ってコメントだけだ。騎手自身が今の能力に疑問持ってるってことだよ。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
@@ -507,6 +548,13 @@
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走レース内容</p>
         </div>
         <p class="text-sm leading-relaxed text-[#707a6a]"><span class="font-bold">強調材料なし。</span></p>
+      </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed">吉澤ＳＷＥＳＴで調整してきてる。中程度の外厩だ。ただ他の評価が全体的に弱くて総合Dを維持っていうこっちゃね。</p>
       </div>
     </div>
   </div>
@@ -527,7 +575,7 @@
           <span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🏠 在厩</span>
         </div>
       </div>
-      <span class="text-lg font-black px-3 py-1 rounded-xl grade-E label-data mt-1">総合 E</span>
+      <span class="text-lg font-black px-3 py-1 rounded-xl grade-E label-data mt-1 shrink-0">総合 E</span>
     </div>
     <div class="px-5 pb-4 space-y-3">
       <div class="bg-[#f2f4f2] rounded-xl p-3">
@@ -535,14 +583,14 @@
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-E">E</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走内容</p>
         </div>
-        <p class="text-sm leading-relaxed">前走16着で指数が大幅に低下。加重計算でE評価確定。消し候補。</p>
+        <p class="text-sm leading-relaxed">前走16着で指数が大幅に落ちてる。加重計算したらE確定だ。消し候補だよこれは。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-E">E</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走評価</p>
         </div>
-        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#790b4a]">怖がるところがある</span>」「<span class="font-bold text-[#790b4a]">マクられると厳しい</span>」「<span class="font-bold text-[#790b4a]">自己条件でチャンス</span>」→重賞では非推奨と騎手自身が示唆。</p>
+        <p class="text-sm leading-relaxed">「<span class="font-bold text-[#790b4a]">怖がるところがある</span>」「<span class="font-bold text-[#790b4a]">マクられると厳しい</span>」「<span class="font-bold text-[#790b4a]">自己条件でチャンス</span>」ってな。騎手自身が重賞じゃないって言ってるんだよ。</p>
       </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
@@ -551,13 +599,20 @@
         </div>
         <p class="text-sm leading-relaxed text-[#707a6a]"><span class="font-bold">強調材料なし。</span></p>
       </div>
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
+          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">外厩評価</p>
+        </div>
+        <p class="text-sm leading-relaxed text-[#707a6a]">在厩だ。外厩加点なし。総合E確定、消しでいい。</p>
+      </div>
     </div>
   </div>
 
   <!-- データ出典 -->
   <div class="bg-[#f2f4f2] rounded-2xl px-5 py-4">
     <p class="text-[10px] text-[#707a6a] leading-relaxed">
-      📖 データ出典：競馬ブック「前走インタビュー」「スピード指数」<br>
+      📖 データ出典：競馬ブック「前走インタビュー」「スピード指数」／ JRDB「血統・入厩情報」<br>
       2026年3月28日 阪神11R 毎日杯<br>
       本診断はUG独自の分析によるものです。馬券購入は自己責任でお願いします。
     </p>
@@ -569,13 +624,11 @@
 
 <footer class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-[#bfcab7]/40 px-6 py-3">
   <div class="flex items-center justify-center gap-6 max-w-lg mx-auto">
-    <a href="./archive.html"
-       class="flex items-center gap-1.5 text-[#707a6a] font-bold text-sm hover:text-[#004900] transition-colors">
+    <a href="./archive.html" class="flex items-center gap-1.5 text-[#707a6a] font-bold text-sm hover:text-[#004900] transition-colors">
       <span class="material-symbols-outlined text-base">folder_open</span>
       アーカイブ
     </a>
-    <a href="../index.html"
-       class="flex items-center gap-1.5 text-[#004900] font-bold text-sm hover:underline">
+    <a href="../index.html" class="flex items-center gap-1.5 text-[#004900] font-bold text-sm hover:underline">
       <span class="material-symbols-outlined text-base">home</span>
       最新予想に戻る
     </a>
