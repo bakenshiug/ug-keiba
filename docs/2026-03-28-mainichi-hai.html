@@ -971,5 +971,39 @@
   </div>
 </footer>
 
+
+<script>
+(function() {
+  const SCORE = { 'grade-S':7,'grade-A':6,'grade-Bp':5,'grade-B':4,'grade-C':3,'grade-D':2,'grade-E':1,'grade-none':0 };
+  const COLOR = { 7:'#6d28d9',6:'#b45309',5:'#004900',4:'#166534',3:'#374151',2:'#9ca3af',1:'#dc2626',0:'#d1d5db' };
+
+  document.querySelectorAll('.px-5.pt-4.pb-2').forEach(function(header) {
+    var card = header.closest('.rounded-2xl');
+    if (!card) return;
+    var sectionBoxes = card.querySelectorAll('.bg-\\[\\#f2f4f2\\]');
+    var total = 0; var count = 0;
+    sectionBoxes.forEach(function(box) {
+      var badge = box.querySelector('.rounded-full');
+      if (!badge) return;
+      for (var cls in SCORE) {
+        if (badge.classList.contains(cls)) { total += SCORE[cls]; count++; break; }
+      }
+    });
+    if (count === 0) return;
+    var h2 = header.querySelector('h2');
+    if (!h2) return;
+    var maxScore = count * 7;
+    var pct = Math.round((total / maxScore) * 100);
+    var topScore = total;
+    var topGrade = Object.keys(SCORE).find(function(k){ return SCORE[k] === Math.round(total/count); }) || 'grade-C';
+    var bg = COLOR[Math.round(total/count)] || '#374151';
+    var badge = document.createElement('span');
+    badge.style.cssText = 'background:'+bg+';color:#fff;font-size:10px;font-weight:900;padding:2px 6px;border-radius:6px;margin-left:6px;font-family:Inter,sans-serif;vertical-align:middle;white-space:nowrap;';
+    badge.textContent = topScore + 'pt';
+    badge.title = count + '項目合計 / 最大' + maxScore + 'pt (' + pct + '%)';
+    h2.appendChild(badge);
+  });
+})();
+</script>
 </body>
 </html>
