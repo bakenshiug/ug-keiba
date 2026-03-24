@@ -954,23 +954,29 @@
 
 </main>
 
-<footer class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-[#bfcab7]/40 px-6 py-3">
-  <div class="flex items-center justify-center gap-6 max-w-lg mx-auto">
-    <a href="./how-to-buy.html" class="flex items-center gap-1.5 text-[#004900] font-bold text-sm hover:underline">
-      <span class="material-symbols-outlined text-base">confirmation_number</span>
-      買い方
+<footer class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-[#bfcab7]/60 shadow-lg">
+  <div class="grid grid-cols-4 max-w-lg mx-auto">
+    <a href="../index.html" class="flex flex-col items-center justify-center py-2.5 gap-0.5 text-[#004900] hover:bg-[#f2f4f2] transition-colors active:bg-[#c4eab5]">
+      <span class="material-symbols-outlined text-[22px]">trophy</span>
+      <span class="text-[9px] font-black tracking-wide">重賞展望</span>
     </a>
-    <a href="./archive.html" class="flex items-center gap-1.5 text-[#707a6a] font-bold text-sm hover:text-[#004900] transition-colors">
-      <span class="material-symbols-outlined text-base">folder_open</span>
-      アーカイブ
+    <a href="../index.html#final" class="flex flex-col items-center justify-center py-2.5 gap-0.5 text-[#9ca3af] hover:bg-[#f2f4f2] transition-colors relative">
+      <span class="material-symbols-outlined text-[22px]">lock</span>
+      <span class="text-[9px] font-black tracking-wide">最終予想</span>
+      <span class="absolute top-1 right-3 text-[7px] font-black bg-[#dc2626] text-white px-1 rounded-full">準備中</span>
     </a>
-    <a href="./2026-03-21-ug-free-7x9z2p/index.html" class="flex items-center gap-1.5 text-[#004900] font-bold text-sm hover:underline">
-      <span class="material-symbols-outlined text-base">home</span>
-      最新予想に戻る
+    <a href="./2026-03-21-ug-free-7x9z2p/index.html" class="flex flex-col items-center justify-center py-2.5 gap-0.5 text-[#707a6a] hover:bg-[#f2f4f2] transition-colors">
+      <span class="material-symbols-outlined text-[22px]">emoji_events</span>
+      <span class="text-[9px] font-black tracking-wide">レース結果</span>
+    </a>
+    <a href="./archive.html" class="flex flex-col items-center justify-center py-2.5 gap-0.5 text-[#707a6a] hover:bg-[#f2f4f2] transition-colors">
+      <span class="material-symbols-outlined text-[22px]">history</span>
+      <span class="text-[9px] font-black tracking-wide">過去戦績</span>
     </a>
   </div>
+  <!-- iOS safe area -->
+  <div class="h-safe-area-inset-bottom bg-white"></div>
 </footer>
-
 
 <script>
 (function() {
