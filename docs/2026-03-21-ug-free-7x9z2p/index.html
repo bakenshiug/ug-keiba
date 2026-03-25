@@ -286,7 +286,7 @@ footer * { color: #ffffff !important; }
     <button id="sort-btn" onclick="toggleSort()"
       class="ml-auto flex items-center gap-1 bg-surface-container px-3 py-1.5 rounded-full text-[10px] font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">
       <span class="material-symbols-outlined text-sm">swap_vert</span>
-      <span id="sort-label">馬番順</span>
+      <span id="sort-label">スコア順</span>
     </button>
   </div>
 
@@ -778,7 +778,7 @@ let currentArchiveDate = '0321';
 
 function toggleSort() {
   sortMode = sortMode === 'umaban' ? 'score' : 'umaban';
-  document.getElementById('sort-label').textContent = sortMode === 'umaban' ? '馬番順' : 'スコア順';
+  document.getElementById('sort-label').textContent = sortMode === 'umaban' ? 'スコア順' : '馬番順';
   const btn = document.getElementById('sort-btn');
   btn.className = sortMode === 'score'
     ? 'ml-auto flex items-center gap-1 bg-primary px-3 py-1.5 rounded-full text-[10px] font-bold text-white transition-colors'
