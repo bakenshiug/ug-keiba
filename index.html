@@ -202,11 +202,9 @@ body {
   inset: 0;
   background: rgba(0,0,0,0.65);
   z-index: 250;
-  opacity: 0;
-  pointer-events: none;
   transition: opacity 0.28s ease;
 }
-.nav-overlay.open { opacity: 1; pointer-events: auto; }
+.nav-overlay.open { display: block; opacity: 1; }
 .nav-drawer a {
   display: flex;
   align-items: center;
@@ -637,7 +635,6 @@ body {
   .sidebar      { display: none; }
   .mobile-header{ display: flex; }
   .nav-drawer   { display: block; }
-  .nav-overlay  { display: block; }
   .main-content { margin-left: 0; }
   .footer-nav   { display: grid; }
 
