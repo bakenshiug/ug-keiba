@@ -29,12 +29,12 @@
   @keyframes ticker-scroll { 0% { transform:translateX(0); } 100% { transform:translateX(-100%); } }
   .serif-headline { font-family:'Noto Serif JP',serif; }
   .label-data { font-family:'Inter',sans-serif; }
-  .grade-S  { background:#6d28d9; color:#fff; }
-  .grade-A  { background:#b45309; color:#fff; }
-  .grade-Bp { background:#004900; color:#fff; }
-  .grade-B  { background:#166534; color:#fff; }
-  .grade-C  { background:#374151; color:#fff; }
-  .grade-D  { background:#9ca3af; color:#fff; }
+  .grade-S  { background:#D97706; color:#fff; }
+  .grade-A  { background:#DB2777; color:#fff; }
+  .grade-Bp { background:#F43F5E; color:#fff; }
+  .grade-B  { background:#EA580C; color:#fff; }
+  .grade-C  { background:#2563EB; color:#fff; }
+  .grade-D  { background:#6B7280; color:#fff; }
   .grade-E  { background:#dc2626; color:#fff; }
   .grade-none { background:#e5e7eb; color:#6b7280; }
   .border-S  { border-left:4px solid #6d28d9; }
@@ -67,12 +67,12 @@ header h1, header a h1 { color:var(--ug-gold-lt)!important; text-shadow:0 0 18px
 .bg-\[\#c4eab5\] { background:rgba(40,167,69,0.18)!important; color:#6fdd8a!important; }
 .border-2.border-\[\#dc2626\]\/60 { border-color:var(--ug-gold)!important; box-shadow:0 0 18px rgba(212,175,55,0.20)!important; }
 .bg-gradient-to-r.from-\[\#7f1d1d\] { background:linear-gradient(90deg,#1a1000,#2a1e00)!important; border-bottom:1px solid var(--ug-gold)!important; }
-.grade-S  { background:#6d28d9!important; color:#fff!important; }
-.grade-A  { background:#b45309!important; color:#fff!important; }
-.grade-Bp { background:#004900!important; color:#fff!important; }
-.grade-B  { background:#166534!important; color:#fff!important; }
-.grade-C  { background:#374151!important; color:#fff!important; }
-.grade-D  { background:#6b7280!important; color:#fff!important; }
+.grade-S  { background:#D97706!important; color:#fff!important; }
+.grade-A  { background:#DB2777!important; color:#fff!important; }
+.grade-Bp { background:#F43F5E!important; color:#fff!important; }
+.grade-B  { background:#EA580C!important; color:#fff!important; }
+.grade-C  { background:#2563EB!important; color:#fff!important; }
+.grade-D  { background:#6B7280!important; color:#fff!important; }
 .grade-E  { background:#dc2626!important; color:#fff!important; }
 .grade-none { background:#1e2e1e!important; color:#5a7a5a!important; border:1px solid rgba(212,175,55,0.15)!important; }
 .border-A  { border-left:4px solid #b45309!important; }
@@ -1532,7 +1532,7 @@ footer a:first-child { color:var(--ug-gold-lt)!important; }
 <script>
 (function() {
   const SCORE={'grade-S':7,'grade-A':6,'grade-Bp':5,'grade-B':4,'grade-C':3,'grade-D':2,'grade-E':1,'grade-none':0};
-  const COLOR={7:'#6d28d9',6:'#b45309',5:'#004900',4:'#166534',3:'#374151',2:'#9ca3af',1:'#dc2626',0:'#d1d5db'};
+  const COLOR={7:'#D97706',6:'#DB2777',5:'#F43F5E',4:'#EA580C',3:'#2563EB',2:'#6B7280',1:'#DC2626',0:'#d1d5db'};
   document.querySelectorAll('.px-5.pt-4.pb-2').forEach(function(header){
     var card=header.closest('.rounded-2xl'); if(!card) return;
     var boxes=card.querySelectorAll('.bg-\\[\\#f2f4f2\\]'); var total=0,count=0;
