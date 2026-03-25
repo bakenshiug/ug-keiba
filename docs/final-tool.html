@@ -273,6 +273,55 @@ textarea.tall { min-height: 110px; }
 .fi-name { flex: 1; min-width: 120px; }
 .fi-pt { width: 80px; }
 
+/* ── CSV Upload (STEP 2) ── */
+.csv-upload-area {
+  background: linear-gradient(135deg, rgba(240,192,64,0.10) 0%, rgba(232,0,61,0.06) 100%);
+  border: 2px dashed rgba(240,192,64,0.38);
+  border-radius: 12px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.csv-upload-area.loaded {
+  border-style: solid;
+  border-color: rgba(240,192,64,0.55);
+}
+.csv-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 12px;
+  background: rgba(240,192,64,0.08);
+  border: 1px solid rgba(240,192,64,0.30);
+  border-radius: 8px;
+  transition: all 0.18s;
+}
+.csv-upload-label:hover { background: rgba(240,192,64,0.16); }
+.csv-race-btn {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-family: 'Public Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.16s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.csv-race-btn:hover { background: rgba(240,192,64,0.12); border-color: rgba(240,192,64,0.40); }
+
 /* ── Subsection header ── */
 .subsec-header {
   display: flex;
@@ -608,6 +657,24 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
         </div>
       </div>
 
+      <!-- CSV Upload -->
+      <div class="csv-upload-area" id="csvUploadArea">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:11px; font-weight:900; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase;">CSV自動取込</span>
+          <span style="font-size:10px; color:var(--text-muted);">出馬表①（Shift-JIS）</span>
+        </div>
+        <label class="csv-upload-label" id="csvUploadLabelF">
+          <input type="file" accept=".csv" style="display:none;" onchange="handleCSVUploadFinal(this)"/>
+          <span>📋</span>
+          <span id="csvUploadTextF">出馬表CSVをアップロード（馬名・騎手を自動読込）</span>
+        </label>
+        <!-- Race selector (hidden until CSV loaded) -->
+        <div id="csvRaceSelectArea" style="display:none;">
+          <div style="font-size:11px; color:var(--text-muted); margin-bottom:6px;">取込むレースを選択してください：</div>
+          <div id="csvRaceBtns"></div>
+        </div>
+      </div>
+
       <!-- Horse add form -->
       <div class="horse-add-form" id="horseAddForm" style="display:none;">
         <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:0.05em; text-transform:uppercase;">馬を追加</div>
@@ -652,6 +719,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
               <th>馬番</th>
               <th>枠</th>
               <th>馬名</th>
+              <th>騎手</th>
               <th>基本pt</th>
               <!-- 枠番スコア: +3=絶好枠, +2=有利, +1=やや有利, 0=普通, -1=不利, -2=最悪枠 -->
               <th>枠番</th>
@@ -669,7 +737,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
             </tr>
           </thead>
           <tbody id="horseTableBody">
-            <tr><td colspan="12" class="empty-state">馬を追加してください</td></tr>
+            <tr><td colspan="13" class="empty-state">CSVをアップロードするか、手動で馬を追加してください</td></tr>
           </tbody>
         </table>
       </div>
@@ -799,6 +867,140 @@ function calcTotal(h) {
     (parseInt(s['勝負気配'],10) || 0) +
     (parseInt(s['馬場'],10) || 0) +
     (parseInt(s['ニック'],10) || 0);
+}
+
+// ══════════════════════════════════════════════════════════
+//  CSV取込（出馬表①）
+// ══════════════════════════════════════════════════════════
+var csvParsedRacesF = [];
+
+function handleCSVUploadFinal(input) {
+  var file = input.files[0];
+  if (!file) return;
+  var textEl  = document.getElementById('csvUploadTextF');
+  var labelEl = document.getElementById('csvUploadLabelF');
+  textEl.textContent = '読み込み中...';
+
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var decoder = new TextDecoder('shift-jis');
+      var text    = decoder.decode(e.target.result);
+      csvParsedRacesF = parseCSV1Final(text);
+      labelEl.classList.add('loaded');
+      document.getElementById('csvUploadArea').classList.add('loaded');
+      textEl.textContent = '✅ ' + file.name + '（' + csvParsedRacesF.length + 'レース検出）';
+      renderCSVRaceSelectFinal(csvParsedRacesF);
+    } catch(err) {
+      textEl.textContent = '❌ 読み込みエラー：' + err.message;
+    }
+  };
+  reader.onerror = function() { textEl.textContent = '❌ ファイル読み込みに失敗しました'; };
+  reader.readAsArrayBuffer(file);
+}
+
+function parseCSV1Final(text) {
+  var lines = text.split('\n').map(function(l){ return l.trim(); }).filter(function(l){ return l; });
+  var raceMap = {};
+  lines.forEach(function(line) {
+    var cols = line.split(',');
+    if (cols.length < 13) return;
+    var racecourse = (cols[1]||'').trim();
+    var raceNum    = (cols[2]||'').trim();
+    var raceName   = (cols[4]||'').trim();
+    var surface    = (cols[5]||'').trim();
+    var distance   = (cols[6]||'').trim();
+    var horseName  = (cols[7]||'').trim();
+    var jockey     = (cols[10]||'').trim();
+    var trainer    = (cols[12]||'').trim();
+    // 馬番: col[3] がある場合はそれを使用、なければ追加順
+    var numRaw = (cols[3]||'').trim();
+    if (!horseName || !racecourse || isNaN(parseInt(raceNum))) return;
+    var raceKey = racecourse + '_R' + raceNum.padStart(2,'0');
+    if (!raceMap[raceKey]) {
+      raceMap[raceKey] = {
+        key: raceKey,
+        raceName: racecourse + ' ' + raceNum + 'R ' + raceName,
+        racecourse: racecourse, raceNum: parseInt(raceNum),
+        surface: surface, distance: distance,
+        horses: []
+      };
+    }
+    var horseNum = parseInt(numRaw) || (raceMap[raceKey].horses.length + 1);
+    raceMap[raceKey].horses.push({
+      num: horseNum, name: horseName, jockey: jockey, trainer: trainer
+    });
+  });
+  return Object.values(raceMap).sort(function(a,b){
+    return a.racecourse.localeCompare(b.racecourse) || a.raceNum - b.raceNum;
+  });
+}
+
+function renderCSVRaceSelectFinal(races) {
+  var area = document.getElementById('csvRaceSelectArea');
+  var btns = document.getElementById('csvRaceBtns');
+  btns.innerHTML = '';
+  if (races.length === 0) {
+    area.style.display = 'none'; return;
+  }
+  area.style.display = '';
+  races.forEach(function(race) {
+    var btn = document.createElement('button');
+    btn.className = 'csv-race-btn';
+    btn.innerHTML =
+      '<span>' + race.raceName + '</span>' +
+      '<span style="font-size:11px;color:var(--text-muted);">' + race.horses.length + '頭 ›</span>';
+    btn.style.marginBottom = '5px';
+    btn.onclick = (function(r){ return function(){ importCSVRaceHorsesFinal(r); }; })(race);
+    btns.appendChild(btn);
+  });
+}
+
+function importCSVRaceHorsesFinal(race) {
+  if (finalHorses.length > 0) {
+    if (!confirm(race.raceName + ' の ' + race.horses.length + '頭を取込みます。\n現在の馬リストは上書きされます。よろしいですか？')) return;
+  }
+  // レース情報をSTEP 1に自動入力
+  var surfaceLabel = (race.surface === 'ダ') ? 'ダート' : '芝';
+  document.getElementById('venue').value    = race.racecourse;
+  var surfEl = document.getElementById('surface');
+  if (surfEl) surfEl.value = surfaceLabel;
+  document.getElementById('distance').value = race.distance + 'm';
+  updateFilenamePreview();
+
+  // 馬リスト生成（基本pt=0、スコア全0、枠番=auto計算）
+  finalHorses = race.horses.map(function(h) {
+    return {
+      num:    h.num,
+      gate:   calcGateFromNum(h.num, race.horses.length),
+      name:   h.name,
+      jockey: h.jockey || '',
+      basePt: 0,
+      scores: { '枠番':0, '調教':0, '勝負気配':0, '馬場':0, 'ニック':0 },
+      totalPt: 0,
+      mark: ''
+    };
+  });
+  renderHorseTable();
+  scheduleSave();
+  // レースセレクタを折りたたむ
+  document.getElementById('csvRaceSelectArea').style.display = 'none';
+  document.getElementById('csvUploadTextF').textContent = '✅ ' + race.raceName + '（' + race.horses.length + '頭 取込済み）';
+  // スクロール
+  setTimeout(function(){
+    var tbl = document.getElementById('horseTableBody');
+    if (tbl) tbl.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 200);
+}
+
+// 馬番から枠番を自動計算（JRA標準）
+function calcGateFromNum(num, total) {
+  // 18頭の場合: 1-2=1枠, 3-4=2枠, 5-6=3枠, 7-8=4枠, 9-10=5枠, 11-12=6枠, 13-14-15=7枠, 16-17-18=8枠
+  if (total <= 8)  return num;
+  if (total <= 16) return Math.ceil(num / 2);
+  // 17〜18頭: 7・8枠が3頭
+  var map18 = [0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,7,8,8,8];
+  return map18[num] || Math.ceil(num / 2);
 }
 
 // ══════════════════════════════════════════════════════════
@@ -967,9 +1169,9 @@ function renderHorseTable() {
   if (finalHorses.length === 0) {
     var tr = document.createElement('tr');
     var td = document.createElement('td');
-    td.colSpan = 12;
+    td.colSpan = 13;
     td.className = 'empty-state';
-    td.textContent = '馬を追加してください';
+    td.textContent = 'CSVをアップロードするか、手動で馬を追加してください';
     tr.appendChild(td);
     tbody.appendChild(tr);
     return;
@@ -1000,9 +1202,26 @@ function renderHorseTable() {
       tdName.textContent = h.name;
       tr.appendChild(tdName);
 
-      // 基本pt
+      // 騎手
+      var tdJockey = document.createElement('td');
+      tdJockey.style.cssText = 'font-size:11px;color:rgba(255,255,255,0.65);white-space:nowrap;';
+      tdJockey.textContent = h.jockey || '—';
+      tr.appendChild(tdJockey);
+
+      // 基本pt (editable input)
       var tdBase = document.createElement('td');
-      tdBase.textContent = h.basePt;
+      var basePtInput = document.createElement('input');
+      basePtInput.type = 'number';
+      basePtInput.value = h.basePt || 0;
+      basePtInput.style.cssText = 'width:52px;background:rgba(255,255,255,0.07);border:1px solid rgba(232,0,61,0.25);border-radius:6px;color:var(--text);font-size:12px;padding:4px 6px;text-align:center;';
+      basePtInput.onchange = (function(ii){ return function() {
+        finalHorses[ii].basePt = parseInt(this.value,10) || 0;
+        finalHorses[ii].totalPt = calcTotal(finalHorses[ii]);
+        var b = document.getElementById('totalBadge-' + ii);
+        if (b) { b.textContent = finalHorses[ii].totalPt; applyBadgeColor(b, finalHorses[ii].totalPt); }
+        scheduleSave();
+      }; })(idx);
+      tdBase.appendChild(basePtInput);
       tr.appendChild(tdBase);
 
       // Score cells: 枠番, 調教, 勝負気配, 馬場, ニック
