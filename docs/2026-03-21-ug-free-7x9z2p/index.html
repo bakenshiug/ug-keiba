@@ -204,6 +204,20 @@ html, body, .bg-surface, .bg-\[\#f8faf8\] { background: #ffffff !important; }
 #sort-btn { background: rgba(255,0,127,0.07) !important; color: #374151 !important; }
 #sort-btn:hover { background: rgba(255,0,127,0.15) !important; }
 
+/* ── 結果タブ — 常にゴールド表示 ─── */
+#vtab-results {
+  background: linear-gradient(135deg, #D97706, #b45309) !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.03em !important;
+  box-shadow: 0 2px 8px rgba(217,119,6,0.40) !important;
+  border: none !important;
+}
+#vtab-results:hover {
+  background: linear-gradient(135deg, #f59e0b, #D97706) !important;
+  box-shadow: 0 4px 12px rgba(217,119,6,0.55) !important;
+}
+
 /* ── Footer ──────────────────────── */
 footer { background: #FF007F !important; border-top: 2px solid #cc0066 !important; }
 footer * { color: #ffffff !important; }
@@ -263,7 +277,7 @@ footer * { color: #ffffff !important; }
     <div class="flex px-5 pb-2 mt-1 gap-1 border-b border-outline/10">
       <button id="vtab-races" onclick="showTab('races')" class="flex-1 py-1.5 text-[10px] font-bold rounded-full bg-primary text-white transition-all">予想</button>
       <button id="vtab-score" onclick="showTab('score')" class="flex-1 py-1.5 text-[10px] font-bold rounded-full bg-surface-container text-outline transition-all">スコア</button>
-      <button id="vtab-results" onclick="showTab('results')" class="flex-1 py-1.5 text-[10px] font-bold rounded-full bg-surface-container text-outline transition-all">結果</button>
+      <button id="vtab-results" onclick="showTab('results')" class="flex-1 py-2 text-[11px] font-bold rounded-full bg-surface-container text-outline transition-all">🏆 的中結果</button>
     </div>
   </header>
 
