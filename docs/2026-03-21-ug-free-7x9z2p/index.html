@@ -123,6 +123,92 @@
     100% { transform: translateX(-100%); }
   }
 </style>
+
+<style id="ug-pink-theme">
+/* ══════════════════════════════════════
+   UG PINK ACCENT THEME — free page
+   ══════════════════════════════════════ */
+:root { --ug-pink: #FF007F; --ug-pink-dk: #cc0066; }
+
+html, body { background: #ffffff !important; color: #191c1b !important; }
+
+/* ── List view header → pink ─────── */
+#list-view > header {
+  background: #FF007F !important;
+  border-bottom: 2px solid #cc0066 !important;
+  backdrop-filter: blur(14px) !important;
+}
+#list-view > header p,
+#list-view > header span,
+#list-view > header h1,
+#list-view > header a,
+#list-view > header button { color: #ffffff !important; }
+#list-view > header .text-outline { color: rgba(255,255,255,0.75) !important; }
+#list-view > header .text-tertiary { color: #ffffff !important; }
+#list-view > header .text-primary { color: #ffffff !important; }
+
+/* ── Detail view header → pink ───── */
+#detail-view > header {
+  background: #FF007F !important;
+  border-bottom: 2px solid #cc0066 !important;
+}
+#detail-view > header *,
+#detail-view > header .text-green-900 { color: #ffffff !important; }
+#detail-view > header button:hover { background: rgba(255,255,255,0.20) !important; }
+
+/* ── Ticker → deep pink ─────────── */
+.bg-\[\#006400\] { background: #cc0066 !important; }
+.ticker-wrap { background: #cc0066 !important; }
+
+/* ── Active tab → pink ──────────── */
+.bg-primary { background: #FF007F !important; }
+.border-primary { border-color: #FF007F !important; }
+
+/* ── Text colors ─────────────────── */
+.text-primary { color: #FF007F !important; }
+.text-tertiary { color: #FF007F !important; }
+.text-green-900 { color: #191c1b !important; }
+.text-on-surface { color: #191c1b !important; }
+.text-on-surface-variant { color: #374151 !important; }
+.text-outline { color: #707a6a !important; }
+
+/* ── Surface / card backgrounds ──── */
+html, body, .bg-surface, .bg-\[\#f8faf8\] { background: #ffffff !important; }
+.bg-surface-container-low { background: rgba(255,0,127,0.04) !important; }
+.bg-surface-container     { background: rgba(255,0,127,0.07) !important; }
+.bg-surface-container-high{ background: rgba(255,0,127,0.10) !important; }
+.bg-surface-bright        { background: #ffffff !important; }
+
+/* ── Race info bar ───────────────── */
+#race-info-bar { background: rgba(255,0,127,0.06) !important; border-bottom: 1px solid rgba(255,0,127,0.15) !important; }
+
+/* ── Dividers / borders ─────────── */
+.border-outline\/10, .divide-outline\/10 > * { border-color: rgba(255,0,127,0.15) !important; }
+.border-outline\/30 { border-color: rgba(255,0,127,0.30) !important; }
+
+/* ── Horse rows ─────────────────── */
+.horse-row:active { background: rgba(255,0,127,0.08) !important; }
+
+/* ── Score / details cards ───────── */
+.bg-surface-container-highest { background: rgba(255,0,127,0.08) !important; }
+.bg-surface-dim { background: #f9f9f9 !important; }
+
+/* ── CTA / vigor gradients → pink ── */
+.cta-gradient   { background: linear-gradient(to bottom, #FF007F, #cc0066) !important; }
+.vigor-gradient { background: linear-gradient(to right,  #FF007F, #cc0066) !important; }
+
+/* ── pci-gradient ─────────────────── */
+.pci-gradient { background: linear-gradient(90deg, rgba(255,0,127,0.10) 0%, #FF007F 46.5%, rgba(255,0,127,0.10) 100%) !important; }
+
+/* ── Sort button ─────────────────── */
+#sort-btn { background: rgba(255,0,127,0.07) !important; color: #374151 !important; }
+#sort-btn:hover { background: rgba(255,0,127,0.15) !important; }
+
+/* ── Footer ──────────────────────── */
+footer { background: #FF007F !important; border-top: 2px solid #cc0066 !important; }
+footer * { color: #ffffff !important; }
+</style>
+
 </head>
 <body class="bg-surface text-on-surface min-h-screen pb-32">
 
@@ -138,10 +224,6 @@
           <a href="../../index.html" style="text-decoration:none;color:inherit;"><h1 class="serif-headline text-xl font-bold text-primary leading-tight">🎯UG強奪競馬新聞 🎯</h1></a>
           <p class="text-[11px] text-outline font-bold tracking-wide">〜馬券師グランプリ〜</p>
           <p class="text-[11px] font-black text-tertiary">🤡強奪ニック🤡責任編集</p>
-        </div>
-        <div class="text-right">
-          <p class="text-[10px] font-bold text-tertiary uppercase tracking-widest">最終更新日</p>
-          <p class="text-sm font-label font-black text-on-surface">2026年3月22日</p>
         </div>
       </div>
     </div>
@@ -224,7 +306,6 @@
       </button>
       <h1 id="detail-title" onclick="showList()" class="font-serif font-bold text-xl tracking-tight text-green-900 cursor-pointer">馬詳細分析</h1>
     </div>
-    <p class="text-[10px] font-bold text-outline">2026.3.21 最終更新日</p>
   </header>
 
   <main class="px-6 py-4 space-y-10">
@@ -411,7 +492,7 @@
   <div class="pt-4">
     <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Underground Racing Intelligence</p>
     <h1 class="serif-headline text-2xl font-bold text-primary">スコアランキング</h1>
-    <p class="text-xs text-outline mt-1">2026年3月21日 最終更新日　※高いほど高評価</p>
+    <p class="text-xs text-outline mt-1">2026年3月21日 ※高いほど高評価</p>
   </div>
   <div class="flex gap-1 mb-2 flex-wrap">
     <button onclick="switchScoreRace('falcon')" id="stab-falcon"
@@ -443,7 +524,7 @@
   <div class="pt-4">
     <p class="text-[10px] uppercase tracking-widest text-outline font-bold">Nick's Final Analysis</p>
     <h1 class="serif-headline text-2xl font-bold text-primary">強奪ニックの最終結論</h1>
-    <p class="text-xs text-outline mt-1">2026年3月21日 最終更新日</p>
+    <p class="text-xs text-outline mt-1">2026年3月21日</p>
   </div>
   <div id="analysis-content" class="space-y-6"></div>
 </div>
