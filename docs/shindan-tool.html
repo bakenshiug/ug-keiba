@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>重賞全頭診断 作成ツール | UG強奪競馬新聞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #130003;
+  --bg-dk: #0b0002;
+  --bg-md: #1a0004;
+  --pink: #E8003D;
+  --pink-dk: #B5002E;
+  --gold: #f0c040;
+  --text: #f5d0d5;
+  --text-muted: rgba(255,255,255,0.50);
+  --card-bg: rgba(255,255,255,0.07);
+  --card-border: rgba(232,0,61,0.25);
+  --input-bg: rgba(255,255,255,0.06);
+  --input-border: rgba(232,0,61,0.30);
+}
+html { background: var(--bg); }
+body {
+  font-family: 'Public Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* ── Header ── */
+.tool-header {
+  background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%);
+  border-bottom: 1px solid rgba(232,0,61,0.40);
+  padding: 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tool-header h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(232,0,61,0.55);
+}
+.tool-header .subtitle {
+  font-size: 10px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.save-indicator {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(240,192,64,0.12);
+  border: 1px solid rgba(240,192,64,0.30);
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.save-indicator.visible { opacity: 1; }
+
+/* ── Layout ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Section Card ── */
+.section-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+.section-header {
+  background: linear-gradient(135deg, var(--pink), var(--pink-dk));
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-header h2 {
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+.section-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Form elements ── */
+.field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.field-row.inline {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.field-row.inline .field-item {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+label {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  padding: 9px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(232,0,61,0.18);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) opacity(0.5);
+  cursor: pointer;
+}
+select option { background: #1a0004; color: var(--text); }
+textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
+textarea.short { min-height: 54px; }
+textarea.tall { min-height: 100px; }
+
+/* ── Grade Select Colors ── */
+.grade-select option[value="S"]  { background: #D97706; }
+.grade-select option[value="A"]  { background: #DB2777; }
+.grade-select option[value="B+"] { background: #F43F5E; }
+.grade-select option[value="B"]  { background: #EA580C; }
+.grade-select option[value="C"]  { background: #2563EB; }
+.grade-select option[value="D"]  { background: #6B7280; }
+.grade-select option[value="E"]  { background: #dc2626; }
+
+/* ── Analysis Categories ── */
+.cat-fields {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(232,0,61,0.18);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cat-label {
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--pink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(232,0,61,0.20);
+  padding-bottom: 4px;
+}
+.cat-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.cat-row select {
+  width: 90px;
+  flex-shrink: 0;
+}
+.cat-row textarea {
+  flex: 1;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.18s;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--pink), var(--pink-dk));
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(232,0,61,0.35);
+}
+.btn-primary:hover {
+  box-shadow: 0 4px 20px rgba(232,0,61,0.55);
+  transform: translateY(-1px);
+}
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.14); }
+.btn-danger {
+  background: rgba(220,38,38,0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(220,38,38,0.30);
+}
+.btn-danger:hover { background: rgba(220,38,38,0.28); }
+.btn-gold {
+  background: linear-gradient(135deg, #b45309, #92400e);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(180,83,9,0.40);
+  font-size: 14px;
+  padding: 12px 24px;
+}
+.btn-gold:hover { box-shadow: 0 4px 22px rgba(180,83,9,0.60); transform: translateY(-1px); }
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 6px;
+}
+
+/* ── Horse List ── */
+.horse-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.horse-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(232,0,61,0.20);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.horse-item-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.horse-num {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--text-muted);
+  width: 22px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.horse-name-badge {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 3px 9px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  flex-shrink: 0;
+}
+.grade-badge.gs  { background: #D97706; color: #fff; }
+.grade-badge.ga  { background: #DB2777; color: #fff; }
+.grade-badge.gbp { background: #F43F5E; color: #fff; }
+.grade-badge.gb  { background: #EA580C; color: #fff; }
+.grade-badge.gc  { background: #2563EB; color: #fff; }
+.grade-badge.gd  { background: #6B7280; color: #fff; }
+.grade-badge.ge  { background: #dc2626; color: #fff; }
+.horse-item-actions {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+/* ── Empty state ── */
+.empty-state {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ── Generate section ── */
+.generate-area {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+.filename-preview {
+  font-size: 12px;
+  color: var(--gold);
+  font-family: 'Inter', monospace;
+  background: rgba(240,192,64,0.08);
+  border: 1px solid rgba(240,192,64,0.20);
+  border-radius: 6px;
+  padding: 6px 12px;
+  word-break: break-all;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .field-row.inline .field-item { min-width: 120px; }
+  .cat-row { flex-direction: column; }
+  .cat-row select { width: 100%; }
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: rgba(232,0,61,0.18);
+  margin: 4px 0;
+}
+
+/* ── CSV Upload (Section 0) ── */
+.csv-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(240,192,64,0.12) 0%, rgba(232,0,61,0.08) 100%);
+  border: 2px dashed rgba(240,192,64,0.40);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+}
+.csv-upload-label:hover { background: linear-gradient(135deg,rgba(240,192,64,0.20) 0%,rgba(232,0,61,0.14) 100%); border-color: rgba(240,192,64,0.65); }
+.csv-upload-label.loaded { border-style: solid; border-color: rgba(240,192,64,0.65); color: var(--gold); }
+.race-option-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  padding: 11px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s;
+  color: var(--text);
+  font-family: 'Public Sans', sans-serif;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.race-option-btn:hover { background: rgba(240,192,64,0.10); border-color: rgba(240,192,64,0.40); }
+.race-option-btn.has-db { border-color: rgba(240,192,64,0.35); }
+.race-option-btn.no-db { opacity: 0.55; }
+.csv-race-badge {
+  font-size: 10px; font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-right: 4px;
+}
+.csv-race-badge.db-badge { background: rgba(240,192,64,0.20); color: var(--gold); border: 1px solid rgba(240,192,64,0.40); }
+.csv-race-badge.extra-badge { background: rgba(14,165,233,0.20); color: #7dd3fc; border: 1px solid rgba(14,165,233,0.35); }
+.csv-section-tip {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 10px 12px;
+  line-height: 1.7;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="tool-header">
+  <div>
+    <div class="subtitle">UG強奪競馬新聞 / 管理ツール</div>
+    <h1>重賞全頭診断 作成ツール</h1>
+  </div>
+  <div id="saveIndicator" class="save-indicator">💾 下書き保存済み</div>
+</header>
+
+<div class="container">
+
+  <!-- ══ SECTION 0: CSV自動取込 ══ -->
+  <div class="section-card">
+    <div class="section-header">
+      <span>📂</span>
+      <h2>SECTION 0 — CSV自動取込</h2>
+      <span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,0.50);">任意・省略可</span>
+    </div>
+    <div class="section-body">
+
+      <div class="csv-section-tip">
+        JRA出馬表CSVを2ファイルアップロードすると、馬基本情報の自動入力＋DBマッチングによるグレード自動採点が行われます。<br>
+        出馬表①：基本情報（騎手・調教師・父）／出馬表②：前走データ（乗り替わり・芝ダ変更・距離変化）
+      </div>
+
+      <div class="field-row inline">
+        <div class="field-item" style="flex:1;">
+          <label>出馬表CSV①（基本情報）</label>
+          <label class="csv-upload-label" id="csvUploadLabel1">
+            <input type="file" accept=".csv" style="display:none;" onchange="handleCSVUploadS(this, 1)"/>
+            <span>📋</span>
+            <span id="csvUploadText1">出馬表①をアップロード</span>
+          </label>
+        </div>
+        <div class="field-item" style="flex:1;">
+          <label>出馬表CSV②（前走データ）</label>
+          <label class="csv-upload-label" id="csvUploadLabel2">
+            <input type="file" accept=".csv" style="display:none;" onchange="handleCSVUploadS(this, 2)"/>
+            <span>📋</span>
+            <span id="csvUploadText2">出馬表②をアップロード（任意）</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="csvRaceListS" style="display:none;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+          <span style="font-size:12px;font-weight:700;color:var(--gold);">レース一覧</span>
+          <span id="csvRaceCountS" style="font-size:11px;color:var(--text-muted);"></span>
+          <div style="margin-left:auto;display:flex;gap:6px;">
+            <button id="filterAllS" style="font-size:11px;padding:5px 10px;border-radius:999px;font-weight:700;border:1px solid rgba(240,192,64,0.50);background:rgba(240,192,64,0.18);color:var(--gold);cursor:pointer;" onclick="filterCSVRacesS('all')">全て</button>
+            <button id="filterDBS" style="font-size:11px;padding:5px 10px;border-radius:999px;font-weight:700;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:var(--text-muted);cursor:pointer;" onclick="filterCSVRacesS('db')">DB合致</button>
+          </div>
+        </div>
+        <div id="csvRaceOptionsS"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SECTION 1: Race Info ══ -->
+  <div class="section-card">
+    <div class="section-header">
+      <span>🏇</span>
+      <h2>SECTION 1 — レース情報</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="field-row inline">
+        <div class="field-item">
+          <label for="raceName">レース名</label>
+          <input type="text" id="raceName" placeholder="高松宮記念"/>
+        </div>
+        <div class="field-item">
+          <label for="raceGrade">グレード</label>
+          <select id="raceGrade">
+            <option value="G1">G1</option>
+            <option value="G2">G2</option>
+            <option value="G3">G3</option>
+            <option value="OP">OP</option>
+            <option value="L">L</option>
+          </select>
+        </div>
+        <div class="field-item">
+          <label for="raceDate">開催日</label>
+          <input type="date" id="raceDate"/>
+        </div>
+      </div>
+
+      <div class="field-row inline">
+        <div class="field-item">
+          <label for="venue">競馬場</label>
+          <input type="text" id="venue" placeholder="中京"/>
+        </div>
+        <div class="field-item">
+          <label for="raceNum">レース番号</label>
+          <input type="text" id="raceNum" placeholder="11R"/>
+        </div>
+        <div class="field-item">
+          <label for="trackType">馬場</label>
+          <select id="trackType">
+            <option value="芝">芝</option>
+            <option value="ダート">ダート</option>
+          </select>
+        </div>
+        <div class="field-item">
+          <label for="distance">距離</label>
+          <input type="text" id="distance" placeholder="1200m"/>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-row">
+        <label for="tickerText">ティッカーテキスト（スクロールニュース）</label>
+        <textarea id="tickerText" class="short" placeholder="🎯 速報 ｜ 的中情報など..."></textarea>
+      </div>
+
+      <div class="field-row">
+        <label for="leadText">リード文</label>
+        <textarea id="leadText" class="tall" placeholder="今週の重賞について..."></textarea>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-row">
+        <label for="skillTitle">強奪スキルタイトル</label>
+        <input type="text" id="skillTitle" placeholder="ニック流・高松宮記念「強奪スキル」"/>
+      </div>
+
+      <div class="field-row">
+        <label for="skillBody">強奪スキル本文（HTMLタグ可）</label>
+        <textarea id="skillBody" class="tall" placeholder="〜スキル本文〜"></textarea>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="field-row">
+        <label for="categories">分析カテゴリ（カンマ区切り）</label>
+        <input type="text" id="categories" value="過去パフォーマンス,前走ジャッジ,外厩 &amp; 厩舎,血統ジャッジ" placeholder="過去パフォーマンス,前走ジャッジ,外厩 &amp; 厩舎,血統ジャッジ"/>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">※ カテゴリを変更すると下の馬入力フォームが更新されます</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2: Horse Input ══ -->
+  <div class="section-card">
+    <div class="section-header">
+      <span>🐴</span>
+      <h2>SECTION 2 — 馬を追加</h2>
+    </div>
+    <div class="section-body">
+
+      <!-- Hidden edit index -->
+      <input type="hidden" id="editIndex" value="-1"/>
+
+      <div class="field-row">
+        <label for="prevRaceInfo">前走情報</label>
+        <input type="text" id="prevRaceInfo" placeholder="前走：阪神C G2 2着　ルメール騎手"/>
+      </div>
+
+      <div class="field-row inline">
+        <div class="field-item">
+          <label for="horseName">馬名</label>
+          <input type="text" id="horseName" placeholder="ナムラクレア"/>
+        </div>
+        <div class="field-item">
+          <label for="sexAge">性齢</label>
+          <input type="text" id="sexAge" placeholder="牝7"/>
+        </div>
+        <div class="field-item">
+          <label for="jockey">騎手</label>
+          <input type="text" id="jockey" placeholder="浜中俊"/>
+        </div>
+      </div>
+
+      <div class="field-row inline">
+        <div class="field-item">
+          <label for="weight">斤量</label>
+          <input type="text" id="weight" placeholder="56kg"/>
+        </div>
+        <div class="field-item">
+          <label for="stable">厩舎名</label>
+          <input type="text" id="stable" placeholder="長谷川浩"/>
+        </div>
+        <div class="field-item">
+          <label for="affiliation">所属</label>
+          <select id="affiliation">
+            <option value="栗東">栗東</option>
+            <option value="美浦">美浦</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row inline">
+        <div class="field-item">
+          <label for="sire">父</label>
+          <input type="text" id="sire" placeholder="ミッキーアイル"/>
+        </div>
+        <div class="field-item">
+          <label for="dam">母父</label>
+          <input type="text" id="dam" placeholder="Storm Cat"/>
+        </div>
+        <div class="field-item">
+          <label for="gaiku">外厩</label>
+          <input type="text" id="gaiku" placeholder="チャンピオンヒルズ または 在厩"/>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <label for="overallGrade">総合グレード</label>
+        <select id="overallGrade" class="grade-select">
+          <option value="S">S</option>
+          <option value="A">A</option>
+          <option value="B+" selected>B+</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+        </select>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Dynamic analysis category fields -->
+      <div id="analysisFields">
+        <!-- Generated by JS -->
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="addOrUpdateHorse()">
+          <span id="addBtnIcon">＋</span>
+          <span id="addBtnText">馬を追加</span>
+        </button>
+        <button class="btn btn-secondary" onclick="cancelEdit()" id="cancelBtn" style="display:none;">
+          キャンセル
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3: Horse List ══ -->
+  <div class="section-card">
+    <div class="section-header">
+      <span>📋</span>
+      <h2>SECTION 3 — 馬一覧</h2>
+      <span id="horseCount" style="margin-left:auto;font-size:12px;color:rgba(255,255,255,0.65);">0頭</span>
+    </div>
+    <div class="section-body" style="padding:14px 16px;">
+      <div id="horseListEl" class="horse-list">
+        <div class="empty-state">まだ馬が追加されていません</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 4: Generate & Download ══ -->
+  <div class="section-card">
+    <div class="section-header">
+      <span>⚡</span>
+      <h2>SECTION 4 — 生成 &amp; ダウンロード</h2>
+    </div>
+    <div class="section-body">
+      <div class="generate-area">
+        <div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">出力ファイル名</div>
+          <div class="filename-preview" id="filenamePreview">（レース情報を入力してください）</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn btn-gold" onclick="generateAndDownload()">
+            📥 HTMLをダウンロード
+          </button>
+          <button class="btn btn-secondary" onclick="clearDraft()">
+            🗑 下書きをクリア
+          </button>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);">
+          ※ 生成されるHTMLは高松宮記念ページと完全に同じCSS・構造を使用します
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+// ══════════════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════════════
+var horses = [];
+var DRAFT_KEY = 'shindan-draft';
+var saveTimer = null;
+
+// ══════════════════════════════════════════════════════════
+//  GRADE UTILS
+// ══════════════════════════════════════════════════════════
+function gradeClass(g) {
+  var map = { 'S':'gs','A':'ga','B+':'gbp','B':'gb','C':'gc','D':'gd','E':'ge' };
+  return map[g] || 'gd';
+}
+function gradeCssClass(g) {
+  var map = { 'S':'grade-S','A':'grade-A','B+':'grade-Bp','B':'grade-B','C':'grade-C','D':'grade-D','E':'grade-E' };
+  return map[g] || 'grade-D';
+}
+function borderClass(g) {
+  var map = { 'S':'border-S','A':'border-A','B+':'border-Bp','B':'border-B','C':'border-C','D':'border-D','E':'border-E' };
+  return map[g] || 'border-D';
+}
+function gradeLabel(g) {
+  return g === 'B+' ? 'B+' : g;
+}
+
+// ══════════════════════════════════════════════════════════
+//  CATEGORIES
+// ══════════════════════════════════════════════════════════
+function getCategories() {
+  var raw = document.getElementById('categories').value;
+  return raw.split(',').map(function(s){ return s.trim(); }).filter(function(s){ return s.length > 0; });
+}
+
+function buildAnalysisFields(existingData) {
+  var cats = getCategories();
+  var container = document.getElementById('analysisFields');
+  container.innerHTML = '';
+  if (cats.length === 0) return;
+
+  var wrapper = document.createElement('div');
+  wrapper.className = 'cat-fields';
+
+  var title = document.createElement('div');
+  title.className = 'cat-label';
+  title.textContent = '分析ブロック';
+  wrapper.appendChild(title);
+
+  cats.forEach(function(cat, i) {
+    var block = document.createElement('div');
+    block.style.cssText = 'display:flex;flex-direction:column;gap:6px;';
+
+    var catTitle = document.createElement('div');
+    catTitle.style.cssText = 'font-size:11px;font-weight:700;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.05em;';
+    catTitle.textContent = cat;
+    block.appendChild(catTitle);
+
+    var row = document.createElement('div');
+    row.className = 'cat-row';
+
+    var sel = document.createElement('select');
+    sel.className = 'grade-select';
+    sel.id = 'cat_grade_' + i;
+    ['S','A','B+','B','C','D','E'].forEach(function(g){
+      var opt = document.createElement('option');
+      opt.value = g;
+      opt.textContent = g;
+      sel.appendChild(opt);
+    });
+    if (existingData && existingData[i]) {
+      sel.value = existingData[i].grade || 'B';
+    } else {
+      sel.value = 'B';
+    }
+
+    var ta = document.createElement('textarea');
+    ta.className = 'short';
+    ta.id = 'cat_text_' + i;
+    ta.placeholder = cat + 'の分析コメント...';
+    if (existingData && existingData[i]) {
+      ta.value = existingData[i].text || '';
+    }
+
+    row.appendChild(sel);
+    row.appendChild(ta);
+    block.appendChild(row);
+    wrapper.appendChild(block);
+
+    if (i < cats.length - 1) {
+      var sep = document.createElement('div');
+      sep.style.cssText = 'height:1px;background:rgba(232,0,61,0.12);';
+      wrapper.appendChild(sep);
+    }
+  });
+
+  container.appendChild(wrapper);
+}
+
+// ══════════════════════════════════════════════════════════
+//  HORSE CRUD
+// ══════════════════════════════════════════════════════════
+function readHorseForm() {
+  var cats = getCategories();
+  var analysis = cats.map(function(cat, i){
+    return {
+      label: cat,
+      grade: (document.getElementById('cat_grade_' + i) || {value:'B'}).value,
+      text: (document.getElementById('cat_text_' + i) || {value:''}).value
+    };
+  });
+  return {
+    prevRace: document.getElementById('prevRaceInfo').value.trim(),
+    name: document.getElementById('horseName').value.trim(),
+    sexAge: document.getElementById('sexAge').value.trim(),
+    jockey: document.getElementById('jockey').value.trim(),
+    weight: document.getElementById('weight').value.trim(),
+    stable: document.getElementById('stable').value.trim(),
+    affiliation: document.getElementById('affiliation').value,
+    sire: document.getElementById('sire').value.trim(),
+    dam: document.getElementById('dam').value.trim(),
+    gaiku: document.getElementById('gaiku').value.trim(),
+    overallGrade: document.getElementById('overallGrade').value,
+    analysis: analysis
+  };
+}
+
+function populateHorseForm(horse) {
+  document.getElementById('prevRaceInfo').value = horse.prevRace || '';
+  document.getElementById('horseName').value = horse.name || '';
+  document.getElementById('sexAge').value = horse.sexAge || '';
+  document.getElementById('jockey').value = horse.jockey || '';
+  document.getElementById('weight').value = horse.weight || '';
+  document.getElementById('stable').value = horse.stable || '';
+  document.getElementById('affiliation').value = horse.affiliation || '栗東';
+  document.getElementById('sire').value = horse.sire || '';
+  document.getElementById('dam').value = horse.dam || '';
+  document.getElementById('gaiku').value = horse.gaiku || '';
+  document.getElementById('overallGrade').value = horse.overallGrade || 'B';
+  buildAnalysisFields(horse.analysis || []);
+}
+
+function clearHorseForm() {
+  document.getElementById('prevRaceInfo').value = '';
+  document.getElementById('horseName').value = '';
+  document.getElementById('sexAge').value = '';
+  document.getElementById('jockey').value = '';
+  document.getElementById('weight').value = '';
+  document.getElementById('stable').value = '';
+  document.getElementById('affiliation').value = '栗東';
+  document.getElementById('sire').value = '';
+  document.getElementById('dam').value = '';
+  document.getElementById('gaiku').value = '';
+  document.getElementById('overallGrade').value = 'B+';
+  document.getElementById('editIndex').value = '-1';
+  buildAnalysisFields([]);
+  document.getElementById('addBtnIcon').textContent = '＋';
+  document.getElementById('addBtnText').textContent = '馬を追加';
+  document.getElementById('cancelBtn').style.display = 'none';
+}
+
+function addOrUpdateHorse() {
+  var h = readHorseForm();
+  if (!h.name) { alert('馬名を入力してください'); return; }
+  var idx = parseInt(document.getElementById('editIndex').value, 10);
+  if (idx >= 0) {
+    horses[idx] = h;
+  } else {
+    horses.push(h);
+  }
+  clearHorseForm();
+  renderHorseList();
+  scheduleSave();
+}
+
+function editHorse(idx) {
+  document.getElementById('editIndex').value = idx;
+  populateHorseForm(horses[idx]);
+  document.getElementById('addBtnIcon').textContent = '✏️';
+  document.getElementById('addBtnText').textContent = '更新する';
+  document.getElementById('cancelBtn').style.display = 'inline-flex';
+  window.scrollTo({ top: document.querySelector('#analysisFields').getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+}
+
+function deleteHorse(idx) {
+  if (!confirm(horses[idx].name + ' を削除しますか？')) return;
+  horses.splice(idx, 1);
+  renderHorseList();
+  scheduleSave();
+}
+
+function moveHorse(idx, dir) {
+  var newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= horses.length) return;
+  var tmp = horses[idx];
+  horses[idx] = horses[newIdx];
+  horses[newIdx] = tmp;
+  renderHorseList();
+  scheduleSave();
+}
+
+function cancelEdit() {
+  clearHorseForm();
+}
+
+function renderHorseList() {
+  var el = document.getElementById('horseListEl');
+  var countEl = document.getElementById('horseCount');
+  countEl.textContent = horses.length + '頭';
+
+  if (horses.length === 0) {
+    el.innerHTML = '<div class="empty-state">まだ馬が追加されていません</div>';
+    return;
+  }
+  el.innerHTML = '';
+  horses.forEach(function(h, i){
+    var item = document.createElement('div');
+    item.className = 'horse-item';
+
+    var info = document.createElement('div');
+    info.className = 'horse-item-info';
+
+    var num = document.createElement('div');
+    num.className = 'horse-num';
+    num.textContent = (i + 1);
+
+    var name = document.createElement('div');
+    name.className = 'horse-name-badge';
+    name.textContent = h.name || '（名前未入力）';
+
+    var badge = document.createElement('span');
+    badge.className = 'grade-badge ' + gradeClass(h.overallGrade);
+    badge.textContent = '総合 ' + gradeLabel(h.overallGrade);
+
+    info.appendChild(num);
+    info.appendChild(name);
+    info.appendChild(badge);
+
+    var actions = document.createElement('div');
+    actions.className = 'horse-item-actions';
+
+    var upBtn = document.createElement('button');
+    upBtn.className = 'btn btn-secondary btn-sm';
+    upBtn.textContent = '↑';
+    upBtn.title = '上へ';
+    upBtn.disabled = i === 0;
+    upBtn.onclick = (function(ii){ return function(){ moveHorse(ii, -1); }; })(i);
+
+    var dnBtn = document.createElement('button');
+    dnBtn.className = 'btn btn-secondary btn-sm';
+    dnBtn.textContent = '↓';
+    dnBtn.title = '下へ';
+    dnBtn.disabled = i === horses.length - 1;
+    dnBtn.onclick = (function(ii){ return function(){ moveHorse(ii, 1); }; })(i);
+
+    var editBtn = document.createElement('button');
+    editBtn.className = 'btn btn-secondary btn-sm';
+    editBtn.textContent = '編集';
+    editBtn.onclick = (function(ii){ return function(){ editHorse(ii); }; })(i);
+
+    var delBtn = document.createElement('button');
+    delBtn.className = 'btn btn-danger btn-sm';
+    delBtn.textContent = '削除';
+    delBtn.onclick = (function(ii){ return function(){ deleteHorse(ii); }; })(i);
+
+    actions.appendChild(upBtn);
+    actions.appendChild(dnBtn);
+    actions.appendChild(editBtn);
+    actions.appendChild(delBtn);
+
+    item.appendChild(info);
+    item.appendChild(actions);
+    el.appendChild(item);
+  });
+}
+
+// ══════════════════════════════════════════════════════════
+//  FILENAME PREVIEW
+// ══════════════════════════════════════════════════════════
+function updateFilename() {
+  var d = document.getElementById('raceDate').value;
+  var name = document.getElementById('raceName').value.trim();
+  if (!d || !name) {
+    document.getElementById('filenamePreview').textContent = '（レース情報を入力してください）';
+    return;
+  }
+  var slug = toSlug(name);
+  document.getElementById('filenamePreview').textContent = d + '-' + slug + '.html';
+}
+
+function toSlug(str) {
+  var map = {
+    '高松宮記念':'takamatsunomiya-kinen',
+    '桜花賞':'oka-sho',
+    '皐月賞':'satsuki-sho',
+    '天皇賞春':'tenno-sho-spring',
+    '天皇賞秋':'tenno-sho-autumn',
+    'ヴィクトリアマイル':'victoria-mile',
+    '安田記念':'yasuda-kinen',
+    '宝塚記念':'takarazuka-kinen',
+    'スプリンターズS':'sprinters-stakes',
+    '秋華賞':'shuka-sho',
+    '菊花賞':'kikka-sho',
+    'エリザベス女王杯':'elizabeth-queen-cup',
+    'マイルCS':'mile-championship',
+    'ジャパンC':'japan-cup',
+    'チャンピオンズC':'champions-cup',
+    'アルテミスS':'artemis-stakes',
+    '毎日杯':'mainichi-hai',
+    '日経賞':'nikkeisho',
+    'マーチS':'march-stakes',
+    'フラワーC':'flower-cup',
+    '阪神大賞典':'hanshin-daishoten',
+    '若葉S':'wakaba-stakes',
+    'ファルコンS':'falcon-stakes'
+  };
+  if (map[str]) return map[str];
+  // Fallback: romanize using simple approach
+  return str.toLowerCase()
+    .replace(/[・]/g, '-')
+    .replace(/[　\s]+/g, '-')
+    .replace(/[^\w\-]/g, '')
+    .replace(/\-+/g, '-')
+    .replace(/^\-|\-$/g, '') || 'race';
+}
+
+// ══════════════════════════════════════════════════════════
+//  LOCAL STORAGE
+// ══════════════════════════════════════════════════════════
+function collectFormState() {
+  return {
+    raceName: document.getElementById('raceName').value,
+    raceGrade: document.getElementById('raceGrade').value,
+    raceDate: document.getElementById('raceDate').value,
+    venue: document.getElementById('venue').value,
+    raceNum: document.getElementById('raceNum').value,
+    trackType: document.getElementById('trackType').value,
+    distance: document.getElementById('distance').value,
+    tickerText: document.getElementById('tickerText').value,
+    leadText: document.getElementById('leadText').value,
+    skillTitle: document.getElementById('skillTitle').value,
+    skillBody: document.getElementById('skillBody').value,
+    categories: document.getElementById('categories').value,
+    horses: horses
+  };
+}
+
+function restoreFormState(state) {
+  if (!state) return;
+  var fields = ['raceName','raceGrade','raceDate','venue','raceNum','trackType','distance','tickerText','leadText','skillTitle','skillBody','categories'];
+  fields.forEach(function(id){
+    var el = document.getElementById(id);
+    if (el && state[id] !== undefined) el.value = state[id];
+  });
+  horses = state.horses || [];
+}
+
+function scheduleSave() {
+  if (saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(function(){
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(collectFormState()));
+      showSaveIndicator();
+    } catch(e) {}
+  }, 600);
+}
+
+function showSaveIndicator() {
+  var el = document.getElementById('saveIndicator');
+  el.classList.add('visible');
+  setTimeout(function(){ el.classList.remove('visible'); }, 2000);
+}
+
+function clearDraft() {
+  if (!confirm('下書きをすべてクリアしますか？')) return;
+  localStorage.removeItem(DRAFT_KEY);
+  horses = [];
+  document.getElementById('raceName').value = '';
+  document.getElementById('raceGrade').value = 'G1';
+  document.getElementById('raceDate').value = '';
+  document.getElementById('venue').value = '';
+  document.getElementById('raceNum').value = '';
+  document.getElementById('trackType').value = '芝';
+  document.getElementById('distance').value = '';
+  document.getElementById('tickerText').value = '';
+  document.getElementById('leadText').value = '';
+  document.getElementById('skillTitle').value = '';
+  document.getElementById('skillBody').value = '';
+  document.getElementById('categories').value = '過去パフォーマンス,前走ジャッジ,外厩 & 厩舎,血統ジャッジ';
+  clearHorseForm();
+  renderHorseList();
+  updateFilename();
+}
+
+// ══════════════════════════════════════════════════════════
+//  HTML GENERATION
+// ══════════════════════════════════════════════════════════
+function he(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  var parts = dateStr.split('-');
+  if (parts.length !== 3) return dateStr;
+  return parts[0] + '年' + parseInt(parts[1],10) + '月' + parseInt(parts[2],10) + '日';
+}
+
+function buildGaikuChip(gaiku) {
+  if (!gaiku || gaiku === '在厩') {
+    return '<span class="text-[10px] bg-[#eceeec] text-[#707a6a] rounded px-1.5 py-0.5">🏠 在厩</span>';
+  }
+  return '<span class="text-[10px] bg-[#c4eab5] text-[#004900] rounded px-1.5 py-0.5">🌿 ' + he(gaiku) + '</span>';
+}
+
+function buildHorseCard(horse, idx) {
+  var g = horse.overallGrade;
+  var gcls = gradeCssClass(g);
+  var bcls = borderClass(g);
+  var gLabel = gradeLabel(g);
+
+  // For grade A with激走警報 header (special pink gradient card for high grades S/A)
+  // Looking at reference: grade-A horses with 激走 get the pink gradient header
+  // Standard cards: bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden {borderClass}
+  var cardHtml = '';
+
+  cardHtml += '  <!-- ' + he(horse.name) + ' 総合' + he(gLabel) + ' -->\n';
+  cardHtml += '  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden ' + bcls + '">\n';
+  cardHtml += '    <div class="px-5 pt-4 pb-2 flex items-start justify-between gap-2">\n';
+  cardHtml += '      <div>\n';
+  cardHtml += '        <p class="text-[10px] text-[#707a6a] font-bold">' + he(horse.prevRace) + '</p>\n';
+  cardHtml += '        <h2 class="serif-headline text-base font-bold text-[#004900] mt-0.5">' + he(horse.name) + '</h2>\n';
+  cardHtml += '        <p class="text-[10px] text-[#707a6a] mt-0.5">' + he(horse.sexAge) + ' ' + he(horse.jockey) + ' ' + he(horse.weight) + '　' + he(horse.affiliation) + '・' + he(horse.stable) + '厩舎</p>\n';
+  cardHtml += '        <div class="flex flex-wrap gap-1 mt-1.5">\n';
+  cardHtml += '          <span class="text-[10px] bg-[#eceeec] rounded px-1.5 py-0.5">父 ' + he(horse.sire) + '</span>\n';
+  cardHtml += '          <span class="text-[10px] bg-[#eceeec] rounded px-1.5 py-0.5">母父 ' + he(horse.dam) + '</span>\n';
+  cardHtml += '          <span class="text-[10px] bg-[#eceeec] rounded px-1.5 py-0.5">' + he(horse.stable) + '厩舎 ' + he(horse.affiliation) + '</span>\n';
+  cardHtml += '          ' + buildGaikuChip(horse.gaiku) + '\n';
+  cardHtml += '        </div>\n';
+  cardHtml += '      </div>\n';
+  cardHtml += '\n';
+  cardHtml += '      <span class="text-lg font-black px-3 py-1 rounded-xl ' + gcls + ' label-data mt-1 shrink-0">総合 ' + he(gLabel) + '</span>\n';
+  cardHtml += '    </div>\n';
+  cardHtml += '    <div class="px-5 pb-4 space-y-3">\n';
+
+  (horse.analysis || []).forEach(function(block){
+    var bgcls = gradeCssClass(block.grade);
+    cardHtml += '      <div class="bg-[#f2f4f2] rounded-xl p-3">\n';
+    cardHtml += '        <div class="flex items-center gap-2 mb-1">\n';
+    cardHtml += '          <span class="text-[10px] font-black px-2 py-0.5 rounded-full ' + bgcls + '">' + he(gradeLabel(block.grade)) + '</span>\n';
+    cardHtml += '          <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">' + he(block.label) + '</p>\n';
+    cardHtml += '        </div>\n';
+    cardHtml += '        <p class="text-sm leading-relaxed">' + (block.text || '') + '</p>\n';
+    cardHtml += '      </div>\n';
+  });
+
+  cardHtml += '    </div>\n';
+  cardHtml += '</div>\n';
+
+  return cardHtml;
+}
+
+function generateHTML() {
+  var raceName = document.getElementById('raceName').value.trim();
+  var raceGrade = document.getElementById('raceGrade').value;
+  var raceDate = document.getElementById('raceDate').value;
+  var venue = document.getElementById('venue').value.trim();
+  var raceNum = document.getElementById('raceNum').value.trim();
+  var trackType = document.getElementById('trackType').value;
+  var distance = document.getElementById('distance').value.trim();
+  var ticker = document.getElementById('tickerText').value.trim();
+  var lead = document.getElementById('leadText').value.trim();
+  var skillTitle = document.getElementById('skillTitle').value.trim();
+  var skillBody = document.getElementById('skillBody').value.trim();
+  var cats = getCategories();
+  var dateFormatted = formatDate(raceDate);
+
+  var pageTitle = raceName + ' ' + raceGrade + ' 全頭診断 | ' + dateFormatted + ' | UG強奪競馬新聞';
+  var h1Text = raceName + ' ' + raceGrade + ' 全頭診断';
+  var subText = dateFormatted + ' ' + venue + raceNum + ' ' + trackType + distance;
+
+  // Lead categories display
+  var catSpans = cats.map(function(c){ return '<span class="text-[#004900]">' + he(c) + '</span>'; }).join('<span class="text-[#bfcab7]">／</span>\n      ');
+
+  // Horse cards
+  var horseCardsHtml = horses.map(function(h, i){ return buildHorseCard(h, i); }).join('\n');
+
+  var html = '<!DOCTYPE html>\n<html lang="ja">\n<head>\n';
+  html += '<meta charset="utf-8"/>\n';
+  html += '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>\n';
+  html += '<title>' + he(pageTitle) + '</title>\n';
+  html += '<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>\n';
+  html += '<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"><\/script>\n';
+  html += '<script id="tailwind-config">\n';
+  html += '  tailwind.config = {\n';
+  html += '    darkMode: "class",\n';
+  html += '    theme: {\n';
+  html += '      extend: {\n';
+  html += '        colors: {\n';
+  html += '          "primary": "#004900","secondary": "#46673c","secondary-container": "#c4eab5",\n';
+  html += '          "tertiary": "#790b4a","surface": "#f8faf8","outline": "#707a6a","outline-variant": "#bfcab7","inverse-primary": "#82db6f",\n';
+  html += '        },\n';
+  html += '        fontFamily: { "headline": ["Noto Serif JP","serif"], "label": ["Inter","sans-serif"] },\n';
+  html += '      },\n';
+  html += '    },\n';
+  html += '  }\n';
+  html += '<\/script>\n';
+  html += '<style>\n';
+  html += '  .material-symbols-outlined { font-variation-settings: \'FILL\' 0, \'wght\' 400, \'GRAD\' 0, \'opsz\' 24; }\n';
+  html += '  body { font-family: \'Public Sans\', sans-serif; background-color: #f8faf8; color: #191c1b; }\n';
+  html += '  .ticker-wrap { overflow: hidden; white-space: nowrap; }\n';
+  html += '  .ticker-text { display: inline-block; animation: ticker-scroll 28s linear infinite; padding-left: 100%; }\n';
+  html += '  @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }\n';
+  html += '  .serif-headline { font-family: \'Noto Serif JP\', serif; }\n';
+  html += '  .label-data { font-family: \'Inter\', sans-serif; }\n';
+  html += '  .grade-S  { background:#D97706; color:#fff; }\n';
+  html += '  .grade-A  { background:#DB2777; color:#fff; }\n';
+  html += '  .grade-Bp { background:#F43F5E; color:#fff; }\n';
+  html += '  .grade-B  { background:#EA580C; color:#fff; }\n';
+  html += '  .grade-C  { background:#2563EB; color:#fff; }\n';
+  html += '  .grade-D  { background:#6B7280; color:#fff; }\n';
+  html += '  .grade-E  { background:#dc2626; color:#fff; }\n';
+  html += '  .grade-none { background:#e5e7eb; color:#6b7280; }\n';
+  html += '  .border-S  { border-left: 4px solid #6d28d9; }\n';
+  html += '  .border-A  { border-left: 4px solid #DB2777; }\n';
+  html += '  .border-Bp { border-left: 4px solid #F43F5E; }\n';
+  html += '  .border-B  { border-left: 4px solid #EA580C; }\n';
+  html += '  .border-C  { border-left: 4px solid #2563EB; }\n';
+  html += '  .border-D  { border-left: 4px solid #6B7280; }\n';
+  html += '  .border-E  { border-left: 4px solid #dc2626; }\n';
+  html += '</style>\n';
+  html += '<style id="ug-cherry-theme">\n';
+  html += '/* ══════════════════════════════════════\n';
+  html += '   UG DEEP CHERRY LUXURY THEME\n';
+  html += '   ══════════════════════════════════════ */\n';
+  html += ':root {\n';
+  html += '  --ug-bg:         #130003;\n';
+  html += '  --ug-cherry-dk:  #0b0002;\n';
+  html += '  --ug-cherry-md:  #1a0004;\n';
+  html += '  --ug-pink:       #E8003D;\n';
+  html += '  --ug-pink-dk:    #B5002E;\n';
+  html += '  --ug-gold:       #f0c040;\n';
+  html += '  --ug-text:       #f5d0d5;\n';
+  html += '  --ug-text-muted: rgba(255,255,255,0.50);\n';
+  html += '  --ug-card-bg:    rgba(255,255,255,0.07);\n';
+  html += '  --ug-card-border:rgba(232,0,61,0.25);\n';
+  html += '}\n';
+  html += '\n';
+  html += '/* ── Base ─────────────────────────────── */\n';
+  html += 'html { background: #130003 !important; }\n';
+  html += 'body { background: #130003 !important; color: #f5d0d5 !important; min-height: 100vh; }\n';
+  html += '\n';
+  html += '/* ── Header ──────────────────────────── */\n';
+  html += 'header {\n';
+  html += '  background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important;\n';
+  html += '  border-bottom: 1px solid rgba(232,0,61,0.40) !important;\n';
+  html += '  backdrop-filter: blur(16px) !important;\n';
+  html += '}\n';
+  html += 'header p, header span { color: rgba(255,255,255,0.80) !important; }\n';
+  html += 'header h1, header a h1 {\n';
+  html += '  color: #ffffff !important;\n';
+  html += '  text-shadow: 0 0 24px rgba(232,0,61,0.55) !important;\n';
+  html += '}\n';
+  html += 'header .text-\\[\\#004900\\], header .text-\\[\\#707a6a\\] { color: rgba(255,255,255,0.70) !important; }\n';
+  html += 'header a, header button { color: rgba(255,255,255,0.80) !important; }\n';
+  html += 'header .bg-\\[\\#f2f4f2\\] { background: rgba(255,255,255,0.10) !important; }\n';
+  html += 'header .text-\\[\\#9ca3af\\] { color: rgba(255,255,255,0.50) !important; }\n';
+  html += 'header .bg-\\[\\#eceeec\\] {\n';
+  html += '  background: rgba(255,255,255,0.12) !important;\n';
+  html += '  color: rgba(255,255,255,0.80) !important;\n';
+  html += '}\n';
+  html += '\n';
+  html += '/* ── Cards / boxes ─────────────────── */\n';
+  html += '.bg-white, .card,\n';
+  html += '[class*="rounded-2xl"].bg-white,\n';
+  html += '[class*="rounded-2xl"].border {\n';
+  html += '  background: rgba(255,255,255,0.07) !important;\n';
+  html += '  backdrop-filter: blur(12px) !important;\n';
+  html += '  -webkit-backdrop-filter: blur(12px) !important;\n';
+  html += '  border-color: rgba(232,0,61,0.22) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '}\n';
+  html += '\n';
+  html += '/* ── Section boxes ─────────────────────── */\n';
+  html += '.bg-\\[\\#f2f4f2\\] {\n';
+  html += '  background: rgba(232,0,61,0.10) !important;\n';
+  html += '  border: 1px solid rgba(232,0,61,0.18) !important;\n';
+  html += '}\n';
+  html += '\n';
+  html += '/* ── Green headers → Pink gradient ── */\n';
+  html += '.bg-\\[\\#006400\\], .bg-\\[\\#004900\\] {\n';
+  html += '  background: linear-gradient(135deg, #E8003D, #B5002E) !important;\n';
+  html += '  border: none !important;\n';
+  html += '}\n';
+  html += '.bg-\\[\\#004900\\].px-5.py-3 {\n';
+  html += '  background: linear-gradient(135deg, #E8003D, #B5002E) !important;\n';
+  html += '  border-bottom: 1px solid rgba(255,255,255,0.15) !important;\n';
+  html += '}\n';
+  html += '\n';
+  html += '/* ── Text ─────────────────────────── */\n';
+  html += '.text-\\[\\#191c1b\\], .text-\\[\\#374151\\] { color: #f5d0d5 !important; }\n';
+  html += '.text-\\[\\#707a6a\\], .text-\\[\\#6b7280\\] { color: rgba(255,255,255,0.50) !important; }\n';
+  html += '.text-\\[\\#004900\\]                        { color: #E8003D !important; }\n';
+  html += '.text-\\[\\#2d5a27\\]                        { color: #E8003D !important; }\n';
+  html += '.text-sm, .text-base, p, span, li, td      { color: inherit; }\n';
+  html += '\n';
+  html += '/* ── Info pills ─────────── */\n';
+  html += '.bg-\\[\\#eceeec\\] {\n';
+  html += '  background: rgba(255,255,255,0.10) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '  border: 1px solid rgba(232,0,61,0.20) !important;\n';
+  html += '}\n';
+  html += '.bg-\\[\\#c4eab5\\] {\n';
+  html += '  background: rgba(232,0,61,0.15) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '}\n';
+  html += '\n';
+  html += '/* ── Ticker ──────────────────────────── */\n';
+  html += '.ticker-wrap { background: #E8003D !important; }\n';
+  html += '\n';
+  html += '/* ── 激走警報 border glow ─────────────── */\n';
+  html += '.border-2.border-\\[\\#dc2626\\]\\/60 {\n';
+  html += '  border-color: rgba(232,0,61,0.65) !important;\n';
+  html += '  box-shadow: 0 0 28px rgba(232,0,61,0.28) !important;\n';
+  html += '}\n';
+  html += '.bg-gradient-to-r.from-\\[\\#7f1d1d\\] {\n';
+  html += '  background: linear-gradient(90deg, #E8003D, #B5002E) !important;\n';
+  html += '}\n';
+  html += '\n';
+  html += '/* ── ug-keikoku-white ─── */\n';
+  html += '[class*="rounded-2xl"].ug-keikoku-white {\n';
+  html += '  background: rgba(255,255,255,0.08) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '}\n';
+  html += '.ug-keikoku-white .bg-\\[\\#f2f4f2\\] {\n';
+  html += '  background: rgba(232,0,61,0.12) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '}\n';
+  html += '.ug-keikoku-white .bg-\\[\\#eceeec\\] {\n';
+  html += '  background: rgba(255,255,255,0.10) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '  border: none !important;\n';
+  html += '}\n';
+  html += '.ug-keikoku-white .bg-\\[\\#c4eab5\\] {\n';
+  html += '  background: rgba(232,0,61,0.15) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '}\n';
+  html += '.ug-keikoku-white .text-\\[\\#707a6a\\] { color: rgba(255,255,255,0.55) !important; }\n';
+  html += '.ug-keikoku-white .font-bold { color: #f5d0d5 !important; }\n';
+  html += '\n';
+  html += '/* ── ug-info-white ─── */\n';
+  html += '[class*="rounded-2xl"].ug-info-white, .ug-info-white {\n';
+  html += '  background: rgba(255,255,255,0.07) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '  border-color: rgba(232,0,61,0.22) !important;\n';
+  html += '}\n';
+  html += '.ug-info-white .bg-\\[\\#004900\\] { background: linear-gradient(135deg, #E8003D, #B5002E) !important; }\n';
+  html += '.ug-info-white .text-\\[\\#191c1b\\] { color: #f5d0d5 !important; }\n';
+  html += '.ug-info-white .text-\\[\\#707a6a\\] { color: rgba(255,255,255,0.70) !important; }\n';
+  html += '.ug-info-white .text-\\[\\#004900\\] { color: #ffffff !important; }\n';
+  html += '.ug-info-white .font-black.text-\\[\\#004900\\] { color: #ffffff !important; }\n';
+  html += '\n';
+  html += '/* ── ug-rank-white ─── */\n';
+  html += '[class*="rounded-2xl"].ug-rank-white, .ug-rank-white {\n';
+  html += '  background: rgba(255,255,255,0.07) !important;\n';
+  html += '  color: #f5d0d5 !important;\n';
+  html += '  border-color: rgba(232,0,61,0.22) !important;\n';
+  html += '}\n';
+  html += '.ug-rank-white .text-\\[\\#191c1b\\] { color: #f5d0d5 !important; }\n';
+  html += '.ug-rank-white .text-\\[\\#707a6a\\] { color: rgba(255,255,255,0.50) !important; }\n';
+  html += '.ug-rank-white h2, .ug-rank-white h3 { color: #ffffff !important; }\n';
+  html += '\n';
+  html += '/* ── Grade badges ─────── */\n';
+  html += '.grade-S   { background:#D97706!important; color:#fff!important; box-shadow:0 0 10px rgba(217,119,6,0.65)!important; }\n';
+  html += '.grade-A   { background:#DB2777!important; color:#fff!important; }\n';
+  html += '.grade-Bp  { background:#F43F5E!important; color:#fff!important; }\n';
+  html += '.grade-B   { background:#EA580C!important; color:#fff!important; }\n';
+  html += '.grade-C   { background:#2563EB!important; color:#fff!important; }\n';
+  html += '.grade-D   { background:#6B7280!important; color:#fff!important; }\n';
+  html += '.grade-E   { background:#dc2626!important; color:#fff!important; }\n';
+  html += '.grade-none{ background:rgba(232,0,61,0.15)!important; color:#f5d0d5!important; border:1px solid rgba(232,0,61,0.30)!important; }\n';
+  html += '\n';
+  html += '/* ── Border left lines ────────── */\n';
+  html += '.border-S  { border-left: 4px solid #D97706 !important; }\n';
+  html += '.border-A  { border-left: 4px solid #DB2777 !important; }\n';
+  html += '.border-Bp { border-left: 4px solid #F43F5E !important; }\n';
+  html += '.border-B  { border-left: 4px solid #EA580C !important; }\n';
+  html += '.border-C  { border-left: 4px solid #2563EB !important; }\n';
+  html += '.border-D  { border-left: 4px solid #6B7280 !important; }\n';
+  html += '.border-E  { border-left: 4px solid #dc2626 !important; }\n';
+  html += '\n';
+  html += '/* ── Race pills ─────────────── */\n';
+  html += 'a.race-pill {\n';
+  html += '  background: linear-gradient(135deg, #E8003D, #B5002E) !important;\n';
+  html += '  border: 1px solid rgba(232,0,61,0.50) !important;\n';
+  html += '  color: #ffffff !important;\n';
+  html += '  box-shadow: 0 2px 12px rgba(232,0,61,0.35) !important;\n';
+  html += '}\n';
+  html += 'a.race-pill:hover {\n';
+  html += '  background: rgba(232,0,61,0.18) !important;\n';
+  html += '  color: #E8003D !important;\n';
+  html += '  border: 1px solid #E8003D !important;\n';
+  html += '  box-shadow: 0 0 18px rgba(232,0,61,0.50) !important;\n';
+  html += '}\n';
+  html += 'a.race-pill span { color: rgba(255,255,255,0.80) !important; }\n';
+  html += '\n';
+  html += '\n';
+  html += '/* ── インライン強調カラー ─────────────── */\n';
+  html += '.text-\\[\\#790b4a\\] { color: #ffb3c6 !important; }  /* 濃い赤紫 → ライトピンク */\n';
+  html += '.text-\\[\\#6d28d9\\] { color: #f0c040 !important; }  /* 紫 → ゴールド */\n';
+  html += '.text-\\[\\#b45309\\] { color: #f0c040 !important; }  /* アンバー → ゴールド */\n';
+  html += '/* ── Footer ─────────────── */\n';
+  html += 'footer {\n';
+  html += '  background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important;\n';
+  html += '  border-top: 1px solid rgba(232,0,61,0.35) !important;\n';
+  html += '}\n';
+  html += 'footer * { color: rgba(255,255,255,0.75) !important; }\n';
+  html += 'footer .hover\\:bg-\\[\\#f2f4f2\\]:hover { background: rgba(232,0,61,0.15) !important; }\n';
+  html += '</style>\n';
+  html += '</head>\n';
+  html += '<body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">\n';
+  html += '\n';
+  html += '<header class="sticky top-0 z-50 bg-[#f8faf8]/90 backdrop-blur-md border-b border-[#bfcab7]/40">\n';
+  html += '  <div class="px-5 pt-4 pb-3">\n';
+  html += '    <div class="flex items-center gap-3">\n';
+  html += '      <a href="../index.html" class="flex items-center justify-center w-9 h-9 rounded-full bg-[#eceeec] text-[#004900] hover:bg-[#c4eab5] transition-colors">\n';
+  html += '        <span class="material-symbols-outlined text-xl">arrow_back</span>\n';
+  html += '      </a>\n';
+  html += '      <div>\n';
+  html += '        <a href="../index.html" style="text-decoration:none;"><p class="text-[10px] uppercase tracking-widest text-[#707a6a] font-bold">UG強奪競馬新聞 / 全頭診断</p></a>\n';
+  html += '        <h1 class="serif-headline text-lg font-bold text-[#004900] leading-tight">' + he(h1Text) + '</h1>\n';
+  html += '        <p class="text-[10px] text-[#790b4a] font-bold">' + he(subText) + '</p>\n';
+  html += '      </div>\n';
+  html += '    </div>\n';
+  html += '  </div>\n';
+  html += '</header>\n';
+  html += '\n';
+  html += '<!-- 速報ティッカー -->\n';
+  html += '<div class="ticker-wrap py-1.5 sticky top-[calc(var(--header-h,60px))] z-40" style="background:#B5002E;">\n';
+  html += '  <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">\n';
+  html += '    ' + (ticker || '&nbsp;') + '\n';
+  html += '  </span>\n';
+  html += '</div>\n';
+  html += '\n';
+  html += '<main class="px-4 py-5 max-w-lg mx-auto space-y-4">\n';
+  html += '\n';
+  html += '  <!-- リード -->\n';
+  html += '  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm px-5 py-4 ug-info-white">\n';
+  html += '    <p class="text-[10px] font-black text-[#004900] uppercase tracking-widest mb-1.5">強奪ニックの重賞全頭診断</p>\n';
+  html += '    <p class="text-xs leading-relaxed">' + (lead || '') + '</p>\n';
+  html += '    <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-[10px] font-bold text-[#707a6a]">\n';
+  html += '      ' + catSpans + '\n';
+  html += '    </div>\n';
+  html += '    <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] font-black">\n';
+  html += '      <span class="px-2 py-0.5 rounded-full grade-S">S</span>\n';
+  html += '      <span class="px-2 py-0.5 rounded-full grade-A">A</span>\n';
+  html += '      <span class="px-2 py-0.5 rounded-full grade-Bp">B+</span>\n';
+  html += '      <span class="px-2 py-0.5 rounded-full grade-B">B</span>\n';
+  html += '      <span class="px-2 py-0.5 rounded-full grade-C">C</span>\n';
+  html += '      <span class="px-2 py-0.5 rounded-full grade-D">D</span>\n';
+  html += '      <span class="px-2 py-0.5 rounded-full grade-E">E</span>\n';
+  html += '      <span class="ml-1 text-[#707a6a] self-center">&larr; 高い順</span>\n';
+  html += '    </div>\n';
+  html += '  </div>\n';
+  html += '\n';
+  html += '  <!-- 強奪スキル -->\n';
+  html += '  <div class="rounded-2xl overflow-hidden border border-[#bfcab7]/60 shadow-sm ug-info-white">\n';
+  html += '    <div class="bg-[#004900] px-5 py-3 flex items-center gap-2">\n';
+  html += '      <span class="text-lg">🏆</span>\n';
+  html += '      <p class="text-white font-black text-sm tracking-wide">' + he(skillTitle || 'ニック流・強奪スキル') + '</p>\n';
+  html += '    </div>\n';
+  html += '    <div class="bg-white px-5 py-4 space-y-4">\n';
+  html += '      ' + (skillBody || '') + '\n';
+  html += '    </div>\n';
+  html += '  </div>\n';
+  html += '\n';
+  html += horseCardsHtml;
+  html += '\n';
+  html += '\n';
+  html += '  <div class="h-4"></div>\n';
+  html += '</main>\n';
+  html += '\n';
+  html += '<footer class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-[#bfcab7]/60 shadow-lg">\n';
+  html += '  <div class="grid grid-cols-4 max-w-lg mx-auto">\n';
+  html += '    <a href="../index.html" class="flex flex-col items-center justify-center py-2.5 gap-0.5 text-[#004900] hover:bg-[#f2f4f2] transition-colors active:bg-[#c4eab5]">\n';
+  html += '      <span class="material-symbols-outlined text-[22px]">trophy</span>\n';
+  html += '      <span class="text-[9px] font-black tracking-wide">重賞展望</span>\n';
+  html += '    </a>\n';
+  html += '    <a href="../index.html#final" class="flex flex-col items-center justify-center py-2.5 gap-0.5 text-[#9ca3af] hover:bg-[#f2f4f2] transition-colors relative">\n';
+  html += '      <span class="material-symbols-outlined text-[22px]">lock</span>\n';
+  html += '      <span class="text-[9px] font-black tracking-wide">最終予想</span>\n';
+  html += '      <span class="absolute top-1 right-3 text-[7px] font-black bg-[#dc2626] text-white px-1 rounded-full">準備中</span>\n';
+  html += '    </a>\n';
+  html += '    <a href="../index.html" class="flex flex-col items-center justify-center py-2.5 gap-0.5 text-[#707a6a] hover:bg-[#f2f4f2] transition-colors">\n';
+  html += '      <span class="material-symbols-outlined text-[22px]">emoji_events</span>\n';
+  html += '      <span class="text-[9px] font-black tracking-wide">レース結果</span>\n';
+  html += '    </a>\n';
+  html += '    <a href="../index.html" class="flex flex-col items-center justify-center py-2.5 gap-0.5 text-[#707a6a] hover:bg-[#f2f4f2] transition-colors">\n';
+  html += '      <span class="material-symbols-outlined text-[22px]">history</span>\n';
+  html += '      <span class="text-[9px] font-black tracking-wide">過去戦績</span>\n';
+  html += '    </a>\n';
+  html += '  </div>\n';
+  html += '  <div class="h-safe-area-inset-bottom bg-white"></div>\n';
+  html += '</footer>\n';
+  html += '\n';
+  html += '<script>\n';
+  html += '(function() {\n';
+  html += '  var SCORE = { \'grade-S\':7,\'grade-A\':6,\'grade-Bp\':5,\'grade-B\':4,\'grade-C\':3,\'grade-D\':2,\'grade-E\':1,\'grade-none\':0 };\n';
+  html += '  var COLOR = { 7:\'#D97706\',6:\'#DB2777\',5:\'#F43F5E\',4:\'#EA580C\',3:\'#2563EB\',2:\'#6B7280\',1:\'#DC2626\',0:\'#d1d5db\' };\n';
+  html += '  document.querySelectorAll(\'.px-5.pt-4.pb-2\').forEach(function(header) {\n';
+  html += '    var card = header.closest(\'.rounded-2xl\');\n';
+  html += '    if (!card) return;\n';
+  html += '    var sectionBoxes = card.querySelectorAll(\'.bg-\\\\[\\\\#f2f4f2\\\\]\');\n';
+  html += '    var total = 0; var count = 0;\n';
+  html += '    sectionBoxes.forEach(function(box) {\n';
+  html += '      var badge = box.querySelector(\'.rounded-full\');\n';
+  html += '      if (!badge) return;\n';
+  html += '      for (var cls in SCORE) {\n';
+  html += '        if (badge.classList.contains(cls)) { total += SCORE[cls]; count++; break; }\n';
+  html += '      }\n';
+  html += '    });\n';
+  html += '    if (count === 0) return;\n';
+  html += '    var avg = Math.round(total / count);\n';
+  html += '    var bg = COLOR[avg] || \'#374151\';\n';
+  html += '    var ptBadge = document.createElement(\'span\');\n';
+  html += '    ptBadge.style.cssText = \'background:\'+bg+\';color:#fff!important;font-size:11px;font-weight:900;padding:3px 8px;border-radius:8px;font-family:Inter,sans-serif;white-space:nowrap;\';\n';
+  html += '    ptBadge.textContent = total + \'pt\';\n';
+  html += '    var gradeSpan = header.querySelector(\'.rounded-xl[class*="grade-"]\');\n';
+  html += '    if (gradeSpan) {\n';
+  html += '      var row = document.createElement(\'div\');\n';
+  html += '      row.style.cssText = \'display:flex;align-items:center;gap:4px;margin-top:4px;flex-shrink:0;\';\n';
+  html += '      gradeSpan.parentNode.insertBefore(row, gradeSpan);\n';
+  html += '      row.appendChild(ptBadge);\n';
+  html += '      row.appendChild(gradeSpan);\n';
+  html += '      gradeSpan.style.marginTop = \'0\';\n';
+  html += '    }\n';
+  html += '  });\n';
+  html += '})();\n';
+  html += '<\/script>\n';
+  html += '</body>\n';
+  html += '</html>\n';
+
+  return html;
+}
+
+function generateAndDownload() {
+  var raceName = document.getElementById('raceName').value.trim();
+  if (!raceName) { alert('レース名を入力してください'); return; }
+  var raceDate = document.getElementById('raceDate').value;
+  if (!raceDate) { alert('開催日を入力してください'); return; }
+  if (horses.length === 0) { if (!confirm('馬が0頭です。それでも生成しますか？')) return; }
+
+  var html = generateHTML();
+  var slug = toSlug(raceName);
+  var filename = raceDate + '-' + slug + '.html';
+
+  var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function(){
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, 500);
+}
+
+// ══════════════════════════════════════════════════════════
+//  EVENT LISTENERS & INIT
+// ══════════════════════════════════════════════════════════
+function attachAutoSave() {
+  var ids = ['raceName','raceGrade','raceDate','venue','raceNum','trackType','distance','tickerText','leadText','skillTitle','skillBody','categories'];
+  ids.forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', scheduleSave);
+      el.addEventListener('change', scheduleSave);
+    }
+  });
+  // Also observe analysis fields dynamically
+  document.getElementById('analysisFields').addEventListener('input', scheduleSave);
+  document.getElementById('analysisFields').addEventListener('change', scheduleSave);
+}
+
+function attachCategoryListener() {
+  document.getElementById('categories').addEventListener('change', function(){
+    buildAnalysisFields([]);
+  });
+  document.getElementById('categories').addEventListener('blur', function(){
+    buildAnalysisFields([]);
+  });
+}
+
+function attachFilenameListeners() {
+  ['raceName','raceDate'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', updateFilename);
+    document.getElementById(id).addEventListener('change', updateFilename);
+  });
+}
+
+// ══════════════════════════════════════════════════════════
+//  CSV自動取込 & DB連携
+// ══════════════════════════════════════════════════════════
+var COURSES_DB_S = {};
+var TREND_DB_S   = {};
+var parsedCSVRacesS = [];
+var csv2MapS = {};
+var csv1LoadedS = false;
+var csv2LoadedS = false;
+var csvFilterModeS = 'all';
+
+async function loadAllDBsS() {
+  try {
+    var res = await fetch('db/index.json?v=' + Date.now());
+    var index = await res.json();
+    await Promise.all((index.courses || []).map(async function(entry) {
+      try {
+        var r = await fetch('db/' + entry.file + '?v=' + Date.now());
+        var data = await r.json();
+        COURSES_DB_S[entry.key] = data.conditions || data;
+      } catch(e) {}
+    }));
+    await Promise.all((index.trends || []).map(async function(entry) {
+      try {
+        var r = await fetch('db/' + entry.file + '?v=' + Date.now());
+        var data = await r.json();
+        var rc = data.racecourse || entry.key;
+        Object.entries(data.surfaces || {}).forEach(function(kv) {
+          TREND_DB_S[rc + kv[0]] = kv[1];
+        });
+      } catch(e) {}
+    }));
+  } catch(e) {}
+}
+
+function handleCSVUploadS(input, fileNum) {
+  var file = input.files[0];
+  if (!file) return;
+  var labelEl = document.getElementById('csvUploadLabel' + fileNum);
+  var textEl  = document.getElementById('csvUploadText' + fileNum);
+  textEl.textContent = '読み込み中...';
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var decoder = new TextDecoder('shift-jis');
+      var text = decoder.decode(e.target.result);
+      if (fileNum === 1) {
+        parsedCSVRacesS = parseCSV1S(text);
+        csv1LoadedS = true;
+        labelEl.classList.add('loaded');
+        textEl.textContent = '✅ ' + file.name + '（' + parsedCSVRacesS.length + 'レース）';
+      } else {
+        csv2MapS = parseCSV2S(text);
+        csv2LoadedS = true;
+        labelEl.classList.add('loaded');
+        textEl.textContent = '✅ ' + file.name + '（' + Object.keys(csv2MapS).length + '頭分の前走データ）';
+      }
+      if (csv1LoadedS) {
+        mergeCSVDataS();
+        renderCSVRaceListS(parsedCSVRacesS);
+      }
+    } catch(err) {
+      textEl.textContent = '❌ 読み込みエラー：' + err.message;
+    }
+  };
+  reader.onerror = function() { textEl.textContent = '❌ ファイル読み込みに失敗しました'; };
+  reader.readAsArrayBuffer(file);
+}
+
+function parseCSV1S(text) {
+  var lines = text.split('\n').map(function(l){ return l.trim(); }).filter(function(l){ return l; });
+  var raceMap = {};
+  lines.forEach(function(line) {
+    var cols = line.split(',');
+    if (cols.length < 17) return;
+    var racecourse = (cols[1]||'').trim();
+    var raceNum    = (cols[2]||'').trim();
+    var raceName   = (cols[4]||'').trim();
+    var surface    = (cols[5]||'').trim();
+    var distance   = (cols[6]||'').trim();
+    var horseName  = (cols[7]||'').trim();
+    var jockey     = (cols[10]||'').trim();
+    var trainer    = (cols[12]||'').trim();
+    var sire       = (cols[16]||'').trim();
+    if (!horseName || !racecourse) return;
+    var courseKey = racecourse + surface + distance + 'm';
+    var raceKey   = racecourse + '_R' + raceNum.padStart(2,'0');
+    if (!raceMap[raceKey]) {
+      raceMap[raceKey] = {
+        key: raceKey, course: courseKey, racecourse: racecourse,
+        raceNum: parseInt(raceNum), surface: surface, distance: distance,
+        raceName: racecourse + raceNum + 'R ' + raceName,
+        hasDB: !!COURSES_DB_S[courseKey],
+        horses: []
+      };
+    }
+    raceMap[raceKey].horses.push({
+      name: horseName, jockey: jockey, trainer: trainer, sire: sire,
+      prevJockey: null, surfaceChange: null, distChange: null,
+      distDiff: 0, prevRank: 99, prevRankRaw: '', prevSurface: '', prevDistance: '',
+      jockeyChanged: false, jockeyKept: false, prevGekiso: false
+    });
+  });
+  return Object.values(raceMap).sort(function(a,b){
+    return a.racecourse.localeCompare(b.racecourse) || a.raceNum - b.raceNum;
+  });
+}
+
+function parseCSV2S(text) {
+  var lines = text.split('\n').map(function(l){ return l.trim(); }).filter(function(l){ return l; });
+  var map = {};
+  var firstCols = (lines[0]||'').split(',');
+  var hasHeader = (firstCols[9]||'').includes('馬名') || (firstCols[4]||'').includes('馬番');
+  var startIdx = hasHeader ? 1 : 0;
+  for (var i = startIdx; i < lines.length; i++) {
+    var cols = lines[i].split(',');
+    if (cols.length < 27) continue;
+    var horseName  = (cols[9]||'').trim();
+    var prevSurf   = (cols[14]||'').trim();
+    var prevDist   = (cols[15]||'').trim();
+    var currSurf   = (cols[18]||'').trim();
+    var prevJockey = (cols[26]||'').trim();
+    if (!horseName) continue;
+    var distDiff    = parseInt(cols[16]) || 0;
+    var prevRankRaw = (cols[24]||'').trim();
+    var prevRank    = parseInt(prevRankRaw.replace(/[^\d]/g,'')) || 99;
+    map[horseName] = {
+      prevSurface:   prevSurf,
+      prevDistance:  prevDist,
+      currSurface:   currSurf,
+      surfaceChange: (prevSurf && currSurf && prevSurf !== currSurf) ? prevSurf+'→'+currSurf : null,
+      prevJockey:    prevJockey,
+      distDiff:      distDiff,
+      distChange:    distDiff < 0 ? '距離短縮'+Math.abs(distDiff)+'m' : (distDiff > 0 ? '距離延長'+distDiff+'m' : null),
+      prevRank:      prevRank,
+      prevRankRaw:   prevRankRaw
+    };
+  }
+  return map;
+}
+
+function mergeCSVDataS() {
+  if (!csv2LoadedS) return;
+  parsedCSVRacesS.forEach(function(race) {
+    race.horses.forEach(function(h) {
+      var d = csv2MapS[h.name];
+      if (!d) return;
+      h.prevJockey    = d.prevJockey    || null;
+      h.prevSurface   = d.prevSurface   || '';
+      h.prevDistance  = d.prevDistance  || '';
+      h.surfaceChange = d.surfaceChange || null;
+      h.distChange    = d.distChange    || null;
+      h.distDiff      = d.distDiff      || 0;
+      h.prevRank      = d.prevRank      || 99;
+      h.prevRankRaw   = d.prevRankRaw   || '';
+      h.jockeyChanged = !!(d.prevJockey && h.jockey && d.prevJockey !== h.jockey);
+      h.jockeyKept    = !!(d.prevJockey && h.jockey && d.prevJockey === h.jockey);
+      h.prevGekiso    = d.prevRank <= 3 && d.prevRankRaw !== '';
+    });
+    race.hasExtra = race.horses.some(function(h){ return h.surfaceChange || h.jockeyChanged; });
+  });
+}
+
+function renderCSVRaceListS(races) {
+  var listDiv  = document.getElementById('csvRaceListS');
+  var countEl  = document.getElementById('csvRaceCountS');
+  var dbCount  = races.filter(function(r){ return r.hasDB; }).length;
+  listDiv.style.display = '';
+  countEl.textContent = races.length + 'レース（DB合致: ' + dbCount + '）';
+  renderCSVRaceOptionsS(races, csvFilterModeS);
+}
+
+function filterCSVRacesS(mode) {
+  csvFilterModeS = mode;
+  var activeStyle   = 'font-size:11px;padding:5px 10px;border-radius:999px;font-weight:700;border:1px solid rgba(240,192,64,0.50);background:rgba(240,192,64,0.18);color:var(--gold);cursor:pointer;';
+  var inactiveStyle = 'font-size:11px;padding:5px 10px;border-radius:999px;font-weight:700;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.55);cursor:pointer;';
+  document.getElementById('filterAllS').style.cssText  = (mode==='all' ? activeStyle : inactiveStyle);
+  document.getElementById('filterDBS').style.cssText   = (mode==='db'  ? activeStyle : inactiveStyle);
+  renderCSVRaceOptionsS(parsedCSVRacesS, mode);
+}
+
+function renderCSVRaceOptionsS(races, mode) {
+  var container = document.getElementById('csvRaceOptionsS');
+  container.innerHTML = '';
+  var filtered = races;
+  if (mode === 'db') filtered = races.filter(function(r){ return r.hasDB; });
+  if (filtered.length === 0) {
+    container.innerHTML = '<p style="font-size:12px;color:rgba(255,255,255,0.35);text-align:center;padding:16px 0;">表示できるレースがありません</p>';
+    return;
+  }
+  filtered.forEach(function(race) {
+    var btn = document.createElement('button');
+    btn.className = 'race-option-btn ' + (race.hasDB ? 'has-db' : 'no-db');
+    var badges = '';
+    if (race.hasDB) badges += '<span class="csv-race-badge db-badge">DB合致</span>';
+    if (race.hasExtra) badges += '<span class="csv-race-badge extra-badge">乗替/芝ダ変</span>';
+    btn.innerHTML =
+      '<span style="flex:1;font-weight:700;">' + race.raceName + '</span>' +
+      '<span style="display:flex;align-items:center;gap:4px;flex-shrink:0;">' + badges +
+        '<span style="font-size:11px;color:rgba(255,255,255,0.40);">' + race.horses.length + '頭 ›</span>' +
+      '</span>';
+    btn.onclick = (function(r){ return function(){ importRaceToShindan(r); }; })(race);
+    container.appendChild(btn);
+  });
+}
+
+// ── レースを選択して全頭自動インポート ──────────────
+function importRaceToShindan(race) {
+  if (!confirm(race.raceName + ' の ' + race.horses.length + '頭を自動インポートします。\n既存の馬データは上書きされます。よろしいですか？')) return;
+
+  // レース情報自動入力
+  var surfaceLabel = race.surface === '芝' ? '芝' : (race.surface === 'ダ' ? 'ダート' : race.surface);
+  document.getElementById('venue').value    = race.racecourse;
+  document.getElementById('trackType').value = surfaceLabel === 'ダート' ? 'ダート' : '芝';
+  document.getElementById('distance').value = race.distance + 'm';
+  updateFilename();
+  scheduleSave();
+
+  var db = COURSES_DB_S[race.course] || null;
+
+  // 全頭インポート
+  horses = race.horses.map(function(h) {
+    return autoAnalyzeHorseS(h, race, db);
+  });
+
+  renderHorseList();
+  scheduleSave();
+
+  // スクロール
+  setTimeout(function(){
+    var sec3 = document.querySelector('#horseListEl');
+    if (sec3) sec3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 200);
+
+  alert('✅ ' + race.horses.length + '頭をインポートしました！各カードの分析テキストを確認・編集してください。');
+}
+
+// ── 1頭の自動分析 ──────────────────────────────
+function autoAnalyzeHorseS(h, race, db) {
+  var cats = getCategories();
+
+  // デフォルトカテゴリインデックスを探す
+  function catIdx(keywords) {
+    for (var i = 0; i < cats.length; i++) {
+      for (var j = 0; j < keywords.length; j++) {
+        if (cats[i].indexOf(keywords[j]) >= 0) return i;
+      }
+    }
+    return -1;
+  }
+  var perfIdx  = catIdx(['過去','パフォーマンス','実績']);
+  var prevIdx  = catIdx(['前走','ジャッジ']);
+  var stableIdx = catIdx(['厩舎','外厩']);
+  var sireIdx  = catIdx(['血統']);
+
+  var analysis = cats.map(function(cat) {
+    return { label: cat, grade: 'C', text: '' };
+  });
+
+  var matchedBadges = [];
+  var overallScore  = 0; // Sライン=7, A=6, B+=5, B=4, C=3
+
+  // ─ DB照合（コース金塊）─
+  if (db) {
+    var jockeys  = db['騎手']       || [];
+    var trainers = db['調教師']     || [];
+    var sires    = db['種牡馬']     || [];
+    var keeps    = db['騎手継続']   || [];
+    var prevCourses = db['前走コース'] || [];
+
+    var jMatch = jockeys.find(function(j){ return j.name === h.jockey; });
+    var tMatch = trainers.find(function(t){ return t.name === h.trainer; });
+    var sMatch = sires.find(function(s){ return s.name === h.sire; });
+    var kMatch = keeps.find(function(k){ return k.name === h.jockey && h.jockeyKept; });
+
+    var prevCMatch = prevCourses.find(function(pc){
+      return h.prevSurface === (pc.prevSurface||'') &&
+             String(h.prevDistance) === String(pc.prevDistance||'');
+    });
+
+    // 厩舎カテゴリ
+    if (tMatch) {
+      var tGrade = 'A';
+      var tText  = tMatch.name + '厩舎（' + race.course + ' 複勝率' + (tMatch.複勝率||'?') + '・単回値' + (tMatch.単回値||'?') + '）';
+      if (stableIdx >= 0) { analysis[stableIdx].grade = tGrade; analysis[stableIdx].text = tText; }
+      matchedBadges.push('コース金塊厩舎');
+      overallScore = Math.max(overallScore, 6);
+    }
+    // 騎手・ライン
+    if (jMatch) {
+      var jGrade = 'A';
+      var jText  = h.jockey + '騎手（' + race.course + ' 単回値' + (jMatch.単回値||'?') + ' ' + (jMatch.memo||'') + '）';
+      if (jMatch && tMatch) {
+        jGrade = 'S';
+        jText  = '🏆 ' + h.jockey + '×' + h.trainer + ' ライン！（単回値' + (jMatch.単回値||'?') + '）';
+        matchedBadges.push('コース金塊騎手厩舎ライン');
+        overallScore = Math.max(overallScore, 7);
+      } else {
+        matchedBadges.push('コース金塊騎手');
+        overallScore = Math.max(overallScore, 6);
+      }
+      if (perfIdx >= 0) { analysis[perfIdx].grade = jGrade; analysis[perfIdx].text = jText; }
+    }
+    // 血統
+    if (sMatch) {
+      var sText = '父' + h.sire + '（' + race.course + ' 複勝率' + (sMatch.複勝率||'?') + '・' + (sMatch.memo||'') + '）';
+      if (sireIdx >= 0) { analysis[sireIdx].grade = 'A'; analysis[sireIdx].text = sText; }
+      matchedBadges.push('コース金塊血統');
+      overallScore = Math.max(overallScore, 6);
+    }
+    // 騎手継続
+    if (kMatch) {
+      var kText = h.jockey + '騎手の継続騎乗！（' + race.course + ' 単回値' + (kMatch.単回値||'?') + '）';
+      if (prevIdx >= 0) { analysis[prevIdx].grade = 'A'; analysis[prevIdx].text = kText; }
+      matchedBadges.push('騎手継続金塊');
+      overallScore = Math.max(overallScore, 6);
+    }
+    // 前走コース
+    if (prevCMatch && !kMatch) {
+      var pcText = '前走' + h.prevSurface + h.prevDistance + 'から参戦（' + (prevCMatch.memo||'') + '）';
+      if (prevIdx >= 0 && analysis[prevIdx].grade === 'C') {
+        analysis[prevIdx].grade = 'A';
+        analysis[prevIdx].text  = pcText;
+      }
+      matchedBadges.push('前走コース金塊');
+      overallScore = Math.max(overallScore, 6);
+    }
+  }
+
+  // ─ 前走ジャッジ（CSV2データ）─
+  var prevTexts = [];
+  if (h.surfaceChange) {
+    prevTexts.push('芝ダ変更（' + h.surfaceChange + '）');
+    matchedBadges.push('芝ダ変更');
+    if (prevIdx >= 0 && analysis[prevIdx].grade === 'C') analysis[prevIdx].grade = 'B+';
+    overallScore = Math.max(overallScore, 5);
+  }
+  if (h.jockeyChanged) {
+    prevTexts.push('乗り替わり（前走' + (h.prevJockey||'?') + '→' + h.jockey + '）');
+    matchedBadges.push('乗り替わり');
+    if (prevIdx >= 0 && analysis[prevIdx].grade === 'C') analysis[prevIdx].grade = 'B';
+    overallScore = Math.max(overallScore, 4);
+  }
+  if (h.distChange) {
+    prevTexts.push(h.distChange);
+    if (prevIdx >= 0 && analysis[prevIdx].grade === 'C') analysis[prevIdx].grade = 'B';
+    overallScore = Math.max(overallScore, 4);
+  }
+  if (h.prevGekiso) {
+    prevTexts.push('前走' + (h.prevRankRaw||h.prevRank+'着') + '激走！');
+    if (prevIdx >= 0 && analysis[prevIdx].grade === 'C') analysis[prevIdx].grade = 'B';
+    overallScore = Math.max(overallScore, 4);
+  }
+  if (prevTexts.length > 0 && prevIdx >= 0 && !analysis[prevIdx].text) {
+    analysis[prevIdx].text = prevTexts.join(' / ');
+  }
+
+  // TREND_DB照合（好調騎手）
+  var trendKey = race.racecourse + race.surface;
+  var trendData = TREND_DB_S[trendKey];
+  if (trendData) {
+    var trendJockeys = trendData['好調騎手'] || [];
+    var trMatch = trendJockeys.find(function(j){ return j.name === h.jockey; });
+    if (trMatch) {
+      if (perfIdx >= 0 && analysis[perfIdx].grade === 'C') {
+        analysis[perfIdx].grade = 'B';
+        analysis[perfIdx].text  = '好調騎手 ' + h.jockey + '（単回値' + (trMatch.単回値||trMatch.複勝率||'?') + '）';
+      }
+      matchedBadges.push('好調騎手');
+      overallScore = Math.max(overallScore, 4);
+    }
+  }
+
+  // 総合グレード決定
+  var overallGrade = 'C';
+  if (overallScore >= 7) overallGrade = 'S';
+  else if (overallScore >= 6) overallGrade = 'A';
+  else if (overallScore >= 5) overallGrade = 'B+';
+  else if (overallScore >= 4) overallGrade = 'B';
+  else overallGrade = 'C';
+
+  // 前走情報テキスト生成
+  var prevRaceText = '';
+  if (h.prevSurface || h.prevDistance) {
+    prevRaceText = '前走：' + (h.prevSurface||'?') + (h.prevDistance||'?') + 'm';
+    if (h.prevRankRaw) prevRaceText += ' ' + h.prevRankRaw;
+    if (h.prevJockey)  prevRaceText += ' ' + h.prevJockey + '騎手';
+  }
+  if (matchedBadges.length > 0) {
+    prevRaceText += (prevRaceText ? ' ／ ' : '') + '🏷 ' + matchedBadges.join('・');
+  }
+
+  return {
+    prevRace: prevRaceText,
+    name:     h.name,
+    sexAge:   '',
+    jockey:   h.jockey,
+    weight:   '',
+    stable:   h.trainer,
+    affiliation: '栗東',
+    sire:     h.sire,
+    dam:      '',
+    gaiku:    '',
+    overallGrade: overallGrade,
+    analysis: analysis
+  };
+}
+
+window.addEventListener('DOMContentLoaded', function(){
+  // Restore draft
+  try {
+    var raw = localStorage.getItem(DRAFT_KEY);
+    if (raw) {
+      var state = JSON.parse(raw);
+      restoreFormState(state);
+    }
+  } catch(e) {}
+
+  buildAnalysisFields([]);
+  renderHorseList();
+  updateFilename();
+  attachAutoSave();
+  attachCategoryListener();
+  attachFilenameListeners();
+  loadAllDBsS();
+});
+</script>
+</body>
+</html>
