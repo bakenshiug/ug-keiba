@@ -242,8 +242,7 @@ body {
   position: absolute;
   inset: 0;
   display: flex;
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  transition: transform 0.50s ease;
 }
 .hero-slide {
   min-width: 100%;
@@ -962,9 +961,10 @@ navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => t
 <!-- ══ HERO CAROUSEL JS ══════════════════════════ -->
 <script>
 (function() {
+  const hero     = document.getElementById('heroSection');
   const slider   = document.getElementById('heroSlider');
   const dotsWrap = document.getElementById('heroDots');
-  if (!slider) return;
+  if (!slider || !hero) return;
 
   const slides = slider.querySelectorAll('.hero-slide');
   const total  = slides.length;
@@ -987,46 +987,53 @@ navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => t
     });
   }
 
-  /* ── スライド移動 ────────────────── */
+  /* ── スライド移動（ピクセル指定で確実に動作） */
   function goTo(index) {
     current = (index + total) % total;
-    slider.style.transform = `translateX(-${current * 100}%)`;
+    const w = hero.offsetWidth;
+    slider.style.transform = `translateX(${-current * w}px)`;
     updateDots();
   }
 
   function next() { goTo(current + 1); }
 
   /* ── 自動再生 ────────────────────── */
-  function startAuto() {
-    autoTimer = setInterval(next, 3000);
-  }
+  function startAuto() { autoTimer = setInterval(next, 3000); }
   function stopAuto()  { clearInterval(autoTimer); }
   function resetAuto() { stopAuto(); startAuto(); }
 
-  /* ── タッチスワイプ ───────────────── */
-  slider.addEventListener('touchstart', e => {
+  /* ── タッチスワイプ（hero全体で検知） */
+  hero.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
     stopAuto();
   }, { passive: true });
 
-  slider.addEventListener('touchend', e => {
+  hero.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
-    if      (diff >  50) next();
-    else if (diff < -50) goTo(current - 1);
+    if      (diff >  50) { next(); }
+    else if (diff < -50) { goTo(current - 1); }
     startAuto();
   }, { passive: true });
 
   /* ── マウスドラッグ（PC） ─────────── */
   let mouseStartX = 0, isDragging = false;
-  slider.addEventListener('mousedown', e => { mouseStartX = e.clientX; isDragging = true; });
-  slider.addEventListener('mouseup',   e => {
+  hero.addEventListener('mousedown', e => { mouseStartX = e.clientX; isDragging = true; });
+  hero.addEventListener('mouseup',   e => {
     if (!isDragging) return;
     isDragging = false;
     const diff = mouseStartX - e.clientX;
     if      (diff >  60) { next(); resetAuto(); }
     else if (diff < -60) { goTo(current - 1); resetAuto(); }
   });
-  slider.addEventListener('mouseleave', () => { isDragging = false; });
+  hero.addEventListener('mouseleave', () => { isDragging = false; });
+
+  /* ── リサイズ時に位置再計算 ──────── */
+  window.addEventListener('resize', () => {
+    const w = hero.offsetWidth;
+    slider.style.transition = 'none';
+    slider.style.transform = `translateX(${-current * w}px)`;
+    setTimeout(() => { slider.style.transition = ''; }, 50);
+  });
 
   startAuto();
 })();
