@@ -20,19 +20,20 @@
 
 <style id="ug-pink-theme">
 /* ══════════════════════════════════════
-   UG PINK WHITE THEME — ポップ＆ラグジュアリー
+   UG PINK ACCENT THEME — ピンクアクセント＋ダークテキスト
    ══════════════════════════════════════ */
 :root {
   --ug-pink:    #FF007F;
   --ug-pink-dk: #cc0066;
   --ug-white:   #ffffff;
-  --ug-muted:   rgba(255,0,127,0.50);
+  --ug-dark:    #191c1b;
+  --ug-muted:   #707a6a;
   --ug-border:  rgba(255,0,127,0.30);
 }
 
 /* ── Base ─────────────────────────────── */
 html { background: #ffffff !important; }
-body { background: #ffffff !important; color: #FF007F !important; min-height: 100vh; }
+body { background: #ffffff !important; color: #191c1b !important; min-height: 100vh; }
 
 /* ── Header ──────────────────────────── */
 header {
@@ -47,19 +48,25 @@ header a, header button { color: #ffffff !important; }
 header .bg-\[\#f2f4f2\] { background: rgba(255,255,255,0.20) !important; }
 header .text-\[\#9ca3af\], header .text-\[\#707a6a\] { color: rgba(255,255,255,0.70) !important; }
 
+/* ── Back button (header arrow) ─────── */
+header .bg-\[\#eceeec\] {
+  background: rgba(255,255,255,0.25) !important;
+  color: #ffffff !important;
+}
+
 /* ── Cards / White boxes ─────────────── */
 .bg-white, .card,
 [class*="rounded-2xl"].bg-white,
 [class*="rounded-2xl"].border {
   background: #ffffff !important;
-  border-color: rgba(255,0,127,0.35) !important;
-  color: #FF007F !important;
+  border-color: rgba(255,0,127,0.30) !important;
+  color: #191c1b !important;
 }
 
 /* ── Section boxes ─────────────────────── */
 .bg-\[\#f2f4f2\] {
-  background: rgba(255,0,127,0.04) !important;
-  border: 1px solid rgba(255,0,127,0.12) !important;
+  background: rgba(255,0,127,0.05) !important;
+  border: 1px solid rgba(255,0,127,0.15) !important;
 }
 
 /* ── Green headers → Pink ─────────────── */
@@ -73,21 +80,21 @@ header .text-\[\#9ca3af\], header .text-\[\#707a6a\] { color: rgba(255,255,255,0
 }
 
 /* ── Text colors ─────────────────────── */
-.text-\[\#191c1b\], .text-\[\#374151\] { color: #FF007F !important; }
-.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(255,0,127,0.55) !important; }
-.text-\[\#004900\]                        { color: #FF007F !important; }
-.text-\[\#2d5a27\]                        { color: #FF007F !important; }
+.text-\[\#191c1b\], .text-\[\#374151\] { color: #191c1b !important; }
+.text-\[\#707a6a\], .text-\[\#6b7280\] { color: #707a6a !important; }
+.text-\[\#004900\]                        { color: #004900 !important; }
+.text-\[\#2d5a27\]                        { color: #2d5a27 !important; }
 .text-sm, .text-base, p, span, li, td      { color: inherit; }
 
 /* ── Info pills ─────────── */
 .bg-\[\#eceeec\] {
-  background: rgba(255,0,127,0.07) !important;
-  color: #FF007F !important;
-  border: 1px solid rgba(255,0,127,0.20) !important;
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+  border: 1px solid rgba(255,0,127,0.15) !important;
 }
 .bg-\[\#c4eab5\] {
   background: rgba(255,0,127,0.07) !important;
-  color: #FF007F !important;
+  color: #374151 !important;
 }
 
 /* ── Ticker ──────────────────────────── */
@@ -103,6 +110,49 @@ header .text-\[\#9ca3af\], header .text-\[\#707a6a\] { color: rgba(255,255,255,0
   border-bottom: none !important;
 }
 
+/* ── ug-keikoku-white: 激走警報カード内 ─── */
+[class*="rounded-2xl"].ug-keikoku-white {
+  background: #ffffff !important;
+  color: #191c1b !important;
+}
+.ug-keikoku-white .bg-\[\#f2f4f2\] {
+  background: rgba(255,0,127,0.05) !important;
+  color: #191c1b !important;
+}
+.ug-keikoku-white .bg-\[\#eceeec\] {
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+  border: none !important;
+}
+.ug-keikoku-white .bg-\[\#c4eab5\] {
+  background: rgba(255,0,127,0.07) !important;
+  color: #374151 !important;
+}
+.ug-keikoku-white .text-\[\#707a6a\] { color: #707a6a !important; }
+.ug-keikoku-white .font-bold { color: #191c1b !important; }
+
+/* ── ug-info-white: ランキング・情報枠 ─── */
+[class*="rounded-2xl"].ug-info-white,
+.ug-info-white {
+  background: #ffffff !important;
+  color: #191c1b !important;
+  border-color: rgba(255,0,127,0.30) !important;
+}
+.ug-info-white .bg-\[\#004900\] { background: #FF007F !important; }
+.ug-info-white .text-\[\#191c1b\] { color: #191c1b !important; }
+.ug-info-white .text-\[\#707a6a\] { color: #707a6a !important; }
+
+/* ── ug-rank-white: 総合ランキング ─── */
+[class*="rounded-2xl"].ug-rank-white,
+.ug-rank-white {
+  background: #ffffff !important;
+  color: #191c1b !important;
+  border-color: rgba(255,0,127,0.30) !important;
+}
+.ug-rank-white .text-\[\#191c1b\] { color: #191c1b !important; }
+.ug-rank-white .text-\[\#707a6a\] { color: #707a6a !important; }
+.ug-rank-white h2, .ug-rank-white h3 { color: #191c1b !important; }
+
 /* ── Grade badges — keep colors ─────── */
 .grade-S  { background:#D97706!important; color:#fff!important; }
 .grade-A  { background:#DB2777!important; color:#fff!important; }
@@ -114,6 +164,7 @@ header .text-\[\#9ca3af\], header .text-\[\#707a6a\] { color: rgba(255,255,255,0
 .grade-none { background:rgba(255,0,127,0.10)!important; color:#FF007F!important; border:1px solid rgba(255,0,127,0.20)!important; }
 
 /* ── Border left colored lines ────────── */
+.border-S  { border-left: 4px solid #D97706 !important; }
 .border-A  { border-left: 4px solid #DB2777 !important; }
 .border-Bp { border-left: 4px solid #F43F5E !important; }
 .border-B  { border-left: 4px solid #EA580C !important; }
