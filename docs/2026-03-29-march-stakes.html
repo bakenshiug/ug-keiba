@@ -2413,7 +2413,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     var maxScore = count * 7;
     var bg = COLOR[Math.round(total/count)] || '#374151';
     var ptBadge = document.createElement('span');
-    ptBadge.style.cssText = 'background:'+bg+';color:#fff;font-size:11px;font-weight:900;padding:3px 8px;border-radius:8px;font-family:Inter,sans-serif;white-space:nowrap;';
+    ptBadge.style.cssText = 'background:'+bg+';color:#fff!important;font-size:11px;font-weight:900;padding:3px 8px;border-radius:8px;font-family:Inter,sans-serif;white-space:nowrap;';
     ptBadge.textContent = total + 'pt';
     ptBadge.title = count + '項目合計 (bonus:+' + bonus + 'pt) / 最大' + maxScore + 'pt';
     var gradeSpan = header.querySelector('.rounded-xl[class*="grade-"]');

@@ -1563,7 +1563,7 @@ footer a:first-child { color:var(--ug-gold-lt)!important; }
     total+=bonus;
     var bg=COLOR[Math.round(total/count)]||'#374151';
     var ptBadge=document.createElement('span');
-    ptBadge.style.cssText='background:'+bg+';color:#fff;font-size:11px;font-weight:900;padding:3px 8px;border-radius:8px;font-family:Inter,sans-serif;white-space:nowrap;';
+    ptBadge.style.cssText='background:'+bg+';color:#fff!important;font-size:11px;font-weight:900;padding:3px 8px;border-radius:8px;font-family:Inter,sans-serif;white-space:nowrap;';
     ptBadge.textContent=total+'pt';
     ptBadge.title=count+'項目合計 / 最大'+(count*7)+'pt';
     var gradeSpan=header.querySelector('.rounded-xl[class*="grade-"]');
