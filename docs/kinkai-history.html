@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>金塊馬 戦績 | UG強奪競馬新聞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Public Sans', sans-serif; }
+  .serif-headline { font-family: 'Noto Serif JP', serif; }
+  .ticker-wrap { overflow: hidden; white-space: nowrap; }
+  .ticker-text { display: inline-block; animation: ticker-scroll 30s linear infinite; padding-left: 100%; }
+  @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+  :root { --ug-bg:#130003; --ug-pink:#E8003D; --ug-gold:#f0c040; }
+  html, body { background:#130003 !important; color:#f5d0d5 !important; min-height:100vh; }
+  header { background:linear-gradient(135deg,#1a0004 0%,#0b0002 100%) !important; border-bottom:1px solid rgba(232,0,61,0.40) !important; }
+  header h1 { color:#fff !important; text-shadow:0 0 24px rgba(232,0,61,0.55) !important; }
+  header p, header a { color:rgba(255,255,255,0.80) !important; }
+  footer { background:linear-gradient(135deg,#1a0004 0%,#0b0002 100%) !important; border-top:1px solid rgba(232,0,61,0.35) !important; }
+  footer * { color:rgba(255,255,255,0.60) !important; }
+
+  /* ── スコアボード ── */
+  .scoreboard {
+    background: linear-gradient(160deg,#1a0004 0%,#0b0002 60%,#1a000a 100%);
+    border: 1px solid rgba(240,192,64,0.35);
+    border-radius: 24px;
+    box-shadow: 0 0 60px rgba(232,0,61,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .score-col {
+    flex: 1;
+    text-align: center;
+    padding: 18px 12px;
+  }
+  .score-col + .score-col { border-left: 1px solid rgba(255,255,255,0.10); }
+  .score-big { font-size: 32px; font-weight: 900; line-height: 1; }
+  .score-unit { font-size: 11px; font-weight: 700; margin-top: 4px; }
+  .score-label { font-size: 10px; margin-top: 3px; color: rgba(255,255,255,0.45); }
+  .score-divider { border: none; border-top: 1px solid rgba(255,255,255,0.10); margin: 0 20px; }
+
+  .stat-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 999px; height: 5px; overflow:hidden; }
+  .stat-bar { height: 5px; border-radius: 999px; transition: width 1s ease; }
+  .stat-bar-tan  { background: linear-gradient(90deg,#E8003D,#ff6b8a); }
+  .stat-bar-fuku { background: linear-gradient(90deg,#f0c040,#ffd97d); }
+
+  @keyframes scoreCount { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+  .score-animate { animation: scoreCount 0.6s ease forwards; }
+
+  /* ── 週アコーディオン ── */
+  .week-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(232,0,61,0.20);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .week-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px;
+    cursor: pointer; user-select: none;
+    transition: background 0.18s;
+  }
+  .week-header:hover { background: rgba(232,0,61,0.08); }
+  .week-body { display: none; padding: 0 16px 16px; }
+  .week-body.open { display: block; }
+  .week-arrow { transition: transform 0.22s; color: rgba(255,255,255,0.45); }
+  .week-arrow.open { transform: rotate(180deg); }
+
+  /* ── レースセクション ── */
+  .race-block {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .race-head { padding: 12px 16px 8px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+  /* ── 着順バッジ ── */
+  .rank-1  { background:linear-gradient(135deg,#f0c040,#d97706); color:#130003; }
+  .rank-2  { background:linear-gradient(135deg,#9ca3af,#6b7280); color:#fff; }
+  .rank-3  { background:linear-gradient(135deg,#d97706,#92400e); color:#fff; }
+  .rank-out{ background:rgba(255,255,255,0.10); color:rgba(255,255,255,0.50); }
+  .rank-pending { background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.35); border:1px dashed rgba(255,255,255,0.20); }
+
+  /* ── 条件バッジ ── */
+  .badge-jockey         { background:linear-gradient(135deg,#E8003D,#B5002E); color:#fff; }
+  .badge-trainer        { background:linear-gradient(135deg,#7c3aed,#4c1d95); color:#fff; }
+  .badge-sire           { background:linear-gradient(135deg,#d97706,#92400e); color:#fff; }
+  .badge-surface-change  { background:linear-gradient(135deg,#0ea5e9,#0369a1); color:#fff; }
+  .badge-jockey-change   { background:linear-gradient(135deg,#10b981,#065f46); color:#fff; }
+  .badge-dist-short      { background:linear-gradient(135deg,#f97316,#c2410c); color:#fff; }
+  .badge-dist-long       { background:linear-gradient(135deg,#8b5cf6,#4c1d95); color:#fff; }
+  .badge-prev-激走       { background:linear-gradient(135deg,#f0c040,#d97706); color:#130003; }
+  .badge-kinkai-line     { background:linear-gradient(135deg,#E8003D,#f0c040); color:#fff; box-shadow:0 0 10px rgba(240,192,64,0.50); }
+
+  /* ── 週バッジ ── */
+  .week-hit-badge {
+    font-size: 10px; font-weight: 900;
+    padding: 2px 10px; border-radius: 999px;
+    background: rgba(240,192,64,0.15);
+    border: 1px solid rgba(240,192,64,0.40);
+    color: #f0c040;
+  }
+
+  /* ── 空ステート ── */
+  .empty-state { text-align:center; padding:60px 20px; }
+
+  /* ── ローディング ── */
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .loader { width:32px; height:32px; border:3px solid rgba(232,0,61,0.20); border-top-color:#E8003D; border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto; }
+</style>
+</head>
+<body class="pb-24">
+
+<!-- ══════ HEADER ══════ -->
+<header class="sticky top-0 z-50 backdrop-blur-md">
+  <div class="px-5 pt-4 pb-3">
+    <div class="flex items-center gap-3">
+      <a href="kinkai-display.html" class="flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/10 transition-colors">
+        <span class="material-symbols-outlined text-xl" style="color:rgba(255,255,255,0.80)">arrow_back</span>
+      </a>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest font-bold" style="color:rgba(255,255,255,0.50)">UG強奪競馬新聞</p>
+        <h1 class="serif-headline text-lg font-bold leading-tight">金塊馬 戦績</h1>
+        <p class="text-[10px] font-bold" style="color:#E8003D">コース別穴条件合致馬の成績履歴</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════ TICKER ══════ -->
+<div class="ticker-wrap py-1.5 sticky z-40" style="top:60px;background:#B5002E;">
+  <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
+    📊 金塊馬 累計戦績 &nbsp;｜&nbsp; 穴騎手・穴厩舎・穴血統に合致した馬の単勝・複勝成績を追跡 &nbsp;｜&nbsp; 📊 金塊馬 累計戦績 &nbsp;｜&nbsp; 穴騎手・穴厩舎・穴血統に合致した馬の単勝・複勝成績を追跡
+  </span>
+</div>
+
+<!-- ══════ HERO ══════ -->
+<section class="px-4 pt-8 pb-4 text-center">
+  <div class="text-4xl mb-2">📊</div>
+  <h2 class="serif-headline text-2xl font-bold mb-1" style="color:#f0c040;text-shadow:0 0 20px rgba(240,192,64,0.50)">金塊馬 戦績</h2>
+  <p class="text-xs" style="color:rgba(255,255,255,0.45)">単勝・複勝成績の累計トラッキング</p>
+</section>
+
+<!-- ══════ LOADING ══════ -->
+<div id="loadingState" class="py-12">
+  <div class="loader mb-4"></div>
+  <p class="text-center text-sm" style="color:rgba(255,255,255,0.40)">データを読み込み中...</p>
+</div>
+
+<!-- ══════ MAIN ══════ -->
+<div id="mainContent" class="hidden px-4 max-w-2xl mx-auto">
+
+  <!-- ── 累計スコアボード ── -->
+  <section class="mb-8">
+    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(255,255,255,0.40)">累計スコアボード</p>
+    <div class="scoreboard p-5">
+
+      <!-- 集計行 -->
+      <div class="flex" id="scoreCols"></div>
+
+      <hr class="score-divider my-4"/>
+
+      <!-- 単勝バー -->
+      <div class="mb-3">
+        <div class="flex justify-between mb-1.5">
+          <span class="text-xs font-bold" style="color:#ffb3c6">単勝 &nbsp;<span id="tanHitFrac" class="font-black" style="color:#fff"></span></span>
+          <span class="text-xs font-bold" id="tanRateLabel" style="color:#ffb3c6"></span>
+        </div>
+        <div class="stat-bar-wrap">
+          <div class="stat-bar stat-bar-tan" id="tanBar" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- 複勝バー -->
+      <div class="mb-4">
+        <div class="flex justify-between mb-1.5">
+          <span class="text-xs font-bold" style="color:#f0c040">複勝 &nbsp;<span id="fukuHitFrac" class="font-black" style="color:#fff"></span></span>
+          <span class="text-xs font-bold" id="fukuRateLabel" style="color:#f0c040"></span>
+        </div>
+        <div class="stat-bar-wrap">
+          <div class="stat-bar stat-bar-fuku" id="fukuBar" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- 合計行 -->
+      <div class="flex justify-between items-center pt-3" style="border-top:1px solid rgba(255,255,255,0.10)">
+        <span class="text-xs" style="color:rgba(255,255,255,0.45)">総ピック数</span>
+        <span class="text-sm font-bold" id="totalPicks" style="color:#fff"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 週別履歴 ── -->
+  <section>
+    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(255,255,255,0.40)">週別履歴</p>
+    <div id="weekList" class="space-y-3"></div>
+  </section>
+
+  <!-- ── 空ステート ── -->
+  <div id="emptyState" class="hidden empty-state">
+    <div class="text-5xl mb-4">📭</div>
+    <p class="font-bold text-sm" style="color:rgba(255,255,255,0.55)">戦績データを準備中です</p>
+    <p class="text-xs mt-2" style="color:rgba(255,255,255,0.30)">レース結果が確定次第<br>順次公開していきます</p>
+  </div>
+
+</div>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="mt-16 px-5 py-8">
+  <div class="max-w-2xl mx-auto text-center">
+    <p class="text-xs" style="color:rgba(255,255,255,0.35)">UG強奪競馬新聞 — 金塊馬 戦績</p>
+    <p class="text-xs mt-1" style="color:rgba(255,255,255,0.20)">※ 本情報は参考目的です。投票は自己責任でお願いします。</p>
+  </div>
+</footer>
+
+<script>
+const BADGE_MAP = {
+  'コース金塊騎手':           'jockey',
+  'コース金塊厩舎':           'trainer',
+  'コース金塊血統':           'sire',
+  'コース金塊騎手厩舎ライン': 'kinkai-line',
+  '芝ダ変更金塊馬':           'surface-change',
+  '乗り替わり金塊馬':         'jockey-change',
+  '距離短縮金塊馬':           'dist-short',
+  '距離延長金塊馬':           'dist-long',
+  '前走激走金塊馬':           'prev-激走',
+};
+
+async function loadHistory() {
+  try {
+    const res = await fetch('data/kinkai-history.json?v=' + Date.now());
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    render(data);
+  } catch(e) {
+    document.getElementById('loadingState').classList.add('hidden');
+    document.getElementById('mainContent').classList.remove('hidden');
+    document.getElementById('emptyState').classList.remove('hidden');
+  }
+}
+
+function render(data) {
+  document.getElementById('loadingState').classList.add('hidden');
+  document.getElementById('mainContent').classList.remove('hidden');
+
+  const weeks = (data.weeks || []).slice().reverse(); // 新しい順
+
+  // ── 全馬集計 ──
+  let totalPicks = 0, tanHits = 0, fukuHits = 0;
+  let tanReturn = 0, fukuReturn = 0;
+
+  weeks.forEach(w => {
+    (w.races || []).forEach(r => {
+      (r.horses || []).forEach(h => {
+        const res = h.result;
+        if (!res || res.chakujun == null) return; // 結果未入力は除外
+        totalPicks++;
+        const rank = parseInt(res.chakujun);
+        if (rank === 1) {
+          tanHits++;
+          tanReturn += (parseFloat(res.tanOdds) || 0) * 100;
+        }
+        if (rank <= 3) {
+          fukuHits++;
+          fukuReturn += (parseFloat(res.fukuOdds) || 0) * 100;
+        }
+      });
+    });
+  });
+
+  // ── スコアボード描画 ──
+  renderScoreboard(totalPicks, tanHits, fukuHits, tanReturn, fukuReturn);
+
+  // ── 週別リスト ──
+  if (weeks.length === 0) {
+    document.getElementById('emptyState').classList.remove('hidden');
+    return;
+  }
+  renderWeeks(weeks);
+}
+
+function renderScoreboard(total, tanH, fukuH, tanRet, fukuRet) {
+  const tanRate  = total > 0 ? (tanH  / total * 100) : 0;
+  const fukuRate = total > 0 ? (fukuH / total * 100) : 0;
+  const tanKaichi  = total > 0 ? Math.round(tanRet  / (total * 100) * 100) : 0;
+  const fukuKaichi = total > 0 ? Math.round(fukuRet / (total * 100) * 100) : 0;
+
+  // 4列スコア
+  const cols = [
+    { label:'単勝的中率', value: total>0 ? tanRate.toFixed(1)+'%'  : '-%',  color:'#ffb3c6' },
+    { label:'単勝回収率', value: total>0 ? tanKaichi+'%'            : '-%',  color:'#E8003D' },
+    { label:'複勝的中率', value: total>0 ? fukuRate.toFixed(1)+'%' : '-%',  color:'#f0c040' },
+    { label:'複勝回収率', value: total>0 ? fukuKaichi+'%'           : '-%',  color:'#d97706' },
+  ];
+  document.getElementById('scoreCols').innerHTML = cols.map(c => `
+    <div class="score-col score-animate">
+      <div class="score-big" style="color:${c.color}">${escHtml(c.value)}</div>
+      <div class="score-label">${escHtml(c.label)}</div>
+    </div>
+  `).join('');
+
+  // バー
+  document.getElementById('tanHitFrac').textContent  = `${tanH}/${total}頭`;
+  document.getElementById('fukuHitFrac').textContent = `${fukuH}/${total}頭`;
+  document.getElementById('tanRateLabel').textContent  = total>0 ? '単勝的中率 '+tanRate.toFixed(1)+'%'  : '-';
+  document.getElementById('fukuRateLabel').textContent = total>0 ? '複勝的中率 '+fukuRate.toFixed(1)+'%' : '-';
+  document.getElementById('totalPicks').textContent = total + '頭（結果入力済）';
+
+  // バーアニメーション（遅延）
+  setTimeout(() => {
+    document.getElementById('tanBar').style.width  = Math.min(tanRate,100)  + '%';
+    document.getElementById('fukuBar').style.width = Math.min(fukuRate,100) + '%';
+  }, 300);
+}
+
+function renderWeeks(weeks) {
+  const container = document.getElementById('weekList');
+  container.innerHTML = '';
+
+  weeks.forEach((week, idx) => {
+    // 週の集計
+    let wTotal=0, wTan=0, wFuku=0;
+    (week.races||[]).forEach(r => {
+      (r.horses||[]).forEach(h => {
+        const res = h.result;
+        if (!res || res.chakujun == null) return;
+        wTotal++;
+        const rank = parseInt(res.chakujun);
+        if (rank===1) wTan++;
+        if (rank<=3) wFuku++;
+      });
+    });
+
+    const weekEl = document.createElement('div');
+    weekEl.className = 'week-card';
+    weekEl.innerHTML = `
+      <div class="week-header" onclick="toggleWeek(this)">
+        <div class="flex items-center gap-3">
+          <div>
+            <p class="font-bold text-sm" style="color:#fff">${escHtml(week.label || week.weekId)}</p>
+            <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45)">${week.races ? week.races.length+'レース' : '0レース'}</p>
+          </div>
+          ${wTotal > 0 ? `<span class="week-hit-badge">単${wTan}/${wTotal} 複${wFuku}/${wTotal}</span>` : ''}
+        </div>
+        <span class="material-symbols-outlined week-arrow text-xl ${idx===0?'open':''}">expand_more</span>
+      </div>
+      <div class="week-body ${idx===0?'open':''}">
+        ${(week.races||[]).map(r => buildRaceBlock(r)).join('')}
+        ${(!week.races || week.races.length===0) ? '<p class="text-xs text-center py-4" style="color:rgba(255,255,255,0.30)">レースなし</p>' : ''}
+      </div>
+    `;
+    // 最初の週は展開
+    container.appendChild(weekEl);
+  });
+}
+
+function buildRaceBlock(race) {
+  const horses = race.horses || [];
+  return `
+    <div class="race-block">
+      <div class="race-head">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="font-bold text-sm" style="color:#fff">${escHtml(race.raceName)}</p>
+            <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45)">${escHtml(race.course)} &nbsp;｜&nbsp; ${escHtml(race.date)}</p>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded-full font-bold" style="background:rgba(232,0,61,0.18);color:#ffb3c6">金塊馬 ${horses.length}頭</span>
+        </div>
+      </div>
+      <div class="px-4 py-3 space-y-3">
+        ${horses.map(h => buildHorseRow(h)).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function buildHorseRow(h) {
+  const res = h.result || {};
+  const rank = res.chakujun != null ? parseInt(res.chakujun) : null;
+
+  // 着順バッジ
+  let rankBadge = '';
+  if (rank === null) {
+    rankBadge = `<span class="rank-pending text-xs font-bold px-2.5 py-1 rounded-full">結果待ち</span>`;
+  } else if (rank === 1) {
+    rankBadge = `<span class="rank-1 text-xs font-bold px-2.5 py-1 rounded-full">🥇 1着</span>`;
+  } else if (rank === 2) {
+    rankBadge = `<span class="rank-2 text-xs font-bold px-2.5 py-1 rounded-full">🥈 2着</span>`;
+  } else if (rank === 3) {
+    rankBadge = `<span class="rank-3 text-xs font-bold px-2.5 py-1 rounded-full">🥉 3着</span>`;
+  } else {
+    rankBadge = `<span class="rank-out text-xs font-bold px-2.5 py-1 rounded-full">${rank}着</span>`;
+  }
+
+  // 条件バッジ
+  const condBadges = (h.conditions||[]).map(c => {
+    const cls = BADGE_MAP[c.type]||'jockey';
+    return `<span class="badge-${cls} text-[10px] font-bold px-2 py-0.5 rounded-full">${escHtml(c.type)}: ${escHtml(c.name)}</span>`;
+  }).join('');
+
+  // オッズ表示
+  let oddsHtml = '';
+  if (rank != null) {
+    const tanOdds  = res.tanOdds  ? `<span class="text-xs" style="color:${rank===1?'#ffb3c6':'rgba(255,255,255,0.40)'}">単 <strong>${res.tanOdds}倍</strong></span>` : '';
+    const fukuOdds = res.fukuOdds ? `<span class="text-xs" style="color:${rank<=3?'#f0c040':'rgba(255,255,255,0.40)'}">複 <strong>${res.fukuOdds}倍</strong></span>` : '';
+    if (tanOdds || fukuOdds) {
+      oddsHtml = `<div class="flex gap-3 mt-1">${tanOdds}${fukuOdds}</div>`;
+    }
+  }
+
+  return `
+    <div class="flex items-start justify-between gap-3">
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-bold text-sm" style="color:#f0c040">${escHtml(h.name)}</span>
+          ${condBadges}
+        </div>
+        ${oddsHtml}
+      </div>
+      <div class="flex-shrink-0">${rankBadge}</div>
+    </div>
+  `;
+}
+
+function toggleWeek(header) {
+  const body  = header.nextElementSibling;
+  const arrow = header.querySelector('.week-arrow');
+  const isOpen = body.classList.toggle('open');
+  arrow.classList.toggle('open', isOpen);
+}
+
+function escHtml(str) {
+  if (!str && str !== 0) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+loadHistory();
+</script>
+</body>
+</html>

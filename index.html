@@ -586,7 +586,7 @@ body {
   background: #050505;
   border-top: 1px solid rgba(232,0,61,0.35);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 .footer-nav a {
   display: flex;
@@ -617,6 +617,29 @@ body {
   padding: 1px 4px;
   border-radius: 999px;
 }
+
+@keyframes kinkaiPulse {
+  0%,100% { box-shadow: 0 0 28px rgba(240,192,64,0.12), 0 0 0 1px rgba(240,192,64,0.10); }
+  50%      { box-shadow: 0 0 52px rgba(240,192,64,0.28), 0 0 0 1px rgba(240,192,64,0.25); }
+}
+/* サイドバー 金塊馬リンク強調 */
+.sidebar-nav a.kinkai-link {
+  margin: 10px 12px;
+  border-radius: 10px;
+  border-left: none !important;
+  background: linear-gradient(135deg,rgba(240,192,64,0.12),rgba(232,0,61,0.08));
+  border: 1px solid rgba(240,192,64,0.35) !important;
+  color: #f0c040 !important;
+  padding: 10px 14px !important;
+  animation: kinkaiPulse 3.5s ease-in-out infinite;
+}
+.sidebar-nav a.kinkai-link:hover {
+  background: linear-gradient(135deg,rgba(240,192,64,0.22),rgba(232,0,61,0.14)) !important;
+  border-color: rgba(240,192,64,0.65) !important;
+}
+/* フッターナビ 金塊馬アイコン強調 */
+.footer-nav a.kinkai-link { color: #f0c040 !important; }
+.footer-nav a.kinkai-link .material-symbols-outlined { color: #f0c040 !important; }
 
 /* ══ RESPONSIVE — TABLET / PC ══════════ */
 @media (min-width: 769px) {
@@ -695,6 +718,10 @@ body {
     <a href="https://note.com/gaikyukeiba_ace" target="_blank" rel="noopener">
       <span class="material-symbols-outlined">auto_stories</span>小説を読む
     </a>
+    <div class="nav-sep"></div>
+    <a href="./docs/kinkai-display.html" class="kinkai-link">
+      <span class="material-symbols-outlined">diamond</span>今週の金塊馬
+    </a>
   </nav>
   <div class="sidebar-bottom">
     <p>強奪ニック式 全頭診断</p>
@@ -731,8 +758,11 @@ body {
   <a href="./docs/how-to-buy.html">
     <span class="material-symbols-outlined">menu_book</span>馬券の買い方
   </a>
-  <a href="#">
+  <a href="https://note.com/gaikyukeiba_ace" target="_blank" rel="noopener">
     <span class="material-symbols-outlined">auto_stories</span>小説を読む
+  </a>
+  <a href="./docs/kinkai-display.html" class="kinkai-link" style="color:#f0c040 !important;">
+    <span class="material-symbols-outlined" style="color:#f0c040">diamond</span>今週の金塊馬
   </a>
 </nav>
 
@@ -838,6 +868,39 @@ body {
         </a>
 
       </div>
+    </section>
+
+    <!-- 💰 今週の金塊馬バナー（重賞展望と最終予想の間） -->
+    <section style="margin-bottom:32px;">
+      <a href="./docs/kinkai-display.html" style="display:block;text-decoration:none;">
+        <div style="
+          background: linear-gradient(135deg, #1a0004 0%, #0b0002 60%, #1a000a 100%);
+          border: 1px solid rgba(240,192,64,0.50);
+          border-radius: 18px;
+          padding: 20px 22px;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 0 40px rgba(240,192,64,0.14), 0 0 0 1px rgba(240,192,64,0.12);
+          animation: kinkaiPulse 3.5s ease-in-out infinite;
+        ">
+          <!-- 背景グロー -->
+          <div style="position:absolute;top:-30px;right:-20px;width:120px;height:120px;background:radial-gradient(circle,rgba(240,192,64,0.18),transparent 70%);pointer-events:none;"></div>
+          <div style="position:absolute;bottom:-20px;left:30px;width:80px;height:80px;background:radial-gradient(circle,rgba(232,0,61,0.12),transparent 70%);pointer-events:none;"></div>
+
+          <div style="display:flex;align-items:center;gap:16px;position:relative;">
+            <div style="font-size:44px;flex-shrink:0;line-height:1;">💰</div>
+            <div style="flex:1;min-width:0;">
+              <p style="font-size:9px;font-weight:900;letter-spacing:0.22em;color:rgba(240,192,64,0.65);text-transform:uppercase;margin-bottom:5px;">WEEKLY SPECIAL</p>
+              <p style="font-size:18px;font-weight:900;color:#f0c040;line-height:1.2;text-shadow:0 0 16px rgba(240,192,64,0.50);">今週の金塊馬</p>
+              <p style="font-size:11px;color:rgba(255,255,255,0.60);margin-top:4px;">穴騎手・穴厩舎・穴血統・乗替・芝ダ変更<br style="display:none;"/>を徹底解析して厳選公開！</p>
+            </div>
+            <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="background:linear-gradient(135deg,#E8003D,#B5002E);color:#fff;font-size:9px;font-weight:900;padding:3px 10px;border-radius:999px;letter-spacing:0.08em;">公開中</div>
+              <span style="font-size:22px;color:rgba(240,192,64,0.70);">›</span>
+            </div>
+          </div>
+        </div>
+      </a>
     </section>
 
     <!-- ② 最終予想 -->
@@ -953,6 +1016,9 @@ body {
   </a>
   <a href="./docs/archive.html">
     <span class="material-symbols-outlined">history</span>過去戦績
+  </a>
+  <a href="./docs/kinkai-display.html" class="kinkai-link">
+    <span class="material-symbols-outlined">diamond</span>金塊馬
   </a>
 </nav>
 

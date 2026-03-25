@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>今週の金塊馬 | UG強奪競馬新聞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: { extend: {
+      fontFamily: { "headline": ["Noto Serif JP","serif"], "label": ["Inter","sans-serif"] }
+    }}
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Public Sans', sans-serif; }
+  .serif-headline { font-family: 'Noto Serif JP', serif; }
+  .ticker-wrap { overflow: hidden; white-space: nowrap; }
+  .ticker-text { display: inline-block; animation: ticker-scroll 30s linear infinite; padding-left: 100%; }
+  @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+  /* ── UG DEEP CHERRY THEME ── */
+  :root {
+    --ug-bg: #130003; --ug-cherry-dk: #0b0002; --ug-cherry-md: #1a0004;
+    --ug-pink: #E8003D; --ug-pink-dk: #B5002E; --ug-gold: #f0c040;
+    --ug-text: #f5d0d5; --ug-muted: rgba(255,255,255,0.50);
+    --ug-card: rgba(255,255,255,0.07); --ug-border: rgba(232,0,61,0.25);
+  }
+  html, body { background: #130003 !important; color: #f5d0d5 !important; min-height: 100vh; }
+
+  header {
+    background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important;
+    border-bottom: 1px solid rgba(232,0,61,0.40) !important;
+  }
+  header h1 { color: #ffffff !important; text-shadow: 0 0 24px rgba(232,0,61,0.55) !important; }
+  header p, header span, header a { color: rgba(255,255,255,0.80) !important; }
+
+  footer {
+    background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important;
+    border-top: 1px solid rgba(232,0,61,0.35) !important;
+  }
+  footer * { color: rgba(255,255,255,0.70) !important; }
+
+  /* ── Cards ── */
+  .ug-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(232,0,61,0.25);
+    border-radius: 16px;
+  }
+  .ug-card-gold {
+    background: rgba(240,192,64,0.10);
+    border: 1px solid rgba(240,192,64,0.45);
+    border-radius: 16px;
+  }
+  .ug-card-hit {
+    background: linear-gradient(135deg, rgba(232,0,61,0.18) 0%, rgba(240,192,64,0.10) 100%);
+    border: 1px solid rgba(240,192,64,0.60);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(232,0,61,0.20), 0 0 0 1px rgba(240,192,64,0.20);
+  }
+
+  /* ── Badge ── */
+  .badge-jockey         { background: linear-gradient(135deg,#E8003D,#B5002E); color:#fff; }
+  .badge-trainer        { background: linear-gradient(135deg,#7c3aed,#4c1d95); color:#fff; }
+  .badge-sire           { background: linear-gradient(135deg,#d97706,#92400e); color:#fff; }
+  .badge-surface-change  { background: linear-gradient(135deg,#0ea5e9,#0369a1); color:#fff; }
+  .badge-jockey-change   { background: linear-gradient(135deg,#10b981,#065f46); color:#fff; }
+  .badge-dist-short      { background: linear-gradient(135deg,#f97316,#c2410c); color:#fff; }
+  .badge-dist-long       { background: linear-gradient(135deg,#8b5cf6,#4c1d95); color:#fff; }
+  .badge-prev-激走       { background: linear-gradient(135deg,#f0c040,#d97706); color:#130003; }
+  .badge-kinkai-line     { background: linear-gradient(135deg,#E8003D,#f0c040); color:#fff; box-shadow:0 0 10px rgba(240,192,64,0.50); }
+  .badge-jockey-keep     { background: linear-gradient(135deg,#06b6d4,#0e7490); color:#fff; }
+  .badge-prev-course     { background: linear-gradient(135deg,#84cc16,#365314); color:#fff; }
+
+  /* ── Input / Select ── */
+  .ug-input {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(232,0,61,0.35) !important;
+    color: #f5d0d5 !important;
+    border-radius: 10px;
+  }
+  .ug-input::placeholder { color: rgba(255,255,255,0.35) !important; }
+  .ug-input:focus { border-color: #E8003D !important; outline: none; box-shadow: 0 0 0 2px rgba(232,0,61,0.25) !important; }
+  .ug-input option { background: #1a0004; color: #f5d0d5; }
+
+  /* ── Button ── */
+  .btn-extract {
+    background: linear-gradient(135deg, #E8003D 0%, #B5002E 100%);
+    color: #fff; font-weight: 700; border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(232,0,61,0.45);
+    transition: all 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-extract:hover { background: linear-gradient(135deg, #ff1a4f 0%, #E8003D 100%); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(232,0,61,0.60); }
+  .btn-extract:active { transform: translateY(0); }
+
+  .btn-clear {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.70); border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-clear:hover { background: rgba(255,255,255,0.14); color:#fff; }
+
+  /* ── Stat pills ── */
+  .stat-pill {
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    font-size: 11px; padding: 2px 8px;
+    color: rgba(255,255,255,0.80);
+  }
+  .stat-pill-red { background: rgba(232,0,61,0.20); border-color: rgba(232,0,61,0.40); color: #ffb3c6; }
+  .stat-pill-gold { background: rgba(240,192,64,0.20); border-color: rgba(240,192,64,0.45); color: #f0c040; }
+
+  /* ── No match ── */
+  .no-hit { color: rgba(255,255,255,0.40); text-align:center; padding: 40px 0; }
+
+  /* ── Condition DB accordion ── */
+  .db-section { border-bottom: 1px solid rgba(232,0,61,0.20); }
+  .db-header { cursor:pointer; user-select:none; }
+  .db-header:hover { background: rgba(232,0,61,0.08); border-radius: 8px; }
+  .db-body { display: none; }
+  .db-body.open { display: block; }
+  .db-arrow { transition: transform 0.2s; }
+  .db-arrow.open { transform: rotate(180deg); }
+
+  /* ── CSV Upload ── */
+  .csv-upload-label {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: linear-gradient(135deg,rgba(240,192,64,0.15) 0%,rgba(232,0,61,0.10) 100%);
+    border: 2px dashed rgba(240,192,64,0.45);
+    border-radius: 14px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #f0c040;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .csv-upload-label:hover { background: linear-gradient(135deg,rgba(240,192,64,0.22) 0%,rgba(232,0,61,0.15) 100%); border-color: rgba(240,192,64,0.70); }
+  .csv-upload-label.loaded { border-style: solid; border-color: rgba(240,192,64,0.70); background: linear-gradient(135deg,rgba(240,192,64,0.18) 0%,rgba(232,0,61,0.10) 100%); }
+
+  .race-option-btn {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 12px 16px;
+    cursor: pointer; text-align: left;
+    transition: all 0.18s;
+    color: #f5d0d5;
+  }
+  .race-option-btn:hover { background: rgba(240,192,64,0.12); border-color: rgba(240,192,64,0.45); }
+  .race-option-btn.has-db { border-color: rgba(240,192,64,0.40); }
+  .race-option-btn.no-db { opacity: 0.50; }
+
+  /* ── Step number ── */
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: linear-gradient(135deg,#E8003D,#B5002E);
+    color: #fff; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+
+  /* ── Gold glow animation ── */
+  @keyframes goldPulse { 0%,100% { box-shadow: 0 0 12px rgba(240,192,64,0.30); } 50% { box-shadow: 0 0 28px rgba(240,192,64,0.65); } }
+  .hit-glow { animation: goldPulse 2.5s ease-in-out infinite; }
+</style>
+</head>
+<body class="pb-24">
+
+<!-- ══════ HEADER ══════ -->
+<header class="sticky top-0 z-50 backdrop-blur-md">
+  <div class="px-5 pt-4 pb-3">
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/10 transition-colors">
+        <span class="material-symbols-outlined text-xl" style="color:rgba(255,255,255,0.80)">arrow_back</span>
+      </a>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest font-bold" style="color:rgba(255,255,255,0.55)">UG強奪競馬新聞 / 金塊馬抽出ツール</p>
+        <h1 class="serif-headline text-lg font-bold leading-tight">今週の金塊馬</h1>
+        <p class="text-[10px] font-bold" style="color:#E8003D">コース別穴条件から自動抽出</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════ TICKER ══════ -->
+<div class="ticker-wrap py-1.5 sticky z-40" style="top:60px;background:#B5002E;">
+  <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
+    💰 金塊馬抽出ツール稼働中 &nbsp;｜&nbsp; コース別穴騎手・穴厩舎・穴血統データから合致馬を自動抽出 &nbsp;｜&nbsp; 出走馬CSVを貼り付けるだけで即座に抽出 &nbsp;｜&nbsp; 💰 金塊馬抽出ツール稼働中 &nbsp;｜&nbsp; コース別穴騎手・穴厩舎・穴血統データから合致馬を自動抽出 &nbsp;｜&nbsp; 出走馬CSVを貼り付けるだけで即座に抽出
+  </span>
+</div>
+
+<!-- ══════ HERO ══════ -->
+<section class="px-4 pt-8 pb-6 text-center">
+  <div class="text-5xl mb-3">💰</div>
+  <h2 class="serif-headline text-2xl font-bold mb-2" style="color:#f0c040;text-shadow:0 0 20px rgba(240,192,64,0.50)">今週の金塊馬</h2>
+  <p class="text-sm" style="color:rgba(255,255,255,0.65)">コース別の穴騎手・穴厩舎・穴血統データと<br>出走馬リストを照合して金塊馬を自動抽出します</p>
+</section>
+
+<!-- ══════ TABS ══════ -->
+<div class="px-4 max-w-2xl mx-auto mt-4 mb-1">
+  <div class="flex rounded-2xl overflow-hidden" style="border:1px solid rgba(232,0,61,0.30);background:rgba(255,255,255,0.04)">
+    <button id="tab-extract" onclick="switchTab('extract')"
+      class="flex-1 py-3 text-sm font-bold flex items-center justify-center gap-2 transition-all"
+      style="background:linear-gradient(135deg,#E8003D,#B5002E);color:#fff;">
+      💰 金塊馬抽出
+    </button>
+    <button id="tab-result" onclick="switchTab('result')"
+      class="flex-1 py-3 text-sm font-bold flex items-center justify-center gap-2 transition-all"
+      style="color:rgba(255,255,255,0.55);">
+      📊 結果入力
+    </button>
+  </div>
+</div>
+
+<!-- ══════ MAIN TOOL ══════ -->
+<div id="pane-extract" class="px-4 max-w-2xl mx-auto space-y-5">
+
+  <!-- CSV読み込みカード -->
+  <div class="ug-card p-5">
+    <div class="flex items-center gap-3 mb-4">
+      <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">📂</div>
+      <div>
+        <p class="font-bold text-sm" style="color:#fff">JRA出馬表CSVを読み込む</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.50)">Shift-JIS形式に対応・コース＆出走馬を自動入力</p>
+      </div>
+    </div>
+
+    <!-- ファイル選択 2スロット -->
+    <div class="space-y-3">
+      <!-- CSV1 -->
+      <div>
+        <p class="text-xs font-bold mb-1.5" style="color:rgba(255,255,255,0.55)">📄 出馬表CSV（騎手・調教師・父）<span style="color:#E8003D"> *必須</span></p>
+        <input type="file" id="csvFileInput" accept=".csv" class="hidden" onchange="handleCSVUpload(this, 1)"/>
+        <label for="csvFileInput" class="csv-upload-label" id="csvUploadLabel1">
+          <span class="material-symbols-outlined text-xl">upload_file</span>
+          <span id="csvUploadText1">CSVファイルを選択</span>
+        </label>
+      </div>
+      <!-- CSV2 -->
+      <div>
+        <p class="text-xs font-bold mb-1.5" style="color:rgba(255,255,255,0.55)">📄 出馬表CSV②（前走・乗り替わり）<span style="color:rgba(255,255,255,0.30)"> 任意</span></p>
+        <input type="file" id="csvFileInput2" accept=".csv" class="hidden" onchange="handleCSVUpload(this, 2)"/>
+        <label for="csvFileInput2" class="csv-upload-label" id="csvUploadLabel2">
+          <span class="material-symbols-outlined text-xl">upload_file</span>
+          <span id="csvUploadText2">CSVファイルを選択（任意）</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- 読み込み済みレース一覧 -->
+    <div id="csvRaceList" class="hidden mt-4">
+      <div class="flex items-center justify-between mb-3">
+        <p class="text-xs font-bold" style="color:rgba(255,255,255,0.60)">レースを選択してください</p>
+        <span id="csvRaceCount" class="text-xs" style="color:rgba(255,255,255,0.40)"></span>
+      </div>
+      <!-- フィルター -->
+      <div class="flex flex-wrap gap-2 mb-3">
+        <button id="filterAll" onclick="filterCSVRaces('all')"
+          class="text-xs px-3 py-1.5 rounded-full font-bold transition-all"
+          style="background:rgba(240,192,64,0.20);border:1px solid rgba(240,192,64,0.50);color:#f0c040;">
+          すべて
+        </button>
+        <button id="filterDB" onclick="filterCSVRaces('db')"
+          class="text-xs px-3 py-1.5 rounded-full font-bold transition-all"
+          style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);">
+          💰 DB合致
+        </button>
+        <button id="filterExtra" onclick="filterCSVRaces('extra')"
+          class="text-xs px-3 py-1.5 rounded-full font-bold transition-all"
+          style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);">
+          🔄 乗替/芝ダ変更
+        </button>
+      </div>
+      <div id="csvRaceOptions" class="space-y-2 max-h-72 overflow-y-auto pr-1"></div>
+    </div>
+  </div>
+
+  <!-- STEP 1: コース選択 -->
+  <div class="ug-card p-5">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="step-num">1</div>
+      <div>
+        <p class="font-bold text-sm" style="color:#fff">開催コースを選択</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.50)">DBに登録済みのコースが表示されます</p>
+      </div>
+    </div>
+    <select id="courseSelect" class="ug-input w-full px-4 py-3 text-sm font-bold">
+      <option value="">── コースを選択してください ──</option>
+    </select>
+    <div id="courseStats" class="mt-3 hidden">
+      <div class="flex flex-wrap gap-2" id="courseStatPills"></div>
+    </div>
+  </div>
+
+  <!-- STEP 2: 出走馬入力 -->
+  <div class="ug-card p-5">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="step-num">2</div>
+      <div>
+        <p class="font-bold text-sm" style="color:#fff">出走馬リストを貼り付け</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.50)">CSVまたはタブ区切り形式で入力</p>
+      </div>
+    </div>
+
+    <!-- フォーマット説明 -->
+    <div class="rounded-xl p-3 mb-3" style="background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.25)">
+      <p class="text-xs font-bold mb-1" style="color:#f0c040">📋 入力フォーマット（1頭1行）</p>
+      <div class="font-mono text-xs" style="color:rgba(255,255,255,0.65)">
+        <p>馬名,騎手名,調教師名,父（種牡馬）名</p>
+        <p class="mt-1" style="color:rgba(255,255,255,0.40)">例）タマモブラックタイ,坂井瑠星,矢作芳人,アルアイン</p>
+      </div>
+      <div class="mt-2 pt-2" style="border-top:1px solid rgba(255,255,255,0.10)">
+        <p class="text-xs" style="color:rgba(255,255,255,0.45)">※ 種牡馬列がなくてもOK（騎手・調教師のみで照合）</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.45)">※ カンマ・タブ・スペース区切りに対応</p>
+      </div>
+    </div>
+
+    <div class="mb-2 flex items-center justify-between">
+      <label class="text-xs font-bold" style="color:rgba(255,255,255,0.70)">レース名（任意）</label>
+    </div>
+    <input id="raceNameInput" type="text" class="ug-input w-full px-4 py-2.5 text-sm mb-3" placeholder="例）阪神11R 阪神牝馬ステークス">
+
+    <textarea id="entryInput" class="ug-input w-full px-4 py-3 text-sm font-mono" rows="8"
+      placeholder="タマモブラックタイ,坂井瑠星,矢作芳人,アルアイン&#10;ウインシャーロット,川田将雅,斉藤崇史,ロードカナロア&#10;..."></textarea>
+
+    <div class="flex gap-3 mt-3">
+      <button class="btn-extract flex-1 py-3 text-base flex items-center justify-center gap-2" onclick="extractKinkaiUma()">
+        <span>💰</span> 金塊馬を抽出
+      </button>
+      <button class="btn-clear px-5 py-3 text-sm" onclick="clearAll()">クリア</button>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="resultsSection" class="hidden">
+
+    <!-- ヒット数サマリー -->
+    <div id="resultSummary" class="rounded-2xl p-4 mb-1" style="background:linear-gradient(135deg,rgba(232,0,61,0.20),rgba(240,192,64,0.12));border:1px solid rgba(240,192,64,0.45)">
+      <div class="flex items-center gap-3">
+        <div class="text-3xl">🎯</div>
+        <div>
+          <p class="font-bold" id="summaryTitle" style="color:#f0c040"></p>
+          <p class="text-xs" id="summaryDesc" style="color:rgba(255,255,255,0.65)"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 合致馬カード一覧 -->
+    <div id="hitCards" class="space-y-4 mt-4"></div>
+
+    <!-- ノーヒット -->
+    <div id="noHitMsg" class="hidden ug-card p-8 text-center">
+      <div class="text-4xl mb-3">🔍</div>
+      <p class="font-bold" style="color:rgba(255,255,255,0.70)">条件合致馬なし</p>
+      <p class="text-xs mt-1" style="color:rgba(255,255,255,0.40)">選択コースの穴条件に合致する馬が見つかりませんでした</p>
+    </div>
+
+    <!-- 全頭リスト（照合済み） -->
+    <div class="ug-card p-4 mt-4">
+      <p class="text-xs font-bold mb-3" style="color:rgba(255,255,255,0.50)">📋 照合結果（全頭）</p>
+      <div id="allHorsesList" class="space-y-1.5"></div>
+    </div>
+
+    <!-- このレースを追加 -->
+    <button class="w-full py-3 mt-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2"
+      style="background:rgba(240,192,64,0.15);border:1px solid rgba(240,192,64,0.50);color:#f0c040;"
+      onclick="addToSession()">
+      ✅ このレースをサイト反映リストに追加
+    </button>
+  </div>
+
+  <!-- ══════ 追加済みレース一覧 ══════ -->
+  <div id="sessionSection" class="hidden">
+    <div class="ug-card-gold p-5">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <p class="font-bold text-sm" style="color:#f0c040">📤 反映待ちレース</p>
+          <p class="text-xs mt-0.5" id="sessionCount" style="color:rgba(255,255,255,0.55)"></p>
+        </div>
+        <button onclick="clearSession()" class="text-xs px-3 py-1.5 rounded-lg" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15)">
+          リセット
+        </button>
+      </div>
+      <div id="sessionList" class="space-y-2 mb-5"></div>
+      <button onclick="publishToSite()"
+        class="w-full py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-2"
+        style="background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;box-shadow:0 4px 20px rgba(240,192,64,0.40);">
+        📥 kinkai-results.json をダウンロード
+      </button>
+      <p class="text-center text-xs mt-2" style="color:rgba(255,255,255,0.40)">ダウンロード後 → docs/data/ に保存 → GitHubにpush</p>
+    </div>
+  </div>
+
+  <!-- ══════ 条件DB一覧 ══════ -->
+  <div class="ug-card p-5 mt-6">
+    <button class="db-header w-full flex items-center justify-between py-1" onclick="toggleDB()">
+      <div class="flex items-center gap-2">
+        <span class="text-lg">📊</span>
+        <p class="font-bold text-sm" style="color:#f0c040">穴条件データベース</p>
+      </div>
+      <span class="material-symbols-outlined db-arrow text-sm" id="dbArrow" style="color:rgba(255,255,255,0.50)">expand_more</span>
+    </button>
+    <div class="db-body" id="dbBody">
+      <div id="dbContent" class="mt-4 space-y-6"></div>
+      <div class="mt-5 pt-4" style="border-top:1px solid rgba(255,255,255,0.10)">
+        <p class="text-xs" style="color:rgba(255,255,255,0.40)">
+          ※ データは <code style="color:#f0c040">db/コース名.json</code> で管理されています<br>
+          ※ コースを追加する場合は db/ フォルダにJSONを追加し、上記の COURSES_DB にも追記してください
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /pane-extract -->
+
+<!-- ══════ 結果入力ペイン ══════ -->
+<div id="pane-result" class="hidden px-4 max-w-2xl mx-auto space-y-5">
+
+  <!-- STEP A: kinkai-results.json を貼り付け -->
+  <div class="ug-card p-5">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="step-num">A</div>
+      <div>
+        <p class="font-bold text-sm" style="color:#fff">今週の結果JSONを貼り付け</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.50)">kinkai-results.json の内容をそのまま貼り付けてください</p>
+      </div>
+    </div>
+    <div class="rounded-xl p-3 mb-3" style="background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.25)">
+      <p class="text-xs font-bold mb-1" style="color:#f0c040">📋 貼り付け方法</p>
+      <p class="text-xs" style="color:rgba(255,255,255,0.60)">docs/data/kinkai-results.json の内容を丸ごとコピー＆ペースト</p>
+    </div>
+    <textarea id="resultsJsonInput" class="ug-input w-full px-4 py-3 text-xs font-mono" rows="6"
+      placeholder='{"updated":"2026-03-29","races":[...]}' ></textarea>
+    <div class="flex gap-3 mt-3">
+      <input id="weekLabelInput" type="text" class="ug-input flex-1 px-4 py-2.5 text-sm" placeholder="週ラベル例：3月28日〜29日"/>
+      <button class="btn-extract px-5 py-2.5 text-sm" onclick="parseResultsForEntry()">📋 読み込む</button>
+    </div>
+  </div>
+
+  <!-- 結果入力フォーム（動的生成） -->
+  <div id="resultEntryForms" class="space-y-4 hidden"></div>
+
+  <!-- STEP B: 既存 history.json（任意） -->
+  <div id="historyMergeSection" class="ug-card p-5 hidden">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="step-num">B</div>
+      <div>
+        <p class="font-bold text-sm" style="color:#fff">既存の戦績JSONを貼り付け（任意）</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.50)">空のままにすると新規作成。既存に追記する場合は貼り付け</p>
+      </div>
+    </div>
+    <textarea id="historyJsonInput" class="ug-input w-full px-4 py-3 text-xs font-mono" rows="4"
+      placeholder='{"lastUpdated":"...","weeks":[...]}  ← 既存の kinkai-history.json を貼り付け（省略可）'></textarea>
+    <button onclick="downloadHistory()"
+      class="w-full py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-2 mt-4"
+      style="background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;box-shadow:0 4px 20px rgba(240,192,64,0.40);">
+      📥 kinkai-history.json をダウンロード
+    </button>
+    <p class="text-center text-xs mt-2" style="color:rgba(255,255,255,0.40)">ダウンロード後 → docs/data/ に保存 → GitHubにpush</p>
+  </div>
+
+</div><!-- /pane-result -->
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="mt-16 px-5 py-8">
+  <div class="max-w-2xl mx-auto">
+    <p class="text-center text-xs" style="color:rgba(255,255,255,0.40)">UG強奪競馬新聞 — 金塊馬抽出ツール</p>
+    <p class="text-center text-xs mt-1" style="color:rgba(255,255,255,0.25)">※ 本ツールは参考情報の提供を目的としています。投票は自己責任でお願いします。</p>
+  </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════
+//  条件データベース（data/courses.json と同期）
+// ══════════════════════════════════════════
+const COURSES_DB = {
+  "阪神芝1200m": {
+    "騎手": [
+      { name: "坂井瑠星", stats: "10-3-6-27/46", 勝率: "21.7%", 連対率: "28.3%", 複勝率: "41.3%", 単回値: 297, 複回値: 112, memo: "単回値297！高松宮を制した男" }
+    ],
+    "調教師": [
+      { name: "斉藤崇史", 厩舎: "栗東", stats: "5-3-2-15/25", 勝率: "20.0%", 複勝率: "40.0%", 単回値: 149, 複回値: 110, memo: "阪神短距離に強い斉藤厩舎" },
+      { name: "矢作芳人", 厩舎: "栗東", stats: "5-0-2-12/19", 勝率: "26.3%", 複勝率: "36.8%", 単回値: 555, 複回値: 134, memo: "単回値555！穴の矢作厩舎" }
+    ],
+    "種牡馬": [
+      { name: "アルアイン", stats: "2-1-2-2/7", 勝率: "28.6%", 複勝率: "71.4%", 単回値: 60, 複回値: 110, memo: "複勝率71.4%！阪神1200m鉄板血統" }
+    ]
+  },
+  "中京芝1400m": {
+    "騎手": [
+      { name: "坂井瑠星", stats: "4-1-3-6/14", 勝率: "28.6%", 連対率: "35.7%", 複勝率: "57.1%", 単回値: 145, 複回値: 113, memo: "坂井×矢作ライン単回値145" },
+      { name: "西塚洸二", stats: "2-2-1-9/14", 勝率: "14.3%", 連対率: "28.6%", 複勝率: "35.7%", 単回値: 240, 複回値: 186, memo: "西塚×藤原ライン単回値240" },
+      { name: "団野大成", stats: "2-1-2-8/13", 勝率: "15.4%", 連対率: "23.1%", 複勝率: "38.5%", 単回値: 184, 複回値: 126, memo: "団野×斉藤ライン単回値184" }
+    ],
+    "調教師": [
+      { name: "矢作芳人", 厩舎: "栗東", stats: "4-1-3-6/14", 勝率: "28.6%", 複勝率: "57.1%", 単回値: 145, 複回値: 113, memo: "坂井×矢作ライン単回値145" },
+      { name: "藤原英昭", 厩舎: "栗東", stats: "2-2-1-9/14", 勝率: "14.3%", 複勝率: "35.7%", 単回値: 240, 複回値: 186, memo: "西塚×藤原ライン単回値240" },
+      { name: "斉藤崇史", 厩舎: "栗東", stats: "2-1-2-8/13", 勝率: "15.4%", 複勝率: "38.5%", 単回値: 184, 複回値: 126, memo: "団野×斉藤ライン単回値184" },
+      { name: "高野友和", 厩舎: "栗東", stats: "4-11-2-23/40", 勝率: "10.0%", 連対率: "37.5%", 複勝率: "42.5%", 単回値: 47, 複回値: 113, memo: "連対率37.5%・複勝率42.5%の安定厩舎" },
+      { name: "吉村圭司", 厩舎: "栗東", stats: "4-5-3-12/24", 勝率: "16.7%", 連対率: "37.5%", 複勝率: "50.0%", 単回値: 116, 複回値: 124, memo: "複勝率50%！単回値116の穴厩舎" }
+    ],
+    "種牡馬": [
+      { name: "Frankel", stats: "4-5-4-10/23", 勝率: "17.4%", 連対率: "39.1%", 複勝率: "56.5%", 単回値: 88, 複回値: 110, memo: "複勝率56.5%！欧州の名血Frankel産駒" }
+    ],
+    "騎手継続": [
+      { name: "幸英明", stats: "3-1-2-8/14", 勝率: "21.4%", 連対率: "28.6%", 複勝率: "42.9%", 単回値: 445, 複回値: 275, memo: "継続騎乗で単回値445！中京芝1400m最強継続騎手" },
+      { name: "川田将雅", stats: "2-3-2-3/10", 勝率: "20.0%", 連対率: "50.0%", 複勝率: "70.0%", 単回値: 92, 複回値: 102, memo: "継続騎乗で複勝率70%！信頼の継続騎乗" }
+    ],
+    "前走コース": [
+      { prevSurface: "芝", prevDistance: "1200", memo: "前走芝1200（特に中京芝1200）から参戦で単回値227！距離延長でスピード活きる" }
+    ]
+  }
+  /* ← 今後コースを追加する場合はここに追記 */
+};
+
+// ══════════════════════════════════════════
+//  JRA出馬表CSV 読み込み
+// ══════════════════════════════════════════
+let parsedCSVRaces = [];
+let csv2Map = {};          // 馬名 → 前走データ
+let csvFilterMode = 'all';
+let csv1Loaded = false;
+let csv2Loaded = false;
+
+function handleCSVUpload(input, fileNum) {
+  const file = input.files[0];
+  if (!file) return;
+
+  const labelEl = document.getElementById(`csvUploadLabel${fileNum}`);
+  const textEl  = document.getElementById(`csvUploadText${fileNum}`);
+  textEl.textContent = '読み込み中...';
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const decoder = new TextDecoder('shift-jis');
+      const text = decoder.decode(e.target.result);
+
+      if (fileNum === 1) {
+        parsedCSVRaces = parseCSV1(text);
+        csv1Loaded = true;
+        labelEl.classList.add('loaded');
+        textEl.textContent = `✅ ${file.name}（${parsedCSVRaces.length}レース）`;
+      } else {
+        csv2Map = parseCSV2(text);
+        csv2Loaded = true;
+        labelEl.classList.add('loaded');
+        textEl.textContent = `✅ ${file.name}（${Object.keys(csv2Map).length}頭分の前走データ）`;
+      }
+
+      // 両方または片方でもレースリストを更新
+      if (csv1Loaded) {
+        mergeCSVData();
+        renderCSVRaceList(parsedCSVRaces);
+      }
+    } catch(err) {
+      textEl.textContent = '❌ 読み込みエラー：' + err.message;
+    }
+  };
+  reader.onerror = () => { textEl.textContent = '❌ ファイル読み込みに失敗しました'; };
+  reader.readAsArrayBuffer(file);
+}
+
+// ── CSV1解析（出馬表：騎手・調教師・父） ──────────────
+function parseCSV1(text) {
+  const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+  const raceMap = {};
+
+  lines.forEach(line => {
+    const cols = line.split(',');
+    if (cols.length < 17) return;
+
+    const racecourse = cols[1]?.trim() || '';
+    const raceNum    = cols[2]?.trim() || '';
+    const raceName   = cols[4]?.trim() || '';
+    const surface    = cols[5]?.trim() || '';
+    const distance   = cols[6]?.trim() || '';
+    const horseName  = cols[7]?.trim() || '';
+    const jockey     = cols[10]?.trim() || '';
+    const trainer    = cols[12]?.trim() || '';
+    const sire       = cols[16]?.trim() || '';
+
+    if (!horseName || !racecourse) return;
+
+    const courseKey = `${racecourse}${surface}${distance}m`;
+    const raceKey   = `${racecourse}_R${raceNum.padStart(2,'0')}`;
+
+    if (!raceMap[raceKey]) {
+      raceMap[raceKey] = {
+        key: raceKey, course: courseKey, racecourse,
+        raceNum: parseInt(raceNum),
+        raceName: `${racecourse}${raceNum}R ${raceName}`,
+        surface, distance,
+        hasDB: !!COURSES_DB[courseKey],
+        horses: []
+      };
+    }
+    raceMap[raceKey].horses.push({
+      name: horseName, jockey, trainer, sire,
+      // CSV2データは後でmerge
+      prevJockey: null, surfaceChange: null
+    });
+  });
+
+  return Object.values(raceMap).sort((a, b) =>
+    a.racecourse.localeCompare(b.racecourse) || a.raceNum - b.raceNum
+  );
+}
+
+// ── CSV2解析（前走データ：乗り替わり・芝ダ変更） ──────────────
+function parseCSV2(text) {
+  const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+  const map = {};
+
+  // 1行目がヘッダーかチェック
+  const firstCols = lines[0]?.split(',') || [];
+  const hasHeader = firstCols[9]?.includes('馬名') || firstCols[4]?.includes('馬番');
+  const startIdx  = hasHeader ? 1 : 0;
+
+  for (let i = startIdx; i < lines.length; i++) {
+    const cols = lines[i].split(',');
+    if (cols.length < 27) continue;
+
+    const horseName  = cols[9]?.trim() || '';
+    const prevSurf   = cols[14]?.trim() || '';   // 前芝ダ
+    const prevDist   = cols[15]?.trim() || '';   // 前距離
+    const currSurf   = cols[18]?.trim() || '';   // 今芝ダ
+    const prevJockey = cols[26]?.trim() || '';   // 前走騎手
+    if (!horseName) continue;
+
+    const distDiff   = parseInt(cols[16]) || 0;  // 距離差（マイナス=短縮、プラス=延長）
+    const prevRankRaw = cols[24]?.trim() || '';   // 前着順（"１着","5着"など）
+    const prevRank   = parseInt(prevRankRaw.replace(/[^\d]/g, '')) || 99;
+
+    map[horseName] = {
+      prevSurface:   prevSurf,
+      prevDistance:  prevDist,
+      currSurface:   currSurf,
+      surfaceChange: (prevSurf && currSurf && prevSurf !== currSurf)
+        ? `${prevSurf}→${currSurf}` : null,
+      prevJockey,
+      distDiff,
+      distChange: distDiff < 0 ? `距離短縮${Math.abs(distDiff)}m`
+                : distDiff > 0 ? `距離延長${distDiff}m` : null,
+      prevRank,
+      prevRankRaw,
+    };
+  }
+  return map;
+}
+
+// ── CSV1 + CSV2 マージ ──────────────────────────────
+function mergeCSVData() {
+  if (!csv2Loaded) return;
+  parsedCSVRaces.forEach(race => {
+    race.horses.forEach(h => {
+      const d = csv2Map[h.name];
+      if (!d) return;
+      h.prevJockey    = d.prevJockey    || null;
+      h.prevSurface   = d.prevSurface   || '';
+      h.prevDistance  = d.prevDistance  || '';
+      h.surfaceChange = d.surfaceChange || null;
+      h.distChange    = d.distChange    || null;
+      h.distDiff      = d.distDiff      || 0;
+      h.prevRank      = d.prevRank      || 99;
+      h.prevRankRaw   = d.prevRankRaw   || '';
+      h.jockeyChanged = !!(d.prevJockey && h.jockey && d.prevJockey !== h.jockey);
+      h.jockeyKept    = !!(d.prevJockey && h.jockey && d.prevJockey === h.jockey);
+      // 前走激走：3着以内
+      h.prevGekiso    = d.prevRank <= 3 && d.prevRankRaw !== '';
+    });
+    // CSV2データがあるレースは 乗り替わり/芝ダ変更フラグで hasExtra を更新
+    race.hasExtra = race.horses.some(h => h.surfaceChange || h.jockeyChanged);
+  });
+}
+
+function renderCSVRaceList(races) {
+  const listDiv  = document.getElementById('csvRaceList');
+  const countEl  = document.getElementById('csvRaceCount');
+  const dbCount  = races.filter(r => r.hasDB).length;
+  listDiv.classList.remove('hidden');
+  countEl.textContent = `${races.length}レース（DB合致: ${dbCount}）`;
+  renderCSVRaceOptions(races, csvFilterMode);
+}
+
+function filterCSVRaces(mode) {
+  csvFilterMode = mode;
+  const activeStyle   = 'font-size:12px;padding:6px 12px;border-radius:999px;font-weight:700;transition:all 0.2s;background:rgba(240,192,64,0.20);border:1px solid rgba(240,192,64,0.50);color:#f0c040;';
+  const inactiveStyle = 'font-size:12px;padding:6px 12px;border-radius:999px;font-weight:700;transition:all 0.2s;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);';
+  document.getElementById('filterAll').style.cssText   = (mode==='all'   ? activeStyle : inactiveStyle);
+  document.getElementById('filterDB').style.cssText    = (mode==='db'    ? activeStyle : inactiveStyle);
+  document.getElementById('filterExtra').style.cssText = (mode==='extra' ? activeStyle : inactiveStyle);
+  renderCSVRaceOptions(parsedCSVRaces, mode);
+}
+
+function renderCSVRaceOptions(races, mode) {
+  const container = document.getElementById('csvRaceOptions');
+  container.innerHTML = '';
+
+  let filtered = races;
+  if (mode === 'db')    filtered = races.filter(r => r.hasDB);
+  if (mode === 'extra') filtered = races.filter(r => r.hasExtra);
+
+  if (filtered.length === 0) {
+    const msg = mode === 'extra' && !csv2Loaded
+      ? '出馬表CSV②を読み込むと乗り替わり・芝ダ変更が検出されます'
+      : '表示できるレースがありません';
+    container.innerHTML = `<p class="text-xs text-center py-4" style="color:rgba(255,255,255,0.35)">${msg}</p>`;
+    return;
+  }
+
+  filtered.forEach(race => {
+    const btn = document.createElement('button');
+    btn.className = 'race-option-btn ' + (race.hasDB ? 'has-db' : 'no-db');
+    btn.onclick = (e) => selectCSVRace(race, e.currentTarget);
+
+    // バッジ生成
+    const badges = [];
+    if (race.hasDB) badges.push('<span class="badge-jockey text-[10px] font-bold px-2 py-0.5 rounded-full">💰DB合致</span>');
+    if (race.hasExtra) {
+      const surfCount   = race.horses.filter(h => h.surfaceChange).length;
+      const jockeyCount = race.horses.filter(h => h.jockeyChanged).length;
+      if (surfCount)   badges.push(`<span class="badge-surface-change text-[10px] font-bold px-2 py-0.5 rounded-full">🔄芝ダ変更 ${surfCount}頭</span>`);
+      if (jockeyCount) badges.push(`<span class="badge-jockey-change text-[10px] font-bold px-2 py-0.5 rounded-full">🎯乗替 ${jockeyCount}頭</span>`);
+    }
+
+    btn.innerHTML = `
+      <div class="flex-1 min-w-0">
+        <p class="font-bold text-sm mb-1.5" style="color:#fff">${escHtml(race.raceName)}</p>
+        <div class="flex items-center flex-wrap gap-1.5">
+          <span class="text-[10px] px-2 py-0.5 rounded-full"
+            style="background:rgba(255,255,255,0.10);color:rgba(255,255,255,0.55);">${escHtml(race.course)}</span>
+          <span class="text-[10px]" style="color:rgba(255,255,255,0.35)">${race.horses.length}頭</span>
+          ${badges.join('')}
+        </div>
+      </div>
+      <span class="material-symbols-outlined text-base flex-shrink-0" style="color:rgba(255,255,255,0.35)">chevron_right</span>
+    `;
+    container.appendChild(btn);
+  });
+}
+
+function selectCSVRace(race, targetBtn) {
+  // STEP 1: コース自動選択
+  const sel = document.getElementById('courseSelect');
+  if (race.hasDB) {
+    sel.value = race.course;
+    onCourseChange();
+  } else {
+    sel.value = '';
+    // DBにないコースでも警告を出して続行できるように
+    const statsDiv = document.getElementById('courseStats');
+    statsDiv.classList.add('hidden');
+  }
+
+  // STEP 2: レース名自動入力
+  document.getElementById('raceNameInput').value = race.raceName;
+
+  // STEP 2: 出走馬リスト自動入力（馬名,騎手,調教師,父）
+  const lines = race.horses.map(h =>
+    [h.name, h.jockey, h.trainer, h.sire].join(',')
+  );
+  document.getElementById('entryInput').value = lines.join('\n');
+
+  // STEP 2にスクロール
+  document.getElementById('entryInput').scrollIntoView({ behavior:'smooth', block:'center' });
+
+  // 選択ボタンの見た目を変更
+  document.querySelectorAll('.race-option-btn').forEach(b => {
+    b.style.background = 'rgba(255,255,255,0.06)';
+    b.style.borderColor = b.classList.contains('has-db') ? 'rgba(240,192,64,0.40)' : 'rgba(255,255,255,0.12)';
+  });
+  if (targetBtn) {
+    targetBtn.style.background = 'rgba(240,192,64,0.18)';
+    targetBtn.style.borderColor = 'rgba(240,192,64,0.80)';
+  }
+
+  // 警告表示（DBなし）
+  if (!race.hasDB) {
+    const warn = document.createElement('div');
+    warn.className = 'rounded-xl p-3 mt-3';
+    warn.style.cssText = 'background:rgba(232,0,61,0.12);border:1px solid rgba(232,0,61,0.30);';
+    warn.innerHTML = `<p class="text-xs font-bold" style="color:#ffb3c6;">⚠️ 「${escHtml(race.course)}」はDBに未登録です。手動でコースを選択するか、コースデータを追加してください。</p>`;
+    const step2 = document.getElementById('entryInput').parentElement;
+    const existing = step2.querySelector('.csv-warn');
+    if (existing) existing.remove();
+    warn.classList.add('csv-warn');
+    document.getElementById('entryInput').after(warn);
+  }
+}
+
+// ── 初期化 ─────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  buildCourseSelect();
+  buildDBView();
+});
+
+function buildCourseSelect() {
+  const sel = document.getElementById('courseSelect');
+  Object.keys(COURSES_DB).forEach(course => {
+    const opt = document.createElement('option');
+    opt.value = course;
+    opt.textContent = course;
+    sel.appendChild(opt);
+  });
+  sel.addEventListener('change', onCourseChange);
+}
+
+function onCourseChange() {
+  const course = document.getElementById('courseSelect').value;
+  const statsDiv = document.getElementById('courseStats');
+  const pillsDiv = document.getElementById('courseStatPills');
+  if (!course || !COURSES_DB[course]) { statsDiv.classList.add('hidden'); return; }
+  const db = COURSES_DB[course];
+  statsDiv.classList.remove('hidden');
+  pillsDiv.innerHTML = '';
+  const counts = [
+    { label: '穴騎手', count: (db['騎手']||[]).length, color: 'badge-jockey' },
+    { label: '穴厩舎', count: (db['調教師']||[]).length, color: 'badge-trainer' },
+    { label: '穴血統', count: (db['種牡馬']||[]).length, color: 'badge-sire' },
+  ];
+  counts.forEach(c => {
+    if (c.count === 0) return;
+    const span = document.createElement('span');
+    span.className = `${c.color} text-xs font-bold px-3 py-1 rounded-full`;
+    span.textContent = `${c.label} ${c.count}件`;
+    pillsDiv.appendChild(span);
+  });
+}
+
+// ── メイン抽出処理 ──────────────────────────
+function extractKinkaiUma() {
+  const course = document.getElementById('courseSelect').value;
+  const rawText = document.getElementById('entryInput').value.trim();
+  const raceName = document.getElementById('raceNameInput').value.trim();
+
+  if (!course) { alert('コースを選択してください'); return; }
+  if (!rawText) { alert('出走馬リストを入力してください'); return; }
+  if (!COURSES_DB[course]) { alert('選択されたコースのデータが見つかりません'); return; }
+
+  const horses = parseHorses(rawText);
+  if (horses.length === 0) { alert('出走馬を正しい形式で入力してください'); return; }
+
+  const db = COURSES_DB[course];
+  const hits = [];
+
+  horses.forEach(h => {
+    const matched = [];
+
+    // ── コース金塊騎手チェック
+    (db['騎手'] || []).forEach(cond => {
+      if (normalize(h.jockey) === normalize(cond.name)) {
+        matched.push({ type: 'コース金塊騎手', cond, label: `コース金塊騎手：${cond.name}` });
+      }
+    });
+    // ── コース金塊厩舎チェック
+    (db['調教師'] || []).forEach(cond => {
+      if (normalize(h.trainer) === normalize(cond.name)) {
+        matched.push({ type: 'コース金塊厩舎', cond, label: `コース金塊厩舎：${cond.name}` });
+      }
+    });
+    // ── コース金塊血統チェック
+    if (h.sire) {
+      (db['種牡馬'] || []).forEach(cond => {
+        if (normalize(h.sire) === normalize(cond.name)) {
+          matched.push({ type: 'コース金塊血統', cond, label: `コース金塊血統：${cond.name}` });
+        }
+      });
+    }
+
+    // ── コース金塊騎手厩舎ライン（両方ヒット）
+    const hasKinkaiJockey  = matched.some(m => m.type === 'コース金塊騎手');
+    const hasKinkaiTrainer = matched.some(m => m.type === 'コース金塊厩舎');
+    if (hasKinkaiJockey && hasKinkaiTrainer) {
+      matched.push({
+        type: 'コース金塊騎手厩舎ライン',
+        cond: { name: `${h.jockey} × ${h.trainer}`, memo: '金塊騎手と金塊厩舎の最強コンビ！配当倍増に期待' },
+        label: `騎手厩舎ライン：${h.jockey}×${h.trainer}`
+      });
+    }
+
+    // ── 芝ダ変更金塊馬チェック
+    if (h.surfaceChange) {
+      matched.push({
+        type: '芝ダ変更金塊馬',
+        cond: { name: h.surfaceChange, memo: '馬場変更で一変が期待できる要注意馬' },
+        label: `芝ダ変更：${h.surfaceChange}`
+      });
+    }
+
+    // ── 乗り替わり金塊馬チェック
+    if (h.jockeyChanged) {
+      matched.push({
+        type: '乗り替わり金塊馬',
+        cond: { name: `${h.prevJockey} → ${h.jockey}`, memo: '騎手交替による変身が期待できる馬' },
+        label: `乗り替わり：${h.prevJockey}→${h.jockey}`
+      });
+    }
+
+    // ── 距離短縮金塊馬チェック
+    if (h.distDiff < 0) {
+      matched.push({
+        type: '距離短縮金塊馬',
+        cond: { name: h.distChange, memo: `距離短縮で切れ味・スピードが増す馬` },
+        label: h.distChange
+      });
+    }
+
+    // ── 距離延長金塊馬チェック
+    if (h.distDiff > 0) {
+      matched.push({
+        type: '距離延長金塊馬',
+        cond: { name: h.distChange, memo: `距離延長でスタミナを活かせる馬` },
+        label: h.distChange
+      });
+    }
+
+    // ── 前走激走金塊馬チェック（3着以内）
+    if (h.prevGekiso) {
+      matched.push({
+        type: '前走激走金塊馬',
+        cond: { name: `前走${h.prevRankRaw}`, memo: '前走3着以内の好走馬。勢いに乗れるか' },
+        label: `前走激走：${h.prevRankRaw}`
+      });
+    }
+
+    // ── 継続騎乗金塊馬チェック（DBの騎手継続リストに合致 + 同騎手継続）
+    if (h.jockeyKept) {
+      (db['騎手継続'] || []).forEach(cond => {
+        if (normalize(h.jockey) === normalize(cond.name)) {
+          matched.push({
+            type: '継続騎乗金塊馬',
+            cond,
+            label: `継続騎乗：${cond.name}（単回値${cond.単回値 || cond.tanKaichi || ''}）`
+          });
+        }
+      });
+    }
+
+    // ── 前走コース金塊馬チェック（DB前走コースリストに合致）
+    if (h.prevSurface && h.prevDistance) {
+      (db['前走コース'] || []).forEach(cond => {
+        const surfMatch = !cond.prevSurface || cond.prevSurface === h.prevSurface;
+        const distMatch = !cond.prevDistance || cond.prevDistance === h.prevDistance;
+        if (surfMatch && distMatch) {
+          matched.push({
+            type: '前走コース金塊馬',
+            cond: { name: `前走${h.prevSurface}${h.prevDistance}m`, memo: cond.memo },
+            label: `前走コース：${h.prevSurface}${h.prevDistance}m`
+          });
+        }
+      });
+    }
+
+    hits.push({ horse: h, matched });
+  });
+
+  renderResults(hits, raceName, course);
+}
+
+function parseHorses(text) {
+  const horses = [];
+  const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+
+  lines.forEach(line => {
+    // カンマ or タブ or 2つ以上のスペースで分割
+    let cols = line.split(/,|\t/).map(c => c.trim());
+    if (cols.length < 2) cols = line.split(/\s{2,}/).map(c => c.trim());
+
+    // 先頭が枠番 or 馬番の場合スキップ
+    if (cols.length >= 2 && /^\d+$/.test(cols[0])) cols.shift();
+
+    if (cols.length >= 1) {
+      horses.push({
+        name:    cols[0] || '',
+        jockey:  cols[1] || '',
+        trainer: cols[2] || '',
+        sire:    cols[3] || '',
+      });
+    }
+  });
+  return horses.filter(h => h.name);
+}
+
+function normalize(str) {
+  if (!str) return '';
+  return str
+    .replace(/\s+/g, '')
+    .replace(/　/g, '')
+    .replace(/（/g, '(').replace(/）/g, ')')
+    // カタカナ→ひらがな正規化は不要（固有名詞なので）
+    ;
+}
+
+// ── 結果レンダリング ─────────────────────────
+function renderResults(hits, raceName, course) {
+  const section = document.getElementById('resultsSection');
+  const hitCards = document.getElementById('hitCards');
+  const noHitMsg = document.getElementById('noHitMsg');
+  const summaryTitle = document.getElementById('summaryTitle');
+  const summaryDesc = document.getElementById('summaryDesc');
+  const allList = document.getElementById('allHorsesList');
+
+  section.classList.remove('hidden');
+  hitCards.innerHTML = '';
+  allList.innerHTML = '';
+
+  // DB条件 or 乗り替わり/芝ダ変更があれば表示
+  const hitHorses = hits.filter(h => h.matched.length > 0);
+
+  // セッション用に結果を保持
+  lastResult = {
+    raceName: raceName || course,
+    course: course,
+    horses: hitHorses.map(h => ({
+      name: h.horse.name,
+      jockey: h.horse.jockey,
+      trainer: h.horse.trainer,
+      sire: h.horse.sire,
+      conditions: h.matched.map(m => ({
+        type: m.type,
+        name: m.cond.name,
+        memo: m.cond.memo || '',
+        単回値: m.cond.単回値 || null,
+        複回値: m.cond.複回値 || null,
+        複勝率: m.cond.複勝率 || null,
+      }))
+    }))
+  };
+
+  // サマリー
+  summaryTitle.textContent = hitHorses.length > 0
+    ? `金塊馬 ${hitHorses.length}頭 発見！`
+    : '合致馬なし';
+  summaryDesc.textContent = `${raceName || course} ／ 出走馬 ${hits.length}頭を照合`;
+
+  // ヒットカード
+  if (hitHorses.length > 0) {
+    noHitMsg.classList.add('hidden');
+    hitHorses.forEach(h => {
+      hitCards.appendChild(buildHitCard(h));
+    });
+  } else {
+    noHitMsg.classList.remove('hidden');
+  }
+
+  // 全頭リスト
+  hits.forEach(h => {
+    const div = document.createElement('div');
+    div.className = 'flex items-center justify-between py-1.5 px-2 rounded-lg ' + (h.matched.length > 0 ? 'bg-white/5' : '');
+    const left = document.createElement('span');
+    left.className = 'text-sm ' + (h.matched.length > 0 ? 'font-bold' : '');
+    left.style.color = h.matched.length > 0 ? '#f0c040' : 'rgba(255,255,255,0.45)';
+    left.textContent = (h.matched.length > 0 ? '💰 ' : '　 ') + h.horse.name;
+
+    const right = document.createElement('div');
+    right.className = 'flex gap-1 flex-wrap justify-end';
+    h.matched.forEach(m => {
+      const badge = document.createElement('span');
+      badge.className = `text-[10px] font-bold px-2 py-0.5 rounded-full badge-${typeToClass(m.type)}`;
+      badge.textContent = m.type;
+      right.appendChild(badge);
+    });
+
+    div.appendChild(left);
+    div.appendChild(right);
+    allList.appendChild(div);
+  });
+
+  // スクロール
+  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function buildHitCard(h) {
+  const div = document.createElement('div');
+  div.className = 'ug-card-hit hit-glow p-5';
+
+  const hitCount = h.matched.length;
+  const multiHit = hitCount > 1;
+
+  div.innerHTML = `
+    <div class="flex items-start justify-between mb-3">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          ${multiHit ? '<span class="text-lg">🔥</span>' : '<span class="text-lg">💰</span>'}
+          <h3 class="serif-headline text-xl font-bold" style="color:#f0c040">${escHtml(h.horse.name)}</h3>
+          ${multiHit ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background:#E8003D;color:#fff">${hitCount}条件ヒット！</span>` : ''}
+        </div>
+        <div class="flex gap-2 flex-wrap text-xs" style="color:rgba(255,255,255,0.60)">
+          ${h.horse.jockey  ? `<span>騎手：${escHtml(h.horse.jockey)}</span>` : ''}
+          ${h.horse.trainer ? `<span>厩舎：${escHtml(h.horse.trainer)}</span>` : ''}
+          ${h.horse.sire    ? `<span>父：${escHtml(h.horse.sire)}</span>` : ''}
+        </div>
+      </div>
+    </div>
+    <div class="space-y-3">
+      ${h.matched.map(m => buildConditionBlock(m)).join('')}
+    </div>
+  `;
+  return div;
+}
+
+function buildConditionBlock(m) {
+  const c = m.cond;
+  const typeClass = typeToClass(m.type);
+  const typeLabel = m.type;
+
+  const statItems = [];
+  if (c.stats)   statItems.push(`<span class="stat-pill">着別度数 ${escHtml(c.stats)}</span>`);
+  if (c.勝率)    statItems.push(`<span class="stat-pill">勝率 ${escHtml(c.勝率)}</span>`);
+  if (c.複勝率)  statItems.push(`<span class="stat-pill">複勝率 ${escHtml(c.複勝率)}</span>`);
+  if (c.単回値)  statItems.push(`<span class="stat-pill-red">単回値 <strong>${c.単回値}</strong></span>`);
+  if (c.複回値)  statItems.push(`<span class="stat-pill-gold">複回値 <strong>${c.複回値}</strong></span>`);
+
+  return `
+    <div class="rounded-xl p-3" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="badge-${typeClass} text-xs font-bold px-2.5 py-0.5 rounded-full">${typeLabel}</span>
+        <span class="text-sm font-bold" style="color:#fff">${escHtml(c.name)}</span>
+        ${c.厩舎 ? `<span class="text-xs" style="color:rgba(255,255,255,0.50)">(${escHtml(c.厩舎)})</span>` : ''}
+      </div>
+      <div class="flex flex-wrap gap-1.5 mb-2">${statItems.join('')}</div>
+      ${c.memo ? `<p class="text-xs font-bold" style="color:#ffb3c6">💡 ${escHtml(c.memo)}</p>` : ''}
+    </div>
+  `;
+}
+
+function typeToClass(type) {
+  if (type === '騎手')     return 'jockey';
+  if (type === '調教師')   return 'trainer';
+  if (type === '種牡馬')   return 'sire';
+  if (type === 'コース金塊騎手')       return 'jockey';
+  if (type === 'コース金塊厩舎')       return 'trainer';
+  if (type === 'コース金塊血統')       return 'sire';
+  if (type === 'コース金塊騎手厩舎ライン') return 'kinkai-line';
+  if (type === '芝ダ変更金塊馬')      return 'surface-change';
+  if (type === '乗り替わり金塊馬')    return 'jockey-change';
+  if (type === '距離短縮金塊馬')      return 'dist-short';
+  if (type === '距離延長金塊馬')      return 'dist-long';
+  if (type === '前走激走金塊馬')      return 'prev-激走';
+  if (type === '継続騎乗金塊馬')      return 'jockey-keep';
+  if (type === '前走コース金塊馬')    return 'prev-course';
+  return 'jockey';
+}
+
+// ── DB表示 ──────────────────────────────────
+function buildDBView() {
+  const container = document.getElementById('dbContent');
+  container.innerHTML = '';
+
+  Object.entries(COURSES_DB).forEach(([course, data]) => {
+    const section = document.createElement('div');
+    section.innerHTML = `
+      <h3 class="serif-headline font-bold mb-3" style="color:#E8003D">${escHtml(course)}</h3>
+      ${buildDBCategory(data['騎手']  || [], '騎手', 'jockey')}
+      ${buildDBCategory(data['調教師']|| [], '穴厩舎', 'trainer')}
+      ${buildDBCategory(data['種牡馬']|| [], '穴血統(種牡馬)', 'sire')}
+      ${(data['騎手継続']||[]).length > 0 ? buildDBCategory(data['騎手継続'], '継続騎乗注目', 'jockey-keep') : ''}
+      ${(data['前走コース']||[]).length > 0 ? buildDBCourseCategory(data['前走コース']) : ''}
+      <div style="border-top:1px solid rgba(255,255,255,0.08)" class="mt-4"></div>
+    `;
+    container.appendChild(section);
+  });
+}
+
+function buildDBCourseCategory(items) {
+  if (!items || items.length === 0) return '';
+  const rows = items.map(c => `
+    <div class="flex items-start gap-3 py-2" style="border-bottom:1px solid rgba(255,255,255,0.06)">
+      <span class="badge-prev-course text-xs font-bold px-2 py-0.5 rounded-full mt-0.5 whitespace-nowrap">前走コース</span>
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-bold" style="color:#fff">${c.prevSurface || ''}${c.prevDistance ? c.prevDistance+'m' : ''}</p>
+        ${c.memo ? `<p class="text-xs mt-1" style="color:#a3e635">💡 ${escHtml(c.memo)}</p>` : ''}
+      </div>
+    </div>
+  `).join('');
+  return `<div class="mb-2">${rows}</div>`;
+}
+
+function buildDBCategory(items, label, cls) {
+  if (items.length === 0) return '';
+  const rows = items.map(c => `
+    <div class="flex items-start gap-3 py-2" style="border-bottom:1px solid rgba(255,255,255,0.06)">
+      <span class="badge-${cls} text-xs font-bold px-2 py-0.5 rounded-full mt-0.5 whitespace-nowrap">${escHtml(label)}</span>
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-bold" style="color:#fff">${escHtml(c.name)}${c.厩舎 ? ` <span style="color:rgba(255,255,255,0.45);font-size:11px">(${escHtml(c.厩舎)})</span>` : ''}</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          ${c.stats ? `<span class="stat-pill">${escHtml(c.stats)}</span>` : ''}
+          ${c.勝率  ? `<span class="stat-pill">勝率 ${escHtml(c.勝率)}</span>` : ''}
+          ${c.複勝率? `<span class="stat-pill">複勝率 ${escHtml(c.複勝率)}</span>` : ''}
+          ${c.単回値? `<span class="stat-pill-red">単回値 <strong>${c.単回値}</strong></span>` : ''}
+          ${c.複回値? `<span class="stat-pill-gold">複回値 <strong>${c.複回値}</strong></span>` : ''}
+        </div>
+        ${c.memo ? `<p class="text-xs mt-1" style="color:#ffb3c6">💡 ${escHtml(c.memo)}</p>` : ''}
+      </div>
+    </div>
+  `).join('');
+  return `<div class="mb-2">${rows}</div>`;
+}
+
+// ── セッション管理（複数レース蓄積 → JSON出力）──
+let sessionRaces = [];
+let lastResult = null;  // 直前の抽出結果
+
+function addToSession() {
+  if (!lastResult) { alert('先に出走馬を抽出してください'); return; }
+  const existing = sessionRaces.findIndex(r => r.raceName === lastResult.raceName && r.course === lastResult.course);
+  if (existing >= 0) {
+    if (!confirm(`「${lastResult.raceName}」は既に追加されています。上書きしますか？`)) return;
+    sessionRaces[existing] = lastResult;
+  } else {
+    sessionRaces.push(lastResult);
+  }
+  renderSession();
+  // ボタンを一時的に完了表示
+  const btn = document.querySelector('[onclick="addToSession()"]');
+  btn.textContent = '✅ 追加しました！';
+  btn.style.background = 'rgba(34,197,94,0.20)';
+  btn.style.borderColor = 'rgba(34,197,94,0.50)';
+  btn.style.color = '#4ade80';
+  setTimeout(() => {
+    btn.innerHTML = '✅ このレースをサイト反映リストに追加';
+    btn.style.background = 'rgba(240,192,64,0.15)';
+    btn.style.borderColor = 'rgba(240,192,64,0.50)';
+    btn.style.color = '#f0c040';
+  }, 1800);
+}
+
+function renderSession() {
+  const sec = document.getElementById('sessionSection');
+  const list = document.getElementById('sessionList');
+  const count = document.getElementById('sessionCount');
+  sec.classList.remove('hidden');
+  count.textContent = `${sessionRaces.length}レース追加済み`;
+  list.innerHTML = '';
+  sessionRaces.forEach((r, i) => {
+    const hitCount = r.horses.length;
+    const div = document.createElement('div');
+    div.className = 'flex items-center justify-between px-3 py-2 rounded-xl';
+    div.style.cssText = 'background:rgba(255,255,255,0.07);border:1px solid rgba(240,192,64,0.25)';
+    div.innerHTML = `
+      <div>
+        <p class="text-sm font-bold" style="color:#fff">${escHtml(r.raceName || r.course)}</p>
+        <p class="text-xs" style="color:rgba(255,255,255,0.50)">${escHtml(r.course)} ／ 金塊馬 ${hitCount}頭</p>
+      </div>
+      <button onclick="removeFromSession(${i})" class="text-xs px-2 py-1 rounded-lg" style="background:rgba(232,0,61,0.20);color:#ffb3c6;border:1px solid rgba(232,0,61,0.30)">削除</button>
+    `;
+    list.appendChild(div);
+  });
+}
+
+function removeFromSession(index) {
+  sessionRaces.splice(index, 1);
+  if (sessionRaces.length === 0) {
+    document.getElementById('sessionSection').classList.add('hidden');
+  } else {
+    renderSession();
+  }
+}
+
+function clearSession() {
+  if (!confirm('反映待ちレースをすべてリセットしますか？')) return;
+  sessionRaces = [];
+  document.getElementById('sessionSection').classList.add('hidden');
+}
+
+function publishToSite() {
+  if (sessionRaces.length === 0) { alert('反映するレースがありません'); return; }
+  const today = new Date();
+  const dateStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  const payload = {
+    updated: dateStr,
+    races: sessionRaces
+  };
+  const json = JSON.stringify(payload, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'kinkai-results.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ══════════════════════════════════════════
+//  タブ切替
+// ══════════════════════════════════════════
+function switchTab(tab) {
+  const isExtract = tab === 'extract';
+  document.getElementById('pane-extract').classList.toggle('hidden', !isExtract);
+  document.getElementById('pane-result').classList.toggle('hidden', isExtract);
+  const btnE = document.getElementById('tab-extract');
+  const btnR = document.getElementById('tab-result');
+  if (isExtract) {
+    btnE.style.cssText = 'background:linear-gradient(135deg,#E8003D,#B5002E);color:#fff;flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;';
+    btnR.style.cssText = 'color:rgba(255,255,255,0.55);flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;background:transparent;';
+  } else {
+    btnR.style.cssText = 'background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;';
+    btnE.style.cssText = 'color:rgba(255,255,255,0.55);flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;background:transparent;';
+  }
+}
+
+// ══════════════════════════════════════════
+//  結果入力
+// ══════════════════════════════════════════
+let parsedResultRaces = []; // 読み込み済みレースデータ
+
+function parseResultsForEntry() {
+  const raw = document.getElementById('resultsJsonInput').value.trim();
+  if (!raw) { alert('kinkai-results.json の内容を貼り付けてください'); return; }
+  let data;
+  try { data = JSON.parse(raw); } catch(e) { alert('JSONの形式が正しくありません'); return; }
+
+  const races = (data.races || []).filter(r => r.horses && r.horses.length > 0);
+  if (races.length === 0) { alert('レースデータが見つかりません'); return; }
+
+  parsedResultRaces = races;
+  renderResultForms(races);
+}
+
+function renderResultForms(races) {
+  const container = document.getElementById('resultEntryForms');
+  container.innerHTML = '';
+  container.classList.remove('hidden');
+
+  races.forEach((race, ri) => {
+    const raceDiv = document.createElement('div');
+    raceDiv.className = 'ug-card p-5';
+    raceDiv.innerHTML = `
+      <div class="mb-4">
+        <p class="font-bold text-sm" style="color:#E8003D">${escHtml(race.course || '')}</p>
+        <p class="serif-headline font-bold text-base" style="color:#fff">${escHtml(race.raceName || '-')}</p>
+        <p class="text-xs mt-1" style="color:rgba(255,255,255,0.45)">${(race.horses||[]).length}頭の金塊馬</p>
+      </div>
+      <div class="space-y-4">
+        ${(race.horses||[]).map((h, hi) => buildResultInputRow(h, ri, hi)).join('')}
+      </div>
+    `;
+    container.appendChild(raceDiv);
+  });
+
+  document.getElementById('historyMergeSection').classList.remove('hidden');
+  container.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function buildResultInputRow(horse, ri, hi) {
+  const id = `r${ri}_h${hi}`;
+  const condBadges = (horse.conditions||[]).map(c => {
+    const cls = c.type==='騎手'?'jockey':c.type==='調教師'?'trainer':'sire';
+    return `<span class="badge-${cls} text-[10px] font-bold px-2 py-0.5 rounded-full">${escHtml(c.type)}: ${escHtml(c.name)}</span>`;
+  }).join('');
+
+  return `
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;">
+      <div class="flex items-start gap-2 mb-3">
+        <span class="text-lg">💰</span>
+        <div>
+          <p class="font-bold text-sm" style="color:#f0c040">${escHtml(horse.name)}</p>
+          <div class="flex flex-wrap gap-1 mt-1">${condBadges}</div>
+        </div>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <div class="flex-1 min-w-[80px]">
+          <label class="text-xs font-bold block mb-1" style="color:rgba(255,255,255,0.60)">着順</label>
+          <select id="${id}_rank" class="ug-input w-full px-3 py-2 text-sm font-bold">
+            <option value="">未入力</option>
+            ${[...Array(18)].map((_,i)=>`<option value="${i+1}">${i+1}着</option>`).join('')}
+          </select>
+        </div>
+        <div class="flex-1 min-w-[80px]">
+          <label class="text-xs font-bold block mb-1" style="color:rgba(255,255,255,0.60)">単勝オッズ</label>
+          <input id="${id}_tan" type="number" step="0.1" min="1" class="ug-input w-full px-3 py-2 text-sm" placeholder="例 8.5"/>
+        </div>
+        <div class="flex-1 min-w-[80px]">
+          <label class="text-xs font-bold block mb-1" style="color:rgba(255,255,255,0.60)">複勝オッズ</label>
+          <input id="${id}_fuku" type="number" step="0.1" min="1" class="ug-input w-full px-3 py-2 text-sm" placeholder="例 2.3"/>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function downloadHistory() {
+  if (parsedResultRaces.length === 0) { alert('先にSTEP Aでデータを読み込んでください'); return; }
+
+  // 各馬の結果を収集
+  const races = parsedResultRaces.map((race, ri) => {
+    const horses = (race.horses||[]).map((h, hi) => {
+      const id = `r${ri}_h${hi}`;
+      const rankVal  = document.getElementById(id+'_rank')?.value || '';
+      const tanVal   = document.getElementById(id+'_tan')?.value  || '';
+      const fukuVal  = document.getElementById(id+'_fuku')?.value || '';
+      return {
+        name: h.name,
+        conditions: h.conditions || [],
+        result: {
+          chakujun: rankVal !== '' ? parseInt(rankVal) : null,
+          tanOdds:  tanVal  !== '' ? parseFloat(tanVal)  : null,
+          fukuOdds: fukuVal !== '' ? parseFloat(fukuVal) : null,
+        }
+      };
+    });
+    return {
+      raceId:   (race.raceName||'').replace(/\s/g,'_') + '_' + new Date().getFullYear(),
+      raceName: race.raceName || race.course || '',
+      date:     race.date || '',
+      course:   race.course || '',
+      horses
+    };
+  });
+
+  // 週エントリー
+  const today = new Date();
+  const weekLabel = document.getElementById('weekLabelInput').value.trim()
+    || `${today.getMonth()+1}月${today.getDate()}日週`;
+  const weekId = `${today.getFullYear()}-W${String(getWeekNumber(today)).padStart(2,'0')}`;
+  const newWeek = { weekId, label: weekLabel, races };
+
+  // 既存 history JSON にマージ
+  let history = { lastUpdated: '', weeks: [] };
+  const existingRaw = document.getElementById('historyJsonInput').value.trim();
+  if (existingRaw) {
+    try { history = JSON.parse(existingRaw); }
+    catch(e) { if (!confirm('既存JSONの解析に失敗しました。新規作成で続行しますか？')) return; }
+  }
+
+  history.lastUpdated = today.toISOString().slice(0,10);
+  // 同じweekIdがあれば上書き
+  const idx = (history.weeks||[]).findIndex(w => w.weekId === weekId);
+  if (idx >= 0) {
+    if (!confirm(`「${weekLabel}」の戦績データは既に存在します。上書きしますか？`)) return;
+    history.weeks[idx] = newWeek;
+  } else {
+    history.weeks = [...(history.weeks||[]), newWeek];
+  }
+
+  const json = JSON.stringify(history, null, 2);
+  const blob = new Blob([json], { type:'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'kinkai-history.json'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function getWeekNumber(d) {
+  const jan1 = new Date(d.getFullYear(), 0, 1);
+  return Math.ceil((((d - jan1) / 86400000) + jan1.getDay() + 1) / 7);
+}
+
+// ── UI helpers ──────────────────────────────
+function toggleDB() {
+  const body = document.getElementById('dbBody');
+  const arrow = document.getElementById('dbArrow');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+
+function clearAll() {
+  document.getElementById('raceNameInput').value = '';
+  document.getElementById('entryInput').value = '';
+  document.getElementById('resultsSection').classList.add('hidden');
+}
+
+function escHtml(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
