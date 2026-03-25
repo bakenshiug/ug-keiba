@@ -80,6 +80,153 @@ footer a { color: var(--ug-muted) !important; }
 footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-gold-lt) !important; }
 ::-webkit-scrollbar { width: 4px; background: #0a1a0c; }
 ::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.30); border-radius: 2px; }
+
+/* 診断カード白背景オーバーライド */
+[class*="rounded-2xl"].border-A,
+[class*="rounded-2xl"].border-Bp,
+[class*="rounded-2xl"].border-B,
+[class*="rounded-2xl"].border-C,
+[class*="rounded-2xl"].border-D,
+[class*="rounded-2xl"].border-E,
+[class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
+[class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60 {
+  background: #ffffff !important;
+  color: #191c1b !important;
+  border-color: initial;
+}
+[class*="rounded-2xl"].border-S  { border-left: 4px solid #6d28d9 !important; }
+[class*="rounded-2xl"].border-A  { border-left: 4px solid #b45309 !important; }
+[class*="rounded-2xl"].border-Bp { border-left: 4px solid #004900 !important; }
+[class*="rounded-2xl"].border-B  { border-left: 4px solid #166534 !important; }
+[class*="rounded-2xl"].border-C  { border-left: 4px solid #374151 !important; }
+[class*="rounded-2xl"].border-D  { border-left: 4px solid #9ca3af !important; }
+[class*="rounded-2xl"].border-E  { border-left: 4px solid #dc2626 !important; }
+
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .bg-\[\#f2f4f2\] {
+  background: #f2f4f2 !important;
+  border: 1px solid rgba(191,202,183,0.50) !important;
+  color: #191c1b !important;
+}
+
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .text-\[\#707a6a\] { color: #707a6a !important; }
+
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .text-\[\#004900\] { color: #004900 !important; }
+
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .text-\[\#191c1b\],
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) p,
+:is(
+  [class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) span { color: inherit !important; }
+
+/* 白カード内グレードバッジは白文字を維持 */
+:is([class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .grade-S,
+:is([class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .grade-A,
+:is([class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .grade-Bp,
+:is([class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .grade-B,
+:is([class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .grade-C,
+:is([class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .grade-D,
+:is([class*="rounded-2xl"].border-A,
+  [class*="rounded-2xl"].border-Bp,
+  [class*="rounded-2xl"].border-B,
+  [class*="rounded-2xl"].border-C,
+  [class*="rounded-2xl"].border-D,
+  [class*="rounded-2xl"].border-E,
+  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
+) .grade-E { color: #fff !important; }
+
+/* 総合グレードラベル: 強制白文字・大きめサイズ */
+.label-data[class*="grade-"] {
+  color: #fff !important;
+  font-size: 1.25rem !important;
+}
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
@@ -158,7 +305,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         <span class="font-bold">ダノンマッキンリー(12pt)</span>
       </div>
     </div>
-  </div>
   </div>
 
   <!-- 穴馬警報 -->
@@ -240,7 +386,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">484kg</span>。480〜499kgゾーンは<span class="font-bold text-[#004900]">複勝率23.1%で標準以上</span>のゾーンだ。安定した馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
@@ -250,20 +395,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：差しで上がり<span class="font-bold text-[#004900]">33.2秒・1位</span>（複勝率31.4%）。PCI53.5は標準的なペース。上がり最速の実績はG1でも通用する武器だ。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">7歳は複勝率15.2%でやや低め。年齢的な衰えが統計に出始めており、突き抜けるには強力な個体差が必要だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ② パンジャタワー 総合A (48pt) -->
@@ -319,7 +465,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">488kg</span>。480〜499kgゾーンは<span class="font-bold text-[#004900]">複勝率23.1%で標準以上</span>のゾーンだ。安定した馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
@@ -329,20 +474,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">3走前（国内最終戦）：差しで上がり33.9秒・1位（複勝率31.4%）。PCI53.6は標準的なペース。上がり最速の実績は本物で、国内に戻っての末脚爆発が期待できる。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">4歳は複勝率<span class="font-bold text-[#6d28d9]">24.4%</span>で全年齢トップ。充実一途のスプリンターとして最も脂が乗った年齢だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ③ サトノレーヴ 総合A (45pt) -->
@@ -398,7 +544,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">538kg</span>。520〜539kgゾーンは<span class="font-bold text-[#6d28d9]">複勝率42.9%で全体トップ</span>だ。このコースで最も好成績の馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
@@ -409,7 +554,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
 
   
 
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
@@ -424,6 +569,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">2走前（スプリンターズS）：差しで上がり<span class="font-bold text-[#004900]">33.0秒・5位</span>（複勝率18.7%）。PCI53.6は標準的なペース。差しで5位は安定しており、距離短縮で末脚がより生きる可能性がある。</p>
       </div>
+    </div>
 </div>
 
 <!-- ④ レイピア 総合A (45pt) -->
@@ -479,7 +625,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">510kg</span>。500〜519kgゾーンは<span class="font-bold text-[#b45309]">複勝率26.2%で上位ゾーン</span>だ。コース適性の高い馬格に入ってる。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
@@ -489,20 +634,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：差しで上がり33.8秒・3位（複勝率22.8%）。PCI48.2は標準〜前残り寄りのペース。上がり3位は安定しており、差しながら前に取りつける脚がある。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">4歳は複勝率<span class="font-bold text-[#6d28d9]">24.4%</span>で全年齢トップ。充実一途のスプリンターとして最も脂が乗った年齢だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑤ ママコチャ 総合B+ (42pt) -->
@@ -558,7 +704,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">494kg</span>。480〜499kgゾーンは<span class="font-bold text-[#004900]">複勝率23.1%で標準以上</span>のゾーンだ。安定した馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
@@ -568,7 +713,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
@@ -584,6 +729,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走（オーシャンS）：差しで上がり<span class="font-bold text-[#004900]">33.8秒・4位</span>（複勝率18.7%）。PCI49.2は標準的なペース。差し脚は安定しており、得意のスプリント路線で末脚がより生きる展開を期待できる。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑥ ジューンブレア 総合B+ (40pt) -->
@@ -639,7 +785,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">488kg</span>。480〜499kgゾーンは<span class="font-bold text-[#004900]">複勝率23.1%で標準以上</span>のゾーンだ。安定した馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
@@ -649,20 +794,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：逃げで上がり35.9秒・14位（複勝率30.4%）。PCI42.1は完全な前残りペース。逃げ自体は大きなプラスで、ペース次第では粘り込みがある。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">5歳は複勝率16.3%で標準的。実力馬なら年齢的ハンデはほとんどなく、スプリント路線の主力世代だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑦ タマモブラックタイ 総合B+ (38pt) -->
@@ -718,7 +864,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">534kg</span>。520〜539kgゾーンは<span class="font-bold text-[#6d28d9]">複勝率42.9%で全体トップ</span>だ。このコースで最も好成績の馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
@@ -728,20 +873,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：差しで上がり33.4秒・3位（複勝率22.8%）。PCI52.7は標準的なペース。上がり3位は安定しており、差しから末脚を使う形はこのコースとも合う。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">6歳は複勝率<span class="font-bold text-[#004900]">17.8%</span>で5歳をやや上回る。ベテランの安定感があり、得意条件では十分戦える年齢だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑧ フィオライア 総合B+ (38pt) -->
@@ -797,7 +943,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">468kg</span>。460〜479kgゾーンは複勝率21.5%で標準ゾーンだ。不利でも有利でもないってとこ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
@@ -807,20 +952,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：後方から上がり33.7秒・2位（複勝率11.4%）。PCI50.0は標準的なペース。上がり2位は光るが後方脚質の複勝率11.4%は厳しい数字だ。末脚一発は秘めている。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">5歳は複勝率16.3%で標準的。実力馬なら年齢的ハンデはほとんどなく、スプリント路線の主力世代だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑨ ヤマニンアルリフラ 総合B+ (38pt) -->
@@ -876,7 +1022,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">502kg</span>。500〜519kgゾーンは<span class="font-bold text-[#b45309]">複勝率26.2%で上位ゾーン</span>だ。コース適性の高い馬格に入ってる。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
@@ -886,20 +1031,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：差しで上がり33.1秒・5位（複勝率18.7%）。PCI55.7はやや上がり有利のペース。5位の上がりは標準的で、差しのポジションも含めてやや不利な立ち位置だ。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">5歳は複勝率16.3%で標準的。実力馬なら年齢的ハンデはほとんどなく、スプリント路線の主力世代だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑩ ルガル 総合B (36pt) -->
@@ -963,7 +1109,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         <p class="text-sm leading-relaxed">中京1200m【0-0-0-2】で複勝なし。2戦して結果が出ていない。芝1200m全体は【2-3-1-5】45.5%と距離はこなせるだけに中京適性が問われる。</p>
       </div>
 
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
@@ -973,13 +1118,14 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：先行で上がり34.5秒・10位（複勝率28.1%）。PCI44.5は前残り傾向のペース。先行はプラスだが前走は上がりが伸びず脚色が鈍かった。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑪ ペアポルックス 総合B (33pt) -->
@@ -1035,7 +1181,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">474kg</span>。460〜479kgゾーンは複勝率21.5%で標準ゾーンだ。不利でも有利でもないってとこ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
@@ -1045,20 +1190,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：追込で上がり33.4秒・1位（複勝率11.4%）。PCI50.6は標準ペース。上がり最速は光るが追込は複勝率11.4%と中京1200mで最も不利な脚質だ。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">5歳は複勝率16.3%で標準的。実力馬なら年齢的ハンデはほとんどなく、スプリント路線の主力世代だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑫ インビンシブルパパ 総合B+ (28pt) -->
@@ -1100,7 +1246,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">514kg</span>。500〜519kgゾーンは<span class="font-bold text-[#b45309]">複勝率26.2%で上位ゾーン</span>だ。コース適性の高い馬格に入ってる。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-S">S</span>
@@ -1110,20 +1255,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：先行で上がり35.5秒・15位（複勝率28.1%）。PCI41.5は完全な前残りペース。先行はプラスだが上がりが15位と非常に遅く、前走は完全なスタミナ勝負だった。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">5歳は複勝率16.3%で標準的。実力馬なら年齢的ハンデはほとんどなく、スプリント路線の主力世代だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑬ エーティーマクフィ 総合B (28pt) -->
@@ -1179,7 +1325,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">482kg</span>。480〜499kgゾーンは<span class="font-bold text-[#004900]">複勝率23.1%で標準以上</span>のゾーンだ。安定した馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
@@ -1189,20 +1334,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：先行で上がり33.5秒・12位（複勝率28.1%）。PCI53.9は標準的なペース。先行はプラスだが前走は上がりが平凡で、さらなる加速が必要だ。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">7歳は複勝率15.2%でやや低め。年齢的な衰えが統計に出始めており、突き抜けるには強力な個体差が必要だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑭ ビッグシーザー 総合B (27pt) -->
@@ -1244,7 +1390,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">520kg</span>。520〜539kgゾーンは<span class="font-bold text-[#6d28d9]">複勝率42.9%で全体トップ</span>だ。このコースで最も好成績の馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
@@ -1254,20 +1399,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：後方から上がり34.0秒・5位（複勝率11.4%）。PCI48.2は前残り傾向のペース。後方脚質は中京1200mで最も不利な形で、データ上は大きなマイナスだ。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">6歳は複勝率<span class="font-bold text-[#004900]">17.8%</span>で5歳をやや上回る。ベテランの安定感があり、得意条件では十分戦える年齢だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑮ レッドモンレーヴ 総合B (26pt) -->
@@ -1309,7 +1455,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">518kg</span>。500〜519kgゾーンは<span class="font-bold text-[#b45309]">複勝率26.2%で上位ゾーン</span>だ。コース適性の高い馬格に入ってる。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
@@ -1319,20 +1464,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：後方から上がり<span class="font-bold text-[#004900]">32.9秒・2位</span>（複勝率11.4%）。PCI58.7は上がり有利のペース。上がり2位は魅力だが後方脚質の複勝率11.4%は低く、展開がハマらないと厳しい。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">7歳は複勝率15.2%でやや低め。年齢的な衰えが統計に出始めており、突き抜けるには強力な個体差が必要だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑯ ウインカーネリアン 総合B (22pt) -->
@@ -1374,7 +1520,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">513kg</span>。500〜519kgゾーンは<span class="font-bold text-[#b45309]">複勝率26.2%で上位ゾーン</span>だ。コース適性の高い馬格に入ってる。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
@@ -1384,20 +1529,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">2走前（マイルCS）：先行で上がり<span class="font-bold text-[#004900]">33.0秒・5位</span>（複勝率28.1%）。PCI52.7は標準的なペース。先行+上がり5位の組み合わせは安定感があり、スプリント短縮でさらに前に行ける。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-E">E</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">9歳は集計対象外。8歳でも複勝率8.3%と苦しい中で、9歳は統計的にさらに難しい年齢域だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑰ プルパレイ 総合B (21pt) -->
@@ -1432,7 +1578,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">498kg</span>。480〜499kgゾーンは<span class="font-bold text-[#004900]">複勝率23.1%で標準以上</span>のゾーンだ。安定した馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
@@ -1442,20 +1587,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：差しで上がり33.3秒・2位（複勝率30.6%）。PCI53.9は標準的なペース。差しで上がり2位は高評価で、末脚の安定感は全馬トップクラスだ。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">7歳は複勝率15.2%でやや低め。年齢的な衰えが統計に出始めており、突き抜けるには強力な個体差が必要だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑱ ヨシノイースター 総合B (21pt) -->
@@ -1497,7 +1643,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">486kg</span>。480〜499kgゾーンは<span class="font-bold text-[#004900]">複勝率23.1%で標準以上</span>のゾーンだ。安定した馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
@@ -1507,20 +1652,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：中団で上がり34.3秒・6位（複勝率18.7%）。PCI45.9は前残り傾向のペース。中団6位は標準的な数字だ。前残り展開では後手を踏む可能性がある。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">8歳は複勝率8.3%と低迷。高齢馬の壁は否めず、年齢データは大きなマイナス要因だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑲ ララマセラシオン 総合B (19pt) -->
@@ -1555,7 +1701,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">526kg</span>。520〜539kgゾーンは<span class="font-bold text-[#6d28d9]">複勝率42.9%で全体トップ</span>だ。このコースで最も好成績の馬格だ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
@@ -1565,20 +1710,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：差しで上がり34.0秒・2位（複勝率30.6%）。PCI50.4は標準的なペース。差しで上がり2位は安定した末脚の証明だ。重賞初挑戦でも末脚は通用する可能性がある。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">5歳は複勝率16.3%で標準的。実力馬なら年齢的ハンデはほとんどなく、スプリント路線の主力世代だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ⑳ ショウナンアビアス 総合B (18pt) -->
@@ -1613,7 +1759,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">504kg</span>。500〜519kgゾーンは<span class="font-bold text-[#b45309]">複勝率26.2%で上位ゾーン</span>だ。コース適性の高い馬格に入ってる。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
@@ -1623,20 +1768,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">6歳は複勝率<span class="font-bold text-[#004900]">17.8%</span>で5歳をやや上回る。ベテランの安定感があり、得意条件では十分戦える年齢だ。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：先行で上がり36.3秒・4位（複勝率28.1%）。PCI45.9は前残り傾向のペース。先行+上がり4位の組み合わせは好材料。ただし前走はダート路線でありその分割り引きが必要だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ㉑ ピューロマジック 総合C (16pt) -->
@@ -1671,7 +1817,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">458kg</span>。440〜459kgゾーンは複勝率19.7%で標準以下のゾーンだ。軽量馬はこのコースで苦戦傾向にある。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
@@ -1681,20 +1826,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：逃げで上がり36.3秒・16位（複勝率30.4%）。PCI38.2は超前残りペース。逃げ自体はプラスだが上がりが16位と大きく落としており、前走は力勝負に終わった。展開次第だ。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">5歳は複勝率16.3%で標準的。実力馬なら年齢的ハンデはほとんどなく、スプリント路線の主力世代だ。</p>
       </div>
+    </div>
 </div>
 
 <!-- ㉒ ダノンマッキンリー 総合D (12pt) -->
@@ -1729,7 +1875,6 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
         </div>
         <p class="text-sm leading-relaxed">前走<span class="font-bold text-[#004900]">472kg</span>。460〜479kgゾーンは複勝率21.5%で標準ゾーンだ。不利でも有利でもないってとこ。</p>
       </div>
-    </div>
       <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-none">−</span>
@@ -1739,20 +1884,21 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       </div>
 
   
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-D">D</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">前走脚質・上がり</p>
         </div>
         <p class="text-sm leading-relaxed">前走：後方から上がり33.4秒・9位（複勝率11.4%）。PCI55.7は上がり有利のペース。後方で上がりも平凡という最も不利な組み合わせだ。スプリントで後方は致命的な不利になりやすい。</p>
       </div>
-<div class="bg-[#f2f4f2] rounded-xl p-3">
+      <div class="bg-[#f2f4f2] rounded-xl p-3">
         <div class="flex items-center gap-2 mb-1">
           <span class="text-[10px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
           <p class="text-[11px] font-bold text-[#707a6a] uppercase tracking-wider">年齢</p>
         </div>
         <p class="text-sm leading-relaxed">5歳は複勝率16.3%で標準的。実力馬なら年齢的ハンデはほとんどなく、スプリント路線の主力世代だ。</p>
       </div>
+    </div>
 </div>
 
 
