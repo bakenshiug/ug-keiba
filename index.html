@@ -998,7 +998,7 @@ navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => t
   function next() { goTo(current + 1); }
 
   /* ── 自動再生 ────────────────────── */
-  function startAuto() { autoTimer = setInterval(next, 3000); }
+  function startAuto() { autoTimer = setInterval(next, 8000); }
   function stopAuto()  { clearInterval(autoTimer); }
   function resetAuto() { stopAuto(); startAuto(); }
 
