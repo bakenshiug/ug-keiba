@@ -136,7 +136,10 @@
   <!-- AI抽出クレジット -->
   <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-3"
     style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);">
-    <span style="font-size:14px;">🐶</span>
+    <img src="img/ginyo.png" alt="ギーニョ"
+      style="width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid rgba(240,192,64,0.50);"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+    <span style="font-size:14px;display:none;">🐶</span>
     <span class="text-xs font-bold" style="color:rgba(255,255,255,0.70);">AIアシスタント犬ギーニョが自動検出</span>
   </div>
 
@@ -145,13 +148,16 @@
   </div>
 
   <!-- 責任監修クレジット -->
-  <div class="text-center mt-1 mb-2">
+  <div class="flex items-center justify-center gap-2 mt-1 mb-2">
     <p class="text-[10px]" style="color:rgba(255,255,255,0.30);letter-spacing:0.06em;">
       責任監修 &nbsp;｜&nbsp;
       <span style="color:rgba(232,0,61,0.80);font-weight:700;">強奪ニック</span>
       &nbsp;&amp;&nbsp;
       <span style="color:rgba(240,192,64,0.70);font-weight:700;">データ分析ゴトー</span>
     </p>
+    <img src="img/goto.png" alt="ゴトー"
+      style="width:22px;height:22px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid rgba(240,192,64,0.50);"
+      onerror="this.style.display='none'">
   </div>
 </section>
 
@@ -167,7 +173,15 @@
   <!-- エラー / 空ステート（共通：近日公開ティーザー） -->
   <div id="errorState" class="hidden">
     <div class="teaser-card p-8 text-center">
-      <div class="text-5xl mb-5">🏴‍☠️</div>
+      <div class="flex justify-center items-end gap-3 mb-5">
+        <img src="img/goto.png" alt="ゴトー"
+          style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(240,192,64,0.60);box-shadow:0 0 16px rgba(240,192,64,0.30);"
+          onerror="this.style.display='none'">
+        <span style="font-size:40px;line-height:1">🏴‍☠️</span>
+        <img src="img/ginyo.png" alt="ギーニョ"
+          style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(232,0,61,0.60);box-shadow:0 0 16px rgba(232,0,61,0.30);"
+          onerror="this.style.display='none'">
+      </div>
       <p class="teaser-label mb-3">近日公開</p>
       <p class="serif-headline text-xl font-bold mb-3" style="color:#f0c040;text-shadow:0 0 24px rgba(240,192,64,0.60)">
         ゲリラ馬券師UG<br>が徹底解析
@@ -185,7 +199,15 @@
 
   <div id="emptyState" class="hidden">
     <div class="teaser-card p-8 text-center">
-      <div class="text-5xl mb-5">🏴‍☠️</div>
+      <div class="flex justify-center items-end gap-3 mb-5">
+        <img src="img/goto.png" alt="ゴトー"
+          style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(240,192,64,0.60);box-shadow:0 0 16px rgba(240,192,64,0.30);"
+          onerror="this.style.display='none'">
+        <span style="font-size:40px;line-height:1">🏴‍☠️</span>
+        <img src="img/ginyo.png" alt="ギーニョ"
+          style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(232,0,61,0.60);box-shadow:0 0 16px rgba(232,0,61,0.30);"
+          onerror="this.style.display='none'">
+      </div>
       <p class="teaser-label mb-3">近日公開</p>
       <p class="serif-headline text-xl font-bold mb-3" style="color:#f0c040;text-shadow:0 0 24px rgba(240,192,64,0.60)">
         ゲリラ馬券師UG<br>が徹底解析
