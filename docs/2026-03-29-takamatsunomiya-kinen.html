@@ -229,9 +229,14 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
 }
 
 /* ===== Info section white override ===== */
+/* ── White info sections (強奪ニック全頭診断 / 総合ランキング / 穴馬警報) ── */
+/* specificity [0,2,0] で [class*="rounded-2xl"].border に勝つ */
+[class*="rounded-2xl"].ug-info-white,
 .ug-info-white { background:#ffffff!important; color:#191c1b!important; border:1px solid rgba(0,73,0,0.12)!important; box-shadow:0 1px 4px rgba(0,0,0,0.06)!important; }
 .ug-info-white .bg-white { background:#ffffff!important; color:#191c1b!important; }
 .ug-info-white .bg-\[\#f2f4f2\] { background:rgba(0,73,0,0.05)!important; }
+.ug-info-white .bg-\[\#004900\] { background:#004900!important; }
+.ug-info-white .bg-gradient-to-r { background:linear-gradient(90deg,#7f1d1d,#991b1b)!important; }
 .ug-info-white .text-\[\#707a6a\] { color:#5a6a5a!important; }
 .ug-info-white .text-\[\#374151\] { color:#374151!important; }
 .ug-info-white .text-\[\#191c1b\] { color:#191c1b!important; }
