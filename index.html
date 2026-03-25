@@ -627,6 +627,7 @@ body {
   .main-content  { margin-left: var(--sidebar-w); }
   .footer-nav    { display: none; }
   .sections      { padding-bottom: 40px; }
+  .hero-sp-only  { display: none !important; }
 }
 
 /* ══ RESPONSIVE — SP ════════════════════ */
@@ -638,7 +639,17 @@ body {
   .footer-nav   { display: grid; }
 
   .hero { height: 70vw; min-height: 280px; max-height: 480px; }
-  .hero-img { object-fit: contain; object-position: center center; }
+  .hero-slider { display: none; }
+  .hero-dots   { display: none; }
+  .hero-sp-only {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.78;
+  }
   .hero-overlay { padding: 20px 20px; }
   .hero-overlay h2 { font-size: clamp(22px, 7vw, 40px); }
 
@@ -731,6 +742,8 @@ body {
 
   <!-- HERO CAROUSEL -->
   <section class="hero" id="heroSection">
+    <!-- スマホ用固定画像（PC非表示） -->
+    <img src="./assets/img/hero3.png" alt="" class="hero-img hero-sp-only"/>
     <!-- スライダー：画像を追加する場合は .hero-slide を追加してください -->
     <div class="hero-slider" id="heroSlider">
       <div class="hero-slide"><img src="./assets/img/hero.png"    alt="" class="hero-img"/></div>
