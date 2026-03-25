@@ -756,6 +756,22 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
       <h2>買い目</h2>
     </div>
     <div class="section-body">
+
+      <!-- パターン選択 -->
+      <div class="field-row">
+        <label>推奨馬券術から選択（how-to-buy参照）</label>
+        <select id="betPatternSelect" onchange="applyBetPattern(this.value);">
+          <option value="">── パターンを選択してください ──</option>
+          <option value="box4">【精鋭BOX】◎○▲☆ 4頭BOX（3連複4点など）</option>
+          <option value="1jiku">【ニックの魂】◎ 1頭軸流し（3連複15点など）</option>
+          <option value="2jiku">【鉄壁の布陣】◎○ 2頭軸（3連複5点など）</option>
+          <option value="form2">【2連系フォーメーション】馬連11点・馬単12点</option>
+          <option value="form3">【万馬券強奪】3連系フォーメーション（3連複21点）</option>
+        </select>
+      </div>
+      <!-- パターン説明バッジ -->
+      <div id="betPatternDesc" style="display:none; font-size:11px; background:rgba(240,192,64,0.10); border:1px solid rgba(240,192,64,0.30); border-radius:8px; padding:10px 12px; color:var(--gold); line-height:1.7;"></div>
+
       <div class="field-row">
         <label>レース条件メモ（参考用）</label>
         <textarea id="raceCondNote" placeholder="レース条件・傾向などをここに貼り付け" style="min-height:54px;" oninput="scheduleSave();"></textarea>
@@ -1645,6 +1661,101 @@ function generateJSON() {
       extra: s.commentExtra
     }
   };
+}
+
+// ══════════════════════════════════════════════════════════
+//  買い目パターン（how-to-buy.html と同期）
+// ══════════════════════════════════════════════════════════
+var BET_PATTERNS = {
+  'box4': {
+    label: '【精鋭BOX】◎○▲☆ 4頭BOX',
+    desc: '上位4頭を均等に信頼する全網羅戦術。3連複4点は低コスト高回収の黄金配合。',
+    detail: '馬連BOX 6点 ／ 馬単BOX 12点 ／ 3連複BOX 4点 ／ 3連単BOX 24点',
+    fields: {
+      '単勝':  '',
+      '馬連':  '◎○▲☆ BOX（6点）',
+      'ワイド': '',
+      '三連複': '◎○▲☆ BOX（4点）',
+      '三連単': '◎○▲☆ BOX（24点）'
+    },
+    memo: '精鋭4頭が均等に信頼できる混戦レース向け。3連複4点が核心。'
+  },
+  '1jiku': {
+    label: '【ニックの魂】◎ 1頭軸流し',
+    desc: '本命◎が鉄板なら迷わずこれ。3連複15点が核心。コストと期待値のバランスが最良。',
+    detail: '馬連流し 6点（◎→○▲☆△△△）／ 馬単マルチ 12点 ／ 3連複1頭軸 15点 ／ 3連単1着固定 30点',
+    fields: {
+      '単勝':  '◎',
+      '馬連':  '◎→○▲☆△△△ 流し（6点）',
+      'ワイド': '◎→○▲☆△△△ 流し',
+      '三連複': '◎1頭軸→○▲☆△△△ 流し（15点）',
+      '三連単': '◎1着固定→残り流し（30点）'
+    },
+    memo: '◎が鉄板の時の最高効率パターン。3連複15点に集中投資。'
+  },
+  '2jiku': {
+    label: '【鉄壁の布陣】◎○ 2頭軸',
+    desc: '◎◯の2頭が鉄板なら3連複5点で高配当を狙う。最も効率がいいパターン。',
+    detail: '馬連1点（◎○）／ 馬単2点（◎→○ + ○→◎）／ 3連複2頭軸 5点（◎○軸→▲☆△△△）／ 3連単2頭軸マルチ 30点',
+    fields: {
+      '単勝':  '◎ ○',
+      '馬連':  '◎-○ 1点',
+      'ワイド': '◎-○ 1点',
+      '三連複': '◎○2頭軸→▲☆△△△ 流し（5点）',
+      '三連単': '◎○2頭軸マルチ（30点）'
+    },
+    memo: '◎◯の2頭が鉄板時。3連複5点が核心で最もコスト効率が高い。'
+  },
+  'form2': {
+    label: '【2連系フォーメーション】馬連11点・馬単12点',
+    desc: '◎◯どちらが1着でも来る前提で全相手をカバー。馬連11点は実戦的な点数。',
+    detail: '1列目: ◎○ ／ 2列目: ◎○▲☆△△△ → 馬連11点 ／ 馬単12点',
+    fields: {
+      '単勝':  '◎ ○',
+      '馬連':  '1列目◎○ × 2列目◎○▲☆△△△ フォーメーション（11点）',
+      'ワイド': '',
+      '三連複': '',
+      '三連単': ''
+    },
+    memo: '◎◯どちらが来てもOK。2連系に絞った実戦的フォーメーション。'
+  },
+  'form3': {
+    label: '【万馬券強奪】3連系フォーメーション',
+    desc: '3連複21点が万馬券強奪の基本形。3連単30点は大物狙い。混戦・穴馬激推し時のアーミー必須フォーメーション。',
+    detail: '1列目: ◎○ ／ 2列目: ◎○▲☆ ／ 3列目: ◎○▲☆△△△ → 3連複21点 ／ 3連単30点',
+    fields: {
+      '単勝':  '',
+      '馬連':  '',
+      'ワイド': '',
+      '三連複': '1列◎○ × 2列◎○▲☆ × 3列◎○▲☆△△△ フォーメーション（21点）',
+      '三連単': '1列◎○ × 2列◎○▲☆ × 3列◎○▲☆△△△ フォーメーション（30点）'
+    },
+    memo: '穴馬激推し・混戦レース向け万馬券強奪フォーメーション。3連複21点が核心。'
+  }
+};
+
+function applyBetPattern(key) {
+  var descEl = document.getElementById('betPatternDesc');
+  if (!key || !BET_PATTERNS[key]) {
+    descEl.style.display = 'none';
+    return;
+  }
+  var p = BET_PATTERNS[key];
+  // 説明表示
+  descEl.style.display = '';
+  descEl.innerHTML = '<strong>' + p.label + '</strong><br>' + p.desc + '<br><span style="opacity:0.75;">' + p.detail + '</span>';
+
+  // 買い目フィールドを自動入力（上書き確認なし、いつでも選び直せる）
+  var fieldMap = { '単勝':'bet-単勝', '馬連':'bet-馬連', 'ワイド':'bet-ワイド', '三連複':'bet-三連複', '三連単':'bet-三連単' };
+  Object.keys(fieldMap).forEach(function(label) {
+    var el = document.getElementById(fieldMap[label]);
+    if (el && p.fields[label] !== undefined) el.value = p.fields[label];
+  });
+  // メモも上書き
+  var memoEl = document.getElementById('betMemo');
+  if (memoEl && p.memo) memoEl.value = p.memo;
+
+  scheduleSave();
 }
 
 // ══════════════════════════════════════════════════════════
