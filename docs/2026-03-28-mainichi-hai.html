@@ -420,6 +420,17 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
 /* ── 総合ランキング 文字色白 ─────────────── */
 .ug-rank-white .font-bold { color:#ffffff!important; }
 .ug-rank-white .text-\[\#707a6a\] { color:#a0c4a0!important; }
+/* ── 激走警報カード内コンテンツ白地化（ピンクborderはそのまま） ── */
+[class*="rounded-2xl"].ug-keikoku-white { background:#ffffff!important; color:#191c1b!important; }
+.ug-keikoku-white .bg-\[\#f2f4f2\] { background:rgba(0,73,0,0.05)!important; color:#191c1b!important; }
+.ug-keikoku-white .bg-\[\#eceeec\] { background:#eceeec!important; color:#374151!important; border:none!important; }
+.ug-keikoku-white .bg-\[\#c4eab5\] { background:#c4eab5!important; color:#004900!important; }
+.ug-keikoku-white .text-\[\#707a6a\] { color:#5a6a5a!important; }
+.ug-keikoku-white .text-\[\#004900\] { color:#004900!important; }
+.ug-keikoku-white .text-\[\#2d5a27\] { color:#2d5a27!important; }
+.ug-keikoku-white .text-\[\#191c1b\] { color:#191c1b!important; }
+.ug-keikoku-white .font-bold { color:#191c1b!important; }
+.ug-keikoku-white .border-t { border-color:#e5ebe5!important; }
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
@@ -613,7 +624,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   </div>
 
   <!-- ④ ローベルクランツ 総合B+（外厩加点 B→B+） -->
-  <div class="bg-white rounded-2xl border-2 border-[#db2777]/60 shadow-lg overflow-hidden">
+  <div class="bg-white rounded-2xl border-2 border-[#db2777]/60 shadow-lg overflow-hidden ug-keikoku-white">
     <div class="bg-gradient-to-r from-[#db2777] to-[#be185d] px-5 py-2 flex items-center gap-2">
       <span class="text-base">🔥</span>
       <p class="text-white font-black text-xs tracking-widest">強奪ニック激走警報</p>
@@ -770,7 +781,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   </div>
 
   <!-- ② アルトラムス 総合B+（外厩加点 B→B+） -->
-  <div class="bg-white rounded-2xl border-2 border-[#db2777]/60 shadow-lg overflow-hidden">
+  <div class="bg-white rounded-2xl border-2 border-[#db2777]/60 shadow-lg overflow-hidden ug-keikoku-white">
     <div class="bg-gradient-to-r from-[#db2777] to-[#be185d] px-5 py-2 flex items-center gap-2">
       <span class="text-base">🔥</span>
       <p class="text-white font-black text-xs tracking-widest">強奪ニック激走警報</p>
@@ -929,7 +940,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   <p class="text-[10px] text-[#707a6a] font-bold uppercase tracking-widest px-1 pt-2">C評価グループ</p>
 
   <!-- ⑤ ブリガンティン 総合C -->
-  <div class="bg-white rounded-2xl border-2 border-[#db2777]/60 shadow-lg overflow-hidden">
+  <div class="bg-white rounded-2xl border-2 border-[#db2777]/60 shadow-lg overflow-hidden ug-keikoku-white">
     <div class="bg-gradient-to-r from-[#db2777] to-[#be185d] px-5 py-2 flex items-center gap-2">
       <span class="text-base">🔥</span>
       <p class="text-white font-black text-xs tracking-widest">強奪ニック激走警報</p>
