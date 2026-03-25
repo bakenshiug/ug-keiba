@@ -56,152 +56,156 @@
   .border-E  { border-left: 4px solid #dc2626; }
 </style>
 
-<style id="ug-pink-theme">
+<style id="ug-cherry-theme">
 /* ══════════════════════════════════════
-   UG PINK ACCENT THEME — ピンクアクセント＋ダークテキスト
+   UG DEEP CHERRY LUXURY THEME
    ══════════════════════════════════════ */
 :root {
-  --ug-pink:    #FF007F;
-  --ug-pink-dk: #cc0066;
-  --ug-white:   #ffffff;
-  --ug-dark:    #191c1b;
-  --ug-muted:   #707a6a;
-  --ug-border:  rgba(255,0,127,0.30);
+  --ug-bg:         #14000b;
+  --ug-cherry-dk:  #0d0007;
+  --ug-cherry-md:  #200010;
+  --ug-pink:       #FF007F;
+  --ug-pink-dk:    #cc0066;
+  --ug-gold:       #f0c040;
+  --ug-text:       #f5d0e0;
+  --ug-text-muted: rgba(255,255,255,0.50);
+  --ug-card-bg:    rgba(255,255,255,0.07);
+  --ug-card-border:rgba(255,0,127,0.25);
 }
 
 /* ── Base ─────────────────────────────── */
-html { background: #ffffff !important; }
-body { background: #ffffff !important; color: #191c1b !important; min-height: 100vh; }
+html { background: #14000b !important; }
+body { background: #14000b !important; color: #f5d0e0 !important; min-height: 100vh; }
 
 /* ── Header ──────────────────────────── */
 header {
-  background: #FF007F !important;
-  border-bottom: 2px solid #cc0066 !important;
-  backdrop-filter: blur(14px) !important;
+  background: linear-gradient(135deg, #200010 0%, #0d0007 100%) !important;
+  border-bottom: 1px solid rgba(255,0,127,0.40) !important;
+  backdrop-filter: blur(16px) !important;
 }
-header p, header span { color: #ffffff !important; }
-header h1, header a h1 { color: #ffffff !important; text-shadow: none !important; }
-header .text-\[\#004900\], header .text-\[\#707a6a\] { color: #ffffff !important; }
-header a, header button { color: #ffffff !important; }
-header .bg-\[\#f2f4f2\] { background: rgba(255,255,255,0.20) !important; }
-header .text-\[\#9ca3af\], header .text-\[\#707a6a\] { color: rgba(255,255,255,0.70) !important; }
-
-/* ── Back button (header arrow) ─────── */
-header .bg-\[\#eceeec\] {
-  background: rgba(255,255,255,0.25) !important;
+header p, header span { color: rgba(255,255,255,0.80) !important; }
+header h1, header a h1 {
   color: #ffffff !important;
+  text-shadow: 0 0 24px rgba(255,0,127,0.55) !important;
+}
+header .text-\[\#004900\], header .text-\[\#707a6a\] { color: rgba(255,255,255,0.70) !important; }
+header a, header button { color: rgba(255,255,255,0.80) !important; }
+header .bg-\[\#f2f4f2\] { background: rgba(255,255,255,0.10) !important; }
+header .text-\[\#9ca3af\] { color: rgba(255,255,255,0.50) !important; }
+header .bg-\[\#eceeec\] {
+  background: rgba(255,255,255,0.12) !important;
+  color: rgba(255,255,255,0.80) !important;
 }
 
-/* ── Cards / White boxes ─────────────── */
+/* ── Cards / boxes ─────────────────── */
 .bg-white, .card,
 [class*="rounded-2xl"].bg-white,
 [class*="rounded-2xl"].border {
-  background: #ffffff !important;
-  border-color: rgba(255,0,127,0.30) !important;
-  color: #191c1b !important;
+  background: rgba(255,255,255,0.07) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-color: rgba(255,0,127,0.22) !important;
+  color: #f5d0e0 !important;
 }
 
 /* ── Section boxes ─────────────────────── */
 .bg-\[\#f2f4f2\] {
-  background: rgba(255,0,127,0.05) !important;
-  border: 1px solid rgba(255,0,127,0.15) !important;
+  background: rgba(255,0,127,0.10) !important;
+  border: 1px solid rgba(255,0,127,0.18) !important;
 }
 
-/* ── Green headers → Pink ─────────────── */
+/* ── Green headers → Pink gradient ── */
 .bg-\[\#006400\], .bg-\[\#004900\] {
-  background: #FF007F !important;
+  background: linear-gradient(135deg, #FF007F, #cc0066) !important;
   border: none !important;
 }
 .bg-\[\#004900\].px-5.py-3 {
-  background: #FF007F !important;
-  border-bottom: 1px solid rgba(255,255,255,0.20) !important;
+  background: linear-gradient(135deg, #FF007F, #cc0066) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.15) !important;
 }
 
-/* ── Text colors ─────────────────────── */
-.text-\[\#191c1b\], .text-\[\#374151\] { color: #191c1b !important; }
-.text-\[\#707a6a\], .text-\[\#6b7280\] { color: #707a6a !important; }
-.text-\[\#004900\]                        { color: #004900 !important; }
-.text-\[\#2d5a27\]                        { color: #2d5a27 !important; }
+/* ── Text ─────────────────────────── */
+.text-\[\#191c1b\], .text-\[\#374151\] { color: #f5d0e0 !important; }
+.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(255,255,255,0.50) !important; }
+.text-\[\#004900\]                        { color: #FF007F !important; }
+.text-\[\#2d5a27\]                        { color: #FF007F !important; }
 .text-sm, .text-base, p, span, li, td      { color: inherit; }
 
 /* ── Info pills ─────────── */
 .bg-\[\#eceeec\] {
-  background: #f3f4f6 !important;
-  color: #374151 !important;
-  border: 1px solid rgba(255,0,127,0.15) !important;
+  background: rgba(255,255,255,0.10) !important;
+  color: #f5d0e0 !important;
+  border: 1px solid rgba(255,0,127,0.20) !important;
 }
 .bg-\[\#c4eab5\] {
-  background: rgba(255,0,127,0.07) !important;
-  color: #374151 !important;
+  background: rgba(255,0,127,0.15) !important;
+  color: #f5d0e0 !important;
 }
 
 /* ── Ticker ──────────────────────────── */
-.ticker-wrap { background: #cc0066 !important; }
+.ticker-wrap { background: rgba(180,0,90,0.85) !important; }
 
-/* ── Hot card (激走警報) ─────────────────── */
+/* ── 激走警報 border glow ─────────────── */
 .border-2.border-\[\#dc2626\]\/60 {
-  border-color: rgba(255,0,127,0.60) !important;
-  box-shadow: 0 0 18px rgba(255,0,127,0.20) !important;
+  border-color: rgba(255,0,127,0.65) !important;
+  box-shadow: 0 0 28px rgba(255,0,127,0.28) !important;
 }
 .bg-gradient-to-r.from-\[\#7f1d1d\] {
   background: linear-gradient(90deg, #FF007F, #cc0066) !important;
-  border-bottom: none !important;
 }
 
-/* ── ug-keikoku-white: 激走警報カード内 ─── */
+/* ── ug-keikoku-white ─── */
 [class*="rounded-2xl"].ug-keikoku-white {
-  background: #ffffff !important;
-  color: #191c1b !important;
+  background: rgba(255,255,255,0.08) !important;
+  color: #f5d0e0 !important;
 }
 .ug-keikoku-white .bg-\[\#f2f4f2\] {
-  background: rgba(255,0,127,0.05) !important;
-  color: #191c1b !important;
+  background: rgba(255,0,127,0.12) !important;
+  color: #f5d0e0 !important;
 }
 .ug-keikoku-white .bg-\[\#eceeec\] {
-  background: #f3f4f6 !important;
-  color: #374151 !important;
+  background: rgba(255,255,255,0.10) !important;
+  color: #f5d0e0 !important;
   border: none !important;
 }
 .ug-keikoku-white .bg-\[\#c4eab5\] {
-  background: rgba(255,0,127,0.07) !important;
-  color: #374151 !important;
+  background: rgba(255,0,127,0.15) !important;
+  color: #f5d0e0 !important;
 }
-.ug-keikoku-white .text-\[\#707a6a\] { color: #707a6a !important; }
-.ug-keikoku-white .font-bold { color: #191c1b !important; }
+.ug-keikoku-white .text-\[\#707a6a\] { color: rgba(255,255,255,0.55) !important; }
+.ug-keikoku-white .font-bold { color: #f5d0e0 !important; }
 
-/* ── ug-info-white: ランキング・情報枠 ─── */
-[class*="rounded-2xl"].ug-info-white,
-.ug-info-white {
-  background: #ffffff !important;
-  color: #191c1b !important;
-  border-color: rgba(255,0,127,0.30) !important;
+/* ── ug-info-white ─── */
+[class*="rounded-2xl"].ug-info-white, .ug-info-white {
+  background: rgba(255,255,255,0.07) !important;
+  color: #f5d0e0 !important;
+  border-color: rgba(255,0,127,0.22) !important;
 }
-.ug-info-white .bg-\[\#004900\] { background: #FF007F !important; }
-.ug-info-white .text-\[\#191c1b\] { color: #191c1b !important; }
-.ug-info-white .text-\[\#707a6a\] { color: #707a6a !important; }
+.ug-info-white .bg-\[\#004900\] { background: linear-gradient(135deg, #FF007F, #cc0066) !important; }
+.ug-info-white .text-\[\#191c1b\] { color: #f5d0e0 !important; }
+.ug-info-white .text-\[\#707a6a\] { color: rgba(255,255,255,0.50) !important; }
 
-/* ── ug-rank-white: 総合ランキング ─── */
-[class*="rounded-2xl"].ug-rank-white,
-.ug-rank-white {
-  background: #ffffff !important;
-  color: #191c1b !important;
-  border-color: rgba(255,0,127,0.30) !important;
+/* ── ug-rank-white ─── */
+[class*="rounded-2xl"].ug-rank-white, .ug-rank-white {
+  background: rgba(255,255,255,0.07) !important;
+  color: #f5d0e0 !important;
+  border-color: rgba(255,0,127,0.22) !important;
 }
-.ug-rank-white .text-\[\#191c1b\] { color: #191c1b !important; }
-.ug-rank-white .text-\[\#707a6a\] { color: #707a6a !important; }
-.ug-rank-white h2, .ug-rank-white h3 { color: #191c1b !important; }
+.ug-rank-white .text-\[\#191c1b\] { color: #f5d0e0 !important; }
+.ug-rank-white .text-\[\#707a6a\] { color: rgba(255,255,255,0.50) !important; }
+.ug-rank-white h2, .ug-rank-white h3 { color: #ffffff !important; }
 
-/* ── Grade badges — keep colors ─────── */
-.grade-S  { background:#D97706!important; color:#fff!important; }
-.grade-A  { background:#DB2777!important; color:#fff!important; }
-.grade-Bp { background:#F43F5E!important; color:#fff!important; }
-.grade-B  { background:#EA580C!important; color:#fff!important; }
-.grade-C  { background:#2563EB!important; color:#fff!important; }
-.grade-D  { background:#6B7280!important; color:#fff!important; }
-.grade-E  { background:#dc2626!important; color:#fff!important; }
-.grade-none { background:rgba(255,0,127,0.10)!important; color:#FF007F!important; border:1px solid rgba(255,0,127,0.20)!important; }
+/* ── Grade badges ─────── */
+.grade-S   { background:#D97706!important; color:#fff!important; box-shadow:0 0 10px rgba(217,119,6,0.65)!important; }
+.grade-A   { background:#DB2777!important; color:#fff!important; }
+.grade-Bp  { background:#F43F5E!important; color:#fff!important; }
+.grade-B   { background:#EA580C!important; color:#fff!important; }
+.grade-C   { background:#2563EB!important; color:#fff!important; }
+.grade-D   { background:#6B7280!important; color:#fff!important; }
+.grade-E   { background:#dc2626!important; color:#fff!important; }
+.grade-none{ background:rgba(255,0,127,0.15)!important; color:#f5d0e0!important; border:1px solid rgba(255,0,127,0.30)!important; }
 
-/* ── Border left colored lines ────────── */
+/* ── Border left lines ────────── */
 .border-S  { border-left: 4px solid #D97706 !important; }
 .border-A  { border-left: 4px solid #DB2777 !important; }
 .border-Bp { border-left: 4px solid #F43F5E !important; }
@@ -212,23 +216,26 @@ header .bg-\[\#eceeec\] {
 
 /* ── Race pills ─────────────── */
 a.race-pill {
-  background: #FF007F !important;
-  border: 2px solid #cc0066 !important;
+  background: linear-gradient(135deg, #FF007F, #cc0066) !important;
+  border: 1px solid rgba(255,0,127,0.50) !important;
   color: #ffffff !important;
+  box-shadow: 0 2px 12px rgba(255,0,127,0.35) !important;
 }
 a.race-pill:hover {
-  background: #ffffff !important;
+  background: rgba(255,0,127,0.18) !important;
   color: #FF007F !important;
-  border: 2px solid #FF007F !important;
-  box-shadow: 0 0 14px rgba(255,0,127,0.40) !important;
+  border: 1px solid #FF007F !important;
+  box-shadow: 0 0 18px rgba(255,0,127,0.50) !important;
 }
-a.race-pill span { color: rgba(255,255,255,0.85) !important; }
+a.race-pill span { color: rgba(255,255,255,0.80) !important; }
 
-/* ── Footer navigation ─────────────── */
-footer { background: #FF007F !important; border-top: 2px solid #cc0066 !important; }
-footer * { color: #ffffff !important; }
-footer a.text-\[\#9ca3af\], footer a.text-\[\#707a6a\] { color: rgba(255,255,255,0.75) !important; }
-footer .hover\:bg-\[\#f2f4f2\]:hover { background: #cc0066 !important; }
+/* ── Footer ─────────────── */
+footer {
+  background: linear-gradient(135deg, #200010 0%, #0d0007 100%) !important;
+  border-top: 1px solid rgba(255,0,127,0.35) !important;
+}
+footer * { color: rgba(255,255,255,0.75) !important; }
+footer .hover\:bg-\[\#f2f4f2\]:hover { background: rgba(255,0,127,0.15) !important; }
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
@@ -291,19 +298,19 @@ footer .hover\:bg-\[\#f2f4f2\]:hover { background: #cc0066 !important; }
     <div class="px-5 py-4 space-y-1.5 label-data text-sm">
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
-        <span class="font-bold text-sm" style="color:#191c1b!important">チュウワクリスエス・プロミストジーン・サンデーファンデー</span>
+        <span class="font-bold text-sm" style="color:#f5d0e0!important">チュウワクリスエス・プロミストジーン・サンデーファンデー</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
-        <span class="font-bold text-sm" style="color:#191c1b!important">アクションプラン・オメガギネス・ミッキーヌチバナ・ピュアキアン・メリークリスマス</span>
+        <span class="font-bold text-sm" style="color:#f5d0e0!important">アクションプラン・オメガギネス・ミッキーヌチバナ・ピュアキアン・メリークリスマス</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
-        <span class="font-bold text-sm" style="color:#191c1b!important">ブレイクフォース・ミッキークレスト・スナークラファエロ・ショウナンライシン・ハナウマビーチ・ナイトアクアリウム・ルヴァンユニベール・ペプチドソレイユ・レヴォントゥレット・ハピ・ヴァルツァーシャル・コレペティトール</span>
+        <span class="font-bold text-sm" style="color:#f5d0e0!important">ブレイクフォース・ミッキークレスト・スナークラファエロ・ショウナンライシン・ハナウマビーチ・ナイトアクアリウム・ルヴァンユニベール・ペプチドソレイユ・レヴォントゥレット・ハピ・ヴァルツァーシャル・コレペティトール</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
-        <span class="font-bold text-sm" style="color:#191c1b!important">ペイシャエス・マテンロウスカイ・マンマリアーレ・バスタードサフラン</span>
+        <span class="font-bold text-sm" style="color:#f5d0e0!important">ペイシャエス・マテンロウスカイ・マンマリアーレ・バスタードサフラン</span>
       </div>
     </div>
   </div>
