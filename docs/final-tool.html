@@ -762,15 +762,18 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
         <label>推奨馬券術から選択（how-to-buy参照）</label>
         <select id="betPatternSelect" onchange="applyBetPattern(this.value);">
           <option value="">── パターンを選択してください ──</option>
+          <option value="tanshu">【単複王道】◎単勝 ＋ ○複勝（馬を自由選択）</option>
           <option value="box4">【精鋭BOX】◎○▲☆ 4頭BOX（3連複4点など）</option>
           <option value="1jiku">【ニックの魂】◎ 1頭軸流し（3連複15点など）</option>
           <option value="2jiku">【鉄壁の布陣】◎○ 2頭軸（3連複5点など）</option>
-          <option value="form2">【2連系フォーメーション】馬連11点・馬単12点</option>
-          <option value="form3">【万馬券強奪】3連系フォーメーション（3連複21点）</option>
+          <option value="form2">【2連系フォーメーション】馬連 or 馬単を選択</option>
+          <option value="form3">【万馬券強奪】3連複 or 3連単を選択</option>
         </select>
       </div>
       <!-- パターン説明バッジ -->
       <div id="betPatternDesc" style="display:none; font-size:11px; background:rgba(240,192,64,0.10); border:1px solid rgba(240,192,64,0.30); border-radius:8px; padding:10px 12px; color:var(--gold); line-height:1.7;"></div>
+      <!-- サブ選択UI（パターン別に動的生成） -->
+      <div id="betSubOptions" style="display:none;"></div>
 
       <div class="field-row">
         <label>レース条件メモ（参考用）</label>
@@ -780,6 +783,10 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
         <div class="bet-row">
           <span class="bet-label">単勝</span>
           <input type="text" id="bet-単勝" placeholder="馬番を入力" oninput="scheduleSave();">
+        </div>
+        <div class="bet-row">
+          <span class="bet-label">複勝</span>
+          <input type="text" id="bet-複勝" placeholder="馬番を入力" oninput="scheduleSave();">
         </div>
         <div class="bet-row">
           <span class="bet-label">馬連</span>
@@ -1667,16 +1674,20 @@ function generateJSON() {
 //  買い目パターン（how-to-buy.html と同期）
 // ══════════════════════════════════════════════════════════
 var BET_PATTERNS = {
+  'tanshu': {
+    label: '【単複王道】◎単勝 ＋ ○複勝',
+    desc: 'シンプル最強。単勝と複勝の2点買い。馬を自由に選択できます。',
+    detail: '単勝 1点 ／ 複勝 1点',
+    memo: '本命信頼のシンプル2点買い。配当が低いレースでも回収率を最大化。'
+  },
   'box4': {
     label: '【精鋭BOX】◎○▲☆ 4頭BOX',
     desc: '上位4頭を均等に信頼する全網羅戦術。3連複4点は低コスト高回収の黄金配合。',
     detail: '馬連BOX 6点 ／ 馬単BOX 12点 ／ 3連複BOX 4点 ／ 3連単BOX 24点',
     fields: {
-      '単勝':  '',
-      '馬連':  '◎○▲☆ BOX（6点）',
-      'ワイド': '',
-      '三連複': '◎○▲☆ BOX（4点）',
-      '三連単': '◎○▲☆ BOX（24点）'
+      '単勝':  '', '複勝': '',
+      '馬連':  '◎○▲☆ BOX（6点）', 'ワイド': '',
+      '三連複': '◎○▲☆ BOX（4点）', '三連単': '◎○▲☆ BOX（24点）'
     },
     memo: '精鋭4頭が均等に信頼できる混戦レース向け。3連複4点が核心。'
   },
@@ -1685,76 +1696,197 @@ var BET_PATTERNS = {
     desc: '本命◎が鉄板なら迷わずこれ。3連複15点が核心。コストと期待値のバランスが最良。',
     detail: '馬連流し 6点（◎→○▲☆△△△）／ 馬単マルチ 12点 ／ 3連複1頭軸 15点 ／ 3連単1着固定 30点',
     fields: {
-      '単勝':  '◎',
-      '馬連':  '◎→○▲☆△△△ 流し（6点）',
-      'ワイド': '◎→○▲☆△△△ 流し',
-      '三連複': '◎1頭軸→○▲☆△△△ 流し（15点）',
-      '三連単': '◎1着固定→残り流し（30点）'
+      '単勝': '◎', '複勝': '',
+      '馬連': '◎→○▲☆△△△ 流し（6点）', 'ワイド': '◎→○▲☆△△△ 流し',
+      '三連複': '◎1頭軸→○▲☆△△△ 流し（15点）', '三連単': '◎1着固定→残り流し（30点）'
     },
     memo: '◎が鉄板の時の最高効率パターン。3連複15点に集中投資。'
   },
   '2jiku': {
     label: '【鉄壁の布陣】◎○ 2頭軸',
     desc: '◎◯の2頭が鉄板なら3連複5点で高配当を狙う。最も効率がいいパターン。',
-    detail: '馬連1点（◎○）／ 馬単2点（◎→○ + ○→◎）／ 3連複2頭軸 5点（◎○軸→▲☆△△△）／ 3連単2頭軸マルチ 30点',
+    detail: '馬連1点（◎○）／ 馬単2点 ／ 3連複2頭軸 5点 ／ 3連単2頭軸マルチ 30点',
     fields: {
-      '単勝':  '◎ ○',
-      '馬連':  '◎-○ 1点',
-      'ワイド': '◎-○ 1点',
-      '三連複': '◎○2頭軸→▲☆△△△ 流し（5点）',
-      '三連単': '◎○2頭軸マルチ（30点）'
+      '単勝': '◎ ○', '複勝': '',
+      '馬連': '◎-○ 1点', 'ワイド': '◎-○ 1点',
+      '三連複': '◎○2頭軸→▲☆△△△ 流し（5点）', '三連単': '◎○2頭軸マルチ（30点）'
     },
     memo: '◎◯の2頭が鉄板時。3連複5点が核心で最もコスト効率が高い。'
   },
   'form2': {
-    label: '【2連系フォーメーション】馬連11点・馬単12点',
-    desc: '◎◯どちらが1着でも来る前提で全相手をカバー。馬連11点は実戦的な点数。',
-    detail: '1列目: ◎○ ／ 2列目: ◎○▲☆△△△ → 馬連11点 ／ 馬単12点',
-    fields: {
-      '単勝':  '◎ ○',
-      '馬連':  '1列目◎○ × 2列目◎○▲☆△△△ フォーメーション（11点）',
-      'ワイド': '',
-      '三連複': '',
-      '三連単': ''
-    },
+    label: '【2連系フォーメーション】',
+    desc: '◎◯どちらが1着でも来る前提で全相手をカバー。',
+    detail: '1列目: ◎○ ／ 2列目: ◎○▲☆△△△',
+    // 買い目タイプ(馬連/馬単)はサブ選択で決定
     memo: '◎◯どちらが来てもOK。2連系に絞った実戦的フォーメーション。'
   },
   'form3': {
     label: '【万馬券強奪】3連系フォーメーション',
-    desc: '3連複21点が万馬券強奪の基本形。3連単30点は大物狙い。混戦・穴馬激推し時のアーミー必須フォーメーション。',
-    detail: '1列目: ◎○ ／ 2列目: ◎○▲☆ ／ 3列目: ◎○▲☆△△△ → 3連複21点 ／ 3連単30点',
-    fields: {
-      '単勝':  '',
-      '馬連':  '',
-      'ワイド': '',
-      '三連複': '1列◎○ × 2列◎○▲☆ × 3列◎○▲☆△△△ フォーメーション（21点）',
-      '三連単': '1列◎○ × 2列◎○▲☆ × 3列◎○▲☆△△△ フォーメーション（30点）'
-    },
-    memo: '穴馬激推し・混戦レース向け万馬券強奪フォーメーション。3連複21点が核心。'
+    desc: '混戦・穴馬激推し時のアーミー必須フォーメーション。',
+    detail: '1列目: ◎○ ／ 2列目: ◎○▲☆ ／ 3列目: ◎○▲☆△△△',
+    // 買い目タイプ(3連複/3連単)はサブ選択で決定
+    memo: '穴馬激推し・混戦レース向け万馬券強奪フォーメーション。'
   }
 };
 
 function applyBetPattern(key) {
-  var descEl = document.getElementById('betPatternDesc');
+  var descEl    = document.getElementById('betPatternDesc');
+  var subOptEl  = document.getElementById('betSubOptions');
+
   if (!key || !BET_PATTERNS[key]) {
     descEl.style.display = 'none';
+    subOptEl.style.display = 'none';
     return;
   }
   var p = BET_PATTERNS[key];
+
   // 説明表示
   descEl.style.display = '';
-  descEl.innerHTML = '<strong>' + p.label + '</strong><br>' + p.desc + '<br><span style="opacity:0.75;">' + p.detail + '</span>';
+  descEl.innerHTML = '<strong>' + p.label + '</strong><br>' + p.desc +
+    '<br><span style="opacity:0.75;">' + p.detail + '</span>';
 
-  // 買い目フィールドを自動入力（上書き確認なし、いつでも選び直せる）
-  var fieldMap = { '単勝':'bet-単勝', '馬連':'bet-馬連', 'ワイド':'bet-ワイド', '三連複':'bet-三連複', '三連単':'bet-三連単' };
-  Object.keys(fieldMap).forEach(function(label) {
-    var el = document.getElementById(fieldMap[label]);
-    if (el && p.fields[label] !== undefined) el.value = p.fields[label];
+  // サブ選択UIを描画
+  renderBetSubOptions(key, subOptEl);
+
+  // 固定フィールドを入力（tanshu / form2 / form3 はサブUIで制御）
+  if (p.fields) {
+    var fieldMap = {
+      '単勝':'bet-単勝','複勝':'bet-複勝','馬連':'bet-馬連',
+      'ワイド':'bet-ワイド','三連複':'bet-三連複','三連単':'bet-三連単'
+    };
+    Object.keys(fieldMap).forEach(function(lbl) {
+      var el = document.getElementById(fieldMap[lbl]);
+      if (el && p.fields[lbl] !== undefined) el.value = p.fields[lbl];
+    });
+    var memoEl = document.getElementById('betMemo');
+    if (memoEl && p.memo) memoEl.value = p.memo;
+  }
+
+  scheduleSave();
+}
+
+// ── サブ選択UI ─────────────────────────────────────
+var SUB_STYLE = 'display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:var(--text);transition:all 0.16s;';
+var SUB_ACTIVE = 'display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid rgba(240,192,64,0.55);background:rgba(240,192,64,0.18);color:var(--gold);transition:all 0.16s;';
+
+function renderBetSubOptions(key, container) {
+  container.innerHTML = '';
+  container.style.display = '';
+
+  if (key === 'tanshu') {
+    // 単勝馬・複勝馬を馬リストから選択
+    container.style.cssText = 'display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(232,0,61,0.18);border-radius:10px;padding:14px;';
+    container.innerHTML =
+      '<div style="font-size:11px;font-weight:900;color:var(--gold);letter-spacing:0.06em;">馬を選択</div>' +
+      '<div style="display:flex;gap:12px;flex-wrap:wrap;">' +
+        '<div style="display:flex;flex-direction:column;gap:4px;">' +
+          '<label style="font-size:10px;color:var(--text-muted);font-weight:700;">単勝 馬</label>' +
+          '<select id="subTanshoHorse" onchange="onTanshuSelect()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,0,61,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:6px 10px;">' +
+            buildHorseOptions('◎') +
+          '</select>' +
+        '</div>' +
+        '<div style="display:flex;flex-direction:column;gap:4px;">' +
+          '<label style="font-size:10px;color:var(--text-muted);font-weight:700;">複勝 馬</label>' +
+          '<select id="subFukushoHorse" onchange="onTanshuSelect()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,0,61,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:6px 10px;">' +
+            buildHorseOptions('○') +
+          '</select>' +
+        '</div>' +
+      '</div>';
+    // 即時反映
+    setTimeout(onTanshuSelect, 50);
+
+  } else if (key === 'form2') {
+    // 2連系: 馬連 / 馬単 / 両方
+    container.style.cssText = 'display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(232,0,61,0.18);border-radius:10px;padding:14px;';
+    container.innerHTML =
+      '<div style="font-size:11px;font-weight:900;color:var(--gold);">買い目タイプを選択</div>' +
+      '<div style="display:flex;gap:8px;flex-wrap:wrap;" id="form2TypeBtns">' +
+        '<button style="' + SUB_ACTIVE + '" onclick="onForm2Type(\'馬連\',this)">馬連 11点</button>' +
+        '<button style="' + SUB_STYLE + '" onclick="onForm2Type(\'馬単\',this)">馬単 12点</button>' +
+        '<button style="' + SUB_STYLE + '" onclick="onForm2Type(\'両方\',this)">両方</button>' +
+      '</div>';
+    onForm2Type('馬連', container.querySelector('button'));
+
+  } else if (key === 'form3') {
+    // 3連系: 3連複 / 3連単 / 両方
+    container.style.cssText = 'display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(232,0,61,0.18);border-radius:10px;padding:14px;';
+    container.innerHTML =
+      '<div style="font-size:11px;font-weight:900;color:var(--gold);">買い目タイプを選択</div>' +
+      '<div style="display:flex;gap:8px;flex-wrap:wrap;" id="form3TypeBtns">' +
+        '<button style="' + SUB_ACTIVE + '" onclick="onForm3Type(\'3連複\',this)">3連複 21点</button>' +
+        '<button style="' + SUB_STYLE + '" onclick="onForm3Type(\'3連単\',this)">3連単 30点</button>' +
+        '<button style="' + SUB_STYLE + '" onclick="onForm3Type(\'両方\',this)">両方</button>' +
+      '</div>';
+    onForm3Type('3連複', container.querySelector('button'));
+
+  } else {
+    container.style.display = 'none';
+  }
+}
+
+// 馬リストから選択肢を生成（指定印の馬をデフォルト選択）
+function buildHorseOptions(defaultMark) {
+  var opts = '<option value="">── 未選択 ──</option>';
+  finalHorses.forEach(function(h) {
+    var selected = h.mark === defaultMark ? ' selected' : '';
+    opts += '<option value="' + h.num + '"' + selected + '>' + h.num + '番 ' + h.name + (h.mark ? '（' + h.mark + '）' : '') + '</option>';
   });
-  // メモも上書き
-  var memoEl = document.getElementById('betMemo');
-  if (memoEl && p.memo) memoEl.value = p.memo;
+  return opts;
+}
 
+function onTanshuSelect() {
+  var tan = document.getElementById('subTanshoHorse');
+  var fuku = document.getElementById('subFukushoHorse');
+  if (!tan || !fuku) return;
+  var tanVal = tan.value ? tan.value + '番' : '';
+  var fukuVal = fuku.value ? fuku.value + '番' : '';
+  var tEl = document.getElementById('bet-単勝');
+  var fEl = document.getElementById('bet-複勝');
+  if (tEl) tEl.value = tanVal;
+  if (fEl) fEl.value = fukuVal;
+  scheduleSave();
+}
+
+function onForm2Type(type, btn) {
+  // ボタンのアクティブ切り替え
+  var btns = document.querySelectorAll('#form2TypeBtns button');
+  btns.forEach(function(b) { b.style.cssText = SUB_STYLE; });
+  if (btn) btn.style.cssText = SUB_ACTIVE;
+
+  var form2Text = '1列目◎○ × 2列目◎○▲☆△△△ フォーメーション';
+  var rEl = document.getElementById('bet-馬連');
+  var sEl = document.getElementById('bet-馬単');
+  if (type === '馬連') {
+    if (rEl) rEl.value = form2Text + '（11点）';
+    if (sEl) sEl.value = '';
+  } else if (type === '馬単') {
+    if (rEl) rEl.value = '';
+    if (sEl) sEl.value = form2Text + '（12点）';
+  } else {
+    if (rEl) rEl.value = form2Text + '（11点）';
+    if (sEl) sEl.value = form2Text + '（12点）';
+  }
+  scheduleSave();
+}
+
+function onForm3Type(type, btn) {
+  var btns = document.querySelectorAll('#form3TypeBtns button');
+  btns.forEach(function(b) { b.style.cssText = SUB_STYLE; });
+  if (btn) btn.style.cssText = SUB_ACTIVE;
+
+  var form3Text = '1列◎○ × 2列◎○▲☆ × 3列◎○▲☆△△△ フォーメーション';
+  var cEl = document.getElementById('bet-三連複');
+  var tEl = document.getElementById('bet-三連単');
+  if (type === '3連複') {
+    if (cEl) cEl.value = form3Text + '（21点）';
+    if (tEl) tEl.value = '';
+  } else if (type === '3連単') {
+    if (cEl) cEl.value = '';
+    if (tEl) tEl.value = form3Text + '（30点）';
+  } else {
+    if (cEl) cEl.value = form3Text + '（21点）';
+    if (tEl) tEl.value = form3Text + '（30点）';
+  }
   scheduleSave();
 }
 
