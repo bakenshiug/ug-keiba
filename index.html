@@ -4,235 +4,914 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>UG強奪競馬新聞 〜馬券師グランプリ〜</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Anton&family=Inter:wght@400;600;700;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  body {
-    font-family: 'Public Sans', sans-serif;
-    background: #14000b;
-    color: #f5d0e0;
-    min-height: 100vh;
-  }
-  .serif { font-family: 'Noto Serif JP', serif; }
-  .card {
-    background: rgba(255,255,255,0.07);
-    border-radius: 18px;
-    border: 1px solid rgba(255,0,127,0.22);
-    color: #f5d0e0;
-    overflow: hidden;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-  a.card { transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.18s ease; }
-  a.card:hover {
-    border-color: rgba(255,0,127,0.55);
-    box-shadow: 0 0 24px rgba(255,0,127,0.30);
-    transform: translateY(-2px);
-  }
-  a.card:active { transform: scale(0.97); }
-  .ticker-wrap { overflow: hidden; white-space: nowrap; }
-  .ticker-text { display: inline-block; animation: ticker-scroll 20s linear infinite; padding-left: 100%; }
-  @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-  .race-pill {
-    display: flex; flex-direction: column; align-items: flex-start;
-    background: linear-gradient(135deg, #FF007F, #cc0066);
-    border: 1px solid rgba(255,0,127,0.50);
-    color: #ffffff;
-    font-size: 9px; font-weight: 900;
-    padding: 7px 8px; border-radius: 10px; line-height: 1.3;
-    text-decoration: none; transition: all 0.18s ease;
-    box-shadow: 0 2px 12px rgba(255,0,127,0.35);
-  }
-  .race-pill:hover {
-    background: rgba(255,0,127,0.18);
-    color: #FF007F;
-    border: 1px solid #FF007F;
-    box-shadow: 0 0 18px rgba(255,0,127,0.50);
-  }
-  .race-pill-locked {
-    display: flex; flex-direction: column; align-items: flex-start;
-    background: rgba(255,0,127,0.06);
-    border: 1px solid rgba(255,0,127,0.15);
-    color: rgba(255,0,127,0.35);
-    font-size: 9px; font-weight: 900;
-    padding: 7px 8px; border-radius: 10px; line-height: 1.3;
-    cursor: not-allowed;
-  }
-  .badge-hit {
-    background: rgba(255,0,127,0.15);
-    color: #f5d0e0;
-    border: 1px solid rgba(255,0,127,0.30);
-    font-size: 9px; font-weight: 900; padding: 2px 8px; border-radius: 999px;
-  }
-  .cherry-glow { color: #ffffff; text-shadow: 0 0 24px rgba(255,0,127,0.60); }
-  .pink-border { border: 1px solid rgba(255,0,127,0.25); }
+/* ══════════════════════════════════════
+   UG DEEP CHERRY — AKIRA STYLE LAYOUT
+   PC: 左サイドバー固定 / SP: ハンバーガーメニュー
+   ══════════════════════════════════════ */
+:root {
+  --bg:        #14000b;
+  --bg-dk:     #0d0007;
+  --bg-md:     #200010;
+  --pink:      #FF007F;
+  --pink-dk:   #cc0066;
+  --pink-glow: rgba(255,0,127,0.40);
+  --text:      #f5d0e0;
+  --text-muted:rgba(255,255,255,0.50);
+  --card-bg:   rgba(255,255,255,0.07);
+  --card-bd:   rgba(255,0,127,0.22);
+  --sidebar-w: 220px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Typography ──────────────────────── */
+.font-anton  { font-family: 'Anton', sans-serif; letter-spacing: 0.02em; }
+.font-serif  { font-family: 'Noto Serif JP', serif; }
+
+/* ══ LAYOUT ════════════════════════════ */
+
+/* PC: サイドバー + コンテンツ */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── SIDEBAR (PC only) ─────────────── */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: linear-gradient(180deg, #200010 0%, #0d0007 60%, #14000b 100%);
+  border-right: 1px solid rgba(255,0,127,0.30);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  padding: 28px 20px 20px;
+  border-bottom: 1px solid rgba(255,0,127,0.20);
+}
+.sidebar-logo .label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 6px;
+}
+.sidebar-logo h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.5;
+  color: #fff;
+  text-shadow: 0 0 20px var(--pink-glow);
+}
+.sidebar-logo .sub {
+  font-size: 9px;
+  color: var(--text-muted);
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+.sidebar-nav {
+  padding: 12px 0;
+  flex: 1;
+}
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.18s ease;
+  border-left: 3px solid transparent;
+}
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  color: #fff;
+  border-left-color: var(--pink);
+  background: rgba(255,0,127,0.08);
+}
+.sidebar-nav a .material-symbols-outlined {
+  font-size: 18px;
+  color: var(--pink);
+}
+.sidebar-nav .nav-sep {
+  height: 1px;
+  background: rgba(255,0,127,0.15);
+  margin: 8px 20px;
+}
+
+.sidebar-bottom {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255,0,127,0.15);
+  font-size: 9px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── MAIN CONTENT ────────────────────── */
+.main-content {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── MOBILE HEADER (hidden on PC) ────── */
+.mobile-header {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: linear-gradient(135deg, #200010, #0d0007);
+  border-bottom: 1px solid rgba(255,0,127,0.35);
+  backdrop-filter: blur(16px);
+  padding: 12px 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobile-header h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 16px var(--pink-glow);
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--pink);
+  transition: all 0.25s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── NAV DRAWER (SP) ──────────────────── */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: 0; right: 0;
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #200010, #0d0007);
+  border-left: 1px solid rgba(255,0,127,0.30);
+  z-index: 300;
+  padding: 60px 0 24px;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
+}
+.nav-drawer.open { transform: translateX(0); }
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 250;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+.nav-overlay.open { opacity: 1; }
+.nav-drawer a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-left: 3px solid transparent;
+  transition: all 0.18s ease;
+}
+.nav-drawer a:hover {
+  color: #fff;
+  border-left-color: var(--pink);
+  background: rgba(255,0,127,0.08);
+}
+.nav-drawer a .material-symbols-outlined { font-size: 20px; color: var(--pink); }
+
+/* ── HERO ────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 320px;
+  max-height: 520px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2d0018, #14000b);
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.75;
+}
+.hero-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(135deg, #3d0020 0%, #14000b 100%);
+}
+.hero-placeholder p {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 36px;
+  background: linear-gradient(to top, rgba(14,0,7,0.90) 0%, rgba(14,0,7,0.30) 50%, transparent 100%);
+}
+.hero-overlay .catch {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 8px;
+}
+.hero-overlay h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(28px, 5vw, 52px);
+  line-height: 1.0;
+  color: #fff;
+  text-shadow: 0 0 32px rgba(255,0,127,0.50);
+  letter-spacing: 0.02em;
+}
+.hero-overlay .sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  letter-spacing: 0.10em;
+}
+
+/* ── TICKER ──────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(180,0,90,0.85);
+  padding: 8px 0;
+}
+.ticker-text {
+  display: inline-block;
+  animation: ticker-scroll 22s linear infinite;
+  padding-left: 100%;
+  font-size: 11px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ── SECTION WRAPPER ─────────────────── */
+.sections {
+  padding: 28px 28px 100px;
+  max-width: 860px;
+}
+
+/* ── SECTION HEADER ─────────────────── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,0,127,0.20);
+}
+.section-header .en {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+.section-header .ja {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.10em;
+}
+.section-header .badge {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--pink), var(--pink-dk));
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+/* ── CARDS ────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.card-grid-1 { grid-template-columns: 1fr; }
+
+.ug-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-bd);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.20s ease;
+  text-decoration: none;
+  color: var(--text);
+  display: block;
+}
+.ug-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,0,127,0.50);
+  box-shadow: 0 6px 28px rgba(255,0,127,0.22);
+}
+.ug-card:active { transform: scale(0.98); }
+
+.card-head {
+  background: linear-gradient(135deg, var(--pink), var(--pink-dk));
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.card-head .en-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.70);
+}
+.card-head .title {
+  font-family: 'Anton', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  letter-spacing: 0.03em;
+  margin-top: 2px;
+}
+.card-body { padding: 14px 16px; }
+
+/* ── RACE PILLS ───────────────────────── */
+.pill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+.race-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: linear-gradient(135deg, var(--pink), var(--pink-dk));
+  border: 1px solid rgba(255,0,127,0.50);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 8px 10px;
+  border-radius: 8px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  box-shadow: 0 2px 12px rgba(255,0,127,0.30);
+  letter-spacing: 0.02em;
+}
+.race-pill .pill-sub {
+  font-size: 8px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  margin-top: 1px;
+}
+.race-pill:hover {
+  background: rgba(255,0,127,0.18);
+  color: var(--pink);
+  border-color: var(--pink);
+  box-shadow: 0 0 16px rgba(255,0,127,0.45);
+}
+
+/* ── BADGE HIT ────────────────────────── */
+.badge-hit {
+  display: inline-block;
+  background: rgba(255,0,127,0.15);
+  color: var(--text);
+  border: 1px solid rgba(255,0,127,0.30);
+  font-size: 10px;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* ── RESULT LIST ───────────────────────── */
+.result-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,0,127,0.10);
+  font-size: 11px;
+}
+.result-row:last-child { border-bottom: none; }
+.result-row .rank {
+  font-family: 'Anton', sans-serif;
+  font-size: 14px;
+  color: var(--pink);
+  min-width: 16px;
+}
+
+/* ── LOCK SECTION ─────────────────────── */
+.lock-section {
+  text-align: center;
+  padding: 32px 20px;
+}
+.lock-section .lock-icon { font-size: 48px; margin-bottom: 12px; }
+.lock-section h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+.lock-section .lock-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  letter-spacing: 0.12em;
+}
+.lock-section .lock-msg {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 14px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,0,127,0.12);
+  line-height: 1.7;
+}
+
+/* ── CTA BUTTON ───────────────────────── */
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 10px;
+  font-family: 'Anton', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, var(--pink), var(--pink-dk));
+  border: 2px solid var(--pink-dk);
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.20s ease;
+  box-shadow: 0 4px 18px rgba(255,0,127,0.30);
+}
+.cta-btn:hover {
+  background: rgba(255,0,127,0.18);
+  color: var(--pink);
+  border-color: var(--pink);
+  box-shadow: 0 0 22px rgba(255,0,127,0.45);
+}
+
+/* ── STAFF CARD ───────────────────────── */
+.staff-card {
+  padding: 18px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,0,127,0.20);
+  background: rgba(255,255,255,0.04);
+  text-align: center;
+}
+.staff-card .staff-title {
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--pink);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+.staff-card .staff-name {
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ── FIXED FOOTER (SP) ───────────────── */
+.footer-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, #200010, #0d0007);
+  border-top: 1px solid rgba(255,0,127,0.35);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.footer-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 8px;
+  gap: 3px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  border-right: 1px solid rgba(255,0,127,0.15);
+  transition: all 0.18s ease;
+  position: relative;
+}
+.footer-nav a:last-child { border-right: none; }
+.footer-nav a:hover, .footer-nav a.active { color: #fff; background: rgba(255,0,127,0.12); }
+.footer-nav a .material-symbols-outlined { font-size: 20px; }
+.footer-nav .soon-badge {
+  position: absolute;
+  top: 4px; right: 8px;
+  font-size: 7px;
+  font-weight: 900;
+  background: #dc2626;
+  color: #fff;
+  padding: 1px 4px;
+  border-radius: 999px;
+}
+
+/* ══ RESPONSIVE — TABLET / PC ══════════ */
+@media (min-width: 769px) {
+  .mobile-header { display: none !important; }
+  .nav-drawer    { display: none !important; }
+  .nav-overlay   { display: none !important; }
+  .sidebar       { display: flex; }
+  .main-content  { margin-left: var(--sidebar-w); }
+  .footer-nav    { display: none; }
+  .sections      { padding-bottom: 40px; }
+}
+
+/* ══ RESPONSIVE — SP ════════════════════ */
+@media (max-width: 768px) {
+  .sidebar      { display: none; }
+  .mobile-header{ display: flex; }
+  .nav-drawer   { display: block; }
+  .nav-overlay  { display: block; }
+  .main-content { margin-left: 0; }
+  .footer-nav   { display: grid; }
+
+  .hero { height: 52vw; min-height: 240px; max-height: 380px; }
+  .hero-overlay { padding: 20px 20px; }
+  .hero-overlay h2 { font-size: clamp(22px, 7vw, 40px); }
+
+  .sections { padding: 20px 16px 90px; }
+  .card-grid { gap: 10px; }
+  .section-header .en { font-size: 17px; }
+}
+
+@media (max-width: 480px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .pill-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
-<body class="min-h-screen pb-24">
 
-<!-- ===== HEADER ===== -->
-<header style="background:linear-gradient(135deg,#200010,#0d0007);border-bottom:1px solid rgba(255,0,127,0.40);backdrop-filter:blur(16px);" class="sticky top-0 z-50">
-  <div class="px-4 pt-4 pb-3 max-w-lg mx-auto">
-    <p class="text-[8px] uppercase tracking-widest font-bold" style="color:rgba(255,255,255,0.80);">Thoroughbred Underground</p>
-    <h1 class="serif text-[15px] font-bold leading-snug mt-0.5 cherry-glow">
-      🤡 UG強奪競馬新聞 〜馬券師グランプリ〜 🤡
-    </h1>
-    <p class="text-[9px] mt-0.5 font-bold tracking-wide" style="color:rgba(255,255,255,0.75);">サラブレッドアンダーグラウンド製作委員会</p>
+<body>
+
+<!-- ══ SIDEBAR (PC) ══════════════════════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <span class="label">Thoroughbred Underground</span>
+    <h1 class="font-serif">🤡 UG強奪競馬新聞<br>〜馬券師グランプリ〜 🤡</h1>
+    <p class="sub">サラブレッドアンダーグラウンド<br>製作委員会</p>
   </div>
-  <!-- 的中実績バナー -->
-  <div style="background:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.25);border-bottom:1px solid rgba(255,255,255,0.25);" class="px-4 py-2 max-w-lg mx-auto">
-    <p class="text-[11px] font-black text-center" style="color:#ffffff;">🏆 5戦3勝の衝撃。次はキミの番だ。</p>
+  <nav class="sidebar-nav">
+    <a href="./index.html" class="active">
+      <span class="material-symbols-outlined">trophy</span>重賞展望
+    </a>
+    <a href="#">
+      <span class="material-symbols-outlined">lock</span>最終予想
+    </a>
+    <div class="nav-sep"></div>
+    <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html">
+      <span class="material-symbols-outlined">emoji_events</span>レース結果
+    </a>
+    <a href="./docs/archive.html">
+      <span class="material-symbols-outlined">history</span>過去戦績
+    </a>
+    <div class="nav-sep"></div>
+    <a href="./docs/how-to-buy.html">
+      <span class="material-symbols-outlined">menu_book</span>馬券の買い方
+    </a>
+    <a href="#">
+      <span class="material-symbols-outlined">auto_stories</span>小説を読む
+    </a>
+  </nav>
+  <div class="sidebar-bottom">
+    <p>強奪ニック式 全頭診断</p>
+    <p style="color:var(--pink);font-weight:900;margin-top:4px;">5戦3勝の衝撃。</p>
+    <p>次はキミの番だ。</p>
   </div>
-  <!-- 速報ティッカー -->
-  <div class="ticker-wrap py-1.5" style="background:rgba(180,0,90,0.85);">
-    <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
-      🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯 &nbsp;｜&nbsp; フラワーCは次回リベンジ🏴‍☠️ &nbsp;｜&nbsp; ✅「高松宮記念」「日経賞」「マーチS」「毎日杯」注目４重賞全頭解析公開中 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯
-    </span>
-  </div>
+</aside>
+
+<!-- ══ MOBILE HEADER ═════════════════════════════ -->
+<header class="mobile-header">
+  <h1 class="font-serif">🤡 UG強奪競馬新聞</h1>
+  <button class="hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<!-- ===== MAIN ===== -->
-<main class="px-4 py-5 max-w-lg mx-auto space-y-3">
+<!-- ══ NAV OVERLAY ══════════════════════════════ -->
+<div class="nav-overlay" id="nav-overlay"></div>
 
-  <!-- Row 1: 重賞展望 + 先週結果 -->
-  <div class="grid grid-cols-2 gap-3">
+<!-- ══ NAV DRAWER (SP) ══════════════════════════ -->
+<nav class="nav-drawer" id="nav-drawer">
+  <a href="./index.html">
+    <span class="material-symbols-outlined">trophy</span>重賞展望
+  </a>
+  <a href="#">
+    <span class="material-symbols-outlined">lock</span>最終予想
+  </a>
+  <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html">
+    <span class="material-symbols-outlined">emoji_events</span>レース結果
+  </a>
+  <a href="./docs/archive.html">
+    <span class="material-symbols-outlined">history</span>過去戦績
+  </a>
+  <a href="./docs/how-to-buy.html">
+    <span class="material-symbols-outlined">menu_book</span>馬券の買い方
+  </a>
+  <a href="#">
+    <span class="material-symbols-outlined">auto_stories</span>小説を読む
+  </a>
+</nav>
+
+<!-- ══ MAIN CONTENT ══════════════════════════════ -->
+<div class="layout">
+<main class="main-content">
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- ▼▼▼ イラスト差し替え: <img> タグのコメントアウトを外してパスを設定 ▼▼▼ -->
+    <!--
+    <img src="./assets/img/hero.jpg" alt="UG強奪競馬新聞" class="hero-img"/>
+    -->
+    <div class="hero-placeholder">
+      <span style="font-size:48px;">🏇</span>
+      <p>HERO IMAGE — イラスト差し替え予定</p>
+      <p style="font-size:9px;">assets/img/hero.jpg に配置してください</p>
+    </div>
+    <div class="hero-overlay">
+      <p class="catch">Thoroughbred Underground — Racing Intelligence</p>
+      <h2 class="font-anton">UG強奪競馬新聞</h2>
+      <p class="sub">強奪ニック式 全頭診断 ／ 馬券師グランプリ</p>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <span class="ticker-text">
+      🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯 &nbsp;｜&nbsp; フラワーCは次回リベンジ🏴‍☠️ &nbsp;｜&nbsp; ✅「高松宮記念」「日経賞」「マーチS」「毎日杯」注目４重賞全頭解析公開中 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯
+    </span>
+  </div>
+
+  <!-- SECTIONS -->
+  <div class="sections">
 
     <!-- ① 重賞展望 -->
-    <div class="card">
-      <div style="background:linear-gradient(135deg,#FF007F,#cc0066);border-bottom:1px solid rgba(255,255,255,0.20);" class="px-3 py-2.5">
-        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.80);">Grade Race Preview</p>
-        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#ffffff;">⭐ 重賞展望</p>
+    <section style="margin-bottom:32px;">
+      <div class="section-header">
+        <span class="en">GRADE RACE</span>
+        <span class="ja">重賞展望</span>
+        <span class="badge">全頭診断 公開中</span>
       </div>
-      <div class="px-3 py-3">
-        <p class="text-[10px] font-black mb-2.5" style="color:#FF007F;">週末重賞 全頭診断 公開中</p>
-        <div class="grid grid-cols-2 gap-1.5">
-          <a href="./docs/2026-03-29-nikkei-sho.html" class="race-pill">🏇 日経賞<span style="color:rgba(255,255,255,0.85);font-size:8px;">G2 中山 3/29</span></a>
-          <a href="./docs/2026-03-28-mainichi-hai.html" class="race-pill">🏇 毎日杯<span style="color:rgba(255,255,255,0.85);font-size:8px;">G3 阪神 3/28</span></a>
-          <a href="./docs/2026-03-29-takamatsunomiya-kinen.html" class="race-pill">🏇 高松宮記念<span style="color:rgba(255,255,255,0.85);font-size:8px;">G1 中京 3/29</span></a>
-          <a href="./docs/2026-03-29-march-stakes.html" class="race-pill">🏇 マーチS<span style="color:rgba(255,255,255,0.85);font-size:8px;">G3 中山 3/29</span></a>
+      <div class="card-grid">
+
+        <!-- 日経賞 -->
+        <a href="./docs/2026-03-29-nikkei-sho.html" class="ug-card">
+          <div class="card-head">
+            <p class="en-label">G2 · 中山 · 3/29</p>
+            <p class="title">🏇 日経賞</p>
+          </div>
+          <div class="card-body">
+            <p style="font-size:10px;color:var(--text-muted);">中山 芝2500m</p>
+            <p style="font-size:10px;font-weight:700;margin-top:6px;color:var(--pink);">全頭診断 →</p>
+          </div>
+        </a>
+
+        <!-- 毎日杯 -->
+        <a href="./docs/2026-03-28-mainichi-hai.html" class="ug-card">
+          <div class="card-head">
+            <p class="en-label">G3 · 阪神 · 3/28</p>
+            <p class="title">🏇 毎日杯</p>
+          </div>
+          <div class="card-body">
+            <p style="font-size:10px;color:var(--text-muted);">阪神 芝1800m</p>
+            <p style="font-size:10px;font-weight:700;margin-top:6px;color:var(--pink);">全頭診断 →</p>
+          </div>
+        </a>
+
+        <!-- 高松宮記念 -->
+        <a href="./docs/2026-03-29-takamatsunomiya-kinen.html" class="ug-card">
+          <div class="card-head">
+            <p class="en-label">G1 · 中京 · 3/29</p>
+            <p class="title">🏇 高松宮記念</p>
+          </div>
+          <div class="card-body">
+            <p style="font-size:10px;color:var(--text-muted);">中京 芝1200m</p>
+            <p style="font-size:10px;font-weight:700;margin-top:6px;color:var(--pink);">全頭診断 →</p>
+          </div>
+        </a>
+
+        <!-- マーチS -->
+        <a href="./docs/2026-03-29-march-stakes.html" class="ug-card">
+          <div class="card-head">
+            <p class="en-label">G3 · 中山 · 3/29</p>
+            <p class="title">🏇 マーチS</p>
+          </div>
+          <div class="card-body">
+            <p style="font-size:10px;color:var(--text-muted);">中山 ダ1800m</p>
+            <p style="font-size:10px;font-weight:700;margin-top:6px;color:var(--pink);">全頭診断 →</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ② 最終予想 -->
+    <section style="margin-bottom:32px;">
+      <div class="section-header">
+        <span class="en">FINAL PICK</span>
+        <span class="ja">最終予想</span>
+        <span class="badge" style="background:rgba(255,255,255,0.15);color:var(--text-muted);">準備中</span>
+      </div>
+      <div class="ug-card">
+        <div class="card-head" style="background:rgba(255,255,255,0.06);border-bottom-color:rgba(255,0,127,0.15);">
+          <p class="en-label">Coming Soon</p>
+          <p class="title" style="color:rgba(255,255,255,0.60);">🔒 最終予想</p>
+        </div>
+        <div class="lock-section">
+          <div class="lock-icon">🔒</div>
+          <h3 class="font-anton">COMING SOON</h3>
+          <p class="lock-time">土曜朝 8:00 公開予定</p>
+          <p class="lock-msg">強奪ニックの全頭診断を準備中だ。<br>公開まで少し待ってくれよ。</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ② 先週結果 -->
-    <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html" class="card block">
-      <div style="background:linear-gradient(135deg,#FF007F,#cc0066);border-bottom:1px solid rgba(255,255,255,0.20);" class="px-3 py-2.5">
-        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.80);">Last Week Result</p>
-        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#ffffff;">🏆 先週結果</p>
+    <!-- ③ 先週結果 -->
+    <section style="margin-bottom:32px;">
+      <div class="section-header">
+        <span class="en">LAST RESULT</span>
+        <span class="ja">先週の結果</span>
       </div>
-      <div class="px-3 py-3">
-        <p class="text-[10px] font-bold leading-relaxed" style="color:rgba(255,255,255,0.80);">3/21-22<br>ファルコンS・若葉S<br>阪神大賞典</p>
-        <div class="mt-2 flex flex-wrap gap-1">
-          <span class="badge-hit">🎯 的中！</span>
+      <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html" class="ug-card">
+        <div class="card-head">
+          <p class="en-label">3/21–22 Results</p>
+          <p class="title">🏆 先週結果</p>
         </div>
-        <p class="text-[10px] font-black mt-2" style="color:#FF007F;">詳細を見る →</p>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- Row 2: 過去レース + 馬券の買い方 -->
-  <div class="grid grid-cols-2 gap-3">
-
-    <!-- ③ 過去レース -->
-    <a href="./docs/archive.html" class="card block">
-      <div style="background:linear-gradient(135deg,#FF007F,#cc0066);border-bottom:1px solid rgba(255,255,255,0.20);" class="px-3 py-2.5">
-        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.75);">Archive</p>
-        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#ffffff;">📂 過去レース</p>
-      </div>
-      <div class="px-3 py-3">
-        <p class="text-[10px] font-bold" style="color:rgba(255,0,127,0.55);">アーカイブ一覧</p>
-        <p class="text-[12px] font-black mt-1 leading-tight" style="color:#FF007F;">過去の予想と<br>結果を全公開</p>
-        <div class="mt-2">
-          <span class="text-[9px] font-black px-1.5 py-0.5 rounded-full" style="background:rgba(255,0,127,0.10);color:#FF007F;border:1px solid rgba(255,0,127,0.25);">📊 全記録</span>
+        <div class="card-body">
+          <p style="font-size:10px;color:var(--text-muted);margin-bottom:10px;">ファルコンS・若葉S・阪神大賞典</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span class="badge-hit">🎯 ファルコンS 的中</span>
+            <span class="badge-hit">🎯 若葉S 的中</span>
+            <span class="badge-hit">🎯 阪神大賞典 BOX的中</span>
+          </div>
+          <p style="font-size:11px;font-weight:700;color:var(--pink);margin-top:12px;">詳細を見る →</p>
         </div>
+      </a>
+    </section>
+
+    <!-- ④ ARCHIVE + HOW TO BUY -->
+    <section style="margin-bottom:32px;">
+      <div class="section-header">
+        <span class="en">ARCHIVE &amp; GUIDE</span>
+        <span class="ja">過去戦績 ／ 買い方</span>
       </div>
-    </a>
-
-    <!-- ④ 馬券の買い方 -->
-    <a href="./docs/how-to-buy.html" class="card block">
-      <div style="background:linear-gradient(135deg,#FF007F,#cc0066);border-bottom:1px solid rgba(255,255,255,0.20);" class="px-3 py-2.5">
-        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.80);">How to Buy</p>
-        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#ffffff;">🎫 馬券の買い方</p>
+      <div class="card-grid">
+        <a href="./docs/archive.html" class="ug-card">
+          <div class="card-head">
+            <p class="en-label">Archive</p>
+            <p class="title">📂 過去レース</p>
+          </div>
+          <div class="card-body">
+            <p style="font-size:10px;color:var(--text-muted);">過去の予想と結果を全公開</p>
+            <p style="font-size:10px;font-weight:700;color:var(--pink);margin-top:8px;">全記録 →</p>
+          </div>
+        </a>
+        <a href="./docs/how-to-buy.html" class="ug-card">
+          <div class="card-head">
+            <p class="en-label">How to Buy</p>
+            <p class="title">🎫 馬券の買い方</p>
+          </div>
+          <div class="card-body">
+            <p style="font-size:10px;color:var(--text-muted);">強奪ニック式 推奨馬券術</p>
+            <p style="font-size:10px;font-weight:700;color:var(--pink);margin-top:8px;">初心者も歓迎 →</p>
+          </div>
+        </a>
       </div>
-      <div class="px-3 py-3">
-        <p class="text-[10px] font-bold" style="color:rgba(255,0,127,0.55);">🤡 強奪ニック式</p>
-        <p class="text-[12px] font-black mt-1 leading-tight" style="color:#FF007F;">推奨馬券術<br>点数早見表</p>
-        <div class="mt-2">
-          <span class="text-[9px] font-black px-1.5 py-0.5 rounded-full" style="background:rgba(255,0,127,0.10);color:#FF007F;border:1px solid rgba(255,0,127,0.25);">🎫 初心者も歓迎</span>
-        </div>
+    </section>
+
+    <!-- ⑤ 小説を読む CTA -->
+    <section style="margin-bottom:28px;">
+      <a href="#" class="cta-btn">
+        <span class="material-symbols-outlined">auto_stories</span>
+        小説「サラブレッド・アンダーグラウンド」を読む
+        <span class="material-symbols-outlined" style="font-size:16px;opacity:0.6;">open_in_new</span>
+      </a>
+    </section>
+
+    <!-- ⑥ STAFF -->
+    <section>
+      <div class="staff-card">
+        <p class="staff-title">運営：サラブレッドアンダーグラウンド製作委員会</p>
+        <p class="staff-name">
+          馬券師UGリーダー　強奪馬券師ニック<br>
+          競馬データアナリスト　ギーニョ＆ゴトー
+        </p>
       </div>
-    </a>
+    </section>
 
-  </div>
+  </div><!-- /sections -->
 
-  <!-- Row 3: 最終予想（全幅） -->
-  <div class="card">
-    <div style="background:linear-gradient(135deg,#FF007F,#cc0066);border-bottom:1px solid rgba(255,255,255,0.20);" class="px-5 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="text-2xl">🔒</span>
-        <div>
-          <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.75);">Coming Soon</p>
-          <p class="font-black text-sm" style="color:#ffffff;">最終予想</p>
-        </div>
-      </div>
-      <span class="text-[9px] font-black px-2.5 py-1 rounded-lg" style="background:rgba(255,255,255,0.20);color:#ffffff;border:1px solid rgba(255,255,255,0.40);">準備中</span>
-    </div>
-    <div class="px-5 py-7 text-center">
-      <p class="text-5xl mb-3">🔒</p>
-      <p class="font-black text-lg" style="color:#FF007F;">土曜朝8時公開予定</p>
-      <p class="text-xs mt-1 font-bold tracking-widest" style="color:rgba(255,255,255,0.75);">3/28 8:00〜</p>
-      <div class="mt-4 rounded-2xl px-5 py-3.5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,0,127,0.15);">
-        <p class="text-[11px] font-bold leading-relaxed" style="color:rgba(255,255,255,0.75);">強奪ニックの全頭診断を準備中だ<br>公開まで少し待ってくれよ</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 小説を読む -->
-  <a href="#" class="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-black text-sm transition-all"
-     style="background:linear-gradient(135deg,#FF007F,#cc0066);border:2px solid #cc0066;color:#ffffff;"
-     onmouseover="this.style.background='rgba(255,0,127,0.20)';this.style.color='#FF007F';this.style.border='2px solid #FF007F';"
-     onmouseout="this.style.background='linear-gradient(135deg,#FF007F,#cc0066)';this.style.color='#ffffff';this.style.border='2px solid #cc0066';">
-    <span class="material-symbols-outlined text-base">menu_book</span>
-    小説を読む
-    <span class="material-symbols-outlined text-sm" style="opacity:0.5;">open_in_new</span>
-  </a>
-
-  <!-- スタッフ -->
-  <div class="rounded-2xl px-5 py-4 text-center space-y-1.5" style="background:#ffffff;border:2px solid rgba(255,0,127,0.25);">
-    <p class="text-[11px] font-black" style="color:#FF007F;">運営：サラブレッドアンダーグラウンド製作委員会</p>
-    <div class="pt-1.5 space-y-1" style="border-top:1px solid rgba(255,0,127,0.15);">
-      <p class="text-[10px] font-bold" style="color:rgba(255,0,127,0.55);">馬券師UGリーダー　強奪馬券師ニック</p>
-      <p class="text-[10px] font-bold" style="color:rgba(255,0,127,0.55);">競馬データアナリスト　ギーニョ＆ゴトー</p>
-    </div>
-  </div>
-
-  <div class="h-6"></div>
 </main>
+</div><!-- /layout -->
 
-<!-- ===== FIXED FOOTER NAV ===== -->
-<footer style="position:fixed;bottom:0;left:0;right:0;z-index:50;background:#FF007F;border-top:2px solid #cc0066;">
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);max-width:512px;margin:0 auto;">
-    <a href="./index.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:#ffffff;text-decoration:none;background:rgba(255,255,255,0.15);border-right:1px solid rgba(255,255,255,0.20);">
-      <span class="material-symbols-outlined" style="font-size:22px;">trophy</span>
-      <span style="font-size:9px;font-weight:900;letter-spacing:0.03em;">重賞展望</span>
-    </a>
-    <a href="#" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:rgba(255,255,255,0.50);text-decoration:none;position:relative;border-right:1px solid rgba(255,255,255,0.20);">
-      <span class="material-symbols-outlined" style="font-size:22px;">lock</span>
-      <span style="font-size:9px;font-weight:900;letter-spacing:0.03em;">最終予想</span>
-      <span style="position:absolute;top:4px;right:8px;font-size:7px;font-weight:900;background:#dc2626;color:#fff;padding:1px 4px;border-radius:999px;">準備中</span>
-    </a>
-    <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:rgba(255,255,255,0.80);text-decoration:none;border-right:1px solid rgba(255,255,255,0.20);">
-      <span class="material-symbols-outlined" style="font-size:22px;">emoji_events</span>
-      <span style="font-size:9px;font-weight:900;letter-spacing:0.03em;">レース結果</span>
-    </a>
-    <a href="./docs/archive.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:rgba(255,255,255,0.80);text-decoration:none;">
-      <span class="material-symbols-outlined" style="font-size:22px;">history</span>
-      <span style="font-size:9px;font-weight:900;letter-spacing:0.03em;">過去戦績</span>
-    </a>
-  </div>
-</footer>
+<!-- ══ FOOTER NAV (SP) ═══════════════════════════ -->
+<nav class="footer-nav">
+  <a href="./index.html" class="active">
+    <span class="material-symbols-outlined">trophy</span>重賞展望
+  </a>
+  <a href="#">
+    <span class="material-symbols-outlined">lock</span>最終予想
+    <span class="soon-badge">準備中</span>
+  </a>
+  <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html">
+    <span class="material-symbols-outlined">emoji_events</span>レース結果
+  </a>
+  <a href="./docs/archive.html">
+    <span class="material-symbols-outlined">history</span>過去戦績
+  </a>
+</nav>
+
+<!-- ══ HAMBURGER JS ══════════════════════════════ -->
+<script>
+const hamburger = document.getElementById('hamburger');
+const navDrawer  = document.getElementById('nav-drawer');
+const navOverlay = document.getElementById('nav-overlay');
+
+function toggleMenu(open) {
+  hamburger.classList.toggle('open', open);
+  navDrawer.classList.toggle('open', open);
+  navOverlay.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+hamburger.addEventListener('click', () => toggleMenu(!navDrawer.classList.contains('open')));
+navOverlay.addEventListener('click', () => toggleMenu(false));
+navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+</script>
 
 </body>
 </html>
