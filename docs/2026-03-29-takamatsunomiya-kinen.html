@@ -227,6 +227,18 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   color: #fff !important;
   font-size: 1.25rem !important;
 }
+
+/* ===== Info section white override ===== */
+.ug-info-white { background:#ffffff!important; color:#191c1b!important; border:1px solid rgba(0,73,0,0.12)!important; box-shadow:0 1px 4px rgba(0,0,0,0.06)!important; }
+.ug-info-white .bg-white { background:#ffffff!important; color:#191c1b!important; }
+.ug-info-white .bg-\[\#f2f4f2\] { background:rgba(0,73,0,0.05)!important; }
+.ug-info-white .text-\[\#707a6a\] { color:#5a6a5a!important; }
+.ug-info-white .text-\[\#374151\] { color:#374151!important; }
+.ug-info-white .text-\[\#191c1b\] { color:#191c1b!important; }
+.ug-info-white .text-\[\#004900\] { color:#004900!important; }
+.ug-info-white .text-\[\#2d5a27\] { color:#2d5a27!important; }
+.ug-info-white .border-t { border-color:#e5ebe5!important; }
+.ug-info-white .font-bold { color:#191c1b!important; }
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
@@ -256,15 +268,15 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
 <main class="px-4 py-5 max-w-lg mx-auto space-y-4">
 
   <!-- リード -->
-  <div class="bg-[#006400] rounded-2xl px-5 py-4 text-white">
-    <p class="text-[10px] font-black text-[#82db6f] uppercase tracking-widest mb-1.5">強奪ニックの重賞全頭診断</p>
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm px-5 py-4 ug-info-white">
+    <p class="text-[10px] font-black text-[#004900] uppercase tracking-widest mb-1.5">強奪ニックの重賞全頭診断</p>
     <p class="text-xs leading-relaxed">今年の高松宮記念は22頭登録で18頭出走。スプリントG1の最高峰、1200mの短距離決戦だ。過去パフォーマンス・外厩・厩舎・血統の4軸でジャッジしていくぞ。枠順確定後に最終予想で結論を出す。</p>
-    <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-[10px] font-bold text-white/80">
-      <span class="text-[#82db6f]">過去パフォーマンス</span><span class="text-white/30">／</span>
-      <span class="text-[#82db6f]">前走ジャッジ</span><span class="text-white/30">／</span>
-      <span class="text-[#82db6f]">外厩ジャッジ</span><span class="text-white/30">／</span>
-      <span class="text-[#82db6f]">厩舎ジャッジ</span><span class="text-white/30">／</span>
-      <span class="text-[#82db6f]">血統ジャッジ</span>
+    <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-[10px] font-bold text-[#707a6a]">
+      <span class="text-[#004900]">過去パフォーマンス</span><span class="text-[#bfcab7]">／</span>
+      <span class="text-[#004900]">前走ジャッジ</span><span class="text-[#bfcab7]">／</span>
+      <span class="text-[#004900]">外厩ジャッジ</span><span class="text-[#bfcab7]">／</span>
+      <span class="text-[#004900]">厩舎ジャッジ</span><span class="text-[#bfcab7]">／</span>
+      <span class="text-[#004900]">血統ジャッジ</span>
     </div>
     <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] font-black">
       <span class="px-2 py-0.5 rounded-full grade-S">S</span>
@@ -274,12 +286,12 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
       <span class="px-2 py-0.5 rounded-full grade-C">C</span>
       <span class="px-2 py-0.5 rounded-full grade-D">D</span>
       <span class="px-2 py-0.5 rounded-full grade-E">E</span>
-      <span class="ml-1 text-white/70 self-center">← 高い順</span>
+      <span class="ml-1 text-[#707a6a] self-center">← 高い順</span>
     </div>
   </div>
 
   <!-- 強奪スキル -->
-  <div class="rounded-2xl overflow-hidden border border-[#bfcab7]/60 shadow-sm">
+  <div class="rounded-2xl overflow-hidden border border-[#bfcab7]/60 shadow-sm ug-info-white">
     <div class="bg-[#004900] px-5 py-3 flex items-center gap-2">
       <span class="text-lg">🏆</span>
       <p class="text-white font-black text-sm tracking-wide">ニック流・高松宮記念「強奪スキル」</p>
@@ -319,7 +331,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   </div>
 
   <!-- 総合ランキング -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden">
+  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden ug-info-white">
     <div class="bg-[#004900] px-5 py-3">
       <p class="text-white font-bold text-sm">📊 総合ランキング</p>
     </div>
@@ -344,7 +356,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
   </div>
 
   <!-- 穴馬警報 -->
-  <div class="rounded-2xl overflow-hidden border-2 border-[#dc2626]/40 shadow-md">
+  <div class="rounded-2xl overflow-hidden border-2 border-[#dc2626]/40 shadow-md ug-info-white">
     <div class="bg-gradient-to-r from-[#7f1d1d] to-[#991b1b] px-5 py-3 flex items-center gap-2">
       <span class="text-lg">🔥</span>
       <p class="text-white font-black text-sm tracking-wider">強奪ニック穴馬警報</p>
