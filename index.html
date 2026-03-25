@@ -237,13 +237,53 @@ body {
   overflow: hidden;
   background: #080808;
 }
+
+/* ── CAROUSEL ────────────────────────── */
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.hero-slide {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+}
 .hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  opacity: 0.75;
+  object-position: center center;
+  opacity: 0.78;
+  display: block;
 }
+/* ドットインジケーター */
+.hero-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 10;
+}
+.hero-dot {
+  width: 7px; height: 7px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(255,255,255,0.50);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.hero-dot.active {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  width: 20px;
+}
+/* 旧プレースホルダー（未使用） */
 .hero-placeholder {
   width: 100%;
   height: 100%;
@@ -691,11 +731,19 @@ body {
 <div class="layout">
 <main class="main-content">
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="./assets/img/hero.png" alt="UG強奪競馬新聞" class="hero-img" style="object-position:center center;"/>
+  <!-- HERO CAROUSEL -->
+  <section class="hero" id="heroSection">
+    <!-- スライダー：画像を追加する場合は .hero-slide を追加してください -->
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide"><img src="./assets/img/hero.png"    alt="" class="hero-img"/></div>
+      <div class="hero-slide"><img src="./assets/img/hero2.png"   alt="" class="hero-img"/></div>
+      <div class="hero-slide"><img src="./assets/img/bg-town.png" alt="" class="hero-img"/></div>
+    </div>
+    <!-- ドット -->
+    <div class="hero-dots" id="heroDots"></div>
+    <!-- オーバーレイ -->
     <div class="hero-overlay">
-      <img src="./assets/img/logo.png" alt="UG強奪競馬新聞" style="width:100%;max-width:420px;display:block;drop-shadow(0 4px 24px rgba(0,0,0,0.8));"/>
+      <img src="./assets/img/logo.png" alt="UG強奪競馬新聞" style="width:100%;max-width:420px;display:block;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.8));"/>
       <p class="sub" style="margin-top:10px;">強奪ニック式 全頭診断 ／ 馬券師グランプリ</p>
     </div>
   </section>
@@ -902,6 +950,79 @@ function toggleMenu(open) {
 hamburger.addEventListener('click', () => toggleMenu(!navDrawer.classList.contains('open')));
 navOverlay.addEventListener('click', () => toggleMenu(false));
 navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+</script>
+
+<!-- ══ HERO CAROUSEL JS ══════════════════════════ -->
+<script>
+(function() {
+  const slider   = document.getElementById('heroSlider');
+  const dotsWrap = document.getElementById('heroDots');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.hero-slide');
+  const total  = slides.length;
+  let current  = 0;
+  let autoTimer;
+  let touchStartX = 0;
+
+  /* ── ドット生成 ──────────────────── */
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', `スライド${i+1}`);
+    d.addEventListener('click', () => { goTo(i); resetAuto(); });
+    dotsWrap.appendChild(d);
+  });
+
+  function updateDots() {
+    dotsWrap.querySelectorAll('.hero-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  /* ── スライド移動 ────────────────── */
+  function goTo(index) {
+    current = (index + total) % total;
+    slider.style.transform = `translateX(-${current * 100}%)`;
+    updateDots();
+  }
+
+  function next() { goTo(current + 1); }
+
+  /* ── 自動再生 ────────────────────── */
+  function startAuto() {
+    autoTimer = setInterval(next, 3000);
+  }
+  function stopAuto()  { clearInterval(autoTimer); }
+  function resetAuto() { stopAuto(); startAuto(); }
+
+  /* ── タッチスワイプ ───────────────── */
+  slider.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    stopAuto();
+  }, { passive: true });
+
+  slider.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if      (diff >  50) next();
+    else if (diff < -50) goTo(current - 1);
+    startAuto();
+  }, { passive: true });
+
+  /* ── マウスドラッグ（PC） ─────────── */
+  let mouseStartX = 0, isDragging = false;
+  slider.addEventListener('mousedown', e => { mouseStartX = e.clientX; isDragging = true; });
+  slider.addEventListener('mouseup',   e => {
+    if (!isDragging) return;
+    isDragging = false;
+    const diff = mouseStartX - e.clientX;
+    if      (diff >  60) { next(); resetAuto(); }
+    else if (diff < -60) { goTo(current - 1); resetAuto(); }
+  });
+  slider.addEventListener('mouseleave', () => { isDragging = false; });
+
+  startAuto();
+})();
 </script>
 
 </body>
