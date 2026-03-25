@@ -363,6 +363,53 @@ textarea.tall { min-height: 100px; }
   margin: 4px 0;
 }
 
+/* ── Mode Toggle ── */
+.mode-toggle-wrap {
+  display: flex;
+  gap: 10px;
+}
+.mode-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 10px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  cursor: pointer;
+  transition: all 0.20s;
+  color: var(--text-muted);
+  font-family: 'Public Sans', sans-serif;
+}
+.mode-btn:hover {
+  border-color: rgba(240,192,64,0.40);
+  background: rgba(240,192,64,0.08);
+  color: var(--text);
+}
+.mode-btn-active {
+  border-color: rgba(240,192,64,0.65) !important;
+  background: linear-gradient(135deg, rgba(240,192,64,0.16) 0%, rgba(232,0,61,0.10) 100%) !important;
+  color: var(--text) !important;
+  box-shadow: 0 0 18px rgba(240,192,64,0.20);
+}
+.mode-icon { font-size: 22px; }
+.mode-label {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: inherit;
+}
+.mode-desc {
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: center;
+}
+.mode-btn-active .mode-desc { color: rgba(255,255,255,0.60); }
+.mode-tip { transition: opacity 0.2s; }
+
 /* ── CSV Upload (Section 0) ── */
 .csv-upload-label {
   display: flex;
@@ -444,11 +491,33 @@ textarea.tall { min-height: 100px; }
     </div>
     <div class="section-body">
 
-      <div class="csv-section-tip">
-        JRA出馬表CSVを2ファイルアップロードすると、馬基本情報の自動入力＋DBマッチングによるグレード自動採点が行われます。<br>
-        出馬表①：基本情報（騎手・調教師・父）／出馬表②：前走データ（乗り替わり・芝ダ変更・距離変化）
+      <!-- モード切り替え -->
+      <div class="mode-toggle-wrap">
+        <button id="modeBtn_grade" class="mode-btn mode-btn-active" onclick="setToolMode('grade')">
+          <span class="mode-icon">🏆</span>
+          <span class="mode-label">重賞展望モード</span>
+          <span class="mode-desc">基本情報を自動入力<br>分析は手動で記入</span>
+        </button>
+        <button id="modeBtn_kinkai" class="mode-btn" onclick="setToolMode('kinkai')">
+          <span class="mode-icon">💰</span>
+          <span class="mode-label">金塊馬モード</span>
+          <span class="mode-desc">DBマッチングで<br>グレード自動採点</span>
+        </button>
       </div>
 
+      <!-- モード説明 -->
+      <div id="modeTip_grade" class="csv-section-tip mode-tip">
+        <strong style="color:var(--gold);">🏆 重賞展望モード</strong><br>
+        出馬表CSVをアップロードして馬名・騎手・厩舎・父・前走情報を自動入力します。<br>
+        分析テキスト（過去パフォーマンス / 前走ジャッジ / 外厩&厩舎 / 血統ジャッジ）は<strong>空白</strong>でインポートされるので、手動で記入してください。
+      </div>
+      <div id="modeTip_kinkai" class="csv-section-tip mode-tip" style="display:none;">
+        <strong style="color:var(--gold);">💰 金塊馬モード</strong><br>
+        出馬表CSVをアップロードして、コース別DBと照合します。<br>
+        コース金塊騎手・厩舎・血統ライン・乗り替わり・芝ダ変更などを<strong>自動検出してグレードを採点</strong>します。
+      </div>
+
+      <!-- CSV upload slots -->
       <div class="field-row inline">
         <div class="field-item" style="flex:1;">
           <label>出馬表CSV①（基本情報）</label>
@@ -468,11 +537,12 @@ textarea.tall { min-height: 100px; }
         </div>
       </div>
 
+      <!-- レース一覧 -->
       <div id="csvRaceListS" style="display:none;">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
           <span style="font-size:12px;font-weight:700;color:var(--gold);">レース一覧</span>
           <span id="csvRaceCountS" style="font-size:11px;color:var(--text-muted);"></span>
-          <div style="margin-left:auto;display:flex;gap:6px;">
+          <div id="filterBtnsKinkai" style="margin-left:auto;display:flex;gap:6px;">
             <button id="filterAllS" style="font-size:11px;padding:5px 10px;border-radius:999px;font-weight:700;border:1px solid rgba(240,192,64,0.50);background:rgba(240,192,64,0.18);color:var(--gold);cursor:pointer;" onclick="filterCSVRacesS('all')">全て</button>
             <button id="filterDBS" style="font-size:11px;padding:5px 10px;border-radius:999px;font-weight:700;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:var(--text-muted);cursor:pointer;" onclick="filterCSVRacesS('db')">DB合致</button>
           </div>
@@ -1616,6 +1686,29 @@ function attachFilenameListeners() {
 }
 
 // ══════════════════════════════════════════════════════════
+//  ツールモード（重賞展望 / 金塊馬）
+// ══════════════════════════════════════════════════════════
+var currentToolMode = 'grade'; // 'grade' | 'kinkai'
+
+function setToolMode(mode) {
+  currentToolMode = mode;
+
+  // ボタンUI更新
+  document.getElementById('modeBtn_grade').className  = 'mode-btn' + (mode === 'grade'  ? ' mode-btn-active' : '');
+  document.getElementById('modeBtn_kinkai').className = 'mode-btn' + (mode === 'kinkai' ? ' mode-btn-active' : '');
+
+  // 説明テキスト切替
+  document.getElementById('modeTip_grade').style.display  = (mode === 'grade')  ? '' : 'none';
+  document.getElementById('modeTip_kinkai').style.display = (mode === 'kinkai') ? '' : 'none';
+
+  // 金塊馬モード専用フィルタ（DB合致ボタン）の表示切替
+  document.getElementById('filterBtnsKinkai').style.display = (mode === 'kinkai') ? '' : 'none';
+
+  // CSV読み込み済みならレース一覧を再描画（フィルタなど更新）
+  if (csv1LoadedS) renderCSVRaceListS(parsedCSVRacesS);
+}
+
+// ══════════════════════════════════════════════════════════
 //  CSV自動取込 & DB連携
 // ══════════════════════════════════════════════════════════
 var COURSES_DB_S = {};
@@ -1823,33 +1916,75 @@ function renderCSVRaceOptionsS(races, mode) {
 
 // ── レースを選択して全頭自動インポート ──────────────
 function importRaceToShindan(race) {
-  if (!confirm(race.raceName + ' の ' + race.horses.length + '頭を自動インポートします。\n既存の馬データは上書きされます。よろしいですか？')) return;
+  var modeLabel = currentToolMode === 'grade' ? '重賞展望モード' : '金塊馬モード';
+  if (!confirm('[' + modeLabel + ']\n' + race.raceName + ' の ' + race.horses.length + '頭をインポートします。\n既存の馬データは上書きされます。よろしいですか？')) return;
 
   // レース情報自動入力
-  var surfaceLabel = race.surface === '芝' ? '芝' : (race.surface === 'ダ' ? 'ダート' : race.surface);
-  document.getElementById('venue').value    = race.racecourse;
-  document.getElementById('trackType').value = surfaceLabel === 'ダート' ? 'ダート' : '芝';
-  document.getElementById('distance').value = race.distance + 'm';
+  var surfaceLabel = race.surface === 'ダ' ? 'ダート' : '芝';
+  document.getElementById('venue').value     = race.racecourse;
+  document.getElementById('trackType').value = surfaceLabel;
+  document.getElementById('distance').value  = race.distance + 'm';
   updateFilename();
   scheduleSave();
 
-  var db = COURSES_DB_S[race.course] || null;
-
-  // 全頭インポート
-  horses = race.horses.map(function(h) {
-    return autoAnalyzeHorseS(h, race, db);
-  });
+  // モード分岐
+  if (currentToolMode === 'kinkai') {
+    // 金塊馬モード：DB照合 + 自動採点
+    var db = COURSES_DB_S[race.course] || null;
+    horses = race.horses.map(function(h) {
+      return autoAnalyzeHorseS(h, race, db);
+    });
+  } else {
+    // 重賞展望モード：基本情報のみ / 分析欄は空
+    horses = race.horses.map(function(h) {
+      return importHorseGradeMode(h);
+    });
+  }
 
   renderHorseList();
   scheduleSave();
 
-  // スクロール
   setTimeout(function(){
-    var sec3 = document.querySelector('#horseListEl');
-    if (sec3) sec3.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var el = document.getElementById('horseListEl');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 200);
 
-  alert('✅ ' + race.horses.length + '頭をインポートしました！各カードの分析テキストを確認・編集してください。');
+  if (currentToolMode === 'grade') {
+    alert('✅ ' + race.horses.length + '頭をインポートしました！\n各馬の分析テキスト（4カテゴリ）を手動で記入してください。');
+  } else {
+    alert('✅ ' + race.horses.length + '頭をインポートしました！\nDB合致馬のグレードと分析テキストを確認・編集してください。');
+  }
+}
+
+// ── 重賞展望モード用インポート（基本情報のみ・分析空欄）──
+function importHorseGradeMode(h) {
+  var cats = getCategories();
+  var prevRaceText = '';
+  if (h.prevSurface || h.prevDistance) {
+    prevRaceText = '前走：' + (h.prevSurface || '?') + (h.prevDistance || '?') + 'm';
+    if (h.prevRankRaw) prevRaceText += ' ' + h.prevRankRaw;
+    if (h.prevJockey)  prevRaceText += ' ' + h.prevJockey + '騎手';
+  }
+  if (h.surfaceChange)  prevRaceText += (prevRaceText ? ' ／ ' : '') + '芝ダ変更（' + h.surfaceChange + '）';
+  if (h.jockeyChanged)  prevRaceText += (prevRaceText ? ' ／ ' : '') + '乗り替わり（前走' + (h.prevJockey || '?') + '→' + h.jockey + '）';
+  if (h.distChange)     prevRaceText += (prevRaceText ? ' ／ ' : '') + h.distChange;
+
+  return {
+    prevRace:     prevRaceText,
+    name:         h.name,
+    sexAge:       '',
+    jockey:       h.jockey,
+    weight:       '',
+    stable:       h.trainer,
+    affiliation:  '栗東',
+    sire:         h.sire,
+    dam:          '',
+    gaiku:        '',
+    overallGrade: 'C',
+    analysis: cats.map(function(cat) {
+      return { label: cat, grade: 'C', text: '' };
+    })
+  };
 }
 
 // ── 1頭の自動分析 ──────────────────────────────
