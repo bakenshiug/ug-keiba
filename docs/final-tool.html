@@ -723,10 +723,10 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
               <th>基本pt</th>
               <!-- 枠番スコア: +3=絶好枠, +2=有利, +1=やや有利, 0=普通, -1=不利, -2=最悪枠 -->
               <th>枠番</th>
-              <!-- 調教スコア: +3=抜群, +2=良好, +1=まずまず, 0=普通, -1=やや不安, -2=不安 -->
-              <th>調教</th>
-              <!-- 勝負気配スコア: +3=本気勝負, +2=勝負気配, +1=前向き, 0=通常, -1=様子見, -2=休養優先 -->
-              <th>勝負気配</th>
+              <!-- 調教スコア: -20〜+30の数値入力 → ÷10×1.5で自動変換 -->
+              <th>調教<br><span style="font-size:9px;font-weight:400;opacity:0.6;">-20〜+30</span></th>
+              <!-- 勝負気配スコア: -20〜+30の数値入力 → ÷10×1.5で自動変換 -->
+              <th>勝負気配<br><span style="font-size:9px;font-weight:400;opacity:0.6;">-20〜+30</span></th>
               <!-- 馬場スコア: +3=大得意, +2=得意, +1=問題なし, 0=標準, -1=やや苦手, -2=苦手 -->
               <th>馬場</th>
               <!-- ニックスコア: 0=なし, 1〜5=特別ファクター（ニックポイント等） -->
@@ -859,14 +859,20 @@ var saveTimer = null;
 // ══════════════════════════════════════════════════════════
 //  SCORE CALC
 // ══════════════════════════════════════════════════════════
+// 調教・勝負気配: 入力値 ÷ 10 × 1.5 で変換（range -20〜+30 → -3.0〜+4.5）
+function convertRawScore(raw) {
+  return Math.round((raw / 10 * 1.5) * 10) / 10; // 小数第1位まで
+}
+
 function calcTotal(h) {
   var s = h.scores;
-  return (h.basePt || 0) +
+  var total = (h.basePt || 0) +
     (parseInt(s['枠番'],10) || 0) +
-    (parseInt(s['調教'],10) || 0) +
-    (parseInt(s['勝負気配'],10) || 0) +
+    convertRawScore(parseInt(s['調教'],10) || 0) +
+    convertRawScore(parseInt(s['勝負気配'],10) || 0) +
     (parseInt(s['馬場'],10) || 0) +
     (parseInt(s['ニック'],10) || 0);
+  return Math.round(total * 10) / 10; // 小数第1位まで
 }
 
 // ══════════════════════════════════════════════════════════
@@ -1053,9 +1059,45 @@ function toggleAddForm() {
 // ══════════════════════════════════════════════════════════
 //  SCORE OPTIONS
 // ══════════════════════════════════════════════════════════
-// 枠番/調教/勝負気配/馬場: -2 to +3
-// ニック: 0 to +5
+// 調教・勝負気配: 数値入力 (-20〜+30) → ÷10×1.5 で自動変換
+// 枠番・馬場: select (-2〜+3)
+// ニック: select (0〜+5)
 function makeScoreSelect(horseIdx, factor) {
+  // ── 調教・勝負気配: 数値入力 + 変換結果バッジ ──
+  if (factor === '調教' || factor === '勝負気配') {
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:3px;';
+
+    var numInput = document.createElement('input');
+    numInput.type = 'number';
+    numInput.min = -20; numInput.max = 30; numInput.step = 1;
+    numInput.value = finalHorses[horseIdx].scores[factor] || 0;
+    numInput.style.cssText = 'width:58px;background:rgba(255,255,255,0.08);border:1px solid rgba(232,0,61,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:4px 6px;text-align:center;';
+
+    var badge = document.createElement('span');
+    badge.id = 'rawBadge-' + horseIdx + '-' + factor;
+    badge.style.cssText = 'font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;white-space:nowrap;';
+    var initialConverted = convertRawScore(finalHorses[horseIdx].scores[factor] || 0);
+    applyRawBadgeStyle(badge, initialConverted);
+    badge.textContent = (initialConverted >= 0 ? '+' : '') + initialConverted + 'pt';
+
+    numInput.oninput = (function(ii, fac, bdg) { return function() {
+      var raw = parseInt(this.value, 10) || 0;
+      finalHorses[ii].scores[fac] = raw;
+      finalHorses[ii].totalPt = calcTotal(finalHorses[ii]);
+      var converted = convertRawScore(raw);
+      applyRawBadgeStyle(bdg, converted);
+      bdg.textContent = (converted >= 0 ? '+' : '') + converted + 'pt';
+      var totBadge = document.getElementById('totalBadge-' + ii);
+      if (totBadge) { totBadge.textContent = finalHorses[ii].totalPt; applyBadgeColor(totBadge, finalHorses[ii].totalPt); }
+      scheduleSave();
+    }; })(horseIdx, factor, badge);
+
+    wrap.appendChild(numInput);
+    wrap.appendChild(badge);
+    return wrap;
+  }
+
   var select = document.createElement('select');
   select.onchange = function() { onScoreChange(horseIdx, factor, this.value); };
 
@@ -1088,6 +1130,18 @@ function makeScoreSelect(horseIdx, factor) {
     }
   }
   return select;
+}
+
+// 変換スコアバッジの色分け
+function applyRawBadgeStyle(el, converted) {
+  var bg, color;
+  if (converted >= 3)       { bg = 'rgba(240,192,64,0.25)';  color = '#f0c040'; }
+  else if (converted >= 1.5){ bg = 'rgba(232,0,61,0.20)';   color = '#ffb3c6'; }
+  else if (converted >= 0)  { bg = 'rgba(255,255,255,0.10)'; color = 'rgba(255,255,255,0.65)'; }
+  else if (converted >= -1.5){ bg = 'rgba(37,99,235,0.20)';  color = '#93c5fd'; }
+  else                      { bg = 'rgba(107,114,128,0.20)'; color = '#9ca3af'; }
+  el.style.background = bg;
+  el.style.color = color;
 }
 
 function onScoreChange(horseIdx, factor, value) {
