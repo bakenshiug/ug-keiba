@@ -12,16 +12,16 @@
    PC: 左サイドバー固定 / SP: ハンバーガーメニュー
    ══════════════════════════════════════ */
 :root {
-  --bg:        #130003;
-  --bg-dk:     #0b0002;
-  --bg-md:     #1a0004;
+  --bg:        #080808;
+  --bg-dk:     #030303;
+  --bg-md:     #111111;
   --crimson:      #E8003D;
   --crimson-dk:   #B5002E;
-  --crimson-glow: rgba(232,0,61,0.40);
-  --text:      #f5d0d5;
-  --text-muted:rgba(255,255,255,0.50);
-  --card-bg:   rgba(255,255,255,0.07);
-  --card-bd:   rgba(232,0,61,0.22);
+  --crimson-glow: rgba(232,0,61,0.45);
+  --text:      #f0e8e8;
+  --text-muted:rgba(255,255,255,0.45);
+  --card-bg:   rgba(255,255,255,0.05);
+  --card-bd:   rgba(232,0,61,0.20);
   --sidebar-w: 220px;
 }
 
@@ -54,8 +54,8 @@ body {
   top: 0; left: 0;
   width: var(--sidebar-w);
   height: 100vh;
-  background: linear-gradient(180deg, #1a0004 0%, #0b0002 60%, #130003 100%);
-  border-right: 1px solid rgba(232,0,61,0.30);
+  background: #050505;
+  border-right: 2px solid var(--crimson);
   display: flex;
   flex-direction: column;
   z-index: 100;
@@ -145,7 +145,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 200;
-  background: linear-gradient(135deg, #1a0004, #0b0002);
+  background: #050505;
   border-bottom: 1px solid rgba(232,0,61,0.35);
   backdrop-filter: blur(16px);
   padding: 12px 16px;
@@ -187,7 +187,7 @@ body {
   top: 0; right: 0;
   width: 260px;
   height: 100vh;
-  background: linear-gradient(180deg, #1a0004, #0b0002);
+  background: #050505;
   border-left: 1px solid rgba(232,0,61,0.30);
   z-index: 300;
   padding: 60px 0 24px;
@@ -231,11 +231,11 @@ body {
 .hero {
   position: relative;
   width: 100%;
-  height: 60vh;
-  min-height: 320px;
-  max-height: 520px;
+  height: 72vh;
+  min-height: 360px;
+  max-height: 640px;
   overflow: hidden;
-  background: linear-gradient(135deg, #2d0018, #130003);
+  background: #080808;
 }
 .hero-img {
   width: 100%;
@@ -252,7 +252,7 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 12px;
-  background: linear-gradient(135deg, #3d0020 0%, #130003 100%);
+  background: #080808;
 }
 .hero-placeholder p {
   font-size: 11px;
@@ -266,7 +266,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   padding: 32px 36px;
-  background: linear-gradient(to top, rgba(14,0,7,0.90) 0%, rgba(14,0,7,0.30) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(4,4,4,0.95) 0%, rgba(4,4,4,0.25) 55%, transparent 100%);
 }
 .hero-overlay .catch {
   font-size: 10px;
@@ -545,7 +545,7 @@ body {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   z-index: 100;
-  background: linear-gradient(135deg, #1a0004, #0b0002);
+  background: #050505;
   border-top: 1px solid rgba(232,0,61,0.35);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -693,15 +693,7 @@ body {
 
   <!-- HERO -->
   <section class="hero">
-    <!-- ▼▼▼ イラスト差し替え: <img> タグのコメントアウトを外してパスを設定 ▼▼▼ -->
-    <!--
-    <img src="./assets/img/hero.jpg" alt="UG強奪競馬新聞" class="hero-img"/>
-    -->
-    <div class="hero-placeholder">
-      <span style="font-size:48px;">🏇</span>
-      <p>HERO IMAGE — イラスト差し替え予定</p>
-      <p style="font-size:9px;">assets/img/hero.jpg に配置してください</p>
-    </div>
+    <img src="./assets/img/hero.png" alt="UG強奪競馬新聞" class="hero-img" style="object-position:center center;"/>
     <div class="hero-overlay">
       <p class="catch">Thoroughbred Underground — Racing Intelligence</p>
       <h2 class="font-anton">UG強奪競馬新聞</h2>
