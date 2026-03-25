@@ -10,65 +10,64 @@
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   body {
     font-family: 'Public Sans', sans-serif;
-    background: #f0f4f0;
-    color: #191c1b;
+    background: #ffffff;
+    color: #FF007F;
     min-height: 100vh;
   }
   .serif { font-family: 'Noto Serif JP', serif; }
   .card {
-    background: rgba(14,26,14,0.90);
+    background: #ffffff;
     border-radius: 18px;
-    border: 1px solid rgba(212,175,55,0.28);
+    border: 2px solid rgba(255,0,127,0.35);
     overflow: hidden;
   }
   a.card { transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.18s ease; }
-  a.card:hover { border-color: rgba(212,175,55,0.65); box-shadow: 0 0 20px rgba(212,175,55,0.18); transform: translateY(-1px); }
+  a.card:hover { border-color: #FF007F; box-shadow: 0 0 20px rgba(255,0,127,0.25); transform: translateY(-1px); }
   a.card:active { transform: scale(0.97); }
-  /* 速報ティッカー */
   .ticker-wrap { overflow: hidden; white-space: nowrap; }
   .ticker-text { display: inline-block; animation: ticker-scroll 20s linear infinite; padding-left: 100%; }
   @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
   .race-pill {
     display: flex; flex-direction: column; align-items: flex-start;
-    background: linear-gradient(135deg, #1a4a22, #0e2e14);
-    border: 1px solid rgba(212,175,55,0.35);
-    color: #f1d592;
+    background: #FF007F;
+    border: 2px solid #cc0066;
+    color: #ffffff;
     font-size: 9px; font-weight: 900;
     padding: 7px 8px; border-radius: 10px; line-height: 1.3;
     text-decoration: none; transition: all 0.18s ease;
   }
-  .race-pill:hover { background: linear-gradient(135deg,#d4af37,#b8860b); color:#000; box-shadow:0 0 14px rgba(212,175,55,0.50); }
+  .race-pill:hover { background: #ffffff; color: #FF007F; border: 2px solid #FF007F; box-shadow: 0 0 14px rgba(255,0,127,0.40); }
   .race-pill-locked {
     display: flex; flex-direction: column; align-items: flex-start;
-    background: rgba(20,20,20,0.7);
-    border: 1px solid rgba(80,80,80,0.30);
-    color: #4a5a4a;
+    background: rgba(255,0,127,0.06);
+    border: 1px solid rgba(255,0,127,0.20);
+    color: rgba(255,0,127,0.40);
     font-size: 9px; font-weight: 900;
     padding: 7px 8px; border-radius: 10px; line-height: 1.3;
     cursor: not-allowed;
   }
-  .badge-hit { background: rgba(212,175,55,0.15); color: #d4af37; border: 1px solid rgba(212,175,55,0.40); font-size: 9px; font-weight: 900; padding: 2px 8px; border-radius: 999px; }
-  .gold-glow { color: #f1d592; text-shadow: 0 0 18px rgba(212,175,55,0.40); }
-  .gold-border { border: 1px solid rgba(212,175,55,0.30); }
+  .badge-hit { background: rgba(255,0,127,0.10); color: #FF007F; border: 1px solid rgba(255,0,127,0.30); font-size: 9px; font-weight: 900; padding: 2px 8px; border-radius: 999px; }
+  .pink-glow { color: #FF007F; text-shadow: 0 0 18px rgba(255,0,127,0.40); }
+  .pink-border { border: 2px solid rgba(255,0,127,0.35); }
 </style>
 </head>
 <body class="min-h-screen pb-24">
 
 <!-- ===== HEADER ===== -->
-<header style="background:rgba(0,0,0,0.94);border-bottom:1px solid rgba(212,175,55,0.30);backdrop-filter:blur(14px);" class="sticky top-0 z-50">
+<header style="background:#FF007F;border-bottom:2px solid #cc0066;backdrop-filter:blur(14px);" class="sticky top-0 z-50">
   <div class="px-4 pt-4 pb-3 max-w-lg mx-auto">
-    <p class="text-[8px] uppercase tracking-widest font-bold" style="color:rgba(212,175,55,0.50);">Thoroughbred Underground</p>
-    <h1 class="serif text-[15px] font-bold leading-snug mt-0.5 gold-glow">
+    <p class="text-[8px] uppercase tracking-widest font-bold" style="color:rgba(255,255,255,0.80);">Thoroughbred Underground</p>
+    <h1 class="serif text-[15px] font-bold leading-snug mt-0.5 pink-glow">
       🤡 UG強奪競馬新聞 〜馬券師グランプリ〜 🤡
     </h1>
-    <p class="text-[9px] mt-0.5 font-bold tracking-wide" style="color:#5a7a5a;">サラブレッドアンダーグラウンド製作委員会</p>
+    <p class="text-[9px] mt-0.5 font-bold tracking-wide" style="color:rgba(255,255,255,0.75);">サラブレッドアンダーグラウンド製作委員会</p>
   </div>
   <!-- 的中実績バナー -->
-  <div style="background:linear-gradient(90deg,rgba(212,175,55,0.12),rgba(212,175,55,0.06));border-top:1px solid rgba(212,175,55,0.20);border-bottom:1px solid rgba(212,175,55,0.20);" class="px-4 py-2 max-w-lg mx-auto">
-    <p class="text-[11px] font-black text-center" style="color:#f1d592;text-shadow:0 0 12px rgba(212,175,55,0.35);">🏆 5戦3勝の衝撃。次はキミの番だ。</p>
+  <div style="background:rgba(255,255,255,0.18);border-top:1px solid rgba(255,255,255,0.25);border-bottom:1px solid rgba(255,255,255,0.25);" class="px-4 py-2 max-w-lg mx-auto">
+    <p class="text-[11px] font-black text-center" style="color:#ffffff;">🏆 5戦3勝の衝撃。次はキミの番だ。</p>
   </div>
   <!-- 速報ティッカー -->
-  <div class="ticker-wrap py-1.5" style="background:#006400;">
+  <div class="ticker-wrap py-1.5" style="background:#cc0066;">
     <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
       🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯 &nbsp;｜&nbsp; フラワーCは次回リベンジ🏴‍☠️ &nbsp;｜&nbsp; ✅「高松宮記念」「日経賞」「マーチS」「毎日杯」注目４重賞全頭解析公開中 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯
     </span>
@@ -83,33 +82,33 @@
 
     <!-- ① 重賞展望 -->
     <div class="card">
-      <div style="background:linear-gradient(135deg,#0a2a12,#061406);border-bottom:1px solid rgba(212,175,55,0.25);" class="px-3 py-2.5">
-        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(212,175,55,0.55);">Grade Race Preview</p>
-        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#f1d592;">⭐ 重賞展望</p>
+      <div style="background:#FF007F;border-bottom:1px solid rgba(255,255,255,0.20);" class="px-3 py-2.5">
+        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.80);">Grade Race Preview</p>
+        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#ffffff;">⭐ 重賞展望</p>
       </div>
       <div class="px-3 py-3">
-        <p class="text-[10px] font-black mb-2.5" style="color:#dce8dc;">週末重賞 全頭診断 公開中</p>
+        <p class="text-[10px] font-black mb-2.5" style="color:#FF007F;">週末重賞 全頭診断 公開中</p>
         <div class="grid grid-cols-2 gap-1.5">
-          <a href="./docs/2026-03-29-nikkei-sho.html" class="race-pill">🏇 日経賞<span style="color:rgba(241,213,146,0.70);font-size:8px;">G2 中山 3/29</span></a>
-          <a href="./docs/2026-03-28-mainichi-hai.html" class="race-pill">🏇 毎日杯<span style="color:rgba(241,213,146,0.70);font-size:8px;">G3 阪神 3/28</span></a>
-          <a href="./docs/2026-03-29-takamatsunomiya-kinen.html" class="race-pill">🏇 高松宮記念<span style="color:rgba(241,213,146,0.70);font-size:8px;">G1 中京 3/29</span></a>
-          <a href="./docs/2026-03-29-march-stakes.html" class="race-pill">🏇 マーチS<span style="color:rgba(241,213,146,0.70);font-size:8px;">G3 中山 3/29</span></a>
+          <a href="./docs/2026-03-29-nikkei-sho.html" class="race-pill">🏇 日経賞<span style="color:rgba(255,255,255,0.85);font-size:8px;">G2 中山 3/29</span></a>
+          <a href="./docs/2026-03-28-mainichi-hai.html" class="race-pill">🏇 毎日杯<span style="color:rgba(255,255,255,0.85);font-size:8px;">G3 阪神 3/28</span></a>
+          <a href="./docs/2026-03-29-takamatsunomiya-kinen.html" class="race-pill">🏇 高松宮記念<span style="color:rgba(255,255,255,0.85);font-size:8px;">G1 中京 3/29</span></a>
+          <a href="./docs/2026-03-29-march-stakes.html" class="race-pill">🏇 マーチS<span style="color:rgba(255,255,255,0.85);font-size:8px;">G3 中山 3/29</span></a>
         </div>
       </div>
     </div>
 
     <!-- ② 先週結果 -->
     <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html" class="card block">
-      <div style="background:linear-gradient(135deg,#3a2000,#1a0e00);border-bottom:1px solid rgba(212,175,55,0.25);" class="px-3 py-2.5">
-        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(212,175,55,0.55);">Last Week Result</p>
-        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#f1d592;">🏆 先週結果</p>
+      <div style="background:#FF007F;border-bottom:1px solid rgba(255,255,255,0.20);" class="px-3 py-2.5">
+        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.80);">Last Week Result</p>
+        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#ffffff;">🏆 先週結果</p>
       </div>
       <div class="px-3 py-3">
-        <p class="text-[10px] font-bold leading-relaxed" style="color:#9ab09a;">3/21-22<br>ファルコンS・若葉S<br>阪神大賞典</p>
+        <p class="text-[10px] font-bold leading-relaxed" style="color:rgba(255,255,255,0.80);">3/21-22<br>ファルコンS・若葉S<br>阪神大賞典</p>
         <div class="mt-2 flex flex-wrap gap-1">
           <span class="badge-hit">🎯 的中！</span>
         </div>
-        <p class="text-[10px] font-black mt-2" style="color:#d4af37;">詳細を見る →</p>
+        <p class="text-[10px] font-black mt-2" style="color:#FF007F;">詳細を見る →</p>
       </div>
     </a>
 
@@ -120,30 +119,30 @@
 
     <!-- ③ 過去レース -->
     <a href="./docs/archive.html" class="card block">
-      <div style="background:rgba(15,15,15,0.95);border-bottom:1px solid rgba(212,175,55,0.20);" class="px-3 py-2.5">
-        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(212,175,55,0.45);">Archive</p>
-        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#f1d592;">📂 過去レース</p>
+      <div style="background:#FF007F;border-bottom:1px solid rgba(255,255,255,0.20);" class="px-3 py-2.5">
+        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.75);">Archive</p>
+        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#ffffff;">📂 過去レース</p>
       </div>
       <div class="px-3 py-3">
-        <p class="text-[10px] font-bold" style="color:#7a9a7a;">アーカイブ一覧</p>
-        <p class="text-[12px] font-black mt-1 leading-tight" style="color:#dce8dc;">過去の予想と<br>結果を全公開</p>
+        <p class="text-[10px] font-bold" style="color:rgba(255,0,127,0.55);">アーカイブ一覧</p>
+        <p class="text-[12px] font-black mt-1 leading-tight" style="color:#FF007F;">過去の予想と<br>結果を全公開</p>
         <div class="mt-2">
-          <span class="text-[9px] font-black px-1.5 py-0.5 rounded-full" style="background:rgba(212,175,55,0.12);color:#d4af37;border:1px solid rgba(212,175,55,0.25);">📊 全記録</span>
+          <span class="text-[9px] font-black px-1.5 py-0.5 rounded-full" style="background:rgba(255,0,127,0.10);color:#FF007F;border:1px solid rgba(255,0,127,0.25);">📊 全記録</span>
         </div>
       </div>
     </a>
 
     <!-- ④ 馬券の買い方 -->
     <a href="./docs/how-to-buy.html" class="card block">
-      <div style="background:linear-gradient(135deg,#0a2a12,#061406);border-bottom:1px solid rgba(212,175,55,0.25);" class="px-3 py-2.5">
-        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(212,175,55,0.55);">How to Buy</p>
-        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#f1d592;">🎫 馬券の買い方</p>
+      <div style="background:#FF007F;border-bottom:1px solid rgba(255,255,255,0.20);" class="px-3 py-2.5">
+        <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.80);">How to Buy</p>
+        <p class="font-black text-[13px] leading-tight mt-0.5" style="color:#ffffff;">🎫 馬券の買い方</p>
       </div>
       <div class="px-3 py-3">
-        <p class="text-[10px] font-bold" style="color:#7a9a7a;">🤡 強奪ニック式</p>
-        <p class="text-[12px] font-black mt-1 leading-tight" style="color:#d4af37;">推奨馬券術<br>点数早見表</p>
+        <p class="text-[10px] font-bold" style="color:rgba(255,0,127,0.55);">🤡 強奪ニック式</p>
+        <p class="text-[12px] font-black mt-1 leading-tight" style="color:#FF007F;">推奨馬券術<br>点数早見表</p>
         <div class="mt-2">
-          <span class="text-[9px] font-black px-1.5 py-0.5 rounded-full" style="background:rgba(40,167,69,0.15);color:#6fdd8a;border:1px solid rgba(40,167,69,0.30);">🎫 初心者も歓迎</span>
+          <span class="text-[9px] font-black px-1.5 py-0.5 rounded-full" style="background:rgba(255,0,127,0.10);color:#FF007F;border:1px solid rgba(255,0,127,0.25);">🎫 初心者も歓迎</span>
         </div>
       </div>
     </a>
@@ -152,42 +151,42 @@
 
   <!-- Row 3: 最終予想（全幅） -->
   <div class="card">
-    <div style="background:rgba(8,8,8,0.97);border-bottom:1px solid rgba(212,175,55,0.18);" class="px-5 py-3 flex items-center justify-between">
+    <div style="background:#FF007F;border-bottom:1px solid rgba(255,255,255,0.20);" class="px-5 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="text-2xl">🔒</span>
         <div>
-          <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(212,175,55,0.40);">Coming Soon</p>
-          <p class="font-black text-sm" style="color:#f1d592;">最終予想</p>
+          <p class="text-[8px] font-bold uppercase tracking-wider" style="color:rgba(255,255,255,0.75);">Coming Soon</p>
+          <p class="font-black text-sm" style="color:#ffffff;">最終予想</p>
         </div>
       </div>
-      <span class="text-[9px] font-black px-2.5 py-1 rounded-lg" style="background:rgba(212,175,55,0.10);color:rgba(212,175,55,0.60);border:1px solid rgba(212,175,55,0.20);">準備中</span>
+      <span class="text-[9px] font-black px-2.5 py-1 rounded-lg" style="background:rgba(255,255,255,0.20);color:#ffffff;border:1px solid rgba(255,255,255,0.40);">準備中</span>
     </div>
     <div class="px-5 py-7 text-center">
       <p class="text-5xl mb-3">🔒</p>
-      <p class="font-black text-lg" style="color:#dce8dc;">土曜朝8時公開予定</p>
-      <p class="text-xs mt-1 font-bold tracking-widest" style="color:#5a7a5a;">3/28 8:00〜</p>
-      <div class="mt-4 rounded-2xl px-5 py-3.5" style="background:rgba(255,255,255,0.03);border:1px solid rgba(212,175,55,0.12);">
-        <p class="text-[11px] font-bold leading-relaxed" style="color:#5a7a5a;">強奪ニックの全頭診断を準備中だ<br>公開まで少し待ってくれよ</p>
+      <p class="font-black text-lg" style="color:#FF007F;">土曜朝8時公開予定</p>
+      <p class="text-xs mt-1 font-bold tracking-widest" style="color:rgba(255,255,255,0.75);">3/28 8:00〜</p>
+      <div class="mt-4 rounded-2xl px-5 py-3.5" style="background:rgba(255,0,127,0.04);border:1px solid rgba(255,0,127,0.15);">
+        <p class="text-[11px] font-bold leading-relaxed" style="color:rgba(255,255,255,0.75);">強奪ニックの全頭診断を準備中だ<br>公開まで少し待ってくれよ</p>
       </div>
     </div>
   </div>
 
   <!-- 小説を読む -->
   <a href="#" class="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-black text-sm transition-all"
-     style="background:rgba(14,26,14,0.85);border:1px solid rgba(212,175,55,0.28);color:#d4af37;"
-     onmouseover="this.style.background='linear-gradient(135deg,#d4af37,#b8860b)';this.style.color='#000';"
-     onmouseout="this.style.background='rgba(14,26,14,0.85)';this.style.color='#d4af37';">
+     style="background:#FF007F;border:2px solid #cc0066;color:#ffffff;"
+     onmouseover="this.style.background='#ffffff';this.style.color='#FF007F';"
+     onmouseout="this.style.background='#FF007F';this.style.color='#ffffff';">
     <span class="material-symbols-outlined text-base">menu_book</span>
     小説を読む
     <span class="material-symbols-outlined text-sm" style="opacity:0.5;">open_in_new</span>
   </a>
 
   <!-- スタッフ -->
-  <div class="rounded-2xl px-5 py-4 text-center space-y-1.5" style="background:rgba(10,16,10,0.85);border:1px solid rgba(212,175,55,0.18);">
-    <p class="text-[11px] font-black" style="color:#dce8dc;">運営：サラブレッドアンダーグラウンド製作委員会</p>
-    <div class="pt-1.5 space-y-1" style="border-top:1px solid rgba(212,175,55,0.10);">
-      <p class="text-[10px] font-bold" style="color:#7a9a7a;">馬券師UGリーダー　強奪馬券師ニック</p>
-      <p class="text-[10px] font-bold" style="color:#7a9a7a;">競馬データアナリスト　ギーニョ＆ゴトー</p>
+  <div class="rounded-2xl px-5 py-4 text-center space-y-1.5" style="background:#ffffff;border:2px solid rgba(255,0,127,0.25);">
+    <p class="text-[11px] font-black" style="color:#FF007F;">運営：サラブレッドアンダーグラウンド製作委員会</p>
+    <div class="pt-1.5 space-y-1" style="border-top:1px solid rgba(255,0,127,0.15);">
+      <p class="text-[10px] font-bold" style="color:rgba(255,0,127,0.55);">馬券師UGリーダー　強奪馬券師ニック</p>
+      <p class="text-[10px] font-bold" style="color:rgba(255,0,127,0.55);">競馬データアナリスト　ギーニョ＆ゴトー</p>
     </div>
   </div>
 
@@ -195,22 +194,22 @@
 </main>
 
 <!-- ===== FIXED FOOTER NAV ===== -->
-<footer style="position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(0,0,0,0.96);border-top:1px solid rgba(212,175,55,0.30);">
+<footer style="position:fixed;bottom:0;left:0;right:0;z-index:50;background:#FF007F;border-top:2px solid #cc0066;">
   <div style="display:grid;grid-template-columns:repeat(4,1fr);max-width:512px;margin:0 auto;">
-    <a href="./index.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:#f1d592;text-decoration:none;background:rgba(212,175,55,0.08);border-right:1px solid rgba(212,175,55,0.12);">
+    <a href="./index.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:#ffffff;text-decoration:none;background:rgba(255,255,255,0.15);border-right:1px solid rgba(255,255,255,0.20);">
       <span class="material-symbols-outlined" style="font-size:22px;">trophy</span>
       <span style="font-size:9px;font-weight:900;letter-spacing:0.03em;">重賞展望</span>
     </a>
-    <a href="#" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:#4a5a4a;text-decoration:none;position:relative;border-right:1px solid rgba(212,175,55,0.08);">
+    <a href="#" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:rgba(255,255,255,0.50);text-decoration:none;position:relative;border-right:1px solid rgba(255,255,255,0.20);">
       <span class="material-symbols-outlined" style="font-size:22px;">lock</span>
       <span style="font-size:9px;font-weight:900;letter-spacing:0.03em;">最終予想</span>
       <span style="position:absolute;top:4px;right:8px;font-size:7px;font-weight:900;background:#dc2626;color:#fff;padding:1px 4px;border-radius:999px;">準備中</span>
     </a>
-    <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:#7a9a7a;text-decoration:none;border-right:1px solid rgba(212,175,55,0.08);">
+    <a href="./docs/2026-03-21-ug-free-7x9z2p/index.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:rgba(255,255,255,0.80);text-decoration:none;border-right:1px solid rgba(255,255,255,0.20);">
       <span class="material-symbols-outlined" style="font-size:22px;">emoji_events</span>
       <span style="font-size:9px;font-weight:900;letter-spacing:0.03em;">レース結果</span>
     </a>
-    <a href="./docs/archive.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:#7a9a7a;text-decoration:none;">
+    <a href="./docs/archive.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0 8px;gap:2px;color:rgba(255,255,255,0.80);text-decoration:none;">
       <span class="material-symbols-outlined" style="font-size:22px;">history</span>
       <span style="font-size:9px;font-weight:900;letter-spacing:0.03em;">過去戦績</span>
     </a>

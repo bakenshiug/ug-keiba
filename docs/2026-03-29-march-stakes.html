@@ -56,86 +56,92 @@
   .border-E  { border-left: 4px solid #dc2626; }
 </style>
 
-<style id="ug-gold-theme">
+<style id="ug-pink-theme">
 /* ══════════════════════════════════════
-   UG GOLD DARK THEME — 稼げる投資顧問風
+   UG PINK WHITE THEME — ポップ＆ラグジュアリー
    ══════════════════════════════════════ */
 :root {
-  --ug-bg-deep:   #000000;
-  --ug-bg-dark:   #0a1a0c;
-  --ug-bg-card:   rgba(14,26,14,0.92);
-  --ug-gold:      #d4af37;
-  --ug-gold-lt:   #f1d592;
-  --ug-green:     #28a745;
-  --ug-text:      #dce8dc;
-  --ug-muted:     #7a9a7a;
-  --ug-border:    rgba(212,175,55,0.30);
+  --ug-pink:    #FF007F;
+  --ug-pink-dk: #cc0066;
+  --ug-white:   #ffffff;
+  --ug-muted:   rgba(255,0,127,0.50);
+  --ug-border:  rgba(255,0,127,0.30);
 }
 
-html { background: #f8faf8 !important; }
-body {
-  background: #f8faf8 !important;
-  color: #191c1b !important;
-  min-height: 100vh;
-}
+/* ── Base ─────────────────────────────── */
+html { background: #ffffff !important; }
+body { background: #ffffff !important; color: #FF007F !important; min-height: 100vh; }
 
+/* ── Header ──────────────────────────── */
 header {
-  background: rgba(0,0,0,0.94) !important;
-  border-bottom: 1px solid var(--ug-border) !important;
+  background: #FF007F !important;
+  border-bottom: 2px solid #cc0066 !important;
   backdrop-filter: blur(14px) !important;
 }
-header p, header span { color: var(--ug-muted) !important; }
-header h1, header a h1 { color: var(--ug-gold-lt) !important; text-shadow: 0 0 18px rgba(212,175,55,0.35) !important; }
-header .text-\[\#004900\], header .text-\[\#707a6a\] { color: var(--ug-muted) !important; }
+header p, header span { color: #ffffff !important; }
+header h1, header a h1 { color: #ffffff !important; text-shadow: none !important; }
+header .text-\[\#004900\], header .text-\[\#707a6a\] { color: #ffffff !important; }
+header a, header button { color: #ffffff !important; }
+header .bg-\[\#f2f4f2\] { background: rgba(255,255,255,0.20) !important; }
+header .text-\[\#9ca3af\], header .text-\[\#707a6a\] { color: rgba(255,255,255,0.70) !important; }
 
+/* ── Cards / White boxes ─────────────── */
 .bg-white, .card,
 [class*="rounded-2xl"].bg-white,
 [class*="rounded-2xl"].border {
-  background: var(--ug-bg-card) !important;
-  border-color: var(--ug-border) !important;
-  color: var(--ug-text) !important;
+  background: #ffffff !important;
+  border-color: rgba(255,0,127,0.35) !important;
+  color: #FF007F !important;
 }
 
+/* ── Section boxes ─────────────────────── */
 .bg-\[\#f2f4f2\] {
-  background: rgba(255,255,255,0.05) !important;
-  border: 1px solid rgba(212,175,55,0.12) !important;
+  background: rgba(255,0,127,0.04) !important;
+  border: 1px solid rgba(255,0,127,0.12) !important;
 }
 
+/* ── Green headers → Pink ─────────────── */
 .bg-\[\#006400\], .bg-\[\#004900\] {
-  background: linear-gradient(135deg, #0a2a12, #071a09) !important;
-  border: 1px solid var(--ug-border) !important;
+  background: #FF007F !important;
+  border: none !important;
 }
-
-.text-\[\#191c1b\], .text-\[\#374151\] { color: var(--ug-text) !important; }
-.text-\[\#707a6a\], .text-\[\#6b7280\] { color: var(--ug-muted) !important; }
-.text-\[\#004900\]                      { color: var(--ug-gold-lt) !important; }
-.text-\[\#2d5a27\]                      { color: var(--ug-gold-lt) !important; }
-.text-sm, .text-base, p, span, li, td  { color: inherit; }
-
 .bg-\[\#004900\].px-5.py-3 {
-  background: linear-gradient(90deg,#0a2a12,#071a09) !important;
-  border-bottom: 1px solid var(--ug-border) !important;
+  background: #FF007F !important;
+  border-bottom: 1px solid rgba(255,255,255,0.20) !important;
 }
 
+/* ── Text colors ─────────────────────── */
+.text-\[\#191c1b\], .text-\[\#374151\] { color: #FF007F !important; }
+.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(255,0,127,0.55) !important; }
+.text-\[\#004900\]                        { color: #FF007F !important; }
+.text-\[\#2d5a27\]                        { color: #FF007F !important; }
+.text-sm, .text-base, p, span, li, td      { color: inherit; }
+
+/* ── Info pills ─────────── */
 .bg-\[\#eceeec\] {
-  background: rgba(212,175,55,0.10) !important;
-  color: var(--ug-gold-lt) !important;
-  border: 1px solid rgba(212,175,55,0.18) !important;
+  background: rgba(255,0,127,0.07) !important;
+  color: #FF007F !important;
+  border: 1px solid rgba(255,0,127,0.20) !important;
 }
 .bg-\[\#c4eab5\] {
-  background: rgba(40,167,69,0.18) !important;
-  color: #6fdd8a !important;
+  background: rgba(255,0,127,0.07) !important;
+  color: #FF007F !important;
 }
 
+/* ── Ticker ──────────────────────────── */
+.ticker-wrap { background: #cc0066 !important; }
+
+/* ── Hot card (激走警報) ─────────────────── */
 .border-2.border-\[\#dc2626\]\/60 {
-  border-color: var(--ug-gold) !important;
-  box-shadow: 0 0 18px rgba(212,175,55,0.20) !important;
+  border-color: rgba(255,0,127,0.60) !important;
+  box-shadow: 0 0 18px rgba(255,0,127,0.20) !important;
 }
 .bg-gradient-to-r.from-\[\#7f1d1d\] {
-  background: linear-gradient(90deg, #1a1000, #2a1e00) !important;
-  border-bottom: 1px solid var(--ug-gold) !important;
+  background: linear-gradient(90deg, #FF007F, #cc0066) !important;
+  border-bottom: none !important;
 }
 
+/* ── Grade badges — keep colors ─────── */
 .grade-S  { background:#D97706!important; color:#fff!important; }
 .grade-A  { background:#DB2777!important; color:#fff!important; }
 .grade-Bp { background:#F43F5E!important; color:#fff!important; }
@@ -143,8 +149,9 @@ header .text-\[\#004900\], header .text-\[\#707a6a\] { color: var(--ug-muted) !i
 .grade-C  { background:#2563EB!important; color:#fff!important; }
 .grade-D  { background:#6B7280!important; color:#fff!important; }
 .grade-E  { background:#dc2626!important; color:#fff!important; }
-.grade-none { background:#1e2e1e!important; color:#5a7a5a!important; border:1px solid rgba(212,175,55,0.15)!important; }
+.grade-none { background:rgba(255,0,127,0.10)!important; color:#FF007F!important; border:1px solid rgba(255,0,127,0.20)!important; }
 
+/* ── Border left colored lines ────────── */
 .border-A  { border-left: 4px solid #DB2777 !important; }
 .border-Bp { border-left: 4px solid #F43F5E !important; }
 .border-B  { border-left: 4px solid #EA580C !important; }
@@ -152,228 +159,25 @@ header .text-\[\#004900\], header .text-\[\#707a6a\] { color: var(--ug-muted) !i
 .border-D  { border-left: 4px solid #6B7280 !important; }
 .border-E  { border-left: 4px solid #dc2626 !important; }
 
+/* ── Race pills ─────────────── */
 a.race-pill {
-  background: linear-gradient(135deg, #1a4a22, #0e2e14) !important;
-  border: 1px solid var(--ug-border) !important;
-  color: var(--ug-gold-lt) !important;
-  transition: all 0.18s ease !important;
+  background: #FF007F !important;
+  border: 2px solid #cc0066 !important;
+  color: #ffffff !important;
 }
-a.race-pill:hover, a.race-pill:active {
-  background: linear-gradient(135deg, var(--ug-gold), #b8860b) !important;
-  color: #000 !important;
-  box-shadow: 0 0 14px rgba(212,175,55,0.50) !important;
-}
-.race-pill-locked {
-  background: rgba(30,30,30,0.6) !important;
-  border: 1px solid rgba(100,100,100,0.25) !important;
-  color: #5a6a5a !important;
-}
-
-.bg-\[\#f2f4f2\].rounded-2xl {
-  background: rgba(10,20,10,0.7) !important;
-  border: 1px solid rgba(212,175,55,0.12) !important;
-}
-.text-\[\#707a6a\].leading-relaxed { color: #5a7a5a !important; }
-
-footer {
-  background: rgba(0,0,0,0.96) !important;
-  border-top: 1px solid var(--ug-border) !important;
-}
-footer a { color: var(--ug-muted) !important; }
-footer a:first-child { color: var(--ug-gold-lt) !important; }
-footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-gold-lt) !important; }
-
-.bg-amber-500 { background: linear-gradient(135deg,#7a4a00,#3a2000) !important; border:1px solid var(--ug-border)!important; }
-.bg-\[\#4b5563\] { background: rgba(20,20,20,0.9) !important; }
-
-::-webkit-scrollbar { width: 4px; background: #0a1a0c; }
-::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.30); border-radius: 2px; }
-
-/* 診断カード白背景オーバーライド */
-[class*="rounded-2xl"].border-A,
-[class*="rounded-2xl"].border-Bp,
-[class*="rounded-2xl"].border-B,
-[class*="rounded-2xl"].border-C,
-[class*="rounded-2xl"].border-D,
-[class*="rounded-2xl"].border-E,
-[class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60,
-[class*="rounded-2xl"].border-2.border-\[\#7c3aed\]\/60 {
+a.race-pill:hover {
   background: #ffffff !important;
-  color: #191c1b !important;
-  border-color: initial;
+  color: #FF007F !important;
+  border: 2px solid #FF007F !important;
+  box-shadow: 0 0 14px rgba(255,0,127,0.40) !important;
 }
-[class*="rounded-2xl"].border-S  { border-left: 4px solid #6d28d9 !important; }
-[class*="rounded-2xl"].border-A  { border-left: 4px solid #DB2777 !important; }
-[class*="rounded-2xl"].border-Bp { border-left: 4px solid #F43F5E !important; }
-[class*="rounded-2xl"].border-B  { border-left: 4px solid #EA580C !important; }
-[class*="rounded-2xl"].border-C  { border-left: 4px solid #2563EB !important; }
-[class*="rounded-2xl"].border-D  { border-left: 4px solid #6B7280 !important; }
-[class*="rounded-2xl"].border-E  { border-left: 4px solid #dc2626 !important; }
+a.race-pill span { color: rgba(255,255,255,0.85) !important; }
 
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .bg-\[\#f2f4f2\] {
-  background: #f2f4f2 !important;
-  border: 1px solid rgba(191,202,183,0.50) !important;
-  color: #191c1b !important;
-}
-
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .text-\[\#707a6a\] { color: #707a6a !important; }
-
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .text-\[\#004900\] { color: #004900 !important; }
-
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .text-\[\#191c1b\],
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) p,
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) span { color: inherit !important; }
-
-/* 白カード内グレードバッジは白文字を維持 */
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .grade-S,
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .grade-A,
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .grade-Bp,
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .grade-B,
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .grade-C,
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .grade-D,
-:is(
-  [class*="rounded-2xl"].border-S,
-  [class*="rounded-2xl"].border-A,
-  [class*="rounded-2xl"].border-Bp,
-  [class*="rounded-2xl"].border-B,
-  [class*="rounded-2xl"].border-C,
-  [class*="rounded-2xl"].border-D,
-  [class*="rounded-2xl"].border-E,
-  [class*="rounded-2xl"].border-2.border-\[\#dc2626\]\/60
-) .grade-E { color: #fff !important; }
-
-/* 総合グレードラベル: 強制白文字・大きめサイズ */
-.label-data[class*="grade-"] {
-  color: #fff !important;
-  font-size: 1.25rem !important;
-}
-
-/* ===== Info section white override ===== */
-/* ── White info sections (強奪ニック全頭診断 / 総合ランキング / 穴馬警報) ── */
-/* specificity [0,2,0] で [class*="rounded-2xl"].border に勝つ */
-[class*="rounded-2xl"].ug-info-white,
-.ug-info-white { background:#ffffff!important; color:#191c1b!important; border:1px solid rgba(0,73,0,0.12)!important; box-shadow:0 1px 4px rgba(0,0,0,0.06)!important; }
-.ug-info-white .bg-white { background:#ffffff!important; color:#191c1b!important; }
-.ug-info-white .bg-\[\#f2f4f2\] { background:rgba(0,73,0,0.05)!important; }
-.ug-info-white .bg-\[\#004900\] { background:#004900!important; }
-.ug-info-white .bg-gradient-to-r { background:linear-gradient(90deg,#7f1d1d,#991b1b)!important; }
-.ug-info-white .text-\[\#707a6a\] { color:#5a6a5a!important; }
-.ug-info-white .text-\[\#374151\] { color:#374151!important; }
-.ug-info-white .text-\[\#191c1b\] { color:#191c1b!important; }
-.ug-info-white .text-\[\#004900\] { color:#004900!important; }
-.ug-info-white .text-\[\#2d5a27\] { color:#2d5a27!important; }
-.ug-info-white .border-t { border-color:#e5ebe5!important; }
-.ug-info-white .font-bold { color:#191c1b!important; }
-/* ── ランキングヘッダー（緑bg内）テキストを白に固定 ── */
-.ug-info-white .bg-\[\#004900\] * { color:#ffffff!important; }
+/* ── Footer navigation ─────────────── */
+footer { background: #FF007F !important; border-top: 2px solid #cc0066 !important; }
+footer * { color: #ffffff !important; }
+footer a.text-\[\#9ca3af\], footer a.text-\[\#707a6a\] { color: rgba(255,255,255,0.75) !important; }
+footer .hover\:bg-\[\#f2f4f2\]:hover { background: #cc0066 !important; }
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
@@ -394,7 +198,7 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
 </header>
 
 <!-- 速報ティッカー -->
-<div class="ticker-wrap py-1.5 sticky top-[calc(var(--header-h,60px))] z-40" style="background:#006400;">
+<div class="ticker-wrap py-1.5 sticky top-[calc(var(--header-h,60px))] z-40" style="background:#cc0066;">
   <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
     🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯 &nbsp;｜&nbsp; ✅「マーチS」全頭データ解析公開中 &nbsp;｜&nbsp; 8セクション×24頭 完全診断 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯
   </span>
@@ -436,19 +240,19 @@ footer a:hover { background: rgba(212,175,55,0.08) !important; color: var(--ug-g
     <div class="px-5 py-4 space-y-1.5 label-data text-sm">
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-A">A</span>
-        <span class="font-bold text-sm" style="color:#191c1b!important">チュウワクリスエス・プロミストジーン・サンデーファンデー</span>
+        <span class="font-bold text-sm" style="color:#FF007F!important">チュウワクリスエス・プロミストジーン・サンデーファンデー</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-Bp">B+</span>
-        <span class="font-bold text-sm" style="color:#191c1b!important">アクションプラン・オメガギネス・ミッキーヌチバナ・ピュアキアン・メリークリスマス</span>
+        <span class="font-bold text-sm" style="color:#FF007F!important">アクションプラン・オメガギネス・ミッキーヌチバナ・ピュアキアン・メリークリスマス</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-B">B</span>
-        <span class="font-bold text-sm" style="color:#191c1b!important">ブレイクフォース・ミッキークレスト・スナークラファエロ・ショウナンライシン・ハナウマビーチ・ナイトアクアリウム・ルヴァンユニベール・ペプチドソレイユ・レヴォントゥレット・ハピ・ヴァルツァーシャル・コレペティトール</span>
+        <span class="font-bold text-sm" style="color:#FF007F!important">ブレイクフォース・ミッキークレスト・スナークラファエロ・ショウナンライシン・ハナウマビーチ・ナイトアクアリウム・ルヴァンユニベール・ペプチドソレイユ・レヴォントゥレット・ハピ・ヴァルツァーシャル・コレペティトール</span>
       </div>
       <div class="flex items-center gap-2">
         <span class="text-[11px] font-black px-2 py-0.5 rounded-full grade-C">C</span>
-        <span class="font-bold text-sm" style="color:#191c1b!important">ペイシャエス・マテンロウスカイ・マンマリアーレ・バスタードサフラン</span>
+        <span class="font-bold text-sm" style="color:#FF007F!important">ペイシャエス・マテンロウスカイ・マンマリアーレ・バスタードサフラン</span>
       </div>
     </div>
   </div>
