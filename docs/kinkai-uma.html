@@ -74,6 +74,10 @@
   .badge-kinkai-line     { background: linear-gradient(135deg,#E8003D,#f0c040); color:#fff; box-shadow:0 0 10px rgba(240,192,64,0.50); }
   .badge-jockey-keep     { background: linear-gradient(135deg,#06b6d4,#0e7490); color:#fff; }
   .badge-prev-course     { background: linear-gradient(135deg,#84cc16,#365314); color:#fff; }
+  .badge-trend           { background: linear-gradient(135deg,#f59e0b,#b45309); color:#fff; }
+
+  /* グレードタグ */
+  .grade-tag { display:inline-block; font-size:9px; font-weight:900; padding:0 4px; border-radius:3px; margin-right:3px; vertical-align:middle; background:rgba(255,255,255,0.25); letter-spacing:0.5px; }
 
   /* ── Input / Select ── */
   .ug-input {
@@ -523,6 +527,34 @@ const COURSES_DB = {
 };
 
 // ══════════════════════════════════════════
+//  距離横断 好調騎手データベース
+//  キー: 競馬場名 + 馬場 (例: "中山芝", "中山ダ")
+//  グレード "B" = 直近成績好調・距離横断で注目
+// ══════════════════════════════════════════
+const TREND_DB = {
+  "中山芝": {
+    "好調騎手": [
+      { name: "津村明秀",  grade: "B", stats: "10-8-2-39/59", 勝率: "16.9%", 連対率: "30.5%", 複勝率: "33.9%", 単回値: 120, 複回値:  75, memo: "中山芝で安定した高実績・10勝の信頼騎手" },
+      { name: "石川裕紀",  grade: "B", stats:  "4-1-2-21/28", 勝率: "14.3%", 連対率: "17.9%", 複勝率: "25.0%", 単回値: 763, 複回値: 156, memo: "単回値763！中山芝の超穴騎手" },
+      { name: "菅原明良",  grade: "B", stats:  "3-2-3-23/31", 勝率:  "9.7%", 連対率: "16.1%", 複勝率: "25.8%", 単回値: 191, 複回値: 165, memo: "単回値191・中山芝で好調継続中" },
+      { name: "横山和生",  grade: "B", stats:  "2-4-3-16/25", 勝率:  "8.0%", 連対率: "24.0%", 複勝率: "36.0%", 単回値: 113, 複回値:  91, memo: "複勝率36%・連対率24%の安定感" },
+      { name: "斎藤新",    grade: "B", stats:   "2-0-0-6/8",  勝率: "25.0%", 連対率: "25.0%", 複勝率: "25.0%", 単回値: 788, 複回値: 143, memo: "単回値788！少数精鋭の超穴騎手" },
+      { name: "鮫島克駿",  grade: "B", stats:   "1-0-1-2/4",  勝率: "25.0%", 連対率: "25.0%", 複勝率: "50.0%", 単回値: 215, 複回値:  95, memo: "単回値215・複勝率50%の中山芝好調" }
+    ]
+  },
+  "中山ダ": {
+    "好調騎手": [
+      { name: "岩田康誠",  grade: "B", stats:  "5-2-7-21/35", 勝率: "14.3%", 連対率: "20.0%", 複勝率: "40.0%", 単回値: 200, 複回値: 140, memo: "単回値200・複勝率40%の中山ダート好調騎手" },
+      { name: "菅原明良",  grade: "B", stats:  "4-5-7-23/39", 勝率: "10.3%", 連対率: "23.1%", 複勝率: "41.0%", 単回値: 129, 複回値: 113, memo: "複勝率41%・中山ダートでも安定した菅原" },
+      { name: "田辺裕信",  grade: "B", stats:  "4-3-6-15/28", 勝率: "14.3%", 連対率: "25.0%", 複勝率: "46.4%", 単回値: 125, 複回値: 146, memo: "複勝率46.4%！中山ダートの信頼騎手" },
+      { name: "キング",    grade: "B", stats:   "3-2-0-4/9",  勝率: "33.3%", 連対率: "55.6%", 複勝率: "55.6%", 単回値: 102, 複回値:  74, memo: "勝率33%・連対率55%の強力な好調騎手" },
+      { name: "西村淳也",  grade: "B", stats:   "2-2-1-4/9",  勝率: "22.2%", 連対率: "44.4%", 複勝率: "55.6%", 単回値: 250, 複回値: 136, memo: "単回値250！複勝率55%の西村淳也" }
+    ]
+  }
+  /* ← 好調騎手コースを追加する場合はここに追記 */
+};
+
+// ══════════════════════════════════════════
 //  JRA出馬表CSV 読み込み
 // ══════════════════════════════════════════
 let parsedCSVRaces = [];
@@ -961,6 +993,21 @@ function extractKinkaiUma() {
       });
     }
 
+    // ── 好調騎手チェック（TREND_DB：距離横断）
+    const trendKey = course.replace(/\d+m$/, '');  // "中山芝1600m" → "中山芝"
+    const trendData = TREND_DB[trendKey];
+    if (trendData) {
+      (trendData['好調騎手'] || []).forEach(cond => {
+        if (normalize(h.jockey) === normalize(cond.name)) {
+          matched.push({
+            type: '好調騎手',
+            cond,
+            label: `${cond.grade || 'B'} 好調騎手：${cond.name}`
+          });
+        }
+      });
+    }
+
     hits.push({ horse: h, matched });
   });
 
@@ -1030,6 +1077,7 @@ function renderResults(hits, raceName, course) {
         type: m.type,
         name: m.cond.name,
         memo: m.cond.memo || '',
+        grade: m.cond.grade || null,
         単回値: m.cond.単回値 || null,
         複回値: m.cond.複回値 || null,
         複勝率: m.cond.複勝率 || null,
@@ -1067,7 +1115,8 @@ function renderResults(hits, raceName, course) {
     h.matched.forEach(m => {
       const badge = document.createElement('span');
       badge.className = `text-[10px] font-bold px-2 py-0.5 rounded-full badge-${typeToClass(m.type)}`;
-      badge.textContent = m.type;
+      const gradePrefix = m.cond?.grade ? `<span class="grade-tag">${m.cond.grade}</span>` : '';
+      badge.innerHTML = gradePrefix + escHtml(m.type);
       right.appendChild(badge);
     });
 
@@ -1149,6 +1198,7 @@ function typeToClass(type) {
   if (type === '前走激走金塊馬')      return 'prev-激走';
   if (type === '継続騎乗金塊馬')      return 'jockey-keep';
   if (type === '前走コース金塊馬')    return 'prev-course';
+  if (type === '好調騎手')            return 'trend';
   return 'jockey';
 }
 
@@ -1161,12 +1211,30 @@ function buildDBView() {
     const section = document.createElement('div');
     section.innerHTML = `
       <h3 class="serif-headline font-bold mb-3" style="color:#E8003D">${escHtml(course)}</h3>
-      ${buildDBCategory(data['騎手']  || [], '騎手', 'jockey')}
-      ${buildDBCategory(data['調教師']|| [], '穴厩舎', 'trainer')}
-      ${buildDBCategory(data['種牡馬']|| [], '穴血統(種牡馬)', 'sire')}
-      ${(data['騎手継続']||[]).length > 0 ? buildDBCategory(data['騎手継続'], '継続騎乗注目', 'jockey-keep') : ''}
+      ${buildDBCategory(data['騎手']  || [], 'A コース金塊騎手', 'jockey')}
+      ${buildDBCategory(data['調教師']|| [], 'A コース金塊厩舎', 'trainer')}
+      ${buildDBCategory(data['種牡馬']|| [], 'A コース金塊血統', 'sire')}
+      ${(data['騎手継続']||[]).length > 0 ? buildDBCategory(data['騎手継続'], 'A 継続騎乗注目', 'jockey-keep') : ''}
       ${(data['前走コース']||[]).length > 0 ? buildDBCourseCategory(data['前走コース']) : ''}
       <div style="border-top:1px solid rgba(255,255,255,0.08)" class="mt-4"></div>
+    `;
+    container.appendChild(section);
+  });
+
+  // TREND_DB（距離横断好調騎手）表示
+  const trendHeader = document.createElement('h2');
+  trendHeader.className = 'serif-headline font-bold mt-6 mb-3 text-base';
+  trendHeader.style.cssText = 'color:#f59e0b';
+  trendHeader.textContent = '📈 B グレード：距離横断 好調騎手';
+  container.appendChild(trendHeader);
+
+  Object.entries(TREND_DB).forEach(([key, data]) => {
+    const section = document.createElement('div');
+    const displayName = key.replace('ダ', 'ダート');
+    section.innerHTML = `
+      <h3 class="font-bold mb-2 text-sm" style="color:rgba(255,255,255,0.70)">${escHtml(displayName)}</h3>
+      ${buildDBCategory(data['好調騎手'] || [], 'B 好調騎手', 'trend')}
+      <div style="border-top:1px solid rgba(255,255,255,0.06)" class="mt-3 mb-3"></div>
     `;
     container.appendChild(section);
   });

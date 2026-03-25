@@ -49,6 +49,8 @@
   .badge-kinkai-line     { background: linear-gradient(135deg,#E8003D,#f0c040); color:#fff; box-shadow:0 0 10px rgba(240,192,64,0.50); }
   .badge-jockey-keep     { background: linear-gradient(135deg,#06b6d4,#0e7490); color:#fff; }
   .badge-prev-course     { background: linear-gradient(135deg,#84cc16,#365314); color:#fff; }
+  .badge-trend           { background: linear-gradient(135deg,#f59e0b,#b45309); color:#fff; }
+  .grade-tag { display:inline-block; font-size:9px; font-weight:900; padding:0 4px; border-radius:3px; margin-right:3px; vertical-align:middle; background:rgba(255,255,255,0.25); letter-spacing:0.5px; }
 
   /* レースセクション */
   .race-section { border-left: 3px solid #E8003D; padding-left: 16px; }
@@ -241,6 +243,7 @@ const BADGE_MAP = {
   '前走激走金塊馬':         'prev-激走',
   '継続騎乗金塊馬':         'jockey-keep',
   '前走コース金塊馬':       'prev-course',
+  '好調騎手':               'trend',
 };
 const CONDITION_DESC = {
   'コース金塊騎手':         '近5年コースデータで高回収率を記録する穴騎手',
@@ -254,6 +257,7 @@ const CONDITION_DESC = {
   '前走激走金塊馬':         '前走3着以内の好走馬。勢いに乗れるか注目',
   '継続騎乗金塊馬':         '継続騎乗で近5年高単回値を記録！信頼の手替わりなし',
   '前走コース金塊馬':       '前走コース条件から参戦で好回収率！コース実績が活きる',
+  '好調騎手':               '直近成績好調・距離横断で注目の期待値B騎手',
 };
 
 // ── データ読み込み ──────────────────────────
@@ -309,7 +313,8 @@ function buildHorseCard(h, index, total) {
   const isMulti = h.conditions.length > 1;
   const condBadges = h.conditions.map(c => {
     const cls = BADGE_MAP[c.type] || 'jockey';
-    return `<span class="badge-${cls} text-xs font-bold px-2.5 py-0.5 rounded-full">${escHtml(c.type)}</span>`;
+    const gradeHtml = c.grade ? `<span class="grade-tag">${escHtml(c.grade)}</span>` : '';
+    return `<span class="badge-${cls} text-xs font-bold px-2.5 py-0.5 rounded-full">${gradeHtml}${escHtml(c.type)}</span>`;
   }).join('');
 
   const condDetails = h.conditions.map(c => {
