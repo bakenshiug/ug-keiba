@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Target競馬 CSVアナライザー | UG強奪競馬新聞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#130003;--bg-dk:#0b0002;--bg-md:#1a0004;
+  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
+  --text:#f5d0d5;--muted:rgba(255,255,255,0.50);
+  --card:rgba(255,255,255,0.07);--border:rgba(232,0,61,0.25);
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+/* ── Header ── */
+.hdr{background:linear-gradient(135deg,#1a0004,#0b0002);border-bottom:1px solid rgba(232,0,61,.4);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.hdr-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:#fff;text-shadow:0 0 20px rgba(232,0,61,.5);}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+/* ── Layout ── */
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px;display:flex;flex-direction:column;gap:20px;}
+/* ── Cards ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.card-head{background:linear-gradient(135deg,var(--pink),var(--pink-dk));padding:11px 18px;display:flex;align-items:center;gap:8px;}
+.card-head h2{font-size:13px;font-weight:900;color:#fff;letter-spacing:.05em;}
+.card-body{padding:18px;}
+/* ── Drop Zone ── */
+.drop-zone{border:2px dashed rgba(240,192,64,.45);border-radius:14px;padding:32px 20px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(240,192,64,.06);}
+.drop-zone:hover,.drop-zone.drag-over{border-color:rgba(240,192,64,.8);background:rgba(240,192,64,.12);}
+.drop-zone input{display:none;}
+.drop-zone-icon{font-size:36px;margin-bottom:8px;}
+.drop-zone-text{font-size:13px;font-weight:700;color:var(--gold);}
+.drop-zone-sub{font-size:11px;color:var(--muted);margin-top:4px;}
+/* ── File Status ── */
+.file-list{display:flex;flex-direction:column;gap:6px;margin-top:14px;}
+.file-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:8px;padding:8px 12px;font-size:12px;}
+.file-item.ok{border-color:rgba(240,192,64,.40);}
+.file-item.skip{opacity:.5;}
+.file-tag{font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;background:rgba(240,192,64,.18);color:var(--gold);border:1px solid rgba(240,192,64,.35);white-space:nowrap;}
+.file-tag.unknown{background:rgba(255,255,255,.08);color:var(--muted);border-color:rgba(255,255,255,.15);}
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .18s;}
+.btn-primary{background:linear-gradient(135deg,var(--pink),var(--pink-dk));color:#fff;box-shadow:0 2px 12px rgba(232,0,61,.35);}
+.btn-primary:hover{box-shadow:0 4px 20px rgba(232,0,61,.55);transform:translateY(-1px);}
+.btn-primary:disabled{opacity:.45;cursor:not-allowed;transform:none;}
+.btn-gold{background:linear-gradient(135deg,#b45309,#92400e);color:#fff;box-shadow:0 2px 12px rgba(180,83,9,.40);}
+.btn-gold:hover{box-shadow:0 4px 22px rgba(180,83,9,.60);transform:translateY(-1px);}
+.btn-sec{background:rgba(255,255,255,.08);color:var(--text);border:1px solid rgba(255,255,255,.15);}
+.btn-sec:hover{background:rgba(255,255,255,.14);}
+/* ── Results Table ── */
+.result-meta{display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap;}
+.result-race{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:#fff;}
+.result-count{font-size:12px;color:var(--muted);}
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+th{background:rgba(232,0,61,.18);color:rgba(255,255,255,.80);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;text-align:center;border-bottom:1px solid rgba(232,0,61,.30);white-space:nowrap;cursor:pointer;user-select:none;}
+th:hover{background:rgba(232,0,61,.28);}
+th.sort-asc::after{content:' ↑';}
+th.sort-desc::after{content:' ↓';}
+td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);text-align:center;color:var(--text);}
+td.name{text-align:left;font-weight:700;white-space:nowrap;}
+tr:hover td{background:rgba(255,255,255,.04);}
+tr.rank-1 td{background:rgba(240,192,64,.10);}
+tr.rank-2 td{background:rgba(232,0,61,.08);}
+tr.rank-3 td{background:rgba(232,0,61,.05);}
+/* ── Grade Badges ── */
+.g{display:inline-block;font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;font-family:'Inter',sans-serif;white-space:nowrap;}
+.gS {background:#D97706;color:#fff;}
+.gA {background:#DB2777;color:#fff;}
+.gBp{background:#F43F5E;color:#fff;}
+.gB {background:#EA580C;color:#fff;}
+.gC {background:#2563EB;color:#fff;}
+.gD {background:#6B7280;color:#fff;}
+.gE {background:#dc2626;color:#fff;}
+.gn {background:rgba(255,255,255,.10);color:var(--muted);}
+/* ── Pt badge ── */
+.pt-badge{display:inline-block;font-size:11px;font-weight:900;padding:3px 9px;border-radius:7px;font-family:'Inter',sans-serif;}
+/* ── Export area ── */
+.export-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.export-note{font-size:11px;color:var(--muted);}
+/* ── Empty/loading ── */
+.empty{text-align:center;padding:40px;color:var(--muted);font-size:13px;}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div>
+    <div class="hdr-sub">UG強奪競馬新聞 / 管理ツール</div>
+    <div class="hdr-title">Target競馬 CSVアナライザー</div>
+  </div>
+  <a href="final-tool.html" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:18px;background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;font-size:11px;font-weight:900;text-decoration:none;">🏆 最終予想へ</a>
+</header>
+
+<div class="wrap">
+
+  <!-- ── STEP 1: Upload ── -->
+  <div class="card">
+    <div class="card-head"><span>📂</span><h2>STEP 1 — Target競馬 CSVをアップロード</h2></div>
+    <div class="card-body">
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" multiple accept=".csv"/>
+        <div class="drop-zone-icon">📋</div>
+        <div class="drop-zone-text">CSVをここにドロップ、またはクリックして選択</div>
+        <div class="drop-zone-sub">複数ファイル同時OK ／ 血統・出馬表・厩舎・騎手・年齢・馬体重・前走脚質・生産者 など</div>
+      </div>
+      <div class="file-list" id="fileList"></div>
+      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary" id="analyzeBtn" disabled onclick="runAnalyze()">🔍 分析スタート</button>
+        <button class="btn btn-sec" onclick="clearAll()">🗑 クリア</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 2: Results ── -->
+  <div class="card" id="resultCard" style="display:none;">
+    <div class="card-head"><span>🏇</span><h2>STEP 2 — スコアランキング</h2></div>
+    <div class="card-body">
+      <div class="result-meta">
+        <div class="result-race" id="resultRaceName"></div>
+        <div class="result-count" id="resultCount"></div>
+        <div style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;" id="factorTags"></div>
+      </div>
+      <div class="tbl-wrap">
+        <table id="resultTable">
+          <thead id="resultThead"></thead>
+          <tbody id="resultTbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 3: Export ── -->
+  <div class="card" id="exportCard" style="display:none;">
+    <div class="card-head"><span>⚡</span><h2>STEP 3 — エクスポート</h2></div>
+    <div class="card-body">
+      <div class="export-row">
+        <button class="btn btn-gold" onclick="exportJSON()">📥 JSONダウンロード</button>
+        <button class="btn btn-primary" onclick="exportMarkdown()">📝 AI用Markdownダウンロード</button>
+        <span class="export-note">Markdown → 別AIに貼り付けて穴馬コラム生成</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ══════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════
+const db = {
+  umahyoDetail: null,   // 出馬表（1-5走前データ付き）
+  umahyoBasic:  null,   // 出馬表（騎手/調教師/外厩付き）
+  sireMap:      null,   // 馬名 → {父, 母父}
+  sireStats:    null,   // 種牡馬 → {複勝率, 単回値}
+  trainerStats: null,   // 調教師 → {複勝率, 単回値}
+  jockeyStats:  null,   // 騎手   → {複勝率, 単回値}
+  breederStats: null,   // 生産者 → {複勝率, 単回値}
+  ageStats:     null,   // 年齢区分 → {複勝率}
+  weightStats:  null,   // 体重区分 → {複勝率}
+  styleStats:   null,   // 前走脚質 → {複勝率}
+};
+let loadedFiles = [];
+let analyzedHorses = [];
+let sortCol = 'totalPt';
+let sortDir = -1;
+
+// ══════════════════════════════════════════
+//  FILE READING
+// ══════════════════════════════════════════
+async function readAsText(file) {
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      // Try UTF-8 first
+      const u8 = new TextDecoder('utf-8').decode(e.target.result);
+      if (!u8.includes('\uFFFD')) { resolve(u8); return; }
+      // Fallback: Shift-JIS
+      resolve(new TextDecoder('shift-jis').decode(e.target.result));
+    };
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+function parseCSV(text) {
+  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  const nonEmpty = lines.filter(l => l.trim());
+  if (!nonEmpty.length) return [];
+  const headers = nonEmpty[0].split(',').map(h => h.trim().replace(/^\uFEFF/, ''));
+  return nonEmpty.slice(1).map(line => {
+    const vals = line.split(',');
+    const obj = {};
+    headers.forEach((h, i) => { obj[h] = (vals[i] || '').trim(); });
+    return obj;
+  });
+}
+
+// ══════════════════════════════════════════
+//  FILE TYPE DETECTION
+// ══════════════════════════════════════════
+const TYPE_LABELS = {
+  umahyo_detail: '出馬表（前走詳細）',
+  umahyo_basic:  '出馬表（基本）',
+  sire_map:      '血統マップ（馬→父）',
+  sire_stats:    '血統成績',
+  trainer_stats: '厩舎成績',
+  jockey_stats:  '騎手成績',
+  breeder_stats: '生産者成績',
+  age_stats:     '年齢別成績',
+  weight_stats:  '馬体重別成績',
+  style_stats:   '前走脚質成績',
+  unknown:       '不明（スキップ）',
+};
+
+function detectType(filename, headers) {
+  const fn = filename;
+  const hs = headers.join(',');
+  if (fn.includes('出馬表') || fn.includes('demahyo')) {
+    if (hs.includes('1走前_コース')) return 'umahyo_detail';
+    if (hs.includes('騎手') || hs.includes('調教師')) return 'umahyo_basic';
+    return 'umahyo_detail';
+  }
+  if (fn.includes('血統') || fn.includes('bloodline')) {
+    if (headers.includes('種牡馬')) return 'sire_stats';
+    if (headers.includes('父'))     return 'sire_map';
+    if (headers.includes('馬名') && headers.includes('父')) return 'sire_map';
+    return 'sire_stats';
+  }
+  if (fn.includes('厩舎') || fn.includes('trainer')) return 'trainer_stats';
+  if (fn.includes('騎手') || fn.includes('jockey'))  return 'jockey_stats';
+  if (fn.includes('生産者') || fn.includes('牧場') || fn.includes('breeder')) return 'breeder_stats';
+  if (fn.includes('年齢') || fn.includes('age'))     return 'age_stats';
+  if (fn.includes('馬体重') || fn.includes('体重') || fn.includes('weight')) return 'weight_stats';
+  if (fn.includes('脚質') || fn.includes('style'))   return 'style_stats';
+  return 'unknown';
+}
+
+// ══════════════════════════════════════════
+//  UPLOAD HANDLER
+// ══════════════════════════════════════════
+async function handleFiles(files) {
+  for (const file of files) {
+    if (!file.name.endsWith('.csv')) continue;
+    const text   = await readAsText(file);
+    const rows   = parseCSV(text);
+    if (!rows.length) continue;
+    const headers = Object.keys(rows[0]);
+    const type   = detectType(file.name, headers);
+    storeData(type, rows, file.name);
+    const exists = loadedFiles.find(f => f.name === file.name);
+    if (!exists) loadedFiles.push({ name: file.name, type, rows: rows.length });
+  }
+  renderFileList();
+  document.getElementById('analyzeBtn').disabled = !db.umahyoDetail && !db.umahyoBasic;
+}
+
+function storeData(type, rows, filename) {
+  switch (type) {
+    case 'umahyo_detail':
+      db.umahyoDetail = rows;
+      // Extract race name from first row コース info
+      break;
+    case 'umahyo_basic':
+      db.umahyoBasic = rows;
+      break;
+    case 'sire_map': {
+      const map = {};
+      rows.forEach(r => {
+        const name = r['馬名'] || r['horse'] || '';
+        if (name) map[name] = { sire: r['父']||'', damSire: r['母父']||'' };
+      });
+      db.sireMap = map;
+      break;
+    }
+    case 'sire_stats': {
+      const map = {};
+      rows.forEach(r => {
+        const key = r['種牡馬'] || r['父'] || '';
+        if (key) map[key] = parseStatRow(r, '種牡馬');
+      });
+      db.sireStats = map;
+      break;
+    }
+    case 'trainer_stats': {
+      const map = {};
+      rows.forEach(r => {
+        const key = r['調教師'] || '';
+        if (key) {
+          // Normalize: remove "(美)" "(栗)" prefix for lookup
+          map[key] = parseStatRow(r, '調教師');
+          const bare = key.replace(/^\(.\)/, '').trim();
+          if (bare !== key) map[bare] = map[key];
+        }
+      });
+      db.trainerStats = map;
+      break;
+    }
+    case 'jockey_stats': {
+      const map = {};
+      rows.forEach(r => {
+        const key = r['騎手'] || '';
+        if (key) map[key] = parseStatRow(r, '騎手');
+      });
+      db.jockeyStats = map;
+      break;
+    }
+    case 'breeder_stats': {
+      const map = {};
+      rows.forEach(r => {
+        const key = r['生産者'] || r['牧場'] || '';
+        if (key) map[key] = parseStatRow(r, '生産者');
+      });
+      db.breederStats = map;
+      break;
+    }
+    case 'age_stats': {
+      const map = {};
+      rows.forEach(r => {
+        const key = r['年齢'] || '';
+        if (key) map[key] = parseStatRow(r, '年齢');
+      });
+      db.ageStats = map;
+      break;
+    }
+    case 'weight_stats': {
+      const map = {};
+      rows.forEach(r => {
+        const key = r['前走馬体重'] || r['馬体重'] || '';
+        if (key) map[key] = parseStatRow(r, '前走馬体重');
+      });
+      db.weightStats = map;
+      break;
+    }
+    case 'style_stats': {
+      const map = {};
+      rows.forEach(r => {
+        const key = r['前走脚質'] || r['脚質'] || '';
+        if (key) map[key] = parseStatRow(r, '前走脚質');
+      });
+      db.styleStats = map;
+      break;
+    }
+  }
+}
+
+function parseStatRow(r, keyCol) {
+  return {
+    勝率:   r['勝率']   || '0%',
+    複勝率: r['複勝率'] || '0%',
+    単回値: parseFloat(r['単回値'] || '0') || 0,
+    複回値: parseFloat(r['複回値'] || '0') || 0,
+  };
+}
+
+function renderFileList() {
+  const el = document.getElementById('fileList');
+  el.innerHTML = loadedFiles.map(f => `
+    <div class="file-item ${f.type !== 'unknown' ? 'ok' : 'skip'}">
+      <span class="file-tag ${f.type === 'unknown' ? 'unknown' : ''}">${TYPE_LABELS[f.type] || '?'}</span>
+      <span style="flex:1;font-size:11px;">${f.name}</span>
+      <span style="font-size:10px;color:var(--muted);">${f.rows}行</span>
+    </div>
+  `).join('');
+}
+
+// ══════════════════════════════════════════
+//  SCORING
+// ══════════════════════════════════════════
+function scoreRate(rateStr, tanshoVal) {
+  const r = parseFloat((rateStr||'').replace('%','')) || 0;
+  let g, pt;
+  if      (r >= 35) { g = 'S';  pt = 7; }
+  else if (r >= 28) { g = 'A';  pt = 6; }
+  else if (r >= 22) { g = 'B+'; pt = 5; }
+  else if (r >= 17) { g = 'B';  pt = 4; }
+  else if (r >= 12) { g = 'C';  pt = 3; }
+  else if (r > 0)   { g = 'D';  pt = 2; }
+  else              { g = '-';  pt = 0; }
+  // Bonus: high 単回値
+  if (tanshoVal >= 150 && pt > 0) pt = Math.min(7, pt + 1);
+  return { g, pt, rate: rateStr, tansho: tanshoVal };
+}
+
+// ── Age matching ──
+function getAgeKey(ageStr) {
+  const n = parseInt(ageStr) || 0;
+  const map = {2:'２歳', 3:'３歳', 4:'４歳', 5:'５歳', 6:'６歳', 7:'７歳', 8:'８歳'};
+  return map[n] || (n >= 7 ? '７歳以上' : null);
+}
+
+// ── Weight bracket matching ──
+function getWeightKey(w) {
+  const n = parseInt(w) || 0;
+  if (!n) return null;
+  if (n <= 399) return '〜399kg';
+  if (n <= 419) return '400〜419kg';
+  if (n <= 439) return '420〜439kg';
+  if (n <= 459) return '440〜459kg';
+  if (n <= 479) return '460〜479kg';
+  if (n <= 499) return '480〜499kg';
+  if (n <= 519) return '500〜519kg';
+  if (n <= 539) return '520〜539kg';
+  return '540〜';
+}
+
+// ── Running style matching ──
+function getStyleKey(style) {
+  const s = (style || '').replace('ﾏｸﾘ','マクリ');
+  const map = {
+    '逃げ':'平地・逃げ', '先行':'平地・先行', '中団':'平地・中団',
+    '後方':'平地・後方', '差し':'平地・差し', '追込':'平地・追込',
+    'マクリ':'平地・ﾏｸﾘ',
+  };
+  return map[s] || ('平地・' + s);
+}
+
+// ══════════════════════════════════════════
+//  BUILD HORSE LIST
+// ══════════════════════════════════════════
+function buildHorseList() {
+  const horses = [];
+
+  // ─ From 出馬表 詳細 (UTF-8) ─
+  if (db.umahyoDetail) {
+    db.umahyoDetail.forEach(r => {
+      const name = r['馬名'] || r['horse'] || '';
+      if (!name) return;
+      const sexage = r['性齢'] || r['性別']||'';
+      const age = parseInt((sexage.match(/\d+/) || [])[0]) || 0;
+      horses.push({
+        num:       r['馬番'] || '',
+        name,
+        sexage,
+        age,
+        jockey:    r['騎手'] || '',
+        trainer:   r['調教師'] || '',
+        gaiku:     r['外厩'] || '',
+        sire:      '',
+        damSire:   '',
+        breeder:   '',
+        prevWeight: parseInt(r['1走前_体重']) || 0,
+        prevStyle:  r['1走前_脚質'] || '',
+        prevRank:   r['1走前_着順'] || '',
+        prevCourse: r['1走前_コース'] || '',
+        prevUpper3F:r['1走前_上3F'] || '',
+        scores:    {},
+      });
+    });
+  }
+
+  // ─ From 出馬表 基本 (Shift-JIS, has 騎手/調教師) ─
+  if (db.umahyoBasic) {
+    db.umahyoBasic.forEach(r => {
+      const name = r['馬名'] || r['horse'] || '';
+      if (!name) return;
+      const existing = horses.find(h => h.name === name);
+      const sexage = r['性齢'] || (r['性別'] + r['年齢']) || '';
+      const age = parseInt((sexage.match(/\d+/) || [])[0]) || 0;
+      if (existing) {
+        // Supplement missing data
+        if (!existing.jockey  && r['騎手'])   existing.jockey  = r['騎手'];
+        if (!existing.trainer && r['調教師']) existing.trainer = r['調教師'];
+        if (!existing.gaiku   && r['外厩'])   existing.gaiku   = r['外厩'];
+      } else {
+        horses.push({
+          num:      r['馬番'] || '',
+          name,
+          sexage,
+          age,
+          jockey:   r['騎手'] || '',
+          trainer:  r['調教師'] || '',
+          gaiku:    r['外厩'] || '',
+          sire:     '', damSire: '', breeder: '',
+          prevWeight: 0, prevStyle: '', prevRank: '', prevCourse: '',prevUpper3F:'',
+          scores: {},
+        });
+      }
+    });
+  }
+
+  // ─ Supplement sire/damSire from sireMap ─
+  if (db.sireMap) {
+    horses.forEach(h => {
+      const m = db.sireMap[h.name];
+      if (m) { h.sire = m.sire || h.sire; h.damSire = m.damSire || h.damSire; }
+    });
+  }
+
+  return horses.sort((a, b) => parseInt(a.num) - parseInt(b.num));
+}
+
+// ══════════════════════════════════════════
+//  ANALYZE
+// ══════════════════════════════════════════
+function runAnalyze() {
+  const horses = buildHorseList();
+
+  horses.forEach(h => {
+    h.scores = {};
+
+    // 血統スコア
+    if (db.sireStats && h.sire) {
+      const s = db.sireStats[h.sire];
+      if (s) h.scores['血統'] = scoreRate(s.複勝率, s.単回値);
+    }
+
+    // 厩舎スコア
+    if (db.trainerStats && h.trainer) {
+      const t = h.trainer;
+      const s = db.trainerStats[t] || db.trainerStats[t.replace(/^\(.\)/,'').trim()];
+      if (s) h.scores['厩舎'] = scoreRate(s.複勝率, s.単回値);
+    }
+
+    // 騎手スコア
+    if (db.jockeyStats && h.jockey) {
+      const s = db.jockeyStats[h.jockey];
+      if (s) h.scores['騎手'] = scoreRate(s.複勝率, s.単回値);
+    }
+
+    // 年齢スコア
+    if (db.ageStats && h.age) {
+      const key = getAgeKey(h.age);
+      const s = key && db.ageStats[key];
+      if (s) h.scores['年齢'] = scoreRate(s.複勝率, 0);
+    }
+
+    // 馬体重スコア
+    if (db.weightStats && h.prevWeight) {
+      const key = getWeightKey(h.prevWeight);
+      const s = key && db.weightStats[key];
+      if (s) h.scores['馬体重'] = scoreRate(s.複勝率, 0);
+    }
+
+    // 前走脚質スコア
+    if (db.styleStats && h.prevStyle) {
+      const key = getStyleKey(h.prevStyle);
+      const s = db.styleStats[key];
+      if (s) h.scores['前走脚質'] = scoreRate(s.複勝率, 0);
+    }
+
+    // 生産者スコア
+    if (db.breederStats && h.breeder) {
+      const s = db.breederStats[h.breeder];
+      if (s) h.scores['生産者'] = scoreRate(s.複勝率, s.単回値);
+    }
+
+    // Total
+    const pts = Object.values(h.scores).map(s => s.pt).filter(p => p > 0);
+    h.totalPt = pts.reduce((a, b) => a + b, 0);
+    h.scoreCount = pts.length;
+  });
+
+  // Sort by totalPt desc
+  horses.sort((a, b) => b.totalPt - a.totalPt);
+  analyzedHorses = horses;
+  renderResults(horses);
+}
+
+// ══════════════════════════════════════════
+//  RENDER RESULTS
+// ══════════════════════════════════════════
+function gradeClass(g) {
+  return { 'S':'gS','A':'gA','B+':'gBp','B':'gB','C':'gC','D':'gD','-':'gn' }[g] || 'gn';
+}
+
+function ptColor(pt) {
+  if (pt >= 40) return '#D97706';
+  if (pt >= 30) return '#DB2777';
+  if (pt >= 20) return '#EA580C';
+  if (pt >= 10) return '#2563EB';
+  return '#6B7280';
+}
+
+function renderResults(horses) {
+  if (!horses.length) return;
+
+  // Detect which factors are present
+  const allFactors = ['血統','厩舎','騎手','年齢','馬体重','前走脚質','生産者'];
+  const activeFactors = allFactors.filter(f =>
+    horses.some(h => h.scores[f])
+  );
+
+  // Factor tags
+  document.getElementById('factorTags').innerHTML = activeFactors.map(f =>
+    `<span style="font-size:10px;font-weight:900;padding:2px 8px;border-radius:10px;background:rgba(232,0,61,.18);border:1px solid rgba(232,0,61,.35);color:var(--pink);">${f}</span>`
+  ).join('');
+
+  document.getElementById('resultCount').textContent = `${horses.length}頭 / ${activeFactors.length}ファクター`;
+
+  // Table header
+  const thead = document.getElementById('resultThead');
+  thead.innerHTML = `<tr>
+    <th onclick="sortBy('rank')">順位</th>
+    <th onclick="sortBy('num')">馬番</th>
+    <th>馬名</th>
+    <th>性齢</th>
+    <th>父</th>
+    <th>騎手</th>
+    <th>調教師</th>
+    <th>外厩</th>
+    <th>前走</th>
+    ${activeFactors.map(f => `<th onclick="sortBy('${f}')">${f}</th>`).join('')}
+    <th onclick="sortBy('totalPt')">合計pt</th>
+  </tr>`;
+
+  // Table body
+  renderTbody(horses, activeFactors);
+
+  document.getElementById('resultCard').style.display = '';
+  document.getElementById('exportCard').style.display = '';
+}
+
+function renderTbody(horses, activeFactors) {
+  const tbody = document.getElementById('resultTbody');
+  tbody.innerHTML = horses.map((h, i) => {
+    const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
+    const factorCells = activeFactors.map(f => {
+      const sc = h.scores[f];
+      if (!sc) return `<td><span class="g gn">-</span></td>`;
+      return `<td><span class="g ${gradeClass(sc.g)}">${sc.g}</span> <span style="font-size:10px;color:var(--muted);">${sc.pt}pt</span></td>`;
+    }).join('');
+    const ptCol = ptColor(h.totalPt);
+    return `<tr class="${rankClass}">
+      <td style="font-weight:900;color:var(--gold);">${i+1}</td>
+      <td>${h.num}</td>
+      <td class="name">${h.name}</td>
+      <td>${h.sexage}</td>
+      <td style="font-size:11px;color:var(--muted);">${h.sire || '-'}</td>
+      <td style="font-size:11px;">${h.jockey || '-'}</td>
+      <td style="font-size:11px;">${h.trainer || '-'}</td>
+      <td style="font-size:11px;color:var(--muted);">${h.gaiku || '-'}</td>
+      <td style="font-size:11px;color:var(--muted);">${h.prevRank ? h.prevRank + ' ' + h.prevCourse : '-'}</td>
+      ${factorCells}
+      <td><span class="pt-badge" style="background:${ptCol};color:#fff;">${h.totalPt}pt</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Sorting ──
+function sortBy(col) {
+  if (sortCol === col) sortDir *= -1;
+  else { sortCol = col; sortDir = -1; }
+
+  const allFactors = ['血統','厩舎','騎手','年齢','馬体重','前走脚質','生産者'];
+  const activeFactors = allFactors.filter(f => analyzedHorses.some(h => h.scores[f]));
+
+  analyzedHorses.sort((a, b) => {
+    let av, bv;
+    if (col === 'totalPt') { av = a.totalPt; bv = b.totalPt; }
+    else if (col === 'num')  { av = parseInt(a.num)||0; bv = parseInt(b.num)||0; }
+    else if (col === 'rank') { av = 0; bv = 0; }
+    else {
+      av = (a.scores[col] || {pt:0}).pt;
+      bv = (b.scores[col] || {pt:0}).pt;
+    }
+    return (av - bv) * sortDir;
+  });
+
+  // Update sort indicators
+  document.querySelectorAll('th').forEach(th => { th.className = ''; });
+  const ths = document.querySelectorAll('#resultThead th');
+  renderTbody(analyzedHorses, activeFactors);
+}
+
+// ══════════════════════════════════════════
+//  EXPORT
+// ══════════════════════════════════════════
+function exportJSON() {
+  const out = {
+    analyzedAt: new Date().toISOString().slice(0, 10),
+    count: analyzedHorses.length,
+    horses: analyzedHorses.map(h => ({
+      num: h.num, name: h.name, sexage: h.sexage,
+      sire: h.sire, damSire: h.damSire,
+      jockey: h.jockey, trainer: h.trainer, gaiku: h.gaiku,
+      prevRank: h.prevRank, prevCourse: h.prevCourse, prevUpper3F: h.prevUpper3F,
+      totalPt: h.totalPt,
+      scores: Object.fromEntries(
+        Object.entries(h.scores).map(([k, v]) => [k, { grade: v.g, pt: v.pt, rate: v.rate }])
+      ),
+    })),
+  };
+  download('ug_analysis.json', JSON.stringify(out, null, 2), 'application/json');
+}
+
+function exportMarkdown() {
+  const allFactors = ['血統','厩舎','騎手','年齢','馬体重','前走脚質','生産者'];
+  const activeFactors = allFactors.filter(f => analyzedHorses.some(h => h.scores[f]));
+
+  let md = `# UG強奪スコア分析\n\n`;
+  md += `分析日: ${new Date().toISOString().slice(0,10)}　頭数: ${analyzedHorses.length}頭　ファクター: ${activeFactors.join('・')}\n\n`;
+
+  // Ranking table
+  md += `## スコアランキング\n\n`;
+  md += `| 順位 | 馬名 | 合計pt | ${activeFactors.join(' | ')} |\n`;
+  md += `|------|------|--------|${activeFactors.map(() => '------').join('|')}|\n`;
+  analyzedHorses.forEach((h, i) => {
+    const cells = activeFactors.map(f => (h.scores[f] || {g:'-'}).g);
+    md += `| ${i+1} | ${h.name} | ${h.totalPt}pt | ${cells.join(' | ')} |\n`;
+  });
+
+  // Horse details
+  md += `\n## 馬別詳細\n\n`;
+  analyzedHorses.forEach((h, i) => {
+    md += `### ${i+1}. ${h.name}（${h.totalPt}pt）\n`;
+    md += `**性齢:** ${h.sexage}　**父:** ${h.sire||'-'}　**騎手:** ${h.jockey||'-'}　**調教師:** ${h.trainer||'-'}　**外厩:** ${h.gaiku||'-'}\n`;
+    if (h.prevRank) md += `**前走:** ${h.prevCourse} ${h.prevRank} 上3F:${h.prevUpper3F||'-'}\n`;
+    const factorLine = Object.entries(h.scores).map(([k,v]) => `${k}:${v.g}(${v.pt}pt)`).join('　');
+    if (factorLine) md += `**ファクター:** ${factorLine}\n`;
+    md += '\n';
+  });
+
+  // AI prompt
+  md += `---\n## ✍️ AI分析依頼\n\n`;
+  md += `上記は今週の出走馬データです。以下の観点で穴馬を3頭セレクションしてください。\n\n`;
+  md += `1. 合計ポイントが低いが特定ファクターで突出している馬\n`;
+  md += `2. 外厩・前走着順から本気度が読み取れる馬\n`;
+  md += `3. 各馬について推奨理由（3行）・懸念点（1行）・評価（◎/○/▲）\n\n`;
+  md += `出力形式はMarkdownで。\n`;
+
+  download('ug_summary.md', md, 'text/markdown');
+}
+
+function download(filename, content, type) {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 500);
+}
+
+function clearAll() {
+  Object.keys(db).forEach(k => db[k] = null);
+  loadedFiles = []; analyzedHorses = [];
+  document.getElementById('fileList').innerHTML = '';
+  document.getElementById('analyzeBtn').disabled = true;
+  document.getElementById('resultCard').style.display = 'none';
+  document.getElementById('exportCard').style.display = 'none';
+  document.getElementById('fileInput').value = '';
+}
+
+// ══════════════════════════════════════════
+//  EVENT LISTENERS
+// ══════════════════════════════════════════
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+
+dropZone.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', () => handleFiles(fileInput.files));
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  handleFiles(e.dataTransfer.files);
+});
+</script>
+</body>
+</html>
