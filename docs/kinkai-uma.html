@@ -986,13 +986,22 @@ function extractKinkaiUma() {
         matched.push({ type: 'コース金塊厩舎', cond, label: `コース金塊厩舎：${cond.name}` });
       }
     });
-    // ── コース金塊血統チェック
+    // ── コース金塊血統チェック（父・種牡馬・血統 いずれのキーにも対応）
     if (h.sire) {
-      (db['種牡馬'] || []).forEach(cond => {
+      const sireList = [...(db['種牡馬']||[]), ...(db['血統']||[]), ...(db['父']||[])];
+      sireList.forEach(cond => {
         if (normalize(h.sire) === normalize(cond.name)) {
-          matched.push({ type: 'コース金塊血統', cond, label: `コース金塊血統：${cond.name}` });
+          matched.push({ type: 'コース金塊血統', cond, label: `コース金塊父：${cond.name}` });
         }
       });
+      // 母父チェック（damSire フィールド）
+      if (h.damSire) {
+        (db['母父'] || []).forEach(cond => {
+          if (normalize(h.damSire) === normalize(cond.name)) {
+            matched.push({ type: 'コース金塊血統', cond, label: `コース金塊母父：${cond.name}` });
+          }
+        });
+      }
     }
     // ── コース金塊生産者チェック
     if (h.breeder) {
@@ -1334,7 +1343,9 @@ function buildDBView() {
       <h3 class="serif-headline font-bold mb-3" style="color:#E8003D">${escHtml(course)}</h3>
       ${buildDBCategory(data['騎手']  || [], 'A コース金塊騎手', 'jockey')}
       ${buildDBCategory(data['調教師']|| [], 'A コース金塊厩舎', 'trainer')}
-      ${buildDBCategory(data['種牡馬']|| [], 'A コース金塊血統', 'sire')}
+      ${buildDBCategory([...(data['種牡馬']||[]), ...(data['血統']||[])], 'A コース金塊血統', 'sire')}
+      ${(data['父']||[]).length > 0 ? buildDBCategory(data['父'], 'A コース金塊血統（父）', 'sire') : ''}
+      ${(data['母父']||[]).length > 0 ? buildDBCategory(data['母父'], 'A コース金塊血統（母父）', 'sire') : ''}
       ${(data['生産者']||[]).length > 0 ? buildDBCategory(data['生産者'], 'A コース金塊生産者', 'sire') : ''}
       ${(data['騎手継続']||[]).length > 0 ? buildDBCategory(data['騎手継続'], 'A 継続騎乗注目', 'jockey-keep') : ''}
       ${(data['前走コース']||[]).length > 0 ? buildDBCourseCategory(data['前走コース']) : ''}

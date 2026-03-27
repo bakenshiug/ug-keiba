@@ -191,7 +191,7 @@ function convert() {
   };
 
   const errors = [];
-  let parsed = { '騎手': [], '血統': [], '生産者': [], '騎手厩舎ライン': [] };
+  let parsed = { '騎手': [], '父': [], '母父': [], '生産者': [], '騎手厩舎ライン': [] };
 
   const lines = raw.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('項目') && !l.startsWith('//'));
 
@@ -222,8 +222,7 @@ function convert() {
       const rec = parseRecord(cols[2]);
       if (!rec) { errors.push(`行${idx+1}: 着別度数の形式エラー → ${cols[2]}`); return; }
       const rates = autoRates(rec);
-      const prefix = type === '母父' ? '母父・' : '';
-      parsed['血統'].push({
+      parsed[type].push({
         name: cols[1],
         wins: rec.wins, second: rec.second, third: rec.third, total: rec.total,
         winRate: cols[3] || rates.winRate,
@@ -231,7 +230,7 @@ function convert() {
         fukushoRate: cols[4] || rates.fukushoRate,
         tanKaichi: parseInt(cols[5]) || 0,
         fukuKaichi: parseInt(cols[6]) || 0,
-        memo: (cols[7] ? prefix + cols[7] : prefix + '金塊血統')
+        memo: cols[7] || ''
       });
 
     } else if (type === '生産者') {
@@ -279,9 +278,10 @@ function convert() {
   });
 
   // 空でないカテゴリのみ追加
-  if (parsed['騎手'].length)         result.conditions['騎手']         = parsed['騎手'];
-  if (parsed['血統'].length)         result.conditions['血統']         = parsed['血統'];
-  if (parsed['生産者'].length)       result.conditions['生産者']       = parsed['生産者'];
+  if (parsed['騎手'].length)           result.conditions['騎手']           = parsed['騎手'];
+  if (parsed['父'].length)             result.conditions['父']             = parsed['父'];
+  if (parsed['母父'].length)           result.conditions['母父']           = parsed['母父'];
+  if (parsed['生産者'].length)         result.conditions['生産者']         = parsed['生産者'];
   if (parsed['騎手厩舎ライン'].length) result.conditions['騎手厩舎ライン'] = parsed['騎手厩舎ライン'];
 
   const totalItems = Object.values(result.conditions).reduce((s,a) => s + a.length, 0);
@@ -320,9 +320,11 @@ function renderPreview(result) {
   pa.style.display = 'block';
 
   const LABELS = {
-    '騎手': '🏇 金塊騎手 <span class="pt3">+3pt</span>',
-    '血統': '🧬 金塊血統 <span class="pt2">+2pt</span>',
-    '生産者': '🏠 金塊生産者 <span class="pt2">+2pt</span>',
+    '騎手':         '🏇 金塊騎手 <span class="pt3">+3pt</span>',
+    '父':           '🧬 金塊血統（父） <span class="pt2">+2pt</span>',
+    '母父':         '🧬 金塊血統（母父） <span class="pt2">+2pt</span>',
+    '血統':         '🧬 金塊血統 <span class="pt2">+2pt</span>',
+    '生産者':       '🏠 金塊生産者 <span class="pt2">+2pt</span>',
     '騎手厩舎ライン': '⚡ 騎手厩舎ライン <span class="pt5">+5pt</span>'
   };
 
