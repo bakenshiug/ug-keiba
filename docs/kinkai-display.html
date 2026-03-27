@@ -374,7 +374,8 @@ function buildHorseCard(h, index, total) {
         <div class="flex items-center gap-2">
           <span class="text-2xl">${isMulti ? '🔥' : '💰'}</span>
           <div>
-            <h4 class="serif-headline text-xl font-bold" style="color:#f0c040">${escHtml(h.name)}</h4>
+            <h4 class="serif-headline text-xl font-bold" style="color:#f0c040">
+            ${h.num != null ? `<span style="display:inline-block;font-family:'Inter',sans-serif;font-size:13px;font-weight:900;background:rgba(232,0,61,0.85);color:#fff;padding:1px 8px;border-radius:5px;margin-right:6px;vertical-align:middle;">${h.num}</span>` : ''}${escHtml(h.name)}</h4>
             <div class="flex gap-1 flex-wrap mt-1">${condBadges}</div>
           </div>
         </div>

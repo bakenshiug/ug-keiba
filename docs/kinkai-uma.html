@@ -617,6 +617,7 @@ function parseCSV1(text) {
       };
     }
     raceMap[raceKey].horses.push({
+      num: raceMap[raceKey].horses.length + 1,
       name: horseName, jockey, trainer, sire,
       // CSV2データは後でmerge
       prevJockey: null, surfaceChange: null
@@ -1067,6 +1068,7 @@ function renderResults(hits, raceName, course) {
       isKinkai: h.matched.length > 0,
     })),
     horses: hitHorses.map(h => ({
+      num: h.horse.num || null,
       name: h.horse.name,
       jockey: h.horse.jockey,
       trainer: h.horse.trainer,
