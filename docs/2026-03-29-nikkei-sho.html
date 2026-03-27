@@ -1653,16 +1653,17 @@ footer .hover\:bg-\[\#f2f4f2\]:hover { background: rgba(232,0,61,0.15) !importan
 })();
 </script>
 
-<!-- 📤 最終予想ツールへ転送ボタン -->
+<!-- 📤 最終予想ページへのリンクボタン -->
 <div id="transferBtn" style="position:fixed;bottom:80px;right:16px;z-index:999;">
-  <button onclick="transferToFinalTool()" style="
+  <a href="https://bakenshiug.github.io/ug-keiba/docs/final-display.html" style="
     display:flex;align-items:center;gap:7px;
-    padding:11px 18px;border-radius:20px;border:none;cursor:pointer;
+    padding:11px 18px;border-radius:20px;
     background:linear-gradient(135deg,#f0c040,#d97706);
     color:#130003;font-size:13px;font-weight:900;
     box-shadow:0 4px 20px rgba(240,192,64,0.50);
     font-family:'Public Sans',sans-serif;
-  ">📤 最終予想ツールへ転送</button>
+    text-decoration:none;
+  ">📋 最終予想を見る</a>
 </div>
 <div id="transferToast" style="
   display:none;position:fixed;bottom:140px;right:16px;z-index:1000;
