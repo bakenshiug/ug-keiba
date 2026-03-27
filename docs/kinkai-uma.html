@@ -1442,22 +1442,65 @@ function renderSession() {
   const list = document.getElementById('sessionList');
   const count = document.getElementById('sessionCount');
   sec.classList.remove('hidden');
-  count.textContent = `${sessionRaces.length}レース追加済み`;
+  const totalHorses = sessionRaces.reduce((s, r) => s + r.horses.length, 0);
+  count.textContent = `${sessionRaces.length}レース / 金塊馬 計${totalHorses}頭`;
   list.innerHTML = '';
-  sessionRaces.forEach((r, i) => {
-    const hitCount = r.horses.length;
-    const div = document.createElement('div');
-    div.className = 'flex items-center justify-between px-3 py-2 rounded-xl';
-    div.style.cssText = 'background:rgba(255,255,255,0.07);border:1px solid rgba(240,192,64,0.25)';
-    div.innerHTML = `
+
+  sessionRaces.forEach((r, rIdx) => {
+    const raceDiv = document.createElement('div');
+    raceDiv.style.cssText = 'background:rgba(255,255,255,0.06);border:1px solid rgba(240,192,64,0.25);border-radius:12px;margin-bottom:8px;overflow:hidden;';
+
+    // レースヘッダー
+    const header = document.createElement('div');
+    header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 12px;';
+    header.innerHTML = `
       <div>
-        <p class="text-sm font-bold" style="color:#fff">${escHtml(r.raceName || r.course)}</p>
-        <p class="text-xs" style="color:rgba(255,255,255,0.50)">${escHtml(r.course)} ／ 金塊馬 ${hitCount}頭</p>
+        <p style="font-size:13px;font-weight:700;color:#fff;">${escHtml(r.raceName || r.course)}</p>
+        <p style="font-size:11px;color:rgba(255,255,255,0.45);">${escHtml(r.course)} ／ 金塊馬 ${r.horses.length}頭</p>
       </div>
-      <button onclick="removeFromSession(${i})" class="text-xs px-2 py-1 rounded-lg" style="background:rgba(232,0,61,0.20);color:#ffb3c6;border:1px solid rgba(232,0,61,0.30)">削除</button>
+      <button onclick="removeFromSession(${rIdx})" style="font-size:11px;padding:3px 8px;border-radius:6px;background:rgba(232,0,61,0.18);color:#ffb3c6;border:1px solid rgba(232,0,61,0.30);">レース削除</button>
     `;
-    list.appendChild(div);
+    raceDiv.appendChild(header);
+
+    // 馬リスト
+    if (r.horses.length > 0) {
+      const horseList = document.createElement('div');
+      horseList.style.cssText = 'border-top:1px solid rgba(255,255,255,0.07);padding:6px 10px;display:flex;flex-direction:column;gap:4px;';
+      r.horses.forEach((h, hIdx) => {
+        const condLabels = (h.conditions || []).map(c =>
+          `<span style="font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(232,0,61,0.25);color:#ffb3c6;">${escHtml(c.type.replace('コース金塊',''))}</span>`
+        ).join(' ');
+        const hRow = document.createElement('div');
+        hRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:4px 6px;border-radius:8px;background:rgba(255,255,255,0.04);';
+        hRow.innerHTML = `
+          <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:0;">
+            <span style="font-size:12px;font-weight:700;color:#f0c040;min-width:18px;">${h.num || ''}</span>
+            <span style="font-size:13px;font-weight:700;color:#fff;white-space:nowrap;">${escHtml(h.name)}</span>
+            <div style="display:flex;gap:3px;flex-wrap:wrap;">${condLabels}</div>
+          </div>
+          <button onclick="removeHorseFromSession(${rIdx},${hIdx})" style="font-size:10px;padding:2px 7px;border-radius:5px;background:rgba(232,0,61,0.15);color:#ffb3c6;border:1px solid rgba(232,0,61,0.25);white-space:nowrap;margin-left:6px;">✕</button>
+        `;
+        horseList.appendChild(hRow);
+      });
+      raceDiv.appendChild(horseList);
+    }
+
+    list.appendChild(raceDiv);
   });
+}
+
+function removeHorseFromSession(raceIndex, horseIndex) {
+  sessionRaces[raceIndex].horses.splice(horseIndex, 1);
+  // 馬が0頭になったらレースごと削除
+  if (sessionRaces[raceIndex].horses.length === 0) {
+    sessionRaces.splice(raceIndex, 1);
+  }
+  localStorage.setItem('ug_weekly_races', JSON.stringify(sessionRaces));
+  if (sessionRaces.length === 0) {
+    document.getElementById('sessionSection').classList.add('hidden');
+  } else {
+    renderSession();
+  }
 }
 
 function removeFromSession(index) {
