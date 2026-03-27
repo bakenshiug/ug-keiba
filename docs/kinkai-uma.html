@@ -1185,6 +1185,7 @@ function renderResults(hits, raceName, course) {
       trainer: h.horse.trainer || '',
       sire:    h.horse.sire    || '',
       isKinkai: h.matched.length > 0,
+      conditions: h.matched.map(m => ({ type: m.type, name: m.cond.name })),
     })),
     horses: hitHorses.map(h => ({
       num: h.horse.num || null,

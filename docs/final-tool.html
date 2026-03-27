@@ -2265,17 +2265,32 @@ function importKinkaiRace(idx) {
   if (race.distance) document.getElementById('distance').value = race.distance + 'm';
   updateFilenamePreview();
 
-  // 馬リスト生成（全馬・スコア0初期化）
+  // 金塊DB条件ヒットによる自動加点
+  function calcKinkaiBonus(conditions) {
+    if (!conditions || conditions.length === 0) return 0;
+    var bonus = 0;
+    conditions.forEach(function(c) {
+      if      (c.type === 'コース金塊騎手厩舎ライン') bonus += 5;
+      else if (c.type === 'コース金塊騎手')           bonus += 3;
+      else if (c.type === 'コース金塊厩舎')           bonus += 3;
+      else if (c.type === 'コース金塊血統')           bonus += 2;
+      else if (c.type === 'コース金塊生産者')         bonus += 2;
+    });
+    return bonus;
+  }
+
+  // 馬リスト生成（全馬・スコア0初期化 + 金塊加点）
   finalHorses = sourceHorses.map(function(h, i) {
     var num = h.num || (i + 1);
+    var bonus = calcKinkaiBonus(h.conditions);
     return {
       num:    num,
       gate:   calcGateFromNum(num, sourceHorses.length),
       name:   h.name  || '',
       jockey: h.jockey || '',
-      basePt: 0,
+      basePt: bonus,
       scores: { '枠番':0, '調教':0, '勝負気配':0, '馬場':0, 'ニック':0 },
-      totalPt: 0,
+      totalPt: bonus,
       mark: ''
     };
   });
