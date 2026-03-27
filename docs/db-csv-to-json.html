@@ -200,21 +200,34 @@ function convert() {
     const type = cols[0];
 
     if (type === '騎手' || type === '調教師' || type === '厩舎') {
-      // 騎手/調教師/厩舎,名前,着別度数,勝率,複勝率,単回収,複回収,メモ
-      const outKey = type === '騎手' ? '騎手' : '調教師'; // 厩舎→調教師に統一
-      if (cols.length < 7) { errors.push(`行${idx+1}: 列が足りません → ${line}`); return; }
+      // 騎手/調教師/厩舎,名前,[着別度数],勝率,複勝率,単回収,複回収,メモ
+      // ※着別度数なし形式(所属地など)も許容
+      const outKey = type === '騎手' ? '騎手' : '調教師';
+      if (cols.length < 6) { errors.push(`行${idx+1}: 列が足りません → ${line}`); return; }
       const rec = parseRecord(cols[2]);
-      if (!rec) { errors.push(`行${idx+1}: 着別度数の形式エラー → ${cols[2]}`); return; }
-      const rates = autoRates(rec);
+      // 着別度数あり形式: 騎手,名前,X-X-X-X/X,勝率,...
+      // 着別度数なし形式: 厩舎,名前,(栗),勝率,... or 厩舎,名前,勝率,...
+      let winRate, fukushoRate, tanKaichi, fukuKaichi, memo;
+      if (rec) {
+        const rates = autoRates(rec);
+        winRate      = cols[3] || rates.winRate;
+        fukushoRate  = cols[4] || rates.fukushoRate;
+        tanKaichi    = parseInt(cols[5]) || 0;
+        fukuKaichi   = parseInt(cols[6]) || 0;
+        memo         = cols[7] || '';
+      } else {
+        // 着別度数なし：cols[2]が%(勝率)か所属地かを判定してシフト
+        const shift = cols[2].includes('%') ? 0 : 1; // (栗)等ならshift=1
+        winRate      = cols[2 + shift] || '';
+        fukushoRate  = cols[3 + shift] || '';
+        tanKaichi    = parseInt(cols[4 + shift]) || 0;
+        fukuKaichi   = parseInt(cols[5 + shift]) || 0;
+        memo         = cols[6 + shift] || '';
+      }
       parsed[outKey].push({
         name: cols[1],
-        wins: rec.wins, second: rec.second, third: rec.third, total: rec.total,
-        winRate: cols[3] || rates.winRate,
-        rentaiRate: rates.rentaiRate,
-        fukushoRate: cols[4] || rates.fukushoRate,
-        tanKaichi: parseInt(cols[5]) || 0,
-        fukuKaichi: parseInt(cols[6]) || 0,
-        memo: cols[7] || ''
+        ...(rec ? { wins: rec.wins, second: rec.second, third: rec.third, total: rec.total } : {}),
+        winRate, fukushoRate, tanKaichi, fukuKaichi, memo
       });
 
     } else if (type === '父' || type === '母父') {
@@ -252,22 +265,34 @@ function convert() {
       });
 
     } else if (type === 'ライン') {
-      // ライン,騎手,調教師,着別度数,勝率,複勝率,単回収,複回収,メモ
-      if (cols.length < 8) { errors.push(`行${idx+1}: 列が足りません → ${line}`); return; }
-      const rec = parseRecord(cols[3]);
-      if (!rec) { errors.push(`行${idx+1}: 着別度数の形式エラー → ${cols[3]}`); return; }
+      // 形式A: ライン,騎手,調教師,着別度数,勝率,複勝率,単回収,複回収,メモ （cols[1]に×なし）
+      // 形式B: ライン,騎手×調教師,着別度数,勝率,複勝率,単回収,複回収,メモ （cols[1]に×あり）
+      if (cols.length < 7) { errors.push(`行${idx+1}: 列が足りません → ${line}`); return; }
+      let lineName, recStr, c4, c5, c6, c7, c8;
+      if (cols[1].includes('×')) {
+        // 形式B: 名前結合済み
+        lineName = cols[1];
+        recStr = cols[2]; c4 = cols[3]; c5 = cols[4]; c6 = cols[5]; c7 = cols[6]; c8 = cols[7];
+      } else {
+        // 形式A: 騎手・調教師別々
+        lineName = cols[1] + ' × ' + cols[2];
+        recStr = cols[3]; c4 = cols[4]; c5 = cols[5]; c6 = cols[6]; c7 = cols[7]; c8 = cols[8];
+      }
+      const rec = parseRecord(recStr);
+      if (!rec) { errors.push(`行${idx+1}: 着別度数の形式エラー → ${recStr}`); return; }
       const rates = autoRates(rec);
+      const parts = lineName.split(/[×]/);
       parsed['騎手厩舎ライン'].push({
-        name: cols[1] + ' × ' + cols[2],
+        name: lineName,
         wins: rec.wins, second: rec.second, third: rec.third, total: rec.total,
-        winRate: cols[4] || rates.winRate,
+        winRate: c4 || rates.winRate,
         rentaiRate: rates.rentaiRate,
-        fukushoRate: cols[5] || rates.fukushoRate,
-        tanKaichi: parseInt(cols[6]) || 0,
-        fukuKaichi: parseInt(cols[7]) || 0,
-        memo: cols[8] || '',
-        jockey: cols[1],
-        trainer: cols[2]
+        fukushoRate: c5 || rates.fukushoRate,
+        tanKaichi: parseInt(c6) || 0,
+        fukuKaichi: parseInt(c7) || 0,
+        memo: c8 || '',
+        jockey: (parts[0]||'').trim(),
+        trainer: (parts[1]||'').trim()
       });
 
     } else if (type === '前走馬体重' || type === '前走' || type === '馬体重') {
