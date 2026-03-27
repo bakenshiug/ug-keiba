@@ -675,6 +675,7 @@ function parseCSV1(text) {
     const jockey     = cols[10]?.trim() || '';
     const trainer    = cols[12]?.trim() || '';
     const sire       = cols[16]?.trim() || '';
+    const breeder    = cols[17]?.trim() || '';  // 生産者（col17）
 
     if (!horseName || !racecourse) return;
 
@@ -693,7 +694,7 @@ function parseCSV1(text) {
     }
     raceMap[raceKey].horses.push({
       num: raceMap[raceKey].horses.length + 1,
-      name: horseName, jockey, trainer, sire,
+      name: horseName, jockey, trainer, sire, breeder,
       // CSV2データは後でmerge
       prevJockey: null, surfaceChange: null
     });
@@ -993,7 +994,6 @@ function extractKinkaiUma() {
         }
       });
     }
-
     // ── コース金塊生産者チェック
     if (h.breeder) {
       (db['生産者'] || []).forEach(cond => {
