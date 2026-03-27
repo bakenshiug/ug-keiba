@@ -448,6 +448,7 @@
             <option value="騎手">騎手</option>
             <option value="調教師">調教師</option>
             <option value="種牡馬">種牡馬</option>
+            <option value="生産者">生産者</option>
             <option value="騎手厩舎ライン">騎手厩舎ライン</option>
           </select>
         </div>
@@ -942,6 +943,7 @@ function onCourseChange() {
     { label: '穴騎手', count: (db['騎手']||[]).length, color: 'badge-jockey' },
     { label: '穴厩舎', count: (db['調教師']||[]).length, color: 'badge-trainer' },
     { label: '穴血統', count: (db['種牡馬']||[]).length, color: 'badge-sire' },
+    { label: '穴生産者', count: (db['生産者']||[]).length, color: 'badge-sire' },
   ];
   counts.forEach(c => {
     if (c.count === 0) return;
@@ -988,6 +990,15 @@ function extractKinkaiUma() {
       (db['種牡馬'] || []).forEach(cond => {
         if (normalize(h.sire) === normalize(cond.name)) {
           matched.push({ type: 'コース金塊血統', cond, label: `コース金塊血統：${cond.name}` });
+        }
+      });
+    }
+
+    // ── コース金塊生産者チェック
+    if (h.breeder) {
+      (db['生産者'] || []).forEach(cond => {
+        if (normalize(h.breeder) === normalize(cond.name)) {
+          matched.push({ type: 'コース金塊生産者', cond, label: `コース金塊生産者：${cond.name}` });
         }
       });
     }
@@ -1298,6 +1309,7 @@ function typeToClass(type) {
   if (type === 'コース金塊騎手')       return 'jockey';
   if (type === 'コース金塊厩舎')       return 'trainer';
   if (type === 'コース金塊血統')       return 'sire';
+  if (type === 'コース金塊生産者')     return 'sire';
   if (type === 'コース金塊騎手厩舎ライン') return 'kinkai-line';
   if (type === '芝ダ変更金塊馬')      return 'surface-change';
   if (type === '乗り替わり金塊馬')    return 'jockey-change';
@@ -1322,6 +1334,7 @@ function buildDBView() {
       ${buildDBCategory(data['騎手']  || [], 'A コース金塊騎手', 'jockey')}
       ${buildDBCategory(data['調教師']|| [], 'A コース金塊厩舎', 'trainer')}
       ${buildDBCategory(data['種牡馬']|| [], 'A コース金塊血統', 'sire')}
+      ${(data['生産者']||[]).length > 0 ? buildDBCategory(data['生産者'], 'A コース金塊生産者', 'sire') : ''}
       ${(data['騎手継続']||[]).length > 0 ? buildDBCategory(data['騎手継続'], 'A 継続騎乗注目', 'jockey-keep') : ''}
       ${(data['前走コース']||[]).length > 0 ? buildDBCourseCategory(data['前走コース']) : ''}
       <div style="border-top:1px solid rgba(255,255,255,0.08)" class="mt-4"></div>
@@ -1703,7 +1716,7 @@ function parseDBFile(text, fileName) {
 
   const category = document.getElementById('dbCategory').value;
   const isCombo     = category === '騎手厩舎ライン';
-  const nameCol     = col(category, '騎手', '調教師', '種牡馬', '名前', '馬名');
+  const nameCol     = col(category, '騎手', '調教師', '種牡馬', '生産者', '名前', '馬名');
   const trainerCol  = isCombo ? col('調教師', '厩舎', '調教師名') : -1; // コンビ用
   const stableCol   = col('所属', '厩舎');
   const chakuCol    = col('着別度数', '着別', '度数');
@@ -1755,7 +1768,7 @@ function parseDBFile(text, fileName) {
     const fukuKaichi = fukuCol    >= 0 ? (parseInt(cols[fukuCol]) || 0) : 0;
 
     const fRate = parseFloat((fukushoRate||'').replace('%','')) || 0;
-    const label = category === '騎手' ? '騎手' : category === '調教師' ? '厩舎' : category === '騎手厩舎ライン' ? 'コンビ' : '産駒';
+    const label = category === '騎手' ? '騎手' : category === '調教師' ? '厩舎' : category === '騎手厩舎ライン' ? 'コンビ' : category === '生産者' ? '生産者' : '産駒';
     const memoParts = [];
     if (fukushoRate) memoParts.push(`複勝率${fukushoRate}`);
     if (tanKaichi >= 150) memoParts.push(`単回値${tanKaichi}の激走${label}`);
