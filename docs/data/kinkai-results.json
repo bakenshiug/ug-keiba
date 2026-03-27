@@ -1,11 +1,615 @@
 {
-  "updated": "2026-03-27",
+  "updated": "2026-03-28",
   "races": [
+    {
+      "raceName": "阪神5R 未勝利",
+      "course": "阪神芝1800m",
+      "racecourse": "阪神",
+      "surface": "芝",
+      "distance": "1800",
+      "allHorses": [
+        {
+          "num": 1,
+          "name": "アルヴァルディ",
+          "jockey": "角田大和",
+          "trainer": "長谷川浩",
+          "sire": "ポエティックフレア",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 2,
+          "name": "パンキー",
+          "jockey": "岩田望来",
+          "trainer": "茶木太樹",
+          "sire": "ウインブライト",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 3,
+          "name": "クロスボーダー",
+          "jockey": "北村友一",
+          "trainer": "小林真也",
+          "sire": "リアルスティール",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 4,
+          "name": "ルージュソムニウム",
+          "jockey": "幸英明",
+          "trainer": "加藤公太",
+          "sire": "ロードカナロア",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 5,
+          "name": "ルルハート",
+          "jockey": "城戸義政",
+          "trainer": "庄野靖志",
+          "sire": "スワーヴリチャード",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 6,
+          "name": "タナブイハチターボ",
+          "jockey": "太宰啓介",
+          "trainer": "大根田裕",
+          "sire": "イスラボニータ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 7,
+          "name": "ヒバリノコ",
+          "jockey": "鮫島良太",
+          "trainer": "北出成人",
+          "sire": "ロジャーバローズ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 8,
+          "name": "ファイネクローネ",
+          "jockey": "菱田裕二",
+          "trainer": "緒方努",
+          "sire": "サトノクラウン",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 9,
+          "name": "ビケイムフリー",
+          "jockey": "原優介",
+          "trainer": "吉村圭司",
+          "sire": "サートゥルナーリア",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 10,
+          "name": "ラヴリーティアラ",
+          "jockey": "団野大成",
+          "trainer": "須貝尚介",
+          "sire": "サトノクラウン",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 11,
+          "name": "イコミキマル",
+          "jockey": "高倉稜",
+          "trainer": "森田直行",
+          "sire": "イスラボニータ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 12,
+          "name": "ゼランテ",
+          "jockey": "武豊",
+          "trainer": "松永幹夫",
+          "sire": "コントレイル",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 13,
+          "name": "インクレイブル",
+          "jockey": "森田誠也",
+          "trainer": "奥村豊",
+          "sire": "レイデオロ",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊血統",
+              "name": "レイデオロ"
+            }
+          ]
+        },
+        {
+          "num": 14,
+          "name": "ナムラハリス",
+          "jockey": "荻野琢真",
+          "trainer": "宮地貴稔",
+          "sire": "リアルスティール",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 15,
+          "name": "ヒャクギマル",
+          "jockey": "国分優作",
+          "trainer": "坂口智康",
+          "sire": "フォーウィールドライブ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 16,
+          "name": "ウイングサンライズ",
+          "jockey": "松山弘平",
+          "trainer": "矢作芳人",
+          "sire": "コントレイル",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 17,
+          "name": "メイショウローゼ",
+          "jockey": "藤懸貴志",
+          "trainer": "本田優",
+          "sire": "ロジャーバローズ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 18,
+          "name": "ファランギーナ",
+          "jockey": "吉村誠之",
+          "trainer": "福永祐一",
+          "sire": "ラブリーデイ",
+          "isKinkai": false,
+          "conditions": []
+        }
+      ],
+      "horses": [
+        {
+          "num": null,
+          "name": "インクレイブル",
+          "jockey": "森田誠也",
+          "trainer": "奥村豊",
+          "sire": "レイデオロ",
+          "conditions": [
+            {
+              "type": "コース金塊血統",
+              "name": "レイデオロ",
+              "memo": "複勝の跳ね返りが異常",
+              "grade": null,
+              "単回値": null,
+              "複回値": null,
+              "複勝率": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "raceName": "中山11R 日経賞G2",
+      "course": "中山芝2500m",
+      "racecourse": "中山",
+      "surface": "芝",
+      "distance": "2500",
+      "allHorses": [
+        {
+          "num": 1,
+          "name": "ミクニインスパイア",
+          "jockey": "丹内祐次",
+          "trainer": "林徹",
+          "sire": "アドマイヤマーズ",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "林徹"
+            }
+          ]
+        },
+        {
+          "num": 2,
+          "name": "ホールネス",
+          "jockey": "ディー",
+          "trainer": "藤原英昭",
+          "sire": "\"Lope de Vega\"",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "藤原英昭"
+            }
+          ]
+        },
+        {
+          "num": 3,
+          "name": "クリスマスパレード",
+          "jockey": "石川裕紀",
+          "trainer": "加藤士津",
+          "sire": "キタサンブラック",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "加藤士津"
+            },
+            {
+              "type": "好調騎手",
+              "name": "石川裕紀"
+            }
+          ]
+        },
+        {
+          "num": 4,
+          "name": "エヒト",
+          "jockey": "川田将雅",
+          "trainer": "森秀行",
+          "sire": "ルーラーシップ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 5,
+          "name": "アスクナイスショー",
+          "jockey": "田辺裕信",
+          "trainer": "中舘英二",
+          "sire": "シルバーステート",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 6,
+          "name": "リビアングラス",
+          "jockey": "三浦皇成",
+          "trainer": "矢作芳人",
+          "sire": "キズナ",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "矢作芳人"
+            }
+          ]
+        },
+        {
+          "num": 7,
+          "name": "コスモキュランダ",
+          "jockey": "横山武史",
+          "trainer": "加藤士津",
+          "sire": "アルアイン",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "加藤士津"
+            }
+          ]
+        },
+        {
+          "num": 8,
+          "name": "ホウオウノーサイド",
+          "jockey": "杉原誠人",
+          "trainer": "奥村武",
+          "sire": "キングカメハメハ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 9,
+          "name": "マイネルケレリウス",
+          "jockey": "松岡正海",
+          "trainer": "奥村武",
+          "sire": "ルーラーシップ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 10,
+          "name": "シャイニングソード",
+          "jockey": "西村淳也",
+          "trainer": "中内田充",
+          "sire": "Frankel",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 11,
+          "name": "ミステリーウェイ",
+          "jockey": "松本大輝",
+          "trainer": "小林真也",
+          "sire": "ジャスタウェイ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 12,
+          "name": "チャックネイト",
+          "jockey": "大野拓弥",
+          "trainer": "堀宣行",
+          "sire": "ハーツクライ",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "堀宣行"
+            }
+          ]
+        },
+        {
+          "num": 13,
+          "name": "ブレイヴロッカー",
+          "jockey": "荻野極",
+          "trainer": "本田優",
+          "sire": "ドゥラメンテ",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊騎手",
+              "name": "荻野極"
+            }
+          ]
+        },
+        {
+          "num": 14,
+          "name": "ローシャムパーク",
+          "jockey": "ルメール",
+          "trainer": "田中博康",
+          "sire": "ハービンジャー",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊騎手",
+              "name": "ルメール"
+            }
+          ]
+        },
+        {
+          "num": 15,
+          "name": "マイユニバース",
+          "jockey": "横山典弘",
+          "trainer": "武幸四郎",
+          "sire": "レイデオロ",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊騎手",
+              "name": "横山典弘"
+            }
+          ]
+        }
+      ],
+      "horses": [
+        {
+          "num": null,
+          "name": "クリスマスパレード",
+          "jockey": "石川裕紀",
+          "trainer": "加藤士津",
+          "sire": "キタサンブラック",
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "加藤士津",
+              "memo": "複勝率50.0%・単回値62の穴厩舎",
+              "grade": null,
+              "単回値": null,
+              "複回値": null,
+              "複勝率": null
+            },
+            {
+              "type": "好調騎手",
+              "name": "石川裕紀",
+              "memo": "単回値763！中山芝の超穴騎手",
+              "grade": "B",
+              "単回値": 763,
+              "複回値": 156,
+              "複勝率": "25.0%"
+            }
+          ]
+        },
+        {
+          "num": null,
+          "name": "ローシャムパーク",
+          "jockey": "ルメール",
+          "trainer": "田中博康",
+          "sire": "ハービンジャー",
+          "conditions": [
+            {
+              "type": "コース金塊騎手",
+              "name": "ルメール",
+              "memo": "複勝率78.6%・単回値30の穴騎手",
+              "grade": null,
+              "単回値": null,
+              "複回値": null,
+              "複勝率": null
+            }
+          ]
+        }
+      ]
+    },
     {
       "raceName": "中京12R フィリピ･2勝",
       "course": "中京芝1400m",
+      "racecourse": "中京",
+      "surface": "芝",
+      "distance": "1400",
+      "allHorses": [
+        {
+          "num": 1,
+          "name": "カウンティフェア",
+          "jockey": "長岡禎仁",
+          "trainer": "高野友和",
+          "sire": "サートゥルナーリア",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "高野友和"
+            }
+          ]
+        },
+        {
+          "num": 2,
+          "name": "ボンヌソワレ",
+          "jockey": "斎藤新",
+          "trainer": "宮田敬介",
+          "sire": "レイデオロ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 3,
+          "name": "サクラオーラ",
+          "jockey": "酒井学",
+          "trainer": "河嶋宏樹",
+          "sire": "シルバーステート",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 4,
+          "name": "スイミーユニバンス",
+          "jockey": "永島まな",
+          "trainer": "平田修",
+          "sire": "ドゥラメンテ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 5,
+          "name": "プチプラージュ",
+          "jockey": "国分恭介",
+          "trainer": "大根田裕",
+          "sire": "ストロングリターン",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 6,
+          "name": "アムールリーベ",
+          "jockey": "古川吉洋",
+          "trainer": "宮地貴稔",
+          "sire": "シルバーステート",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 7,
+          "name": "ライラ",
+          "jockey": "丸山元気",
+          "trainer": "吉岡辰弥",
+          "sire": "キタサンブラック",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 8,
+          "name": "メイショウミリオレ",
+          "jockey": "高杉吏麒",
+          "trainer": "藤岡健一",
+          "sire": "ルーラーシップ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 9,
+          "name": "キョウエイボニータ",
+          "jockey": "池添謙一",
+          "trainer": "伊藤伸一",
+          "sire": "イスラボニータ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 10,
+          "name": "ドーンコーラス",
+          "jockey": "岩田康誠",
+          "trainer": "萩原清",
+          "sire": "スワーヴリチャード",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 11,
+          "name": "ノクナレア",
+          "jockey": "吉田隼人",
+          "trainer": "今野貞一",
+          "sire": "ミッキーアイル",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 12,
+          "name": "キャッスルレイク",
+          "jockey": "田口貫太",
+          "trainer": "松下武士",
+          "sire": "サートゥルナーリア",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 13,
+          "name": "インフローレ",
+          "jockey": "浜中俊",
+          "trainer": "寺島良",
+          "sire": "リオンディーズ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 14,
+          "name": "ロンドボス",
+          "jockey": "西塚洸二",
+          "trainer": "藤原英昭",
+          "sire": "モーリス",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊騎手",
+              "name": "西塚洸二"
+            },
+            {
+              "type": "コース金塊厩舎",
+              "name": "藤原英昭"
+            },
+            {
+              "type": "コース金塊騎手厩舎ライン",
+              "name": "西塚洸二 × 藤原英昭"
+            }
+          ]
+        },
+        {
+          "num": 15,
+          "name": "ニシノクードクール",
+          "jockey": "丸田恭介",
+          "trainer": "武藤善則",
+          "sire": "ホークビル",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 16,
+          "name": "ルトゥール",
+          "jockey": "中井裕二",
+          "trainer": "中内田充",
+          "sire": "モーリス",
+          "isKinkai": false,
+          "conditions": []
+        }
+      ],
       "horses": [
         {
+          "num": null,
           "name": "カウンティフェア",
           "jockey": "長岡禎仁",
           "trainer": "高野友和",
@@ -23,6 +627,7 @@
           ]
         },
         {
+          "num": null,
           "name": "ロンドボス",
           "jockey": "西塚洸二",
           "trainer": "藤原英昭",
@@ -50,6 +655,318 @@
               "type": "コース金塊騎手厩舎ライン",
               "name": "西塚洸二 × 藤原英昭",
               "memo": "金塊騎手と金塊厩舎の最強コンビ！配当倍増に期待",
+              "grade": null,
+              "単回値": null,
+              "複回値": null,
+              "複勝率": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "raceName": "中山11R 日経賞G2",
+      "course": "中京芝1400m",
+      "racecourse": "中京",
+      "surface": "芝",
+      "distance": "1400",
+      "allHorses": [
+        {
+          "num": 1,
+          "name": "ミクニインスパイア",
+          "jockey": "丹内祐次",
+          "trainer": "林徹",
+          "sire": "アドマイヤマーズ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 2,
+          "name": "ホールネス",
+          "jockey": "ディー",
+          "trainer": "藤原英昭",
+          "sire": "\"Lope de Vega\"",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "藤原英昭"
+            }
+          ]
+        },
+        {
+          "num": 3,
+          "name": "クリスマスパレード",
+          "jockey": "石川裕紀",
+          "trainer": "加藤士津",
+          "sire": "キタサンブラック",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 4,
+          "name": "エヒト",
+          "jockey": "川田将雅",
+          "trainer": "森秀行",
+          "sire": "ルーラーシップ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 5,
+          "name": "アスクナイスショー",
+          "jockey": "田辺裕信",
+          "trainer": "中舘英二",
+          "sire": "シルバーステート",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 6,
+          "name": "リビアングラス",
+          "jockey": "三浦皇成",
+          "trainer": "矢作芳人",
+          "sire": "キズナ",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "矢作芳人"
+            }
+          ]
+        },
+        {
+          "num": 7,
+          "name": "コスモキュランダ",
+          "jockey": "横山武史",
+          "trainer": "加藤士津",
+          "sire": "アルアイン",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 8,
+          "name": "ホウオウノーサイド",
+          "jockey": "杉原誠人",
+          "trainer": "奥村武",
+          "sire": "キングカメハメハ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 9,
+          "name": "マイネルケレリウス",
+          "jockey": "松岡正海",
+          "trainer": "奥村武",
+          "sire": "ルーラーシップ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 10,
+          "name": "シャイニングソード",
+          "jockey": "西村淳也",
+          "trainer": "中内田充",
+          "sire": "Frankel",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊血統",
+              "name": "Frankel"
+            }
+          ]
+        },
+        {
+          "num": 11,
+          "name": "ミステリーウェイ",
+          "jockey": "松本大輝",
+          "trainer": "小林真也",
+          "sire": "ジャスタウェイ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 12,
+          "name": "チャックネイト",
+          "jockey": "大野拓弥",
+          "trainer": "堀宣行",
+          "sire": "ハーツクライ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 13,
+          "name": "ブレイヴロッカー",
+          "jockey": "荻野極",
+          "trainer": "本田優",
+          "sire": "ドゥラメンテ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 14,
+          "name": "ローシャムパーク",
+          "jockey": "ルメール",
+          "trainer": "田中博康",
+          "sire": "ハービンジャー",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 15,
+          "name": "マイユニバース",
+          "jockey": "横山典弘",
+          "trainer": "武幸四郎",
+          "sire": "レイデオロ",
+          "isKinkai": false,
+          "conditions": []
+        }
+      ],
+      "horses": [
+        {
+          "num": null,
+          "name": "ホールネス",
+          "jockey": "ディー",
+          "trainer": "藤原英昭",
+          "sire": "\"Lope de Vega\"",
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "藤原英昭",
+              "memo": "西塚×藤原ライン単回値240の超穴厩舎",
+              "grade": null,
+              "単回値": 240,
+              "複回値": 186,
+              "複勝率": "35.7%"
+            }
+          ]
+        },
+        {
+          "num": null,
+          "name": "リビアングラス",
+          "jockey": "三浦皇成",
+          "trainer": "矢作芳人",
+          "sire": "キズナ",
+          "conditions": [
+            {
+              "type": "コース金塊厩舎",
+              "name": "矢作芳人",
+              "memo": "坂井×矢作ライン単回値145！",
+              "grade": null,
+              "単回値": 145,
+              "複回値": 113,
+              "複勝率": "57.1%"
+            }
+          ]
+        },
+        {
+          "num": null,
+          "name": "シャイニングソード",
+          "jockey": "西村淳也",
+          "trainer": "中内田充",
+          "sire": "Frankel",
+          "conditions": [
+            {
+              "type": "コース金塊血統",
+              "name": "Frankel",
+              "memo": "複勝率56.5%！欧州の名血Frankel産駒",
+              "grade": null,
+              "単回値": 88,
+              "複回値": 110,
+              "複勝率": "56.5%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "raceName": "阪神9R 君子蘭賞･1勝",
+      "course": "阪神芝1800m",
+      "racecourse": "阪神",
+      "surface": "芝",
+      "distance": "1800",
+      "allHorses": [
+        {
+          "num": 1,
+          "name": "グランドオーパス",
+          "jockey": "北村友一",
+          "trainer": "橋口慎介",
+          "sire": "キズナ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 2,
+          "name": "アンジュドジョワ",
+          "jockey": "岩田望来",
+          "trainer": "福永祐一",
+          "sire": "キタサンブラック",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 3,
+          "name": "トリニティ",
+          "jockey": "武豊",
+          "trainer": "安田翔伍",
+          "sire": "サートゥルナーリア",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 4,
+          "name": "ジャストビート",
+          "jockey": "松山弘平",
+          "trainer": "安達昭夫",
+          "sire": "デクラレーションオブウォー",
+          "isKinkai": true,
+          "conditions": [
+            {
+              "type": "コース金塊血統",
+              "name": "デクラレーションオブウォー"
+            }
+          ]
+        },
+        {
+          "num": 5,
+          "name": "ペカリーナ",
+          "jockey": "藤懸貴志",
+          "trainer": "竹内正洋",
+          "sire": "ルーラーシップ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 6,
+          "name": "ダンシングドール",
+          "jockey": "森田誠也",
+          "trainer": "牧田和弥",
+          "sire": "ヴァンセンヌ",
+          "isKinkai": false,
+          "conditions": []
+        },
+        {
+          "num": 7,
+          "name": "キタノファーンヒル",
+          "jockey": "菱田裕二",
+          "trainer": "加藤公太",
+          "sire": "ヴァンゴッホ",
+          "isKinkai": false,
+          "conditions": []
+        }
+      ],
+      "horses": [
+        {
+          "num": null,
+          "name": "ジャストビート",
+          "jockey": "松山弘平",
+          "trainer": "安達昭夫",
+          "sire": "デクラレーションオブウォー",
+          "conditions": [
+            {
+              "type": "コース金塊血統",
+              "name": "デクラレーションオブウォー",
+              "memo": "このコースの特注血統",
               "grade": null,
               "単回値": null,
               "複回値": null,
