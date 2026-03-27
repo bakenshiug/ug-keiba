@@ -870,18 +870,45 @@ function selectCSVRace(race, targetBtn) {
     targetBtn.style.borderColor = 'rgba(240,192,64,0.80)';
   }
 
-  // 警告表示（DBなし）
+  // 警告表示（DBなし） + 直接セッション追加ボタン
   if (!race.hasDB) {
+    const courseM = (race.course||'').match(/^(.+?)(芝|ダート|ダ)(\d+)/);
     const warn = document.createElement('div');
-    warn.className = 'rounded-xl p-3 mt-3';
-    warn.style.cssText = 'background:rgba(232,0,61,0.12);border:1px solid rgba(232,0,61,0.30);';
-    warn.innerHTML = `<p class="text-xs font-bold" style="color:#ffb3c6;">⚠️ 「${escHtml(race.course)}」はDBに未登録です。手動でコースを選択するか、コースデータを追加してください。</p>`;
+    warn.className = 'rounded-xl p-3 mt-3 csv-warn';
+    warn.style.cssText = 'background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.30);';
+    warn.innerHTML = `
+      <p class="text-xs font-bold mb-2" style="color:#f0c040;">⚠️ 「${escHtml(race.course)}」はDBに未登録 — 金塊馬チェックなしで全馬を取込めます</p>
+      <button onclick="addCSVRaceDirectly(this)" style="
+        display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;
+        background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;
+        font-size:12px;font-weight:900;border:none;cursor:pointer;
+      ">📋 全馬をセッションに追加（${race.horses.length}頭）</button>
+    `;
+    warn.dataset.race = JSON.stringify({
+      raceName: race.raceName,
+      course: race.course,
+      racecourse: courseM ? courseM[1] : '',
+      surface: courseM ? (courseM[2] === 'ダ' ? 'ダート' : courseM[2]) : '',
+      distance: courseM ? courseM[3] : '',
+      allHorses: race.horses.map((h, i) => ({
+        num: i + 1, name: h.name, jockey: h.jockey || '',
+        trainer: h.trainer || '', sire: h.sire || '', isKinkai: false
+      })),
+      horses: []
+    });
     const step2 = document.getElementById('entryInput').parentElement;
     const existing = step2.querySelector('.csv-warn');
     if (existing) existing.remove();
-    warn.classList.add('csv-warn');
     document.getElementById('entryInput').after(warn);
   }
+}
+
+function addCSVRaceDirectly(btn) {
+  const warn = btn.closest('[data-race]');
+  if (!warn) return;
+  const race = JSON.parse(warn.dataset.race);
+  lastResult = race;
+  addToSession();
 }
 
 // ── 初期化 ─────────────────────────────────
