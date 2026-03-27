@@ -1636,6 +1636,14 @@ function toggleDB() {
 
 // ── コースDB追加ツール ──────────────────────────
 let dbBuilderEntries = [];
+let dbBuilderAllCategories = null; // TXTモード時: {騎手:[], 調教師:[], 種牡馬:[]}
+
+// 全角→半角変換
+function normFW(s) {
+  return (s || '').replace(/[Ａ-Ｚａ-ｚ０-９ｍ．，]/g, c =>
+    String.fromCharCode(c.charCodeAt(0) - 0xFEE0)
+  );
+}
 
 function toggleDBBuilder() {
   const body = document.getElementById('dbBuilderBody');
@@ -1663,6 +1671,12 @@ function handleDBFileUpload(input) {
 }
 
 function parseDBFile(text, fileName) {
+  // ── TXT形式検出（◆セクション区切りのTarget競馬レポート）──
+  if (text.includes('◆')) {
+    parseDBFileTXT(text, fileName);
+    return;
+  }
+
   const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l);
   if (lines.length < 2) { alert('データ行が少なすぎます'); return; }
 
@@ -1749,20 +1763,126 @@ function parseDBFile(text, fileName) {
   document.getElementById('dbDownloadArea').classList.remove('hidden');
 }
 
+function parseDBFileTXT(text, fileName) {
+  dbBuilderAllCategories = { 騎手: [], 調教師: [], 種牡馬: [] };
+  dbBuilderEntries = [];
+
+  // コース名を1行目から自動取得
+  const firstLine = normFW(text.split(/\r?\n/)[0].trim());
+  const courseInput = document.getElementById('dbCourseName');
+  if (!courseInput.value && firstLine && !firstLine.startsWith('◆')) {
+    courseInput.value = firstLine;
+  }
+
+  // 集計期間を自動取得
+  const periodMatch = text.match(/集計期間[：:]\s*(.+)/);
+  if (periodMatch) {
+    const periodInput = document.getElementById('dbPeriod');
+    if (!periodInput.value) periodInput.value = periodMatch[1].trim();
+  }
+
+  // ◆ でセクション分割
+  const sections = text.split(/◆/);
+  sections.forEach(section => {
+    const lines = section.split(/\r?\n/).map(l => l.trim()).filter(l => l);
+    if (!lines.length) return;
+    const header = lines[0];
+    let category = null;
+    if (header.includes('騎手別') && !header.includes('×') && !header.includes('x')) category = '騎手';
+    else if (header.includes('調教師別')) category = '調教師';
+    else if (header.includes('種牡馬別')) category = '種牡馬';
+    else return;
+
+    lines.forEach(line => {
+      // 固定幅形式: 名前(スペース2+)着別度数  率%  率%  率%  単回値  複回値
+      const m = line.match(/^(.+?)\s{2,}(\d+)-\s*(\d+)-\s*(\d+)-\s*\d+\/\s*(\d+)\s+([\d.]+)%\s+([\d.]+)%\s+([\d.]+)%\s+(\d+)\s+(\d+)/);
+      if (!m) return;
+      const [, rawName, wins, second, third, total, winRate, rentaiRate, fukushoRate, tanKaichi, fukuKaichi] = m;
+      const name = normFW(rawName.trim());
+      if (!name) return;
+
+      const label = category === '騎手' ? '騎手' : category === '調教師' ? '厩舎' : '産駒';
+      const memoParts = [];
+      memoParts.push(`複勝率${fukushoRate}%`);
+      if (parseInt(tanKaichi) >= 150) memoParts.push(`単回値${tanKaichi}の激走${label}`);
+      else if (parseInt(tanKaichi) > 0) memoParts.push(`単回値${tanKaichi}`);
+
+      dbBuilderAllCategories[category].push({
+        name,
+        wins: parseInt(wins), second: parseInt(second),
+        third: parseInt(third), total: parseInt(total),
+        winRate: winRate + '%', rentaiRate: rentaiRate + '%',
+        fukushoRate: fukushoRate + '%',
+        tanKaichi: parseInt(tanKaichi), fukuKaichi: parseInt(fukuKaichi),
+        memo: memoParts.join('・')
+      });
+    });
+  });
+
+  // プレビュー表示（全カテゴリ結合）
+  const allEntries = [
+    ...dbBuilderAllCategories['騎手'].map(e => ({...e, _cat:'騎手'})),
+    ...dbBuilderAllCategories['調教師'].map(e => ({...e, _cat:'調教師'})),
+    ...dbBuilderAllCategories['種牡馬'].map(e => ({...e, _cat:'種牡馬'})),
+  ];
+  const total = allEntries.length;
+  const counts = ['騎手','調教師','種牡馬'].map(c => `${c}${dbBuilderAllCategories[c].length}件`).filter(s => !s.startsWith('0件')).join(' / ');
+
+  document.getElementById('dbUploadText').textContent = `✅ ${fileName}（${counts}）`;
+  document.getElementById('dbPreviewCount').textContent = total;
+
+  // カテゴリセレクタを非表示にしてTXTモード表示
+  const catWrap = document.getElementById('dbCategory').closest('div');
+  catWrap.innerHTML = `<p class="text-xs mb-1" style="color:rgba(255,255,255,0.5)">カテゴリ</p>
+    <span style="font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;background:rgba(240,192,64,0.18);color:#f0c040;border:1px solid rgba(240,192,64,0.35);">✅ 全カテゴリ自動取込</span>`;
+
+  const tbody = document.getElementById('dbPreviewBody');
+  tbody.innerHTML = '';
+  allEntries.forEach(e => {
+    const tr = document.createElement('tr');
+    tr.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.06);';
+    tr.innerHTML = `
+      <td style="padding:5px 8px;color:#fff;font-weight:700;">${e.name}
+        <span style="font-size:9px;color:rgba(255,255,255,0.4);margin-left:4px;">${e._cat}</span></td>
+      <td style="padding:5px 8px;text-align:center;color:rgba(255,255,255,0.7);">${e.wins}-${e.second}-${e.third}/${e.total}</td>
+      <td style="padding:5px 8px;text-align:center;color:#4ade80;">${e.fukushoRate}</td>
+      <td style="padding:5px 8px;text-align:center;color:#f0c040;">${e.tanKaichi}</td>
+      <td style="padding:5px 8px;text-align:center;color:#f0c040;">${e.fukuKaichi}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('dbPreview').classList.remove('hidden');
+  document.getElementById('dbDownloadArea').classList.remove('hidden');
+}
+
 function downloadDBJson() {
   const courseName = document.getElementById('dbCourseName').value.trim();
-  const category   = document.getElementById('dbCategory').value;
   const period     = document.getElementById('dbPeriod').value.trim();
 
   if (!courseName) { alert('コース名を入力してください（例：東京芝2000m）'); return; }
-  if (dbBuilderEntries.length === 0) { alert('データがありません'); return; }
 
-  // 既存DBとマージ（同コースの他カテゴリを保持）
-  const existing = COURSES_DB[courseName] || {};
+  let conditions;
+  if (dbBuilderAllCategories) {
+    // TXTモード：全カテゴリ
+    const existing = COURSES_DB[courseName] || {};
+    conditions = { ...existing };
+    ['騎手','調教師','種牡馬'].forEach(cat => {
+      if (dbBuilderAllCategories[cat].length > 0) conditions[cat] = dbBuilderAllCategories[cat];
+    });
+    if (Object.keys(conditions).length === 0) { alert('データがありません'); return; }
+  } else {
+    // CSVモード：単カテゴリ
+    if (dbBuilderEntries.length === 0) { alert('データがありません'); return; }
+    const category = document.getElementById('dbCategory').value;
+    const existing = COURSES_DB[courseName] || {};
+    conditions = { ...existing, [category]: dbBuilderEntries };
+  }
+
   const jsonData = {
     course: courseName,
     period: period || '',
-    conditions: { ...existing, [category]: dbBuilderEntries }
+    conditions
   };
 
   // ファイル名生成
