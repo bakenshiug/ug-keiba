@@ -1690,7 +1690,8 @@ function parseDBFile(text, fileName) {
 
   // 区切り文字判定
   const delim = lines[0].includes('\t') ? '\t' : ',';
-  const headers = lines[0].split(delim).map(h => h.replace(/"/g,'').trim());
+  // 全角→半角正規化をヘッダーに適用（１着→1着 等）
+  const headers = lines[0].split(delim).map(h => normFW(h.replace(/"/g,'').trim()));
 
   const col = (...names) => {
     for (const n of names) {
@@ -1725,7 +1726,7 @@ function parseDBFile(text, fileName) {
 
   dbBuilderEntries = [];
   lines.slice(1).forEach(line => {
-    const cols = line.split(delim).map(c => c.replace(/"/g,'').trim());
+    const cols = line.split(delim).map(c => normFW(c.replace(/"/g,'').trim()));
     const name = cols[nameCol];
     if (!name) return;
 
