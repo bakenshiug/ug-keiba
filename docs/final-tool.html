@@ -2085,6 +2085,90 @@ function attachAutosave() {
 // ══════════════════════════════════════════════════════════
 //  INIT
 // ══════════════════════════════════════════════════════════
+// ── 💎 金塊馬 localStorage 取込 ─────────────────────────────
+function renderKinkaiRaceList() {
+  var container = document.getElementById('kinkaiRaceList');
+  var races = [];
+  try {
+    var raw = localStorage.getItem('ug_weekly_races');
+    if (raw) races = JSON.parse(raw);
+  } catch(e) {}
+
+  if (!races.length) {
+    container.innerHTML = '<div style="display:flex;align-items:center;gap:10px;">'
+      + '<span style="font-size:12px;color:var(--text-muted);">「今週の金塊馬」でレースを追加するとここに表示されます</span>'
+      + '<button onclick="renderKinkaiRaceList()" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);cursor:pointer;">🔄</button>'
+      + '</div>';
+    return;
+  }
+
+  var html = '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
+    + '<span style="font-size:11px;color:rgba(255,255,255,0.5);">' + races.length + 'レース登録済み</span>'
+    + '<button onclick="renderKinkaiRaceList()" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);cursor:pointer;">🔄 更新</button>'
+    + '</div><div style="display:flex;flex-direction:column;gap:6px;">';
+  races.forEach(function(race, i) {
+    var horses = race.allHorses || race.horses || [];
+    html += '<button onclick="importKinkaiRace(' + i + ')" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(240,192,64,0.25);cursor:pointer;width:100%;text-align:left;transition:background 0.15s;">'
+      + '<span style="font-size:13px;font-weight:700;color:#fff;">' + race.raceName + '</span>'
+      + '<span style="font-size:11px;color:rgba(255,255,255,0.5);">' + horses.length + '頭 ›</span>'
+      + '</button>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function importKinkaiRace(idx) {
+  var races = [];
+  try { races = JSON.parse(localStorage.getItem('ug_weekly_races') || '[]'); } catch(e) {}
+  var race = races[idx];
+  if (!race) return;
+
+  var sourceHorses = race.allHorses || race.horses || [];
+  if (finalHorses.length > 0) {
+    if (!confirm(race.raceName + ' の ' + sourceHorses.length + '頭を取込みます。\n現在の馬リストは上書きされます。よろしいですか？')) return;
+  }
+
+  // STEP1 自動入力
+  document.getElementById('raceName').value = race.raceName || '';
+  if (race.racecourse) {
+    var venueEl = document.getElementById('venue');
+    if (venueEl) venueEl.value = race.racecourse;
+  }
+  if (race.surface) {
+    var surfEl = document.getElementById('surface');
+    if (surfEl) surfEl.value = (race.surface === 'ダ') ? 'ダート' : race.surface;
+  }
+  if (race.distance) document.getElementById('distance').value = race.distance + 'm';
+  updateFilenamePreview();
+
+  // 馬リスト生成（全馬・スコア0初期化）
+  finalHorses = sourceHorses.map(function(h, i) {
+    var num = h.num || (i + 1);
+    return {
+      num:    num,
+      gate:   calcGateFromNum(num, sourceHorses.length),
+      name:   h.name  || '',
+      jockey: h.jockey || '',
+      basePt: 0,
+      scores: { '枠番':0, '調教':0, '勝負気配':0, '馬場':0, 'ニック':0 },
+      totalPt: 0,
+      mark: ''
+    };
+  });
+
+  renderHorseTable();
+  scheduleSave();
+
+  document.getElementById('kinkaiRaceList').innerHTML =
+    '<div style="font-size:12px;font-weight:700;color:#4ade80;">✅ ' + race.raceName + '（' + sourceHorses.length + '頭）を取込みました</div>'
+    + '<button onclick="renderKinkaiRaceList()" style="margin-top:8px;font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);cursor:pointer;">← レース一覧に戻る</button>';
+
+  setTimeout(function(){
+    var tbl = document.getElementById('horseTableBody');
+    if (tbl) tbl.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 200);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // Try restore draft
   try {
@@ -2099,6 +2183,7 @@ document.addEventListener('DOMContentLoaded', function() {
   renderHorseTable();
   updateFilenamePreview();
   updateToggleStatus();
+  renderKinkaiRaceList();
 
   // Attach autosave
   attachAutosave();
