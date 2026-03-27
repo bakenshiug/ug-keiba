@@ -1718,6 +1718,7 @@ function parseDBFile(text, fileName) {
   const fukushoCol  = col('複勝率', '複勝');
   const tanCol      = col('単回値', '単回収');
   const fukuCol     = col('複回値', '複回収');
+  const tanTekiCol  = col('単適回', '単適');
 
   if (nameCol < 0) {
     alert('名前の列が見つかりません。\nCSVのヘッダー行を確認してください。\n\n検出されたヘッダー：\n' + headers.join(' / '));
@@ -1732,8 +1733,8 @@ function parseDBFile(text, fileName) {
 
     let wins = 0, second = 0, third = 0, total = 0;
     if (chakuCol >= 0) {
-      // 合算形式: "4-3-4-10/21" または "4-3-4-10"
-      const m = (cols[chakuCol] || '').match(/(\d+)-(\d+)-(\d+)-(\d+)/);
+      // 合算形式: "4- 3- 4-10/21" や "4-3-4-10/21"（スペースあり・なし両対応）
+      const m = (cols[chakuCol] || '').match(/(\d+)\s*-\s*(\d+)\s*-\s*(\d+)\s*-\s*(\d+)/);
       if (m) {
         wins = +m[1]; second = +m[2]; third = +m[3];
         total = wins + second + third + +m[4];
@@ -1761,7 +1762,8 @@ function parseDBFile(text, fileName) {
     else if (tanKaichi > 0) memoParts.push(`単回値${tanKaichi}`);
     const memo = memoParts.join('・') || `穴${label}`;
 
-    const entry = { name, wins, second, third, total, winRate, rentaiRate, fukushoRate, tanKaichi, fukuKaichi, memo };
+    const tanTekiKaichi = tanTekiCol >= 0 ? (parseFloat(cols[tanTekiCol]) || 0) : 0;
+    const entry = { name, wins, second, third, total, winRate, rentaiRate, fukushoRate, tanKaichi, fukuKaichi, ...(tanTekiKaichi ? {tanTekiKaichi} : {}), memo };
     if (stableCol >= 0 && cols[stableCol]) entry.stable = cols[stableCol];
     // 騎手厩舎ライン: jockey / trainer フィールドを追加
     if (isCombo) {
