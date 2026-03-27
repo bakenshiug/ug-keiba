@@ -686,6 +686,21 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
         </div>
       </div>
 
+      <!-- 📥 重賞展望データ読込 -->
+      <div class="csv-upload-area" id="shindanImportArea">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:11px; font-weight:900; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase;">📥 重賞展望データ読込</span>
+          </div>
+          <button onclick="loadShindanScores()" style="
+            padding:5px 12px;border-radius:8px;border:none;cursor:pointer;
+            background:rgba(240,192,64,0.15);color:var(--gold);
+            font-size:11px;font-weight:700;border:1px solid rgba(240,192,64,0.35);
+          ">🔄 読込</button>
+        </div>
+        <div id="shindanStatus" style="font-size:12px; color:var(--text-muted);">重賞展望ページで「📤 最終予想ツールへ転送」を押してから読込してください</div>
+      </div>
+
       <!-- Horse add form -->
       <div class="horse-add-form" id="horseAddForm" style="display:none;">
         <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:0.05em; text-transform:uppercase;">馬を追加</div>
@@ -1017,6 +1032,65 @@ function renderCSVRaceSelectFinal(races) {
     btn.onclick = (function(r){ return function(){ importCSVRaceHorsesFinal(r); }; })(race);
     btns.appendChild(btn);
   });
+}
+
+// ── 重賞展望データ読込（localStorage["ug_shindan_scores"] → basePt反映）──
+function loadShindanScores() {
+  var raw = localStorage.getItem('ug_shindan_scores');
+  var statusEl = document.getElementById('shindanStatus');
+  if (!raw) {
+    statusEl.style.color = '#ffb3c6';
+    statusEl.textContent = '⚠️ データがありません。重賞展望ページで「📤 最終予想ツールへ転送」を押してください。';
+    return;
+  }
+  var data;
+  try { data = JSON.parse(raw); } catch(e) {
+    statusEl.style.color = '#ffb3c6';
+    statusEl.textContent = '❌ データの読み込みに失敗しました';
+    return;
+  }
+  var shindanHorses = data.horses || [];
+  if (shindanHorses.length === 0) {
+    statusEl.style.color = '#ffb3c6';
+    statusEl.textContent = '⚠️ 馬データが見つかりません';
+    return;
+  }
+  // 馬リストがあれば basePt を反映（馬名で照合、次に馬番で照合）
+  var matched = 0;
+  if (finalHorses.length > 0) {
+    finalHorses.forEach(function(horse) {
+      var sd = shindanHorses.find(function(s) {
+        return s.name === horse.name || s.num === horse.num;
+      });
+      if (sd) {
+        horse.basePt = sd.pt;
+        horse.totalPt = calcTotal(horse);
+        matched++;
+      }
+    });
+    renderHorseTable();
+    scheduleSave();
+    statusEl.style.color = '#4ade80';
+    statusEl.textContent = '✅ ' + data.raceName + '：' + matched + '頭に basePt を反映しました（' + new Date(data.savedAt).toLocaleTimeString('ja-JP') + '保存）';
+  } else {
+    // 馬リストが空の場合は馬を自動追加
+    if (!confirm(data.raceName + ' の ' + shindanHorses.length + '頭を取込みますか？')) return;
+    finalHorses = shindanHorses.map(function(s) {
+      return {
+        num: s.num, gate: calcGateFromNum(s.num, shindanHorses.length),
+        name: s.name, jockey: '', basePt: s.pt,
+        scores: {'枠番':0,'調教':0,'勝負気配':0,'馬場':0,'ニック':0},
+        totalPt: s.pt, mark: ''
+      };
+    });
+    finalHorses.forEach(function(h){ h.totalPt = calcTotal(h); });
+    renderHorseTable();
+    scheduleSave();
+    statusEl.style.color = '#4ade80';
+    statusEl.textContent = '✅ ' + data.raceName + '：' + shindanHorses.length + '頭を読込みました';
+    document.getElementById('raceName').value = data.raceName;
+    updateFilenamePreview();
+  }
 }
 
 function importCSVRaceHorsesFinal(race) {

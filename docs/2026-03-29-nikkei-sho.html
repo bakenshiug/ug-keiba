@@ -1652,5 +1652,69 @@ footer .hover\:bg-\[\#f2f4f2\]:hover { background: rgba(232,0,61,0.15) !importan
   });
 })();
 </script>
+
+<!-- 📤 最終予想ツールへ転送ボタン -->
+<div id="transferBtn" style="position:fixed;bottom:80px;right:16px;z-index:999;">
+  <button onclick="transferToFinalTool()" style="
+    display:flex;align-items:center;gap:7px;
+    padding:11px 18px;border-radius:20px;border:none;cursor:pointer;
+    background:linear-gradient(135deg,#f0c040,#d97706);
+    color:#130003;font-size:13px;font-weight:900;
+    box-shadow:0 4px 20px rgba(240,192,64,0.50);
+    font-family:'Public Sans',sans-serif;
+  ">📤 最終予想ツールへ転送</button>
+</div>
+<div id="transferToast" style="
+  display:none;position:fixed;bottom:140px;right:16px;z-index:1000;
+  background:#1a0004;border:1px solid rgba(240,192,64,0.60);
+  color:#f0c040;font-size:12px;font-weight:700;
+  padding:10px 16px;border-radius:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.50);
+"></div>
+
+<script>
+function transferToFinalTool() {
+  var SCORE={'grade-S':7,'grade-A':6,'grade-Bp':5,'grade-B':4,'grade-C':3,'grade-D':2,'grade-E':1,'grade-none':0};
+  var horses = [];
+  document.querySelectorAll('.px-5.pt-4.pb-2').forEach(function(header) {
+    var card = header.closest('.rounded-2xl'); if (!card) return;
+    // 馬名・馬番を取得
+    var h2 = header.querySelector('h2'); if (!h2) return;
+    var numSpan = h2.querySelector('.bg-\\[\\#eceeec\\]');
+    var num = numSpan ? parseInt(numSpan.textContent.trim(), 10) : 0;
+    var name = h2.textContent.replace(numSpan ? numSpan.textContent : '', '').replace(/🤡/g,'').trim();
+    if (!name) return;
+    // スコア計算（既存JSと同じロジック）
+    var boxes = card.querySelectorAll('.bg-\\[\\#f2f4f2\\]');
+    var total = 0, count = 0;
+    boxes.forEach(function(box) {
+      var badge = box.querySelector('.rounded-full'); if (!badge) return;
+      for (var cls in SCORE) { if (badge.classList.contains(cls)) { total += SCORE[cls]; count++; break; } }
+    });
+    if (count === 0) return;
+    var bonus = parseInt(header.dataset.bonus || '0', 10);
+    total += bonus;
+    // 総合グレード
+    var gradeSpan = header.querySelector('.rounded-xl[class*="grade-"]');
+    var grade = '';
+    if (gradeSpan) {
+      var gc = gradeSpan.className.match(/grade-(\w+)/);
+      grade = gc ? gc[1] : '';
+    }
+    horses.push({ num: num, name: name, pt: total, grade: grade });
+  });
+  if (horses.length === 0) { alert('データが見つかりません'); return; }
+  // レース名をtitleから取得
+  var titleMatch = document.title.match(/^(.+?)\s*全頭診断/);
+  var raceName = titleMatch ? titleMatch[1] : document.title;
+  var payload = { raceName: raceName, savedAt: new Date().toISOString(), horses: horses };
+  localStorage.setItem('ug_shindan_scores', JSON.stringify(payload));
+  // トースト表示
+  var toast = document.getElementById('transferToast');
+  toast.textContent = '✅ ' + raceName + '（' + horses.length + '頭）を転送しました！';
+  toast.style.display = 'block';
+  setTimeout(function(){ toast.style.display='none'; }, 3000);
+}
+</script>
 </body>
 </html>
