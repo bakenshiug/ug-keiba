@@ -424,6 +424,79 @@
     </div>
   </div>
 
+  <!-- ══════ コースDB追加ツール ══════ -->
+  <div class="ug-card p-5 mt-4">
+    <button class="db-header w-full flex items-center justify-between py-1" onclick="toggleDBBuilder()">
+      <div class="flex items-center gap-2">
+        <span class="text-lg">➕</span>
+        <p class="font-bold text-sm" style="color:#f0c040">コースDB追加ツール</p>
+        <span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(240,192,64,0.15);color:#f0c040;border:1px solid rgba(240,192,64,0.30)">CSV / TXT</span>
+      </div>
+      <span class="material-symbols-outlined text-sm" id="dbBuilderArrow" style="color:rgba(255,255,255,0.50)">expand_more</span>
+    </button>
+    <div id="dbBuilderBody" class="hidden mt-4 space-y-4">
+
+      <!-- コース情報 -->
+      <div class="flex gap-3 flex-wrap">
+        <div class="flex-1" style="min-width:150px">
+          <p class="text-xs mb-1" style="color:rgba(255,255,255,0.5)">コース名</p>
+          <input id="dbCourseName" type="text" class="ug-input w-full px-3 py-2 text-sm" placeholder="例：東京芝2000m">
+        </div>
+        <div>
+          <p class="text-xs mb-1" style="color:rgba(255,255,255,0.5)">カテゴリ</p>
+          <select id="dbCategory" class="ug-input px-3 py-2 text-sm">
+            <option value="騎手">騎手</option>
+            <option value="調教師">調教師</option>
+            <option value="種牡馬">種牡馬</option>
+          </select>
+        </div>
+        <div class="flex-1" style="min-width:150px">
+          <p class="text-xs mb-1" style="color:rgba(255,255,255,0.5)">期間（任意）</p>
+          <input id="dbPeriod" type="text" class="ug-input w-full px-3 py-2 text-sm" placeholder="例：2020.01.01〜2026.03.22">
+        </div>
+      </div>
+
+      <!-- ファイルアップロード -->
+      <label class="csv-upload-label" id="dbUploadLabel" style="cursor:pointer;">
+        <input type="file" accept=".csv,.txt" style="display:none;" onchange="handleDBFileUpload(this)"/>
+        <span>📂</span>
+        <span id="dbUploadText" style="font-size:13px;font-weight:700;color:#f0c040;">CSV / TXT をアップロード（騎手・調教師・種牡馬）</span>
+      </label>
+
+      <!-- プレビュー -->
+      <div id="dbPreview" class="hidden">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-xs font-bold" style="color:#f0c040">✅ パース完了</span>
+          <span class="text-xs" style="color:rgba(255,255,255,0.5)"><span id="dbPreviewCount">0</span>件 検出</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:11px;" id="dbPreviewTable">
+            <thead>
+              <tr style="background:rgba(232,0,61,0.18);">
+                <th style="padding:6px 8px;text-align:left;color:rgba(255,255,255,0.7);font-weight:900;">名前</th>
+                <th style="padding:6px 8px;color:rgba(255,255,255,0.7);font-weight:900;">着別度数</th>
+                <th style="padding:6px 8px;color:rgba(255,255,255,0.7);font-weight:900;">複勝率</th>
+                <th style="padding:6px 8px;color:rgba(255,255,255,0.7);font-weight:900;">単回値</th>
+                <th style="padding:6px 8px;color:rgba(255,255,255,0.7);font-weight:900;">複回値</th>
+              </tr>
+            </thead>
+            <tbody id="dbPreviewBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ダウンロードボタン -->
+      <div id="dbDownloadArea" class="hidden space-y-2">
+        <button class="btn-extract w-full py-3 text-sm" onclick="downloadDBJson()">⬇️ JSONをダウンロード</button>
+        <div id="dbIndexHint" class="rounded-xl p-3 text-xs" style="background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.20);color:rgba(255,255,255,0.60);display:none;">
+          <p class="font-bold mb-1" style="color:#f0c040">📌 次のステップ</p>
+          <p id="dbIndexHintText"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div><!-- /pane-extract -->
 
 <!-- ══════ 結果入力ペイン ══════ -->
@@ -1532,6 +1605,155 @@ function toggleDB() {
   const arrow = document.getElementById('dbArrow');
   body.classList.toggle('open');
   arrow.classList.toggle('open');
+}
+
+// ── コースDB追加ツール ──────────────────────────
+let dbBuilderEntries = [];
+
+function toggleDBBuilder() {
+  const body = document.getElementById('dbBuilderBody');
+  const arrow = document.getElementById('dbBuilderArrow');
+  body.classList.toggle('hidden');
+  arrow.textContent = body.classList.contains('hidden') ? 'expand_more' : 'expand_less';
+}
+
+function handleDBFileUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  document.getElementById('dbUploadText').textContent = '読み込み中...';
+  const reader = new FileReader();
+  reader.onload = e => {
+    let text;
+    try {
+      const utf8 = new TextDecoder('utf-8').decode(e.target.result);
+      text = utf8.includes('\uFFFD') ? new TextDecoder('shift-jis').decode(e.target.result) : utf8;
+    } catch(_) {
+      text = new TextDecoder('shift-jis').decode(e.target.result);
+    }
+    parseDBFile(text, file.name);
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function parseDBFile(text, fileName) {
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l);
+  if (lines.length < 2) { alert('データ行が少なすぎます'); return; }
+
+  // 区切り文字判定
+  const delim = lines[0].includes('\t') ? '\t' : ',';
+  const headers = lines[0].split(delim).map(h => h.replace(/"/g,'').trim());
+
+  const col = (...names) => {
+    for (const n of names) {
+      const i = headers.findIndex(h => h.includes(n));
+      if (i >= 0) return i;
+    }
+    return -1;
+  };
+
+  const category = document.getElementById('dbCategory').value;
+  const nameCol     = col(category, '騎手', '調教師', '種牡馬', '名前', '馬名');
+  const stableCol   = col('所属', '厩舎');
+  const chakuCol    = col('着別度数', '着別', '度数');
+  const winRateCol  = col('勝率');
+  const rentaiCol   = col('連対率', '連対');
+  const fukushoCol  = col('複勝率', '複勝');
+  const tanCol      = col('単回値', '単回収');
+  const fukuCol     = col('複回値', '複回収');
+
+  if (nameCol < 0) {
+    alert('名前の列が見つかりません。\nCSVのヘッダー行を確認してください。\n\n検出されたヘッダー：\n' + headers.join(' / '));
+    return;
+  }
+
+  dbBuilderEntries = [];
+  lines.slice(1).forEach(line => {
+    const cols = line.split(delim).map(c => c.replace(/"/g,'').trim());
+    const name = cols[nameCol];
+    if (!name) return;
+
+    let wins = 0, second = 0, third = 0, total = 0;
+    if (chakuCol >= 0) {
+      const m = (cols[chakuCol] || '').match(/(\d+)-(\d+)-(\d+)-(\d+)/);
+      if (m) {
+        wins = +m[1]; second = +m[2]; third = +m[3];
+        total = wins + second + third + +m[4];
+      }
+    }
+
+    const winRate    = winRateCol >= 0 ? cols[winRateCol]  : '';
+    const rentaiRate = rentaiCol  >= 0 ? cols[rentaiCol]   : '';
+    const fukushoRate= fukushoCol >= 0 ? cols[fukushoCol]  : '';
+    const tanKaichi  = tanCol     >= 0 ? (parseInt(cols[tanCol])  || 0) : 0;
+    const fukuKaichi = fukuCol    >= 0 ? (parseInt(cols[fukuCol]) || 0) : 0;
+
+    const fRate = parseFloat((fukushoRate||'').replace('%','')) || 0;
+    const label = category === '騎手' ? '騎手' : category === '調教師' ? '厩舎' : '産駒';
+    const memoParts = [];
+    if (fukushoRate) memoParts.push(`複勝率${fukushoRate}`);
+    if (tanKaichi >= 150) memoParts.push(`単回値${tanKaichi}の激走${label}`);
+    else if (tanKaichi > 0) memoParts.push(`単回値${tanKaichi}`);
+    const memo = memoParts.join('・') || `穴${label}`;
+
+    const entry = { name, wins, second, third, total, winRate, rentaiRate, fukushoRate, tanKaichi, fukuKaichi, memo };
+    if (stableCol >= 0 && cols[stableCol]) entry.stable = cols[stableCol];
+    dbBuilderEntries.push(entry);
+  });
+
+  document.getElementById('dbUploadText').textContent = '✅ ' + fileName + '（' + dbBuilderEntries.length + '件）';
+  document.getElementById('dbPreviewCount').textContent = dbBuilderEntries.length;
+
+  const tbody = document.getElementById('dbPreviewBody');
+  tbody.innerHTML = '';
+  dbBuilderEntries.forEach(e => {
+    const tr = document.createElement('tr');
+    tr.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.06);';
+    tr.innerHTML = `
+      <td style="padding:5px 8px;color:#fff;font-weight:700;">${e.name}${e.stable ? '<span style="font-size:9px;color:rgba(255,255,255,0.4);margin-left:4px;">'+e.stable+'</span>' : ''}</td>
+      <td style="padding:5px 8px;text-align:center;color:rgba(255,255,255,0.7);">${e.wins}-${e.second}-${e.third}/${e.total}</td>
+      <td style="padding:5px 8px;text-align:center;color:#4ade80;">${e.fukushoRate}</td>
+      <td style="padding:5px 8px;text-align:center;color:#f0c040;">${e.tanKaichi}</td>
+      <td style="padding:5px 8px;text-align:center;color:#f0c040;">${e.fukuKaichi}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('dbPreview').classList.remove('hidden');
+  document.getElementById('dbDownloadArea').classList.remove('hidden');
+}
+
+function downloadDBJson() {
+  const courseName = document.getElementById('dbCourseName').value.trim();
+  const category   = document.getElementById('dbCategory').value;
+  const period     = document.getElementById('dbPeriod').value.trim();
+
+  if (!courseName) { alert('コース名を入力してください（例：東京芝2000m）'); return; }
+  if (dbBuilderEntries.length === 0) { alert('データがありません'); return; }
+
+  // 既存DBとマージ（同コースの他カテゴリを保持）
+  const existing = COURSES_DB[courseName] || {};
+  const jsonData = {
+    course: courseName,
+    period: period || '',
+    conditions: { ...existing, [category]: dbBuilderEntries }
+  };
+
+  // ファイル名生成
+  const slug = courseName
+    .replace('芝', '-shiba-').replace('ダート', '-dart-').replace('ダ', '-dart-')
+    .replace('m', '').toLowerCase().replace(/[^\w-]/g, '');
+  const fileName = slug + '.json';
+
+  const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = fileName; a.click();
+  URL.revokeObjectURL(url);
+
+  const hint = `1. docs/db/${fileName} に保存\n2. docs/db/index.json の "courses" に追加：\n   {"file":"${fileName}","key":"${courseName}","grade":"A"}\n3. git add → commit → push`;
+  document.getElementById('dbIndexHintText').textContent = hint;
+  const hintEl = document.getElementById('dbIndexHint');
+  hintEl.style.display = 'block';
+  hintEl.querySelector('p:last-child').style.whiteSpace = 'pre-line';
 }
 
 function clearAll() {
