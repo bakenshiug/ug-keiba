@@ -188,6 +188,8 @@ function renderRace(data) {
     rows += `<tr class="${rankCls}">
       <td>${h.num}</td>
       <td class="horse-name">${esc(h.name)}</td>
+      <td style="font-size:11px;color:rgba(255,255,255,.75);white-space:nowrap;">${h.jockey ? esc(h.jockey) : '<span style="color:var(--muted)">—</span>'}</td>
+      <td style="font-size:11px;color:rgba(255,255,255,.65);white-space:nowrap;">${h.trainer ? esc(h.trainer) : '<span style="color:var(--muted)">—</span>'}</td>
       <td>${markDisp}</td>
       <td class="pt-val">${h.totalPt}</td>
     </tr>`;
@@ -215,7 +217,7 @@ function renderRace(data) {
       <div class="sec-title" style="margin-top:12px;">スコアランキング</div>
       <div class="tbl-wrap">
         <table>
-          <thead><tr><th>馬番</th><th style="text-align:left;">馬名</th><th>印</th><th>合計pt</th></tr></thead>
+          <thead><tr><th>馬番</th><th style="text-align:left;">馬名</th><th style="text-align:left;">騎手</th><th style="text-align:left;">厩舎</th><th>印</th><th>合計pt</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
