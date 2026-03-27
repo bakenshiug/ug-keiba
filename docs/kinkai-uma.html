@@ -1696,6 +1696,12 @@ function parseDBFile(text, fileName) {
   const nameCol     = col(category, '騎手', '調教師', '種牡馬', '名前', '馬名');
   const stableCol   = col('所属', '厩舎');
   const chakuCol    = col('着別度数', '着別', '度数');
+  // 分割カラム形式（1着,2着,3着,着外,出走回数）
+  const wins1Col    = col('1着');
+  const wins2Col    = col('2着');
+  const wins3Col    = col('3着');
+  const sotoCo      = col('着外');
+  const totalCol    = col('出走回数', '総数', '出走数');
   const winRateCol  = col('勝率');
   const rentaiCol   = col('連対率', '連対');
   const fukushoCol  = col('複勝率', '複勝');
@@ -1715,11 +1721,19 @@ function parseDBFile(text, fileName) {
 
     let wins = 0, second = 0, third = 0, total = 0;
     if (chakuCol >= 0) {
+      // 合算形式: "4-3-4-10/21" または "4-3-4-10"
       const m = (cols[chakuCol] || '').match(/(\d+)-(\d+)-(\d+)-(\d+)/);
       if (m) {
         wins = +m[1]; second = +m[2]; third = +m[3];
         total = wins + second + third + +m[4];
       }
+    } else if (wins1Col >= 0) {
+      // 分割カラム形式: 1着, 2着, 3着, 着外, 出走回数
+      wins   = parseInt(cols[wins1Col] || '0', 10) || 0;
+      second = wins2Col >= 0 ? (parseInt(cols[wins2Col] || '0', 10) || 0) : 0;
+      third  = wins3Col >= 0 ? (parseInt(cols[wins3Col] || '0', 10) || 0) : 0;
+      const sotos = sotoCo >= 0 ? (parseInt(cols[sotoCo] || '0', 10) || 0) : 0;
+      total  = totalCol >= 0 ? (parseInt(cols[totalCol] || '0', 10) || 0) : wins + second + third + sotos;
     }
 
     const winRate    = winRateCol >= 0 ? cols[winRateCol]  : '';
