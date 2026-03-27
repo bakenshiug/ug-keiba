@@ -80,9 +80,21 @@ tr:hover td{background:rgba(255,255,255,.03);}
 .comment-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
 .comment-label{font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
 .comment-text{font-size:13px;line-height:1.65;color:var(--text);}
+
+/* 最終結論 ── ゴールドネオン */
+.final-card{background:rgba(240,192,64,.07);border:2px solid rgba(240,192,64,.55);border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 0 18px rgba(240,192,64,.25),inset 0 0 12px rgba(240,192,64,.05);}
+.final-card .comment-label{font-size:10px;font-weight:900;letter-spacing:.1em;color:#f0c040;text-shadow:0 0 8px rgba(240,192,64,.8);margin-bottom:6px;}
+.final-card .comment-text{font-size:14px;line-height:1.7;color:#fff8e0;font-weight:600;}
+
+/* ⚠️ リスク */
 .risk-card{background:rgba(232,0,61,.06);border:1px solid rgba(232,0,61,.20);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
 .risk-card .comment-label{color:rgba(255,180,180,.6);}
 .risk-card .comment-text{color:#ffb3c6;}
+
+/* 🚨 補足 ── 目立つスタイル */
+.extra-card{background:rgba(255,80,0,.08);border:1px solid rgba(255,130,0,.40);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
+.extra-card .comment-label{font-size:10px;font-weight:900;letter-spacing:.08em;color:#ffaa00;text-shadow:0 0 6px rgba(255,170,0,.7);margin-bottom:5px;}
+.extra-card .comment-text{font-size:13px;line-height:1.65;color:#ffe0a0;font-weight:600;}
 
 /* ── Condition note ── */
 .cond-note{background:rgba(240,192,64,.07);border:1px solid rgba(240,192,64,.22);border-radius:10px;padding:10px 14px;margin-bottom:16px;font-size:12px;line-height:1.6;color:rgba(255,240,180,.85);}
@@ -153,9 +165,9 @@ function renderRace(data) {
 
   // --- コメントセクション ---
   const commentsHtml = [
-    comments.final ? `<div class="comment-card"><div class="comment-label">📝 最終結論</div><div class="comment-text">${esc(comments.final)}</div></div>` : '',
+    comments.final ? `<div class="final-card"><div class="comment-label">■ 最終結論</div><div class="comment-text">${esc(comments.final)}</div></div>` : '',
     comments.risk  ? `<div class="risk-card"><div class="comment-label">⚠️ 波乱ファクター</div><div class="comment-text">${esc(comments.risk)}</div></div>` : '',
-    comments.extra ? `<div class="comment-card"><div class="comment-label">💡 補足</div><div class="comment-text">${esc(comments.extra)}</div></div>` : '',
+    comments.extra ? `<div class="extra-card"><div class="comment-label">🚨 補足（必須）</div><div class="comment-text">${esc(comments.extra)}</div></div>` : '',
   ].join('');
 
   // --- 馬印チップ ---
