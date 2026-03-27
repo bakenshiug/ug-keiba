@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>最終予想 | UG強奪競馬新聞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#130003;--bg-dk:#0b0002;--bg-md:#1a0004;
+  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
+  --green:#22c55e;--green-dk:#15803d;
+  --text:#f5d0d5;--muted:rgba(255,255,255,0.50);
+  --card:rgba(255,255,255,0.06);--border:rgba(232,0,61,0.22);
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+
+/* ── Header ── */
+.hdr{background:linear-gradient(135deg,#1a0004,#0b0002);border-bottom:1px solid rgba(232,0,61,.4);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.hdr-left{display:flex;align-items:center;gap:10px;}
+.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(255,255,255,0.08);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.12);}
+.hdr-back:hover{background:rgba(255,255,255,0.14);}
+.hdr-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:#fff;text-shadow:0 0 20px rgba(34,197,94,.5);}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+
+/* ── Layout ── */
+.wrap{max-width:760px;margin:0 auto;padding:20px 14px 80px;}
+
+/* ── Week header ── */
+.week-label{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:16px;opacity:.8;}
+
+/* ── Race card ── */
+.race-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:28px;}
+.race-head{background:linear-gradient(135deg,#001a04,#000b02);border-bottom:1px solid rgba(34,197,94,.25);padding:14px 18px;display:flex;align-items:center;gap:12px;}
+.race-grade{font-size:10px;font-weight:900;padding:2px 8px;border-radius:5px;background:rgba(34,197,94,.18);color:var(--green);border:1px solid rgba(34,197,94,.35);}
+.race-name{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:#fff;text-shadow:0 0 14px rgba(34,197,94,.4);}
+.race-meta{font-size:11px;color:var(--muted);margin-top:3px;}
+.race-body{padding:16px;}
+
+/* ── Mark horses ── */
+.marks-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.mark-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:10px;font-size:13px;font-weight:900;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);}
+.mark-chip.honmei{background:rgba(232,0,61,.15);border-color:rgba(232,0,61,.45);color:#fff;}
+.mark-chip.taikou{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.25);color:#fff;}
+.mark-chip.sangen{background:rgba(240,192,64,.12);border-color:rgba(240,192,64,.35);color:var(--gold);}
+.mark-chip.delta{background:rgba(100,160,255,.10);border-color:rgba(100,160,255,.30);color:#93c5fd;}
+.mark-chip.star{background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.35);color:#d8b4fe;}
+
+/* ── Horse table ── */
+.tbl-wrap{overflow-x:auto;margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+th{background:rgba(34,197,94,.12);color:rgba(255,255,255,.70);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:7px 8px;text-align:center;border-bottom:1px solid rgba(34,197,94,.20);white-space:nowrap;}
+td{padding:8px 8px;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;color:var(--text);}
+td.horse-name{text-align:left;font-weight:700;white-space:nowrap;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,.03);}
+.mark-badge{display:inline-block;font-size:13px;font-weight:900;width:22px;text-align:center;}
+.mark-◎{color:#E8003D;}
+.mark-○{color:#fff;}
+.mark-▲{color:var(--gold);}
+.mark-△{color:#93c5fd;}
+.mark-☆{color:#d8b4fe;}
+.mark-×{color:var(--muted);}
+.pt-val{font-family:'Inter',sans-serif;font-weight:700;font-size:12px;}
+.rank-1 td{background:rgba(240,192,64,.10);}
+.rank-2 td{background:rgba(232,0,61,.07);}
+.rank-3 td{background:rgba(232,0,61,.04);}
+
+/* ── Section titles ── */
+.sec-title{font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px;opacity:.8;}
+
+/* ── Bets ── */
+.bets-grid{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.bet-row{display:flex;align-items:baseline;gap:8px;padding:8px 12px;border-radius:10px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.18);}
+.bet-type{font-size:10px;font-weight:900;color:var(--green);min-width:48px;white-space:nowrap;}
+.bet-val{font-size:13px;font-weight:700;color:#fff;}
+
+/* ── Comments ── */
+.comment-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
+.comment-label{font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.comment-text{font-size:13px;line-height:1.65;color:var(--text);}
+.risk-card{background:rgba(232,0,61,.06);border:1px solid rgba(232,0,61,.20);border-radius:12px;padding:12px 14px;margin-bottom:10px;}
+.risk-card .comment-label{color:rgba(255,180,180,.6);}
+.risk-card .comment-text{color:#ffb3c6;}
+
+/* ── Condition note ── */
+.cond-note{background:rgba(240,192,64,.07);border:1px solid rgba(240,192,64,.22);border-radius:10px;padding:10px 14px;margin-bottom:16px;font-size:12px;line-height:1.6;color:rgba(255,240,180,.85);}
+
+/* ── Loading / Error ── */
+.loading{text-align:center;padding:60px 20px;color:var(--muted);}
+.err{text-align:center;padding:40px 20px;color:#ffb3c6;font-size:13px;}
+
+/* ── divider ── */
+.divider{height:1px;background:rgba(34,197,94,.12);margin:14px 0;}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-left">
+    <a href="../index.html" class="hdr-back">← トップ</a>
+    <div>
+      <div class="hdr-sub">UG強奪競馬新聞 / 最終予想</div>
+      <div class="hdr-title">🎯 重賞 最終結論</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div id="content"><div class="loading">⏳ データ読み込み中...</div></div>
+</div>
+
+<script>
+const MARK_ORDER = ['◎','○','▲','△','☆','×',''];
+
+function gradeColor(g) {
+  if (g==='G1') return '#f0c040';
+  if (g==='G2') return '#c0c0c0';
+  if (g==='G3') return '#cd7f32';
+  return '#22c55e';
+}
+
+function markClass(m) {
+  if (m==='◎') return 'honmei';
+  if (m==='○') return 'taikou';
+  if (m==='▲') return 'sangen';
+  if (m==='△') return 'delta';
+  if (m==='☆') return 'star';
+  return '';
+}
+
+function renderRace(data) {
+  const r = data.race || {};
+  const horses = (data.horses || []).slice().sort((a,b) => b.totalPt - a.totalPt);
+  const bets = data.bets || {};
+  const comments = data.comments || {};
+
+  // 印がある馬をMARK_ORDER順に並べる
+  const markedHorses = MARK_ORDER
+    .map(m => horses.filter(h => h.mark === m))
+    .flat()
+    .filter(h => h.mark && h.mark !== '×' && h.mark !== '');
+
+  const gradeC = gradeColor(r.grade);
+
+  // --- 買い目セクション ---
+  const betTypes = ['単勝','馬連','ワイド','三連複','三連単','買い目1'];
+  const betsHtml = betTypes
+    .filter(k => bets[k])
+    .map(k => `<div class="bet-row"><span class="bet-type">${k}</span><span class="bet-val">${esc(bets[k])}</span></div>`)
+    .join('');
+
+  // --- コメントセクション ---
+  const commentsHtml = [
+    comments.final ? `<div class="comment-card"><div class="comment-label">📝 最終結論</div><div class="comment-text">${esc(comments.final)}</div></div>` : '',
+    comments.risk  ? `<div class="risk-card"><div class="comment-label">⚠️ 波乱ファクター</div><div class="comment-text">${esc(comments.risk)}</div></div>` : '',
+    comments.extra ? `<div class="comment-card"><div class="comment-label">💡 補足</div><div class="comment-text">${esc(comments.extra)}</div></div>` : '',
+  ].join('');
+
+  // --- 馬印チップ ---
+  const marksChips = markedHorses.map(h =>
+    `<div class="mark-chip ${markClass(h.mark)}">
+      <span class="mark-badge mark-${h.mark}">${h.mark}</span>
+      <span>${h.num}${esc(h.name)}</span>
+    </div>`
+  ).join('');
+
+  // --- 馬テーブル ---
+  let rows = '';
+  horses.forEach((h, i) => {
+    const rankCls = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
+    const markDisp = h.mark
+      ? `<span class="mark-badge mark-${h.mark}">${h.mark}</span>`
+      : '<span style="color:var(--muted);font-size:11px;">—</span>';
+    rows += `<tr class="${rankCls}">
+      <td>${h.num}</td>
+      <td class="horse-name">${esc(h.name)}</td>
+      <td>${markDisp}</td>
+      <td class="pt-val">${h.totalPt}</td>
+    </tr>`;
+  });
+
+  return `
+  <div class="race-card">
+    <div class="race-head">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+          <span class="race-grade" style="color:${gradeC};border-color:${gradeC}40;background:${gradeC}18;">${esc(r.grade||'')}</span>
+          <span class="race-name">${esc(r.name||'')}</span>
+        </div>
+        <div class="race-meta">${esc(r.venue||'')} ${esc(r.raceNum||'')} ／ ${esc(r.surface||'')}${esc(r.distance||'')} ／ ${esc(r.condition||'')} ／ ${esc(r.date||'')}</div>
+      </div>
+    </div>
+    <div class="race-body">
+
+      ${data.raceCondNote ? `<div class="cond-note">🏟️ ${esc(data.raceCondNote)}</div>` : ''}
+
+      <!-- 印 -->
+      ${marksChips ? `<div class="sec-title">印</div><div class="marks-row">${marksChips}</div><div class="divider"></div>` : ''}
+
+      <!-- ランキング -->
+      <div class="sec-title" style="margin-top:12px;">スコアランキング</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>馬番</th><th style="text-align:left;">馬名</th><th>印</th><th>合計pt</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      <div class="divider"></div>
+
+      <!-- 買い目 -->
+      ${betsHtml ? `<div class="sec-title" style="margin-top:12px;">買い目</div><div class="bets-grid">${betsHtml}</div><div class="divider"></div>` : ''}
+
+      <!-- コメント -->
+      ${commentsHtml ? `<div class="sec-title" style="margin-top:12px;">分析コメント</div>${commentsHtml}` : ''}
+
+    </div>
+  </div>`;
+}
+
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function loadAll() {
+  const content = document.getElementById('content');
+  try {
+    const res = await fetch('data/final-list.json?v=' + Date.now());
+    if (!res.ok) throw new Error('final-list.json が見つかりません');
+    const list = await res.json();
+
+    const weekEl = document.createElement('div');
+    weekEl.className = 'week-label';
+    weekEl.textContent = '🗓️ ' + (list.label || list.week);
+    content.innerHTML = '';
+    content.appendChild(weekEl);
+
+    if (!list.files || list.files.length === 0) {
+      content.innerHTML += '<div class="err">今週の最終予想はまだ公開されていません</div>';
+      return;
+    }
+
+    for (const file of list.files) {
+      try {
+        const r2 = await fetch(`data/${file}.json?v=` + Date.now());
+        if (!r2.ok) { content.innerHTML += `<div class="err">⚠️ ${file}.json が読み込めません</div>`; continue; }
+        const data = await r2.json();
+        if (data.published === false) { continue; } // 非公開はスキップ
+        const div = document.createElement('div');
+        div.innerHTML = renderRace(data);
+        content.appendChild(div);
+      } catch(e) {
+        content.innerHTML += `<div class="err">⚠️ ${file} の読み込みエラー：${e.message}</div>`;
+      }
+    }
+
+    if (content.querySelectorAll('.race-card').length === 0) {
+      content.innerHTML += '<div class="err" style="padding:40px 20px;">今週の最終予想はまだ公開されていません 🙏</div>';
+    }
+
+  } catch(e) {
+    content.innerHTML = `<div class="err">読み込みエラー：${e.message}</div>`;
+  }
+}
+
+loadAll();
+</script>
+</body>
+</html>
