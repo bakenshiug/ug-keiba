@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UG ツールハブ | UG強奪競馬新聞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#130003;--bg-dk:#0b0002;--bg-md:#1a0004;
+  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
+  --text:#f5d0d5;--muted:rgba(255,255,255,0.50);
+  --border:rgba(232,0,61,0.25);
+}
+html,body{
+  background:var(--bg);color:var(--text);
+  font-family:'Public Sans',sans-serif;
+  height:100vh;overflow:hidden;
+}
+
+/* ── Hub Header ── */
+.hub-header{
+  background:linear-gradient(135deg,#1a0004,#0b0002);
+  border-bottom:2px solid rgba(232,0,61,0.50);
+  padding:10px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:52px;
+  flex-shrink:0;
+}
+.hub-title{
+  font-family:'Noto Serif JP',serif;
+  font-size:15px;font-weight:700;color:#fff;
+  text-shadow:0 0 20px rgba(232,0,61,0.55);
+  display:flex;align-items:center;gap:10px;
+}
+.hub-title span{
+  font-size:10px;color:var(--muted);
+  font-family:'Inter',sans-serif;
+  font-weight:400;letter-spacing:.12em;text-transform:uppercase;
+}
+.hub-links{display:flex;gap:8px;}
+.hub-link{
+  font-size:11px;font-weight:700;
+  padding:4px 12px;border-radius:16px;
+  text-decoration:none;color:var(--muted);
+  border:1px solid rgba(255,255,255,.12);
+  transition:all .18s;
+}
+.hub-link:hover{color:#fff;border-color:rgba(232,0,61,.50);}
+
+/* ── 3-Column Grid ── */
+.hub-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:0;
+  height:calc(100vh - 52px);
+}
+
+/* ── Each Panel ── */
+.panel{
+  display:flex;flex-direction:column;
+  border-right:1px solid rgba(232,0,61,.20);
+  overflow:hidden;
+}
+.panel:last-child{border-right:none;}
+
+.panel-tab{
+  background:linear-gradient(135deg,rgba(26,0,4,.95),rgba(11,0,2,.95));
+  border-bottom:1px solid rgba(232,0,61,.30);
+  padding:8px 14px;
+  display:flex;align-items:center;gap:8px;
+  flex-shrink:0;
+  height:38px;
+}
+.panel-tab-icon{font-size:14px;}
+.panel-tab-label{
+  font-size:11px;font-weight:900;color:#fff;
+  letter-spacing:.04em;
+}
+.panel-tab-sub{
+  font-size:9px;color:var(--muted);
+  margin-left:auto;letter-spacing:.06em;text-transform:uppercase;
+}
+
+.panel-frame{
+  flex:1;width:100%;border:none;
+  background:#130003;
+}
+
+/* ── Responsive: 画面幅が狭い場合はタブ切り替え ── */
+@media(max-width:1200px){
+  .hub-grid{
+    grid-template-columns:1fr;
+    grid-template-rows:1fr;
+  }
+  .panel{display:none;}
+  .panel.active{display:flex;}
+  .tab-bar{display:flex !important;}
+}
+
+/* ── Tab Bar (モバイル/狭い画面) ── */
+.tab-bar{
+  display:none;
+  background:linear-gradient(135deg,#1a0004,#0b0002);
+  border-bottom:1px solid rgba(232,0,61,.30);
+  flex-shrink:0;
+}
+.tab-btn{
+  flex:1;padding:10px 8px;
+  background:transparent;border:none;
+  color:var(--muted);font-family:'Public Sans',sans-serif;
+  font-size:11px;font-weight:700;cursor:pointer;
+  border-bottom:2px solid transparent;
+  transition:all .18s;
+}
+.tab-btn.active{
+  color:var(--gold);
+  border-bottom-color:var(--gold);
+}
+.tab-btn:hover{color:#fff;}
+</style>
+</head>
+<body>
+
+<header class="hub-header">
+  <div class="hub-title">
+    🏆 UG 強奪競馬新聞
+    <span>Tool Hub</span>
+  </div>
+  <div class="hub-links">
+    <a href="index.html" class="hub-link">🏠 TOP</a>
+    <a href="kinkai-uma.html" class="hub-link">💎 金塊馬</a>
+    <a href="target-analyzer.html" class="hub-link">📊 CSV</a>
+    <a href="final-tool.html" class="hub-link">🏆 最終予想</a>
+  </div>
+</header>
+
+<!-- タブバー（狭い画面用） -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" onclick="showPanel(0)">💎 金塊馬抽出</button>
+  <button class="tab-btn" onclick="showPanel(1)">📊 CSVアナライザー</button>
+  <button class="tab-btn" onclick="showPanel(2)">🏆 最終予想</button>
+</div>
+
+<div class="hub-grid" id="hubGrid">
+
+  <!-- Panel 1: 金塊馬抽出 -->
+  <div class="panel active" id="panel0">
+    <div class="panel-tab">
+      <span class="panel-tab-icon">💎</span>
+      <span class="panel-tab-label">金塊馬抽出</span>
+      <span class="panel-tab-sub">kinkai-uma</span>
+    </div>
+    <iframe class="panel-frame" src="kinkai-uma.html" title="金塊馬抽出"></iframe>
+  </div>
+
+  <!-- Panel 2: Target CSV アナライザー -->
+  <div class="panel active" id="panel1">
+    <div class="panel-tab">
+      <span class="panel-tab-icon">📊</span>
+      <span class="panel-tab-label">Target CSV アナライザー</span>
+      <span class="panel-tab-sub">target-analyzer</span>
+    </div>
+    <iframe class="panel-frame" src="target-analyzer.html" title="Target CSVアナライザー"></iframe>
+  </div>
+
+  <!-- Panel 3: 最終予想作成 -->
+  <div class="panel active" id="panel2">
+    <div class="panel-tab">
+      <span class="panel-tab-icon">🏆</span>
+      <span class="panel-tab-label">最終予想 作成ツール</span>
+      <span class="panel-tab-sub">final-tool</span>
+    </div>
+    <iframe class="panel-frame" src="final-tool.html" title="最終予想作成ツール"></iframe>
+  </div>
+
+</div>
+
+<script>
+function showPanel(idx) {
+  document.querySelectorAll('.panel').forEach((p,i) => {
+    p.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.tab-btn').forEach((b,i) => {
+    b.classList.toggle('active', i === idx);
+  });
+}
+</script>
+
+</body>
+</html>
