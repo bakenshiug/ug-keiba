@@ -675,6 +675,17 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
         </div>
       </div>
 
+      <!-- 💎 金塊馬から選択 -->
+      <div class="csv-upload-area" id="kinkaiImportArea">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <span style="font-size:11px; font-weight:900; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase;">💎 金塊馬から取込</span>
+          <span style="font-size:10px; color:var(--text-muted);">今週の金塊馬で追加したレース</span>
+        </div>
+        <div id="kinkaiRaceList">
+          <div style="font-size:12px; color:var(--text-muted);">「今週の金塊馬」でレースを追加するとここに表示されます</div>
+        </div>
+      </div>
+
       <!-- Horse add form -->
       <div class="horse-add-form" id="horseAddForm" style="display:none;">
         <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:0.05em; text-transform:uppercase;">馬を追加</div>
@@ -709,6 +720,29 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
           </div>
         </div>
         <div class="info-note" style="font-size:11px; padding:7px 12px;"><span class="icon">📌</span>基本ptは全頭診断ページの合計ptを入力してください</div>
+      </div>
+
+      <!-- 一括スコア入力 -->
+      <div id="bulkScoreArea" style="margin:0 0 14px;background:rgba(240,192,64,0.06);border:1px solid rgba(240,192,64,0.30);border-radius:12px;overflow:hidden;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:rgba(240,192,64,0.10);cursor:pointer;" onclick="toggleBulkInput()">
+          <span style="font-size:11px;font-weight:900;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">📋 調教・勝負気配・ニック 一括入力</span>
+          <span id="bulkToggleIcon" style="font-size:12px;color:var(--gold);">▼</span>
+        </div>
+        <div id="bulkScoreBody" style="display:none;padding:12px 14px;">
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">
+            形式：<code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;color:var(--gold);">馬番,馬名,調教pt,勝負気配pt,ニックpt</code>
+            &nbsp;（馬番 or 馬名どちらか一方でもOK）
+          </div>
+          <textarea id="bulkScoreText" rows="8" placeholder="例：
+1,ディープインパクト,20,30,5
+2,レイデオロ,-2,0,0
+3,キタサンブラック,15,20,3" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(240,192,64,0.35);border-radius:8px;color:var(--text);font-size:12px;font-family:monospace;padding:10px;resize:vertical;line-height:1.6;"></textarea>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap;">
+            <button class="btn btn-primary btn-sm" onclick="applyBulkScores();" style="background:linear-gradient(135deg,var(--gold),#d97706);color:#130003;">✅ 反映する</button>
+            <button class="btn btn-secondary btn-sm" onclick="generateBulkTemplate();">📋 現在の馬リストをテンプレ出力</button>
+            <span id="bulkScoreMsg" style="font-size:11px;color:#4ade80;display:none;"></span>
+          </div>
+        </div>
       </div>
 
       <!-- Horse table -->
@@ -1064,6 +1098,78 @@ function deleteHorse(idx) {
   finalHorses.splice(idx, 1);
   renderHorseTable();
   scheduleSave();
+}
+
+// ══════════════════════════════════════════════════════════
+//  一括スコア入力
+// ══════════════════════════════════════════════════════════
+function toggleBulkInput() {
+  var body = document.getElementById('bulkScoreBody');
+  var icon = document.getElementById('bulkToggleIcon');
+  var open = body.style.display === 'none';
+  body.style.display = open ? 'block' : 'none';
+  icon.textContent = open ? '▲' : '▼';
+}
+
+function generateBulkTemplate() {
+  if (finalHorses.length === 0) { alert('先に馬リストを作成してください'); return; }
+  var lines = finalHorses.map(function(h) {
+    return h.num + ',' + h.name + ',' + (h.scores['調教']||0) + ',' + (h.scores['勝負気配']||0) + ',' + (h.scores['ニック']||0);
+  });
+  document.getElementById('bulkScoreText').value = lines.join('\n');
+  document.getElementById('bulkScoreBody').style.display = 'block';
+  document.getElementById('bulkToggleIcon').textContent = '▲';
+}
+
+function applyBulkScores() {
+  var text = document.getElementById('bulkScoreText').value.trim();
+  if (!text) return;
+  var lines = text.split('\n').map(function(l){ return l.trim(); }).filter(function(l){ return l; });
+  var updated = 0;
+  lines.forEach(function(line) {
+    // コメント行スキップ
+    if (line.startsWith('#') || line.startsWith('//')) return;
+    var cols = line.split(',').map(function(c){ return c.trim(); });
+    if (cols.length < 3) return;
+
+    // 先頭が数字なら 馬番,馬名,調教,勝負気配,ニック
+    // 先頭が文字なら 馬名,調教,勝負気配,ニック
+    var num = -1, name = '', chk, sbk, nick;
+    if (/^\d+$/.test(cols[0])) {
+      num  = parseInt(cols[0], 10);
+      name = cols[1] || '';
+      chk  = parseInt(cols[2], 10) || 0;
+      sbk  = parseInt(cols[3], 10) || 0;
+      nick = parseInt(cols[4], 10) || 0;
+    } else {
+      name = cols[0];
+      chk  = parseInt(cols[1], 10) || 0;
+      sbk  = parseInt(cols[2], 10) || 0;
+      nick = parseInt(cols[3], 10) || 0;
+    }
+
+    // 馬番 or 馬名でマッチ
+    var horse = null;
+    if (num > 0) horse = finalHorses.find(function(h){ return h.num === num; });
+    if (!horse && name) horse = finalHorses.find(function(h){ return h.name === name; });
+    if (!horse && name) horse = finalHorses.find(function(h){ return h.name.indexOf(name) >= 0 || name.indexOf(h.name) >= 0; });
+
+    if (horse) {
+      horse.scores['調教']      = chk;
+      horse.scores['勝負気配']  = sbk;
+      horse.scores['ニック']    = nick;
+      horse.totalPt = calcTotal(horse);
+      updated++;
+    }
+  });
+
+  renderHorseTable();
+  scheduleSave();
+
+  var msg = document.getElementById('bulkScoreMsg');
+  msg.textContent = updated + '頭に反映しました';
+  msg.style.display = 'inline';
+  setTimeout(function(){ msg.style.display = 'none'; }, 3000);
 }
 
 function clearAllHorses() {

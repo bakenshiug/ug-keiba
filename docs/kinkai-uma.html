@@ -1045,10 +1045,27 @@ function renderResults(hits, raceName, course) {
   // DB条件 or 乗り替わり/芝ダ変更があれば表示
   const hitHorses = hits.filter(h => h.matched.length > 0);
 
-  // セッション用に結果を保持
+  // コース文字列から競馬場・馬場・距離を解析（例: "阪神芝1200m" → 阪神, 芝, 1200）
+  const courseM = (course||'').match(/^(.+?)(芝|ダート|ダ)(\d+)/);
+  const parsedRacecourse = courseM ? courseM[1] : '';
+  const parsedSurface    = courseM ? (courseM[2] === 'ダ' ? 'ダート' : courseM[2]) : '';
+  const parsedDistance   = courseM ? courseM[3] : '';
+
+  // セッション用に結果を保持（全馬 + 金塊馬）
   lastResult = {
     raceName: raceName || course,
     course: course,
+    racecourse: parsedRacecourse,
+    surface:    parsedSurface,
+    distance:   parsedDistance,
+    allHorses: hits.map((h, i) => ({
+      num:     i + 1,
+      name:    h.horse.name,
+      jockey:  h.horse.jockey  || '',
+      trainer: h.horse.trainer || '',
+      sire:    h.horse.sire    || '',
+      isKinkai: h.matched.length > 0,
+    })),
     horses: hitHorses.map(h => ({
       name: h.horse.name,
       jockey: h.horse.jockey,
@@ -1269,6 +1286,7 @@ function addToSession() {
   } else {
     sessionRaces.push(lastResult);
   }
+  localStorage.setItem('ug_weekly_races', JSON.stringify(sessionRaces));
   renderSession();
   // ボタンを一時的に完了表示
   const btn = document.querySelector('[onclick="addToSession()"]');
@@ -1309,6 +1327,7 @@ function renderSession() {
 
 function removeFromSession(index) {
   sessionRaces.splice(index, 1);
+  localStorage.setItem('ug_weekly_races', JSON.stringify(sessionRaces));
   if (sessionRaces.length === 0) {
     document.getElementById('sessionSection').classList.add('hidden');
   } else {
