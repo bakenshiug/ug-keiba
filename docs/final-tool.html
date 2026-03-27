@@ -909,7 +909,57 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
         <button class="btn btn-gold" onclick="downloadJSON();">📥 JSONをダウンロード</button>
         <button class="btn btn-danger" onclick="clearDraft();">💾 下書きをクリア</button>
       </div>
-      <div class="info-note"><span class="icon">📂</span>ダウンロードしたJSONをdocs/data/final/に配置してpushすることで反映されます</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ 公開手順 ══════════════════════════════════════ -->
+  <div class="section-card" style="border-color:rgba(240,192,64,0.30);">
+    <div class="section-header" style="background:linear-gradient(135deg,rgba(240,192,64,0.25),rgba(180,83,9,0.25));">
+      <span class="step-badge" style="background:rgba(240,192,64,0.25);color:var(--gold);border:1px solid rgba(240,192,64,0.40);">📤</span>
+      <h2 style="color:var(--gold);">サイト公開手順</h2>
+    </div>
+    <div class="section-body">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+          <span style="font-size:18px;flex-shrink:0;">①</span>
+          <div>
+            <div style="font-size:12px;font-weight:900;color:#fff;margin-bottom:2px;">JSONをダウンロード</div>
+            <div style="font-size:11px;color:var(--text-muted);">STEP5の「📥 JSONをダウンロード」をクリック</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+          <span style="font-size:18px;flex-shrink:0;">②</span>
+          <div>
+            <div style="font-size:12px;font-weight:900;color:#fff;margin-bottom:2px;">docs/data/ に保存してpush</div>
+            <div style="font-size:11px;color:var(--text-muted);">ダウンロードしたJSONを <code style="color:var(--gold);background:rgba(240,192,64,0.12);padding:1px 5px;border-radius:3px;">ug-keiba/docs/data/</code> に置き、ターミナルでpush</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(240,192,64,0.07);border:1px solid rgba(240,192,64,0.25);">
+          <span style="font-size:18px;flex-shrink:0;">③</span>
+          <div>
+            <div style="font-size:12px;font-weight:900;color:var(--gold);margin-bottom:4px;">final-list.json にファイル名を追加してpush</div>
+            <div style="font-size:11px;color:rgba(255,240,180,0.75);margin-bottom:6px;"><code style="background:rgba(0,0,0,0.30);padding:1px 5px;border-radius:3px;">ug-keiba/docs/data/final-list.json</code> を開き、<code style="background:rgba(0,0,0,0.30);padding:1px 5px;border-radius:3px;">files</code> 配列にファイル名（拡張子なし）を追加</div>
+            <div style="font-size:11px;font-family:monospace;background:rgba(0,0,0,0.35);border:1px solid rgba(240,192,64,0.20);border-radius:6px;padding:8px 10px;color:#fde68a;line-height:1.6;">
+              "files": [<br>
+              &nbsp;&nbsp;"final-nikkeisho-2026-03-28"<span style="color:var(--gold);">,</span><br>
+              &nbsp;&nbsp;<span style="color:var(--gold);">"★ここに追加★"</span><br>
+              ]
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.22);">
+          <span style="font-size:18px;flex-shrink:0;">④</span>
+          <div>
+            <div style="font-size:12px;font-weight:900;color:#22c55e;margin-bottom:2px;">1〜2分で自動反映 ✅</div>
+            <div style="font-size:11px;color:rgba(180,255,200,0.65);">トップページの「最終予想」バナーから確認できます</div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
