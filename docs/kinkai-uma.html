@@ -448,6 +448,7 @@
             <option value="騎手">騎手</option>
             <option value="調教師">調教師</option>
             <option value="種牡馬">種牡馬</option>
+            <option value="騎手厩舎ライン">騎手厩舎ライン</option>
           </select>
         </div>
         <div class="flex-1" style="min-width:150px">
@@ -991,10 +992,17 @@ function extractKinkaiUma() {
       });
     }
 
-    // ── コース金塊騎手厩舎ライン（両方ヒット）
+    // ── コース金塊騎手厩舎ライン（DB登録コンビ）
+    (db['騎手厩舎ライン'] || []).forEach(cond => {
+      if (normalize(h.jockey) === normalize(cond.jockey) && normalize(h.trainer) === normalize(cond.trainer)) {
+        matched.push({ type: 'コース金塊騎手厩舎ライン', cond, label: `騎手厩舎ライン：${cond.name}` });
+      }
+    });
+    // ── コース金塊騎手厩舎ライン（両方ヒット・自動生成）
     const hasKinkaiJockey  = matched.some(m => m.type === 'コース金塊騎手');
     const hasKinkaiTrainer = matched.some(m => m.type === 'コース金塊厩舎');
-    if (hasKinkaiJockey && hasKinkaiTrainer) {
+    const alreadyCombo     = matched.some(m => m.type === 'コース金塊騎手厩舎ライン');
+    if (hasKinkaiJockey && hasKinkaiTrainer && !alreadyCombo) {
       matched.push({
         type: 'コース金塊騎手厩舎ライン',
         cond: { name: `${h.jockey} × ${h.trainer}`, memo: '金塊騎手と金塊厩舎の最強コンビ！配当倍増に期待' },
@@ -1693,7 +1701,9 @@ function parseDBFile(text, fileName) {
   };
 
   const category = document.getElementById('dbCategory').value;
+  const isCombo     = category === '騎手厩舎ライン';
   const nameCol     = col(category, '騎手', '調教師', '種牡馬', '名前', '馬名');
+  const trainerCol  = isCombo ? col('調教師', '厩舎', '調教師名') : -1; // コンビ用
   const stableCol   = col('所属', '厩舎');
   const chakuCol    = col('着別度数', '着別', '度数');
   // 分割カラム形式（1着,2着,3着,着外,出走回数）
@@ -1743,7 +1753,7 @@ function parseDBFile(text, fileName) {
     const fukuKaichi = fukuCol    >= 0 ? (parseInt(cols[fukuCol]) || 0) : 0;
 
     const fRate = parseFloat((fukushoRate||'').replace('%','')) || 0;
-    const label = category === '騎手' ? '騎手' : category === '調教師' ? '厩舎' : '産駒';
+    const label = category === '騎手' ? '騎手' : category === '調教師' ? '厩舎' : category === '騎手厩舎ライン' ? 'コンビ' : '産駒';
     const memoParts = [];
     if (fukushoRate) memoParts.push(`複勝率${fukushoRate}`);
     if (tanKaichi >= 150) memoParts.push(`単回値${tanKaichi}の激走${label}`);
@@ -1752,6 +1762,19 @@ function parseDBFile(text, fileName) {
 
     const entry = { name, wins, second, third, total, winRate, rentaiRate, fukushoRate, tanKaichi, fukuKaichi, memo };
     if (stableCol >= 0 && cols[stableCol]) entry.stable = cols[stableCol];
+    // 騎手厩舎ライン: jockey / trainer フィールドを追加
+    if (isCombo) {
+      // "騎手名 × 調教師名" 形式 または 別カラム形式
+      if (trainerCol >= 0 && cols[trainerCol]) {
+        entry.jockey  = name;
+        entry.trainer = cols[trainerCol].trim();
+        entry.name    = `${name} × ${entry.trainer}`;
+      } else {
+        // name が "A × B" 形式の場合
+        const m = name.match(/^(.+?)[×x×]\s*(.+)$/);
+        if (m) { entry.jockey = m[1].trim(); entry.trainer = m[2].trim(); }
+      }
+    }
     dbBuilderEntries.push(entry);
   });
 
