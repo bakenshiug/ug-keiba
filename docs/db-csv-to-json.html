@@ -191,7 +191,7 @@ function convert() {
   };
 
   const errors = [];
-  let parsed = { '騎手': [], '父': [], '母父': [], '生産者': [], '騎手厩舎ライン': [] };
+  let parsed = { '騎手': [], '調教師': [], '父': [], '母父': [], '生産者': [], '騎手厩舎ライン': [] };
 
   const lines = raw.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('項目') && !l.startsWith('//'));
 
@@ -199,13 +199,14 @@ function convert() {
     const cols = parseLine(line);
     const type = cols[0];
 
-    if (type === '騎手') {
-      // 騎手,名前,着別度数,勝率,複勝率,単回収,複回収,メモ
+    if (type === '騎手' || type === '調教師' || type === '厩舎') {
+      // 騎手/調教師/厩舎,名前,着別度数,勝率,複勝率,単回収,複回収,メモ
+      const outKey = type === '騎手' ? '騎手' : '調教師'; // 厩舎→調教師に統一
       if (cols.length < 7) { errors.push(`行${idx+1}: 列が足りません → ${line}`); return; }
       const rec = parseRecord(cols[2]);
       if (!rec) { errors.push(`行${idx+1}: 着別度数の形式エラー → ${cols[2]}`); return; }
       const rates = autoRates(rec);
-      parsed['騎手'].push({
+      parsed[outKey].push({
         name: cols[1],
         wins: rec.wins, second: rec.second, third: rec.third, total: rec.total,
         winRate: cols[3] || rates.winRate,
@@ -269,6 +270,24 @@ function convert() {
         trainer: cols[2]
       });
 
+    } else if (type === '前走馬体重' || type === '前走' || type === '馬体重') {
+      // 前走馬体重,条件名,着別度数,勝率,複勝率,単回収,複回収,メモ
+      if (cols.length < 7) { errors.push(`行${idx+1}: 列が足りません → ${line}`); return; }
+      const rec = parseRecord(cols[2]);
+      if (!rec) { errors.push(`行${idx+1}: 着別度数の形式エラー → ${cols[2]}`); return; }
+      const rates = autoRates(rec);
+      if (!parsed['前走条件']) parsed['前走条件'] = [];
+      parsed['前走条件'].push({
+        name: cols[1],
+        wins: rec.wins, second: rec.second, third: rec.third, total: rec.total,
+        winRate: cols[3] || rates.winRate,
+        rentaiRate: rates.rentaiRate,
+        fukushoRate: cols[4] || rates.fukushoRate,
+        tanKaichi: parseInt(cols[5]) || 0,
+        fukuKaichi: parseInt(cols[6]) || 0,
+        memo: cols[7] || ''
+      });
+
     } else {
       // 空行・ヘッダー行はスキップ（エラーにしない）
       if (cols.length > 1 && type) {
@@ -279,6 +298,7 @@ function convert() {
 
   // 空でないカテゴリのみ追加
   if (parsed['騎手'].length)           result.conditions['騎手']           = parsed['騎手'];
+  if (parsed['調教師'].length)         result.conditions['調教師']         = parsed['調教師'];
   if (parsed['父'].length)             result.conditions['父']             = parsed['父'];
   if (parsed['母父'].length)           result.conditions['母父']           = parsed['母父'];
   if (parsed['生産者'].length)         result.conditions['生産者']         = parsed['生産者'];
@@ -321,10 +341,11 @@ function renderPreview(result) {
 
   const LABELS = {
     '騎手':         '🏇 金塊騎手 <span class="pt3">+3pt</span>',
+    '調教師':       '🏠 金塊調教師 <span class="pt3">+3pt</span>',
     '父':           '🧬 金塊血統（父） <span class="pt2">+2pt</span>',
     '母父':         '🧬 金塊血統（母父） <span class="pt2">+2pt</span>',
     '血統':         '🧬 金塊血統 <span class="pt2">+2pt</span>',
-    '生産者':       '🏠 金塊生産者 <span class="pt2">+2pt</span>',
+    '生産者':       '🌿 金塊生産者 <span class="pt2">+2pt</span>',
     '騎手厩舎ライン': '⚡ 騎手厩舎ライン <span class="pt5">+5pt</span>'
   };
 

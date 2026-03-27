@@ -942,7 +942,7 @@ function onCourseChange() {
   pillsDiv.innerHTML = '';
   const counts = [
     { label: '穴騎手', count: (db['騎手']||[]).length, color: 'badge-jockey' },
-    { label: '穴厩舎', count: (db['調教師']||[]).length, color: 'badge-trainer' },
+    { label: '穴厩舎', count: ([...(db['調教師']||[]),...(db['厩舎']||[])]).length, color: 'badge-trainer' },
     { label: '穴血統', count: (db['種牡馬']||[]).length, color: 'badge-sire' },
     { label: '穴生産者', count: (db['生産者']||[]).length, color: 'badge-sire' },
   ];
@@ -980,8 +980,8 @@ function extractKinkaiUma() {
         matched.push({ type: 'コース金塊騎手', cond, label: `コース金塊騎手：${cond.name}` });
       }
     });
-    // ── コース金塊厩舎チェック
-    (db['調教師'] || []).forEach(cond => {
+    // ── コース金塊厩舎チェック（調教師・厩舎 両キー対応）
+    [...(db['調教師']||[]), ...(db['厩舎']||[])].forEach(cond => {
       if (normalize(h.trainer) === normalize(cond.name)) {
         matched.push({ type: 'コース金塊厩舎', cond, label: `コース金塊厩舎：${cond.name}` });
       }
