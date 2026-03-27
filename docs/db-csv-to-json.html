@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>金塊DB CSV→JSON変換ツール</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#130003;color:#f5d0d5;font-family:'Helvetica Neue',sans-serif;min-height:100vh;padding:20px;}
+h1{font-size:20px;color:#f0c040;text-shadow:0 0 12px rgba(240,192,64,.6);margin-bottom:4px;}
+.sub{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:24px;}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(232,0,61,.25);border-radius:14px;padding:18px;margin-bottom:18px;}
+label{font-size:11px;font-weight:700;letter-spacing:.08em;color:#f0c040;display:block;margin-bottom:6px;}
+input,select,textarea{width:100%;background:#1a0004;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:9px 12px;color:#fff;font-size:13px;margin-bottom:10px;}
+textarea{font-family:monospace;resize:vertical;min-height:120px;}
+button{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-size:13px;font-weight:700;}
+.btn-primary{background:#E8003D;color:#fff;box-shadow:0 0 12px rgba(232,0,61,.4);}
+.btn-primary:hover{background:#c00030;}
+.btn-dl{background:#f0c040;color:#000;margin-left:10px;}
+.btn-dl:hover{background:#d4a800;}
+.btn-add{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);padding:7px 14px;font-size:12px;margin-top:4px;}
+.hint{font-size:11px;color:rgba(255,255,255,.35);line-height:1.6;margin-top:-6px;margin-bottom:10px;}
+.out-area{background:#0b0002;border:1px solid rgba(240,192,64,.3);border-radius:10px;padding:14px;font-family:monospace;font-size:12px;color:#ffe8a0;white-space:pre;overflow-x:auto;max-height:500px;overflow-y:auto;display:none;}
+.section-block{border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;margin-bottom:12px;position:relative;}
+.section-title{font-size:12px;font-weight:700;color:#f0c040;margin-bottom:10px;}
+.row-entry{display:grid;gap:6px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06);}
+.row-entry:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.row-entry.jockey-row{grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 2fr auto;}
+.row-entry.blood-row{grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 2fr auto;}
+.row-entry.line-row{grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr auto;}
+.row-entry input{margin-bottom:0;}
+.mini-label{font-size:9px;color:rgba(255,255,255,.4);margin-bottom:2px;}
+.del-btn{background:rgba(232,0,61,.3);border:1px solid rgba(232,0,61,.4);color:#ffb3c6;border-radius:6px;padding:4px 8px;cursor:pointer;font-size:11px;white-space:nowrap;align-self:start;margin-top:16px;}
+.del-btn:hover{background:rgba(232,0,61,.6);}
+.steps{background:rgba(240,192,64,.07);border:1px solid rgba(240,192,64,.25);border-radius:12px;padding:14px 18px;margin-bottom:20px;}
+.steps h3{font-size:13px;color:#f0c040;margin-bottom:10px;}
+.steps ol{padding-left:20px;}
+.steps li{font-size:12px;line-height:1.8;color:rgba(255,255,255,.7);}
+.steps code{background:rgba(255,255,255,.08);padding:1px 5px;border-radius:4px;font-size:11px;color:#ffe8a0;}
+.badge{display:inline-block;font-size:9px;font-weight:900;padding:1px 6px;border-radius:4px;margin-left:4px;vertical-align:middle;}
+.badge-new{background:#E8003D;color:#fff;}
+</style>
+</head>
+<body>
+
+<h1>💎 金塊DB CSV→JSON 変換ツール</h1>
+<p class="sub">Claude Code不要・ブラウザだけでJSONを生成できます</p>
+
+<div class="steps">
+  <h3>📋 使い方（トークン消費ゼロ手順）</h3>
+  <ol>
+    <li>コース名・条件データを入力</li>
+    <li>「JSONを生成」ボタンを押す</li>
+    <li>「ダウンロード」で <code>xxx-shiba-yyyy.json</code> を保存</li>
+    <li><code>docs/db/</code> フォルダに置く</li>
+    <li><code>docs/db/index.json</code> に1行追加（下記テンプレ参照）</li>
+    <li><code>git add docs/db/xxx.json docs/db/index.json</code></li>
+    <li><code>git commit -m "db: 〇〇コース金塊DB追加"</code></li>
+    <li><code>git push</code></li>
+  </ol>
+</div>
+
+<!-- コース設定 -->
+<div class="card">
+  <label>📍 コース名（例：阪神芝1800m）</label>
+  <input type="text" id="courseName" placeholder="阪神芝1800m"/>
+  <label>🗂️ ファイル名（例：hanshin-shiba-1800）</label>
+  <input type="text" id="fileName" placeholder="hanshin-shiba-1800"/>
+  <label>📅 期間（例：〜2026.03）</label>
+  <input type="text" id="period" placeholder="〜2026.03"/>
+</div>
+
+<!-- 騎手セクション -->
+<div class="card">
+  <div class="section-title">🏇 金塊騎手 <span class="badge badge-new">+3pt</span></div>
+  <div id="jockeyRows"></div>
+  <button class="btn-add" onclick="addRow('jockey')">＋ 騎手追加</button>
+  <p class="hint" style="margin-top:8px;">着別度数：1着-2着-3着-着外/総数　例） 10-8-7-15/40</p>
+</div>
+
+<!-- 血統セクション -->
+<div class="card">
+  <div class="section-title">🧬 金塊血統（父・母父） <span class="badge" style="background:#a855f7;color:#fff;">+2pt</span></div>
+  <div id="bloodRows"></div>
+  <button class="btn-add" onclick="addRow('blood')">＋ 血統追加</button>
+</div>
+
+<!-- 生産者セクション -->
+<div class="card">
+  <div class="section-title">🏠 金塊生産者 <span class="badge" style="background:#a855f7;color:#fff;">+2pt</span></div>
+  <div id="breederRows"></div>
+  <button class="btn-add" onclick="addRow('breeder')">＋ 生産者追加</button>
+</div>
+
+<!-- ラインセクション -->
+<div class="card">
+  <div class="section-title">⚡ 金塊騎手厩舎ライン <span class="badge" style="background:#f0c040;color:#000;">+5pt</span></div>
+  <div id="lineRows"></div>
+  <button class="btn-add" onclick="addRow('line')">＋ ライン追加</button>
+</div>
+
+<!-- 生成ボタン -->
+<div style="margin-bottom:20px;">
+  <button class="btn-primary" onclick="generate()">🔧 JSONを生成</button>
+  <button class="btn-dl" id="dlBtn" onclick="download()" style="display:none;">⬇️ ダウンロード</button>
+</div>
+
+<!-- 出力エリア -->
+<div id="output" class="out-area"></div>
+
+<!-- index.json追加テンプレ -->
+<div class="card" style="margin-top:20px;">
+  <div class="section-title">📄 index.json に追加するテンプレ</div>
+  <pre style="background:#0b0002;padding:12px;border-radius:8px;font-size:12px;color:#ffe8a0;overflow-x:auto;" id="indexTemplate">{
+  "file": "hanshin-shiba-1800.json",
+  "key": "阪神芝1800m",
+  "grade": "A"
+}</pre>
+</div>
+
+<script>
+let generatedJson = '';
+
+// ── 行テンプレ ──────────────────────────────────────────────
+function addRow(type) {
+  const container = document.getElementById(type + 'Rows');
+  const div = document.createElement('div');
+
+  if (type === 'jockey' || type === 'blood' || type === 'breeder') {
+    div.className = 'row-entry';
+    div.style.gridTemplateColumns = '2fr 1fr 1fr 1fr 1fr 2fr auto';
+    div.innerHTML = `
+      <div><div class="mini-label">名前</div><input type="text" placeholder="ルメール"/></div>
+      <div><div class="mini-label">着別度数</div><input type="text" placeholder="10-8-7-15/40"/></div>
+      <div><div class="mini-label">単回収値</div><input type="number" placeholder="118"/></div>
+      <div><div class="mini-label">複回収値</div><input type="number" placeholder="106"/></div>
+      <div><div class="mini-label">複勝率</div><input type="text" placeholder="62.5%"/></div>
+      <div><div class="mini-label">メモ</div><input type="text" placeholder="安定感抜群"/></div>
+      <button class="del-btn" onclick="this.closest('.row-entry').remove()">削除</button>`;
+  } else if (type === 'line') {
+    div.className = 'row-entry';
+    div.style.gridTemplateColumns = '1.5fr 1.5fr 1fr 1fr 1fr 1fr 2fr auto';
+    div.innerHTML = `
+      <div><div class="mini-label">騎手</div><input type="text" placeholder="川田将雅"/></div>
+      <div><div class="mini-label">調教師</div><input type="text" placeholder="友道康夫"/></div>
+      <div><div class="mini-label">着別度数</div><input type="text" placeholder="6-4-3-4/17"/></div>
+      <div><div class="mini-label">単回収値</div><input type="number" placeholder="84"/></div>
+      <div><div class="mini-label">複回収値</div><input type="number" placeholder="91"/></div>
+      <div><div class="mini-label">複勝率</div><input type="text" placeholder="76.5%"/></div>
+      <div><div class="mini-label">メモ</div><input type="text" placeholder="超鉄板ライン"/></div>
+      <button class="del-btn" onclick="this.closest('.row-entry').remove()">削除</button>`;
+  }
+  container.appendChild(div);
+}
+
+// ── 着別度数パース ──────────────────────────────────────────
+function parseRecord(str) {
+  // "10-8-7-15/40" → {wins,second,third,losses,total}
+  const m = str.trim().match(/(\d+)-(\d+)-(\d+)-(\d+)\/(\d+)/);
+  if (!m) return {wins:0,second:0,third:0,total:0};
+  const [,w,s,t,l,total] = m.map(Number);
+  return {wins:w, second:s, third:t, total};
+}
+
+function calcRates(wins,second,third,total) {
+  if (!total) return {winRate:'0%',rentaiRate:'0%',fukushoRate:'0%'};
+  const w = (wins/total*100).toFixed(1)+'%';
+  const r = ((wins+second)/total*100).toFixed(1)+'%';
+  const f = ((wins+second+third)/total*100).toFixed(1)+'%';
+  return {winRate:w, rentaiRate:r, fukushoRate:f};
+}
+
+// ── JSONを生成 ────────────────────────────────────────────
+function generate() {
+  const course = document.getElementById('courseName').value.trim() || 'コース名未設定';
+  const period = document.getElementById('period').value.trim();
+  const fileName = document.getElementById('fileName').value.trim() || 'course';
+
+  const result = {
+    course,
+    period,
+    conditions: {}
+  };
+
+  // 騎手
+  const jEntries = parseSimpleRows('jockeyRows');
+  if (jEntries.length) result.conditions['騎手'] = jEntries;
+
+  // 血統
+  const bEntries = parseSimpleRows('bloodRows');
+  if (bEntries.length) result.conditions['血統'] = bEntries;
+
+  // 生産者
+  const brEntries = parseSimpleRows('breederRows');
+  if (brEntries.length) result.conditions['生産者'] = brEntries;
+
+  // ライン
+  const lEntries = parseLineRows('lineRows');
+  if (lEntries.length) result.conditions['騎手厩舎ライン'] = lEntries;
+
+  generatedJson = JSON.stringify(result, null, 2);
+
+  const out = document.getElementById('output');
+  out.style.display = 'block';
+  out.textContent = generatedJson;
+
+  document.getElementById('dlBtn').style.display = 'inline-block';
+
+  // index.json テンプレ更新
+  document.getElementById('indexTemplate').textContent = JSON.stringify({
+    file: fileName + '.json',
+    key: course,
+    grade: 'A'
+  }, null, 2);
+}
+
+function parseSimpleRows(containerId) {
+  const rows = document.getElementById(containerId).querySelectorAll('.row-entry');
+  const out = [];
+  rows.forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const name = inputs[0].value.trim();
+    if (!name) return;
+    const rec = parseRecord(inputs[1].value);
+    const tanKaichi = parseInt(inputs[2].value) || 0;
+    const fukuKaichi = parseInt(inputs[3].value) || 0;
+    const fukuRaw = inputs[4].value.trim();
+    const memo = inputs[5].value.trim();
+    const rates = calcRates(rec.wins, rec.second, rec.third, rec.total);
+    out.push({
+      name,
+      wins: rec.wins, second: rec.second, third: rec.third, total: rec.total,
+      winRate: rates.winRate,
+      rentaiRate: rates.rentaiRate,
+      fukushoRate: fukuRaw || rates.fukushoRate,
+      tanKaichi, fukuKaichi,
+      memo
+    });
+  });
+  return out;
+}
+
+function parseLineRows(containerId) {
+  const rows = document.getElementById(containerId).querySelectorAll('.row-entry');
+  const out = [];
+  rows.forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const jockey = inputs[0].value.trim();
+    const trainer = inputs[1].value.trim();
+    if (!jockey || !trainer) return;
+    const rec = parseRecord(inputs[2].value);
+    const tanKaichi = parseInt(inputs[3].value) || 0;
+    const fukuKaichi = parseInt(inputs[4].value) || 0;
+    const fukuRaw = inputs[5].value.trim();
+    const memo = inputs[6].value.trim();
+    const rates = calcRates(rec.wins, rec.second, rec.third, rec.total);
+    out.push({
+      name: jockey + ' × ' + trainer,
+      wins: rec.wins, second: rec.second, third: rec.third, total: rec.total,
+      winRate: rates.winRate,
+      rentaiRate: rates.rentaiRate,
+      fukushoRate: fukuRaw || rates.fukushoRate,
+      tanKaichi, fukuKaichi,
+      memo,
+      jockey, trainer
+    });
+  });
+  return out;
+}
+
+function download() {
+  const fileName = (document.getElementById('fileName').value.trim() || 'course') + '.json';
+  const blob = new Blob([generatedJson], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = fileName;
+  a.click();
+}
+
+// ── 初期サンプル行 ──────────────────────────────────────────
+addRow('jockey');
+addRow('blood');
+addRow('breeder');
+addRow('line');
+</script>
+</body>
+</html>
