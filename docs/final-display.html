@@ -151,7 +151,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 table.horse-tbl{width:100%;border-collapse:collapse;font-size:12px;}
 table.horse-tbl th{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 6px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);white-space:nowrap;}
 table.horse-tbl td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;color:#fff;}
-table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:#fff;font-size:13px;}
+table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:#fff;font-size:13px;white-space:nowrap;}
 table.horse-tbl td.tbl-sub{font-size:11px;color:rgba(255,255,255,.7);}
 table.horse-tbl tr:last-child td{border-bottom:none;}
 table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
@@ -233,6 +233,14 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 .race-card.grade-g1 .race-name{text-shadow:0 0 22px rgba(240,192,64,.6);}
 .race-card.grade-g2 .race-name{text-shadow:0 0 22px rgba(34,197,94,.5);}
 .race-card.grade-g3 .race-name{text-shadow:0 0 22px rgba(59,130,246,.5);}
+
+/* ── スマホ：全馬スコアテーブル 外厩(4列目)・厩舎(6列目)を非表示 ── */
+@media(max-width:640px){
+  table.horse-tbl th:nth-child(4),table.horse-tbl td:nth-child(4),
+  table.horse-tbl th:nth-child(6),table.horse-tbl td:nth-child(6){display:none;}
+  table.horse-tbl{font-size:11px;}
+  table.horse-tbl td.tbl-name{font-size:12px;}
+}
 </style>
 </head>
 <body>
