@@ -294,7 +294,7 @@ function renderRaceDetail(data) {
       </div>
     </div>
     <div class="race-body">
-      ${data.raceCondNote ? `<div class="cond-note">🏟️ ${esc(data.raceCondNote)}</div>` : ''}
+      ${data.raceCondNote ? `<div class="cond-note">🏟️ ${esc(data.raceCondNote).replace(/\n/g,'<br>')}</div>` : ''}
       ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(renderHeroCard).join('')}` : ''}
       ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses)}` : ''}
       <div class="divider"></div>
