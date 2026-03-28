@@ -539,11 +539,18 @@
     </div>
     <textarea id="historyJsonInput" class="ug-input w-full px-4 py-3 text-xs font-mono" rows="4"
       placeholder='{"lastUpdated":"...","weeks":[...]}  ← 既存の kinkai-history.json を貼り付け（省略可）'></textarea>
-    <button onclick="downloadHistory()"
-      class="w-full py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-2 mt-4"
-      style="background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;box-shadow:0 4px 20px rgba(240,192,64,0.40);">
-      📥 kinkai-history.json をダウンロード
-    </button>
+    <div class="flex flex-col gap-3 mt-4">
+      <button onclick="downloadUpdatedResults()"
+        class="w-full py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-2"
+        style="background:linear-gradient(135deg,#E8003D,#B5002E);color:#fff;box-shadow:0 4px 20px rgba(232,0,61,0.40);">
+        📥 kinkai-results.json をダウンロード（結果反映版）
+      </button>
+      <button onclick="downloadHistory()"
+        class="w-full py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-2"
+        style="background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;box-shadow:0 4px 20px rgba(240,192,64,0.40);">
+        📥 kinkai-history.json をダウンロード
+      </button>
+    </div>
     <p class="text-center text-xs mt-2" style="color:rgba(255,255,255,0.40)">ダウンロード後 → docs/data/ に保存 → GitHubにpush</p>
   </div>
 
@@ -1559,6 +1566,7 @@ function switchTab(tab) {
 //  結果入力
 // ══════════════════════════════════════════
 let parsedResultRaces = []; // 読み込み済みレースデータ
+let parsedResultsOriginal = null; // 元のJSON全体（結果反映版DL用）
 
 function parseResultsForEntry() {
   const raw = document.getElementById('resultsJsonInput').value.trim();
@@ -1570,6 +1578,7 @@ function parseResultsForEntry() {
   if (races.length === 0) { alert('レースデータが見つかりません'); return; }
 
   parsedResultRaces = races;
+  parsedResultsOriginal = data;
   renderResultForms(races);
 }
 
@@ -1694,6 +1703,49 @@ function downloadHistory() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url; a.download = 'kinkai-history.json'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function downloadUpdatedResults() {
+  if (!parsedResultsOriginal || parsedResultRaces.length === 0) {
+    alert('先にSTEP Aでデータを読み込んでください'); return;
+  }
+
+  // 入力した結果を race×horse インデックスで収集
+  const resultMap = {}; // "ri_name" → result object
+  parsedResultRaces.forEach((race, ri) => {
+    (race.horses || []).forEach((h, hi) => {
+      const id = `r${ri}_h${hi}`;
+      const rankVal = document.getElementById(id+'_rank')?.value || '';
+      const tanVal  = document.getElementById(id+'_tan')?.value  || '';
+      const fukuVal = document.getElementById(id+'_fuku')?.value || '';
+      resultMap[`${ri}_${h.name}`] = {
+        chakujun: rankVal !== '' ? parseInt(rankVal) : null,
+        tanOdds:  tanVal  !== '' ? parseFloat(tanVal)  : null,
+        fukuOdds: fukuVal !== '' ? parseFloat(fukuVal) : null,
+      };
+    });
+  });
+
+  // 元のJSONをディープコピーして result フィールドをマージ
+  const output = JSON.parse(JSON.stringify(parsedResultsOriginal));
+  output.updated = new Date().toISOString().slice(0,10);
+
+  // parsedResultRaces は horses あるレースのみなので、元races配列と名前でマッチング
+  parsedResultRaces.forEach((pRace, ri) => {
+    const origRace = (output.races || []).find(r => r.raceName === pRace.raceName);
+    if (!origRace) return;
+    (origRace.horses || []).forEach(h => {
+      const key = `${ri}_${h.name}`;
+      if (resultMap[key]) h.result = resultMap[key];
+    });
+  });
+
+  const json = JSON.stringify(output, null, 2);
+  const blob = new Blob([json], { type:'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'kinkai-results.json'; a.click();
   URL.revokeObjectURL(url);
 }
 

@@ -55,6 +55,13 @@
   /* レースセクション */
   .race-section { border-left: 3px solid #E8003D; padding-left: 16px; }
 
+  /* 結果バッジ */
+  .result-badge { display:inline-flex; align-items:center; gap:3px; font-size:10px; font-weight:900; padding:2px 8px; border-radius:5px; vertical-align:middle; margin-left:8px; white-space:nowrap; letter-spacing:.04em; }
+  .result-tan-fuku { background:linear-gradient(135deg,#f0c040,#d97706); color:#130003; box-shadow:0 0 10px rgba(240,192,64,0.5); }
+  .result-fuku     { background:linear-gradient(135deg,#22c55e,#15803d); color:#fff; }
+  .result-miss     { background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.50); }
+  .rank-num        { font-size:11px; font-weight:900; margin-right:2px; }
+
   /* 空ステート */
   .empty-state { text-align:center; padding: 60px 20px; color: rgba(255,255,255,0.35); }
 
@@ -340,6 +347,19 @@ function render(data) {
   });
 }
 
+function buildResultBadge(result) {
+  if (!result || result.chakujun == null) return '';
+  const rank = result.chakujun;
+  const rankMedal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '';
+  if (rank === 1) {
+    return `<span class="result-badge result-tan-fuku">${rankMedal} <span class="rank-num">${rank}着</span> 単複的中</span>`;
+  } else if (rank <= 3) {
+    return `<span class="result-badge result-fuku">${rankMedal} <span class="rank-num">${rank}着</span> 複勝的中</span>`;
+  } else {
+    return `<span class="result-badge result-miss"><span class="rank-num">${rank}着</span> 不的中</span>`;
+  }
+}
+
 function buildHorseCard(h, index, total) {
   const isMulti = h.conditions.length > 1;
   const condBadges = h.conditions.map(c => {
@@ -375,7 +395,7 @@ function buildHorseCard(h, index, total) {
           <span class="text-2xl">${isMulti ? '🔥' : '💰'}</span>
           <div>
             <h4 class="serif-headline text-xl font-bold" style="color:#f0c040">
-            ${h.num != null ? `<span style="display:inline-block;font-family:'Inter',sans-serif;font-size:13px;font-weight:900;background:rgba(232,0,61,0.85);color:#fff;padding:1px 8px;border-radius:5px;margin-right:6px;vertical-align:middle;">${h.num}</span>` : ''}${escHtml(h.name)}</h4>
+            ${h.num != null ? `<span style="display:inline-block;font-family:'Inter',sans-serif;font-size:13px;font-weight:900;background:rgba(232,0,61,0.85);color:#fff;padding:1px 8px;border-radius:5px;margin-right:6px;vertical-align:middle;">${h.num}</span>` : ''}${escHtml(h.name)}${buildResultBadge(h.result)}</h4>
             <div class="flex gap-1 flex-wrap mt-1">${condBadges}</div>
           </div>
         </div>
