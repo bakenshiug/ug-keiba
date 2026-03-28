@@ -8,10 +8,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#130003;--bg-dk:#0b0002;--bg-md:#1a0004;
-  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
-  --text:#f5d0d5;--muted:rgba(255,255,255,0.50);
-  --border:rgba(232,0,61,0.25);
+  --bg:#f4f6f8;--bg-panel:#fff;
+  --accent:#1e40af;--accent-lt:#3b82f6;
+  --text:#1a202c;--muted:#64748b;
+  --border:#e2e8f0;--border-dk:#cbd5e1;
 }
 html,body{
   background:var(--bg);color:var(--text);
@@ -21,33 +21,38 @@ html,body{
 
 /* ── Hub Header ── */
 .hub-header{
-  background:linear-gradient(135deg,#1a0004,#0b0002);
-  border-bottom:2px solid rgba(232,0,61,0.50);
+  background:linear-gradient(135deg,#1e3a5f,#1e40af);
+  border-bottom:3px solid #3b82f6;
   padding:10px 20px;
   display:flex;align-items:center;justify-content:space-between;
   height:52px;
   flex-shrink:0;
+  box-shadow:0 2px 12px rgba(30,64,175,.4);
 }
 .hub-title{
   font-family:'Noto Serif JP',serif;
   font-size:15px;font-weight:700;color:#fff;
-  text-shadow:0 0 20px rgba(232,0,61,0.55);
   display:flex;align-items:center;gap:10px;
 }
 .hub-title span{
-  font-size:10px;color:var(--muted);
+  font-size:10px;color:rgba(255,255,255,.6);
   font-family:'Inter',sans-serif;
   font-weight:400;letter-spacing:.12em;text-transform:uppercase;
+}
+.hub-badge{
+  font-size:9px;font-weight:900;padding:2px 8px;border-radius:4px;
+  background:rgba(255,255,255,.2);color:#fff;letter-spacing:.1em;border:1px solid rgba(255,255,255,.3);
 }
 .hub-links{display:flex;gap:8px;}
 .hub-link{
   font-size:11px;font-weight:700;
   padding:4px 12px;border-radius:16px;
-  text-decoration:none;color:var(--muted);
-  border:1px solid rgba(255,255,255,.12);
+  text-decoration:none;color:rgba(255,255,255,.85);
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
   transition:all .18s;
 }
-.hub-link:hover{color:#fff;border-color:rgba(232,0,61,.50);}
+.hub-link:hover{background:rgba(255,255,255,.25);color:#fff;}
 
 /* ── 3-Column Grid ── */
 .hub-grid{
@@ -60,14 +65,15 @@ html,body{
 /* ── Each Panel ── */
 .panel{
   display:flex;flex-direction:column;
-  border-right:1px solid rgba(232,0,61,.20);
+  border-right:1px solid var(--border-dk);
   overflow:hidden;
+  background:var(--bg-panel);
 }
 .panel:last-child{border-right:none;}
 
 .panel-tab{
-  background:linear-gradient(135deg,rgba(26,0,4,.95),rgba(11,0,2,.95));
-  border-bottom:1px solid rgba(232,0,61,.30);
+  background:#f8fafc;
+  border-bottom:2px solid var(--border-dk);
   padding:8px 14px;
   display:flex;align-items:center;gap:8px;
   flex-shrink:0;
@@ -75,17 +81,18 @@ html,body{
 }
 .panel-tab-icon{font-size:14px;}
 .panel-tab-label{
-  font-size:11px;font-weight:900;color:#fff;
+  font-size:11px;font-weight:900;color:var(--text);
   letter-spacing:.04em;
 }
 .panel-tab-sub{
   font-size:9px;color:var(--muted);
   margin-left:auto;letter-spacing:.06em;text-transform:uppercase;
+  background:#e2e8f0;padding:1px 6px;border-radius:4px;
 }
 
 .panel-frame{
   flex:1;width:100%;border:none;
-  background:#130003;
+  background:#fff;
 }
 
 /* ── Responsive: 画面幅が狭い場合はタブ切り替え ── */
@@ -102,8 +109,8 @@ html,body{
 /* ── Tab Bar (モバイル/狭い画面) ── */
 .tab-bar{
   display:none;
-  background:linear-gradient(135deg,#1a0004,#0b0002);
-  border-bottom:1px solid rgba(232,0,61,.30);
+  background:#f8fafc;
+  border-bottom:2px solid var(--border-dk);
   flex-shrink:0;
 }
 .tab-btn{
@@ -111,22 +118,23 @@ html,body{
   background:transparent;border:none;
   color:var(--muted);font-family:'Public Sans',sans-serif;
   font-size:11px;font-weight:700;cursor:pointer;
-  border-bottom:2px solid transparent;
+  border-bottom:3px solid transparent;
   transition:all .18s;
 }
 .tab-btn.active{
-  color:var(--gold);
-  border-bottom-color:var(--gold);
+  color:var(--accent);
+  border-bottom-color:var(--accent);
 }
-.tab-btn:hover{color:#fff;}
+.tab-btn:hover{color:var(--accent-lt);}
 </style>
 </head>
 <body>
 
 <header class="hub-header">
   <div class="hub-title">
-    🏆 UG 強奪競馬新聞
+    🛠️ UG 強奪競馬新聞
     <span>Tool Hub</span>
+    <span class="hub-badge">ADMIN</span>
   </div>
   <div class="hub-links">
     <a href="index.html" class="hub-link">🏠 TOP</a>
