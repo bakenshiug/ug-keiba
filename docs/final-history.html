@@ -212,6 +212,31 @@ const BET_CLASS = {
   'ワイド':'bet-wide','三連複':'bet-sanren','三連単':'bet-sanren',
 };
 
+// 投資額自動計算（統一買い目：単勝/馬単マルチ/三連複/三連単フォーメーション）
+function calcInvestment(picks) {
+  const A = [], B = [], C = [];
+  (picks || []).forEach((h, i) => {
+    const m = h.mark || '';
+    if (m === '◎' || m === '○')     { A.push(i); B.push(i); C.push(i); }
+    else if (m === '▲' || m === '☆') { B.push(i); C.push(i); }
+    else if (m === '△')               { C.push(i); }
+  });
+  const inba = B.length + C.filter(i => !B.includes(i)).length;
+  const tansho = 100;
+  const batan  = inba * 2 * 100;
+  let fuku = 0;
+  for (let i = 0; i < C.length; i++)
+    for (let j = i+1; j < C.length; j++)
+      for (let k = j+1; k < C.length; k++) {
+        const c = [C[i],C[j],C[k]];
+        if (c.some(x=>A.includes(x)) && c.filter(x=>B.includes(x)).length>=2) fuku++;
+      }
+  let tan = 0;
+  for (const a of A) for (const b of B) { if (b===a) continue;
+    for (const c of C) { if (c===a||c===b) continue; tan++; } }
+  return { total: tansho + batan + fuku*100 + tan*100 };
+}
+
 async function loadHistory() {
   try {
     const res = await fetch('data/final-history.json?v=' + Date.now());
@@ -321,6 +346,16 @@ function renderWeeks(weeks) {
 
 function buildRaceBlock(race) {
   const picks = race.picks || [];
+  const inv = calcInvestment(picks);
+  const rtn = race.returnAmount || 0;
+  const hasResult = picks.some(h => h.result && h.result.chakujun != null);
+  const pct = (hasResult && inv.total > 0) ? Math.round(rtn / inv.total * 100) : null;
+  const pctHtml = pct !== null
+    ? `<span class="text-sm font-black ml-2" style="color:${pct>=100?'#22c55e':'rgba(232,0,61,.85)'}">${pct}%</span>`
+    : '';
+  const invHtml = (hasResult && inv.total > 0)
+    ? `<p class="text-[10px] mt-0.5" style="color:rgba(255,255,255,0.35)">投資¥${inv.total.toLocaleString()} 回収¥${rtn.toLocaleString()}</p>`
+    : '';
   return `
     <div class="race-block">
       <div class="race-head">
@@ -328,8 +363,12 @@ function buildRaceBlock(race) {
           <div>
             <p class="font-bold text-sm" style="color:#fff">${escHtml(race.raceName)}</p>
             <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45)">${escHtml(race.course||'')} &nbsp;｜&nbsp; ${escHtml(race.date||'')}</p>
+            ${invHtml}
           </div>
-          <span class="text-xs px-2 py-0.5 rounded-full font-bold" style="background:rgba(34,197,94,0.18);color:#86efac">厳選 ${picks.length}点</span>
+          <div class="text-right">
+            <span class="text-xs px-2 py-0.5 rounded-full font-bold" style="background:rgba(34,197,94,0.18);color:#86efac">厳選 ${picks.length}点</span>
+            ${pctHtml}
+          </div>
         </div>
       </div>
       <div class="px-4 py-3 space-y-3">

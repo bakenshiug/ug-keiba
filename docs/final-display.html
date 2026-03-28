@@ -259,6 +259,15 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 .result-payout-row:last-child{border-bottom:none;}
 .result-payout-type{font-size:11px;font-weight:700;color:rgba(255,255,255,.55);min-width:54px;}
 .result-payout-amt{font-size:13px;font-weight:900;color:#fff;text-align:right;}
+/* 回収率バー */
+.result-kaishuri{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:10px 18px;background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.06);}
+.result-kaishuri-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.45);}
+.result-kaishuri-nums{display:flex;gap:14px;align-items:baseline;}
+.result-kaishuri-item{font-size:11px;color:rgba(255,255,255,.55);}
+.result-kaishuri-item strong{font-size:13px;color:rgba(255,255,255,.85);}
+.result-kaishuri-pct{font-size:18px;font-weight:900;letter-spacing:.02em;}
+.result-kaishuri-pct.hit{color:#22c55e;text-shadow:0 0 12px rgba(34,197,94,.5);}
+.result-kaishuri-pct.miss{color:rgba(232,0,61,.85);}
 /* 振り返りノート */
 .result-note-wrap{background:rgba(0,0,0,.15);padding:10px 18px;font-size:12px;line-height:1.65;color:rgba(255,255,255,.65);border-top:1px solid rgba(255,255,255,.06);}
 /* ヒーローカード内の着順バッジ */
@@ -376,6 +385,34 @@ function renderHeroCard(h, orderMap) {
   </div>`;
 }
 
+// ── 投資額自動計算（統一買い目：単勝/馬単マルチ/三連複/三連単フォーメーション）
+function calcInvestment(horses) {
+  const A = [], B = [], C = []; // 列1:◎○ / 列2:◎○▲☆ / 列3:◎○▲☆△
+  (horses || []).forEach((h, i) => {
+    const m = h.mark || '';
+    if (m === '◎' || m === '○')    { A.push(i); B.push(i); C.push(i); }
+    else if (m === '▲' || m === '☆') { B.push(i); C.push(i); }
+    else if (m === '△')              { C.push(i); }
+  });
+  const inba = B.length + C.filter(i => !B.includes(i)).length; // ○▲☆△ の総数
+  const tansho  = 100;
+  const batan   = inba * 2 * 100; // 馬単マルチ
+  // 三連複フォーメーション
+  let fuku = 0;
+  for (let i = 0; i < C.length; i++)
+    for (let j = i+1; j < C.length; j++)
+      for (let k = j+1; k < C.length; k++) {
+        const combo = [C[i],C[j],C[k]];
+        if (combo.some(x=>A.includes(x)) && combo.filter(x=>B.includes(x)).length>=2) fuku++;
+      }
+  // 三連単フォーメーション
+  let tan = 0;
+  for (const a of A) for (const b of B) { if (b===a) continue;
+    for (const c of C) { if (c===a||c===b) continue; tan++; } }
+  return { tansho, batan, sanrenpuku: fuku*100, sanrentan: tan*100,
+           total: tansho + batan + fuku*100 + tan*100 };
+}
+
 function renderResult(data) {
   const res = data.result;
   if (!res) return '';
@@ -408,9 +445,22 @@ function renderResult(data) {
     </div>`
   ).join('');
 
+  // 回収率
+  const inv = calcInvestment(data.horses || []);
+  const rtn = res.returnAmount || 0;
+  const pct = inv.total > 0 ? Math.round(rtn / inv.total * 100) : 0;
+  const kaishuriHtml = inv.total > 0 ? `
+    <div class="result-kaishuri">
+      <div class="result-kaishuri-nums">
+        <span class="result-kaishuri-item">投資 <strong>¥${inv.total.toLocaleString()}</strong></span>
+        <span class="result-kaishuri-item">回収 <strong>¥${rtn.toLocaleString()}</strong></span>
+      </div>
+      <span class="result-kaishuri-pct ${pct>=100?'hit':'miss'}">${pct}%</span>
+    </div>` : '';
+
   // 的中バナー内容
   const hitBetsLine = (res.hitBets||[]).map(b =>
-    `<span class="result-hit-bet">✅ ${esc(b)}的中　¥${esc(String(res.returnAmount||''))}</span>`
+    `<span class="result-hit-bet">✅ ${esc(b)}的中</span>`
   ).join('');
 
   if (isHit) {
@@ -423,6 +473,7 @@ function renderResult(data) {
       <div class="result-order-head">${esc(r.name||'')} ${esc(r.grade||'')} 着順</div>
       <div class="result-order-list">${orderRows}</div>
       ${payoutRows ? `<div class="result-payout-head">払い戻し</div><div class="result-payout-list">${payoutRows}</div>` : ''}
+      ${kaishuriHtml}
       ${res.note ? `<div class="result-note-wrap">${esc(res.note)}</div>` : ''}
     </div>`;
   } else {
@@ -434,6 +485,7 @@ function renderResult(data) {
       <div class="result-order-head">${esc(r.name||'')} ${esc(r.grade||'')} 着順</div>
       <div class="result-order-list">${orderRows}</div>
       ${payoutRows ? `<div class="result-payout-head">払い戻し</div><div class="result-payout-list">${payoutRows}</div>` : ''}
+      ${kaishuriHtml}
       ${res.note ? `<div class="result-note-wrap">${esc(res.note)}</div>` : ''}
     </div>`;
   }
