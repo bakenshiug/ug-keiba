@@ -234,6 +234,33 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 .race-card.grade-g2 .race-name{text-shadow:0 0 22px rgba(34,197,94,.5);}
 .race-card.grade-g3 .race-name{text-shadow:0 0 22px rgba(59,130,246,.5);}
 
+/* ── 結果セクション ── */
+.result-section{margin-top:6px;border-radius:16px;overflow:hidden;}
+.result-hit{background:linear-gradient(135deg,rgba(34,197,94,.18),rgba(10,0,3,.95));border:2px solid rgba(34,197,94,.7);box-shadow:0 0 24px rgba(34,197,94,.3);}
+.result-miss{background:linear-gradient(135deg,rgba(100,100,120,.15),rgba(10,0,3,.95));border:1px solid rgba(255,255,255,.15);}
+.result-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);}
+.result-badge-hit{font-size:11px;font-weight:900;padding:4px 12px;border-radius:6px;background:rgba(34,197,94,.3);color:#4ade80;border:1px solid rgba(34,197,94,.5);letter-spacing:.1em;}
+.result-badge-miss{font-size:11px;font-weight:900;padding:4px 12px;border-radius:6px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15);letter-spacing:.1em;}
+.result-label{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.result-body{padding:12px 16px;display:flex;flex-direction:column;gap:10px;}
+.result-top3{display:flex;gap:8px;flex-wrap:wrap;}
+.result-horse{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border-radius:10px;padding:7px 11px;min-width:0;}
+.result-rank{font-size:16px;line-height:1;}
+.result-horse-num{font-size:10px;font-weight:900;color:rgba(255,255,255,.5);min-width:18px;}
+.result-horse-name{font-size:13px;font-weight:700;color:#fff;white-space:nowrap;}
+.result-horse-mark{font-size:14px;font-weight:900;margin-left:2px;}
+.result-payouts{display:flex;flex-wrap:wrap;gap:6px;}
+.result-payout-row{display:flex;align-items:baseline;gap:6px;padding:5px 10px;border-radius:8px;background:rgba(240,192,64,.07);border:1px solid rgba(240,192,64,.18);}
+.result-payout-type{font-size:9px;font-weight:900;color:var(--gold);letter-spacing:.06em;white-space:nowrap;}
+.result-payout-amt{font-size:12px;font-weight:700;color:#fff;}
+.result-hit-bets{display:flex;flex-wrap:wrap;gap:5px;}
+.result-hit-bet{font-size:10px;font-weight:900;padding:3px 9px;border-radius:5px;background:rgba(34,197,94,.25);color:#4ade80;border:1px solid rgba(34,197,94,.4);}
+.result-note{font-size:12px;line-height:1.65;color:rgba(255,255,255,.7);}
+/* レースボタンの結果バッジ */
+.race-btn .btn-result{font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;display:inline-block;margin-top:4px;letter-spacing:.04em;}
+.btn-result-hit{background:rgba(34,197,94,.25);color:#4ade80;border:1px solid rgba(34,197,94,.4);}
+.btn-result-miss{background:rgba(255,255,255,.08);color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.15);}
+
 /* ── スマホ：全馬スコアテーブル 外厩(4列目)・厩舎(6列目)を非表示 ── */
 @media(max-width:640px){
   table.horse-tbl th:nth-child(4),table.horse-tbl td:nth-child(4),
@@ -332,6 +359,50 @@ function renderHeroCard(h) {
   </div>`;
 }
 
+function renderResult(data) {
+  const res = data.result;
+  if (!res) return '';
+  const isHit = res.hitFlag;
+  const medals = ['🥇','🥈','🥉'];
+  const markClsMap = {'◎':'mark-◎','○':'mark-○','▲':'mark-▲','☆':'mark-☆','△':'mark-△','×':'mark-×'};
+  // 馬番→印 マップ
+  const numMark = {};
+  (data.horses||[]).forEach(h => { if(h.mark) numMark[h.num] = h.mark; });
+
+  const top3Html = (res.top3||[]).map((h,i) => {
+    const mk = numMark[h.num] || '';
+    const mkHtml = mk ? `<span class="mark-badge ${markClsMap[mk]||''}">${mk}</span>` : '';
+    return `<div class="result-horse">
+      <span class="result-rank">${medals[i]||''}</span>
+      <span class="result-horse-num">${h.num}番</span>
+      <span class="result-horse-name">${esc(h.name)}</span>
+      ${mkHtml}
+    </div>`;
+  }).join('');
+
+  const payoutsHtml = Object.entries(res.payouts||{}).map(([k,v]) =>
+    `<div class="result-payout-row"><span class="result-payout-type">${esc(k)}</span><span class="result-payout-amt">${esc(v)}</span></div>`
+  ).join('');
+
+  const hitBetsHtml = (res.hitBets||[]).length
+    ? `<div class="result-hit-bets">${res.hitBets.map(b=>`<span class="result-hit-bet">✅ ${esc(b)} 的中</span>`).join('')}</div>`
+    : '';
+
+  return `
+  <div class="result-section ${isHit ? 'result-hit' : 'result-miss'}">
+    <div class="result-head">
+      <span class="${isHit ? 'result-badge-hit' : 'result-badge-miss'}">${isHit ? '✅ HIT' : '❌ MISS'}</span>
+      <span class="result-label">レース結果</span>
+    </div>
+    <div class="result-body">
+      <div class="result-top3">${top3Html}</div>
+      ${hitBetsHtml}
+      ${payoutsHtml ? `<div class="result-payouts">${payoutsHtml}</div>` : ''}
+      ${res.note ? `<div class="result-note">${esc(res.note)}</div>` : ''}
+    </div>
+  </div>`;
+}
+
 function renderCompactRows(horses) {
   if (!horses.length) return '';
   const dash = '<span style="color:rgba(255,255,255,.3)">—</span>';
@@ -402,6 +473,8 @@ function renderRaceDetail(data) {
       </div>
     </div>
     <div class="race-body">
+      ${renderResult(data)}
+      ${data.result ? '<div class="divider"></div>' : ''}
       ${data.raceCondNote ? `<div class="cond-note">🏟️ ${esc(data.raceCondNote).replace(/\n/g,'<br>')}</div>` : ''}
       ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(renderHeroCard).join('')}` : ''}
       ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses)}` : ''}
@@ -492,12 +565,17 @@ async function loadAll() {
         .join(' / ');
 
       const gradeClass = r.grade ? 'grade-' + r.grade.toLowerCase() : '';
+      const res = data.result;
+      const resultBadge = res
+        ? `<span class="btn-result ${res.hitFlag ? 'btn-result-hit' : 'btn-result-miss'}">${res.hitFlag ? '✅ HIT' : '❌ MISS'}</span>`
+        : '';
       return `<button class="race-btn ${gradeClass}" data-file="${esc(file)}" onclick="handleBtnClick(this)">
         <span class="active-dot"></span>
         ${gradeLabel(r.grade)}
         <div class="btn-name">${esc(r.name||file)}</div>
         <div class="btn-meta">${esc(r.venue||'')} ${esc(r.distance||'')} ／ ${esc(r.date||'')}</div>
         ${picksLine ? `<div style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(240,192,64,.8);">${esc(picksLine)}</div>` : ''}
+        ${resultBadge}
       </button>`;
     }).join('');
 
