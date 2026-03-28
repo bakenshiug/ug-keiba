@@ -259,6 +259,10 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 .result-payout-row:last-child{border-bottom:none;}
 .result-payout-type{font-size:11px;font-weight:700;color:rgba(255,255,255,.55);min-width:54px;}
 .result-payout-amt{font-size:13px;font-weight:900;color:#fff;text-align:right;}
+/* 的中払い戻しゴールドハイライト */
+.result-payout-row.is-hit{background:rgba(240,192,64,.10);border-left:3px solid rgba(240,192,64,.75);padding-left:15px;}
+.result-payout-row.is-hit .result-payout-type{color:var(--gold);font-weight:900;}
+.result-payout-row.is-hit .result-payout-amt{color:var(--gold);font-size:15px;text-shadow:0 0 12px rgba(240,192,64,.5);}
 /* 回収率バー */
 .result-kaishuri{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:10px 18px;background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.06);}
 .result-kaishuri-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.45);}
@@ -437,13 +441,21 @@ function renderResult(data) {
     </div>`;
   }).join('');
 
-  // 払い戻し
-  const payoutRows = Object.entries(res.payouts||{}).map(([k,v]) =>
-    `<div class="result-payout-row">
+  // 払い戻し（hitBetsと照合してゴールドハイライト）
+  const BET_ALIASES = {
+    '単勝':['単勝'],'馬単':['馬単'],'馬連':['馬連'],
+    '複勝':['複勝'],'枠連':['枠連'],'ワイド':['ワイド'],
+    '三連複':['三連複','３連複','3連複'],'三連単':['三連単','３連単','3連単'],
+  };
+  const hitSet = new Set((res.hitBets||[]).flatMap(b => BET_ALIASES[b]||[b]));
+  const isPayoutHit = key => [...hitSet].some(alias => key.replace(/\s/g,'').startsWith(alias));
+  const payoutRows = Object.entries(res.payouts||{}).map(([k,v]) => {
+    const hit = isPayoutHit(k);
+    return `<div class="result-payout-row${hit?' is-hit':''}">
       <span class="result-payout-type">${esc(k)}</span>
       <span class="result-payout-amt">${esc(v)}</span>
-    </div>`
-  ).join('');
+    </div>`;
+  }).join('');
 
   // 回収率
   const inv = calcInvestment(data.horses || []);
