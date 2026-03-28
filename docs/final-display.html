@@ -398,9 +398,10 @@ function calcInvestment(horses) {
     else if (m === '▲' || m === '☆') { B.push(i); C.push(i); }
     else if (m === '△')              { C.push(i); }
   });
-  const inba = B.length + C.filter(i => !B.includes(i)).length; // ○▲☆△ の総数
+  const allMarked = B.length + C.filter(i => !B.includes(i)).length; // 全印馬数
+  const inba = allMarked - 1; // ◎を除いた印馬数（○▲☆△）
   const tansho  = 100;
-  const batan   = inba * 2 * 100; // 馬単マルチ
+  const batan   = inba * 2 * 100; // 馬単マルチ（◎↔印馬）
   // 三連複フォーメーション
   let fuku = 0;
   for (let i = 0; i < C.length; i++)
@@ -574,8 +575,8 @@ function renderRaceDetail(data) {
     const col1 = A.map(i=>allHorses[i].mark).join('');
     const col2 = B.map(i=>allHorses[i].mark).join('');
     const col3 = C.map(i=>allHorses[i].mark).join('');
-    const inba = [...B,...C.filter(i=>!B.includes(i))].map(i=>allHorses[i].mark).join('');
-    const batanPts  = (B.length + C.filter(i=>!B.includes(i)).length) * 2;
+    const inba = [...B,...C.filter(i=>!B.includes(i))].filter(i=>allHorses[i].mark!=='◎').map(i=>allHorses[i].mark).join('');
+    const batanPts  = inba.length * 2;
     const fukuPts   = inv.sanrenpuku / 100;
     const tanPts    = inv.sanrentan  / 100;
     return [
