@@ -543,11 +543,36 @@ function renderRaceDetail(data) {
     });
   }
 
-  const betTypes = ['単勝','馬単','馬連','ワイド','三連複','三連単','買い目1'];
-  const betsHtml = betTypes
-    .filter(k => bets[k])
-    .map(k => `<div class="bet-row"><span class="bet-type">${k}</span><span class="bet-val">${esc(bets[k])}</span></div>`)
-    .join('');
+  // 統一買い目を印から自動生成
+  const betsHtml = (() => {
+    const inv = calcInvestment(allHorses);
+    const A=[], B=[], C=[];
+    allHorses.forEach((h,i) => {
+      const m = h.mark||'';
+      if(m==='◎'||m==='○'){A.push(i);B.push(i);C.push(i);}
+      else if(m==='▲'||m==='☆'){B.push(i);C.push(i);}
+      else if(m==='△'){C.push(i);}
+    });
+    if(A.length===0){
+      // 印がなければJSON betsにフォールバック
+      const betTypes=['単勝','馬単','馬連','ワイド','三連複','三連単','買い目1'];
+      return betTypes.filter(k=>bets[k])
+        .map(k=>`<div class="bet-row"><span class="bet-type">${k}</span><span class="bet-val">${esc(bets[k])}</span></div>`).join('');
+    }
+    const col1 = A.map(i=>allHorses[i].mark).join('');
+    const col2 = B.map(i=>allHorses[i].mark).join('');
+    const col3 = C.map(i=>allHorses[i].mark).join('');
+    const inba = [...B,...C.filter(i=>!B.includes(i))].map(i=>allHorses[i].mark).join('');
+    const batanPts  = (B.length + C.filter(i=>!B.includes(i)).length) * 2;
+    const fukuPts   = inv.sanrenpuku / 100;
+    const tanPts    = inv.sanrentan  / 100;
+    return [
+      ['単勝',  `◎ 1点`],
+      ['馬単',  `◎↔${inba} マルチ（${batanPts}点）`],
+      ['三連複', `1列${col1}×2列${col2}×3列${col3} フォーメーション（${fukuPts}点）`],
+      ['三連単', `1列${col1}×2列${col2}×3列${col3} フォーメーション（${tanPts}点）`],
+    ].map(([k,v])=>`<div class="bet-row"><span class="bet-type">${k}</span><span class="bet-val">${esc(v)}</span></div>`).join('');
+  })();
 
   const commentsHtml = [
     comments.final ? `<div class="final-card"><div class="clabel">■ 最終結論</div><div class="ctext">${esc(comments.final).replace(/\n/g,'<br>')}</div></div>` : '',
