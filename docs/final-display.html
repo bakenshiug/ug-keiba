@@ -235,30 +235,41 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 .race-card.grade-g3 .race-name{text-shadow:0 0 22px rgba(59,130,246,.5);}
 
 /* ── 結果セクション ── */
-.result-section{margin-top:6px;border-radius:16px;overflow:hidden;}
-.result-hit{background:linear-gradient(135deg,rgba(34,197,94,.18),rgba(10,0,3,.95));border:2px solid rgba(34,197,94,.7);box-shadow:0 0 24px rgba(34,197,94,.3);}
-.result-miss{background:linear-gradient(135deg,rgba(100,100,120,.15),rgba(10,0,3,.95));border:1px solid rgba(255,255,255,.15);}
-.result-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);}
-.result-badge-hit{font-size:11px;font-weight:900;padding:4px 12px;border-radius:6px;background:rgba(34,197,94,.3);color:#4ade80;border:1px solid rgba(34,197,94,.5);letter-spacing:.1em;}
-.result-badge-miss{font-size:11px;font-weight:900;padding:4px 12px;border-radius:6px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15);letter-spacing:.1em;}
-.result-label{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);}
-.result-body{padding:12px 16px;display:flex;flex-direction:column;gap:10px;}
-.result-top3{display:flex;gap:8px;flex-wrap:wrap;}
-.result-horse{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border-radius:10px;padding:7px 11px;min-width:0;}
-.result-rank{font-size:16px;line-height:1;}
-.result-horse-num{font-size:10px;font-weight:900;color:rgba(255,255,255,.5);min-width:18px;}
-.result-horse-name{font-size:13px;font-weight:700;color:#fff;white-space:nowrap;}
-.result-horse-mark{font-size:14px;font-weight:900;margin-left:2px;}
-.result-payouts{display:flex;flex-wrap:wrap;gap:6px;}
-.result-payout-row{display:flex;align-items:baseline;gap:6px;padding:5px 10px;border-radius:8px;background:rgba(240,192,64,.07);border:1px solid rgba(240,192,64,.18);}
-.result-payout-type{font-size:9px;font-weight:900;color:var(--gold);letter-spacing:.06em;white-space:nowrap;}
-.result-payout-amt{font-size:12px;font-weight:700;color:#fff;}
-.result-hit-bets{display:flex;flex-wrap:wrap;gap:5px;}
-.result-hit-bet{font-size:10px;font-weight:900;padding:3px 9px;border-radius:5px;background:rgba(34,197,94,.25);color:#4ade80;border:1px solid rgba(34,197,94,.4);}
-.result-note{font-size:12px;line-height:1.65;color:rgba(255,255,255,.7);}
+.result-wrap{border-radius:16px;overflow:hidden;margin-bottom:6px;}
+/* 的中バナー */
+.result-banner-hit{background:linear-gradient(90deg,#c0002a,#e8003d,#c0002a);padding:11px 18px;display:flex;align-items:center;gap:8px;}
+.result-banner-miss{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:10px 18px;display:flex;align-items:center;gap:8px;border-radius:16px 16px 0 0;}
+.result-banner-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#fff;letter-spacing:.05em;}
+.result-hit-bets-banner{background:rgba(0,0,0,.35);border-radius:0;padding:8px 18px;display:flex;flex-wrap:wrap;gap:6px;}
+.result-hit-bet{font-size:12px;font-weight:700;color:#fff;display:flex;align-items:center;gap:4px;}
+/* 着順セクション */
+.result-order-head{padding:10px 18px 6px;font-size:10px;font-weight:900;letter-spacing:.12em;color:rgba(255,255,255,.45);text-transform:uppercase;background:rgba(0,0,0,.2);}
+.result-order-list{padding:6px 18px 12px;display:flex;flex-direction:column;gap:0;background:rgba(0,0,0,.15);}
+.result-order-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.result-order-row:last-child{border-bottom:none;}
+.result-medal{font-size:20px;line-height:1;width:26px;text-align:center;flex-shrink:0;}
+.result-num-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;font-size:12px;font-weight:900;flex-shrink:0;}
+.result-mark{font-size:15px;font-weight:900;width:18px;text-align:center;flex-shrink:0;}
+.result-horse-name{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:900;color:#fff;flex:1;}
+.result-rank-badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:12px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);white-space:nowrap;background:rgba(255,255,255,.08);}
+/* 払い戻しセクション */
+.result-payout-head{background:linear-gradient(90deg,rgba(232,0,61,.5),rgba(150,0,30,.5));padding:8px 18px;font-size:10px;font-weight:900;letter-spacing:.14em;color:#fff;text-transform:uppercase;}
+.result-payout-list{background:rgba(0,0,0,.2);padding:4px 0;}
+.result-payout-row{display:flex;align-items:baseline;justify-content:space-between;padding:7px 18px;border-bottom:1px solid rgba(255,255,255,.05);}
+.result-payout-row:last-child{border-bottom:none;}
+.result-payout-type{font-size:11px;font-weight:700;color:rgba(255,255,255,.55);min-width:54px;}
+.result-payout-amt{font-size:13px;font-weight:900;color:#fff;text-align:right;}
+/* 振り返りノート */
+.result-note-wrap{background:rgba(0,0,0,.15);padding:10px 18px;font-size:12px;line-height:1.65;color:rgba(255,255,255,.65);border-top:1px solid rgba(255,255,255,.06);}
+/* ヒーローカード内の着順バッジ */
+.order-badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:10px;margin-left:6px;white-space:nowrap;}
+.order-1st{background:rgba(255,215,0,.25);color:#ffd700;border:1px solid rgba(255,215,0,.4);}
+.order-2nd{background:rgba(192,192,192,.2);color:#d0d0d0;border:1px solid rgba(192,192,192,.35);}
+.order-3rd{background:rgba(205,127,50,.2);color:#cd9f60;border:1px solid rgba(205,127,50,.35);}
+.order-other{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15);}
 /* レースボタンの結果バッジ */
 .race-btn .btn-result{font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;display:inline-block;margin-top:4px;letter-spacing:.04em;}
-.btn-result-hit{background:rgba(34,197,94,.25);color:#4ade80;border:1px solid rgba(34,197,94,.4);}
+.btn-result-hit{background:rgba(232,0,61,.3);color:#ff8aa0;border:1px solid rgba(232,0,61,.5);}
 .btn-result-miss{background:rgba(255,255,255,.08);color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.15);}
 
 /* ── スマホ：全馬スコアテーブル 外厩(4列目)・厩舎(6列目)を非表示 ── */
@@ -327,12 +338,18 @@ function infoRow(label, valHtml) {
   return `<div class="horse-info-row"><span class="info-lbl">${label}</span>${valHtml}</div>`;
 }
 
-function renderHeroCard(h) {
+function renderHeroCard(h, orderMap) {
   const meta = MARK_META[h.mark];
   if (!meta) return '';
   const wc = wakuClass(h.gate);
   const wakuHtml = h.gate
     ? `<span class="waku-badge ${wc}">${h.gate}枠</span>`
+    : '';
+  // 着順バッジ
+  const rank = orderMap && orderMap[h.num];
+  const rankClsArr = ['order-1st','order-2nd','order-3rd'];
+  const rankBadge = rank
+    ? `<span class="order-badge ${rankClsArr[rank-1]||'order-other'}">${rank}着</span>`
     : '';
   return `
   <div class="horse-hero ${meta.cls}">
@@ -340,7 +357,7 @@ function renderHeroCard(h) {
     <div class="hero-rank-pill">${esc(meta.label)}</div>
     <div class="horse-hero-name">
       <span class="horse-num-badge">${h.num}</span>
-      <span>${esc(h.name)}</span>
+      <span>${esc(h.name)}</span>${rankBadge}
     </div>
     <div class="horse-hero-top">
       <div style="display:flex;align-items:center;gap:6px;">
@@ -363,44 +380,63 @@ function renderResult(data) {
   const res = data.result;
   if (!res) return '';
   const isHit = res.hitFlag;
+  const r = data.race || {};
   const medals = ['🥇','🥈','🥉'];
   const markClsMap = {'◎':'mark-◎','○':'mark-○','▲':'mark-▲','☆':'mark-☆','△':'mark-△','×':'mark-×'};
-  // 馬番→印 マップ
   const numMark = {};
   (data.horses||[]).forEach(h => { if(h.mark) numMark[h.num] = h.mark; });
 
-  const top3Html = (res.top3||[]).map((h,i) => {
+  // 着順リスト
+  const orderRows = (res.top3||[]).map((h,i) => {
     const mk = numMark[h.num] || '';
-    const mkHtml = mk ? `<span class="mark-badge ${markClsMap[mk]||''}">${mk}</span>` : '';
-    return `<div class="result-horse">
-      <span class="result-rank">${medals[i]||''}</span>
-      <span class="result-horse-num">${h.num}番</span>
+    const wc = h.num ? `waku-${Math.min(h.gate||Math.ceil(h.num/2),8)}` : '';
+    const rankBadgeCls = ['order-1st','order-2nd','order-3rd'][i] || 'order-other';
+    return `<div class="result-order-row">
+      <span class="result-medal">${medals[i]||''}</span>
+      <span class="result-num-badge ${wc}" style="font-size:11px;">${h.num}</span>
+      <span class="result-mark ${mk ? markClsMap[mk] : ''}">${mk||'　'}</span>
       <span class="result-horse-name">${esc(h.name)}</span>
-      ${mkHtml}
+      <span class="result-rank-badge ${rankBadgeCls}">${i+1}着</span>
     </div>`;
   }).join('');
 
-  const payoutsHtml = Object.entries(res.payouts||{}).map(([k,v]) =>
-    `<div class="result-payout-row"><span class="result-payout-type">${esc(k)}</span><span class="result-payout-amt">${esc(v)}</span></div>`
+  // 払い戻し
+  const payoutRows = Object.entries(res.payouts||{}).map(([k,v]) =>
+    `<div class="result-payout-row">
+      <span class="result-payout-type">${esc(k)}</span>
+      <span class="result-payout-amt">${esc(v)}</span>
+    </div>`
   ).join('');
 
-  const hitBetsHtml = (res.hitBets||[]).length
-    ? `<div class="result-hit-bets">${res.hitBets.map(b=>`<span class="result-hit-bet">✅ ${esc(b)} 的中</span>`).join('')}</div>`
-    : '';
+  // 的中バナー内容
+  const hitBetsLine = (res.hitBets||[]).map(b =>
+    `<span class="result-hit-bet">✅ ${esc(b)}的中　¥${esc(String(res.returnAmount||''))}</span>`
+  ).join('');
 
-  return `
-  <div class="result-section ${isHit ? 'result-hit' : 'result-miss'}">
-    <div class="result-head">
-      <span class="${isHit ? 'result-badge-hit' : 'result-badge-miss'}">${isHit ? '✅ HIT' : '❌ MISS'}</span>
-      <span class="result-label">レース結果</span>
-    </div>
-    <div class="result-body">
-      <div class="result-top3">${top3Html}</div>
-      ${hitBetsHtml}
-      ${payoutsHtml ? `<div class="result-payouts">${payoutsHtml}</div>` : ''}
-      ${res.note ? `<div class="result-note">${esc(res.note)}</div>` : ''}
-    </div>
-  </div>`;
+  if (isHit) {
+    return `<div class="result-wrap">
+      <div class="result-banner-hit">
+        <span style="font-size:20px;">🎯</span>
+        <span class="result-banner-title">UG予想 的中！</span>
+      </div>
+      ${hitBetsLine ? `<div class="result-hit-bets-banner">${hitBetsLine}</div>` : ''}
+      <div class="result-order-head">${esc(r.name||'')} ${esc(r.grade||'')} 着順</div>
+      <div class="result-order-list">${orderRows}</div>
+      ${payoutRows ? `<div class="result-payout-head">払い戻し</div><div class="result-payout-list">${payoutRows}</div>` : ''}
+      ${res.note ? `<div class="result-note-wrap">${esc(res.note)}</div>` : ''}
+    </div>`;
+  } else {
+    return `<div class="result-wrap">
+      <div class="result-banner-miss">
+        <span style="font-size:18px;">❌</span>
+        <span class="result-banner-title" style="color:rgba(255,255,255,.6);font-size:14px;">不的中</span>
+      </div>
+      <div class="result-order-head">${esc(r.name||'')} ${esc(r.grade||'')} 着順</div>
+      <div class="result-order-list">${orderRows}</div>
+      ${payoutRows ? `<div class="result-payout-head">払い戻し</div><div class="result-payout-list">${payoutRows}</div>` : ''}
+      ${res.note ? `<div class="result-note-wrap">${esc(res.note)}</div>` : ''}
+    </div>`;
+  }
 }
 
 function renderCompactRows(horses) {
@@ -447,6 +483,14 @@ function renderRaceDetail(data) {
   const heroHorses = allHorses.filter(h => h.mark && MARK_META[h.mark]);
   const restHorses = allHorses.filter(h => !h.mark || !MARK_META[h.mark] || h.mark==='×');
 
+  // 着順マップ: {馬番 → 順位(1/2/3)}
+  const orderMap = {};
+  if (data.result && data.result.top3) {
+    data.result.top3.forEach((entry, i) => {
+      if (entry && entry.num) orderMap[entry.num] = i + 1;
+    });
+  }
+
   const betTypes = ['単勝','馬連','ワイド','三連複','三連単','買い目1'];
   const betsHtml = betTypes
     .filter(k => bets[k])
@@ -476,7 +520,7 @@ function renderRaceDetail(data) {
       ${renderResult(data)}
       ${data.result ? '<div class="divider"></div>' : ''}
       ${data.raceCondNote ? `<div class="cond-note">🏟️ ${esc(data.raceCondNote).replace(/\n/g,'<br>')}</div>` : ''}
-      ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(renderHeroCard).join('')}` : ''}
+      ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(h => renderHeroCard(h, orderMap)).join('')}` : ''}
       ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses)}` : ''}
       <div class="divider"></div>
       ${betsHtml ? `<div class="sec-title">買い目</div><div class="bets-grid">${betsHtml}</div><div class="divider"></div>` : ''}
