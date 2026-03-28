@@ -580,9 +580,9 @@ function renderRaceDetail(data) {
     const tanPts    = inv.sanrentan  / 100;
     return [
       ['単勝',  `◎ 1点`],
-      ['馬単',  `◎↔${inba} マルチ（${batanPts}点）`],
-      ['三連複', `1列${col1}×2列${col2}×3列${col3} フォーメーション（${fukuPts}点）`],
-      ['三連単', `1列${col1}×2列${col2}×3列${col3} フォーメーション（${tanPts}点）`],
+      ['馬単',  `◎↔${inba} マルチ${batanPts}点`],
+      ['三連複', `1列${col1}×2列${col2}×3列${col3} フォーメーション${fukuPts}点`],
+      ['三連単', `1列${col1}×2列${col2}×3列${col3} フォーメーション${tanPts}点`],
     ].map(([k,v])=>`<div class="bet-row"><span class="bet-type">${k}</span><span class="bet-val">${esc(v)}</span></div>`).join('');
   })();
 
