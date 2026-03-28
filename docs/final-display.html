@@ -278,7 +278,7 @@ function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 function wakuClass(gate){ return gate ? `waku-${Math.min(gate,8)}` : ''; }
 
 function gaikuBadge(gaiku) {
-  if (!gaiku) return '<span class="info-val-muted">—</span>';
+  if (!gaiku) return '<span class="gaiku-badge gaiku-zaichu">在厩調整</span>';
   let cls = 'gaiku-other';
   if (/天栄|ノーザン/.test(gaiku))  cls = 'gaiku-northern';
   else if (/シャダイ|社台/.test(gaiku)) cls = 'gaiku-shadai';
