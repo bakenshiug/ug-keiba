@@ -9,8 +9,8 @@
           "raceName": "日経賞 G2",
           "course": "中山芝2500m",
           "date": "2026-03-28",
-          "hitBets": ["馬連"],
-          "returnAmount": 1330,
+          "hitBets": ["馬単", "三連複"],
+          "returnAmount": 3560,
           "picks": [
             { "name": "ミクニインスパイア", "mark": "◎", "result": { "chakujun": 2, "tanOdds": null, "fukuOdds": null } },
             { "name": "コスモキュランダ",   "mark": "○", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
@@ -24,12 +24,13 @@
           "raceName": "毎日杯 G3",
           "course": "阪神芝1800m",
           "date": "2026-03-28",
-          "hitBets": [],
+          "hitBets": ["単勝", "馬単", "三連複"],
           "returnAmount": 0,
           "picks": [
             { "name": "アルトラムス",       "mark": "◎", "result": { "chakujun": 1, "tanOdds": null, "fukuOdds": null } },
             { "name": "カフジエメンタール", "mark": "○", "result": { "chakujun": 3, "tanOdds": null, "fukuOdds": null } },
-            { "name": "フレイムスター",     "mark": "▲", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } }
+            { "name": "フレイムスター",     "mark": "▲", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
+            { "name": "ローベルクランツ",   "mark": "△", "result": { "chakujun": 2, "tanOdds": null, "fukuOdds": null } }
           ]
         },
         {
