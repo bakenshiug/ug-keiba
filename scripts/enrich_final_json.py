@@ -30,7 +30,7 @@ MANUAL_MAP = {
 
 # ── ヘルパー ────────────────────────────────────────────
 
-def clean_trainer(raw: str) -> str:
+def clean_trainer(raw):
     """'栗東・橋口慎介厩舎' → '橋口慎介'"""
     if not raw:
         return ""
@@ -38,17 +38,17 @@ def clean_trainer(raw: str) -> str:
     s = re.sub(r"厩舎$", "", s)
     return s.strip()
 
-def clean_last_race(raw: str) -> str:
+def clean_last_race(raw):
     """'阪神C G2 2着　ルメール騎手' → '阪神C G2 2着'"""
     if not raw:
         return ""
     s = re.split(r"[　\u3000]", raw.strip())[0]
     return s.strip()
 
-def normalize_name(name: str) -> str:
+def normalize_name(name):
     return name.strip().replace("\u3000", "").replace(" ", "")
 
-def find_source_for_json(json_path: Path):
+def find_source_for_json(json_path):
     """
     final-takamatsunomiya-kinen-2026-03-29.json
     → (2026-03-29-takamatsunomiya-kinen.csv, 2026-03-29-takamatsunomiya-kinen.html)
@@ -81,7 +81,7 @@ def find_source_for_json(json_path: Path):
 
 # ── CSV 読み込み ─────────────────────────────────────────
 
-def load_csv(csv_path: Path) -> dict:
+def load_csv(csv_path):
     """馬名 → 行データ の辞書を返す"""
     horses = {}
     with open(csv_path, encoding="utf-8-sig") as f:
@@ -92,21 +92,29 @@ def load_csv(csv_path: Path) -> dict:
                 horses[name] = row
     return horses
 
-# ── HTML から父名を抽出 ───────────────────────────────────
+# ── HTML から馬情報を総合抽出 ──────────────────────────────
 
-def load_sire_from_html(html_path: Path) -> dict:
+def load_horse_data_from_html(html_path):
     """
-    重賞展望HTMLを解析し 馬名 → 父名 の辞書を返す。
-    構造例:
-      <h2 ...>パンジャタワー</h2>
-      ...
-      <span ...>父 タワーオブロンドン</span>
+    重賞展望HTMLを解析し 馬名 → {sire, trainer, gaiku, lastRace} の辞書を返す。
+
+    対応HTML構造（2種）:
+    【A型】mainichi-hai など: h2直後に前走・父・厩舎・外厩
+      <h2>馬名</h2>
+      <p>📍 前走：阪神芝1800m　1着</p>
+      <span>父 XXX</span>
+      <span>XXX厩舎 栗東</span>
+      <span>🌿 外厩名</span> or <span>🏠 在厩</span>
+
+    【B型】march-stakes / nikkei-sho など: h2直前に前走、h2直後に父・厩舎・外厩
+      <p>📍 前走：レース名 着順　未定騎手</p>
+      <h2><span>馬番</span>馬名</h2>
+      <span>父 XXX</span>
+      <span>XXX厩舎 美浦</span>
+      <span>🌿 外厩名</span> or <span>🏠 在厩</span>
     """
     text = html_path.read_text(encoding="utf-8")
-
-    # <h2> タグで馬名を含むブロックに分割
-    # 各ブロック: h2の馬名 + 直後の数百文字
-    sire_map = {}
+    horse_map = {}
 
     # h2タグの馬名と位置を全取得（改行含む複数行対応）
     h2_matches = list(re.finditer(
@@ -117,25 +125,76 @@ def load_sire_from_html(html_path: Path) -> dict:
     for i, m in enumerate(h2_matches):
         # spanタグ等を除去 → 空白除去 → 先頭の馬番数字を除去
         raw = re.sub(r'<[^>]+>', '', m.group(1)).strip()
-        raw = re.sub(r'^\d+\s*', '', raw)  # 先頭の馬番数字を除去
+        raw = re.sub(r'^\d+\s*', '', raw)
         horse_name = normalize_name(raw)
-        # このh2から次のh2までのブロック（最大1500文字）を切り取る
-        start = m.start()
-        end = h2_matches[i + 1].start() if i + 1 < len(h2_matches) else start + 1500
-        block = text[start:end]
+        if not horse_name:
+            continue
 
-        # 「父 XXXX」パターンを検索（spanタグ内）
-        sire_m = re.search(r'>父\s+([^<]+)<', block)
+        # ─ h2直後のブロック（次のh2まで、最大2000文字）
+        after_start = m.end()
+        after_end = h2_matches[i + 1].start() if i + 1 < len(h2_matches) else after_start + 2000
+        after_block = text[after_start:after_end]
+
+        # ─ h2直前のブロック（前のh2終端から今のh2先頭まで）
+        before_start = h2_matches[i - 1].end() if i > 0 else 0
+        before_block = text[before_start:m.start()]
+
+        data = {}
+
+        # ── 父名: after_block から
+        sire_m = re.search(r'>父\s+([^<]+)<', after_block)
         if sire_m:
             sire = sire_m.group(1).strip()
             if sire:
-                sire_map[horse_name] = sire
+                data['sire'] = sire
 
-    return sire_map
+        # ── 厩舎: after_block の「XXX厩舎 美浦/栗東」span
+        trainer_m = re.search(
+            r'>([^\s<>]+)厩舎\s*(?:美浦|栗東|地方)[^<]*<',
+            after_block
+        )
+        if trainer_m:
+            data['trainer'] = trainer_m.group(1).strip()
+
+        # ── 外厩: after_block の🌿(外厩あり) / 🏠在厩(外厩なし)
+        gaiku_m = re.search(r'🌿\s*([^<]+)</span>', after_block)
+        if gaiku_m:
+            data['gaiku'] = gaiku_m.group(1).strip()
+        elif re.search(r'🏠\s*在厩', after_block):
+            data['gaiku'] = ''  # 在厩（外厩なし）を明示
+
+        # ── 前走: after_block → before_block の順に検索
+        #    「📍 前走：XX　XX着　XX騎手」→ 騎手部分を除去してクリーン
+        def extract_last_race(block):
+            # after_blockに複数ある場合は最初の1件（A型）、
+            # before_blockに複数ある場合は最後の1件（B型・前の馬の前走を拾わないため）
+            return re.findall(r'📍\s*前走[：:]\s*([^<\n]+)', block)
+
+        lr_candidates = extract_last_race(after_block)
+        if lr_candidates:
+            lr_raw = lr_candidates[0]
+        else:
+            lr_candidates = extract_last_race(before_block)
+            lr_raw = lr_candidates[-1] if lr_candidates else ""
+
+        if lr_raw:
+            # 「　未定騎手」「　ルメール騎手」などの騎手表記を除去
+            lr = re.sub(r'[　\s]+[^\s　]*騎手.*$', '', lr_raw.strip())
+            # 全角スペースで分かれた着順を結合（例:「阪神芝1800m　1着」→「阪神芝1800m 1着」）
+            lr = re.sub(r'[　]+', ' ', lr).strip()
+            # ※注釈（「※ダート→芝替わり」等）を除去
+            lr = re.sub(r'\s*※.+$', '', lr).strip()
+            if lr:
+                data['lastRace'] = lr
+
+        if data:
+            horse_map[horse_name] = data
+
+    return horse_map
 
 # ── JSON 補完 ────────────────────────────────────────────
 
-def enrich_json(json_path: Path, csv_data: dict, sire_map: dict) -> int:
+def enrich_json(json_path, csv_data, html_map):
     """JSONの各馬をCSV＋HTMLで補完し保存。変更した馬数を返す。"""
     with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
@@ -143,46 +202,57 @@ def enrich_json(json_path: Path, csv_data: dict, sire_map: dict) -> int:
     updated = 0
     for horse in data.get("horses", []):
         name = normalize_name(horse.get("name", ""))
-        row  = csv_data.get(name, {})
-        changed = False
+        row       = csv_data.get(name, {})
+        html_data = html_map.get(name, {})
+        changed   = False
 
-        if not row and not sire_map.get(name):
+        if not row and not html_data:
             print(f"  ⚠️  未マッチ: {name}")
             continue
 
-        # 騎手
+        # ── 騎手（CSVから優先）
         jockey = row.get("騎手", "").strip()
         if jockey and not horse.get("jockey"):
             horse["jockey"] = jockey
             changed = True
 
-        # 厩舎
+        # ── 厩舎（CSVから優先、なければHTMLから）
         trainer = clean_trainer(row.get("厩舎", ""))
+        if not trainer:
+            trainer = html_data.get("trainer", "")
         if trainer and not horse.get("trainer"):
             horse["trainer"] = trainer
             changed = True
 
-        # 外厩
+        # ── 外厩（CSVから優先、なければHTMLから）
         gaiku = row.get("外厩名", "").strip()
-        if gaiku and not horse.get("gaiku"):
+        if not gaiku and "gaiku" in html_data:
+            gaiku = html_data["gaiku"]
+        # gaiku=""（在厩）でも未設定なら注入（keyが無い場合のみ）
+        if "gaiku" not in horse and ("gaiku" in html_data or gaiku):
+            horse["gaiku"] = gaiku
+            changed = True
+        elif gaiku and not horse.get("gaiku"):
             horse["gaiku"] = gaiku
             changed = True
 
-        # 前走
+        # ── 前走（CSVから優先、なければHTMLから）
         last_race = clean_last_race(row.get("前走情報", ""))
+        if not last_race:
+            last_race = html_data.get("lastRace", "")
         if last_race and not horse.get("lastRace"):
             horse["lastRace"] = last_race
             changed = True
 
-        # 父名（HTMLから）
-        sire = sire_map.get(name, "")
+        # ── 父名（HTMLから）
+        sire = html_data.get("sire", "")
         if sire and not horse.get("sire"):
             horse["sire"] = sire
             changed = True
 
         if changed:
             updated += 1
-            print(f"  ✅ {name}: 父={horse.get('sire','—')} 騎={horse.get('jockey','—')} 厩={horse.get('trainer','—')} 外厩={horse.get('gaiku','—')} 前走={horse.get('lastRace','—')}")
+            print(f"  ✅ {name}: 父={horse.get('sire','—')} 騎={horse.get('jockey','—')} 厩={horse.get('trainer','—')} 外厩={horse.get('gaiku') or '在厩'} 前走={horse.get('lastRace','—')}")
 
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
@@ -212,9 +282,9 @@ def main():
         if html_path: print(f"   ← HTML: {html_path.name}")
 
         csv_data = load_csv(csv_path) if csv_path else {}
-        sire_map = load_sire_from_html(html_path) if html_path else {}
+        html_map = load_horse_data_from_html(html_path) if html_path else {}
 
-        n = enrich_json(json_path, csv_data, sire_map)
+        n = enrich_json(json_path, csv_data, html_map)
         total_updated += n
         print(f"  → {n} 頭更新")
 
