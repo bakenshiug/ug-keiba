@@ -19,6 +19,15 @@ from pathlib import Path
 BASE = Path(__file__).parent.parent / "docs"
 DATA = BASE / "data"
 
+# ── 手動マッピング（JSONファイル名 → HTMLファイル名, CSVファイル名）──────
+# 自動マッチングが効かない場合（日付やレース名が異なる）に記述する
+MANUAL_MAP = {
+    "final-nikkeisho-2026-03-28": {
+        "html": "2026-03-29-nikkei-sho.html",
+        "csv":  None,
+    },
+}
+
 # ── ヘルパー ────────────────────────────────────────────
 
 def clean_trainer(raw: str) -> str:
@@ -43,8 +52,21 @@ def find_source_for_json(json_path: Path):
     """
     final-takamatsunomiya-kinen-2026-03-29.json
     → (2026-03-29-takamatsunomiya-kinen.csv, 2026-03-29-takamatsunomiya-kinen.html)
+    手動マッピング(MANUAL_MAP)が優先される。
     """
     stem = json_path.stem
+
+    # 手動マッピング優先
+    if stem in MANUAL_MAP:
+        manual = MANUAL_MAP[stem]
+        csv_path  = BASE / manual["csv"]  if manual.get("csv")  else None
+        html_path = BASE / manual["html"] if manual.get("html") else None
+        return (
+            csv_path  if csv_path  and csv_path.exists()  else None,
+            html_path if html_path and html_path.exists() else None,
+        )
+
+    # 自動マッピング
     m = re.search(r"(\d{4}-\d{2}-\d{2})$", stem)
     if not m:
         return None, None
