@@ -118,19 +118,43 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .h-star   .horse-hero-name{color:#f0e8ff;}
 .h-delta  .horse-hero-name{color:#e8f0ff;}
 
-.horse-hero-info{display:flex;align-items:center;gap:8px;margin-top:7px;flex-wrap:wrap;}
-.info-pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;white-space:nowrap;}
-.info-jockey{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.2);}
-.info-trainer{background:rgba(255,255,255,.06);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.12);}
-.info-pt{font-size:13px;font-weight:900;color:var(--gold);margin-left:auto;text-shadow:0 0 8px rgba(240,192,64,.5);}
+.horse-hero-top{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
+.info-pt{font-size:14px;font-weight:900;color:var(--gold);text-shadow:0 0 8px rgba(240,192,64,.5);}
+
+/* ── 馬情報グリッド（枠番・外厩・騎手・厩舎・前走・父名） ── */
+.horse-info-rows{margin-top:10px;display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;}
+.horse-info-row{display:flex;align-items:center;gap:8px;min-height:20px;}
+.info-lbl{font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);min-width:30px;flex-shrink:0;}
+.info-val{font-size:12px;font-weight:700;color:#fff;}
+.info-val-muted{font-size:12px;color:rgba(255,255,255,.35);}
+/* 枠番カラー */
+.waku-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px;font-size:11px;font-weight:900;}
+.waku-1{background:#111;color:#fff;border:1px solid #444;}
+.waku-2{background:#fff;color:#111;}
+.waku-3{background:#e44;color:#fff;}
+.waku-4{background:#44c;color:#fff;}
+.waku-5{background:#f80;color:#fff;}
+.waku-6{background:#090;color:#fff;}
+.waku-7{background:#e0e;color:#fff;}
+.waku-8{background:#e00;color:#fff;}
+/* 外厩バッジ */
+.gaiku-badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;color:#fff;letter-spacing:.02em;}
+.gaiku-northern{background:#1a6b1a;}
+.gaiku-shadai  {background:#1a4fa0;}
+.gaiku-champ   {background:#6b2d8b;}
+.gaiku-yamamoto{background:#8b5500;}
+.gaiku-zaichu  {background:#555;color:rgba(255,255,255,.8);}
+.gaiku-other   {background:#2d7d7d;}
 
 /* Compact table */
 .compact-table-wrap{overflow-x:auto;margin-bottom:14px;}
 table.horse-tbl{width:100%;border-collapse:collapse;font-size:12px;}
-table.horse-tbl th{background:rgba(255,255,255,.05);color:rgba(255,255,255,.45);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08);white-space:nowrap;}
-table.horse-tbl td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,.04);text-align:center;color:rgba(255,255,255,.7);}
-table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:var(--text);}
+table.horse-tbl th{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 6px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);white-space:nowrap;}
+table.horse-tbl td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;color:#fff;}
+table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:#fff;font-size:13px;}
+table.horse-tbl td.tbl-sub{font-size:11px;color:rgba(255,255,255,.7);}
 table.horse-tbl tr:last-child td{border-bottom:none;}
+table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 .mark-badge{display:inline-block;font-size:14px;font-weight:900;width:22px;text-align:center;}
 .mark-◎{color:#E8003D;text-shadow:0 0 6px rgba(232,0,61,.6);}
 .mark-○{color:#fff;}
@@ -251,11 +275,30 @@ function gradeStyle(g) {
 
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
+function wakuClass(gate){ return gate ? `waku-${Math.min(gate,8)}` : ''; }
+
+function gaikuBadge(gaiku) {
+  if (!gaiku) return '<span class="info-val-muted">—</span>';
+  let cls = 'gaiku-other';
+  if (/天栄|ノーザン/.test(gaiku))  cls = 'gaiku-northern';
+  else if (/シャダイ|社台/.test(gaiku)) cls = 'gaiku-shadai';
+  else if (/チャンピオン/.test(gaiku)) cls = 'gaiku-champ';
+  else if (/山元/.test(gaiku))      cls = 'gaiku-yamamoto';
+  else if (/在厩|自厩/.test(gaiku)) cls = 'gaiku-zaichu';
+  return `<span class="gaiku-badge ${cls}">${esc(gaiku)}</span>`;
+}
+
+function infoRow(label, valHtml) {
+  return `<div class="horse-info-row"><span class="info-lbl">${label}</span>${valHtml}</div>`;
+}
+
 function renderHeroCard(h) {
   const meta = MARK_META[h.mark];
   if (!meta) return '';
-  const jockeyHtml = h.jockey ? `<span class="info-pill info-jockey">🏇 ${esc(h.jockey)}</span>` : '';
-  const trainerHtml = h.trainer ? `<span class="info-pill info-trainer">🏠 ${esc(h.trainer)}</span>` : '';
+  const wc = wakuClass(h.gate);
+  const wakuHtml = h.gate
+    ? `<span class="waku-badge ${wc}">${h.gate}枠</span>`
+    : '';
   return `
   <div class="horse-hero ${meta.cls}">
     <span class="horse-hero-mark">${meta.icon}</span>
@@ -264,31 +307,49 @@ function renderHeroCard(h) {
       <span class="horse-num-badge">${h.num}</span>
       <span>${esc(h.name)}</span>
     </div>
-    <div class="horse-hero-info">
-      ${jockeyHtml}${trainerHtml}
+    <div class="horse-hero-top">
+      <div style="display:flex;align-items:center;gap:6px;">
+        ${wakuHtml}
+        <span style="font-size:11px;color:rgba(255,255,255,.5);">馬番 <strong style="color:#fff;">${h.num}</strong></span>
+      </div>
       <span class="info-pt">${h.totalPt} pt</span>
+    </div>
+    <div class="horse-info-rows">
+      ${infoRow('外厩', gaikuBadge(h.gaiku))}
+      ${infoRow('騎手', h.jockey ? `<span class="info-val">${esc(h.jockey)}</span>` : '<span class="info-val-muted">—</span>')}
+      ${infoRow('厩舎', h.trainer ? `<span class="info-val">${esc(h.trainer)}</span>` : '<span class="info-val-muted">—</span>')}
+      ${infoRow('父', h.sire ? `<span class="info-val">${esc(h.sire)}</span>` : '<span class="info-val-muted">—</span>')}
+      ${infoRow('前走', h.lastRace ? `<span class="info-val">${esc(h.lastRace)}</span>` : '<span class="info-val-muted">—</span>')}
     </div>
   </div>`;
 }
 
 function renderCompactRows(horses) {
   if (!horses.length) return '';
+  const dash = '<span style="color:rgba(255,255,255,.3)">—</span>';
   const rows = horses.map(h => {
     const markDisp = h.mark
       ? `<span class="mark-badge mark-${h.mark}">${h.mark}</span>`
-      : '<span style="color:var(--muted);font-size:10px;">—</span>';
+      : '<span style="color:rgba(255,255,255,.25);font-size:10px;">—</span>';
+    const wc = wakuClass(h.gate);
+    const wakuDisp = h.gate ? `<span class="waku-badge ${wc}" style="font-size:9px;width:18px;height:18px;">${h.gate}</span>` : dash;
+    const gaikuDisp = h.gaiku ? gaikuBadge(h.gaiku) : dash;
     return `<tr>
-      <td>${h.num}</td>
+      <td>${wakuDisp}</td>
+      <td style="font-weight:700;color:rgba(255,255,255,.8);">${h.num}</td>
       <td class="tbl-name">${esc(h.name)}</td>
-      <td style="font-size:11px;">${h.jockey ? esc(h.jockey) : '<span style="color:var(--muted)">—</span>'}</td>
+      <td class="tbl-sub">${gaikuDisp}</td>
+      <td class="tbl-sub">${h.jockey ? esc(h.jockey) : dash}</td>
+      <td class="tbl-sub">${h.trainer ? esc(h.trainer) : dash}</td>
+      <td class="tbl-sub" style="font-size:10px;max-width:90px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${h.lastRace ? esc(h.lastRace) : dash}</td>
       <td>${markDisp}</td>
-      <td class="pt-val">${h.totalPt}</td>
+      <td class="pt-val" style="color:var(--gold);font-weight:900;">${h.totalPt}</td>
     </tr>`;
   }).join('');
   return `
   <div class="compact-table-wrap">
     <table class="horse-tbl">
-      <thead><tr><th>馬番</th><th style="text-align:left;">馬名</th><th style="text-align:left;">騎手</th><th>印</th><th>pt</th></tr></thead>
+      <thead><tr><th>枠</th><th>番</th><th style="text-align:left;">馬名</th><th style="text-align:left;">外厩</th><th style="text-align:left;">騎手</th><th style="text-align:left;">厩舎</th><th style="text-align:left;">前走</th><th>印</th><th>pt</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
   </div>`;
