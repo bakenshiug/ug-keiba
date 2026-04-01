@@ -198,6 +198,27 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .sabc-factor-label{font-size:8px;color:rgba(255,255,255,.3);margin-right:1px;}
 .sabc-trainer-info{font-size:9px;color:rgba(255,255,255,.3);margin-left:4px;}
 
+/* ── SABC Pick Section ─────────────────────────────── */
+.sabc-pick-section{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 6px;}
+.sabc-pick-card{position:relative;border-radius:12px;padding:14px 16px 12px;overflow:hidden;}
+.sabc-pick-card.pick-tan{background:linear-gradient(135deg,rgba(240,192,64,.10),rgba(240,192,64,.04));border:1px solid rgba(240,192,64,.3);}
+.sabc-pick-card.pick-fuku{background:linear-gradient(135deg,rgba(59,130,246,.10),rgba(59,130,246,.04));border:1px solid rgba(59,130,246,.3);}
+.sabc-pick-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.sabc-pick-card.pick-tan::before{background:linear-gradient(90deg,#b8860b,#ffd700);}
+.sabc-pick-card.pick-fuku::before{background:linear-gradient(90deg,#1d4ed8,#60a5fa);}
+.sabc-pick-label{font-size:8px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+.sabc-pick-card.pick-tan .sabc-pick-label{color:rgba(240,192,64,.6);}
+.sabc-pick-card.pick-fuku .sabc-pick-label{color:rgba(96,165,250,.6);}
+.sabc-pick-umaban{font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
+.sabc-pick-name{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:4px;}
+.sabc-pick-score{font-size:26px;font-weight:900;line-height:1;margin-bottom:8px;}
+.sabc-pick-card.pick-tan .sabc-pick-score{color:#f0c040;}
+.sabc-pick-card.pick-fuku .sabc-pick-score{color:#60a5fa;}
+.sabc-pick-score span{font-size:12px;font-weight:700;margin-left:2px;opacity:.7;}
+.sabc-pick-badges{display:flex;flex-wrap:wrap;gap:3px;align-items:center;}
+.sabc-pick-fl{font-size:8px;color:rgba(255,255,255,.3);margin-right:1px;}
+.sabc-pick-same{grid-column:1/-1;text-align:center;font-size:9px;font-weight:900;letter-spacing:.15em;color:rgba(240,192,64,.5);padding:4px 0 2px;text-transform:uppercase;}
+
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
@@ -350,6 +371,42 @@ function sabcHtml(hn) {
   </div>`;
 }
 
+function sabcPickHtml(notes, race) {
+  if (!notes || !notes.sabcRankTan || !notes.sabcRankFuku) return '';
+  const tanTop  = notes.sabcRankTan[0];
+  const fukuTop = notes.sabcRankFuku[0];
+  if (!tanTop || !fukuTop) return '';
+  const isSame = tanTop.name === fukuTop.name;
+  const factors = ['trainer','sire','style','last3f','pci','age'];
+  const fLabels  = ['厩','父','脚','3F','PCI','齢'];
+  function pickBadges(sabc, dim) {
+    return factors.map((k,i)=>
+      `<span class="sabc-pick-fl">${fLabels[i]}</span><span class="sabc-badge g-${sabc[dim][k]}">${sabc[dim][k]}</span>`
+    ).join('');
+  }
+  function umabanOf(name) {
+    const h = (race.horses||[]).find(x=>x.name===name);
+    return h ? h.num : '―';
+  }
+  function card(dim, top, cls, dimLabel) {
+    const hn = notes.horses[top.name];
+    if (!hn || !hn.sabc) return '';
+    const badges = pickBadges(hn.sabc, dim);
+    return `<div class="sabc-pick-card ${cls}">
+      <div class="sabc-pick-label">${dimLabel} 注目馬<span class="sabc-pick-umaban">${umabanOf(top.name)}番</span></div>
+      <div class="sabc-pick-name">${top.name}</div>
+      <div class="sabc-pick-score">${top.total}<span>pt</span></div>
+      <div class="sabc-pick-badges">${badges}</div>
+    </div>`;
+  }
+  const sameRow = isSame ? `<div class="sabc-pick-same">★ 単勝・複勝 ともに同一馬を推奨</div>` : '';
+  return `<div class="sabc-pick-section">
+    ${sameRow}
+    ${card('tan',  tanTop,  'pick-tan',  '単勝')}
+    ${card('fuku', fukuTop, 'pick-fuku', '複勝')}
+  </div>`;
+}
+
 function buildTabs(races) {
   return races.map((r, i) => {
     const gradeTag = r.grade ? `<span class="tab-grade">${r.grade}</span>` : '';
@@ -404,6 +461,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     </div>
     ${lapAnalysisHtml(notes)}
     ${outlookHtml(notes)}
+    ${sabcPickHtml(notes, race)}
     <table class="horse-table">
       <thead><tr>
         <th>番</th>
