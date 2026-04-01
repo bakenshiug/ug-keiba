@@ -261,7 +261,17 @@ const GRADE_SCORE  = {S:4,A:3,B:2,C:1};
 function gradeScore(g){ return GRADE_SCORE[g]||0; }
 function computeScore(n){
   if(!n) return 0;
+  const base = gradeScore(n.abilityGrade)+gradeScore(n.lapGrade)+gradeScore(n.prevGrade)+gradeScore(n.extGrade);
+  const sabcBonus = (n.sabc && n.sabc.tan) ? Math.round(n.sabc.tan.total / 4) : 0;
+  return base + sabcBonus;
+}
+function computeBaseScore(n){
+  if(!n) return 0;
   return gradeScore(n.abilityGrade)+gradeScore(n.lapGrade)+gradeScore(n.prevGrade)+gradeScore(n.extGrade);
+}
+function computeSabcBonus(n){
+  if(!n || !n.sabc || !n.sabc.tan) return 0;
+  return Math.round(n.sabc.tan.total / 4);
 }
 
 function gradeHtml(g) {
@@ -279,7 +289,9 @@ function abilityHtml(n, rank) {
   if (!n) return '';
   const ag = n.abilityGrade, lg = n.lapGrade, pg = n.prevGrade, eg = n.extGrade;
   if (!ag && !lg && !pg && !eg) return '';
-  const score = computeScore(n);
+  const base  = computeBaseScore(n);
+  const bonus = computeSabcBonus(n);
+  const score = base + bonus;
   const rankHtml = rank != null ? `<span class="rank-num">#${rank}</span>` : '';
   let html = `<div class="ability-row">`;
   html += rankHtml;
@@ -287,7 +299,12 @@ function abilityHtml(n, rank) {
   html += factorBadge('ラップ', lg);
   html += factorBadge('前走', pg);
   html += factorBadge('外厩', eg);
-  if (score > 0) html += `<span class="score-badge">${score}pt</span>`;
+  if (score > 0) {
+    const bonusHtml = bonus > 0
+      ? `<span style="font-size:9px;color:rgba(240,192,64,.6);margin-left:1px;">+${bonus}SABC</span>`
+      : '';
+    html += `<span class="score-badge">${score}pt</span>${bonusHtml}`;
+  }
   html += `</div>`;
   if (n.extFacility) html += `<div class="ext-facility">▸ ${n.extFacility}</div>`;
   const abCmt = n.abilityCommentRtf || (n.abilityCommentRtf === undefined ? n.abilityComment : '');
