@@ -142,6 +142,40 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .lap-card-label::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.15);}
 .lap-card-text{font-size:11.5px;color:rgba(255,255,255,.72);line-height:1.9;white-space:pre-line;}
 
+/* ── 前走成績バー ── */
+.prevrace-bar{
+  display:flex;flex-wrap:wrap;align-items:center;gap:5px;
+  margin-top:7px;padding:7px 10px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:8px;
+  font-size:10px;
+}
+.prevrace-label{
+  font-size:8px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);margin-right:2px;
+}
+.prevrace-rank{
+  font-weight:900;padding:1px 6px;border-radius:4px;font-size:10px;
+}
+.prevrace-rank.rank-1{background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;}
+.prevrace-rank.rank-2{background:rgba(180,180,180,.25);color:#ccc;border:1px solid rgba(255,255,255,.2);}
+.prevrace-rank.rank-3{background:rgba(180,100,20,.25);color:#f0a060;border:1px solid rgba(200,120,30,.3);}
+.prevrace-rank.rank-out{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
+.prevrace-name{font-weight:700;color:rgba(255,255,255,.75);white-space:nowrap;}
+.prevrace-sep{color:rgba(255,255,255,.2);}
+.prevrace-style{color:rgba(255,255,255,.5);}
+.prevrace-3f{color:#86efac;font-weight:700;}
+.prevrace-3f-rank{font-size:9px;color:rgba(134,239,172,.6);}
+.prevrace-pci{font-weight:700;}
+.prevrace-pci.above{color:#f0c040;}
+.prevrace-pci.below{color:rgba(255,255,255,.45);}
+.prevrace-margin.pos{color:#f87171;}
+.prevrace-margin.neg{color:#34d399;}
+.prevrace-margin.zero{color:rgba(255,255,255,.4);}
+.prevrace-weight{color:rgba(255,255,255,.35);}
+.prevrace-interval{font-size:9px;color:rgba(255,255,255,.3);}
+
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
@@ -171,9 +205,10 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 </div>
 
 <script>
-const SOUTEI_URL  = 'data/soutei-2026-04-05.json';
-const NOTES_BASE  = 'data/race-notes/';
-const HORSES_URL  = 'data/horses-2026-04w.json';
+const SOUTEI_URL    = 'data/soutei-2026-04-05.json';
+const NOTES_BASE    = 'data/race-notes/';
+const HORSES_URL    = 'data/horses-2026-04w.json';
+const PREVRACE_BASE = 'data/prevrace/';
 
 const GRADE_CLASS  = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
 const GRADE_SCORE  = {S:4,A:3,B:2,C:1};
@@ -217,6 +252,48 @@ function abilityHtml(n, rank) {
   return html;
 }
 
+function prevRaceHtml(pdata) {
+  if (!pdata) return '';
+  const rank = pdata.prevRank;
+  let rankCls = 'rank-out';
+  if (rank === 1) rankCls = 'rank-1';
+  else if (rank === 2) rankCls = 'rank-2';
+  else if (rank === 3) rankCls = 'rank-3';
+
+  const marginVal = pdata.margin;
+  let marginCls = 'zero', marginTxt = '0';
+  if (marginVal != null) {
+    if (marginVal < 0)      { marginCls = 'neg'; marginTxt = marginVal.toFixed(1); }
+    else if (marginVal > 0) { marginCls = 'pos'; marginTxt = '+' + marginVal.toFixed(1); }
+    else                    { marginCls = 'zero'; marginTxt = 'ハナ'; }
+  }
+
+  const pciCls = pdata.pciAboveAvg ? 'above' : 'below';
+  const pciStar = pdata.pciAboveAvg ? '★' : '';
+
+  const courseParts = [];
+  if (pdata.prevVenue)   courseParts.push(pdata.prevVenue);
+  if (pdata.prevSurface) courseParts.push(pdata.prevSurface);
+  if (pdata.prevDistance) courseParts.push(pdata.prevDistance + 'm');
+  const courseStr = courseParts.join('');
+
+  return `<div class="prevrace-bar">
+    <span class="prevrace-label">前走</span>
+    <span class="prevrace-rank ${rankCls}">${rank}着</span>
+    <span class="prevrace-name">${pdata.prevRaceName}</span>
+    <span class="prevrace-sep">|</span>
+    <span class="prevrace-style">${pdata.runningStyle}</span>
+    <span class="prevrace-sep">|</span>
+    <span class="prevrace-3f">上3F ${pdata.last3F}</span>
+    <span class="prevrace-3f-rank">(${pdata.last3FRank}位/${pdata.weight}kg)</span>
+    <span class="prevrace-sep">|</span>
+    <span class="prevrace-pci ${pciCls}">PCI ${pdata.pci}${pciStar}</span>
+    <span class="prevrace-sep">|</span>
+    <span class="prevrace-margin ${marginCls}">着差${marginTxt}</span>
+    <span class="prevrace-interval">${courseStr}・${pdata.prevCondition}・${pdata.interval}週前</span>
+  </div>`;
+}
+
 function lapAnalysisHtml(notes) {
   if (!notes || !notes.lapAnalysis) return '';
   return `<div class="lap-card">
@@ -241,7 +318,7 @@ function buildTabs(races) {
   }).join('');
 }
 
-function buildPanel(race, idx, notes, horsesMap) {
+function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
   const isActive = idx === 0 ? ' active' : '';
   const horsesNotes = (notes && notes.horses) || {};
   const hasNotes = notes && notes.horses && Object.keys(notes.horses).length > 0;
@@ -264,12 +341,14 @@ function buildPanel(race, idx, notes, horsesMap) {
     const trainerHtml  = trainer ? `<span style="margin-left:8px;color:rgba(255,255,255,.4);">${belong||''}${trainer}</span>` : '';
     const jockeyCell = h.jockey ? h.jockey : `<span class="no-jockey">想定なし</span>`;
     const weightCell = h.weight != null ? `${h.weight}` : '—';
+    const pdata = prevraceMap ? (prevraceMap[h.num] || null) : null;
     return `<tr>
       <td class="td-num">${h.num}</td>
       <td>
         <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:3px;">${h.age}歳</span>${h.name}</div>
         <div class="td-sire">${pedigreeHtml}${trainerHtml}</div>
         ${abilityHtml(hn, rank)}
+        ${prevRaceHtml(pdata)}
       </td>
       <td class="td-jockey">${jockeyCell}</td>
       <td class="td-weight">${weightCell}</td>
@@ -310,20 +389,28 @@ async function init() {
       fetch(HORSES_URL + '?_=' + ts).then(r=>r.json()).catch(()=>({}))
     ]);
 
-    // Fetch all race-notes in parallel
+    // Fetch race-notes & prevrace in parallel for all races
     const notesMap = {};
+    const prevraceMapByKey = {};
     await Promise.all(soutei.races.map(async r => {
       if (!r.notesKey) return;
-      try {
-        const n = await fetch(NOTES_BASE + r.notesKey + '.json?_=' + ts).then(res=>res.json());
-        notesMap[r.notesKey] = n;
-      } catch(e) {}
+      const [notes, prevraw] = await Promise.all([
+        fetch(NOTES_BASE + r.notesKey + '.json?_=' + ts).then(res=>res.json()).catch(()=>null),
+        fetch(PREVRACE_BASE + 'zensou-' + r.notesKey + '.json?_=' + ts).then(res=>res.json()).catch(()=>null)
+      ]);
+      if (notes)   notesMap[r.notesKey] = notes;
+      if (prevraw) {
+        // index by umaban for O(1) lookup
+        const byNum = {};
+        (prevraw.horses || []).forEach(h => { byNum[h.umaban] = h; });
+        prevraceMapByKey[r.notesKey] = byNum;
+      }
     }));
 
     document.getElementById('date-main').textContent = soutei.label || soutei.date;
     document.getElementById('race-tabs').innerHTML   = buildTabs(soutei.races);
     document.getElementById('race-panels').innerHTML = soutei.races.map((r,i) =>
-      buildPanel(r, i, notesMap[r.notesKey]||null, horsesMap)
+      buildPanel(r, i, notesMap[r.notesKey]||null, horsesMap, prevraceMapByKey[r.notesKey]||null)
     ).join('');
 
     document.getElementById('loading').style.display  = 'none';
