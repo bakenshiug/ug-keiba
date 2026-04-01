@@ -8,34 +8,34 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#1A1210;--bg-dk:#120D09;
+  --bg:#F2D9B0;--bg-dk:#E8C898;
   --accent:#7BBCB5;--gold:#f0c040;--green:#22c55e;
-  --text:#F2D9B0;--muted:rgba(242,217,176,0.45);
-  --card:rgba(255,255,255,0.05);
+  --text:#1C2B4A;--muted:#1C2B4A;
+  --card:rgba(0,0,0,0.04);
 }
 html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
 
 /* Header */
-.hdr{background:linear-gradient(135deg,#1E1510,#120D09 60%,#1A1210);border-bottom:2px solid rgba(123,188,181,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(123,188,181,.2);}
-.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(255,255,255,0.08);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.12);}
-.hdr-back:hover{background:rgba(255,255,255,0.14);}
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(123,188,181,.8);letter-spacing:.05em;}
+.hdr{background:linear-gradient(135deg,#E8C898,#F2D9B0 60%,#E8C898);border-bottom:2px solid rgba(123,188,181,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(123,188,181,.2);}
+.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(0,0,0,0.06);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(0,0,0,0.12);}
+.hdr-back:hover{background:rgba(0,0,0,0.1);}
+.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#1C2B4A;text-shadow:0 0 24px rgba(123,188,181,.8);letter-spacing:.05em;}
 .hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
 
 /* Page */
 .page-wrap{max-width:780px;margin:0 auto;padding:16px 12px 60px;}
 
 /* Date header */
-.date-header{text-align:center;padding:20px 16px;margin-bottom:20px;background:linear-gradient(135deg,rgba(123,188,181,.12),rgba(22,15,12,.95));border:1px solid rgba(123,188,181,.3);border-radius:16px;}
-.date-header .date-main{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:#fff;}
+.date-header{text-align:center;padding:20px 16px;margin-bottom:20px;background:linear-gradient(135deg,rgba(123,188,181,.12),rgba(242,217,176,.95));border:1px solid rgba(123,188,181,.3);border-radius:16px;}
+.date-header .date-main{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:#1C2B4A;}
 .date-header .date-sub{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.1em;}
 
 /* Race tabs */
 .race-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none;}
 .race-tabs::-webkit-scrollbar{display:none;}
-.race-tab{flex-shrink:0;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap;}
-.race-tab:hover{background:rgba(255,255,255,0.1);}
-.race-tab.active{background:rgba(123,188,181,.2);border-color:rgba(123,188,181,.7);color:#fff;}
+.race-tab{flex-shrink:0;padding:7px 14px;border-radius:20px;background:rgba(0,0,0,0.05);border:1px solid rgba(0,0,0,0.12);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.race-tab:hover{background:rgba(0,0,0,0.08);}
+.race-tab.active{background:rgba(123,188,181,.2);border-color:rgba(123,188,181,.7);color:#1C2B4A;}
 .race-tab.grade-tab{border-color:rgba(240,192,64,.4);color:var(--gold);}
 .race-tab.grade-tab.active{background:rgba(240,192,64,.15);border-color:var(--gold);color:var(--gold);}
 .tab-grade{font-size:9px;display:inline-block;margin-left:3px;padding:1px 4px;border-radius:3px;background:rgba(240,192,64,.3);color:var(--gold);}
@@ -45,20 +45,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-panel.active{display:block;}
 
 /* Race header */
-.race-header{background:linear-gradient(135deg,rgba(22,15,12,.9),rgba(22,15,12,.95));border:1px solid rgba(123,188,181,.35);border-radius:14px;padding:16px 18px;margin-bottom:12px;}
+.race-header{background:linear-gradient(135deg,rgba(232,208,162,.5),rgba(242,217,176,.7));border:1px solid rgba(123,188,181,.35);border-radius:14px;padding:16px 18px;margin-bottom:12px;}
 .race-grade-badge{display:inline-block;font-size:10px;font-weight:900;padding:3px 10px;border-radius:5px;margin-bottom:8px;letter-spacing:.08em;}
 .grade-G1{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
 .grade-G2{background:linear-gradient(90deg,#1a6b2a,#22c55e);color:#000;}
 .grade-G3{background:linear-gradient(90deg,#0d3b6e,#3b82f6);color:#fff;}
-.grade-OP{background:rgba(255,255,255,.15);color:var(--muted);}
-.race-name{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;color:#fff;margin-bottom:6px;}
+.grade-OP{background:rgba(28,43,74,.1);color:var(--muted);}
+.race-name{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;color:#1C2B4A;margin-bottom:6px;}
 .race-meta{font-size:11px;color:var(--muted);}
 .race-meta span{margin-right:12px;}
 
 /* Outlook card (重賞展望) */
 .outlook-card{
   margin-bottom:14px;padding:18px;border-radius:14px;
-  background:linear-gradient(135deg,rgba(240,192,64,.08),rgba(22,15,12,.9));
+  background:linear-gradient(135deg,rgba(240,192,64,.08),rgba(242,217,176,.9));
   border:1px solid rgba(240,192,64,.35);
   position:relative;overflow:hidden;
 }
@@ -68,7 +68,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 }
 .outlook-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .outlook-label::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.2);}
-.outlook-text{font-size:13px;color:rgba(255,255,255,.8);line-height:1.8;}
+.outlook-text{font-size:13px;color:#1C2B4A;line-height:1.8;}
 
 /* Ability grade row */
 .ability-row{display:flex;align-items:flex-start;gap:8px;margin-top:6px;flex-wrap:wrap;}
@@ -79,8 +79,8 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .ability-C{background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.25);}
 
 /* Comments */
-.ability-comment{font-size:11px;color:rgba(255,255,255,.88);line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(240,192,64,.07);border-left:3px solid rgba(240,192,64,.5);border-radius:0 6px 6px 0;}
-.judge-comment{font-size:11px;color:rgba(255,255,255,.88);line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(123,188,181,.07);border-left:3px solid rgba(123,188,181,.45);border-radius:0 6px 6px 0;}
+.ability-comment{font-size:11px;color:#1C2B4A;line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(240,192,64,.07);border-left:3px solid rgba(240,192,64,.5);border-radius:0 6px 6px 0;}
+.judge-comment{font-size:11px;color:#1C2B4A;line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(123,188,181,.07);border-left:3px solid rgba(123,188,181,.45);border-radius:0 6px 6px 0;}
 .judge-badge{display:inline-flex;align-items:center;font-size:9px;font-weight:900;padding:1px 6px;border-radius:3px;letter-spacing:.04em;margin-left:4px;vertical-align:middle;}
 .judge-badge-A{background:rgba(123,188,181,.2);color:#a0d8d4;border:1px solid rgba(123,188,181,.4);}
 .judge-badge-B{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
@@ -93,34 +93,34 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .speed-up{color:#4ade80;font-size:10px;}
 .speed-dn{color:#f87171;font-size:10px;}
 .speed-st{color:var(--muted);font-size:10px;}
-.speed-hist span{font-size:10px;color:rgba(255,255,255,.3);}
+.speed-hist span{font-size:10px;color:rgba(28,43,74,.5);}
 
 /* Horse table */
 .horse-table{width:100%;border-collapse:collapse;font-size:12px;}
 .horse-table th{padding:7px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;border-bottom:1px solid rgba(123,188,181,.2);}
-.horse-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;}
-.horse-table tr:hover td{background:rgba(255,255,255,.02);}
+.horse-table td{padding:10px 8px;border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top;}
+.horse-table tr:hover td{background:rgba(0,0,0,.03);}
 .horse-table tr:last-child td{border-bottom:none;}
-.td-num{font-size:11px;color:var(--muted);width:28px;text-align:center;padding-top:12px;}
-.td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#fff;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
+.td-num{font-size:11px;color:rgba(28,43,74,.3);width:28px;text-align:center;padding-top:12px;}
+.td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#1C2B4A;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
 .sabc-name-tan{font-size:13px;font-weight:900;padding:2px 8px;border-radius:6px;background:linear-gradient(135deg,rgba(240,192,64,.18),rgba(240,192,64,.08));border:1px solid rgba(240,192,64,.35);color:#f0c040;letter-spacing:.02em;white-space:nowrap;}
 .sabc-name-fuku{font-size:11px;font-weight:900;padding:2px 7px;border-radius:6px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);color:#93c5fd;letter-spacing:.02em;white-space:nowrap;}
-.td-sire{font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;}
+.td-sire{font-size:10px;color:rgba(28,43,74,.5);margin-top:2px;}
 .td-jockey{font-size:12px;font-weight:700;color:var(--text);white-space:nowrap;}
 .td-weight{font-size:12px;color:var(--gold);font-weight:700;text-align:right;white-space:nowrap;}
-.no-jockey{color:rgba(255,255,255,.2);font-style:italic;font-size:11px;}
+.no-jockey{color:rgba(28,43,74,.4);font-style:italic;font-size:11px;}
 .sex-badge{display:inline-block;font-size:9px;font-weight:900;padding:1px 5px;border-radius:3px;margin-right:3px;vertical-align:middle;}
 .sex-牡{background:rgba(59,130,246,.25);color:#93c5fd;}
 .sex-牝{background:rgba(236,72,153,.25);color:#f9a8d4;}
 .sex-セ{background:rgba(107,114,128,.25);color:#d1d5db;}
-.count-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.08);color:var(--muted);margin-left:8px;vertical-align:middle;}
+.count-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:rgba(0,0,0,.06);color:var(--muted);margin-left:8px;vertical-align:middle;}
 
 /* PDF section */
-.pdf-section{margin-bottom:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 14px;}
+.pdf-section{margin-bottom:16px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.1);border-radius:12px;padding:12px 14px;}
 .pdf-section-title{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-.pdf-link{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);text-decoration:none;color:var(--text);margin-bottom:5px;transition:background .15s;}
+.pdf-link{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);text-decoration:none;color:var(--text);margin-bottom:5px;transition:background .15s;}
 .pdf-link:last-child{margin-bottom:0;}
-.pdf-link:hover{background:rgba(255,255,255,.08);}
+.pdf-link:hover{background:rgba(0,0,0,.07);}
 .pdf-name{font-size:12px;font-weight:700;}
 .pdf-meta{font-size:10px;color:var(--muted);}
 
@@ -132,7 +132,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 /* Lap analysis card */
 .lap-card{
   margin-bottom:14px;padding:16px 18px;border-radius:14px;
-  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(22,15,12,.92));
+  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(242,217,176,.92));
   border:1px solid rgba(240,192,64,.25);
   position:relative;overflow:hidden;
 }
@@ -142,57 +142,57 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 }
 .lap-card-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 .lap-card-label::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.15);}
-.lap-card-text{font-size:11.5px;color:rgba(255,255,255,.72);line-height:1.9;white-space:pre-line;}
+.lap-card-text{font-size:11.5px;color:#1C2B4A;line-height:1.9;white-space:pre-line;}
 
 /* ── 前走成績バー ── */
 .prevrace-bar{
   display:flex;flex-wrap:wrap;align-items:center;gap:5px;
   margin-top:7px;padding:7px 10px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.09);
+  background:rgba(0,0,0,.04);
+  border:1px solid rgba(0,0,0,.09);
   border-radius:8px;
   font-size:10px;
 }
 .prevrace-label{
   font-size:8px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.28);margin-right:2px;
+  color:rgba(28,43,74,.5);margin-right:2px;
 }
 .prevrace-rank{
   font-weight:900;padding:1px 6px;border-radius:4px;font-size:10px;
 }
 .prevrace-rank.rank-1{background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;}
-.prevrace-rank.rank-2{background:rgba(180,180,180,.25);color:#ccc;border:1px solid rgba(255,255,255,.2);}
+.prevrace-rank.rank-2{background:rgba(180,180,180,.25);color:#1C2B4A;border:1px solid rgba(28,43,74,.2);}
 .prevrace-rank.rank-3{background:rgba(180,100,20,.25);color:#f0a060;border:1px solid rgba(200,120,30,.3);}
-.prevrace-rank.rank-out{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
-.prevrace-name{font-weight:700;color:rgba(255,255,255,.75);white-space:nowrap;}
-.prevrace-sep{color:rgba(255,255,255,.2);}
-.prevrace-style{color:rgba(255,255,255,.5);}
+.prevrace-rank.rank-out{background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);}
+.prevrace-name{font-weight:700;color:#1C2B4A;white-space:nowrap;}
+.prevrace-sep{color:rgba(28,43,74,.3);}
+.prevrace-style{color:rgba(28,43,74,.65);}
 .prevrace-3f{color:#86efac;font-weight:700;}
 .prevrace-3f-rank{font-size:9px;color:rgba(134,239,172,.6);}
 .prevrace-pci{font-weight:700;}
 .prevrace-pci.above{color:#f0c040;}
-.prevrace-pci.below{color:rgba(255,255,255,.45);}
+.prevrace-pci.below{color:rgba(28,43,74,.7);}
 .prevrace-margin.pos{color:#f87171;}
 .prevrace-margin.neg{color:#34d399;}
-.prevrace-margin.zero{color:rgba(255,255,255,.4);}
-.prevrace-weight{color:rgba(255,255,255,.35);}
-.prevrace-interval{font-size:9px;color:rgba(255,255,255,.3);}
+.prevrace-margin.zero{color:rgba(28,43,74,.6);}
+.prevrace-weight{color:rgba(28,43,74,.55);}
+.prevrace-interval{font-size:9px;color:rgba(28,43,74,.5);}
 
 /* ── SABC ─────────────────────────────────────────────────── */
 .sabc-bar{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:6px;padding:6px 10px;
   background:rgba(240,192,64,.04);border:1px solid rgba(240,192,64,.12);border-radius:8px;font-size:10px;}
 .sabc-label{font-size:8px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,192,64,.5);margin-right:1px;}
-.sabc-sep{color:rgba(255,255,255,.15);margin:0 4px;}
+.sabc-sep{color:rgba(28,43,74,.2);margin:0 4px;}
 .sabc-badge{font-weight:900;padding:1px 5px;border-radius:4px;font-size:10px;min-width:18px;text-align:center;}
 .sabc-badge.g-S{background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;}
 .sabc-badge.g-A{background:rgba(59,130,246,.35);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
 .sabc-badge.g-B{background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.2);}
-.sabc-badge.g-C{background:rgba(255,255,255,.06);color:rgba(255,255,255,.35);}
+.sabc-badge.g-C{background:rgba(28,43,74,.1);color:rgba(28,43,74,.55);}
 .sabc-total{font-weight:900;color:#f0c040;font-size:11px;margin-left:2px;}
-.sabc-factor-label{font-size:8px;color:rgba(255,255,255,.3);margin-right:1px;}
-.sabc-trainer-info{font-size:9px;color:rgba(255,255,255,.3);margin-left:4px;}
-.sabc-breakdown{font-size:9px;color:rgba(255,255,255,.38);margin-top:3px;margin-left:2px;display:flex;align-items:center;gap:4px;}
-.sabc-breakdown-base{color:rgba(255,255,255,.35);}
+.sabc-factor-label{font-size:8px;color:rgba(28,43,74,.5);margin-right:1px;}
+.sabc-trainer-info{font-size:9px;color:rgba(28,43,74,.5);margin-left:4px;}
+.sabc-breakdown{font-size:9px;color:rgba(28,43,74,.55);margin-top:3px;margin-left:2px;display:flex;align-items:center;gap:4px;}
+.sabc-breakdown-base{color:rgba(28,43,74,.5);}
 .sabc-breakdown-plus{color:rgba(240,192,64,.55);font-weight:700;}
 .sabc-fire{font-size:12px;margin-left:2px;line-height:1;}
 /* ── SABC Pick Section ──────────────────────────────────── */
@@ -208,15 +208,15 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .sabc-pick-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
 .sabc-pick-card.pick-tan::before{background:linear-gradient(90deg,#b8860b,#ffd700);}
 .sabc-pick-card.pick-fuku::before{background:linear-gradient(90deg,#1d4ed8,#60a5fa);}
-.sabc-pick-tied{font-size:8px;font-weight:900;letter-spacing:.1em;padding:1px 6px;border-radius:3px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.35);margin-bottom:4px;display:inline-block;}
-.sabc-pick-umaban{font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
-.sabc-pick-name{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:700;color:#fff;line-height:1.3;margin:4px 0;}
+.sabc-pick-tied{font-size:8px;font-weight:900;letter-spacing:.1em;padding:1px 6px;border-radius:3px;background:rgba(0,0,0,.06);color:rgba(28,43,74,.6);margin-bottom:4px;display:inline-block;}
+.sabc-pick-umaban{font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);}
+.sabc-pick-name{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:700;color:#1C2B4A;line-height:1.3;margin:4px 0;}
 .sabc-pick-score{font-size:24px;font-weight:900;line-height:1;margin-bottom:8px;}
 .sabc-pick-card.pick-tan .sabc-pick-score{color:#f0c040;}
 .sabc-pick-card.pick-fuku .sabc-pick-score{color:#60a5fa;}
 .sabc-pick-score span{font-size:12px;font-weight:700;margin-left:2px;opacity:.7;}
 .sabc-pick-badges{display:flex;flex-wrap:wrap;gap:3px;align-items:center;}
-.sabc-pick-fl{font-size:8px;color:rgba(255,255,255,.3);margin-right:1px;}
+.sabc-pick-fl{font-size:8px;color:rgba(28,43,74,.5);margin-right:1px;}
 
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
@@ -287,7 +287,7 @@ function abilityHtml(n, rank) {
   const base  = computeBaseScore(n);
   const bonus = computeSabcBonus(n);
   const score = base + bonus;
-  const rankHtml = rank != null ? `<span class="rank-num">#${rank}</span>` : '';
+  const rankHtml = rank != null ? `<span class="rank-num">${rank}位</span>` : '';
   let html = `<div class="ability-row">`;
   html += rankHtml;
   html += factorBadge('能力', ag);
@@ -303,7 +303,7 @@ function abilityHtml(n, rank) {
   if (bonus > 0) {
     html += `<div class="sabc-breakdown">
       <span class="sabc-breakdown-base">基礎${base}</span>
-      <span style="color:rgba(255,255,255,.2);">+</span>
+      <span style="color:rgba(28,43,74,.35);">+</span>
       <span class="sabc-breakdown-plus">★${bonus} SABC</span>
     </div>`;
   }
@@ -482,7 +482,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     const trainer = hd ? hd.trainer : null;
     const belong  = hd ? hd.belong  : null;
     const pedigreeHtml = `父 ${sire}${bms ? ' / 母父 ' + bms : ''}`;
-    const trainerHtml  = trainer ? `<span style="margin-left:8px;color:rgba(255,255,255,.4);">${belong||''}${trainer}</span>` : '';
+    const trainerHtml  = trainer ? `<span style="margin-left:8px;color:rgba(28,43,74,.6);">${belong||''}${trainer}</span>` : '';
     const jockeyCell = h.jockey ? h.jockey : `<span class="no-jockey">想定なし</span>`;
     const weightCell = h.weight != null ? `${h.weight}` : '—';
     const pdata = prevraceMap ? (prevraceMap[h.num] || null) : null;
