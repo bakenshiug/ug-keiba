@@ -400,12 +400,11 @@ function sabcHtml(hn) {
   let tanBadges  = factors.map(k=>`<span class="sabc-factor-label">${SABC_LABEL_MAP[k]||k}</span>${sabcBadge(t[k])}`).join('');
   let fukuBadges = factors.map(k=>`<span class="sabc-factor-label">${SABC_LABEL_MAP[k]||k}</span>${sabcBadge(f[k])}`).join('');
   const trainerInfo = hn.sabcTrainer ? `<span class="sabc-trainer-info">${hn.sabcTrainer}／${hn.sabcSire||''}</span>` : '';
-  const ziInfo = hn.sabcZI != null ? `<span class="sabc-trainer-info">ZI=${hn.sabcZI}</span>` : '';
   return `<div class="sabc-bar">
     <span class="sabc-label">単勝</span>${tanBadges}<span class="sabc-total">${t.total}pt</span>
     <span class="sabc-sep">|</span>
     <span class="sabc-label">複勝</span>${fukuBadges}<span class="sabc-total">${f.total}pt</span>
-    ${trainerInfo}${ziInfo}
+    ${trainerInfo}
   </div>`;
 }
 
