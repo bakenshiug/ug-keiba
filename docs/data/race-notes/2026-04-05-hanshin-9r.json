@@ -15,15 +15,18 @@
       "sabc": {
         "tan": {
           "zi": "S",
-          "total": 4
+          "sire": "C",
+          "total": 5
         },
         "fuku": {
           "zi": "S",
-          "total": 4
+          "sire": "A",
+          "total": 7
         }
       },
       "extFacility": "チャンピオンヒルズ（滋賀）",
-      "extGrade": "A"
+      "extGrade": "A",
+      "sabcSire": "ハービンジャー"
     },
     "カットソロ": {
       "sabcZI": 114,
@@ -34,13 +37,16 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "sire": "S",
+          "total": 7
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "sire": "S",
+          "total": 7
         }
-      }
+      },
+      "sabcSire": "コントレイル"
     },
     "サトノリシャール": {
       "sabcZI": 98,
@@ -51,13 +57,16 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "B",
+          "total": 3
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "B",
+          "total": 3
         }
-      }
+      },
+      "sabcSire": "レイデオロ"
     },
     "サントルドバリ": {
       "sabcZI": 96,
@@ -87,13 +96,16 @@
       "sabc": {
         "tan": {
           "zi": "S",
-          "total": 4
+          "sire": "A",
+          "total": 7
         },
         "fuku": {
           "zi": "S",
-          "total": 4
+          "sire": "A",
+          "total": 7
         }
-      }
+      },
+      "sabcSire": "シルバーステート"
     },
     "ノンブルドール": {
       "sabcZI": 106,
@@ -104,15 +116,18 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "sire": "B",
+          "total": 4
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "sire": "B",
+          "total": 4
         }
       },
       "extFacility": "ノーザンFしがらき（滋賀）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "レイデオロ"
     },
     "ブラックオリンピア": {
       "sabcZI": 113,
@@ -123,15 +138,18 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "sire": "A",
+          "total": 6
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "sire": "S",
+          "total": 7
         }
       },
       "extFacility": "ノーザンFしがらき（滋賀）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "キタサンブラック"
     },
     "ヘルメスギャング": {
       "sabcZI": 86,
@@ -142,13 +160,16 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "S",
+          "total": 5
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "S",
+          "total": 5
         }
-      }
+      },
+      "sabcSire": "ブリックスアンドモルタ"
     },
     "ヴァロンブローサ": {
       "sabcZI": 106,
@@ -159,88 +180,91 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "sire": "S",
+          "total": 6
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "sire": "S",
+          "total": 6
         }
-      }
+      },
+      "sabcSire": "コントレイル"
     }
   },
   "sabcRankTan": [
     {
-      "name": "アーレムアレス",
-      "total": 4
+      "name": "カットソロ",
+      "total": 7
     },
     {
       "name": "タガノアルトゥーラ",
-      "total": 4
-    },
-    {
-      "name": "カットソロ",
-      "total": 3
+      "total": 7
     },
     {
       "name": "ブラックオリンピア",
-      "total": 3
-    },
-    {
-      "name": "ノンブルドール",
-      "total": 2
+      "total": 6
     },
     {
       "name": "ヴァロンブローサ",
-      "total": 2
+      "total": 6
     },
     {
-      "name": "サトノリシャール",
-      "total": 1
-    },
-    {
-      "name": "サントルドバリ",
-      "total": 1
+      "name": "アーレムアレス",
+      "total": 5
     },
     {
       "name": "ヘルメスギャング",
+      "total": 5
+    },
+    {
+      "name": "ノンブルドール",
+      "total": 4
+    },
+    {
+      "name": "サトノリシャール",
+      "total": 3
+    },
+    {
+      "name": "サントルドバリ",
       "total": 1
     }
   ],
   "sabcRankFuku": [
     {
       "name": "アーレムアレス",
-      "total": 4
-    },
-    {
-      "name": "タガノアルトゥーラ",
-      "total": 4
+      "total": 7
     },
     {
       "name": "カットソロ",
-      "total": 3
+      "total": 7
+    },
+    {
+      "name": "タガノアルトゥーラ",
+      "total": 7
     },
     {
       "name": "ブラックオリンピア",
-      "total": 3
-    },
-    {
-      "name": "ノンブルドール",
-      "total": 2
+      "total": 7
     },
     {
       "name": "ヴァロンブローサ",
-      "total": 2
-    },
-    {
-      "name": "サトノリシャール",
-      "total": 1
-    },
-    {
-      "name": "サントルドバリ",
-      "total": 1
+      "total": 6
     },
     {
       "name": "ヘルメスギャング",
+      "total": 5
+    },
+    {
+      "name": "ノンブルドール",
+      "total": 4
+    },
+    {
+      "name": "サトノリシャール",
+      "total": 3
+    },
+    {
+      "name": "サントルドバリ",
       "total": 1
     }
   ]

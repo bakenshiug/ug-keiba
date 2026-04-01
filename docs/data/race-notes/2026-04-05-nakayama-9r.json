@@ -15,15 +15,18 @@
       "sabc": {
         "tan": {
           "zi": "S",
-          "total": 4
+          "sire": "C",
+          "total": 5
         },
         "fuku": {
           "zi": "S",
-          "total": 4
+          "sire": "C",
+          "total": 5
         }
       },
       "extFacility": "ノーザンF天栄（福島）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "ミッキーロケット"
     },
     "エクセルクラウン": {
       "sabcZI": 102,
@@ -34,13 +37,16 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "sire": "C",
+          "total": 3
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "sire": "A",
+          "total": 5
         }
-      }
+      },
+      "sabcSire": "サトノアラジン"
     },
     "カットソロ": {
       "sabcZI": 111,
@@ -51,13 +57,16 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "sire": "S",
+          "total": 7
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "sire": "S",
+          "total": 7
         }
-      }
+      },
+      "sabcSire": "コントレイル"
     },
     "クラウンインジエア": {
       "sabcZI": 104,
@@ -68,15 +77,18 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "sire": "A",
+          "total": 5
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "sire": "B",
+          "total": 4
         }
       },
       "extFacility": "グリーンウッド（滋賀）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "モーリス"
     },
     "グレーヌドジョワ": {
       "sabcZI": 95,
@@ -87,15 +99,18 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "C",
+          "total": 2
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "B",
+          "total": 3
         }
       },
       "extFacility": "グリーンウッド（滋賀）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "ロードカナロア"
     },
     "ケントン": {
       "sabcZI": 94,
@@ -106,13 +121,16 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "S",
+          "total": 5
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "S",
+          "total": 5
         }
-      }
+      },
+      "sabcSire": "リアルスティール"
     },
     "サトノリシャール": {
       "sabcZI": 97,
@@ -123,13 +141,16 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "S",
+          "total": 5
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "A",
+          "total": 4
         }
-      }
+      },
+      "sabcSire": "レイデオロ"
     },
     "トップオブザライン": {
       "sabcZI": 100,
@@ -140,15 +161,18 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "sire": "C",
+          "total": 3
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "sire": "C",
+          "total": 3
         }
       },
       "extFacility": "ノーザンFしがらき（滋賀）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "ドレフォン"
     },
     "ドッグウッド": {
       "sabcZI": 110,
@@ -159,13 +183,16 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "sire": "S",
+          "total": 7
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "sire": "A",
+          "total": 6
         }
-      }
+      },
+      "sabcSire": "レイデオロ"
     },
     "バリオス": {
       "sabcZI": 100,
@@ -176,13 +203,16 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "sire": "A",
+          "total": 5
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "sire": "S",
+          "total": 6
         }
-      }
+      },
+      "sabcSire": "キタサンブラック"
     },
     "ブラウンバナナ": {
       "sabcZI": 102,
@@ -193,15 +223,18 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "sire": "C",
+          "total": 3
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "sire": "B",
+          "total": 4
         }
       },
       "extFacility": "山元トレセン（宮城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "キズナ"
     },
     "ヘルメスギャング": {
       "sabcZI": 86,
@@ -212,13 +245,16 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "C",
+          "total": 2
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "B",
+          "total": 3
         }
-      }
+      },
+      "sabcSire": "ブリックスアンドモルタ"
     },
     "ポッドクロス": {
       "sabcZI": 99,
@@ -229,13 +265,16 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "S",
+          "total": 5
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "A",
+          "total": 4
         }
-      }
+      },
+      "sabcSire": "レイデオロ"
     },
     "モウエエデショー": {
       "sabcZI": 109,
@@ -246,13 +285,16 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "sire": "S",
+          "total": 6
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "sire": "S",
+          "total": 6
         }
-      }
+      },
+      "sabcSire": "ダノンプレミアム"
     },
     "ヤマニンヘルシェ": {
       "sabcZI": 94,
@@ -263,13 +305,16 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "C",
+          "total": 2
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "C",
+          "total": 2
         }
-      }
+      },
+      "sabcSire": "レッドファルクス"
     },
     "ヨカオウ": {
       "sabcZI": 98,
@@ -280,15 +325,18 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "sire": "C",
+          "total": 2
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "sire": "B",
+          "total": 3
         }
       },
       "extFacility": "大山ヒルズ（鳥取）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "キズナ"
     },
     "レイヒストリコ": {
       "sabcZI": 116,
@@ -299,155 +347,158 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "sire": "S",
+          "total": 7
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "sire": "A",
+          "total": 6
         }
       },
       "extFacility": "ノーザンF天栄（福島）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "レイデオロ"
     }
   },
   "sabcRankTan": [
     {
-      "name": "イモータリス",
-      "total": 4
-    },
-    {
-      "name": "レイヒストリコ",
-      "total": 3
-    },
-    {
       "name": "カットソロ",
-      "total": 3
+      "total": 7
     },
     {
       "name": "ドッグウッド",
-      "total": 3
+      "total": 7
+    },
+    {
+      "name": "レイヒストリコ",
+      "total": 7
     },
     {
       "name": "モウエエデショー",
-      "total": 2
+      "total": 6
+    },
+    {
+      "name": "イモータリス",
+      "total": 5
     },
     {
       "name": "クラウンインジエア",
-      "total": 2
-    },
-    {
-      "name": "エクセルクラウン",
-      "total": 2
-    },
-    {
-      "name": "ブラウンバナナ",
-      "total": 2
-    },
-    {
-      "name": "トップオブザライン",
-      "total": 2
-    },
-    {
-      "name": "バリオス",
-      "total": 2
-    },
-    {
-      "name": "ポッドクロス",
-      "total": 1
-    },
-    {
-      "name": "ヨカオウ",
-      "total": 1
-    },
-    {
-      "name": "サトノリシャール",
-      "total": 1
-    },
-    {
-      "name": "グレーヌドジョワ",
-      "total": 1
+      "total": 5
     },
     {
       "name": "ケントン",
-      "total": 1
+      "total": 5
     },
     {
-      "name": "ヤマニンヘルシェ",
-      "total": 1
+      "name": "サトノリシャール",
+      "total": 5
+    },
+    {
+      "name": "バリオス",
+      "total": 5
+    },
+    {
+      "name": "ポッドクロス",
+      "total": 5
+    },
+    {
+      "name": "エクセルクラウン",
+      "total": 3
+    },
+    {
+      "name": "トップオブザライン",
+      "total": 3
+    },
+    {
+      "name": "ブラウンバナナ",
+      "total": 3
+    },
+    {
+      "name": "グレーヌドジョワ",
+      "total": 2
     },
     {
       "name": "ヘルメスギャング",
-      "total": 1
+      "total": 2
+    },
+    {
+      "name": "ヤマニンヘルシェ",
+      "total": 2
+    },
+    {
+      "name": "ヨカオウ",
+      "total": 2
     }
   ],
   "sabcRankFuku": [
     {
-      "name": "イモータリス",
-      "total": 4
-    },
-    {
-      "name": "レイヒストリコ",
-      "total": 3
-    },
-    {
       "name": "カットソロ",
-      "total": 3
+      "total": 7
     },
     {
       "name": "ドッグウッド",
-      "total": 3
-    },
-    {
-      "name": "モウエエデショー",
-      "total": 2
-    },
-    {
-      "name": "クラウンインジエア",
-      "total": 2
-    },
-    {
-      "name": "エクセルクラウン",
-      "total": 2
-    },
-    {
-      "name": "ブラウンバナナ",
-      "total": 2
-    },
-    {
-      "name": "トップオブザライン",
-      "total": 2
+      "total": 6
     },
     {
       "name": "バリオス",
-      "total": 2
+      "total": 6
     },
     {
-      "name": "ポッドクロス",
-      "total": 1
+      "name": "モウエエデショー",
+      "total": 6
     },
     {
-      "name": "ヨカオウ",
-      "total": 1
+      "name": "レイヒストリコ",
+      "total": 6
     },
     {
-      "name": "サトノリシャール",
-      "total": 1
+      "name": "イモータリス",
+      "total": 5
     },
     {
-      "name": "グレーヌドジョワ",
-      "total": 1
+      "name": "エクセルクラウン",
+      "total": 5
     },
     {
       "name": "ケントン",
-      "total": 1
+      "total": 5
     },
     {
-      "name": "ヤマニンヘルシェ",
-      "total": 1
+      "name": "クラウンインジエア",
+      "total": 4
+    },
+    {
+      "name": "サトノリシャール",
+      "total": 4
+    },
+    {
+      "name": "ブラウンバナナ",
+      "total": 4
+    },
+    {
+      "name": "ポッドクロス",
+      "total": 4
+    },
+    {
+      "name": "グレーヌドジョワ",
+      "total": 3
+    },
+    {
+      "name": "トップオブザライン",
+      "total": 3
     },
     {
       "name": "ヘルメスギャング",
-      "total": 1
+      "total": 3
+    },
+    {
+      "name": "ヨカオウ",
+      "total": 3
+    },
+    {
+      "name": "ヤマニンヘルシェ",
+      "total": 2
     }
   ]
 }
