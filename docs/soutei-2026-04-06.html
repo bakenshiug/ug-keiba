@@ -173,6 +173,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 <script>
 const SOUTEI_URL  = 'data/soutei-2026-04-06.json';
 const NOTES_BASE  = 'data/race-notes/';
+const HORSES_URL  = 'data/horses-2026-04w.json';
 
 const GRADE_CLASS  = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
 const GRADE_SCORE  = {S:4,A:3,B:2,C:1};
@@ -239,7 +240,7 @@ function buildTabs(races) {
   }).join('');
 }
 
-function buildPanel(race, idx, notes) {
+function buildPanel(race, idx, notes, horsesMap) {
   const isActive = idx === 0 ? ' active' : '';
   const horsesNotes = (notes && notes.horses) || {};
   const hasNotes = notes && notes.horses && Object.keys(notes.horses).length > 0;
@@ -251,15 +252,22 @@ function buildPanel(race, idx, notes) {
   }
 
   const rows = horses.map((h, ri) => {
-    const hn = horsesNotes[h.name] || null;
+    const hn  = horsesNotes[h.name] || null;
+    const hd  = (horsesMap && horsesMap[h.name]) || null;
     const rank = hasNotes ? ri + 1 : null;
+    const sire    = hd ? hd.sire    : h.sire;
+    const bms     = hd ? hd.bms     : null;
+    const trainer = hd ? hd.trainer : null;
+    const belong  = hd ? hd.belong  : null;
+    const pedigreeHtml = `父 ${sire}${bms ? ' / 母父 ' + bms : ''}`;
+    const trainerHtml  = trainer ? `<span style="margin-left:8px;color:rgba(255,255,255,.4);">${belong||''}${trainer}</span>` : '';
     const jockeyCell = h.jockey ? h.jockey : `<span class="no-jockey">想定なし</span>`;
     const weightCell = h.weight != null ? `${h.weight}` : '—';
     return `<tr>
       <td class="td-num">${h.num}</td>
       <td>
         <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:3px;">${h.age}歳</span>${h.name}</div>
-        <div class="td-sire">父 ${h.sire}${h.dam?' / 母 '+h.dam:''}</div>
+        <div class="td-sire">${pedigreeHtml}${trainerHtml}</div>
         ${abilityHtml(hn, rank)}
       </td>
       <td class="td-jockey">${jockeyCell}</td>
@@ -294,14 +302,19 @@ function switchRace(idx) {
 
 async function init() {
   try {
-    const soutei = await fetch(SOUTEI_URL).then(r=>r.json());
+    const ts = Date.now();
+    // Fetch soutei + horsesMap in parallel, then notes
+    const [soutei, horsesMap] = await Promise.all([
+      fetch(SOUTEI_URL + '?_=' + ts).then(r=>r.json()),
+      fetch(HORSES_URL + '?_=' + ts).then(r=>r.json()).catch(()=>({}))
+    ]);
 
     // Fetch all race-notes in parallel
     const notesMap = {};
     await Promise.all(soutei.races.map(async r => {
       if (!r.notesKey) return;
       try {
-        const n = await fetch(NOTES_BASE + r.notesKey + '.json?_=' + Date.now()).then(res=>res.json());
+        const n = await fetch(NOTES_BASE + r.notesKey + '.json?_=' + ts).then(res=>res.json());
         notesMap[r.notesKey] = n;
       } catch(e) {}
     }));
@@ -309,7 +322,7 @@ async function init() {
     document.getElementById('date-main').textContent = soutei.label || soutei.date;
     document.getElementById('race-tabs').innerHTML   = buildTabs(soutei.races);
     document.getElementById('race-panels').innerHTML = soutei.races.map((r,i) =>
-      buildPanel(r, i, notesMap[r.notesKey]||null)
+      buildPanel(r, i, notesMap[r.notesKey]||null, horsesMap)
     ).join('');
 
     document.getElementById('loading').style.display  = 'none';
