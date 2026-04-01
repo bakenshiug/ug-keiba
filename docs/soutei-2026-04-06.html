@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>出走想定表 4/6(日) | UG強奪競馬新聞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#130003;--bg-dk:#0b0002;--bg-md:#1a0004;
+  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
+  --green:#22c55e;
+  --text:#f5d0d5;--muted:rgba(255,255,255,0.45);
+  --card:rgba(255,255,255,0.05);--border:rgba(232,0,61,0.22);
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+
+/* Header */
+.hdr{background:linear-gradient(135deg,#200006,#0b0002 60%,#130003);border-bottom:2px solid rgba(232,0,61,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(232,0,61,.2);}
+.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(255,255,255,0.08);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.12);}
+.hdr-back:hover{background:rgba(255,255,255,0.14);}
+.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(232,0,61,.8),0 0 48px rgba(232,0,61,.4);letter-spacing:.05em;}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.hdr-title-wrap{flex:1;}
+
+/* Page */
+.page-wrap{max-width:780px;margin:0 auto;padding:16px 12px 60px;}
+
+/* Date header */
+.date-header{
+  text-align:center;padding:20px 16px;margin-bottom:20px;
+  background:linear-gradient(135deg,rgba(232,0,61,.12),rgba(10,0,3,.95));
+  border:1px solid rgba(232,0,61,.3);border-radius:16px;
+}
+.date-header .date-main{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:#fff;}
+.date-header .date-sub{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.1em;}
+
+/* Race tabs */
+.race-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none;}
+.race-tabs::-webkit-scrollbar{display:none;}
+.race-tab{
+  flex-shrink:0;padding:7px 14px;border-radius:20px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;
+  transition:all .15s;white-space:nowrap;
+}
+.race-tab:hover{background:rgba(255,255,255,0.1);}
+.race-tab.active{background:rgba(232,0,61,.2);border-color:rgba(232,0,61,.7);color:#fff;}
+.race-tab .tab-grade{font-size:9px;display:inline-block;margin-left:3px;padding:1px 4px;border-radius:3px;background:rgba(240,192,64,.3);color:var(--gold);}
+
+/* Race panel */
+.race-panel{display:none;}
+.race-panel.active{display:block;}
+
+/* Race header */
+.race-header{
+  background:linear-gradient(135deg,rgba(30,0,8,.9),rgba(10,0,3,.95));
+  border:1px solid rgba(232,0,61,.35);border-radius:14px;
+  padding:16px 18px;margin-bottom:12px;
+}
+.race-grade-badge{
+  display:inline-block;font-size:10px;font-weight:900;padding:3px 10px;border-radius:5px;margin-bottom:8px;letter-spacing:.08em;
+}
+.grade-G1{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
+.grade-G2{background:linear-gradient(90deg,#1a6b2a,#22c55e);color:#000;}
+.grade-G3{background:linear-gradient(90deg,#0d3b6e,#3b82f6);color:#fff;}
+.grade-OP{background:rgba(255,255,255,.15);color:var(--muted);}
+.race-name{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;color:#fff;margin-bottom:6px;}
+.race-meta{font-size:11px;color:var(--muted);}
+.race-meta span{margin-right:12px;}
+
+/* Horse table */
+.horse-table{width:100%;border-collapse:collapse;font-size:12px;}
+.horse-table th{
+  padding:7px 8px;text-align:left;font-size:10px;font-weight:700;
+  color:var(--muted);letter-spacing:.08em;text-transform:uppercase;
+  border-bottom:1px solid rgba(232,0,61,.2);
+}
+.horse-table td{padding:9px 8px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle;}
+.horse-table tr:hover td{background:rgba(255,255,255,.03);}
+.horse-table tr:last-child td{border-bottom:none;}
+
+.td-num{font-size:11px;color:var(--muted);width:32px;text-align:center;}
+.td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#fff;}
+.td-info{font-size:10px;color:var(--muted);line-height:1.4;}
+.td-jockey{font-size:12px;font-weight:700;color:var(--text);}
+.td-weight{font-size:12px;color:var(--gold);font-weight:700;text-align:right;}
+.td-sire{font-size:10px;color:rgba(255,255,255,.35);}
+
+/* Sex badge */
+.sex-badge{
+  display:inline-block;font-size:9px;font-weight:900;padding:1px 5px;border-radius:3px;margin-right:4px;vertical-align:middle;
+}
+.sex-牡{background:rgba(59,130,246,.25);color:#93c5fd;}
+.sex-牝{background:rgba(236,72,153,.25);color:#f9a8d4;}
+.sex-セ{background:rgba(107,114,128,.25);color:#d1d5db;}
+
+/* No jockey note */
+.no-jockey{color:rgba(255,255,255,.25);font-style:italic;}
+
+/* Count badge */
+.count-badge{
+  display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;
+  background:rgba(255,255,255,.08);color:var(--muted);margin-left:8px;vertical-align:middle;
+}
+
+/* Judge grade badge */
+.judge-S{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;letter-spacing:.05em;}
+.judge-A{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.5);letter-spacing:.05em;}
+.judge-B{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.4);letter-spacing:.05em;}
+.judge-C{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.3);letter-spacing:.05em;}
+.judge-comment{
+  font-size:11px;color:rgba(255,255,255,.55);line-height:1.6;
+  margin-top:5px;padding:6px 10px;
+  background:rgba(255,255,255,.03);border-left:2px solid rgba(255,255,255,.1);
+  border-radius:0 6px 6px 0;
+}
+.judge-A .judge-comment-border{border-left-color:rgba(232,0,61,.4);}
+.judge-B .judge-comment-border{border-left-color:rgba(59,130,246,.4);}
+
+/* Loading */
+#loading{text-align:center;padding:60px;color:var(--muted);}
+
+/* Shimmer for loading */
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+.pulse{animation:pulse 1.5s ease-in-out infinite;}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a href="index.html" class="hdr-back">← TOP</a>
+  <div class="hdr-title-wrap">
+    <div class="hdr-logo">UG強奪競馬新聞</div>
+    <div class="hdr-sub">出走想定表</div>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div id="loading" class="pulse">データ読み込み中...</div>
+  <div id="content" style="display:none">
+    <div class="date-header">
+      <div class="date-main" id="date-main"></div>
+      <div class="date-sub">JRDB 出走想定表（確定前3走版）</div>
+    </div>
+    <div class="race-tabs" id="race-tabs"></div>
+    <div id="race-panels"></div>
+  </div>
+</div>
+
+<script>
+const DATA_URL = 'data/soutei-2026-04-06.json';
+
+const GRADE_LABELS = {G1:'G1',G2:'G2',G3:'G3',null:'OP'};
+const GRADE_CLASS  = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
+
+function gradeHtml(grade) {
+  if (!grade) return `<span class="race-grade-badge grade-OP">オープン</span>`;
+  return `<span class="race-grade-badge ${GRADE_CLASS[grade]}">${grade}</span>`;
+}
+
+function sexHtml(sex) {
+  return `<span class="sex-badge sex-${sex}">${sex}</span>`;
+}
+
+function buildTabs(races) {
+  return races.map((r, i) => {
+    const gradeTag = r.grade ? `<span class="tab-grade">${r.grade}</span>` : '';
+    return `<div class="race-tab${i===0?' active':''}" onclick="switchRace(${i})" id="tab-${i}">
+      ${r.raceNo}${gradeTag}
+    </div>`;
+  }).join('');
+}
+
+const JUDGE_LABEL = {S:'◆ S', A:'◎ A', B:'▲ B', C:'△ C'};
+
+function judgeHtml(judge) {
+  if (!judge) return '';
+  const g = judge.grade;
+  const badge = `<span class="judge-${g}">${JUDGE_LABEL[g] || g}</span>`;
+  const borderColor = g==='A' ? 'rgba(232,0,61,.4)' : g==='B' ? 'rgba(59,130,246,.4)' : g==='S' ? 'rgba(240,192,64,.6)' : 'rgba(107,114,128,.3)';
+  const comment = judge.comment
+    ? `<div class="judge-comment" style="border-left-color:${borderColor}">${judge.comment}</div>`
+    : '';
+  return `<div style="margin-top:6px;">${badge}${comment}</div>`;
+}
+
+function buildPanel(race, idx) {
+  const isActive = idx === 0 ? ' active' : '';
+  const hasJudge = race.horses.some(h => h.judge);
+
+  const rows = race.horses.map(h => {
+    const jockeyCell = h.jockey
+      ? `<span>${h.jockey}</span>`
+      : `<span class="no-jockey">想定なし</span>`;
+    const weightCell = h.weight != null ? `${h.weight}kg` : '—';
+    const judgeCell  = hasJudge
+      ? `<td style="vertical-align:top;padding-top:11px;">${h.judge ? `<span class="judge-${h.judge.grade}" style="font-size:11px;">${h.judge.grade}</span>` : ''}</td>`
+      : '';
+
+    return `<tr>
+      <td class="td-num">${h.num}</td>
+      <td>
+        <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:4px;">${h.age}歳</span>${h.name}</div>
+        <div class="td-sire">父 ${h.sire}${h.dam ? ' / 母 '+h.dam : ''}</div>
+        ${h.judge ? judgeHtml(h.judge) : ''}
+      </td>
+      <td class="td-jockey">${jockeyCell}</td>
+      <td class="td-weight">${weightCell}</td>
+    </tr>`;
+  }).join('');
+
+  const judgeThCol = hasJudge ? '' : '';
+
+  return `<div class="race-panel${isActive}" id="panel-${idx}">
+    <div class="race-header">
+      ${gradeHtml(race.grade)}
+      <div class="race-name">${race.raceName}<span class="count-badge">${race.horses.length}頭</span></div>
+      <div class="race-meta">
+        <span>${race.raceNo}</span>
+        <span>${race.course}</span>
+      </div>
+    </div>
+    <table class="horse-table">
+      <thead>
+        <tr>
+          <th>番</th>
+          <th>馬名 / 父馬${hasJudge ? ' / 相馬眼ジャッジ' : ''}</th>
+          <th>想定騎手</th>
+          <th style="text-align:right">斤量</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+
+function switchRace(idx) {
+  document.querySelectorAll('.race-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
+  document.querySelectorAll('.race-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+}
+
+async function init() {
+  try {
+    const res = await fetch(DATA_URL);
+    const data = await res.json();
+
+    // Date header
+    document.getElementById('date-main').textContent = data.label || data.date;
+
+    // Tabs
+    document.getElementById('race-tabs').innerHTML = buildTabs(data.races);
+
+    // Panels
+    document.getElementById('race-panels').innerHTML = data.races.map((r,i) => buildPanel(r,i)).join('');
+
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  } catch(e) {
+    document.getElementById('loading').textContent = 'データ読み込みエラー: ' + e.message;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
