@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UG強奪競馬新聞</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#130003;--bg-dk:#0b0002;
+  --pink:#E8003D;--gold:#f0c040;--green:#22c55e;
+  --text:#f5d0d5;--muted:rgba(255,255,255,0.45);
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+
+/* Header */
+.hdr{
+  background:linear-gradient(135deg,#200006,#0b0002 60%,#130003);
+  border-bottom:2px solid rgba(232,0,61,.5);
+  padding:18px 20px;
+  text-align:center;
+  box-shadow:0 4px 30px rgba(232,0,61,.2);
+}
+.hdr-logo{
+  font-family:'Noto Serif JP',serif;
+  font-size:24px;font-weight:900;color:#fff;
+  text-shadow:0 0 32px rgba(232,0,61,.9),0 0 64px rgba(232,0,61,.4);
+  letter-spacing:.06em;
+}
+.hdr-catch{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.15em;}
+
+/* Page */
+.page-wrap{max-width:680px;margin:0 auto;padding:24px 14px 60px;}
+
+/* Section label */
+.section-label{
+  font-size:9px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin:28px 0 10px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.2);}
+
+/* Nav cards */
+.nav-card{
+  display:flex;align-items:center;gap:14px;
+  padding:15px 16px;
+  border-radius:14px;
+  background:linear-gradient(140deg,rgba(30,0,8,.9),rgba(10,0,3,.95));
+  border:1px solid rgba(232,0,61,.22);
+  text-decoration:none;color:var(--text);
+  margin-bottom:8px;
+  transition:all .18s ease;
+}
+.nav-card:hover{border-color:rgba(232,0,61,.6);background:linear-gradient(140deg,rgba(50,0,12,.9),rgba(20,0,6,.95));transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,0,61,.15);}
+.nav-card.gold-card{border-color:rgba(240,192,64,.3);}
+.nav-card.gold-card:hover{border-color:rgba(240,192,64,.7);box-shadow:0 6px 24px rgba(240,192,64,.1);}
+
+.card-icon{font-size:22px;width:36px;text-align:center;flex-shrink:0;}
+.card-title{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:900;color:#fff;}
+.card-desc{font-size:11px;color:var(--muted);margin-top:2px;}
+.card-arrow{margin-left:auto;color:rgba(255,255,255,.2);font-size:14px;flex-shrink:0;}
+
+/* Grade badge */
+.grade-pill{
+  display:inline-block;font-size:9px;font-weight:900;padding:2px 7px;
+  border-radius:4px;margin-left:6px;letter-spacing:.06em;vertical-align:middle;
+}
+.g1{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
+.g3{background:linear-gradient(90deg,#0d3b6e,#3b82f6);color:#fff;}
+
+/* Date badge */
+.date-pill{
+  display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;
+  border-radius:10px;background:rgba(232,0,61,.18);border:1px solid rgba(232,0,61,.35);
+  color:rgba(255,150,170,.9);margin-left:6px;vertical-align:middle;
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-logo">UG強奪競馬新聞</div>
+  <div class="hdr-catch">WEEKLY RACE ANALYSIS</div>
+</header>
+
+<div class="page-wrap">
+
+  <div class="section-label">今週の出走想定表</div>
+
+  <a href="soutei-2026-04-05.html" class="nav-card">
+    <div class="card-icon">📋</div>
+    <div>
+      <div class="card-title">4月5日(土)<span class="date-pill">阪神・中山</span></div>
+      <div class="card-desc">チャーチルダウンズC<span class="grade-pill g3">G3</span>　ダービー卿CT<span class="grade-pill g3">G3</span></div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a href="soutei-2026-04-06.html" class="nav-card gold-card">
+    <div class="card-icon">📋</div>
+    <div>
+      <div class="card-title">4月6日(日)<span class="date-pill">阪神</span></div>
+      <div class="card-desc">大阪杯<span class="grade-pill g1">G1</span></div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <div class="section-label">予想・分析</div>
+
+  <a href="final-display.html" class="nav-card">
+    <div class="card-icon">🎯</div>
+    <div>
+      <div class="card-title">最終予想</div>
+      <div class="card-desc">買い目・本命・軸馬</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a href="kinkai-display.html" class="nav-card">
+    <div class="card-icon">🏅</div>
+    <div>
+      <div class="card-title">今週の金塊馬</div>
+      <div class="card-desc">コース別激走候補</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <div class="section-label">その他</div>
+
+  <a href="archive.html" class="nav-card">
+    <div class="card-icon">📁</div>
+    <div>
+      <div class="card-title">アーカイブ</div>
+      <div class="card-desc">過去の予想・戦歴</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+  <a href="how-to-buy.html" class="nav-card">
+    <div class="card-icon">💡</div>
+    <div>
+      <div class="card-title">買い方ガイド</div>
+      <div class="card-desc">馬券の買い方・ルール</div>
+    </div>
+    <div class="card-arrow">›</div>
+  </a>
+
+</div>
+</body>
+</html>
