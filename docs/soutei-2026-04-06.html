@@ -116,8 +116,9 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .sabc-name-tan{font-size:13px;font-weight:900;padding:2px 8px;border-radius:6px;background:linear-gradient(135deg,rgba(139,26,26,.18),rgba(139,26,26,.08));border:1px solid rgba(139,26,26,.35);color:#8B1A1A;letter-spacing:.02em;white-space:nowrap;}
 .sabc-name-fuku{font-size:11px;font-weight:900;padding:2px 7px;border-radius:6px;background:rgba(29,78,216,.15);border:1px solid rgba(29,78,216,.4);color:#1e3a8a;letter-spacing:.02em;white-space:nowrap;}
 .td-sire{font-size:10px;color:rgba(28,43,74,.5);margin-top:2px;}
-.td-jockey{font-size:12px;font-weight:700;color:var(--text);white-space:nowrap;}
-.td-weight{font-size:12px;color:var(--gold);font-weight:700;text-align:right;white-space:nowrap;}
+.td-jockey-row{font-size:11px;color:rgba(28,43,74,.7);margin-top:3px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.td-jockey-name{font-weight:700;}
+.td-weight-val{font-weight:900;color:var(--gold);}
 .no-jockey{color:rgba(28,43,74,.4);font-style:italic;font-size:11px;}
 .sex-badge{display:inline-block;font-size:9px;font-weight:900;padding:1px 5px;border-radius:3px;margin-right:3px;vertical-align:middle;}
 .sex-牡{background:rgba(29,78,216,.22);color:#1e3a8a;border:1px solid rgba(29,78,216,.3);}
@@ -509,13 +510,12 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
       <td class="td-num">${popCell}</td>
       <td>
         <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);">${h.age}歳</span>${h.name}${hn&&hn.sabc?`<span class="sabc-name-tan">単${hn.sabc.tan.total}pt</span><span class="sabc-name-fuku">複${hn.sabc.fuku.total}pt</span>`:''}</div>
+        <div class="td-jockey-row"><span class="td-jockey-name">${jockeyCell}</span><span style="color:rgba(28,43,74,.25);">／</span><span class="td-weight-val">${weightCell}kg</span></div>
         <div class="td-sire">${pedigreeHtml}${trainerHtml}</div>
         ${abilityHtml(hn, rank)}
         ${sabcHtml(hn)}
         ${prevRaceHtml(pdata)}
       </td>
-      <td class="td-jockey">${jockeyCell}</td>
-      <td class="td-weight">${weightCell}</td>
     </tr>`;
   }).join('');
 
@@ -532,8 +532,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
       <thead><tr>
         <th>人気</th>
         <th>馬名 / 父馬 / 重賞展望スコア</th>
-        <th>想定騎手</th>
-        <th style="text-align:right">斤量</th>
+
       </tr></thead>
       <tbody>${rows}</tbody>
     </table>
