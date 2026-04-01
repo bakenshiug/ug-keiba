@@ -105,6 +105,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   background:rgba(255,255,255,.08);color:var(--muted);margin-left:8px;vertical-align:middle;
 }
 
+/* Judge grade badge */
+.judge-S{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;letter-spacing:.05em;}
+.judge-A{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.5);letter-spacing:.05em;}
+.judge-B{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.4);letter-spacing:.05em;}
+.judge-C{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.3);letter-spacing:.05em;}
+.judge-comment{
+  font-size:11px;color:rgba(255,255,255,.55);line-height:1.6;
+  margin-top:5px;padding:6px 10px;
+  background:rgba(255,255,255,.03);border-left:2px solid rgba(255,255,255,.1);
+  border-radius:0 6px 6px 0;
+}
+.judge-A .judge-comment-border{border-left-color:rgba(232,0,61,.4);}
+.judge-B .judge-comment-border{border-left-color:rgba(59,130,246,.4);}
+
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
 
@@ -159,23 +173,45 @@ function buildTabs(races) {
   }).join('');
 }
 
+const JUDGE_LABEL = {S:'◆ S', A:'◎ A', B:'▲ B', C:'△ C'};
+
+function judgeHtml(judge) {
+  if (!judge) return '';
+  const g = judge.grade;
+  const badge = `<span class="judge-${g}">${JUDGE_LABEL[g] || g}</span>`;
+  const borderColor = g==='A' ? 'rgba(232,0,61,.4)' : g==='B' ? 'rgba(59,130,246,.4)' : g==='S' ? 'rgba(240,192,64,.6)' : 'rgba(107,114,128,.3)';
+  const comment = judge.comment
+    ? `<div class="judge-comment" style="border-left-color:${borderColor}">${judge.comment}</div>`
+    : '';
+  return `<div style="margin-top:6px;">${badge}${comment}</div>`;
+}
+
 function buildPanel(race, idx) {
   const isActive = idx === 0 ? ' active' : '';
+  const hasJudge = race.horses.some(h => h.judge);
+
   const rows = race.horses.map(h => {
     const jockeyCell = h.jockey
       ? `<span>${h.jockey}</span>`
       : `<span class="no-jockey">想定なし</span>`;
     const weightCell = h.weight != null ? `${h.weight}kg` : '—';
+    const judgeCell  = hasJudge
+      ? `<td style="vertical-align:top;padding-top:11px;">${h.judge ? `<span class="judge-${h.judge.grade}" style="font-size:11px;">${h.judge.grade}</span>` : ''}</td>`
+      : '';
+
     return `<tr>
       <td class="td-num">${h.num}</td>
       <td>
         <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:4px;">${h.age}歳</span>${h.name}</div>
         <div class="td-sire">父 ${h.sire}${h.dam ? ' / 母 '+h.dam : ''}</div>
+        ${h.judge ? judgeHtml(h.judge) : ''}
       </td>
       <td class="td-jockey">${jockeyCell}</td>
       <td class="td-weight">${weightCell}</td>
     </tr>`;
   }).join('');
+
+  const judgeThCol = hasJudge ? '' : '';
 
   return `<div class="race-panel${isActive}" id="panel-${idx}">
     <div class="race-header">
@@ -190,7 +226,7 @@ function buildPanel(race, idx) {
       <thead>
         <tr>
           <th>番</th>
-          <th>馬名 / 父馬</th>
+          <th>馬名 / 父馬${hasJudge ? ' / 相馬眼ジャッジ' : ''}</th>
           <th>想定騎手</th>
           <th style="text-align:right">斤量</th>
         </tr>
