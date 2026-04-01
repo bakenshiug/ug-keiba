@@ -16,17 +16,20 @@
         "tan": {
           "zi": "S",
           "sire": "C",
-          "total": 5
+          "total": 9,
+          "trainer": "S"
         },
         "fuku": {
           "zi": "S",
           "sire": "A",
-          "total": 7
+          "total": 11,
+          "trainer": "S"
         }
       },
       "extFacility": "チャンピオンヒルズ（滋賀）",
       "extGrade": "A",
-      "sabcSire": "ハービンジャー"
+      "sabcSire": "ハービンジャー",
+      "sabcTrainer": "(栗)橋口慎介"
     },
     "カットソロ": {
       "sabcZI": 114,
@@ -38,15 +41,18 @@
         "tan": {
           "zi": "A",
           "sire": "S",
-          "total": 7
+          "total": 10,
+          "trainer": "A"
         },
         "fuku": {
           "zi": "A",
           "sire": "S",
-          "total": 7
+          "total": 11,
+          "trainer": "S"
         }
       },
-      "sabcSire": "コントレイル"
+      "sabcSire": "コントレイル",
+      "sabcTrainer": "(栗)矢作芳人"
     },
     "サトノリシャール": {
       "sabcZI": 98,
@@ -58,15 +64,18 @@
         "tan": {
           "zi": "C",
           "sire": "B",
-          "total": 3
+          "total": 7,
+          "trainer": "S"
         },
         "fuku": {
           "zi": "C",
           "sire": "B",
-          "total": 3
+          "total": 7,
+          "trainer": "S"
         }
       },
-      "sabcSire": "レイデオロ"
+      "sabcSire": "レイデオロ",
+      "sabcTrainer": "(栗)福永祐一"
     },
     "サントルドバリ": {
       "sabcZI": 96,
@@ -77,15 +86,18 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "trainer": "S"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "trainer": "S"
         }
       },
       "extFacility": "チャンピオンヒルズ（滋賀）",
-      "extGrade": "A"
+      "extGrade": "A",
+      "sabcTrainer": "(栗)小林真也"
     },
     "タガノアルトゥーラ": {
       "sabcZI": 123,
@@ -97,15 +109,18 @@
         "tan": {
           "zi": "S",
           "sire": "A",
-          "total": 7
+          "total": 11,
+          "trainer": "S"
         },
         "fuku": {
           "zi": "S",
           "sire": "A",
-          "total": 7
+          "total": 11,
+          "trainer": "S"
         }
       },
-      "sabcSire": "シルバーステート"
+      "sabcSire": "シルバーステート",
+      "sabcTrainer": "(栗)長谷川浩"
     },
     "ノンブルドール": {
       "sabcZI": 106,
@@ -117,17 +132,20 @@
         "tan": {
           "zi": "B",
           "sire": "B",
-          "total": 4
+          "total": 5,
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
           "sire": "B",
-          "total": 4
+          "total": 8,
+          "trainer": "S"
         }
       },
       "extFacility": "ノーザンFしがらき（滋賀）",
       "extGrade": "S",
-      "sabcSire": "レイデオロ"
+      "sabcSire": "レイデオロ",
+      "sabcTrainer": "(栗)西園翔太"
     },
     "ブラックオリンピア": {
       "sabcZI": 113,
@@ -139,17 +157,20 @@
         "tan": {
           "zi": "A",
           "sire": "A",
-          "total": 6
+          "total": 9,
+          "trainer": "A"
         },
         "fuku": {
           "zi": "A",
           "sire": "S",
-          "total": 7
+          "total": 11,
+          "trainer": "S"
         }
       },
       "extFacility": "ノーザンFしがらき（滋賀）",
       "extGrade": "S",
-      "sabcSire": "キタサンブラック"
+      "sabcSire": "キタサンブラック",
+      "sabcTrainer": "(栗)友道康夫"
     },
     "ヘルメスギャング": {
       "sabcZI": 86,
@@ -161,15 +182,18 @@
         "tan": {
           "zi": "C",
           "sire": "S",
-          "total": 5
+          "total": 6,
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
           "sire": "S",
-          "total": 5
+          "total": 6,
+          "trainer": "C"
         }
       },
-      "sabcSire": "ブリックスアンドモルタ"
+      "sabcSire": "ブリックスアンドモルタ",
+      "sabcTrainer": "(美)武井亮"
     },
     "ヴァロンブローサ": {
       "sabcZI": 106,
@@ -181,91 +205,94 @@
         "tan": {
           "zi": "B",
           "sire": "S",
-          "total": 6
+          "total": 7,
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
           "sire": "S",
-          "total": 6
+          "total": 10,
+          "trainer": "S"
         }
       },
-      "sabcSire": "コントレイル"
+      "sabcSire": "コントレイル",
+      "sabcTrainer": "(栗)池添学"
     }
   },
   "sabcRankTan": [
     {
-      "name": "カットソロ",
-      "total": 7
-    },
-    {
       "name": "タガノアルトゥーラ",
-      "total": 7
+      "total": 11
     },
     {
-      "name": "ブラックオリンピア",
-      "total": 6
-    },
-    {
-      "name": "ヴァロンブローサ",
-      "total": 6
+      "name": "カットソロ",
+      "total": 10
     },
     {
       "name": "アーレムアレス",
-      "total": 5
+      "total": 9
+    },
+    {
+      "name": "ブラックオリンピア",
+      "total": 9
+    },
+    {
+      "name": "サトノリシャール",
+      "total": 7
+    },
+    {
+      "name": "ヴァロンブローサ",
+      "total": 7
     },
     {
       "name": "ヘルメスギャング",
+      "total": 6
+    },
+    {
+      "name": "サントルドバリ",
       "total": 5
     },
     {
       "name": "ノンブルドール",
-      "total": 4
-    },
-    {
-      "name": "サトノリシャール",
-      "total": 3
-    },
-    {
-      "name": "サントルドバリ",
-      "total": 1
+      "total": 5
     }
   ],
   "sabcRankFuku": [
     {
       "name": "アーレムアレス",
-      "total": 7
+      "total": 11
     },
     {
       "name": "カットソロ",
-      "total": 7
+      "total": 11
     },
     {
       "name": "タガノアルトゥーラ",
-      "total": 7
+      "total": 11
     },
     {
       "name": "ブラックオリンピア",
-      "total": 7
+      "total": 11
     },
     {
       "name": "ヴァロンブローサ",
-      "total": 6
-    },
-    {
-      "name": "ヘルメスギャング",
-      "total": 5
+      "total": 10
     },
     {
       "name": "ノンブルドール",
-      "total": 4
+      "total": 8
     },
     {
       "name": "サトノリシャール",
-      "total": 3
+      "total": 7
+    },
+    {
+      "name": "ヘルメスギャング",
+      "total": 6
     },
     {
       "name": "サントルドバリ",
-      "total": 1
+      "total": 5
     }
   ]
 }
