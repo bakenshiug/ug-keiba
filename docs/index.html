@@ -159,8 +159,17 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   font-size:12px;font-weight:900;color:var(--pink);letter-spacing:.05em;
 }
 .hero-scroll-hint{
-  margin-top:18px;font-size:10px;color:rgba(28,43,74,.4);
-  display:flex;align-items:center;gap:5px;letter-spacing:.1em;
+  margin-top:18px;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;border-radius:999px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dk));
+  box-shadow:0 0 18px rgba(232,0,61,.55),0 0 40px rgba(232,0,61,.25);
+  font-size:12px;font-weight:900;color:#fff;letter-spacing:.06em;
+  animation:aiPulse 2s ease-in-out infinite;
+}
+@keyframes aiPulse{
+  0%,100%{box-shadow:0 0 18px rgba(232,0,61,.55),0 0 40px rgba(232,0,61,.25);}
+  50%{box-shadow:0 0 28px rgba(232,0,61,.9),0 0 60px rgba(232,0,61,.5);}
 }
 
 /* ── Ticker (below hero) ── */
@@ -331,8 +340,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
       <div class="hero-catch">WEEKLY RACE ANALYSIS — 重賞全頭解析</div>
       <div class="hero-nick">🤡 強奪ニック 責任編集</div>
       <div class="hero-scroll-hint">
-        <span class="material-symbols-outlined" style="font-size:14px;">keyboard_arrow_down</span>
-        今週のコンテンツを見る
+        🐶 AI自動買い目生成ディープラーニング中 🐶
       </div>
     </div>
   </section>
