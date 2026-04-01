@@ -384,27 +384,47 @@ function outlookHtml(notes) {
 
 function sabcBadge(g){ return `<span class="sabc-badge g-${g}">${g}</span>`; }
 
+// ファクターキー → 表示ラベル（全レース共通マップ）
+const SABC_LABEL_MAP = {
+  zi:      'ZI',
+  trainer: '厩',
+  sire:    '父',
+  style:   '脚',
+  last3f:  '3F',
+  pci:     'PCI',
+  age:     '齢',
+  weight:  '馬格',
+  diff3f:  '差',
+};
+
+function sabcFactors(sabc_tan) {
+  // totalを除いたキーをJSONの順番で返す
+  return Object.keys(sabc_tan).filter(k => k !== 'total');
+}
+
 function sabcHtml(hn) {
   if (!hn || !hn.sabc) return '';
   const t = hn.sabc.tan, f = hn.sabc.fuku;
-  const factors = ['trainer','sire','style','last3f','pci','age'];
-  const fLabels  = ['厩','父','脚','3F','PCI','齢'];
-  let tanBadges  = factors.map((k,i)=>`<span class="sabc-factor-label">${fLabels[i]}</span>${sabcBadge(t[k])}`).join('');
-  let fukuBadges = factors.map((k,i)=>`<span class="sabc-factor-label">${fLabels[i]}</span>${sabcBadge(f[k])}`).join('');
+  const factors = sabcFactors(t);
+  let tanBadges  = factors.map(k=>`<span class="sabc-factor-label">${SABC_LABEL_MAP[k]||k}</span>${sabcBadge(t[k])}`).join('');
+  let fukuBadges = factors.map(k=>`<span class="sabc-factor-label">${SABC_LABEL_MAP[k]||k}</span>${sabcBadge(f[k])}`).join('');
   const trainerInfo = hn.sabcTrainer ? `<span class="sabc-trainer-info">${hn.sabcTrainer}／${hn.sabcSire||''}</span>` : '';
+  const ziInfo = hn.sabcZI != null ? `<span class="sabc-trainer-info">ZI=${hn.sabcZI}</span>` : '';
   return `<div class="sabc-bar">
     <span class="sabc-label">単勝</span>${tanBadges}<span class="sabc-total">${t.total}pt</span>
     <span class="sabc-sep">|</span>
     <span class="sabc-label">複勝</span>${fukuBadges}<span class="sabc-total">${f.total}pt</span>
-    ${trainerInfo}
+    ${trainerInfo}${ziInfo}
   </div>`;
 }
 
 function sabcPickHtml(notes, race) {
   if (!notes || !notes.sabcRankTan || !notes.sabcRankFuku) return '';
   if (!notes.sabcRankTan[0] || !notes.sabcRankFuku[0]) return '';
-  const factors = ['trainer','sire','style','last3f','pci','age'];
-  const fLabels  = ['厩','父','脚','3F','PCI','齢'];
+  // ファクターを先頭馬のSABCから動的取得
+  const firstHorseName = notes.sabcRankTan[0].name;
+  const firstHn = notes.horses && notes.horses[firstHorseName];
+  const factors = (firstHn && firstHn.sabc) ? sabcFactors(firstHn.sabc.tan) : [];
   function topTied(rank) {
     if (!rank || !rank.length) return [];
     const best = rank[0].total;
@@ -415,8 +435,8 @@ function sabcPickHtml(notes, race) {
     return h ? h.num : '―';
   }
   function pickBadges(sabc, dim) {
-    return factors.map((k,i)=>
-      `<span class="sabc-pick-fl">${fLabels[i]}</span><span class="sabc-badge g-${sabc[dim][k]}">${sabc[dim][k]}</span>`
+    return factors.map(k=>
+      `<span class="sabc-pick-fl">${SABC_LABEL_MAP[k]||k}</span><span class="sabc-badge g-${sabc[dim][k]}">${sabc[dim][k]}</span>`
     ).join('');
   }
   function card(dim, entry, cls, isTied) {
