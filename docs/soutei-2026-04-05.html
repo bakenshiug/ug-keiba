@@ -8,11 +8,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#130003;--bg-dk:#0b0002;--bg-md:#1a0004;
-  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
-  --green:#22c55e;
+  --bg:#130003;--bg-dk:#0b0002;
+  --pink:#E8003D;--gold:#f0c040;--green:#22c55e;
   --text:#f5d0d5;--muted:rgba(255,255,255,0.45);
-  --card:rgba(255,255,255,0.05);--border:rgba(232,0,61,0.22);
+  --card:rgba(255,255,255,0.05);
 }
 html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
 
@@ -20,48 +19,34 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .hdr{background:linear-gradient(135deg,#200006,#0b0002 60%,#130003);border-bottom:2px solid rgba(232,0,61,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(232,0,61,.2);}
 .hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(255,255,255,0.08);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.12);}
 .hdr-back:hover{background:rgba(255,255,255,0.14);}
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(232,0,61,.8),0 0 48px rgba(232,0,61,.4);letter-spacing:.05em;}
+.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(232,0,61,.8);letter-spacing:.05em;}
 .hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
-.hdr-title-wrap{flex:1;}
 
 /* Page */
 .page-wrap{max-width:780px;margin:0 auto;padding:16px 12px 60px;}
 
 /* Date header */
-.date-header{
-  text-align:center;padding:20px 16px;margin-bottom:20px;
-  background:linear-gradient(135deg,rgba(232,0,61,.12),rgba(10,0,3,.95));
-  border:1px solid rgba(232,0,61,.3);border-radius:16px;
-}
+.date-header{text-align:center;padding:20px 16px;margin-bottom:20px;background:linear-gradient(135deg,rgba(232,0,61,.12),rgba(10,0,3,.95));border:1px solid rgba(232,0,61,.3);border-radius:16px;}
 .date-header .date-main{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:#fff;}
 .date-header .date-sub{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.1em;}
 
 /* Race tabs */
 .race-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none;}
 .race-tabs::-webkit-scrollbar{display:none;}
-.race-tab{
-  flex-shrink:0;padding:7px 14px;border-radius:20px;
-  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
-  color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;
-  transition:all .15s;white-space:nowrap;
-}
+.race-tab{flex-shrink:0;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap;}
 .race-tab:hover{background:rgba(255,255,255,0.1);}
 .race-tab.active{background:rgba(232,0,61,.2);border-color:rgba(232,0,61,.7);color:#fff;}
-.race-tab .tab-grade{font-size:9px;display:inline-block;margin-left:3px;padding:1px 4px;border-radius:3px;background:rgba(240,192,64,.3);color:var(--gold);}
+.race-tab.grade-tab{border-color:rgba(240,192,64,.4);color:var(--gold);}
+.race-tab.grade-tab.active{background:rgba(240,192,64,.15);border-color:var(--gold);color:var(--gold);}
+.tab-grade{font-size:9px;display:inline-block;margin-left:3px;padding:1px 4px;border-radius:3px;background:rgba(240,192,64,.3);color:var(--gold);}
 
 /* Race panel */
 .race-panel{display:none;}
 .race-panel.active{display:block;}
 
 /* Race header */
-.race-header{
-  background:linear-gradient(135deg,rgba(30,0,8,.9),rgba(10,0,3,.95));
-  border:1px solid rgba(232,0,61,.35);border-radius:14px;
-  padding:16px 18px;margin-bottom:12px;
-}
-.race-grade-badge{
-  display:inline-block;font-size:10px;font-weight:900;padding:3px 10px;border-radius:5px;margin-bottom:8px;letter-spacing:.08em;
-}
+.race-header{background:linear-gradient(135deg,rgba(30,0,8,.9),rgba(10,0,3,.95));border:1px solid rgba(232,0,61,.35);border-radius:14px;padding:16px 18px;margin-bottom:12px;}
+.race-grade-badge{display:inline-block;font-size:10px;font-weight:900;padding:3px 10px;border-radius:5px;margin-bottom:8px;letter-spacing:.08em;}
 .grade-G1{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
 .grade-G2{background:linear-gradient(90deg,#1a6b2a,#22c55e);color:#000;}
 .grade-G3{background:linear-gradient(90deg,#0d3b6e,#3b82f6);color:#fff;}
@@ -70,74 +55,75 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-meta{font-size:11px;color:var(--muted);}
 .race-meta span{margin-right:12px;}
 
+/* ★ Outlook card (重賞展望) */
+.outlook-card{
+  margin-bottom:14px;padding:18px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(240,192,64,.08),rgba(10,0,3,.9));
+  border:1px solid rgba(240,192,64,.35);
+  position:relative;overflow:hidden;
+}
+.outlook-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.outlook-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.outlook-label::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.2);}
+.outlook-text{font-size:13px;color:rgba(255,255,255,.8);line-height:1.8;}
+
+/* ★ Ability grade row */
+.ability-row{display:flex;align-items:flex-start;gap:8px;margin-top:6px;flex-wrap:wrap;}
+.ability-badge{display:inline-flex;align-items:center;font-size:11px;font-weight:900;padding:2px 8px;border-radius:4px;letter-spacing:.04em;white-space:nowrap;}
+.ability-S{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
+.ability-A{background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.5);}
+.ability-B{background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.4);}
+.ability-C{background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.25);}
+
+/* ★ Comments */
+.ability-comment{font-size:11px;color:rgba(255,255,255,.55);line-height:1.6;margin-top:4px;padding:5px 10px;background:rgba(255,255,255,.03);border-left:2px solid rgba(240,192,64,.3);border-radius:0 5px 5px 0;}
+.judge-comment{font-size:11px;color:rgba(255,255,255,.5);line-height:1.6;margin-top:4px;padding:5px 10px;background:rgba(255,255,255,.03);border-left:2px solid rgba(232,0,61,.3);border-radius:0 5px 5px 0;}
+.judge-badge{display:inline-flex;align-items:center;font-size:9px;font-weight:900;padding:1px 6px;border-radius:3px;letter-spacing:.04em;margin-left:4px;vertical-align:middle;}
+.judge-badge-A{background:rgba(232,0,61,.2);color:#ff6b8a;border:1px solid rgba(232,0,61,.4);}
+.judge-badge-B{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
+.judge-badge-S{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
+.judge-badge-C{background:rgba(107,114,128,.15);color:#9ca3af;border:1px solid rgba(107,114,128,.2);}
+
+/* Speed index details */
+.speed-detail{display:flex;align-items:center;gap:5px;margin-top:3px;flex-wrap:wrap;}
+.speed-val{font-size:11px;font-weight:700;color:var(--gold);}
+.speed-up{color:#4ade80;font-size:10px;}
+.speed-dn{color:#f87171;font-size:10px;}
+.speed-st{color:var(--muted);font-size:10px;}
+.speed-hist span{font-size:10px;color:rgba(255,255,255,.3);}
+
 /* Horse table */
 .horse-table{width:100%;border-collapse:collapse;font-size:12px;}
-.horse-table th{
-  padding:7px 8px;text-align:left;font-size:10px;font-weight:700;
-  color:var(--muted);letter-spacing:.08em;text-transform:uppercase;
-  border-bottom:1px solid rgba(232,0,61,.2);
-}
-.horse-table td{padding:9px 8px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle;}
-.horse-table tr:hover td{background:rgba(255,255,255,.03);}
+.horse-table th{padding:7px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;border-bottom:1px solid rgba(232,0,61,.2);}
+.horse-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;}
+.horse-table tr:hover td{background:rgba(255,255,255,.02);}
 .horse-table tr:last-child td{border-bottom:none;}
-
-.td-num{font-size:11px;color:var(--muted);width:32px;text-align:center;}
+.td-num{font-size:11px;color:var(--muted);width:28px;text-align:center;padding-top:12px;}
 .td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#fff;}
-.td-info{font-size:10px;color:var(--muted);line-height:1.4;}
-.td-jockey{font-size:12px;font-weight:700;color:var(--text);}
-.td-weight{font-size:12px;color:var(--gold);font-weight:700;text-align:right;}
-.td-sire{font-size:10px;color:rgba(255,255,255,.35);}
-
-/* Sex badge */
-.sex-badge{
-  display:inline-block;font-size:9px;font-weight:900;padding:1px 5px;border-radius:3px;margin-right:4px;vertical-align:middle;
-}
+.td-sire{font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;}
+.td-jockey{font-size:12px;font-weight:700;color:var(--text);white-space:nowrap;}
+.td-weight{font-size:12px;color:var(--gold);font-weight:700;text-align:right;white-space:nowrap;}
+.no-jockey{color:rgba(255,255,255,.2);font-style:italic;font-size:11px;}
+.sex-badge{display:inline-block;font-size:9px;font-weight:900;padding:1px 5px;border-radius:3px;margin-right:3px;vertical-align:middle;}
 .sex-牡{background:rgba(59,130,246,.25);color:#93c5fd;}
 .sex-牝{background:rgba(236,72,153,.25);color:#f9a8d4;}
 .sex-セ{background:rgba(107,114,128,.25);color:#d1d5db;}
+.count-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.08);color:var(--muted);margin-left:8px;vertical-align:middle;}
 
-/* No jockey note */
-.no-jockey{color:rgba(255,255,255,.25);font-style:italic;}
-
-/* Count badge */
-.count-badge{
-  display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;
-  background:rgba(255,255,255,.08);color:var(--muted);margin-left:8px;vertical-align:middle;
-}
-
-/* Judge grade badge */
-.judge-S{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;letter-spacing:.05em;}
-.judge-A{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.5);letter-spacing:.05em;}
-.judge-B{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.4);letter-spacing:.05em;}
-.judge-C{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.3);letter-spacing:.05em;}
-.judge-comment{
-  font-size:11px;color:rgba(255,255,255,.55);line-height:1.6;
-  margin-top:5px;padding:6px 10px;
-  background:rgba(255,255,255,.03);border-left:2px solid rgba(255,255,255,.1);
-  border-radius:0 6px 6px 0;
-}
-.judge-A .judge-comment-border{border-left-color:rgba(232,0,61,.4);}
-.judge-B .judge-comment-border{border-left-color:rgba(59,130,246,.4);}
-
-/* Speed index */
-.speed-row{display:flex;align-items:center;gap:6px;margin-top:5px;flex-wrap:wrap;}
-.speed-badge-S{font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;letter-spacing:.05em;}
-.speed-badge-A{font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.5);letter-spacing:.05em;}
-.speed-badge-B{font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.4);letter-spacing:.05em;}
-.speed-badge-C{font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.3);letter-spacing:.05em;}
-.speed-val{font-size:12px;font-weight:700;color:var(--gold);}
-.speed-trend-up{color:#4ade80;font-size:11px;}
-.speed-trend-down{color:#f87171;font-size:11px;}
-.speed-trend-stable{color:var(--muted);font-size:11px;}
-.speed-history{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.02em;}
-.speed-comment{font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;margin-top:4px;
-  padding:5px 10px;background:rgba(255,255,255,.03);
-  border-left:2px solid rgba(240,192,64,.3);border-radius:0 5px 5px 0;}
+/* PDF section */
+.pdf-section{margin-bottom:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 14px;}
+.pdf-section-title{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.pdf-link{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);text-decoration:none;color:var(--text);margin-bottom:5px;transition:background .15s;}
+.pdf-link:last-child{margin-bottom:0;}
+.pdf-link:hover{background:rgba(255,255,255,.08);}
+.pdf-name{font-size:12px;font-weight:700;}
+.pdf-meta{font-size:10px;color:var(--muted);}
 
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
-
-/* Shimmer for loading */
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 .pulse{animation:pulse 1.5s ease-in-out infinite;}
 </style>
@@ -146,7 +132,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 
 <header class="hdr">
   <a href="index.html" class="hdr-back">← TOP</a>
-  <div class="hdr-title-wrap">
+  <div style="flex:1;">
     <div class="hdr-logo">UG強奪競馬新聞</div>
     <div class="hdr-sub">出走想定表</div>
   </div>
@@ -159,144 +145,146 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
       <div class="date-main" id="date-main"></div>
       <div class="date-sub">JRDB 出走想定表（確定前3走版）</div>
     </div>
+
+    <!-- 参考資料 PDF -->
+    <div class="pdf-section">
+      <div class="pdf-section-title">📎 参考資料</div>
+      <a class="pdf-link" href="data/pdf/speed-index-2026-04-05-nakayama-11r.pdf" target="_blank">
+        <span style="font-size:18px;">📊</span>
+        <div><div class="pdf-name">スピード指数 — 中山11R ダービー卿CT</div><div class="pdf-meta">競馬ブック · 2026年4月5日</div></div>
+      </a>
+      <a class="pdf-link" href="data/pdf/interview-2026-04-05-nakayama-11r.pdf" target="_blank">
+        <span style="font-size:18px;">🎤</span>
+        <div><div class="pdf-name">前走インタビュー — 中山11R ダービー卿CT</div><div class="pdf-meta">競馬ブック · 2026年4月5日</div></div>
+      </a>
+    </div>
+
     <div class="race-tabs" id="race-tabs"></div>
     <div id="race-panels"></div>
   </div>
 </div>
 
 <script>
-const DATA_URL = 'data/soutei-2026-04-05.json';
+const SOUTEI_URL  = 'data/soutei-2026-04-05.json';
+const NOTES_BASE  = 'data/race-notes/';
 
-const GRADE_LABELS = {G1:'G1',G2:'G2',G3:'G3',null:'OP'};
-const GRADE_CLASS  = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
+const GRADE_CLASS = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
+const TREND_ICON  = {up:'↑',stable:'→',down:'↓'};
+const TREND_CLS   = {up:'speed-up',stable:'speed-st',down:'speed-dn'};
 
-function gradeHtml(grade) {
-  if (!grade) return `<span class="race-grade-badge grade-OP">オープン</span>`;
-  return `<span class="race-grade-badge ${GRADE_CLASS[grade]}">${grade}</span>`;
+function gradeHtml(g) {
+  if (!g) return `<span class="race-grade-badge grade-OP">オープン</span>`;
+  return `<span class="race-grade-badge ${GRADE_CLASS[g]}">${g}</span>`;
+}
+function sexHtml(s) { return `<span class="sex-badge sex-${s}">${s}</span>`; }
+
+function abilityHtml(n) {
+  if (!n || !n.grade) return '';
+  const g = n.grade;
+  let html = `<div class="ability-row"><span class="ability-badge ability-${g}">能力 ${g}</span>`;
+  if (n.recent != null) {
+    const tc = TREND_CLS[n.trend]||'speed-st';
+    const ti = TREND_ICON[n.trend]||'→';
+    html += `<span class="speed-val">${n.recent}</span><span class="${tc}">${ti}</span>`;
+    html += `<span style="font-size:10px;color:rgba(255,255,255,.3);">最高:${n.peak}</span>`;
+  }
+  if (n.judgeGrade) html += `<span class="judge-badge judge-badge-${n.judgeGrade}">相馬眼 ${n.judgeGrade}</span>`;
+  html += `</div>`;
+  if (n.recent != null && n.history) {
+    const hist = (n.history||[]).filter(v=>v!=null).map(v=>`<span>${v}</span>`).join('<span style="color:rgba(255,255,255,.15);margin:0 1px;">›</span>');
+    html += `<div class="speed-hist" style="margin-top:2px;">${hist}</div>`;
+  }
+  if (n.abilityComment) html += `<div class="ability-comment">${n.abilityComment}</div>`;
+  if (n.judgeComment)   html += `<div class="judge-comment">${n.judgeComment}</div>`;
+  return html;
 }
 
-function sexHtml(sex) {
-  return `<span class="sex-badge sex-${sex}">${sex}</span>`;
+function outlookHtml(notes) {
+  if (!notes || !notes.outlook) return '';
+  return `<div class="outlook-card">
+    <div class="outlook-label">展望</div>
+    <div class="outlook-text">${notes.outlook}</div>
+  </div>`;
 }
 
 function buildTabs(races) {
   return races.map((r, i) => {
     const gradeTag = r.grade ? `<span class="tab-grade">${r.grade}</span>` : '';
-    return `<div class="race-tab${i===0?' active':''}" onclick="switchRace(${i})" id="tab-${i}">
-      ${r.raceNo}${gradeTag}
-    </div>`;
+    const grCls    = r.grade ? ' grade-tab' : '';
+    return `<div class="race-tab${grCls}${i===0?' active':''}" onclick="switchRace(${i})" id="tab-${i}">${r.raceNo}${gradeTag}</div>`;
   }).join('');
 }
 
-const JUDGE_LABEL  = {S:'◆ S', A:'◎ A', B:'▲ B', C:'△ C'};
-const SPEED_TREND  = {up:'↑', stable:'→', down:'↓'};
-const SPEED_TREND_CLASS = {up:'speed-trend-up', stable:'speed-trend-stable', down:'speed-trend-down'};
-
-function speedIdxHtml(s) {
-  if (!s) return '';
-  const trendCls  = SPEED_TREND_CLASS[s.trend] || 'speed-trend-stable';
-  const trendChar = SPEED_TREND[s.trend] || '→';
-  const hist = (s.history || []).filter(v => v != null).map(v =>
-    `<span style="font-size:10px;color:rgba(255,255,255,.35);">${v}</span>`
-  ).join('<span style="color:rgba(255,255,255,.15);margin:0 1px;">›</span>');
-  return `<div class="speed-row">
-    <span class="speed-badge-${s.grade}">能力 ${s.grade}</span>
-    <span class="speed-val">${s.recent}</span>
-    <span class="${trendCls}">${trendChar}</span>
-    <span style="font-size:10px;color:rgba(255,255,255,.3);">最高:${s.peak}</span>
-  </div>
-  <div style="margin-top:3px;display:flex;gap:2px;align-items:center;">${hist}</div>
-  ${s.comment ? `<div class="speed-comment">${s.comment}</div>` : ''}`;
-}
-
-function judgeHtml(judge) {
-  if (!judge) return '';
-  const g = judge.grade;
-  const badge = `<span class="judge-${g}">${JUDGE_LABEL[g] || g}</span>`;
-  const borderColor = g==='A' ? 'rgba(232,0,61,.4)' : g==='B' ? 'rgba(59,130,246,.4)' : g==='S' ? 'rgba(240,192,64,.6)' : 'rgba(107,114,128,.3)';
-  const comment = judge.comment
-    ? `<div class="judge-comment" style="border-left-color:${borderColor}">${judge.comment}</div>`
-    : '';
-  return `<div style="margin-top:6px;">${badge}${comment}</div>`;
-}
-
-function buildPanel(race, idx) {
+function buildPanel(race, idx, notes) {
   const isActive = idx === 0 ? ' active' : '';
-  const hasJudge = race.horses.some(h => h.judge);
+  const horsesNotes = (notes && notes.horses) || {};
 
   const rows = race.horses.map(h => {
-    const jockeyCell = h.jockey
-      ? `<span>${h.jockey}</span>`
-      : `<span class="no-jockey">想定なし</span>`;
-    const weightCell = h.weight != null ? `${h.weight}kg` : '—';
-    const judgeCell  = hasJudge
-      ? `<td style="vertical-align:top;padding-top:11px;">${h.judge ? `<span class="judge-${h.judge.grade}" style="font-size:11px;">${h.judge.grade}</span>` : ''}</td>`
-      : '';
-
+    const hn = horsesNotes[h.name] || null;
+    const jockeyCell = h.jockey ? h.jockey : `<span class="no-jockey">想定なし</span>`;
+    const weightCell = h.weight != null ? `${h.weight}` : '—';
     return `<tr>
       <td class="td-num">${h.num}</td>
       <td>
-        <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:4px;">${h.age}歳</span>${h.name}</div>
-        <div class="td-sire">父 ${h.sire}${h.dam ? ' / 母 '+h.dam : ''}</div>
-        ${h.speedIdx ? speedIdxHtml(h.speedIdx) : ''}
-        ${h.judge ? judgeHtml(h.judge) : ''}
+        <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:3px;">${h.age}歳</span>${h.name}</div>
+        <div class="td-sire">父 ${h.sire}${h.dam?' / 母 '+h.dam:''}</div>
+        ${abilityHtml(hn)}
       </td>
       <td class="td-jockey">${jockeyCell}</td>
       <td class="td-weight">${weightCell}</td>
     </tr>`;
   }).join('');
 
-  const judgeThCol = hasJudge ? '' : '';
-
   return `<div class="race-panel${isActive}" id="panel-${idx}">
     <div class="race-header">
       ${gradeHtml(race.grade)}
       <div class="race-name">${race.raceName}<span class="count-badge">${race.horses.length}頭</span></div>
-      <div class="race-meta">
-        <span>${race.raceNo}</span>
-        <span>${race.course}</span>
-      </div>
+      <div class="race-meta"><span>${race.raceNo}</span><span>${race.course}</span></div>
     </div>
+    ${outlookHtml(notes)}
     <table class="horse-table">
-      <thead>
-        <tr>
-          <th>番</th>
-          <th>馬名 / 父馬${hasJudge ? ' / 相馬眼ジャッジ' : ''}</th>
-          <th>想定騎手</th>
-          <th style="text-align:right">斤量</th>
-        </tr>
-      </thead>
+      <thead><tr>
+        <th>番</th>
+        <th>馬名 / 父馬 / 能力ジャッジ</th>
+        <th>想定騎手</th>
+        <th style="text-align:right">斤量</th>
+      </tr></thead>
       <tbody>${rows}</tbody>
     </table>
   </div>`;
 }
 
 function switchRace(idx) {
-  document.querySelectorAll('.race-tab').forEach((t,i) => t.classList.toggle('active', i===idx));
-  document.querySelectorAll('.race-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  document.querySelectorAll('.race-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  document.querySelectorAll('.race-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
 }
 
 async function init() {
   try {
-    const res = await fetch(DATA_URL);
-    const data = await res.json();
+    const soutei = await fetch(SOUTEI_URL).then(r=>r.json());
 
-    // Date header
-    document.getElementById('date-main').textContent = data.label || data.date;
+    // Fetch all race-notes in parallel
+    const notesMap = {};
+    await Promise.all(soutei.races.map(async r => {
+      if (!r.notesKey) return;
+      try {
+        const n = await fetch(NOTES_BASE + r.notesKey + '.json?_=' + Date.now()).then(res=>res.json());
+        notesMap[r.notesKey] = n;
+      } catch(e) {}
+    }));
 
-    // Tabs
-    document.getElementById('race-tabs').innerHTML = buildTabs(data.races);
+    document.getElementById('date-main').textContent = soutei.label || soutei.date;
+    document.getElementById('race-tabs').innerHTML   = buildTabs(soutei.races);
+    document.getElementById('race-panels').innerHTML = soutei.races.map((r,i) =>
+      buildPanel(r, i, notesMap[r.notesKey]||null)
+    ).join('');
 
-    // Panels
-    document.getElementById('race-panels').innerHTML = data.races.map((r,i) => buildPanel(r,i)).join('');
-
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('content').style.display = 'block';
+    document.getElementById('loading').style.display  = 'none';
+    document.getElementById('content').style.display  = 'block';
   } catch(e) {
-    document.getElementById('loading').textContent = 'データ読み込みエラー: ' + e.message;
+    document.getElementById('loading').textContent = 'エラー: ' + e.message;
   }
 }
-
 init();
 </script>
 </body>
