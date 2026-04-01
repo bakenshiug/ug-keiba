@@ -79,6 +79,7 @@ def convert(csv_path, json_path):
                 'umaname':       row.get('馬名', '').strip(),
                 'sexAge':        row.get('性齢', '').strip(),
                 'interval':      safe_int(row.get('間')),      # 中何週
+                'interval2':     row.get('間2', '').strip() or None,   # 前々走間隔（初戦表記等）
                 'prevDate':      row.get('前走日', '').strip(),
                 'prevVenue':     course['venue'],
                 'prevSurface':   course['surface'],
@@ -95,6 +96,7 @@ def convert(csv_path, json_path):
                 'pci':           pci['value'],
                 'pciAboveAvg':   pci['aboveAvg'],
                 'avg1F':         safe_float(row.get('平均1F')),
+                'last3FDiff':    safe_float(row.get('-3F差')),  # 上3F差（前後半差）
                 'speed':         safe_float(row.get('速度')),
                 'margin':        safe_float(row.get('着差')),
             }
