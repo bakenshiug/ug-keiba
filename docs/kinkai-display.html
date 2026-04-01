@@ -4,414 +4,97 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>今週の金塊馬 | UG強奪競馬新聞</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  body { font-family: 'Public Sans', sans-serif; }
-  .serif-headline { font-family: 'Noto Serif JP', serif; }
-  .ticker-wrap { overflow: hidden; white-space: nowrap; }
-  .ticker-text { display: inline-block; animation: ticker-scroll 30s linear infinite; padding-left: 100%; }
-  @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:#130003;
+  color:#f5d0d5;
+  font-family:'Public Sans',sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.hdr{
+  background:linear-gradient(135deg,#200006,#0b0002 60%,#130003);
+  border-bottom:2px solid rgba(232,0,61,.5);
+  padding:14px 18px;
+  display:flex;align-items:center;gap:10px;
+}
+.hdr-back{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:6px 12px;border-radius:18px;
+  background:rgba(255,255,255,0.08);color:rgba(255,255,255,.45);
+  font-size:11px;font-weight:700;text-decoration:none;
+  border:1px solid rgba(255,255,255,0.12);
+}
+.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(232,0,61,.8);}
+.hdr-sub{font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
 
-  :root {
-    --ug-bg: #130003; --ug-pink: #E8003D; --ug-gold: #f0c040;
-    --ug-card: rgba(255,255,255,0.07); --ug-border: rgba(232,0,61,0.25);
-  }
-  html, body { background: #130003 !important; color: #f5d0d5 !important; min-height: 100vh; }
-  header { background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important; border-bottom: 1px solid rgba(232,0,61,0.40) !important; }
-  header h1 { color: #ffffff !important; text-shadow: 0 0 24px rgba(232,0,61,0.55) !important; }
-  header p, header a { color: rgba(255,255,255,0.80) !important; }
-  footer { background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important; border-top: 1px solid rgba(232,0,61,0.35) !important; }
-  footer * { color: rgba(255,255,255,0.60) !important; }
-
-  .ug-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(232,0,61,0.25); border-radius: 16px; }
-
-  /* 金塊馬カード */
-  .kinkai-card {
-    background: linear-gradient(135deg, rgba(240,192,64,0.12) 0%, rgba(232,0,61,0.10) 100%);
-    border: 1px solid rgba(240,192,64,0.50);
-    border-radius: 20px;
-    box-shadow: 0 4px 28px rgba(240,192,64,0.15), 0 0 0 1px rgba(240,192,64,0.10);
-  }
-  @keyframes goldPulse { 0%,100% { box-shadow: 0 4px 20px rgba(240,192,64,0.20); } 50% { box-shadow: 0 4px 36px rgba(240,192,64,0.50); } }
-  .kinkai-card { animation: goldPulse 3s ease-in-out infinite; }
-
-  /* 条件バッジ */
-  .badge-jockey         { background: linear-gradient(135deg,#E8003D,#B5002E); color:#fff; }
-  .badge-trainer        { background: linear-gradient(135deg,#7c3aed,#4c1d95); color:#fff; }
-  .badge-sire           { background: linear-gradient(135deg,#d97706,#92400e); color:#fff; }
-  .badge-surface-change  { background: linear-gradient(135deg,#0ea5e9,#0369a1); color:#fff; }
-  .badge-jockey-change   { background: linear-gradient(135deg,#10b981,#065f46); color:#fff; }
-  .badge-dist-short      { background: linear-gradient(135deg,#f97316,#c2410c); color:#fff; }
-  .badge-dist-long       { background: linear-gradient(135deg,#8b5cf6,#4c1d95); color:#fff; }
-  .badge-prev-激走       { background: linear-gradient(135deg,#f0c040,#d97706); color:#130003; }
-  .badge-kinkai-line     { background: linear-gradient(135deg,#E8003D,#f0c040); color:#fff; box-shadow:0 0 10px rgba(240,192,64,0.50); }
-  .badge-jockey-keep     { background: linear-gradient(135deg,#06b6d4,#0e7490); color:#fff; }
-  .badge-prev-course     { background: linear-gradient(135deg,#84cc16,#365314); color:#fff; }
-  .badge-trend           { background: linear-gradient(135deg,#f59e0b,#b45309); color:#fff; }
-  .grade-tag { display:inline-block; font-size:9px; font-weight:900; padding:0 4px; border-radius:3px; margin-right:3px; vertical-align:middle; background:rgba(255,255,255,0.25); letter-spacing:0.5px; }
-
-  /* レースセクション */
-  .race-section { border-left: 3px solid #E8003D; padding-left: 16px; }
-
-  /* 結果バッジ */
-  .result-badge { display:inline-flex; align-items:center; gap:3px; font-size:10px; font-weight:900; padding:2px 8px; border-radius:5px; vertical-align:middle; margin-left:8px; white-space:nowrap; letter-spacing:.04em; }
-  .result-tan-fuku { background:linear-gradient(135deg,#f0c040,#d97706); color:#130003; box-shadow:0 0 10px rgba(240,192,64,0.5); }
-  .result-fuku     { background:linear-gradient(135deg,#22c55e,#15803d); color:#fff; }
-  .result-miss     { background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.50); }
-  .rank-num        { font-size:11px; font-weight:900; margin-right:2px; }
-
-  /* 空ステート */
-  .empty-state { text-align:center; padding: 60px 20px; color: rgba(255,255,255,0.35); }
-
-  /* ローディング */
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .loader { width:32px; height:32px; border:3px solid rgba(232,0,61,0.20); border-top-color:#E8003D; border-radius:50%; animation: spin 0.8s linear infinite; margin: 0 auto; }
-
-  /* 近日公開ティーザー */
-  .teaser-card {
-    background: linear-gradient(160deg, #1a0004 0%, #0b0002 60%, #1a000a 100%);
-    border: 1px solid rgba(240,192,64,0.30);
-    border-radius: 24px;
-    box-shadow: 0 0 60px rgba(232,0,61,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
-  }
-  @keyframes teaserPulse { 0%,100% { box-shadow: 0 0 40px rgba(232,0,61,0.12), inset 0 1px 0 rgba(255,255,255,0.06); } 50% { box-shadow: 0 0 80px rgba(232,0,61,0.28), 0 0 40px rgba(240,192,64,0.12), inset 0 1px 0 rgba(255,255,255,0.08); } }
-  .teaser-card { animation: teaserPulse 3.5s ease-in-out infinite; }
-
-  .teaser-label {
-    display: inline-block;
-    font-size: 11px; font-weight: 900; letter-spacing: 0.25em;
-    color: #fff;
-    background: linear-gradient(135deg, #E8003D, #B5002E);
-    padding: 4px 16px; border-radius: 999px;
-    text-transform: uppercase;
-    box-shadow: 0 2px 12px rgba(232,0,61,0.50);
-  }
-
-  /* 点滅ドット */
-  .dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(255,255,255,0.25);
-    display: inline-block; margin: 0 3px;
-  }
-  @keyframes dotBlink { 0%,80%,100% { opacity:0.25; transform:scale(1); } 40% { opacity:1; transform:scale(1.3); background:#f0c040; } }
-  .dot:nth-child(1) { animation: dotBlink 1.4s ease-in-out infinite 0s; }
-  .dot:nth-child(2) { animation: dotBlink 1.4s ease-in-out infinite 0.2s; }
-  .dot:nth-child(3) { animation: dotBlink 1.4s ease-in-out infinite 0.4s; }
-
-  /* 更新日バッジ */
-  .updated-badge {
-    display: inline-flex; align-items:center; gap:6px;
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 999px; padding: 4px 12px; font-size: 11px;
-    color: rgba(255,255,255,0.55);
-  }
+.main{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  padding:40px 20px;
+}
+.card{
+  text-align:center;
+  max-width:480px;
+  padding:48px 36px;
+  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(10,0,3,.95));
+  border:1px solid rgba(240,192,64,.3);
+  border-radius:20px;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,#f0c040,transparent);
+}
+.icon{font-size:56px;margin-bottom:20px;display:block;}
+.label{
+  font-size:10px;font-weight:900;letter-spacing:.25em;text-transform:uppercase;
+  color:#f0c040;margin-bottom:14px;
+}
+.title{
+  font-family:'Noto Serif JP',serif;
+  font-size:26px;font-weight:900;color:#fff;
+  margin-bottom:16px;line-height:1.4;
+}
+.desc{
+  font-size:13px;color:rgba(255,255,255,.5);
+  line-height:1.8;margin-bottom:28px;
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 24px;border-radius:24px;
+  background:rgba(232,0,61,.15);border:1px solid rgba(232,0,61,.4);
+  color:#f5d0d5;font-size:13px;font-weight:700;
+  text-decoration:none;transition:background .15s;
+}
+.back-btn:hover{background:rgba(232,0,61,.25);}
 </style>
 </head>
-<body class="pb-24">
+<body>
 
-<!-- ══════ HEADER ══════ -->
-<header class="sticky top-0 z-50 backdrop-blur-md">
-  <div class="px-5 pt-4 pb-3">
-    <div class="flex items-center gap-3">
-      <a href="../index.html" class="flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/10 transition-colors">
-        <span class="material-symbols-outlined text-xl" style="color:rgba(255,255,255,0.80)">arrow_back</span>
-      </a>
-      <div>
-        <p class="text-[10px] uppercase tracking-widest font-bold" style="color:rgba(255,255,255,0.50)">UG強奪競馬新聞</p>
-        <h1 class="serif-headline text-lg font-bold leading-tight">今週の金塊馬</h1>
-        <p class="text-[10px] font-bold" style="color:#E8003D">コース別穴条件合致馬ピックアップ</p>
-      </div>
-    </div>
+<header class="hdr">
+  <a href="index.html" class="hdr-back">← TOP</a>
+  <div style="flex:1;">
+    <div class="hdr-logo">UG強奪競馬新聞</div>
+    <div class="hdr-sub">今週の金塊馬</div>
   </div>
 </header>
 
-<!-- ══════ TICKER ══════ -->
-<div class="ticker-wrap py-1.5 sticky z-40" style="top:60px;background:#B5002E;">
-  <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
-    💰 今週の金塊馬 &nbsp;｜&nbsp; コース別近5年データから穴騎手・穴厩舎・穴血統に合致した馬をピックアップ &nbsp;｜&nbsp; 💰 今週の金塊馬 &nbsp;｜&nbsp; コース別近5年データから穴騎手・穴厩舎・穴血統に合致した馬をピックアップ
-  </span>
-</div>
-
-<!-- ══════ HERO ══════ -->
-<section class="px-4 pt-8 pb-4 text-center">
-  <div class="text-5xl mb-3">💰</div>
-  <h2 class="serif-headline text-2xl font-bold mb-1" style="color:#f0c040;text-shadow:0 0 20px rgba(240,192,64,0.50)">今週の金塊馬</h2>
-  <p class="text-xs font-bold mb-3" style="color:rgba(255,255,255,0.40);letter-spacing:0.08em;">コース特化型 穴馬自動抽出システム</p>
-
-  <!-- AI抽出クレジット -->
-  <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-3"
-    style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);">
-    <img src="img/ginyo.png" alt="ギーニョ"
-      style="width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid rgba(240,192,64,0.50);"
-      onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-    <span style="font-size:14px;display:none;">🐶</span>
-    <span class="text-xs font-bold" style="color:rgba(255,255,255,0.70);">AIアシスタント犬ギーニョが自動検出</span>
-  </div>
-
-  <div id="updatedBadge" class="hidden justify-center mb-3">
-    <span class="updated-badge">🕐 <span id="updatedDate"></span> 更新</span>
-  </div>
-
-  <!-- 責任監修クレジット -->
-  <div class="flex items-center justify-center gap-2 mt-1 mb-2">
-    <img src="img/nick.png" alt="ニック"
-      style="width:22px;height:22px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid rgba(232,0,61,0.50);"
-      onerror="this.style.display='none'">
-    <p class="text-[10px]" style="color:rgba(255,255,255,0.30);letter-spacing:0.06em;">
-      責任監修 &nbsp;｜&nbsp;
-      <span style="color:rgba(232,0,61,0.80);font-weight:700;">強奪ニック</span>
-      &nbsp;&amp;&nbsp;
-      <span style="color:rgba(240,192,64,0.70);font-weight:700;">データ分析ゴトー</span>
-    </p>
-    <img src="img/goto.png" alt="ゴトー"
-      style="width:22px;height:22px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid rgba(240,192,64,0.50);"
-      onerror="this.style.display='none'">
-  </div>
-</section>
-
-<!-- ══════ MAIN ══════ -->
-<div class="px-4 max-w-2xl mx-auto mt-4">
-
-  <!-- ローディング -->
-  <div id="loadingState" class="py-12">
-    <div class="loader mb-4"></div>
-    <p class="text-center text-sm" style="color:rgba(255,255,255,0.40)">データを読み込み中...</p>
-  </div>
-
-  <!-- エラー / 空ステート（共通：近日公開ティーザー） -->
-  <div id="errorState" class="hidden">
-    <div class="teaser-card p-8 text-center">
-      <div class="flex justify-center items-end gap-3 mb-5">
-        <img src="img/nick.png" alt="ニック"
-          style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(232,0,61,0.60);box-shadow:0 0 16px rgba(232,0,61,0.30);"
-          onerror="this.style.display='none'">
-        <span style="font-size:40px;line-height:1">🏴‍☠️</span>
-        <img src="img/goto.png" alt="ゴトー"
-          style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(240,192,64,0.60);box-shadow:0 0 16px rgba(240,192,64,0.30);"
-          onerror="this.style.display='none'">
-        <img src="img/ginyo.png" alt="ギーニョ"
-          style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.30);box-shadow:0 0 10px rgba(255,255,255,0.15);"
-          onerror="this.style.display='none'">
-      </div>
-      <p class="teaser-label mb-3">近日公開</p>
-      <p class="serif-headline text-xl font-bold mb-3" style="color:#f0c040;text-shadow:0 0 24px rgba(240,192,64,0.60)">
-        ゲリラ馬券師UG<br>が徹底解析
-      </p>
-      <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65)">
-        毎週訪れる<br>
-        <span style="color:#ffb3c6;font-weight:700">強奪ニック &amp; ゴトー</span>の<br>
-        禁断の金塊馬リストに<br>乞うご期待！
-      </p>
-      <div class="mt-6 flex justify-center gap-1">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      </div>
+<main class="main">
+  <div class="card">
+    <span class="icon">🏗️</span>
+    <div class="label">Coming Soon</div>
+    <div class="title">準備中</div>
+    <div class="desc">
+      このページは現在準備中です。<br>
+      近日公開予定です。<br>
+      今しばらくお待ちください。
     </div>
+    <a href="index.html" class="back-btn">← TOPへ戻る</a>
   </div>
+</main>
 
-  <div id="emptyState" class="hidden">
-    <div class="teaser-card p-8 text-center">
-      <div class="flex justify-center items-end gap-3 mb-5">
-        <img src="img/nick.png" alt="ニック"
-          style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(232,0,61,0.60);box-shadow:0 0 16px rgba(232,0,61,0.30);"
-          onerror="this.style.display='none'">
-        <span style="font-size:40px;line-height:1">🏴‍☠️</span>
-        <img src="img/goto.png" alt="ゴトー"
-          style="width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(240,192,64,0.60);box-shadow:0 0 16px rgba(240,192,64,0.30);"
-          onerror="this.style.display='none'">
-        <img src="img/ginyo.png" alt="ギーニョ"
-          style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.30);box-shadow:0 0 10px rgba(255,255,255,0.15);"
-          onerror="this.style.display='none'">
-      </div>
-      <p class="teaser-label mb-3">近日公開</p>
-      <p class="serif-headline text-xl font-bold mb-3" style="color:#f0c040;text-shadow:0 0 24px rgba(240,192,64,0.60)">
-        ゲリラ馬券師UG<br>が徹底解析
-      </p>
-      <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.65)">
-        毎週訪れる<br>
-        <span style="color:#ffb3c6;font-weight:700">強奪ニック &amp; ゴトー</span>の<br>
-        禁断の金塊馬リストに<br>乞うご期待！
-      </p>
-      <div class="mt-6 flex justify-center gap-1">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- レース一覧 -->
-  <div id="raceList" class="hidden space-y-8"></div>
-
-</div>
-
-<!-- ══════ 戦績リンク ══════ -->
-<div class="px-4 max-w-2xl mx-auto mt-8 mb-4">
-  <a href="kinkai-history.html" style="display:block;text-decoration:none;">
-    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;">
-      <div class="flex items-center gap-3">
-        <span style="font-size:24px;">📊</span>
-        <div>
-          <p style="font-size:13px;font-weight:700;color:#fff;">金塊馬 戦績</p>
-          <p style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:2px;">累計的中率・回収率・週別履歴</p>
-        </div>
-      </div>
-      <span style="font-size:18px;color:rgba(255,255,255,0.40);">›</span>
-    </div>
-  </a>
-</div>
-
-<!-- ══════ FOOTER ══════ -->
-<footer class="mt-16 px-5 py-8">
-  <div class="max-w-2xl mx-auto text-center">
-    <p class="text-xs" style="color:rgba(255,255,255,0.35)">UG強奪競馬新聞 — 今週の金塊馬</p>
-    <p class="text-xs mt-1" style="color:rgba(255,255,255,0.20)">※ 本情報は参考目的です。投票は自己責任でお願いします。</p>
-  </div>
-</footer>
-
-<script>
-const BADGE_MAP = {
-  'コース金塊騎手':         'jockey',
-  'コース金塊厩舎':         'trainer',
-  'コース金塊血統':         'sire',
-  'コース金塊騎手厩舎ライン': 'kinkai-line',
-  '芝ダ変更金塊馬':         'surface-change',
-  '乗り替わり金塊馬':       'jockey-change',
-  '距離短縮金塊馬':         'dist-short',
-  '距離延長金塊馬':         'dist-long',
-  '前走激走金塊馬':         'prev-激走',
-  '継続騎乗金塊馬':         'jockey-keep',
-  '前走コース金塊馬':       'prev-course',
-  '好調騎手':               'trend',
-};
-const CONDITION_DESC = {
-  'コース金塊騎手':         '近5年コースデータで高回収率を記録する穴騎手',
-  'コース金塊厩舎':         '近5年コースデータで高回収率を記録する穴厩舎',
-  'コース金塊血統':         '近5年コースデータで高回収率を記録する種牡馬',
-  'コース金塊騎手厩舎ライン': '金塊騎手×金塊厩舎の最強コンビ！配当倍増に期待',
-  '芝ダ変更金塊馬':         '馬場変更で一変が期待できる要注意馬',
-  '乗り替わり金塊馬':       '騎手交替による変身が期待できる馬',
-  '距離短縮金塊馬':         '距離短縮で切れ味・スピードが増す馬',
-  '距離延長金塊馬':         '距離延長でスタミナを活かせる馬',
-  '前走激走金塊馬':         '前走3着以内の好走馬。勢いに乗れるか注目',
-  '継続騎乗金塊馬':         '継続騎乗で近5年高単回値を記録！信頼の手替わりなし',
-  '前走コース金塊馬':       '前走コース条件から参戦で好回収率！コース実績が活きる',
-  '好調騎手':               '直近成績好調・距離横断で注目の期待値B騎手',
-};
-
-// ── データ読み込み ──────────────────────────
-async function loadResults() {
-  try {
-    const res = await fetch('data/kinkai-results.json?v=' + Date.now());
-    if (!res.ok) throw new Error('fetch failed');
-    const data = await res.json();
-    render(data);
-  } catch (e) {
-    document.getElementById('loadingState').classList.add('hidden');
-    document.getElementById('errorState').classList.remove('hidden');
-  }
-}
-
-function render(data) {
-  document.getElementById('loadingState').classList.add('hidden');
-
-  // 更新日
-  if (data.updated) {
-    document.getElementById('updatedDate').textContent = data.updated;
-    document.getElementById('updatedBadge').classList.remove('hidden');
-    document.getElementById('updatedBadge').classList.add('flex');
-  }
-
-  const races = (data.races || []).filter(r => r.horses && r.horses.length > 0);
-
-  if (races.length === 0) {
-    document.getElementById('emptyState').classList.remove('hidden');
-    return;
-  }
-
-  const container = document.getElementById('raceList');
-  container.classList.remove('hidden');
-
-  races.forEach(race => {
-    const section = document.createElement('div');
-    section.innerHTML = `
-      <div class="race-section mb-5">
-        <p class="text-xs font-bold mb-1" style="color:#E8003D">${escHtml(race.course)}</p>
-        <h3 class="serif-headline text-lg font-bold" style="color:#fff">${escHtml(race.raceName)}</h3>
-        <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45)">金塊馬 ${race.horses.length}頭</p>
-      </div>
-      <div class="space-y-4">
-        ${race.horses.map((h, i) => buildHorseCard(h, i, race.horses.length)).join('')}
-      </div>
-    `;
-    container.appendChild(section);
-  });
-}
-
-function buildResultBadge(result) {
-  if (!result || result.chakujun == null) return '';
-  const rank = result.chakujun;
-  const rankMedal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '';
-  if (rank === 1) {
-    return `<span class="result-badge result-tan-fuku">${rankMedal} <span class="rank-num">${rank}着</span> 単複的中</span>`;
-  } else if (rank <= 3) {
-    return `<span class="result-badge result-fuku">${rankMedal} <span class="rank-num">${rank}着</span> 複勝的中</span>`;
-  } else {
-    return `<span class="result-badge result-miss"><span class="rank-num">${rank}着</span> 不的中</span>`;
-  }
-}
-
-function buildHorseCard(h, index, total) {
-  const isMulti = h.conditions.length > 1;
-  const condBadges = h.conditions.map(c => {
-    const cls = BADGE_MAP[c.type] || 'jockey';
-    const gradeHtml = c.grade ? `<span class="grade-tag">${escHtml(c.grade)}</span>` : '';
-    return `<span class="badge-${cls} text-xs font-bold px-2.5 py-0.5 rounded-full">${gradeHtml}${escHtml(c.type)}</span>`;
-  }).join('');
-
-  const condDetails = h.conditions.map(c => {
-    const cls  = BADGE_MAP[c.type] || 'jockey';
-    const desc = CONDITION_DESC[c.type] || '';
-    const stats = [];
-    if (c.単回値) stats.push(`<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(232,0,61,0.20);color:#ffb3c6">単回値 <strong>${c.単回値}</strong></span>`);
-    if (c.複回値) stats.push(`<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(240,192,64,0.15);color:#f0c040">複回値 <strong>${c.複回値}</strong></span>`);
-    if (c.複勝率) stats.push(`<span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,0.10);color:rgba(255,255,255,0.70)">複勝率 ${escHtml(c.複勝率)}</span>`);
-    return `
-      <div class="flex items-start gap-2 pt-2 mt-2" style="border-top:1px solid rgba(255,255,255,0.08)">
-        <span class="badge-${cls} text-[10px] font-bold px-2 py-0.5 rounded-full mt-0.5 whitespace-nowrap">${escHtml(c.type)}</span>
-        <div class="flex-1 min-w-0">
-          <p class="text-xs font-bold" style="color:#fff">${escHtml(c.name)}</p>
-          ${desc ? `<p class="text-[10px] mt-0.5" style="color:rgba(255,255,255,0.45)">${escHtml(desc)}</p>` : ''}
-          <div class="flex flex-wrap gap-1 mt-1">${stats.join('')}</div>
-          ${c.memo ? `<p class="text-xs mt-1" style="color:#ffb3c6">💡 ${escHtml(c.memo)}</p>` : ''}
-        </div>
-      </div>
-    `;
-  }).join('');
-
-  return `
-    <div class="kinkai-card p-5">
-      <div class="flex items-start justify-between mb-3">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl">${isMulti ? '🔥' : '💰'}</span>
-          <div>
-            <h4 class="serif-headline text-xl font-bold" style="color:#f0c040">
-            ${h.num != null ? `<span style="display:inline-block;font-family:'Inter',sans-serif;font-size:13px;font-weight:900;background:rgba(232,0,61,0.85);color:#fff;padding:1px 8px;border-radius:5px;margin-right:6px;vertical-align:middle;">${h.num}</span>` : ''}${escHtml(h.name)}${buildResultBadge(h.result)}</h4>
-            <div class="flex gap-1 flex-wrap mt-1">${condBadges}</div>
-          </div>
-        </div>
-        ${isMulti ? `<span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#E8003D;color:#fff">${h.conditions.length}条件ヒット</span>` : ''}
-      </div>
-      ${condDetails}
-    </div>
-  `;
-}
-
-function escHtml(str) {
-  if (!str) return '';
-  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-loadResults();
-</script>
 </body>
 </html>
