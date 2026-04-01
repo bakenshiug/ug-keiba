@@ -102,7 +102,9 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .horse-table tr:hover td{background:rgba(255,255,255,.02);}
 .horse-table tr:last-child td{border-bottom:none;}
 .td-num{font-size:11px;color:var(--muted);width:28px;text-align:center;padding-top:12px;}
-.td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#fff;}
+.td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#fff;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
+.sabc-name-tan{font-size:13px;font-weight:900;padding:2px 8px;border-radius:6px;background:linear-gradient(135deg,rgba(240,192,64,.18),rgba(240,192,64,.08));border:1px solid rgba(240,192,64,.35);color:#f0c040;letter-spacing:.02em;white-space:nowrap;}
+.sabc-name-fuku{font-size:11px;font-weight:900;padding:2px 7px;border-radius:6px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);color:#93c5fd;letter-spacing:.02em;white-space:nowrap;}
 .td-sire{font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;}
 .td-jockey{font-size:12px;font-weight:700;color:var(--text);white-space:nowrap;}
 .td-weight{font-size:12px;color:var(--gold);font-weight:700;text-align:right;white-space:nowrap;}
@@ -383,7 +385,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     return `<tr>
       <td class="td-num">${h.num}</td>
       <td>
-        <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:3px;">${h.age}歳</span>${h.name}</div>
+        <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);">${h.age}歳</span>${h.name}${hn&&hn.sabc?`<span class="sabc-name-tan">単${hn.sabc.tan.total}pt</span><span class="sabc-name-fuku">複${hn.sabc.fuku.total}pt</span>`:''}</div>
         <div class="td-sire">${pedigreeHtml}${trainerHtml}</div>
         ${abilityHtml(hn, rank)}
         ${sabcHtml(hn)}
