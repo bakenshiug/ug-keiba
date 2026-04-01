@@ -15,13 +15,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 4,
+          "sire": "C",
+          "trainer": "B"
         }
-      }
+      },
+      "sabcSire": "ダノンバラード",
+      "sabcTrainer": "(美)伊藤大士"
     },
     "アルトゥーム": {
       "sabcZI": 89,
@@ -32,13 +38,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "sire": "A",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 4,
+          "sire": "B",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "モーリス",
+      "sabcTrainer": "(栗)藤岡健一"
     },
     "エゾダイモン": {
       "sabcZI": 98,
@@ -49,15 +61,21 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "sire": "B",
+          "trainer": "B"
         }
       },
       "extFacility": "ノーザンFしがらき（滋賀）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "ハーツクライ",
+      "sabcTrainer": "(栗)武幸四郎"
     },
     "キャントウェイト": {
       "sabcZI": 104,
@@ -68,15 +86,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "B",
+          "trainer": "A"
         }
       },
       "extFacility": "ビッグレッドF鉾田（茨城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "ゴールドシップ",
+      "sabcTrainer": "(美)萱野浩二"
     },
     "クルミナーレ": {
       "sabcZI": 116,
@@ -87,13 +111,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "A",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 6,
+          "sire": "B",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "ブラックタイド",
+      "sabcTrainer": "(栗)池江泰寿"
     },
     "シャドウメテオ": {
       "sabcZI": 113,
@@ -104,15 +134,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 8,
+          "sire": "B",
+          "trainer": "A"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "A",
+          "trainer": "A"
         }
       },
       "extFacility": "山元トレセン（宮城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "オルフェーヴル",
+      "sabcTrainer": "(美)金成貴史"
     },
     "ジュタ": {
       "sabcZI": 117,
@@ -123,13 +159,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 5,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "S",
+          "trainer": "B"
         }
-      }
+      },
+      "sabcSire": "ドゥラメンテ",
+      "sabcTrainer": "(栗)矢作芳人"
     },
     "スパークリシャール": {
       "sabcZI": 106,
@@ -140,15 +182,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 6,
+          "sire": "B",
+          "trainer": "B"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "A",
+          "trainer": "B"
         }
       },
       "extFacility": "ノーザンF天栄（福島）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "スワーヴリチャード",
+      "sabcTrainer": "(美)小島茂之"
     },
     "タイキラフター": {
       "sabcZI": 110,
@@ -159,13 +207,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 8,
+          "sire": "C",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "B",
+          "trainer": "S"
         }
-      }
+      },
+      "sabcSire": "ハーツクライ",
+      "sabcTrainer": "(美)大竹正博"
     },
     "ダンツファイター": {
       "sabcZI": 111,
@@ -176,15 +230,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "A",
+          "trainer": "A"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 8,
+          "sire": "A",
+          "trainer": "B"
         }
       },
       "extFacility": "ミッドウェイF（茨城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "ニューイヤーズデイ",
+      "sabcTrainer": "(美)蛯名正義"
     },
     "デルアヴァー": {
       "sabcZI": 109,
@@ -195,15 +255,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 6,
+          "sire": "A",
+          "trainer": "C"
         }
       },
       "extFacility": "大山ヒルズ（鳥取）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "フランケル",
+      "sabcTrainer": "(栗)松永幹夫"
     },
     "トーアイデン": {
       "sabcZI": 104,
@@ -214,15 +280,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         }
       },
       "extFacility": "宇治田原優駿S（京都）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "",
+      "sabcTrainer": ""
     },
     "ドゥカート": {
       "sabcZI": 103,
@@ -233,13 +305,19 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "A",
+          "trainer": "B"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "A",
+          "trainer": "B"
         }
-      }
+      },
+      "sabcSire": "レイデオロ",
+      "sabcTrainer": "(美)宮田敬介"
     },
     "フクノブルーレイク": {
       "sabcZI": 111,
@@ -250,13 +328,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 8,
+          "sire": "C",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "C",
+          "trainer": "A"
         }
-      }
+      },
+      "sabcSire": "ウインブライト",
+      "sabcTrainer": "(美)竹内正洋"
     },
     "フレーヴァード": {
       "sabcZI": 118,
@@ -267,15 +351,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 10,
+          "sire": "A",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "B",
+          "trainer": "S"
         }
       },
       "extFacility": "ノーザンF天栄（福島）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "モーリス",
+      "sabcTrainer": "(美)大竹正博"
     },
     "ホウオウスーペリア": {
       "sabcZI": 101,
@@ -286,15 +376,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "C",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "B",
+          "trainer": "A"
         }
       },
       "extFacility": "グリーンウッド（滋賀）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "スクリーンヒーロー",
+      "sabcTrainer": "(栗)吉岡辰弥"
     },
     "マイネルニコラス": {
       "sabcZI": 90,
@@ -305,13 +401,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "sire": "A",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "sire": "A",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "キングカメハメハ",
+      "sabcTrainer": "(美)畠山吉宏"
     },
     "ヤマニンアドホック": {
       "sabcZI": 111,
@@ -322,15 +424,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 10,
+          "sire": "A",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "B",
+          "trainer": "S"
         }
       },
       "extFacility": "エスティF小見川（千葉）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "ノヴェリスト",
+      "sabcTrainer": "(美)辻哲英"
     },
     "ルクスビッグスター": {
       "sabcZI": 96,
@@ -341,171 +449,177 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 6,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 8,
+          "sire": "S",
+          "trainer": "A"
         }
       },
       "extFacility": "チャンピオンヒルズ（滋賀）",
-      "extGrade": "A"
+      "extGrade": "A",
+      "sabcSire": "キタサンブラック",
+      "sabcTrainer": "(栗)清水久詞"
     }
   },
   "sabcRankTan": [
     {
       "name": "フレーヴァード",
-      "total": 3
-    },
-    {
-      "name": "ジュタ",
-      "total": 3
-    },
-    {
-      "name": "クルミナーレ",
-      "total": 3
-    },
-    {
-      "name": "シャドウメテオ",
-      "total": 3
-    },
-    {
-      "name": "ダンツファイター",
-      "total": 3
-    },
-    {
-      "name": "フクノブルーレイク",
-      "total": 3
+      "total": 10
     },
     {
       "name": "ヤマニンアドホック",
-      "total": 3
+      "total": 10
+    },
+    {
+      "name": "ダンツファイター",
+      "total": 9
+    },
+    {
+      "name": "シャドウメテオ",
+      "total": 8
     },
     {
       "name": "タイキラフター",
-      "total": 3
+      "total": 8
+    },
+    {
+      "name": "フクノブルーレイク",
+      "total": 8
+    },
+    {
+      "name": "クルミナーレ",
+      "total": 7
     },
     {
       "name": "デルアヴァー",
-      "total": 2
-    },
-    {
-      "name": "スパークリシャール",
-      "total": 2
-    },
-    {
-      "name": "キャントウェイト",
-      "total": 2
-    },
-    {
-      "name": "トーアイデン",
-      "total": 2
+      "total": 7
     },
     {
       "name": "ドゥカート",
-      "total": 2
+      "total": 7
     },
     {
       "name": "ホウオウスーペリア",
-      "total": 2
+      "total": 7
     },
     {
-      "name": "エゾダイモン",
-      "total": 1
+      "name": "スパークリシャール",
+      "total": 6
     },
     {
       "name": "ルクスビッグスター",
-      "total": 1
-    },
-    {
-      "name": "アマイ",
-      "total": 1
-    },
-    {
-      "name": "マイネルニコラス",
-      "total": 1
+      "total": 6
     },
     {
       "name": "アルトゥーム",
-      "total": 1
+      "total": 5
+    },
+    {
+      "name": "ジュタ",
+      "total": 5
+    },
+    {
+      "name": "マイネルニコラス",
+      "total": 5
+    },
+    {
+      "name": "キャントウェイト",
+      "total": 4
+    },
+    {
+      "name": "トーアイデン",
+      "total": 4
+    },
+    {
+      "name": "アマイ",
+      "total": 3
+    },
+    {
+      "name": "エゾダイモン",
+      "total": 3
     }
   ],
   "sabcRankFuku": [
     {
-      "name": "フレーヴァード",
-      "total": 3
+      "name": "シャドウメテオ",
+      "total": 9
     },
     {
       "name": "ジュタ",
-      "total": 3
-    },
-    {
-      "name": "クルミナーレ",
-      "total": 3
-    },
-    {
-      "name": "シャドウメテオ",
-      "total": 3
-    },
-    {
-      "name": "ダンツファイター",
-      "total": 3
-    },
-    {
-      "name": "フクノブルーレイク",
-      "total": 3
-    },
-    {
-      "name": "ヤマニンアドホック",
-      "total": 3
+      "total": 9
     },
     {
       "name": "タイキラフター",
-      "total": 3
+      "total": 9
     },
     {
-      "name": "デルアヴァー",
-      "total": 2
+      "name": "フレーヴァード",
+      "total": 9
     },
     {
-      "name": "スパークリシャール",
-      "total": 2
+      "name": "ヤマニンアドホック",
+      "total": 9
     },
     {
-      "name": "キャントウェイト",
-      "total": 2
-    },
-    {
-      "name": "トーアイデン",
-      "total": 2
-    },
-    {
-      "name": "ドゥカート",
-      "total": 2
-    },
-    {
-      "name": "ホウオウスーペリア",
-      "total": 2
-    },
-    {
-      "name": "エゾダイモン",
-      "total": 1
+      "name": "ダンツファイター",
+      "total": 8
     },
     {
       "name": "ルクスビッグスター",
-      "total": 1
+      "total": 8
     },
     {
-      "name": "アマイ",
-      "total": 1
+      "name": "キャントウェイト",
+      "total": 7
+    },
+    {
+      "name": "スパークリシャール",
+      "total": 7
+    },
+    {
+      "name": "ドゥカート",
+      "total": 7
+    },
+    {
+      "name": "フクノブルーレイク",
+      "total": 7
+    },
+    {
+      "name": "ホウオウスーペリア",
+      "total": 7
+    },
+    {
+      "name": "クルミナーレ",
+      "total": 6
+    },
+    {
+      "name": "デルアヴァー",
+      "total": 6
+    },
+    {
+      "name": "エゾダイモン",
+      "total": 5
     },
     {
       "name": "マイネルニコラス",
-      "total": 1
+      "total": 5
+    },
+    {
+      "name": "アマイ",
+      "total": 4
     },
     {
       "name": "アルトゥーム",
-      "total": 1
+      "total": 4
+    },
+    {
+      "name": "トーアイデン",
+      "total": 4
     }
   ]
 }

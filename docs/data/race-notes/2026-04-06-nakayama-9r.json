@@ -15,15 +15,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 11,
+          "sire": "S",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 10,
+          "sire": "A",
+          "trainer": "S"
         }
       },
       "extFacility": "ノーザンF天栄（福島）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "シュヴァルグラン",
+      "sabcTrainer": "(美)青木孝文"
     },
     "オストラヴァ": {
       "sabcZI": 125,
@@ -34,15 +40,21 @@
       "sabc": {
         "tan": {
           "zi": "S",
-          "total": 4
+          "total": 9,
+          "sire": "C",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "S",
-          "total": 4
+          "total": 12,
+          "sire": "S",
+          "trainer": "S"
         }
       },
       "extFacility": "山元トレセン（宮城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "スクリーンヒーロー",
+      "sabcTrainer": "(美)林徹"
     },
     "カーミングライツ": {
       "sabcZI": 113,
@@ -53,15 +65,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 5,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 5,
+          "sire": "C",
+          "trainer": "C"
         }
       },
       "extFacility": "ノーザンF天栄（福島）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "サトノダイヤモンド",
+      "sabcTrainer": "(美)小島茂之"
     },
     "タッチアンドムーブ": {
       "sabcZI": 106,
@@ -72,15 +90,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "C",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 8,
+          "sire": "B",
+          "trainer": "S"
         }
       },
       "extFacility": "山元トレセン（宮城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "ハービンジャー",
+      "sabcTrainer": "(美)栗田徹"
     },
     "ダイシンアポロン": {
       "sabcZI": 98,
@@ -91,13 +115,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 6,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 9,
+          "sire": "S",
+          "trainer": "S"
         }
-      }
+      },
+      "sabcSire": "レイデオロ",
+      "sabcTrainer": "(美)戸田博文"
     },
     "ラーテル": {
       "sabcZI": 82,
@@ -108,13 +138,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "ビッグアーサー",
+      "sabcTrainer": ""
     },
     "リギーロ": {
       "sabcZI": 105,
@@ -125,15 +161,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 10,
+          "sire": "S",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 10,
+          "sire": "S",
+          "trainer": "S"
         }
       },
       "extFacility": "エスティF小見川（千葉）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "キズナ",
+      "sabcTrainer": "(美)栗田徹"
     },
     "レイデラルース": {
       "sabcZI": 106,
@@ -144,15 +186,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "S",
+          "trainer": "C"
         }
       },
       "extFacility": "ノーザンF天栄（福島）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "レイデオロ",
+      "sabcTrainer": "(美)西田雄一郎"
     },
     "レッドバレンティア": {
       "sabcZI": 92,
@@ -163,13 +211,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 6,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 7,
+          "sire": "A",
+          "trainer": "A"
         }
-      }
+      },
+      "sabcSire": "リオンディーズ",
+      "sabcTrainer": "(美)矢嶋大樹"
     },
     "ロールザダイス": {
       "sabcZI": 105,
@@ -180,99 +234,105 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 6,
+          "sire": "A",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 6,
+          "sire": "A",
+          "trainer": "C"
         }
       },
       "extFacility": "大山ヒルズ（鳥取）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "エピファネイア",
+      "sabcTrainer": "(栗)池江泰寿"
     }
   },
   "sabcRankTan": [
     {
-      "name": "オストラヴァ",
-      "total": 4
-    },
-    {
       "name": "イクリール",
-      "total": 3
-    },
-    {
-      "name": "カーミングライツ",
-      "total": 3
-    },
-    {
-      "name": "タッチアンドムーブ",
-      "total": 2
-    },
-    {
-      "name": "レイデラルース",
-      "total": 2
+      "total": 11
     },
     {
       "name": "リギーロ",
-      "total": 2
+      "total": 10
     },
     {
-      "name": "ロールザダイス",
-      "total": 2
+      "name": "オストラヴァ",
+      "total": 9
+    },
+    {
+      "name": "タッチアンドムーブ",
+      "total": 7
+    },
+    {
+      "name": "レイデラルース",
+      "total": 7
     },
     {
       "name": "ダイシンアポロン",
-      "total": 1
+      "total": 6
     },
     {
       "name": "レッドバレンティア",
-      "total": 1
+      "total": 6
+    },
+    {
+      "name": "ロールザダイス",
+      "total": 6
+    },
+    {
+      "name": "カーミングライツ",
+      "total": 5
     },
     {
       "name": "ラーテル",
-      "total": 1
+      "total": 3
     }
   ],
   "sabcRankFuku": [
     {
       "name": "オストラヴァ",
-      "total": 4
+      "total": 12
     },
     {
       "name": "イクリール",
-      "total": 3
-    },
-    {
-      "name": "カーミングライツ",
-      "total": 3
-    },
-    {
-      "name": "タッチアンドムーブ",
-      "total": 2
-    },
-    {
-      "name": "レイデラルース",
-      "total": 2
+      "total": 10
     },
     {
       "name": "リギーロ",
-      "total": 2
-    },
-    {
-      "name": "ロールザダイス",
-      "total": 2
+      "total": 10
     },
     {
       "name": "ダイシンアポロン",
-      "total": 1
+      "total": 9
+    },
+    {
+      "name": "タッチアンドムーブ",
+      "total": 8
+    },
+    {
+      "name": "レイデラルース",
+      "total": 7
     },
     {
       "name": "レッドバレンティア",
-      "total": 1
+      "total": 7
+    },
+    {
+      "name": "ロールザダイス",
+      "total": 6
+    },
+    {
+      "name": "カーミングライツ",
+      "total": 5
     },
     {
       "name": "ラーテル",
-      "total": 1
+      "total": 3
     }
   ]
 }

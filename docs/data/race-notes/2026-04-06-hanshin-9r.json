@@ -15,13 +15,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 5,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 5,
+          "sire": "C",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "ティズザロー",
+      "sabcTrainer": "(栗)森秀行"
     },
     "エブリーポッシブル": {
       "sabcZI": 111,
@@ -32,15 +38,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "A",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "A",
+          "trainer": "C"
         }
       },
       "extFacility": "ノーザンFしがらき（滋賀）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "ニューイヤーズデイ",
+      "sabcTrainer": "(栗)新谷功一"
     },
     "サマーゲール": {
       "sabcZI": 116,
@@ -51,13 +63,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 11,
+          "sire": "S",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 10,
+          "sire": "A",
+          "trainer": "S"
         }
-      }
+      },
+      "sabcSire": "ヘニーヒューズ",
+      "sabcTrainer": "(美)加藤士津八"
     },
     "ジャックナダル": {
       "sabcZI": 120,
@@ -68,15 +86,21 @@
       "sabc": {
         "tan": {
           "zi": "S",
-          "total": 4
+          "total": 9,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "S",
-          "total": 4
+          "total": 8,
+          "sire": "A",
+          "trainer": "C"
         }
       },
       "extFacility": "エスティF小見川（千葉）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "ナダル",
+      "sabcTrainer": "(美)伊坂重信"
     },
     "スターオブロンドン": {
       "sabcZI": 90,
@@ -87,13 +111,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "sire": "A",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 4,
+          "sire": "C",
+          "trainer": "B"
         }
-      }
+      },
+      "sabcSire": "タワーオブロンドン",
+      "sabcTrainer": "(栗)矢作芳人"
     },
     "テーオーグレーザー": {
       "sabcZI": 122,
@@ -104,13 +134,19 @@
       "sabc": {
         "tan": {
           "zi": "S",
-          "total": 4
+          "total": 7,
+          "sire": "C",
+          "trainer": "B"
         },
         "fuku": {
           "zi": "S",
-          "total": 4
+          "total": 10,
+          "sire": "A",
+          "trainer": "A"
         }
-      }
+      },
+      "sabcSire": "マテラスカイ",
+      "sabcTrainer": "(栗)藤岡健一"
     },
     "ハグレジョー": {
       "sabcZI": 101,
@@ -121,13 +157,19 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 7,
+          "sire": "A",
+          "trainer": "B"
         }
-      }
+      },
+      "sabcSire": "エスポワールシチー",
+      "sabcTrainer": "(栗)岡田稲男"
     },
     "ビービークローサー": {
       "sabcZI": 105,
@@ -138,15 +180,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 5,
+          "sire": "C",
+          "trainer": "B"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 5,
+          "sire": "C",
+          "trainer": "B"
         }
       },
       "extFacility": "チャンピオンヒルズ（滋賀）",
-      "extGrade": "A"
+      "extGrade": "A",
+      "sabcSire": "グレーターロンドン",
+      "sabcTrainer": "(栗)野中賢二"
     },
     "マジッククッキー": {
       "sabcZI": 118,
@@ -157,13 +205,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "B",
+          "trainer": "S"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "B",
+          "trainer": "S"
         }
-      }
+      },
+      "sabcSire": "マインドユアビスケッツ",
+      "sabcTrainer": "(美)加藤士津八"
     },
     "メイショウカクウチ": {
       "sabcZI": 111,
@@ -174,13 +228,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 8,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "A",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "エスポワールシチー",
+      "sabcTrainer": "(栗)飯田祐史"
     },
     "リサシテーション": {
       "sabcZI": 107,
@@ -191,13 +251,19 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 6,
+          "sire": "B",
+          "trainer": "B"
         }
-      }
+      },
+      "sabcSire": "リオンディーズ",
+      "sabcTrainer": "(栗)岡田稲男"
     },
     "ルクスレイモンド": {
       "sabcZI": 116,
@@ -208,13 +274,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 8,
+          "sire": "S",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "A",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "ヘニーヒューズ",
+      "sabcTrainer": ""
     },
     "レッドスティンガー": {
       "sabcZI": 117,
@@ -225,13 +297,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 5,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 5,
+          "sire": "C",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "レッドファルクス",
+      "sabcTrainer": ""
     },
     "ローズカリス": {
       "sabcZI": 112,
@@ -242,129 +320,135 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 5,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "C",
+          "trainer": "A"
         }
-      }
+      },
+      "sabcSire": "カルフォルニアクローム",
+      "sabcTrainer": "(栗)大橋勇樹"
     }
   },
   "sabcRankTan": [
     {
-      "name": "テーオーグレーザー",
-      "total": 4
+      "name": "サマーゲール",
+      "total": 11
     },
     {
       "name": "ジャックナダル",
-      "total": 4
+      "total": 9
     },
     {
       "name": "マジッククッキー",
-      "total": 3
-    },
-    {
-      "name": "レッドスティンガー",
-      "total": 3
-    },
-    {
-      "name": "サマーゲール",
-      "total": 3
-    },
-    {
-      "name": "ルクスレイモンド",
-      "total": 3
-    },
-    {
-      "name": "ローズカリス",
-      "total": 3
-    },
-    {
-      "name": "エコロレーヴ",
-      "total": 3
-    },
-    {
-      "name": "エブリーポッシブル",
-      "total": 3
+      "total": 9
     },
     {
       "name": "メイショウカクウチ",
-      "total": 3
+      "total": 8
     },
     {
-      "name": "リサシテーション",
-      "total": 2
+      "name": "ルクスレイモンド",
+      "total": 8
     },
     {
-      "name": "ビービークローサー",
-      "total": 2
+      "name": "エブリーポッシブル",
+      "total": 7
+    },
+    {
+      "name": "テーオーグレーザー",
+      "total": 7
     },
     {
       "name": "ハグレジョー",
-      "total": 2
+      "total": 7
+    },
+    {
+      "name": "エコロレーヴ",
+      "total": 5
     },
     {
       "name": "スターオブロンドン",
-      "total": 1
+      "total": 5
+    },
+    {
+      "name": "ビービークローサー",
+      "total": 5
+    },
+    {
+      "name": "レッドスティンガー",
+      "total": 5
+    },
+    {
+      "name": "ローズカリス",
+      "total": 5
+    },
+    {
+      "name": "リサシテーション",
+      "total": 4
     }
   ],
   "sabcRankFuku": [
     {
-      "name": "テーオーグレーザー",
-      "total": 4
+      "name": "サマーゲール",
+      "total": 10
     },
     {
-      "name": "ジャックナダル",
-      "total": 4
+      "name": "テーオーグレーザー",
+      "total": 10
     },
     {
       "name": "マジッククッキー",
-      "total": 3
+      "total": 9
     },
     {
-      "name": "レッドスティンガー",
-      "total": 3
-    },
-    {
-      "name": "サマーゲール",
-      "total": 3
-    },
-    {
-      "name": "ルクスレイモンド",
-      "total": 3
-    },
-    {
-      "name": "ローズカリス",
-      "total": 3
-    },
-    {
-      "name": "エコロレーヴ",
-      "total": 3
+      "name": "ジャックナダル",
+      "total": 8
     },
     {
       "name": "エブリーポッシブル",
-      "total": 3
-    },
-    {
-      "name": "メイショウカクウチ",
-      "total": 3
-    },
-    {
-      "name": "リサシテーション",
-      "total": 2
-    },
-    {
-      "name": "ビービークローサー",
-      "total": 2
+      "total": 7
     },
     {
       "name": "ハグレジョー",
-      "total": 2
+      "total": 7
+    },
+    {
+      "name": "メイショウカクウチ",
+      "total": 7
+    },
+    {
+      "name": "ルクスレイモンド",
+      "total": 7
+    },
+    {
+      "name": "ローズカリス",
+      "total": 7
+    },
+    {
+      "name": "リサシテーション",
+      "total": 6
+    },
+    {
+      "name": "エコロレーヴ",
+      "total": 5
+    },
+    {
+      "name": "ビービークローサー",
+      "total": 5
+    },
+    {
+      "name": "レッドスティンガー",
+      "total": 5
     },
     {
       "name": "スターオブロンドン",
-      "total": 1
+      "total": 4
     }
   ]
 }

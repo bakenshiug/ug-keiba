@@ -16,13 +16,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 6,
+          "sire": "C",
+          "trainer": "B"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "B",
+          "trainer": "B"
         }
-      }
+      },
+      "sabcSire": "パイロ",
+      "sabcTrainer": "(美)牧光二"
     },
     "オレデイイノカ": {
       "sabcZI": 90,
@@ -34,13 +40,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 4,
+          "sire": "C",
+          "trainer": "B"
         }
-      }
+      },
+      "sabcSire": "サウスヴィグラス",
+      "sabcTrainer": "(美)古賀慎明"
     },
     "クロースコンバット": {
       "sabcZI": 109,
@@ -52,15 +64,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 5,
+          "sire": "B",
+          "trainer": "C"
         }
       },
       "extFacility": "ノーザンF天栄（福島）",
-      "extGrade": "S"
+      "extGrade": "S",
+      "sabcSire": "キンシャサノキセキ",
+      "sabcTrainer": "(美)青木孝文"
     },
     "グレイテストソング": {
       "sabcZI": 105,
@@ -72,15 +90,21 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 5,
+          "sire": "B",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 6,
+          "sire": "A",
+          "trainer": "C"
         }
       },
       "extFacility": "エスティF小見川（千葉）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "モズアスコット",
+      "sabcTrainer": "(美)小笠倫弘"
     },
     "シゲルソロソロ": {
       "sabcZI": 100,
@@ -92,13 +116,19 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "ランハッピー",
+      "sabcTrainer": "(栗)谷潔"
     },
     "タイセミッション": {
       "sabcZI": 105,
@@ -110,13 +140,19 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "",
+      "sabcTrainer": ""
     },
     "タンゴバイラリン": {
       "sabcZI": 88,
@@ -128,15 +164,21 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "sire": "C",
+          "trainer": "A"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 6,
+          "sire": "B",
+          "trainer": "A"
         }
       },
       "extFacility": "山元トレセン（宮城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "イスラボニータ",
+      "sabcTrainer": "(美)栗田徹"
     },
     "デルアヴァー": {
       "sabcZI": 110,
@@ -148,15 +190,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 7,
+          "sire": "C",
+          "trainer": "A"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 8,
+          "sire": "C",
+          "trainer": "S"
         }
       },
       "extFacility": "大山ヒルズ（鳥取）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "フランケル",
+      "sabcTrainer": "(栗)松永幹夫"
     },
     "トルーマンテソーロ": {
       "sabcZI": 91,
@@ -168,13 +216,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "トーセンジョーダン",
+      "sabcTrainer": "(美)菊川正達"
     },
     "バリアントバイオ": {
       "sabcZI": 86,
@@ -186,15 +240,21 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         }
       },
       "extFacility": "チャンピオンヒルズ（滋賀）",
-      "extGrade": "A"
+      "extGrade": "A",
+      "sabcSire": "トーセンジョーダン",
+      "sabcTrainer": ""
     },
     "ベンヌ": {
       "sabcZI": 110,
@@ -206,15 +266,21 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 6,
+          "sire": "C",
+          "trainer": "B"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 8,
+          "sire": "B",
+          "trainer": "A"
         }
       },
       "extFacility": "ミッドウェイF（茨城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "パイロ",
+      "sabcTrainer": "(美)久保田貴"
     },
     "ペイシャモノノフ": {
       "sabcZI": 101,
@@ -226,14 +292,20 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 6,
+          "sire": "C",
+          "trainer": "A"
         }
       },
-      "extFacility": "帰厩"
+      "extFacility": "帰厩",
+      "sabcSire": "ニシケンモノノフ",
+      "sabcTrainer": "(栗)畑端省吾"
     },
     "ホルトバージ": {
       "sabcZI": 100,
@@ -245,13 +317,19 @@
       "sabc": {
         "tan": {
           "zi": "B",
-          "total": 2
+          "total": 4,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "B",
-          "total": 2
+          "total": 5,
+          "sire": "B",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "キンシャサノキセキ",
+      "sabcTrainer": ""
     },
     "メイショウフジ": {
       "sabcZI": 96,
@@ -263,13 +341,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 6,
+          "sire": "B",
+          "trainer": "A"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 7,
+          "sire": "A",
+          "trainer": "A"
         }
-      }
+      },
+      "sabcSire": "ホッコータルマエ",
+      "sabcTrainer": "(美)和田勇介"
     },
     "メリークリスマス": {
       "sabcZI": 113,
@@ -281,13 +365,19 @@
       "sabc": {
         "tan": {
           "zi": "A",
-          "total": 3
+          "total": 9,
+          "sire": "S",
+          "trainer": "B"
         },
         "fuku": {
           "zi": "A",
-          "total": 3
+          "total": 10,
+          "sire": "S",
+          "trainer": "A"
         }
-      }
+      },
+      "sabcSire": "ルヴァンスレーヴ",
+      "sabcTrainer": "(美)小手川準"
     },
     "ラオラシオン": {
       "sabcZI": 96,
@@ -299,13 +389,19 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 6,
+          "sire": "B",
+          "trainer": "A"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 6,
+          "sire": "B",
+          "trainer": "A"
         }
-      }
+      },
+      "sabcSire": "クリエイター",
+      "sabcTrainer": "(美)斎藤誠"
     },
     "ラテラルシンキング": {
       "sabcZI": 90,
@@ -317,15 +413,21 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 4,
+          "sire": "C",
+          "trainer": "B"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 5,
+          "sire": "B",
+          "trainer": "B"
         }
       },
       "extFacility": "山元トレセン（宮城）",
-      "extGrade": "B"
+      "extGrade": "B",
+      "sabcSire": "ハービンジャー",
+      "sabcTrainer": "(美)黒岩陽一"
     },
     "レッドラパルマ": {
       "sabcZI": 88,
@@ -337,161 +439,167 @@
       "sabc": {
         "tan": {
           "zi": "C",
-          "total": 1
+          "total": 3,
+          "sire": "C",
+          "trainer": "C"
         },
         "fuku": {
           "zi": "C",
-          "total": 1
+          "total": 4,
+          "sire": "B",
+          "trainer": "C"
         }
-      }
+      },
+      "sabcSire": "イスラボニータ",
+      "sabcTrainer": "(美)平岩大典"
     }
   },
   "sabcRankTan": [
     {
       "name": "メリークリスマス",
-      "total": 3
-    },
-    {
-      "name": "ウィンドフォール",
-      "total": 3
+      "total": 9
     },
     {
       "name": "デルアヴァー",
-      "total": 3
+      "total": 7
+    },
+    {
+      "name": "ウィンドフォール",
+      "total": 6
     },
     {
       "name": "ベンヌ",
-      "total": 3
-    },
-    {
-      "name": "クロースコンバット",
-      "total": 2
-    },
-    {
-      "name": "グレイテストソング",
-      "total": 2
-    },
-    {
-      "name": "タイセミッション",
-      "total": 2
-    },
-    {
-      "name": "ペイシャモノノフ",
-      "total": 2
-    },
-    {
-      "name": "シゲルソロソロ",
-      "total": 2
-    },
-    {
-      "name": "ホルトバージ",
-      "total": 2
+      "total": 6
     },
     {
       "name": "メイショウフジ",
-      "total": 1
+      "total": 6
     },
     {
       "name": "ラオラシオン",
-      "total": 1
+      "total": 6
     },
     {
-      "name": "トルーマンテソーロ",
-      "total": 1
-    },
-    {
-      "name": "オレデイイノカ",
-      "total": 1
-    },
-    {
-      "name": "ラテラルシンキング",
-      "total": 1
+      "name": "グレイテストソング",
+      "total": 5
     },
     {
       "name": "タンゴバイラリン",
-      "total": 1
+      "total": 5
     },
     {
-      "name": "レッドラパルマ",
-      "total": 1
+      "name": "クロースコンバット",
+      "total": 4
+    },
+    {
+      "name": "シゲルソロソロ",
+      "total": 4
+    },
+    {
+      "name": "タイセミッション",
+      "total": 4
+    },
+    {
+      "name": "ペイシャモノノフ",
+      "total": 4
+    },
+    {
+      "name": "ホルトバージ",
+      "total": 4
+    },
+    {
+      "name": "ラテラルシンキング",
+      "total": 4
+    },
+    {
+      "name": "オレデイイノカ",
+      "total": 3
+    },
+    {
+      "name": "トルーマンテソーロ",
+      "total": 3
     },
     {
       "name": "バリアントバイオ",
-      "total": 1
+      "total": 3
+    },
+    {
+      "name": "レッドラパルマ",
+      "total": 3
     }
   ],
   "sabcRankFuku": [
     {
       "name": "メリークリスマス",
-      "total": 3
-    },
-    {
-      "name": "ウィンドフォール",
-      "total": 3
+      "total": 10
     },
     {
       "name": "デルアヴァー",
-      "total": 3
+      "total": 8
     },
     {
       "name": "ベンヌ",
-      "total": 3
+      "total": 8
     },
     {
-      "name": "クロースコンバット",
-      "total": 2
-    },
-    {
-      "name": "グレイテストソング",
-      "total": 2
-    },
-    {
-      "name": "タイセミッション",
-      "total": 2
-    },
-    {
-      "name": "ペイシャモノノフ",
-      "total": 2
-    },
-    {
-      "name": "シゲルソロソロ",
-      "total": 2
-    },
-    {
-      "name": "ホルトバージ",
-      "total": 2
+      "name": "ウィンドフォール",
+      "total": 7
     },
     {
       "name": "メイショウフジ",
-      "total": 1
+      "total": 7
     },
     {
-      "name": "ラオラシオン",
-      "total": 1
-    },
-    {
-      "name": "トルーマンテソーロ",
-      "total": 1
-    },
-    {
-      "name": "オレデイイノカ",
-      "total": 1
-    },
-    {
-      "name": "ラテラルシンキング",
-      "total": 1
+      "name": "グレイテストソング",
+      "total": 6
     },
     {
       "name": "タンゴバイラリン",
-      "total": 1
+      "total": 6
+    },
+    {
+      "name": "ペイシャモノノフ",
+      "total": 6
+    },
+    {
+      "name": "ラオラシオン",
+      "total": 6
+    },
+    {
+      "name": "クロースコンバット",
+      "total": 5
+    },
+    {
+      "name": "ホルトバージ",
+      "total": 5
+    },
+    {
+      "name": "ラテラルシンキング",
+      "total": 5
+    },
+    {
+      "name": "オレデイイノカ",
+      "total": 4
+    },
+    {
+      "name": "シゲルソロソロ",
+      "total": 4
+    },
+    {
+      "name": "タイセミッション",
+      "total": 4
     },
     {
       "name": "レッドラパルマ",
-      "total": 1
+      "total": 4
+    },
+    {
+      "name": "トルーマンテソーロ",
+      "total": 3
     },
     {
       "name": "バリアントバイオ",
-      "total": 1
+      "total": 3
     }
   ]
 }
