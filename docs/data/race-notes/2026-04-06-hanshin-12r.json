@@ -7,152 +7,626 @@
   "course": "阪神ダート1400m",
   "horses": {
     "アイアムユウシュン": {
-      "sabcZI": 99, "ziRank": 17, "runStyle": "先", "saikinIdx": 94, "dartSIdx": 97,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 99,
+      "ziRank": 17,
+      "runStyle": "先",
+      "saikinIdx": 94,
+      "dartSIdx": 97,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "イリフィ": {
-      "sabcZI": 111, "ziRank": 7, "runStyle": "差", "saikinIdx": 96, "dartSIdx": 96,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 111,
+      "ziRank": 7,
+      "runStyle": "差",
+      "saikinIdx": 96,
+      "dartSIdx": 96,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      },
+      "extFacility": "大山ヒルズ（鳥取）",
+      "extGrade": "B"
     },
     "ガンウルフ": {
-      "sabcZI": 107, "ziRank": 8, "runStyle": "先", "saikinIdx": 97, "dartSIdx": 98,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 107,
+      "ziRank": 8,
+      "runStyle": "先",
+      "saikinIdx": 97,
+      "dartSIdx": 98,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      },
+      "extFacility": "吉澤S-WEST（滋賀）",
+      "extGrade": "B"
     },
     "ゲイルライダー": {
-      "sabcZI": 117, "ziRank": 2, "runStyle": "先", "saikinIdx": 0, "dartSIdx": 88,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 117,
+      "ziRank": 2,
+      "runStyle": "先",
+      "saikinIdx": 0,
+      "dartSIdx": 88,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      }
     },
     "サヴォンリンナ": {
-      "sabcZI": 104, "ziRank": 10, "runStyle": "先", "saikinIdx": 93, "dartSIdx": 0,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 104,
+      "ziRank": 10,
+      "runStyle": "先",
+      "saikinIdx": 93,
+      "dartSIdx": 0,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      },
+      "extFacility": "チャンピオンヒルズ（滋賀）",
+      "extGrade": "A"
     },
     "シゲルソロソロ": {
-      "sabcZI": 101, "ziRank": 13, "runStyle": "追", "saikinIdx": 96, "dartSIdx": 96,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 101,
+      "ziRank": 13,
+      "runStyle": "追",
+      "saikinIdx": 96,
+      "dartSIdx": 96,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      }
     },
     "ジャーヴィス": {
-      "sabcZI": 91, "ziRank": 21, "runStyle": "先", "saikinIdx": 89, "dartSIdx": 97,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 91,
+      "ziRank": 21,
+      "runStyle": "先",
+      "saikinIdx": 89,
+      "dartSIdx": 97,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "ジャスパーバローズ": {
-      "sabcZI": 89, "ziRank": 23, "runStyle": "差", "saikinIdx": 86, "dartSIdx": 93,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 89,
+      "ziRank": 23,
+      "runStyle": "差",
+      "saikinIdx": 86,
+      "dartSIdx": 93,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      },
+      "extFacility": "チャンピオンヒルズ（滋賀）",
+      "extGrade": "A"
     },
     "ジョーディーズマロン": {
-      "sabcZI": 101, "ziRank": 13, "runStyle": "差", "saikinIdx": 95, "dartSIdx": 95,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 101,
+      "ziRank": 13,
+      "runStyle": "差",
+      "saikinIdx": 95,
+      "dartSIdx": 95,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      }
     },
     "スブランドゥール": {
-      "sabcZI": 102, "ziRank": 12, "runStyle": "追", "saikinIdx": 89, "dartSIdx": 98,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 102,
+      "ziRank": 12,
+      "runStyle": "追",
+      "saikinIdx": 89,
+      "dartSIdx": 98,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      }
     },
     "スリーピース": {
-      "sabcZI": 99, "ziRank": 17, "runStyle": "先", "saikinIdx": 90, "dartSIdx": 95,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 99,
+      "ziRank": 17,
+      "runStyle": "先",
+      "saikinIdx": 90,
+      "dartSIdx": 95,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "セミマル": {
-      "sabcZI": 116, "ziRank": 3, "runStyle": "先", "saikinIdx": 0, "dartSIdx": 97,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 116,
+      "ziRank": 3,
+      "runStyle": "先",
+      "saikinIdx": 0,
+      "dartSIdx": 97,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      }
     },
     "タガノシャーンス": {
-      "sabcZI": 96, "ziRank": 19, "runStyle": "先", "saikinIdx": 93, "dartSIdx": 93,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 96,
+      "ziRank": 19,
+      "runStyle": "先",
+      "saikinIdx": 93,
+      "dartSIdx": 93,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "タマモティーカップ": {
-      "sabcZI": 121, "ziRank": 1, "runStyle": "先", "saikinIdx": 100, "dartSIdx": 100,
-      "sabc": { "tan": {"zi": "S", "total": 4}, "fuku": {"zi": "S", "total": 4} }
+      "sabcZI": 121,
+      "ziRank": 1,
+      "runStyle": "先",
+      "saikinIdx": 100,
+      "dartSIdx": 100,
+      "sabc": {
+        "tan": {
+          "zi": "S",
+          "total": 4
+        },
+        "fuku": {
+          "zi": "S",
+          "total": 4
+        }
+      }
     },
     "ダノンスウィッチ": {
-      "sabcZI": 105, "ziRank": 9, "runStyle": "差", "saikinIdx": 0, "dartSIdx": 98,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 105,
+      "ziRank": 9,
+      "runStyle": "差",
+      "saikinIdx": 0,
+      "dartSIdx": 98,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      },
+      "extFacility": "ノーザンFしがらき（滋賀）",
+      "extGrade": "S"
     },
     "トーセンサウダージ": {
-      "sabcZI": 91, "ziRank": 21, "runStyle": "差", "saikinIdx": 90, "dartSIdx": 95,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 91,
+      "ziRank": 21,
+      "runStyle": "差",
+      "saikinIdx": 90,
+      "dartSIdx": 95,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      },
+      "extFacility": "エスティF小見川（千葉）",
+      "extGrade": "B"
     },
     "トルーマンテソーロ": {
-      "sabcZI": 93, "ziRank": 20, "runStyle": "先", "saikinIdx": 75, "dartSIdx": 92,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 93,
+      "ziRank": 20,
+      "runStyle": "先",
+      "saikinIdx": 75,
+      "dartSIdx": 92,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "ニューオーリンズ": {
-      "sabcZI": 115, "ziRank": 4, "runStyle": "逃", "saikinIdx": 103, "dartSIdx": 103,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 115,
+      "ziRank": 4,
+      "runStyle": "逃",
+      "saikinIdx": 103,
+      "dartSIdx": 103,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      }
     },
     "ノーブルスカイ": {
-      "sabcZI": 100, "ziRank": 15, "runStyle": "差", "saikinIdx": 96, "dartSIdx": 0,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 100,
+      "ziRank": 15,
+      "runStyle": "差",
+      "saikinIdx": 96,
+      "dartSIdx": 0,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      }
     },
     "ハワイアンタイム": {
-      "sabcZI": 84, "ziRank": 24, "runStyle": "逃", "saikinIdx": 0, "dartSIdx": 0,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 84,
+      "ziRank": 24,
+      "runStyle": "逃",
+      "saikinIdx": 0,
+      "dartSIdx": 0,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "ベンヌ": {
-      "sabcZI": 112, "ziRank": 6, "runStyle": "先", "saikinIdx": 86, "dartSIdx": 97,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 112,
+      "ziRank": 6,
+      "runStyle": "先",
+      "saikinIdx": 86,
+      "dartSIdx": 97,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      },
+      "extFacility": "ミッドウェイF（茨城）",
+      "extGrade": "B"
     },
     "リネアグローリア": {
-      "sabcZI": 100, "ziRank": 15, "runStyle": "差", "saikinIdx": 91, "dartSIdx": 96,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 100,
+      "ziRank": 15,
+      "runStyle": "差",
+      "saikinIdx": 91,
+      "dartSIdx": 96,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      },
+      "extFacility": "大山ヒルズ（鳥取）",
+      "extGrade": "B"
     },
     "ルークススペイ": {
-      "sabcZI": 114, "ziRank": 5, "runStyle": "差", "saikinIdx": 96, "dartSIdx": 96,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 114,
+      "ziRank": 5,
+      "runStyle": "差",
+      "saikinIdx": 96,
+      "dartSIdx": 96,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      },
+      "extFacility": "吉澤S-EAST（茨城）",
+      "extGrade": "B"
     },
     "ルミノメテオール": {
-      "sabcZI": 103, "ziRank": 11, "runStyle": "差", "saikinIdx": 0, "dartSIdx": 0,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 103,
+      "ziRank": 11,
+      "runStyle": "差",
+      "saikinIdx": 0,
+      "dartSIdx": 0,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      }
     }
   },
   "sabcRankTan": [
-    {"name": "タマモティーカップ", "total": 4},
-    {"name": "ゲイルライダー", "total": 3},
-    {"name": "セミマル", "total": 3},
-    {"name": "ニューオーリンズ", "total": 3},
-    {"name": "ルークススペイ", "total": 3},
-    {"name": "ベンヌ", "total": 3},
-    {"name": "イリフィ", "total": 3},
-    {"name": "ガンウルフ", "total": 2},
-    {"name": "ダノンスウィッチ", "total": 2},
-    {"name": "サヴォンリンナ", "total": 2},
-    {"name": "ルミノメテオール", "total": 2},
-    {"name": "スブランドゥール", "total": 2},
-    {"name": "シゲルソロソロ", "total": 2},
-    {"name": "ジョーディーズマロン", "total": 2},
-    {"name": "ノーブルスカイ", "total": 2},
-    {"name": "リネアグローリア", "total": 2},
-    {"name": "アイアムユウシュン", "total": 1},
-    {"name": "スリーピース", "total": 1},
-    {"name": "タガノシャーンス", "total": 1},
-    {"name": "トルーマンテソーロ", "total": 1},
-    {"name": "ジャーヴィス", "total": 1},
-    {"name": "トーセンサウダージ", "total": 1},
-    {"name": "ジャスパーバローズ", "total": 1},
-    {"name": "ハワイアンタイム", "total": 1}
+    {
+      "name": "タマモティーカップ",
+      "total": 4
+    },
+    {
+      "name": "ゲイルライダー",
+      "total": 3
+    },
+    {
+      "name": "セミマル",
+      "total": 3
+    },
+    {
+      "name": "ニューオーリンズ",
+      "total": 3
+    },
+    {
+      "name": "ルークススペイ",
+      "total": 3
+    },
+    {
+      "name": "ベンヌ",
+      "total": 3
+    },
+    {
+      "name": "イリフィ",
+      "total": 3
+    },
+    {
+      "name": "ガンウルフ",
+      "total": 2
+    },
+    {
+      "name": "ダノンスウィッチ",
+      "total": 2
+    },
+    {
+      "name": "サヴォンリンナ",
+      "total": 2
+    },
+    {
+      "name": "ルミノメテオール",
+      "total": 2
+    },
+    {
+      "name": "スブランドゥール",
+      "total": 2
+    },
+    {
+      "name": "シゲルソロソロ",
+      "total": 2
+    },
+    {
+      "name": "ジョーディーズマロン",
+      "total": 2
+    },
+    {
+      "name": "ノーブルスカイ",
+      "total": 2
+    },
+    {
+      "name": "リネアグローリア",
+      "total": 2
+    },
+    {
+      "name": "アイアムユウシュン",
+      "total": 1
+    },
+    {
+      "name": "スリーピース",
+      "total": 1
+    },
+    {
+      "name": "タガノシャーンス",
+      "total": 1
+    },
+    {
+      "name": "トルーマンテソーロ",
+      "total": 1
+    },
+    {
+      "name": "ジャーヴィス",
+      "total": 1
+    },
+    {
+      "name": "トーセンサウダージ",
+      "total": 1
+    },
+    {
+      "name": "ジャスパーバローズ",
+      "total": 1
+    },
+    {
+      "name": "ハワイアンタイム",
+      "total": 1
+    }
   ],
   "sabcRankFuku": [
-    {"name": "タマモティーカップ", "total": 4},
-    {"name": "ゲイルライダー", "total": 3},
-    {"name": "セミマル", "total": 3},
-    {"name": "ニューオーリンズ", "total": 3},
-    {"name": "ルークススペイ", "total": 3},
-    {"name": "ベンヌ", "total": 3},
-    {"name": "イリフィ", "total": 3},
-    {"name": "ガンウルフ", "total": 2},
-    {"name": "ダノンスウィッチ", "total": 2},
-    {"name": "サヴォンリンナ", "total": 2},
-    {"name": "ルミノメテオール", "total": 2},
-    {"name": "スブランドゥール", "total": 2},
-    {"name": "シゲルソロソロ", "total": 2},
-    {"name": "ジョーディーズマロン", "total": 2},
-    {"name": "ノーブルスカイ", "total": 2},
-    {"name": "リネアグローリア", "total": 2},
-    {"name": "アイアムユウシュン", "total": 1},
-    {"name": "スリーピース", "total": 1},
-    {"name": "タガノシャーンス", "total": 1},
-    {"name": "トルーマンテソーロ", "total": 1},
-    {"name": "ジャーヴィス", "total": 1},
-    {"name": "トーセンサウダージ", "total": 1},
-    {"name": "ジャスパーバローズ", "total": 1},
-    {"name": "ハワイアンタイム", "total": 1}
+    {
+      "name": "タマモティーカップ",
+      "total": 4
+    },
+    {
+      "name": "ゲイルライダー",
+      "total": 3
+    },
+    {
+      "name": "セミマル",
+      "total": 3
+    },
+    {
+      "name": "ニューオーリンズ",
+      "total": 3
+    },
+    {
+      "name": "ルークススペイ",
+      "total": 3
+    },
+    {
+      "name": "ベンヌ",
+      "total": 3
+    },
+    {
+      "name": "イリフィ",
+      "total": 3
+    },
+    {
+      "name": "ガンウルフ",
+      "total": 2
+    },
+    {
+      "name": "ダノンスウィッチ",
+      "total": 2
+    },
+    {
+      "name": "サヴォンリンナ",
+      "total": 2
+    },
+    {
+      "name": "ルミノメテオール",
+      "total": 2
+    },
+    {
+      "name": "スブランドゥール",
+      "total": 2
+    },
+    {
+      "name": "シゲルソロソロ",
+      "total": 2
+    },
+    {
+      "name": "ジョーディーズマロン",
+      "total": 2
+    },
+    {
+      "name": "ノーブルスカイ",
+      "total": 2
+    },
+    {
+      "name": "リネアグローリア",
+      "total": 2
+    },
+    {
+      "name": "アイアムユウシュン",
+      "total": 1
+    },
+    {
+      "name": "スリーピース",
+      "total": 1
+    },
+    {
+      "name": "タガノシャーンス",
+      "total": 1
+    },
+    {
+      "name": "トルーマンテソーロ",
+      "total": 1
+    },
+    {
+      "name": "ジャーヴィス",
+      "total": 1
+    },
+    {
+      "name": "トーセンサウダージ",
+      "total": 1
+    },
+    {
+      "name": "ジャスパーバローズ",
+      "total": 1
+    },
+    {
+      "name": "ハワイアンタイム",
+      "total": 1
+    }
   ]
 }
