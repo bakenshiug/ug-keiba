@@ -8,41 +8,41 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#130003;--bg-dk:#0b0002;--bg-md:#1a0004;
-  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
+  --bg:#F2D9B0;--bg-dk:#E8C898;--bg-md:#EDD9A3;
+  --pink:#E8003D;--pink-dk:#B5002E;--gold:#8B1A1A;
   --green:#22c55e;
-  --text:#f5d0d5;--muted:rgba(255,255,255,0.45);
-  --card:rgba(255,255,255,0.05);--border:rgba(232,0,61,0.22);
+  --text:#1C2B4A;--muted:rgba(28,43,74,0.55);
+  --card:rgba(255,255,255,0.75);--border:rgba(232,0,61,0.22);
 }
 html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
 
 /* ── Header ── */
-.hdr{background:linear-gradient(135deg,#200006,#0b0002 60%,#130003);border-bottom:2px solid rgba(232,0,61,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(232,0,61,.2);}
-.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(255,255,255,0.08);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.12);}
-.hdr-back:hover{background:rgba(255,255,255,0.14);}
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(232,0,61,.8),0 0 48px rgba(232,0,61,.4);letter-spacing:.05em;}
+.hdr{background:linear-gradient(135deg,#EDD9A3,#E8C898 60%,#EDD9A3);border-bottom:2px solid rgba(232,0,61,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(232,0,61,.2);}
+.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(0,0,0,.06);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(0,0,0,0.12);}
+.hdr-back:hover{background:rgba(0,0,0,.1);}
+.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#1C2B4A;text-shadow:none;letter-spacing:.05em;}
 .hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
 
 /* ── Race Selector ── */
 .selector-wrap{padding:14px 12px 0;max-width:780px;margin:0 auto;}
-.week-label{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-shadow:0 0 10px rgba(240,192,64,.5);padding-left:2px;}
+.week-label{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-shadow:0 0 10px rgba(139,26,26,.5);padding-left:2px;}
 .race-btns{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
 
 .race-btn{
-  background:linear-gradient(140deg,rgba(30,0,8,.9),rgba(10,0,3,.95));
+  background:linear-gradient(140deg,rgba(232,208,162,.5),rgba(242,217,176,.8));
   border:1px solid rgba(232,0,61,.25);
   border-radius:14px;
   padding:12px 14px;
   cursor:pointer;
   text-align:left;
-  color:var(--text);
+  color:#1C2B4A;
   transition:all .18s ease;
   position:relative;
   overflow:hidden;
 }
 .race-btn:active{transform:scale(.97);}
 .race-btn.active{
-  background:linear-gradient(140deg,rgba(232,0,61,.22),rgba(10,0,3,.95));
+  background:linear-gradient(140deg,rgba(232,0,61,.15),rgba(242,217,176,.8));
   border:2px solid rgba(232,0,61,.75);
   box-shadow:0 0 20px rgba(232,0,61,.3),inset 0 0 16px rgba(232,0,61,.08);
 }
@@ -50,10 +50,10 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:5px;letter-spacing:.06em;
 }
 .race-btn .btn-name{
-  font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#fff;line-height:1.25;margin-bottom:4px;
+  font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#1C2B4A;line-height:1.25;margin-bottom:4px;
 }
 .race-btn .btn-meta{
-  font-size:10px;color:rgba(255,255,255,.45);line-height:1.4;
+  font-size:10px;color:rgba(28,43,74,.55);line-height:1.4;
 }
 .race-btn.active .btn-name{color:#fff;text-shadow:0 0 12px rgba(232,0,61,.5);}
 .race-btn .active-dot{
@@ -69,64 +69,64 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .detail-wrap{max-width:780px;margin:0 auto;padding:14px 12px 100px;}
 
 /* Race card */
-.race-card{background:linear-gradient(160deg,rgba(30,0,8,.9),rgba(10,0,3,.95));border:1px solid rgba(232,0,61,.30);border-radius:22px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.7),0 0 0 1px rgba(232,0,61,.10);}
-.race-head{background:linear-gradient(120deg,rgba(232,0,61,.18) 0%,rgba(10,0,3,.9) 55%,rgba(240,192,64,.06) 100%);border-bottom:1px solid rgba(232,0,61,.35);padding:16px 20px;display:flex;align-items:flex-start;gap:12px;}
+.race-card{background:linear-gradient(160deg,rgba(232,208,162,.5),rgba(242,217,176,.85));border:1px solid rgba(232,0,61,.30);border-radius:22px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.7),0 0 0 1px rgba(232,0,61,.10);}
+.race-head{background:linear-gradient(120deg,rgba(232,0,61,.12) 0%,rgba(242,217,176,.9) 55%,rgba(139,26,26,.04) 100%);border-bottom:1px solid rgba(232,0,61,.35);padding:16px 20px;display:flex;align-items:flex-start;gap:12px;}
 .race-grade-badge{font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;white-space:nowrap;margin-top:2px;letter-spacing:.06em;flex-shrink:0;}
-.race-name{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:900;color:#fff;letter-spacing:.04em;line-height:1.1;}
-.race-meta{font-size:11px;color:rgba(255,255,255,.55);margin-top:5px;letter-spacing:.04em;}
+.race-name{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:900;color:#1C2B4A;letter-spacing:.04em;line-height:1.1;}
+.race-meta{font-size:11px;color:rgba(28,43,74,.6);margin-top:5px;letter-spacing:.04em;}
 .race-body{padding:18px 18px 22px;}
 
 /* Condition note */
-.cond-note{background:rgba(240,192,64,.07);border:1px solid rgba(240,192,64,.25);border-left:3px solid rgba(240,192,64,.6);border-radius:10px;padding:10px 14px;margin-bottom:18px;font-size:12px;line-height:1.65;color:rgba(255,240,180,.88);}
+.cond-note{background:rgba(139,26,26,.07);border:1px solid rgba(139,26,26,.2);border-left:3px solid rgba(139,26,26,.5);border-radius:10px;padding:10px 14px;margin-bottom:18px;font-size:12px;line-height:1.65;color:#1C2B4A;}
 
 /* Section title */
-.sec-title{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;margin-top:2px;padding-left:4px;}
+.sec-title{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(28,43,74,.5);margin-bottom:10px;margin-top:2px;padding-left:4px;}
 
 /* Hero cards */
 .horse-hero{border-radius:16px;padding:16px 18px;margin-bottom:12px;position:relative;overflow:hidden;}
-.horse-hero.h-honmei{background:linear-gradient(140deg,rgba(232,0,61,.22) 0%,rgba(20,0,6,.95) 55%);border:2px solid rgba(232,0,61,.75);box-shadow:0 0 32px rgba(232,0,61,.35),inset 0 0 20px rgba(232,0,61,.08);}
-.horse-hero.h-taikou{background:linear-gradient(140deg,rgba(255,255,255,.13) 0%,rgba(14,0,5,.95) 55%);border:2px solid rgba(255,255,255,.45);box-shadow:0 0 24px rgba(255,255,255,.12),inset 0 0 16px rgba(255,255,255,.04);}
-.horse-hero.h-sangen{background:linear-gradient(140deg,rgba(240,192,64,.15) 0%,rgba(14,0,5,.95) 55%);border:1px solid rgba(240,192,64,.55);box-shadow:0 0 20px rgba(240,192,64,.2),inset 0 0 14px rgba(240,192,64,.05);}
-.horse-hero.h-star{background:linear-gradient(140deg,rgba(168,85,247,.15) 0%,rgba(14,0,5,.95) 55%);border:1px solid rgba(168,85,247,.50);box-shadow:0 0 18px rgba(168,85,247,.2);}
-.horse-hero.h-delta{background:linear-gradient(140deg,rgba(100,160,255,.10) 0%,rgba(14,0,5,.95) 55%);border:1px solid rgba(100,160,255,.35);box-shadow:0 0 14px rgba(100,160,255,.12);}
+.horse-hero.h-honmei{background:linear-gradient(140deg,rgba(232,0,61,.15) 0%,rgba(242,217,176,.9) 55%);border:2px solid rgba(232,0,61,.75);box-shadow:0 0 32px rgba(232,0,61,.35),inset 0 0 20px rgba(232,0,61,.08);}
+.horse-hero.h-taikou{background:linear-gradient(140deg,rgba(28,43,74,.08) 0%,rgba(242,217,176,.9) 55%);border:2px solid rgba(255,255,255,.45);box-shadow:0 0 24px rgba(255,255,255,.12),inset 0 0 16px rgba(255,255,255,.04);}
+.horse-hero.h-sangen{background:linear-gradient(140deg,rgba(139,26,26,.10) 0%,rgba(242,217,176,.9) 55%);border:1px solid rgba(139,26,26,.55);box-shadow:0 0 20px rgba(139,26,26,.2),inset 0 0 14px rgba(139,26,26,.05);}
+.horse-hero.h-star{background:linear-gradient(140deg,rgba(168,85,247,.12) 0%,rgba(242,217,176,.9) 55%);border:1px solid rgba(168,85,247,.50);box-shadow:0 0 18px rgba(168,85,247,.2);}
+.horse-hero.h-delta{background:linear-gradient(140deg,rgba(100,160,255,.10) 0%,rgba(242,217,176,.9) 55%);border:1px solid rgba(100,160,255,.35);box-shadow:0 0 14px rgba(100,160,255,.12);}
 
 .horse-hero-mark{position:absolute;top:12px;right:14px;font-size:28px;font-weight:900;line-height:1;opacity:.9;}
 .h-honmei .horse-hero-mark{color:#E8003D;text-shadow:0 0 20px rgba(232,0,61,.9);}
-.h-taikou .horse-hero-mark{color:#fff;text-shadow:0 0 18px rgba(255,255,255,.7);}
-.h-sangen .horse-hero-mark{color:#f0c040;text-shadow:0 0 16px rgba(240,192,64,.8);}
+.h-taikou .horse-hero-mark{color:#1C2B4A;text-shadow:0 0 18px rgba(255,255,255,.7);}
+.h-sangen .horse-hero-mark{color:#8B1A1A;text-shadow:0 0 16px rgba(139,26,26,.8);}
 .h-star   .horse-hero-mark{color:#d8b4fe;text-shadow:0 0 14px rgba(168,85,247,.7);}
 .h-delta  .horse-hero-mark{color:#93c5fd;text-shadow:0 0 12px rgba(100,160,255,.6);}
 
 .hero-rank-pill{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:900;letter-spacing:.1em;padding:2px 8px;border-radius:4px;text-transform:uppercase;margin-bottom:7px;}
 .h-honmei .hero-rank-pill{background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.4);}
-.h-taikou .hero-rank-pill{background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.25);}
-.h-sangen .hero-rank-pill{background:rgba(240,192,64,.18);color:#f0c040;border:1px solid rgba(240,192,64,.35);}
+.h-taikou .hero-rank-pill{background:rgba(28,43,74,.12);color:#1C2B4A;border:1px solid rgba(28,43,74,.25);}
+.h-sangen .hero-rank-pill{background:rgba(139,26,26,.15);color:#8B1A1A;border:1px solid rgba(139,26,26,.35);}
 .h-star   .hero-rank-pill{background:rgba(168,85,247,.18);color:#d8b4fe;border:1px solid rgba(168,85,247,.35);}
 .h-delta  .hero-rank-pill{background:rgba(100,160,255,.15);color:#93c5fd;border:1px solid rgba(100,160,255,.30);}
 
 .horse-num-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:13px;font-weight:900;flex-shrink:0;margin-right:5px;}
 .h-honmei .horse-num-badge{background:rgba(232,0,61,.3);color:#fff;border:1px solid rgba(232,0,61,.6);}
-.h-taikou .horse-num-badge{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);}
-.h-sangen .horse-num-badge{background:rgba(240,192,64,.2);color:#f0c040;border:1px solid rgba(240,192,64,.5);}
+.h-taikou .horse-num-badge{background:rgba(28,43,74,.12);color:#1C2B4A;border:1px solid rgba(28,43,74,.3);}
+.h-sangen .horse-num-badge{background:rgba(139,26,26,.15);color:#8B1A1A;border:1px solid rgba(139,26,26,.4);}
 .h-star   .horse-num-badge{background:rgba(168,85,247,.2);color:#d8b4fe;border:1px solid rgba(168,85,247,.4);}
 .h-delta  .horse-num-badge{background:rgba(100,160,255,.15);color:#93c5fd;border:1px solid rgba(100,160,255,.35);}
 
 .horse-hero-name{font-family:'Noto Serif JP',serif;font-size:21px;font-weight:900;line-height:1.15;display:flex;align-items:center;gap:4px;padding-right:44px;}
-.h-honmei .horse-hero-name{color:#fff;text-shadow:0 0 20px rgba(232,0,61,.5);}
-.h-taikou .horse-hero-name{color:#fff;text-shadow:0 0 16px rgba(255,255,255,.3);}
-.h-sangen .horse-hero-name{color:#fff8e0;text-shadow:0 0 14px rgba(240,192,64,.3);}
-.h-star   .horse-hero-name{color:#f0e8ff;}
-.h-delta  .horse-hero-name{color:#e8f0ff;}
+.h-honmei .horse-hero-name{color:#1C2B4A;text-shadow:0 0 20px rgba(232,0,61,.5);}
+.h-taikou .horse-hero-name{color:#1C2B4A;text-shadow:0 0 16px rgba(255,255,255,.3);}
+.h-sangen .horse-hero-name{color:#1C2B4A;text-shadow:0 0 14px rgba(139,26,26,.3);}
+.h-star   .horse-hero-name{color:#1C2B4A;}
+.h-delta  .horse-hero-name{color:#1C2B4A;}
 
 .horse-hero-top{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
-.info-pt{font-size:14px;font-weight:900;color:var(--gold);text-shadow:0 0 8px rgba(240,192,64,.5);}
+.info-pt{font-size:14px;font-weight:900;color:var(--gold);text-shadow:0 0 8px rgba(139,26,26,.5);}
 
 /* ── 馬情報グリッド（枠番・外厩・騎手・厩舎・前走・父名） ── */
-.horse-info-rows{margin-top:10px;display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;}
+.horse-info-rows{margin-top:10px;display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(0,0,0,.1);padding-top:10px;}
 .horse-info-row{display:flex;align-items:center;gap:8px;min-height:20px;}
-.info-lbl{font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);min-width:30px;flex-shrink:0;}
-.info-val{font-size:12px;font-weight:700;color:#fff;}
-.info-val-muted{font-size:12px;color:rgba(255,255,255,.35);}
+.info-lbl{font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(28,43,74,.5);min-width:30px;flex-shrink:0;}
+.info-val{font-size:12px;font-weight:700;color:#1C2B4A;}
+.info-val-muted{font-size:12px;color:rgba(28,43,74,.5);}
 /* 枠番カラー */
 .waku-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px;font-size:11px;font-weight:900;}
 .waku-1{background:#111;color:#fff;border:1px solid #444;}
@@ -149,44 +149,44 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 /* Compact table */
 .compact-table-wrap{overflow-x:auto;margin-bottom:14px;}
 table.horse-tbl{width:100%;border-collapse:collapse;font-size:12px;}
-table.horse-tbl th{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 6px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);white-space:nowrap;}
-table.horse-tbl td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;color:#fff;}
-table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:#fff;font-size:13px;white-space:nowrap;}
-table.horse-tbl td.tbl-sub{font-size:11px;color:rgba(255,255,255,.7);}
+table.horse-tbl th{background:rgba(0,0,0,.05);color:rgba(28,43,74,.6);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 6px;text-align:center;border-bottom:1px solid rgba(0,0,0,.1);white-space:nowrap;}
+table.horse-tbl td{padding:7px 6px;border-bottom:1px solid rgba(0,0,0,.07);text-align:center;color:#1C2B4A;}
+table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:#1C2B4A;font-size:13px;white-space:nowrap;}
+table.horse-tbl td.tbl-sub{font-size:11px;color:rgba(28,43,74,.65);}
 table.horse-tbl tr:last-child td{border-bottom:none;}
-table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
+table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .mark-badge{display:inline-block;font-size:14px;font-weight:900;width:22px;text-align:center;}
 .mark-◎{color:#E8003D;text-shadow:0 0 6px rgba(232,0,61,.6);}
-.mark-○{color:#fff;}
-.mark-▲{color:var(--gold);text-shadow:0 0 6px rgba(240,192,64,.5);}
+.mark-○{color:#1C2B4A;}
+.mark-▲{color:var(--gold);text-shadow:0 0 6px rgba(139,26,26,.5);}
 .mark-△{color:#93c5fd;}
 .mark-☆{color:#d8b4fe;}
 .mark-×{color:var(--muted);}
 .pt-val{font-family:'Inter',sans-serif;font-weight:700;font-size:12px;}
 
 /* Divider */
-.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(232,0,61,.25),transparent);margin:16px 0;}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(232,0,61,.3),transparent);margin:16px 0;}
 
 /* Bets */
 .bets-grid{display:flex;flex-direction:column;gap:6px;margin-bottom:4px;}
-.bet-row{display:flex;align-items:baseline;gap:10px;padding:9px 14px;border-radius:10px;background:rgba(240,192,64,.06);border:1px solid rgba(240,192,64,.2);}
+.bet-row{display:flex;align-items:baseline;gap:10px;padding:9px 14px;border-radius:10px;background:rgba(139,26,26,.06);border:1px solid rgba(139,26,26,.18);}
 .bet-type{font-size:10px;font-weight:900;color:var(--gold);min-width:52px;white-space:nowrap;letter-spacing:.05em;}
-.bet-val{font-size:13px;font-weight:700;color:#fff;}
+.bet-val{font-size:13px;font-weight:700;color:#1C2B4A;}
 
 /* Comments */
 .comment-area{display:flex;flex-direction:column;gap:10px;}
-.final-card{background:linear-gradient(140deg,rgba(240,192,64,.12),rgba(10,0,3,.95));border:2px solid rgba(240,192,64,.65);border-radius:14px;padding:15px 17px;box-shadow:0 0 28px rgba(240,192,64,.25),inset 0 0 20px rgba(240,192,64,.05);}
-.final-card .clabel{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#f0c040;text-shadow:0 0 10px rgba(240,192,64,.9);margin-bottom:7px;}
-.final-card .ctext{font-size:14px;line-height:1.75;color:#fff8d0;font-weight:600;}
+.final-card{background:linear-gradient(140deg,rgba(139,26,26,.08),rgba(242,217,176,.9));border:2px solid rgba(139,26,26,.5);border-radius:14px;padding:15px 17px;box-shadow:0 0 28px rgba(139,26,26,.25),inset 0 0 20px rgba(139,26,26,.05);}
+.final-card .clabel{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#8B1A1A;text-shadow:none;margin-bottom:7px;}
+.final-card .ctext{font-size:14px;line-height:1.75;color:#1C2B4A;font-weight:600;}
 .risk-card{background:rgba(232,0,61,.07);border:1px solid rgba(232,0,61,.25);border-radius:12px;padding:13px 15px;}
-.risk-card .clabel{font-size:10px;font-weight:900;letter-spacing:.1em;color:rgba(255,150,150,.7);margin-bottom:6px;}
-.risk-card .ctext{font-size:13px;line-height:1.65;color:#ffb3c6;}
-.extra-card{background:linear-gradient(140deg,rgba(255,100,0,.12),rgba(10,0,3,.95));border:2px solid rgba(255,140,0,.55);border-radius:12px;padding:13px 15px;box-shadow:0 0 18px rgba(255,120,0,.2);}
-.extra-card .clabel{font-size:11px;font-weight:900;letter-spacing:.1em;color:#ffb020;text-shadow:0 0 8px rgba(255,180,0,.8);margin-bottom:6px;}
-.extra-card .ctext{font-size:14px;line-height:1.65;color:#ffe8a0;font-weight:700;}
-.betmemo-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:11px 14px;}
-.betmemo-card .clabel{font-size:9px;font-weight:900;letter-spacing:.12em;color:rgba(255,255,255,.4);margin-bottom:5px;}
-.betmemo-card .ctext{font-size:12px;line-height:1.6;color:rgba(255,255,255,.65);}
+.risk-card .clabel{font-size:10px;font-weight:900;letter-spacing:.1em;color:rgba(232,0,61,.7);margin-bottom:6px;}
+.risk-card .ctext{font-size:13px;line-height:1.65;color:#1C2B4A;}
+.extra-card{background:linear-gradient(140deg,rgba(255,100,0,.10),rgba(242,217,176,.9));border:2px solid rgba(255,140,0,.55);border-radius:12px;padding:13px 15px;box-shadow:0 0 18px rgba(255,120,0,.2);}
+.extra-card .clabel{font-size:11px;font-weight:900;letter-spacing:.1em;color:#C05A00;text-shadow:none;margin-bottom:6px;}
+.extra-card .ctext{font-size:14px;line-height:1.65;color:#1C2B4A;font-weight:700;}
+.betmemo-card{background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.1);border-radius:10px;padding:11px 14px;}
+.betmemo-card .clabel{font-size:9px;font-weight:900;letter-spacing:.12em;color:rgba(28,43,74,.5);margin-bottom:5px;}
+.betmemo-card .ctext{font-size:12px;line-height:1.6;color:#1C2B4A;}
 
 /* Loading / Error */
 .loading{text-align:center;padding:50px 20px;color:var(--muted);}
@@ -198,8 +198,8 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 
 /* ══ グレード別ネオン点滅 ══ */
 @keyframes neonG1{
-  0%,100%{box-shadow:0 0 6px rgba(240,192,64,.5),0 0 14px rgba(240,192,64,.2);}
-  50%{box-shadow:0 0 18px rgba(240,192,64,1),0 0 38px rgba(240,192,64,.7),0 0 65px rgba(240,192,64,.3);}
+  0%,100%{box-shadow:0 0 6px rgba(139,26,26,.5),0 0 14px rgba(139,26,26,.2);}
+  50%{box-shadow:0 0 18px rgba(139,26,26,1),0 0 38px rgba(139,26,26,.7),0 0 65px rgba(139,26,26,.3);}
 }
 @keyframes neonG2{
   0%,100%{box-shadow:0 0 6px rgba(34,197,94,.5),0 0 14px rgba(34,197,94,.2);}
@@ -211,26 +211,26 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 }
 
 /* ─ ボタン：グレード別ネオン枠線 ─ */
-.race-btn.grade-g1{border-color:rgba(240,192,64,.55);animation:neonG1 2s ease-in-out infinite;}
+.race-btn.grade-g1{border-color:rgba(139,26,26,.55);animation:neonG1 2s ease-in-out infinite;}
 .race-btn.grade-g2{border-color:rgba(34,197,94,.55);animation:neonG2 2s ease-in-out infinite;}
 .race-btn.grade-g3{border-color:rgba(59,130,246,.55);animation:neonG3 2s ease-in-out infinite;}
-.race-btn.active.grade-g1{border-width:2px;border-color:rgba(240,192,64,.9);background:linear-gradient(140deg,rgba(240,192,64,.15),rgba(10,0,3,.95));}
+.race-btn.active.grade-g1{border-width:2px;border-color:rgba(139,26,26,.9);background:linear-gradient(140deg,rgba(139,26,26,.15),rgba(10,0,3,.95));}
 .race-btn.active.grade-g2{border-width:2px;border-color:rgba(34,197,94,.9);background:linear-gradient(140deg,rgba(34,197,94,.12),rgba(10,0,3,.95));}
 .race-btn.active.grade-g3{border-width:2px;border-color:rgba(59,130,246,.9);background:linear-gradient(140deg,rgba(59,130,246,.12),rgba(10,0,3,.95));}
-.race-btn.active.grade-g1 .active-dot{background:#f0c040;box-shadow:0 0 8px rgba(240,192,64,.9);}
+.race-btn.active.grade-g1 .active-dot{background:#f0c040;box-shadow:0 0 8px rgba(139,26,26,.9);}
 .race-btn.active.grade-g2 .active-dot{background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.9);}
 .race-btn.active.grade-g3 .active-dot{background:#3b82f6;box-shadow:0 0 8px rgba(59,130,246,.9);}
 
 /* ─ レースカード：グレード別ネオン枠線 ─ */
-.race-card.grade-g1{border-color:rgba(240,192,64,.55);animation:fadeUp .22s ease both,neonG1 2.5s ease-in-out infinite;}
+.race-card.grade-g1{border-color:rgba(139,26,26,.55);animation:fadeUp .22s ease both,neonG1 2.5s ease-in-out infinite;}
 .race-card.grade-g2{border-color:rgba(34,197,94,.55);animation:fadeUp .22s ease both,neonG2 2.5s ease-in-out infinite;}
 .race-card.grade-g3{border-color:rgba(59,130,246,.55);animation:fadeUp .22s ease both,neonG3 2.5s ease-in-out infinite;}
 
 /* ─ レースヘッダー・タイトル：グレード別カラー ─ */
-.race-card.grade-g1 .race-head{border-bottom-color:rgba(240,192,64,.5);background:linear-gradient(120deg,rgba(240,192,64,.14) 0%,rgba(10,0,3,.9) 55%,rgba(240,192,64,.04) 100%);}
+.race-card.grade-g1 .race-head{border-bottom-color:rgba(139,26,26,.5);background:linear-gradient(120deg,rgba(139,26,26,.14) 0%,rgba(10,0,3,.9) 55%,rgba(139,26,26,.04) 100%);}
 .race-card.grade-g2 .race-head{border-bottom-color:rgba(34,197,94,.5);background:linear-gradient(120deg,rgba(34,197,94,.11) 0%,rgba(10,0,3,.9) 55%,rgba(34,197,94,.04) 100%);}
 .race-card.grade-g3 .race-head{border-bottom-color:rgba(59,130,246,.5);background:linear-gradient(120deg,rgba(59,130,246,.11) 0%,rgba(10,0,3,.9) 55%,rgba(59,130,246,.04) 100%);}
-.race-card.grade-g1 .race-name{text-shadow:0 0 22px rgba(240,192,64,.6);}
+.race-card.grade-g1 .race-name{text-shadow:0 0 22px rgba(139,26,26,.6);}
 .race-card.grade-g2 .race-name{text-shadow:0 0 22px rgba(34,197,94,.5);}
 .race-card.grade-g3 .race-name{text-shadow:0 0 22px rgba(59,130,246,.5);}
 
@@ -243,7 +243,7 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 .result-hit-bets-banner{background:rgba(0,0,0,.35);border-radius:0;padding:8px 18px;display:flex;flex-wrap:wrap;gap:6px;}
 .result-hit-bet{font-size:12px;font-weight:700;color:#fff;display:flex;align-items:center;gap:4px;}
 /* 着順セクション */
-.result-order-head{padding:10px 18px 6px;font-size:10px;font-weight:900;letter-spacing:.12em;color:rgba(255,255,255,.45);text-transform:uppercase;background:rgba(0,0,0,.2);}
+.result-order-head{padding:10px 18px 6px;font-size:10px;font-weight:900;letter-spacing:.12em;color:rgba(28,43,74,.55);text-transform:uppercase;background:rgba(0,0,0,.2);}
 .result-order-list{padding:6px 18px 12px;display:flex;flex-direction:column;gap:0;background:rgba(0,0,0,.15);}
 .result-order-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);}
 .result-order-row:last-child{border-bottom:none;}
@@ -260,12 +260,12 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 .result-payout-type{font-size:11px;font-weight:700;color:rgba(255,255,255,.55);min-width:54px;}
 .result-payout-amt{font-size:13px;font-weight:900;color:#fff;text-align:right;}
 /* 的中払い戻しゴールドハイライト */
-.result-payout-row.is-hit{background:rgba(240,192,64,.10);border-left:3px solid rgba(240,192,64,.75);padding-left:15px;}
+.result-payout-row.is-hit{background:rgba(139,26,26,.10);border-left:3px solid rgba(139,26,26,.75);padding-left:15px;}
 .result-payout-row.is-hit .result-payout-type{color:var(--gold);font-weight:900;}
-.result-payout-row.is-hit .result-payout-amt{color:var(--gold);font-size:15px;text-shadow:0 0 12px rgba(240,192,64,.5);}
+.result-payout-row.is-hit .result-payout-amt{color:var(--gold);font-size:15px;text-shadow:0 0 12px rgba(139,26,26,.5);}
 /* 回収率バー */
 .result-kaishuri{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:10px 18px;background:rgba(0,0,0,.25);border-top:1px solid rgba(255,255,255,.06);}
-.result-kaishuri-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.45);}
+.result-kaishuri-label{font-size:10px;font-weight:700;color:rgba(28,43,74,.55);}
 .result-kaishuri-nums{display:flex;gap:14px;align-items:baseline;}
 .result-kaishuri-item{font-size:11px;color:rgba(255,255,255,.55);}
 .result-kaishuri-item strong{font-size:13px;color:rgba(255,255,255,.85);}
@@ -283,7 +283,7 @@ table.horse-tbl tr:hover td{background:rgba(255,255,255,.03);}
 /* レースボタンの結果バッジ */
 .race-btn .btn-result{font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;display:inline-block;margin-top:4px;letter-spacing:.04em;}
 .btn-result-hit{background:rgba(232,0,61,.3);color:#ff8aa0;border:1px solid rgba(232,0,61,.5);}
-.btn-result-miss{background:rgba(255,255,255,.08);color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.15);}
+.btn-result-miss{background:rgba(255,255,255,.08);color:rgba(28,43,74,.55);border:1px solid rgba(255,255,255,.15);}
 
 /* ── スマホ：全馬スコアテーブル 外厩(4列目)・厩舎(6列目)を非表示 ── */
 @media(max-width:640px){
@@ -708,7 +708,7 @@ async function loadAll() {
         ${gradeLabel(r.grade)}
         <div class="btn-name">${esc(r.name||file)}</div>
         <div class="btn-meta">${esc(r.venue||'')} ${esc(r.distance||'')} ／ ${esc(r.date||'')}</div>
-        ${picksLine ? `<div style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(240,192,64,.8);">${esc(picksLine)}</div>` : ''}
+        ${picksLine ? `<div style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(139,26,26,.8);">${esc(picksLine)}</div>` : ''}
         ${resultBadge}
       </button>`;
     }).join('');

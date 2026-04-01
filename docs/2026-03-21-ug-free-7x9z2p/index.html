@@ -125,158 +125,128 @@
 </style>
 
 <style id="ug-cherry-theme">
-/* ══════════════════════════════════════
-   UG DEEP CHERRY LUXURY — free page
-   ══════════════════════════════════════ */
-:root { --ug-pink: #E8003D; --ug-pink-dk: #B5002E; }
-
-html, body { background: #130003 !important; color: #f5d0d5 !important; }
-
-/* ── List header ─────── */
-#list-view > header {
-  background: linear-gradient(135deg, #1a0004, #0b0002) !important;
-  border-bottom: 1px solid rgba(232,0,61,0.40) !important;
+/* ══ UG Light Theme ══════════════════════════════ */
+:root {
+  --ug-bg:         #F2D9B0;
+  --ug-cherry-dk:  #E8C898;
+  --ug-cherry-md:  #EDD9A3;
+  --ug-pink:       #E8003D;
+  --ug-pink-dk:    #B5002E;
+  --ug-gold:       #8B1A1A;
+  --ug-text:       #1C2B4A;
+  --ug-text-muted: rgba(28,43,74,0.60);
+  --ug-card-bg:    rgba(255,255,255,0.80);
+  --ug-card-border:rgba(232,0,61,0.20);
 }
-#list-view > header p,
-#list-view > header span,
-#list-view > header h1,
-#list-view > header a,
-#list-view > header button { color: rgba(255,255,255,0.85) !important; }
-#list-view > header .text-outline { color: rgba(255,255,255,0.55) !important; }
-#list-view > header .text-tertiary { color: #E8003D !important; }
-#list-view > header h1 { text-shadow: 0 0 20px rgba(232,0,61,0.55) !important; }
 
-/* ── Detail header ───── */
-#detail-view > header {
-  background: linear-gradient(135deg, #1a0004, #0b0002) !important;
+/* ── Base ─── */
+html { background: #F2D9B0 !important; }
+body { background: #F2D9B0 !important; color: #1C2B4A !important; min-height: 100vh; }
+
+/* ── Surfaces ─── */
+html, body, .bg-surface, .bg-\[\#f8faf8\] { background: #F2D9B0 !important; }
+.bg-surface-container-low  { background: rgba(232,208,162,.35) !important; }
+.bg-surface-container      { background: rgba(255,255,255,.70) !important; }
+.bg-surface-container-high { background: rgba(255,255,255,.85) !important; }
+.bg-surface-bright         { background: rgba(255,255,255,.90) !important; }
+.bg-surface-container-highest { background: rgba(255,255,255,.85) !important; }
+.bg-surface-dim            { background: rgba(232,208,162,.30) !important; }
+
+/* ── Header ─── */
+header {
+  background: linear-gradient(135deg, #EDD9A3 0%, #E8C898 100%) !important;
+  border-bottom: 1px solid rgba(232,0,61,0.40) !important;
+  backdrop-filter: none !important;
+}
+header p, header span { color: rgba(28,43,74,0.80) !important; }
+header h1, header a h1 { color: #1C2B4A !important; text-shadow: none !important; }
+header .text-\[\#004900\], header .text-\[\#707a6a\] { color: rgba(28,43,74,0.70) !important; }
+header a, header button { color: rgba(28,43,74,0.80) !important; }
+header .bg-\[\#f2f4f2\] { background: rgba(0,0,0,.06) !important; }
+header .text-\[\#9ca3af\] { color: rgba(28,43,74,0.50) !important; }
+header .bg-\[\#eceeec\] { background: rgba(0,0,0,.06) !important; color: #1C2B4A !important; }
+#list-view > header, #detail-view > header {
+  background: linear-gradient(135deg, #EDD9A3 0%, #E8C898 100%) !important;
   border-bottom: 1px solid rgba(232,0,61,0.35) !important;
 }
-#detail-view > header * { color: rgba(255,255,255,0.85) !important; }
-#detail-view > header button:hover { background: rgba(255,255,255,0.10) !important; }
+#list-view > header p, #list-view > header span,
+#list-view > header h1, #list-view > header a,
+#list-view > header button { color: rgba(28,43,74,0.85) !important; }
+#list-view > header h1 { text-shadow: none !important; }
+#list-view > header .text-outline { color: rgba(28,43,74,0.55) !important; }
+#list-view > header .text-tertiary { color: #E8003D !important; }
+#detail-view > header * { color: rgba(28,43,74,0.85) !important; }
+#detail-view > header button:hover { background: rgba(0,0,0,.06) !important; }
 
-/* ── Ticker ───────── */
+/* ── Cards / boxes ─── */
+.bg-white, .card,
+[class*="rounded-2xl"].bg-white,
+[class*="rounded-2xl"].border {
+  background: rgba(255,255,255,.80) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-color: rgba(0,0,0,.10) !important;
+  color: #1C2B4A !important;
+}
+.bg-\[\#f2f4f2\] {
+  background: rgba(232,208,162,.40) !important;
+  border: 1px solid rgba(28,43,74,0.12) !important;
+}
+[class*="rounded-2xl"].ug-keikoku-white { background: rgba(255,255,255,.80) !important; color: #1C2B4A !important; }
+.ug-keikoku-white .bg-\[\#f2f4f2\] { background: rgba(232,208,162,.35) !important; color: #1C2B4A !important; }
+.ug-keikoku-white .bg-\[\#eceeec\]  { background: rgba(0,0,0,.05) !important; color: #1C2B4A !important; border: none !important; }
+.ug-keikoku-white .bg-\[\#c4eab5\]  { background: rgba(34,197,94,.15) !important; color: #1C2B4A !important; }
+.ug-keikoku-white .text-\[\#707a6a\] { color: rgba(28,43,74,.60) !important; }
+.ug-keikoku-white .font-bold { color: #1C2B4A !important; }
+
+/* ── Green section headers → keep crimson ─── */
+.bg-\[\#006400\], .bg-\[\#004900\] {
+  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
+  border: none !important;
+  color: #fff !important;
+}
+.bg-\[\#004900\].px-5.py-3 {
+  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+}
+
+/* ── Text ─── */
+.text-\[\#191c1b\], .text-\[\#374151\] { color: #1C2B4A !important; }
+.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(28,43,74,.60) !important; }
+.text-\[\#004900\], .text-\[\#2d5a27\]  { color: #8B1A1A !important; }
+.text-on-surface         { color: #1C2B4A !important; }
+.text-on-surface-variant { color: rgba(28,43,74,.65) !important; }
+.text-outline            { color: rgba(28,43,74,.45) !important; }
+.text-primary            { color: #E8003D !important; }
+.text-tertiary           { color: #E8003D !important; }
+.text-green-900          { color: #1C2B4A !important; }
+.text-sm, .text-base, p, span, li, td { color: inherit; }
+
+/* ── Info pills ─── */
+.bg-\[\#eceeec\] { background: rgba(0,0,0,.06) !important; color: #1C2B4A !important; border: 1px solid rgba(28,43,74,.15) !important; }
+.bg-\[\#c4eab5\] { background: rgba(34,197,94,.18) !important; color: #1C2B4A !important; }
+
+/* ── Ticker / active ─── */
 .bg-\[\#006400\], .ticker-wrap { background: #E8003D !important; }
-
-/* ── Active tab ────── */
 .bg-primary { background: linear-gradient(135deg, #E8003D, #B5002E) !important; }
 .border-primary { border-color: #E8003D !important; }
 
-/* ── Text ──────────── */
-.text-primary { color: #E8003D !important; }
-.text-tertiary { color: #E8003D !important; }
-.text-green-900 { color: #f5d0d5 !important; }
-.text-on-surface { color: #f5d0d5 !important; }
-.text-on-surface-variant { color: rgba(255,255,255,0.65) !important; }
-.text-outline { color: rgba(255,255,255,0.45) !important; }
-
-/* ── Surfaces ─────── */
-html, body, .bg-surface, .bg-\[\#f8faf8\] { background: #130003 !important; }
-.bg-surface-container-low  { background: rgba(232,0,61,0.08) !important; }
-.bg-surface-container      { background: rgba(255,255,255,0.07) !important; }
-.bg-surface-container-high { background: rgba(255,255,255,0.10) !important; }
-.bg-surface-bright         { background: rgba(255,255,255,0.05) !important; }
-
 /* ── Race info bar ─── */
-#race-info-bar {
-  background: rgba(255,255,255,0.05) !important;
-  border-bottom: 1px solid rgba(232,0,61,0.18) !important;
-}
+#race-info-bar { background: rgba(232,208,162,.40) !important; border-bottom: 1px solid rgba(232,0,61,.18) !important; }
 
-/* ── Dividers ─────── */
-.border-outline\/10, .divide-outline\/10 > * { border-color: rgba(232,0,61,0.15) !important; }
-.border-outline\/30 { border-color: rgba(232,0,61,0.28) !important; }
+/* ── Dividers ─── */
+.border-outline\/10, .divide-outline\/10 > * { border-color: rgba(28,43,74,.12) !important; }
+.border-outline\/30 { border-color: rgba(28,43,74,.25) !important; }
+.horse-row:active { background: rgba(232,0,61,.08) !important; }
 
-/* ── Horse rows ────── */
-.horse-row:active { background: rgba(232,0,61,0.10) !important; }
-
-/* ── Detail cards ─── */
-.bg-surface-container-highest { background: rgba(255,255,255,0.08) !important; }
-.bg-surface-dim               { background: rgba(255,255,255,0.04) !important; }
-
-/* ── Gradients ─────── */
+/* ── Gradients ─── */
 .cta-gradient   { background: linear-gradient(to bottom, #E8003D, #B5002E) !important; }
 .vigor-gradient { background: linear-gradient(to right, #E8003D, #B5002E) !important; }
-.pci-gradient   { background: linear-gradient(90deg, rgba(232,0,61,0.08) 0%, #E8003D 46.5%, rgba(232,0,61,0.08) 100%) !important; }
+.pci-gradient   { background: linear-gradient(90deg, rgba(139,26,26,0.08) 0%, #8B1A1A 46.5%, rgba(139,26,26,0.08) 100%) !important; }
 
-/* ── Sort button ─────── */
-#sort-btn { background: rgba(255,255,255,0.08) !important; color: rgba(255,255,255,0.70) !important; }
-#sort-btn:hover { background: rgba(232,0,61,0.20) !important; }
-
-/* ── 結果タブ gold ──── */
-#vtab-results {
-  background: linear-gradient(135deg, #D97706, #b45309) !important;
-  color: #ffffff !important;
-  font-weight: 900 !important;
-  box-shadow: 0 2px 10px rgba(217,119,6,0.45) !important;
-}
-#vtab-results:hover {
-  background: linear-gradient(135deg, #f59e0b, #D97706) !important;
-  box-shadow: 0 4px 14px rgba(217,119,6,0.60) !important;
-}
-
-/* ── Footer ──────────── */
-footer {
-  background: linear-gradient(135deg, #1a0004, #0b0002) !important;
-  border-top: 1px solid rgba(232,0,61,0.35) !important;
-}
-footer * { color: rgba(255,255,255,0.75) !important; }
-
-/* ── 的中バナー (amber → crimson) ───── */
-.border-amber-400 { border-color: #E8003D !important; }
-.bg-amber-400     { background: linear-gradient(135deg, #E8003D, #B5002E) !important; }
-.text-amber-900   { color: #ffffff !important; }
-.bg-amber-50      { background: rgba(232,0,61,0.12) !important; }
-.text-amber-800   { color: #f5d0d5 !important; }
-.text-amber-700   { color: #E8003D !important; }
-.bg-amber-50.border.border-amber-300 { background: rgba(232,0,61,0.10) !important; border-color: rgba(232,0,61,0.35) !important; }
-.border-amber-300 { border-color: rgba(232,0,61,0.35) !important; }
-.text-amber-400   { color: #ff6690 !important; }
-
-/* ── 不的中バナー (slate → dark glass) ── */
-.bg-slate-600     { background: rgba(255,255,255,0.12) !important; }
-.bg-slate-500     { background: rgba(255,255,255,0.10) !important; }
-.bg-slate-50      { background: rgba(255,255,255,0.06) !important; }
-.bg-slate-100     { background: rgba(255,255,255,0.06) !important; }
-.border-slate-400 { border-color: rgba(255,255,255,0.25) !important; }
-.border-slate-300 { border-color: rgba(255,255,255,0.18) !important; }
-.text-slate-600   { color: rgba(255,255,255,0.75) !important; }
-.text-slate-500   { color: rgba(255,255,255,0.55) !important; }
-.text-slate-400   { color: rgba(255,255,255,0.45) !important; }
-
-/* ── 結果カード背景 ──────────────────── */
-.bg-surface-container-lowest { background: rgba(255,255,255,0.06) !important; }
-.bg-surface-container-lowest .text-primary { color: #ff6690 !important; }
-
-/* ── 払い戻しヘッダー (bg-primary) → crimson ── */
-.bg-surface-container-lowest .bg-primary {
-  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
-}
-
-/* ── 払い戻し表 ────────────────────── */
-.text-on-surface  { color: #f5d0d5 !important; }
-.text-on-surface-variant { color: rgba(255,255,255,0.60) !important; }
-
-/* ── 万馬券ハイライト (text-tertiary) → gold ── */
-.text-tertiary { color: #f0c040 !important; }
-
-/* ── アーカイブカード ─────────────── */
-.bg-primary\/10  { background: rgba(232,0,61,0.12) !important; }
-.text-primary    { color: #E8003D !important; }
-
-/* ── 結果タブボタン（active/inactive）── */
-#rtab-falcon, #rtab-flower, #rtab-wakaba, #rtab-aichi, #rtab-hanshin {
-  transition: all 0.2s ease;
-}
-.rounded-lg.bg-primary.text-white {
-  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
-  color: #ffffff !important;
-  box-shadow: 0 2px 10px rgba(232,0,61,0.40) !important;
-}
-.rounded-lg.text-outline.border {
-  background: rgba(255,255,255,0.05) !important;
-  color: rgba(255,255,255,0.55) !important;
-  border-color: rgba(232,0,61,0.25) !important;
-}
+/* ── 激走警報 ─── */
+.border-2.border-\[\#dc2626\]\/60 { border-color: rgba(232,0,61,.65) !important; box-shadow: 0 0 20px rgba(232,0,61,.20) !important; }
+.bg-gradient-to-r.from-\[\#7f1d1d\] { background: linear-gradient(90deg, #E8003D, #B5002E) !important; }
 </style>
 
 </head>
