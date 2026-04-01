@@ -102,7 +102,9 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .horse-table tr:hover td{background:rgba(255,255,255,.02);}
 .horse-table tr:last-child td{border-bottom:none;}
 .td-num{font-size:11px;color:var(--muted);width:28px;text-align:center;padding-top:12px;}
-.td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#fff;}
+.td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#fff;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
+.sabc-name-tan{font-size:13px;font-weight:900;padding:2px 8px;border-radius:6px;background:linear-gradient(135deg,rgba(240,192,64,.18),rgba(240,192,64,.08));border:1px solid rgba(240,192,64,.35);color:#f0c040;letter-spacing:.02em;white-space:nowrap;}
+.sabc-name-fuku{font-size:11px;font-weight:900;padding:2px 7px;border-radius:6px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);color:#93c5fd;letter-spacing:.02em;white-space:nowrap;}
 .td-sire{font-size:10px;color:rgba(255,255,255,.3);margin-top:2px;}
 .td-jockey{font-size:12px;font-weight:700;color:var(--text);white-space:nowrap;}
 .td-weight{font-size:12px;color:var(--gold);font-weight:700;text-align:right;white-space:nowrap;}
@@ -176,6 +178,46 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .prevrace-weight{color:rgba(255,255,255,.35);}
 .prevrace-interval{font-size:9px;color:rgba(255,255,255,.3);}
 
+/* ── SABC ─────────────────────────────────────────────────── */
+.sabc-bar{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:6px;padding:6px 10px;
+  background:rgba(240,192,64,.04);border:1px solid rgba(240,192,64,.12);border-radius:8px;font-size:10px;}
+.sabc-label{font-size:8px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,192,64,.5);margin-right:1px;}
+.sabc-sep{color:rgba(255,255,255,.15);margin:0 4px;}
+.sabc-badge{font-weight:900;padding:1px 5px;border-radius:4px;font-size:10px;min-width:18px;text-align:center;}
+.sabc-badge.g-S{background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;}
+.sabc-badge.g-A{background:rgba(59,130,246,.35);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
+.sabc-badge.g-B{background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.2);}
+.sabc-badge.g-C{background:rgba(255,255,255,.06);color:rgba(255,255,255,.35);}
+.sabc-total{font-weight:900;color:#f0c040;font-size:11px;margin-left:2px;}
+.sabc-factor-label{font-size:8px;color:rgba(255,255,255,.3);margin-right:1px;}
+.sabc-trainer-info{font-size:9px;color:rgba(255,255,255,.3);margin-left:4px;}
+.sabc-breakdown{font-size:9px;color:rgba(255,255,255,.38);margin-top:3px;margin-left:2px;display:flex;align-items:center;gap:4px;}
+.sabc-breakdown-base{color:rgba(255,255,255,.35);}
+.sabc-breakdown-plus{color:rgba(240,192,64,.55);font-weight:700;}
+.sabc-fire{font-size:12px;margin-left:2px;line-height:1;}
+/* ── SABC Pick Section ──────────────────────────────────── */
+.sabc-pick-section{display:flex;flex-direction:column;gap:8px;margin:14px 0 6px;}
+.sabc-pick-row{display:flex;align-items:stretch;gap:8px;}
+.sabc-pick-dim-label{writing-mode:vertical-rl;text-orientation:mixed;font-size:8px;font-weight:900;letter-spacing:.25em;padding:8px 6px;border-radius:8px;display:flex;align-items:center;justify-content:center;min-width:22px;flex-shrink:0;}
+.sabc-pick-dim-label.tan{background:linear-gradient(180deg,rgba(240,192,64,.2),rgba(240,192,64,.06));color:#f0c040;border:1px solid rgba(240,192,64,.3);}
+.sabc-pick-dim-label.fuku{background:linear-gradient(180deg,rgba(59,130,246,.2),rgba(59,130,246,.06));color:#60a5fa;border:1px solid rgba(59,130,246,.3);}
+.sabc-pick-horses{display:flex;gap:8px;flex:1;flex-wrap:wrap;}
+.sabc-pick-card{position:relative;border-radius:12px;padding:12px 14px 10px;overflow:hidden;flex:1;min-width:140px;}
+.sabc-pick-card.pick-tan{background:linear-gradient(135deg,rgba(240,192,64,.10),rgba(240,192,64,.04));border:1px solid rgba(240,192,64,.28);}
+.sabc-pick-card.pick-fuku{background:linear-gradient(135deg,rgba(59,130,246,.10),rgba(59,130,246,.04));border:1px solid rgba(59,130,246,.28);}
+.sabc-pick-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.sabc-pick-card.pick-tan::before{background:linear-gradient(90deg,#b8860b,#ffd700);}
+.sabc-pick-card.pick-fuku::before{background:linear-gradient(90deg,#1d4ed8,#60a5fa);}
+.sabc-pick-tied{font-size:8px;font-weight:900;letter-spacing:.1em;padding:1px 6px;border-radius:3px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.35);margin-bottom:4px;display:inline-block;}
+.sabc-pick-umaban{font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);}
+.sabc-pick-name{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:700;color:#fff;line-height:1.3;margin:4px 0;}
+.sabc-pick-score{font-size:24px;font-weight:900;line-height:1;margin-bottom:8px;}
+.sabc-pick-card.pick-tan .sabc-pick-score{color:#f0c040;}
+.sabc-pick-card.pick-fuku .sabc-pick-score{color:#60a5fa;}
+.sabc-pick-score span{font-size:12px;font-weight:700;margin-left:2px;opacity:.7;}
+.sabc-pick-badges{display:flex;flex-wrap:wrap;gap:3px;align-items:center;}
+.sabc-pick-fl{font-size:8px;color:rgba(255,255,255,.3);margin-right:1px;}
+
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
@@ -214,9 +256,17 @@ const GRADE_CLASS  = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
 const GRADE_SCORE  = {S:4,A:3,B:2,C:1};
 
 function gradeScore(g){ return GRADE_SCORE[g]||0; }
-function computeScore(n){
+function computeBaseScore(n){
   if(!n) return 0;
   return gradeScore(n.abilityGrade)+gradeScore(n.lapGrade)+gradeScore(n.prevGrade)+gradeScore(n.extGrade);
+}
+function computeSabcBonus(n){
+  if(!n || !n.sabc || !n.sabc.tan) return 0;
+  return Math.round(n.sabc.tan.total / 4);
+}
+function computeScore(n){
+  if(!n) return 0;
+  return computeBaseScore(n) + computeSabcBonus(n);
 }
 
 function gradeHtml(g) {
@@ -234,7 +284,9 @@ function abilityHtml(n, rank) {
   if (!n) return '';
   const ag = n.abilityGrade, lg = n.lapGrade, pg = n.prevGrade, eg = n.extGrade;
   if (!ag && !lg && !pg && !eg) return '';
-  const score = computeScore(n);
+  const base  = computeBaseScore(n);
+  const bonus = computeSabcBonus(n);
+  const score = base + bonus;
   const rankHtml = rank != null ? `<span class="rank-num">#${rank}</span>` : '';
   let html = `<div class="ability-row">`;
   html += rankHtml;
@@ -242,8 +294,19 @@ function abilityHtml(n, rank) {
   html += factorBadge('ラップ', lg);
   html += factorBadge('前走', pg);
   html += factorBadge('外厩', eg);
-  if (score > 0) html += `<span class="score-badge">${score}pt</span>`;
+  if (score > 0) {
+    const fire = bonus >= 3 ? '🔥🔥' : bonus >= 1 ? '🔥' : '';
+    html += `<span class="score-badge">${score}pt</span>`;
+    if (fire) html += `<span class="sabc-fire">${fire}</span>`;
+  }
   html += `</div>`;
+  if (bonus > 0) {
+    html += `<div class="sabc-breakdown">
+      <span class="sabc-breakdown-base">基礎${base}</span>
+      <span style="color:rgba(255,255,255,.2);">+</span>
+      <span class="sabc-breakdown-plus">★${bonus} SABC</span>
+    </div>`;
+  }
   if (n.extFacility) html += `<div class="ext-facility">▸ ${n.extFacility}</div>`;
   const abCmt = n.abilityCommentRtf || (n.abilityCommentRtf === undefined ? n.abilityComment : '');
   if (abCmt) html += `<div class="ability-comment">${abCmt}</div>`;
@@ -311,6 +374,70 @@ function outlookHtml(notes) {
   </div>`;
 }
 
+function sabcBadge(g){ return `<span class="sabc-badge g-${g}">${g}</span>`; }
+
+function sabcHtml(hn) {
+  if (!hn || !hn.sabc) return '';
+  const t = hn.sabc.tan, f = hn.sabc.fuku;
+  // 大阪杯は8ファクター
+  const factors = ['trainer','sire','style','last3f','pci','age','weight','diff3f'];
+  const fLabels  = ['厩','父','脚','3F','PCI','齢','馬格','差'];
+  let tanBadges  = factors.map((k,i)=>`<span class="sabc-factor-label">${fLabels[i]}</span>${sabcBadge(t[k])}`).join('');
+  let fukuBadges = factors.map((k,i)=>`<span class="sabc-factor-label">${fLabels[i]}</span>${sabcBadge(f[k])}`).join('');
+  const trainerInfo = hn.sabcTrainer ? `<span class="sabc-trainer-info">${hn.sabcTrainer}／${hn.sabcSire||''}</span>` : '';
+  return `<div class="sabc-bar">
+    <span class="sabc-label">単勝</span>${tanBadges}<span class="sabc-total">${t.total}pt</span>
+    <span class="sabc-sep">|</span>
+    <span class="sabc-label">複勝</span>${fukuBadges}<span class="sabc-total">${f.total}pt</span>
+    ${trainerInfo}
+  </div>`;
+}
+
+function sabcPickHtml(notes, race) {
+  if (!notes || !notes.sabcRankTan || !notes.sabcRankFuku) return '';
+  if (!notes.sabcRankTan[0] || !notes.sabcRankFuku[0]) return '';
+  const factors = ['trainer','sire','style','last3f','pci','age','weight','diff3f'];
+  const fLabels  = ['厩','父','脚','3F','PCI','齢','馬格','差'];
+  function topTied(rank) {
+    const best = rank[0].total;
+    return rank.filter(x => x.total === best);
+  }
+  function umabanOf(name) {
+    const h = (race.horses||[]).find(x=>x.name===name);
+    return h ? h.num : '―';
+  }
+  function pickBadges(sabc, dim) {
+    return factors.map((k,i)=>
+      `<span class="sabc-pick-fl">${fLabels[i]}</span><span class="sabc-badge g-${sabc[dim][k]}">${sabc[dim][k]}</span>`
+    ).join('');
+  }
+  function card(dim, entry, cls, isTied) {
+    const hn = notes.horses[entry.name];
+    if (!hn || !hn.sabc) return '';
+    const tiedBadge = isTied ? `<span class="sabc-pick-tied">同点</span>` : '';
+    return `<div class="sabc-pick-card ${cls}">
+      ${tiedBadge}
+      <div><span class="sabc-pick-umaban">${umabanOf(entry.name)}番</span></div>
+      <div class="sabc-pick-name">${entry.name}</div>
+      <div class="sabc-pick-score">${entry.total}<span>pt</span></div>
+      <div class="sabc-pick-badges">${pickBadges(hn.sabc, dim)}</div>
+    </div>`;
+  }
+  function row(dim, rank, cls, label) {
+    const tops = topTied(rank);
+    const isTied = tops.length > 1;
+    const cards = tops.map(e => card(dim, e, cls, isTied)).join('');
+    return `<div class="sabc-pick-row">
+      <div class="sabc-pick-dim-label ${dim==='tan'?'tan':'fuku'}">${label}注目</div>
+      <div class="sabc-pick-horses">${cards}</div>
+    </div>`;
+  }
+  return `<div class="sabc-pick-section">
+    ${row('tan',  notes.sabcRankTan,  'pick-tan',  '単勝')}
+    ${row('fuku', notes.sabcRankFuku, 'pick-fuku', '複勝')}
+  </div>`;
+}
+
 function buildTabs(races) {
   return races.map((r, i) => {
     const gradeTag = r.grade ? `<span class="tab-grade">${r.grade}</span>` : '';
@@ -330,6 +457,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     horses.sort((a, b) => computeScore(horsesNotes[b.name]) - computeScore(horsesNotes[a.name]));
   }
 
+
   const rows = horses.map((h, ri) => {
     const hn  = horsesNotes[h.name] || null;
     const hd  = (horsesMap && horsesMap[h.name]) || null;
@@ -346,9 +474,10 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     return `<tr>
       <td class="td-num">${h.num}</td>
       <td>
-        <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:3px;">${h.age}歳</span>${h.name}</div>
+        <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);">${h.age}歳</span>${h.name}${hn&&hn.sabc?`<span class="sabc-name-tan">単${hn.sabc.tan.total}pt</span><span class="sabc-name-fuku">複${hn.sabc.fuku.total}pt</span>`:''}</div>
         <div class="td-sire">${pedigreeHtml}${trainerHtml}</div>
         ${abilityHtml(hn, rank)}
+        ${sabcHtml(hn)}
         ${prevRaceHtml(pdata)}
       </td>
       <td class="td-jockey">${jockeyCell}</td>
@@ -364,6 +493,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     </div>
     ${lapAnalysisHtml(notes)}
     ${outlookHtml(notes)}
+    ${sabcPickHtml(notes, race)}
     <table class="horse-table">
       <thead><tr>
         <th>番</th>
