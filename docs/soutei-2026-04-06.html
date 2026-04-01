@@ -8,25 +8,25 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#130003;--bg-dk:#0b0002;
-  --pink:#E8003D;--gold:#f0c040;--green:#22c55e;
-  --text:#f5d0d5;--muted:rgba(255,255,255,0.45);
+  --bg:#1A1210;--bg-dk:#120D09;
+  --accent:#7BBCB5;--gold:#f0c040;--green:#22c55e;
+  --text:#F2D9B0;--muted:rgba(242,217,176,0.45);
   --card:rgba(255,255,255,0.05);
 }
 html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
 
 /* Header */
-.hdr{background:linear-gradient(135deg,#200006,#0b0002 60%,#130003);border-bottom:2px solid rgba(232,0,61,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(232,0,61,.2);}
+.hdr{background:linear-gradient(135deg,#1E1510,#120D09 60%,#1A1210);border-bottom:2px solid rgba(123,188,181,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(123,188,181,.2);}
 .hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(255,255,255,0.08);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.12);}
 .hdr-back:hover{background:rgba(255,255,255,0.14);}
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(232,0,61,.8);letter-spacing:.05em;}
+.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#fff;text-shadow:0 0 24px rgba(123,188,181,.8);letter-spacing:.05em;}
 .hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
 
 /* Page */
 .page-wrap{max-width:780px;margin:0 auto;padding:16px 12px 60px;}
 
 /* Date header */
-.date-header{text-align:center;padding:20px 16px;margin-bottom:20px;background:linear-gradient(135deg,rgba(232,0,61,.12),rgba(10,0,3,.95));border:1px solid rgba(232,0,61,.3);border-radius:16px;}
+.date-header{text-align:center;padding:20px 16px;margin-bottom:20px;background:linear-gradient(135deg,rgba(123,188,181,.12),rgba(22,15,12,.95));border:1px solid rgba(123,188,181,.3);border-radius:16px;}
 .date-header .date-main{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:#fff;}
 .date-header .date-sub{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.1em;}
 
@@ -35,7 +35,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-tabs::-webkit-scrollbar{display:none;}
 .race-tab{flex-shrink:0;padding:7px 14px;border-radius:20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap;}
 .race-tab:hover{background:rgba(255,255,255,0.1);}
-.race-tab.active{background:rgba(232,0,61,.2);border-color:rgba(232,0,61,.7);color:#fff;}
+.race-tab.active{background:rgba(123,188,181,.2);border-color:rgba(123,188,181,.7);color:#fff;}
 .race-tab.grade-tab{border-color:rgba(240,192,64,.4);color:var(--gold);}
 .race-tab.grade-tab.active{background:rgba(240,192,64,.15);border-color:var(--gold);color:var(--gold);}
 .tab-grade{font-size:9px;display:inline-block;margin-left:3px;padding:1px 4px;border-radius:3px;background:rgba(240,192,64,.3);color:var(--gold);}
@@ -45,7 +45,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-panel.active{display:block;}
 
 /* Race header */
-.race-header{background:linear-gradient(135deg,rgba(30,0,8,.9),rgba(10,0,3,.95));border:1px solid rgba(232,0,61,.35);border-radius:14px;padding:16px 18px;margin-bottom:12px;}
+.race-header{background:linear-gradient(135deg,rgba(22,15,12,.9),rgba(22,15,12,.95));border:1px solid rgba(123,188,181,.35);border-radius:14px;padding:16px 18px;margin-bottom:12px;}
 .race-grade-badge{display:inline-block;font-size:10px;font-weight:900;padding:3px 10px;border-radius:5px;margin-bottom:8px;letter-spacing:.08em;}
 .grade-G1{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
 .grade-G2{background:linear-gradient(90deg,#1a6b2a,#22c55e);color:#000;}
@@ -58,7 +58,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 /* Outlook card (重賞展望) */
 .outlook-card{
   margin-bottom:14px;padding:18px;border-radius:14px;
-  background:linear-gradient(135deg,rgba(240,192,64,.08),rgba(10,0,3,.9));
+  background:linear-gradient(135deg,rgba(240,192,64,.08),rgba(22,15,12,.9));
   border:1px solid rgba(240,192,64,.35);
   position:relative;overflow:hidden;
 }
@@ -74,15 +74,15 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .ability-row{display:flex;align-items:flex-start;gap:8px;margin-top:6px;flex-wrap:wrap;}
 .ability-badge{display:inline-flex;align-items:center;font-size:11px;font-weight:900;padding:2px 8px;border-radius:4px;letter-spacing:.04em;white-space:nowrap;}
 .ability-S{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
-.ability-A{background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.5);}
+.ability-A{background:rgba(123,188,181,.25);color:#a0d8d4;border:1px solid rgba(123,188,181,.5);}
 .ability-B{background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.4);}
 .ability-C{background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.25);}
 
 /* Comments */
 .ability-comment{font-size:11px;color:rgba(255,255,255,.88);line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(240,192,64,.07);border-left:3px solid rgba(240,192,64,.5);border-radius:0 6px 6px 0;}
-.judge-comment{font-size:11px;color:rgba(255,255,255,.88);line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(232,0,61,.07);border-left:3px solid rgba(232,0,61,.45);border-radius:0 6px 6px 0;}
+.judge-comment{font-size:11px;color:rgba(255,255,255,.88);line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(123,188,181,.07);border-left:3px solid rgba(123,188,181,.45);border-radius:0 6px 6px 0;}
 .judge-badge{display:inline-flex;align-items:center;font-size:9px;font-weight:900;padding:1px 6px;border-radius:3px;letter-spacing:.04em;margin-left:4px;vertical-align:middle;}
-.judge-badge-A{background:rgba(232,0,61,.2);color:#ff6b8a;border:1px solid rgba(232,0,61,.4);}
+.judge-badge-A{background:rgba(123,188,181,.2);color:#a0d8d4;border:1px solid rgba(123,188,181,.4);}
 .judge-badge-B{background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
 .judge-badge-S{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
 .judge-badge-C{background:rgba(107,114,128,.15);color:#9ca3af;border:1px solid rgba(107,114,128,.2);}
@@ -97,7 +97,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 
 /* Horse table */
 .horse-table{width:100%;border-collapse:collapse;font-size:12px;}
-.horse-table th{padding:7px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;border-bottom:1px solid rgba(232,0,61,.2);}
+.horse-table th{padding:7px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;border-bottom:1px solid rgba(123,188,181,.2);}
 .horse-table td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;}
 .horse-table tr:hover td{background:rgba(255,255,255,.02);}
 .horse-table tr:last-child td{border-bottom:none;}
@@ -132,7 +132,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 /* Lap analysis card */
 .lap-card{
   margin-bottom:14px;padding:16px 18px;border-radius:14px;
-  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(10,0,3,.92));
+  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(22,15,12,.92));
   border:1px solid rgba(240,192,64,.25);
   position:relative;overflow:hidden;
 }
