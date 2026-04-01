@@ -701,6 +701,29 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
         <div id="shindanStatus" style="font-size:12px; color:var(--text-muted);">重賞展望ページで「📤 最終予想ツールへ転送」を押してから読込してください</div>
       </div>
 
+      <!-- 📋 出走想定表から取込 -->
+      <div class="csv-upload-area" id="souteiImportArea">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:11px; font-weight:900; color:#93c5fd; letter-spacing:0.08em; text-transform:uppercase;">📋 出走想定表から取込</span>
+            <span style="font-size:10px; color:var(--text-muted);">JRDB 出走想定データ</span>
+          </div>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <input type="date" id="souteiDate" style="
+              background:rgba(255,255,255,0.07);border:1px solid rgba(147,197,253,0.35);
+              border-radius:7px;color:var(--text);font-size:11px;padding:4px 8px;
+            " onchange="clearSouteiRaces();">
+            <button onclick="loadSouteiData()" style="
+              padding:5px 12px;border-radius:8px;border:none;cursor:pointer;
+              background:rgba(147,197,253,0.15);color:#93c5fd;
+              font-size:11px;font-weight:700;border:1px solid rgba(147,197,253,0.35);
+            ">🔄 読込</button>
+          </div>
+        </div>
+        <div id="souteiStatus" style="font-size:12px; color:var(--text-muted);">日付を選択して「読込」を押してください</div>
+        <div id="souteiRaceBtns" style="display:none; margin-top:10px; display:none;"></div>
+      </div>
+
       <!-- Horse add form -->
       <div class="horse-add-form" id="horseAddForm" style="display:none;">
         <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:0.05em; text-transform:uppercase;">馬を追加</div>
@@ -1082,6 +1105,141 @@ function renderCSVRaceSelectFinal(races) {
     btn.onclick = (function(r){ return function(){ importCSVRaceHorsesFinal(r); }; })(race);
     btns.appendChild(btn);
   });
+}
+
+// ══════════════════════════════════════════════════════════
+//  出走想定表 取込
+// ══════════════════════════════════════════════════════════
+(function initSouteiDate() {
+  // 直近の土曜日を初期値に
+  var d = new Date();
+  var dow = d.getDay(); // 0=Sun,6=Sat
+  var diff = dow === 6 ? 0 : (dow === 0 ? 1 : (6 - dow + 7) % 7);
+  d.setDate(d.getDate() + diff);
+  var iso = d.toISOString().slice(0, 10);
+  var el = document.getElementById('souteiDate');
+  if (el) el.value = iso;
+})();
+
+function clearSouteiRaces() {
+  document.getElementById('souteiRaceBtns').style.display = 'none';
+  document.getElementById('souteiStatus').textContent = '日付を選択して「読込」を押してください';
+  document.getElementById('souteiStatus').style.color = 'var(--text-muted)';
+}
+
+function loadSouteiData() {
+  var dateVal = document.getElementById('souteiDate').value;
+  var statusEl = document.getElementById('souteiStatus');
+  var btnsEl   = document.getElementById('souteiRaceBtns');
+  if (!dateVal) { statusEl.textContent = '⚠️ 日付を選択してください'; return; }
+
+  statusEl.style.color = 'var(--text-muted)';
+  statusEl.textContent = '読込中...';
+  btnsEl.style.display = 'none';
+  btnsEl.innerHTML = '';
+
+  fetch('data/soutei-' + dateVal + '.json?_=' + Date.now())
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      var races = data.races || [];
+      if (races.length === 0) throw new Error('レースデータがありません');
+      statusEl.style.color = '#93c5fd';
+      statusEl.textContent = data.label + ' — ' + races.length + 'レース読込済み。取込むレースを選択:';
+      btnsEl.innerHTML = races.map(function(r, i) {
+        var gradeBadge = r.grade ? '<span style="font-size:9px;background:rgba(59,130,246,.35);color:#93c5fd;padding:1px 5px;border-radius:3px;margin-left:4px;">' + r.grade + '</span>' : '';
+        return '<button onclick="importSouteiRace(' + i + ',\'' + dateVal + '\')" style="' +
+          'display:flex;align-items:center;justify-content:space-between;width:100%;' +
+          'background:rgba(147,197,253,0.07);border:1px solid rgba(147,197,253,0.25);' +
+          'border-radius:8px;padding:8px 12px;margin-bottom:5px;cursor:pointer;color:var(--text);' +
+          'font-size:12px;text-align:left;" id="soutei-race-btn-' + i + '">' +
+          '<span>' + r.raceNo + ' ' + r.raceName + gradeBadge + '</span>' +
+          '<span style="font-size:11px;color:var(--text-muted);">' + r.horses.length + '頭 ›</span>' +
+          '</button>';
+      }).join('');
+      btnsEl.style.display = 'block';
+      window._souteiData = data;
+    })
+    .catch(function(e) {
+      statusEl.style.color = '#ffb3c6';
+      statusEl.textContent = '❌ ' + dateVal + ' の想定表データが見つかりません（' + e.message + '）';
+    });
+}
+
+function importSouteiRace(idx, dateVal) {
+  var data  = window._souteiData;
+  if (!data) return;
+  var race  = data.races[idx];
+  if (!race) return;
+
+  if (finalHorses.length > 0) {
+    if (!confirm(race.raceNo + ' ' + race.raceName + ' の ' + race.horses.length + '頭を取込みます。\n現在の馬リストは上書きされます。よろしいですか？')) return;
+  }
+
+  // STEP 1 自動入力
+  var courseStr = race.course || '';                           // "中山芝1600m"
+  var venueMatch   = courseStr.match(/^(中山|東京|阪神|京都|中京|福島|新潟|小倉|函館|札幌)/);
+  var surfaceMatch = courseStr.match(/(芝|ダート)/);
+  var distMatch    = courseStr.match(/(\d+)m/);
+  var raceNoNum    = (race.raceNo || '').replace(/[^0-9]/g,'');
+
+  document.getElementById('raceName').value = race.raceName;
+  if (venueMatch) {
+    var venueEl = document.getElementById('venue');
+    for (var i = 0; i < venueEl.options.length; i++) {
+      if (venueEl.options[i].value === venueMatch[1]) { venueEl.selectedIndex = i; break; }
+    }
+  }
+  if (raceNoNum) document.getElementById('raceNum').value = raceNoNum + 'R';
+  if (surfaceMatch) {
+    var surfEl = document.getElementById('surface');
+    var sv = surfaceMatch[1] === 'ダート' ? 'ダート' : '芝';
+    for (var j = 0; j < surfEl.options.length; j++) {
+      if (surfEl.options[j].value === sv) { surfEl.selectedIndex = j; break; }
+    }
+  }
+  if (distMatch) document.getElementById('distance').value = distMatch[1] + 'm';
+  if (race.grade) {
+    var gradeEl = document.getElementById('raceGrade');
+    for (var k = 0; k < gradeEl.options.length; k++) {
+      if (gradeEl.options[k].value === race.grade) { gradeEl.selectedIndex = k; break; }
+    }
+  }
+  document.getElementById('raceDate').value = dateVal;
+  updateFilenamePreview();
+
+  // 馬リスト生成
+  finalHorses = race.horses.map(function(h) {
+    return {
+      num:    h.num,
+      gate:   calcGateFromNum(h.num, race.horses.length),
+      name:   h.name,
+      jockey: h.jockey || '',
+      sire:   h.sire   || '',
+      basePt: 0,
+      scores: { '枠番':0, '調教':0, '勝負気配':0, '馬場':0, 'ニック':0 },
+      totalPt: 0,
+      mark: ''
+    };
+  });
+  finalHorses.forEach(function(h){ h.totalPt = calcTotal(h); });
+  renderHorseTable();
+  scheduleSave();
+
+  // ボタン強調
+  document.querySelectorAll('[id^="soutei-race-btn-"]').forEach(function(b){ b.style.background='rgba(147,197,253,0.07)'; b.style.borderColor='rgba(147,197,253,0.25)'; });
+  var activeBtn = document.getElementById('soutei-race-btn-' + idx);
+  if (activeBtn) { activeBtn.style.background='rgba(147,197,253,0.18)'; activeBtn.style.borderColor='rgba(147,197,253,0.7)'; }
+
+  document.getElementById('souteiStatus').style.color = '#4ade80';
+  document.getElementById('souteiStatus').textContent = '✅ ' + race.raceNo + ' ' + race.raceName + '：' + race.horses.length + '頭を取込みました';
+
+  setTimeout(function(){
+    var tbl = document.getElementById('horseTableBody');
+    if (tbl) tbl.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 200);
 }
 
 // ── 重賞展望データ読込（localStorage["ug_shindan_scores"] → basePt反映）──
