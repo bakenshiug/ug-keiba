@@ -107,6 +107,11 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .pop-4,.pop-5,.pop-6{background:rgba(15,118,110,.12);color:#0f766e;border:1px solid rgba(15,118,110,.3);}
 .pop-other{background:rgba(28,43,74,.07);color:rgba(28,43,74,.45);border:1px solid rgba(28,43,74,.12);}
 .pop-odds{font-size:9px;color:rgba(28,43,74,.4);margin-top:2px;letter-spacing:-.01em;}
+.pop-badge{display:inline-flex;flex-direction:column;align-items:center;}
+.pop-num{font-size:14px;font-weight:900;line-height:1.1;}
+.pop-ninki{font-size:8px;font-weight:700;line-height:1;opacity:.85;}
+.sabc-pick-pop{font-size:10px;color:rgba(28,43,74,.6);margin:2px 0 6px;line-height:1.5;}
+.sabc-pick-pop strong{font-weight:900;color:var(--text);}
 .td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#1C2B4A;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
 .sabc-name-tan{font-size:13px;font-weight:900;padding:2px 8px;border-radius:6px;background:linear-gradient(135deg,rgba(139,26,26,.18),rgba(139,26,26,.08));border:1px solid rgba(139,26,26,.35);color:#8B1A1A;letter-spacing:.02em;white-space:nowrap;}
 .sabc-name-fuku{font-size:11px;font-weight:900;padding:2px 7px;border-radius:6px;background:rgba(29,78,216,.15);border:1px solid rgba(29,78,216,.4);color:#1e3a8a;letter-spacing:.02em;white-space:nowrap;}
@@ -435,10 +440,14 @@ function sabcPickHtml(notes, race) {
     const hn = notes.horses[entry.name];
     if (!hn || !hn.sabc) return '';
     const tiedBadge = isTied ? `<span class="sabc-pick-tied">同点</span>` : '';
+    const popInfo = hn.popularity
+      ? `<div class="sabc-pick-pop">想定<strong>${hn.popularity}</strong>番人気 ／ 想定${dim==='tan'?'単勝':'複勝'}オッズ <strong>${hn.odds||'—'}倍</strong></div>`
+      : '';
     return `<div class="sabc-pick-card ${cls}">
       ${tiedBadge}
       <div><span class="sabc-pick-umaban">${umabanOf(entry.name)}番</span></div>
       <div class="sabc-pick-name">${entry.name}</div>
+      ${popInfo}
       <div class="sabc-pick-score">${entry.total}<span>pt</span></div>
       <div class="sabc-pick-badges">${pickBadges(hn.sabc, dim)}</div>
     </div>`;
@@ -494,7 +503,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     const pop = hn && hn.popularity;
     const popCls = pop ? (pop<=3?`pop-${pop}`:pop<=6?'pop-4':'pop-other') : 'pop-other';
     const popCell = pop
-      ? `<span class="pop-badge ${popCls}">${pop}</span><div class="pop-odds">${hn.odds||''}倍</div>`
+      ? `<span class="pop-badge ${popCls}"><span class="pop-num">${pop}</span><span class="pop-ninki">人気</span></span><div class="pop-odds">${hn.odds||''}倍</div>`
       : `<span style="color:rgba(28,43,74,.2);font-size:11px;">${h.num}</span>`;
     return `<tr>
       <td class="td-num">${popCell}</td>
