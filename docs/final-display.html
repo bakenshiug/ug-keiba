@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>最終予想 | UG強奪競馬新聞</title>
+<title>最終予想アーカイブ | UG強奪競馬新聞</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -292,6 +292,31 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   table.horse-tbl{font-size:11px;}
   table.horse-tbl td.tbl-name{font-size:12px;}
 }
+
+/* ── 週アコーディオン ── */
+.archive-wrap{padding:14px 12px 0;max-width:780px;margin:0 auto;}
+.archive-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.archive-title{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+.archive-stats-link{font-size:11px;font-weight:700;color:rgba(28,43,74,.55);padding:5px 10px;border-radius:8px;background:rgba(139,26,26,.07);border:1px solid rgba(139,26,26,.18);text-decoration:none;transition:all .18s;}
+.archive-stats-link:hover{background:rgba(139,26,26,.14);color:#1C2B4A;}
+
+.week-accordion{background:linear-gradient(140deg,rgba(232,208,162,.4),rgba(242,217,176,.75));border:1px solid rgba(232,0,61,.18);border-radius:16px;overflow:hidden;margin-bottom:10px;}
+.week-accordion.is-current{border-color:rgba(232,0,61,.45);box-shadow:0 0 20px rgba(232,0,61,.12);}
+.week-acc-header{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;user-select:none;transition:background .18s;}
+.week-acc-header:hover{background:rgba(139,26,26,.06);}
+.week-acc-left{display:flex;align-items:center;gap:10px;}
+.week-acc-label{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#1C2B4A;}
+.week-current-badge{font-size:9px;font-weight:900;padding:2px 8px;border-radius:4px;background:rgba(232,0,61,.2);color:#c0002a;border:1px solid rgba(232,0,61,.35);letter-spacing:.06em;}
+.week-acc-meta{font-size:10px;color:rgba(28,43,74,.5);margin-top:2px;}
+.week-acc-arrow{font-size:16px;color:rgba(28,43,74,.45);transition:transform .22s;line-height:1;}
+.week-acc-arrow.open{transform:rotate(180deg);}
+.week-acc-body{display:none;padding:0 12px 12px;}
+.week-acc-body.open{display:block;}
+
+.week-hit-summary{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.week-hit-chip{font-size:9px;font-weight:900;padding:2px 8px;border-radius:4px;letter-spacing:.04em;}
+.chip-hit{background:rgba(232,0,61,.15);color:#c0002a;border:1px solid rgba(232,0,61,.3);}
+.chip-miss{background:rgba(0,0,0,.07);color:rgba(28,43,74,.5);border:1px solid rgba(0,0,0,.1);}
 </style>
 </head>
 <body>
@@ -300,19 +325,22 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   <a href="index.html" class="hdr-back">← トップ</a>
   <div>
     <div class="hdr-sub">UG強奪競馬新聞 / 重賞最終予想</div>
-    <div class="hdr-logo">🎯 FINAL PICK</div>
+    <div class="hdr-logo">🎯 FINAL PICK アーカイブ</div>
   </div>
 </header>
 
-<!-- レース選択ボタン -->
-<div class="selector-wrap">
-  <div class="week-label" id="weekLabel">⏳ 読み込み中...</div>
-  <div class="race-btns" id="raceBtns"></div>
+<!-- 週別アーカイブ -->
+<div class="archive-wrap">
+  <div class="archive-header-row">
+    <div class="archive-title">📅 週別最終予想</div>
+    <a href="final-history.html" class="archive-stats-link">📊 累計戦績 →</a>
+  </div>
+  <div id="weekList"><div class="loading">⏳ 読み込み中...</div></div>
 </div>
 
 <!-- 詳細表示エリア -->
-<div class="detail-wrap">
-  <div id="detail"><div class="loading">⏳ データ読み込み中...</div></div>
+<div class="detail-wrap" id="detailWrap" style="display:none;">
+  <div id="detail"></div>
 </div>
 
 <script>
@@ -631,11 +659,12 @@ function gradeLabel(g) {
 const cache = {};
 
 async function showRace(file, btnEl) {
-  // アクティブボタン切り替え
   document.querySelectorAll('.race-btn').forEach(b => b.classList.remove('active'));
   btnEl.classList.add('active');
 
+  const detailWrap = document.getElementById('detailWrap');
   const detail = document.getElementById('detail');
+  detailWrap.style.display = 'block';
   detail.innerHTML = '<div class="loading">⏳ 読み込み中...</div>';
 
   try {
@@ -645,84 +674,130 @@ async function showRace(file, btnEl) {
       cache[file] = await r.json();
     }
     detail.innerHTML = renderRaceDetail(cache[file]);
-    // スクロールをdetailの先頭へ
     detail.scrollIntoView({behavior:'smooth', block:'start'});
   } catch(e) {
     detail.innerHTML = `<div class="err">⚠️ 読み込みエラー：${e.message}</div>`;
   }
 }
 
+function buildRaceButtons(buttons) {
+  return buttons.map(({ file, data }) => {
+    const r = data.race || {};
+    const honmei = (data.horses || []).find(h => h.mark === '◎');
+    const taikou = (data.horses || []).find(h => h.mark === '○');
+    const picksLine = [
+      honmei ? `◎${honmei.name}` : null,
+      taikou ? `○${taikou.name}` : null,
+    ].filter(Boolean).join(' / ');
+    const gradeClass = r.grade ? 'grade-' + r.grade.toLowerCase() : '';
+    const res = data.result;
+    const resultBadge = res
+      ? `<span class="btn-result ${res.hitFlag ? 'btn-result-hit' : 'btn-result-miss'}">${res.hitFlag ? '✅ HIT' : '❌ MISS'}</span>`
+      : '';
+    return `<button class="race-btn ${gradeClass}" data-file="${esc(file)}" onclick="handleBtnClick(this)">
+      <span class="active-dot"></span>
+      ${gradeLabel(r.grade)}
+      <div class="btn-name">${esc(r.name||file)}</div>
+      <div class="btn-meta">${esc(r.venue||'')} ${esc(r.distance||'')} ／ ${esc(r.date||'')}</div>
+      ${picksLine ? `<div style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(139,26,26,.8);">${esc(picksLine)}</div>` : ''}
+      ${resultBadge}
+    </button>`;
+  }).join('');
+}
+
+function toggleWeekAcc(header) {
+  const body  = header.nextElementSibling;
+  const arrow = header.querySelector('.week-acc-arrow');
+  const isOpen = body.classList.toggle('open');
+  arrow.classList.toggle('open', isOpen);
+}
+
+async function loadWeek(weekId, files, isCurrent) {
+  const buttons = [];
+  for (const file of files) {
+    try {
+      if (!cache[file]) {
+        const r = await fetch(`data/${file}.json?v=` + Date.now());
+        if (!r.ok) continue;
+        const data = await r.json();
+        if (data.published === false) continue;
+        cache[file] = data;
+      }
+      buttons.push({ file, data: cache[file] });
+    } catch(e) { /* スキップ */ }
+  }
+  return buttons;
+}
+
 async function loadAll() {
-  const weekLabel = document.getElementById('weekLabel');
-  const raceBtns  = document.getElementById('raceBtns');
-  const detail    = document.getElementById('detail');
+  const weekList = document.getElementById('weekList');
 
   try {
-    const res = await fetch('data/final-list.json?v=' + Date.now());
-    if (!res.ok) throw new Error('final-list.json が見つかりません');
-    const list = await res.json();
+    const res = await fetch('data/final-index.json?v=' + Date.now());
+    if (!res.ok) throw new Error('final-index.json が見つかりません');
+    const index = await res.json();
+    const weeks = index.weeks || [];
 
-    weekLabel.textContent = '🗓️ ' + (list.label || list.week);
-
-    if (!list.files || list.files.length === 0) {
-      raceBtns.innerHTML = '';
-      detail.innerHTML = '<div class="err">今週の最終予想はまだ公開されていません</div>';
+    if (weeks.length === 0) {
+      weekList.innerHTML = '<div class="err">最終予想データがありません</div>';
       return;
     }
 
-    // ボタン先読み（レース情報だけ取得）
-    const buttons = [];
-    for (const file of list.files) {
-      try {
-        const r2 = await fetch(`data/${file}.json?v=` + Date.now());
-        if (!r2.ok) continue;
-        const data = await r2.json();
-        if (data.published === false) continue;
-        cache[file] = data; // キャッシュ
-        buttons.push({ file, data });
-      } catch(e) { /* スキップ */ }
-    }
+    weekList.innerHTML = '';
 
-    if (buttons.length === 0) {
-      detail.innerHTML = '<div class="err">今週の最終予想はまだ公開されていません 🙏</div>';
-      return;
-    }
+    // 各週を並行ロード
+    const weekData = await Promise.all(
+      weeks.map(w => loadWeek(w.weekId, w.files || [], w.weekId === index.currentWeek))
+    );
 
-    // ボタン描画
-    raceBtns.innerHTML = buttons.map(({ file, data }) => {
-      const r = data.race || {};
-      const honmei = (data.horses || []).find(h => h.mark === '◎');
-      const taikou = (data.horses || []).find(h => h.mark === '○');
-      const picksLine = [honmei, taikou]
-        .filter(Boolean)
-        .map(h => `◎${h.name}` === `◎${honmei?.name}` ? `◎${h.name}` : `○${h.name}`)
-        .join(' / ');
+    weeks.forEach((week, wi) => {
+      const buttons = weekData[wi];
+      const isCurrent = week.weekId === index.currentWeek;
+      const hitCount  = buttons.filter(b => b.data.result?.hitFlag).length;
+      const missCount = buttons.filter(b => b.data.result && !b.data.result.hitFlag).length;
 
-      const gradeClass = r.grade ? 'grade-' + r.grade.toLowerCase() : '';
-      const res = data.result;
-      const resultBadge = res
-        ? `<span class="btn-result ${res.hitFlag ? 'btn-result-hit' : 'btn-result-miss'}">${res.hitFlag ? '✅ HIT' : '❌ MISS'}</span>`
-        : '';
-      return `<button class="race-btn ${gradeClass}" data-file="${esc(file)}" onclick="handleBtnClick(this)">
-        <span class="active-dot"></span>
-        ${gradeLabel(r.grade)}
-        <div class="btn-name">${esc(r.name||file)}</div>
-        <div class="btn-meta">${esc(r.venue||'')} ${esc(r.distance||'')} ／ ${esc(r.date||'')}</div>
-        ${picksLine ? `<div style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(139,26,26,.8);">${esc(picksLine)}</div>` : ''}
-        ${resultBadge}
-      </button>`;
-    }).join('');
+      const hitChips = [
+        hitCount  > 0 ? `<span class="week-hit-chip chip-hit">✅ 的中 ${hitCount}レース</span>`  : '',
+        missCount > 0 ? `<span class="week-hit-chip chip-miss">❌ 不的中 ${missCount}レース</span>` : '',
+      ].join('');
 
-    // 1番目を自動表示
-    const firstBtn = raceBtns.querySelector('.race-btn');
+      const accEl = document.createElement('div');
+      accEl.className = `week-accordion${isCurrent ? ' is-current' : ''}`;
+      accEl.innerHTML = `
+        <div class="week-acc-header" onclick="toggleWeekAcc(this)">
+          <div class="week-acc-left">
+            <div>
+              <div class="week-acc-label">
+                ${esc(week.label)}
+                ${isCurrent ? ' <span class="week-current-badge">最新</span>' : ''}
+              </div>
+              <div class="week-acc-meta">${buttons.length}レース</div>
+            </div>
+          </div>
+          <span class="week-acc-arrow${isCurrent ? ' open' : ''}">▼</span>
+        </div>
+        <div class="week-acc-body${isCurrent ? ' open' : ''}">
+          ${hitChips ? `<div class="week-hit-summary">${hitChips}</div>` : ''}
+          <div class="race-btns" id="btns-${esc(week.weekId)}">
+            ${buttons.length > 0 ? buildRaceButtons(buttons) : '<div class="loading" style="padding:20px 0;">レースデータなし</div>'}
+          </div>
+        </div>
+      `;
+      weekList.appendChild(accEl);
+    });
+
+    // 最新週の1番目を自動表示
+    const firstBtn = document.querySelector(`#btns-${CSS.escape(index.currentWeek)} .race-btn`);
     if (firstBtn) {
       firstBtn.classList.add('active');
+      const detailWrap = document.getElementById('detailWrap');
+      const detail = document.getElementById('detail');
+      detailWrap.style.display = 'block';
       detail.innerHTML = renderRaceDetail(cache[firstBtn.dataset.file]);
     }
 
   } catch(e) {
-    weekLabel.textContent = '❌ エラー';
-    detail.innerHTML = `<div class="err">読み込みエラー：${e.message}</div>`;
+    weekList.innerHTML = `<div class="err">読み込みエラー：${e.message}</div>`;
   }
 }
 
