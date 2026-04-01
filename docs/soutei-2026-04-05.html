@@ -210,7 +210,8 @@ function abilityHtml(n, rank) {
   if (score > 0) html += `<span class="score-badge">${score}pt</span>`;
   html += `</div>`;
   if (n.extFacility) html += `<div class="ext-facility">▸ ${n.extFacility}</div>`;
-  if (n.abilityComment) html += `<div class="ability-comment">${n.abilityComment}</div>`;
+  const abCmt = n.abilityCommentRtf || (n.abilityCommentRtf === undefined ? n.abilityComment : '');
+  if (abCmt) html += `<div class="ability-comment">${abCmt}</div>`;
   if (n.lapComment)     html += `<div class="ability-comment" style="border-left-color:rgba(59,130,246,.35);">${n.lapComment}</div>`;
   if (n.prevComment)    html += `<div class="ability-comment" style="border-left-color:rgba(236,72,153,.35);">${n.prevComment}</div>`;
   return html;
