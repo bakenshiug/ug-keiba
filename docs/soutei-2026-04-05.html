@@ -119,6 +119,21 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .judge-A .judge-comment-border{border-left-color:rgba(232,0,61,.4);}
 .judge-B .judge-comment-border{border-left-color:rgba(59,130,246,.4);}
 
+/* Speed index */
+.speed-row{display:flex;align-items:center;gap:6px;margin-top:5px;flex-wrap:wrap;}
+.speed-badge-S{font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;letter-spacing:.05em;}
+.speed-badge-A{font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.5);letter-spacing:.05em;}
+.speed-badge-B{font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.4);letter-spacing:.05em;}
+.speed-badge-C{font-size:10px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.3);letter-spacing:.05em;}
+.speed-val{font-size:12px;font-weight:700;color:var(--gold);}
+.speed-trend-up{color:#4ade80;font-size:11px;}
+.speed-trend-down{color:#f87171;font-size:11px;}
+.speed-trend-stable{color:var(--muted);font-size:11px;}
+.speed-history{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.02em;}
+.speed-comment{font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;margin-top:4px;
+  padding:5px 10px;background:rgba(255,255,255,.03);
+  border-left:2px solid rgba(240,192,64,.3);border-radius:0 5px 5px 0;}
+
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
 
@@ -173,7 +188,26 @@ function buildTabs(races) {
   }).join('');
 }
 
-const JUDGE_LABEL = {S:'◆ S', A:'◎ A', B:'▲ B', C:'△ C'};
+const JUDGE_LABEL  = {S:'◆ S', A:'◎ A', B:'▲ B', C:'△ C'};
+const SPEED_TREND  = {up:'↑', stable:'→', down:'↓'};
+const SPEED_TREND_CLASS = {up:'speed-trend-up', stable:'speed-trend-stable', down:'speed-trend-down'};
+
+function speedIdxHtml(s) {
+  if (!s) return '';
+  const trendCls  = SPEED_TREND_CLASS[s.trend] || 'speed-trend-stable';
+  const trendChar = SPEED_TREND[s.trend] || '→';
+  const hist = (s.history || []).filter(v => v != null).map(v =>
+    `<span style="font-size:10px;color:rgba(255,255,255,.35);">${v}</span>`
+  ).join('<span style="color:rgba(255,255,255,.15);margin:0 1px;">›</span>');
+  return `<div class="speed-row">
+    <span class="speed-badge-${s.grade}">能力 ${s.grade}</span>
+    <span class="speed-val">${s.recent}</span>
+    <span class="${trendCls}">${trendChar}</span>
+    <span style="font-size:10px;color:rgba(255,255,255,.3);">最高:${s.peak}</span>
+  </div>
+  <div style="margin-top:3px;display:flex;gap:2px;align-items:center;">${hist}</div>
+  ${s.comment ? `<div class="speed-comment">${s.comment}</div>` : ''}`;
+}
 
 function judgeHtml(judge) {
   if (!judge) return '';
@@ -204,6 +238,7 @@ function buildPanel(race, idx) {
       <td>
         <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:4px;">${h.age}歳</span>${h.name}</div>
         <div class="td-sire">父 ${h.sire}${h.dam ? ' / 母 '+h.dam : ''}</div>
+        ${h.speedIdx ? speedIdxHtml(h.speedIdx) : ''}
         ${h.judge ? judgeHtml(h.judge) : ''}
       </td>
       <td class="td-jockey">${jockeyCell}</td>
