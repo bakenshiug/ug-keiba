@@ -122,6 +122,26 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .pdf-name{font-size:12px;font-weight:700;}
 .pdf-meta{font-size:10px;color:var(--muted);}
 
+/* Score & rank */
+.score-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;background:rgba(240,192,64,.15);color:var(--gold);border:1px solid rgba(240,192,64,.3);margin-left:4px;}
+.rank-num{font-size:10px;font-weight:900;color:var(--gold);}
+.ext-facility{font-size:10px;color:rgba(34,197,94,.65);margin-top:3px;padding-left:2px;}
+
+/* Lap analysis card */
+.lap-card{
+  margin-bottom:14px;padding:16px 18px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(10,0,3,.92));
+  border:1px solid rgba(240,192,64,.25);
+  position:relative;overflow:hidden;
+}
+.lap-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(240,192,64,.5),transparent);
+}
+.lap-card-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.lap-card-label::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.15);}
+.lap-card-text{font-size:11.5px;color:rgba(255,255,255,.72);line-height:1.9;white-space:pre-line;}
+
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
@@ -143,7 +163,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   <div id="content" style="display:none">
     <div class="date-header">
       <div class="date-main" id="date-main"></div>
-      <div class="date-sub">JRDB 出走想定表（確定前3走版）</div>
     </div>
 
     <div class="race-tabs" id="race-tabs"></div>
@@ -155,9 +174,14 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 const SOUTEI_URL  = 'data/soutei-2026-04-05.json';
 const NOTES_BASE  = 'data/race-notes/';
 
-const GRADE_CLASS = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
-const TREND_ICON  = {up:'↑',stable:'→',down:'↓'};
-const TREND_CLS   = {up:'speed-up',stable:'speed-st',down:'speed-dn'};
+const GRADE_CLASS  = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
+const GRADE_SCORE  = {S:4,A:3,B:2,C:1};
+
+function gradeScore(g){ return GRADE_SCORE[g]||0; }
+function computeScore(n){
+  if(!n) return 0;
+  return gradeScore(n.abilityGrade)+gradeScore(n.lapGrade)+gradeScore(n.prevGrade)+gradeScore(n.extGrade);
+}
 
 function gradeHtml(g) {
   if (!g) return `<span class="race-grade-badge grade-OP">オープン</span>`;
@@ -165,25 +189,38 @@ function gradeHtml(g) {
 }
 function sexHtml(s) { return `<span class="sex-badge sex-${s}">${s}</span>`; }
 
-function abilityHtml(n) {
-  if (!n || !n.grade) return '';
-  const g = n.grade;
-  let html = `<div class="ability-row"><span class="ability-badge ability-${g}">能力 ${g}</span>`;
-  if (n.recent != null) {
-    const tc = TREND_CLS[n.trend]||'speed-st';
-    const ti = TREND_ICON[n.trend]||'→';
-    html += `<span class="speed-val">${n.recent}</span><span class="${tc}">${ti}</span>`;
-    html += `<span style="font-size:10px;color:rgba(255,255,255,.3);">最高:${n.peak}</span>`;
-  }
-  if (n.judgeGrade) html += `<span class="judge-badge judge-badge-${n.judgeGrade}">相馬眼 ${n.judgeGrade}</span>`;
+function factorBadge(label, g){
+  if(!g) return '';
+  return `<span class="ability-badge ability-${g}" style="font-size:10px;padding:2px 7px;">${label}&nbsp;${g}</span>`;
+}
+
+function abilityHtml(n, rank) {
+  if (!n) return '';
+  const ag = n.abilityGrade, lg = n.lapGrade, pg = n.prevGrade, eg = n.extGrade;
+  if (!ag && !lg && !pg && !eg) return '';
+  const score = computeScore(n);
+  const rankHtml = rank != null ? `<span class="rank-num">#${rank}</span>` : '';
+  let html = `<div class="ability-row">`;
+  html += rankHtml;
+  html += factorBadge('能力', ag);
+  html += factorBadge('ラップ', lg);
+  html += factorBadge('前走', pg);
+  html += factorBadge('外厩', eg);
+  if (score > 0) html += `<span class="score-badge">${score}pt</span>`;
   html += `</div>`;
-  if (n.recent != null && n.history) {
-    const hist = (n.history||[]).filter(v=>v!=null).map(v=>`<span>${v}</span>`).join('<span style="color:rgba(255,255,255,.15);margin:0 1px;">›</span>');
-    html += `<div class="speed-hist" style="margin-top:2px;">${hist}</div>`;
-  }
+  if (n.extFacility) html += `<div class="ext-facility">▸ ${n.extFacility}</div>`;
   if (n.abilityComment) html += `<div class="ability-comment">${n.abilityComment}</div>`;
-  if (n.judgeComment)   html += `<div class="judge-comment">${n.judgeComment}</div>`;
+  if (n.lapComment)     html += `<div class="ability-comment" style="border-left-color:rgba(59,130,246,.35);">${n.lapComment}</div>`;
+  if (n.prevComment)    html += `<div class="ability-comment" style="border-left-color:rgba(236,72,153,.35);">${n.prevComment}</div>`;
   return html;
+}
+
+function lapAnalysisHtml(notes) {
+  if (!notes || !notes.lapAnalysis) return '';
+  return `<div class="lap-card">
+    <div class="lap-card-label">ラップ分析</div>
+    <div class="lap-card-text">${notes.lapAnalysis}</div>
+  </div>`;
 }
 
 function outlookHtml(notes) {
@@ -205,9 +242,17 @@ function buildTabs(races) {
 function buildPanel(race, idx, notes) {
   const isActive = idx === 0 ? ' active' : '';
   const horsesNotes = (notes && notes.horses) || {};
+  const hasNotes = notes && notes.horses && Object.keys(notes.horses).length > 0;
 
-  const rows = race.horses.map(h => {
+  // Sort horses by totalScore desc if notes available
+  let horses = [...race.horses];
+  if (hasNotes) {
+    horses.sort((a, b) => computeScore(horsesNotes[b.name]) - computeScore(horsesNotes[a.name]));
+  }
+
+  const rows = horses.map((h, ri) => {
     const hn = horsesNotes[h.name] || null;
+    const rank = hasNotes ? ri + 1 : null;
     const jockeyCell = h.jockey ? h.jockey : `<span class="no-jockey">想定なし</span>`;
     const weightCell = h.weight != null ? `${h.weight}` : '—';
     return `<tr>
@@ -215,7 +260,7 @@ function buildPanel(race, idx, notes) {
       <td>
         <div class="td-name">${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);margin-right:3px;">${h.age}歳</span>${h.name}</div>
         <div class="td-sire">父 ${h.sire}${h.dam?' / 母 '+h.dam:''}</div>
-        ${abilityHtml(hn)}
+        ${abilityHtml(hn, rank)}
       </td>
       <td class="td-jockey">${jockeyCell}</td>
       <td class="td-weight">${weightCell}</td>
@@ -228,11 +273,12 @@ function buildPanel(race, idx, notes) {
       <div class="race-name">${race.raceName}<span class="count-badge">${race.horses.length}頭</span></div>
       <div class="race-meta"><span>${race.raceNo}</span><span>${race.course}</span></div>
     </div>
+    ${lapAnalysisHtml(notes)}
     ${outlookHtml(notes)}
     <table class="horse-table">
       <thead><tr>
         <th>番</th>
-        <th>馬名 / 父馬 / 能力ジャッジ</th>
+        <th>馬名 / 父馬 / 重賞展望スコア</th>
         <th>想定騎手</th>
         <th style="text-align:right">斤量</th>
       </tr></thead>
