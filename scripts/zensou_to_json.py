@@ -71,20 +71,23 @@ def convert(csv_path, json_path):
     with open(csv_path, encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            course = parse_course(row.get('コース', ''))
+            # カラム名の揺れに対応: 場コース / コース、月.日 / 前走日
+            course_raw = row.get('コース') or row.get('場コース') or ''
+            date_raw   = row.get('前走日') or row.get('月.日') or ''
+            course = parse_course(course_raw.strip())
             pci = parse_pci(row.get('PCI', '0'))
 
             horse = {
                 'umaban':        safe_int(row.get('番')),
                 'umaname':       row.get('馬名', '').strip(),
                 'sexAge':        row.get('性齢', '').strip(),
-                'interval':      safe_int(row.get('間')),      # 中何週
+                'interval':      safe_int(row.get('間')),      # 中何週（"連"等はNone）
                 'interval2':     row.get('間2', '').strip() or None,   # 前々走間隔（初戦表記等）
-                'prevDate':      row.get('前走日', '').strip(),
+                'prevDate':      date_raw,
                 'prevVenue':     course['venue'],
                 'prevSurface':   course['surface'],
                 'prevDistance':  course['distance'],
-                'prevCourse':    row.get('コース', '').strip(),
+                'prevCourse':    course_raw.strip(),
                 'prevCondition': row.get('状', '').strip(),
                 'prevRank':      safe_int(row.get('着')),
                 'prevPopularity':safe_int(row.get('人')),
