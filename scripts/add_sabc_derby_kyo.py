@@ -97,6 +97,21 @@ rank3f_stats = {
     '6+':  {'win':  4.8, 'place': 15.9},
 }
 
+# ── Age stats (4-6月 period = April race) ──────────────────────
+# Source: ダービー卿年齢.csv 4歳・4-6月 / 5歳・4-6月 / 6歳・4-6月 / 7歳以上
+age_stats = {
+    '4':  {'win': 13.2, 'place': 28.9},  # A / A
+    '5':  {'win':  3.3, 'place': 23.3},  # C / B
+    '6':  {'win':  0.0, 'place': 14.3},  # C / C
+    '7+': {'win':  1.4, 'place':  5.5},  # C / C
+}
+
+def age_bucket(age_int):
+    if age_int <= 4: return '4'
+    if age_int == 5: return '5'
+    if age_int == 6: return '6'
+    return '7+'
+
 # ── PCI band stats (with * = above avg) ─────────────────────────
 # Bands: ~44*, ~52*, ~60*, ~68*, ~44, ~52, ~60, ~68
 pci_stats = {
@@ -233,21 +248,33 @@ for umaban in range(1, 22):
     pci_tan  = sabc_tan(pt['win'])
     pci_fuku = sabc_fuku(pt['place'])
 
-    tan_total  = sum(grade_to_pt(g) for g in [trn_tan, sire_tan, style_tan, rank_tan, pci_tan])
-    fuku_total = sum(grade_to_pt(g) for g in [trn_fuku, sire_fuku, style_fuku, rank_fuku, pci_fuku])
+    # Age
+    sex_age = p.get('sexAge', '')
+    age_m = re.search(r'(\d+)', sex_age)
+    if age_m:
+        age_int = int(age_m.group(1))
+        bucket_a = age_bucket(age_int)
+        at = age_stats.get(bucket_a, {'win': None, 'place': None})
+    else:
+        at = {'win': None, 'place': None}
+    age_tan  = sabc_tan(at['win'])
+    age_fuku = sabc_fuku(at['place'])
+
+    tan_total  = sum(grade_to_pt(g) for g in [trn_tan, sire_tan, style_tan, rank_tan, pci_tan, age_tan])
+    fuku_total = sum(grade_to_pt(g) for g in [trn_fuku, sire_fuku, style_fuku, rank_fuku, pci_fuku, age_fuku])
 
     results[name] = {
         'trainer': t_key,
         'sire': s_key,
         'sabc': {
-            'tan':  {'trainer': trn_tan,  'sire': sire_tan,  'style': style_tan,  'last3f': rank_tan,  'pci': pci_tan,  'total': tan_total},
-            'fuku': {'trainer': trn_fuku, 'sire': sire_fuku, 'style': style_fuku, 'last3f': rank_fuku, 'pci': pci_fuku, 'total': fuku_total},
+            'tan':  {'trainer': trn_tan,  'sire': sire_tan,  'style': style_tan,  'last3f': rank_tan,  'pci': pci_tan,  'age': age_tan,  'total': tan_total},
+            'fuku': {'trainer': trn_fuku, 'sire': sire_fuku, 'style': style_fuku, 'last3f': rank_fuku, 'pci': pci_fuku, 'age': age_fuku, 'total': fuku_total},
         }
     }
 
     print(f"{umaban:2d} {name:20s}  {t_key} / {s_key}")
-    print(f"   単勝: {trn_tan}{sire_tan}{style_tan}{rank_tan}{pci_tan} = {tan_total}pt")
-    print(f"   複勝: {trn_fuku}{sire_fuku}{style_fuku}{rank_fuku}{pci_fuku} = {fuku_total}pt")
+    print(f"   単勝: {trn_tan}{sire_tan}{style_tan}{rank_tan}{pci_tan}{age_tan} = {tan_total}pt")
+    print(f"   複勝: {trn_fuku}{sire_fuku}{style_fuku}{rank_fuku}{pci_fuku}{age_fuku} = {fuku_total}pt")
 
 # ── Write to race-notes JSON ───────────────────────────────────
 for name, r in results.items():
@@ -267,7 +294,7 @@ with open(RACE_NOTES, 'w', encoding='utf-8') as f:
 print(f"\n✓ SABC data written to {RACE_NOTES}")
 print("\n=== 単勝ポイント ランキング ===")
 for i, (n, v) in enumerate(sorted_tan, 1):
-    print(f"{i:2d}位 {n:20s} {v['sabc']['tan']['total']}pt  [{v['sabc']['tan']['trainer']}{v['sabc']['tan']['sire']}{v['sabc']['tan']['style']}{v['sabc']['tan']['last3f']}{v['sabc']['tan']['pci']}]")
+    print(f"{i:2d}位 {n:20s} {v['sabc']['tan']['total']}pt  [{v['sabc']['tan']['trainer']}{v['sabc']['tan']['sire']}{v['sabc']['tan']['style']}{v['sabc']['tan']['last3f']}{v['sabc']['tan']['pci']}{v['sabc']['tan']['age']}]")
 print("\n=== 複勝ポイント ランキング ===")
 for i, (n, v) in enumerate(sorted_fuku, 1):
-    print(f"{i:2d}位 {n:20s} {v['sabc']['fuku']['total']}pt  [{v['sabc']['fuku']['trainer']}{v['sabc']['fuku']['sire']}{v['sabc']['fuku']['style']}{v['sabc']['fuku']['last3f']}{v['sabc']['fuku']['pci']}]")
+    print(f"{i:2d}位 {n:20s} {v['sabc']['fuku']['total']}pt  [{v['sabc']['fuku']['trainer']}{v['sabc']['fuku']['sire']}{v['sabc']['fuku']['style']}{v['sabc']['fuku']['last3f']}{v['sabc']['fuku']['pci']}{v['sabc']['fuku']['age']}]")

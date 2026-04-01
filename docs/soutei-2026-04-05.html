@@ -335,8 +335,8 @@ function sabcBadge(g){ return `<span class="sabc-badge g-${g}">${g}</span>`; }
 function sabcHtml(hn) {
   if (!hn || !hn.sabc) return '';
   const t = hn.sabc.tan, f = hn.sabc.fuku;
-  const factors = ['trainer','sire','style','last3f','pci'];
-  const fLabels  = ['厩','父','脚','3F','PCI'];
+  const factors = ['trainer','sire','style','last3f','pci','age'];
+  const fLabels  = ['厩','父','脚','3F','PCI','齢'];
   let tanBadges  = factors.map((k,i)=>`<span class="sabc-factor-label">${fLabels[i]}</span>${sabcBadge(t[k])}`).join('');
   let fukuBadges = factors.map((k,i)=>`<span class="sabc-factor-label">${fLabels[i]}</span>${sabcBadge(f[k])}`).join('');
   const trainerInfo = hn.sabcTrainer ? `<span class="sabc-trainer-info">${hn.sabcTrainer}／${hn.sabcSire||''}</span>` : '';
