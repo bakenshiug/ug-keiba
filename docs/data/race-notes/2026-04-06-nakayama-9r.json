@@ -5,6 +5,70 @@
   "date": "2026-04-06",
   "grade": null,
   "course": "中山芝2500m",
-  "outlook": "",
-  "horses": {}
+  "horses": {
+    "イクリール": {
+      "sabcZI": 119, "ziRank": 2, "runStyle": "逃", "saikinIdx": 99, "shibaIdx": 99,
+      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+    },
+    "オストラヴァ": {
+      "sabcZI": 125, "ziRank": 1, "runStyle": "先", "saikinIdx": 0, "shibaIdx": 101,
+      "sabc": { "tan": {"zi": "S", "total": 4}, "fuku": {"zi": "S", "total": 4} }
+    },
+    "カーミングライツ": {
+      "sabcZI": 113, "ziRank": 3, "runStyle": "先", "saikinIdx": 0, "shibaIdx": 92,
+      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+    },
+    "タッチアンドムーブ": {
+      "sabcZI": 106, "ziRank": 4, "runStyle": "先", "saikinIdx": 95, "shibaIdx": 95,
+      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+    },
+    "ダイシンアポロン": {
+      "sabcZI": 98, "ziRank": 8, "runStyle": "追", "saikinIdx": 92, "shibaIdx": 99,
+      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+    },
+    "ラーテル": {
+      "sabcZI": 82, "ziRank": 10, "runStyle": "差", "saikinIdx": 90, "shibaIdx": 94,
+      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+    },
+    "リギーロ": {
+      "sabcZI": 105, "ziRank": 6, "runStyle": "追", "saikinIdx": 0, "shibaIdx": 105,
+      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+    },
+    "レイデラルース": {
+      "sabcZI": 106, "ziRank": 4, "runStyle": "先", "saikinIdx": 0, "shibaIdx": 96,
+      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+    },
+    "レッドバレンティア": {
+      "sabcZI": 92, "ziRank": 9, "runStyle": "追", "saikinIdx": 94, "shibaIdx": 94,
+      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+    },
+    "ロールザダイス": {
+      "sabcZI": 105, "ziRank": 6, "runStyle": "逃", "saikinIdx": 0, "shibaIdx": 94,
+      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+    }
+  },
+  "sabcRankTan": [
+    {"name": "オストラヴァ", "total": 4},
+    {"name": "イクリール", "total": 3},
+    {"name": "カーミングライツ", "total": 3},
+    {"name": "タッチアンドムーブ", "total": 2},
+    {"name": "レイデラルース", "total": 2},
+    {"name": "リギーロ", "total": 2},
+    {"name": "ロールザダイス", "total": 2},
+    {"name": "ダイシンアポロン", "total": 1},
+    {"name": "レッドバレンティア", "total": 1},
+    {"name": "ラーテル", "total": 1}
+  ],
+  "sabcRankFuku": [
+    {"name": "オストラヴァ", "total": 4},
+    {"name": "イクリール", "total": 3},
+    {"name": "カーミングライツ", "total": 3},
+    {"name": "タッチアンドムーブ", "total": 2},
+    {"name": "レイデラルース", "total": 2},
+    {"name": "リギーロ", "total": 2},
+    {"name": "ロールザダイス", "total": 2},
+    {"name": "ダイシンアポロン", "total": 1},
+    {"name": "レッドバレンティア", "total": 1},
+    {"name": "ラーテル", "total": 1}
+  ]
 }
