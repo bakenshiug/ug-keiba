@@ -7,116 +7,491 @@
   "course": "中山ダート",
   "horses": {
     "ウィンドフォール": {
-      "sabcZI": 110, "ziRank": 2, "runStyle": "先", "saikinIdx": 59, "dartSIdx": 104, "dartMIdx": 104,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 110,
+      "ziRank": 2,
+      "runStyle": "先",
+      "saikinIdx": 59,
+      "dartSIdx": 104,
+      "dartMIdx": 104,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      }
     },
     "オレデイイノカ": {
-      "sabcZI": 90, "ziRank": 14, "runStyle": "差", "saikinIdx": 0, "dartSIdx": 87, "dartMIdx": 91,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 90,
+      "ziRank": 14,
+      "runStyle": "差",
+      "saikinIdx": 0,
+      "dartSIdx": 87,
+      "dartMIdx": 91,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "クロースコンバット": {
-      "sabcZI": 109, "ziRank": 5, "runStyle": "先", "saikinIdx": 92, "dartSIdx": 0, "dartMIdx": 93,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 109,
+      "ziRank": 5,
+      "runStyle": "先",
+      "saikinIdx": 92,
+      "dartSIdx": 0,
+      "dartMIdx": 93,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      },
+      "extFacility": "ノーザンF天栄（福島）",
+      "extGrade": "S"
     },
     "グレイテストソング": {
-      "sabcZI": 105, "ziRank": 6, "runStyle": "先", "saikinIdx": 0, "dartSIdx": 0, "dartMIdx": 90,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 105,
+      "ziRank": 6,
+      "runStyle": "先",
+      "saikinIdx": 0,
+      "dartSIdx": 0,
+      "dartMIdx": 90,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      },
+      "extFacility": "エスティF小見川（千葉）",
+      "extGrade": "B"
     },
     "シゲルソロソロ": {
-      "sabcZI": 100, "ziRank": 9, "runStyle": "追", "saikinIdx": 95, "dartSIdx": 95, "dartMIdx": 0,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 100,
+      "ziRank": 9,
+      "runStyle": "追",
+      "saikinIdx": 95,
+      "dartSIdx": 95,
+      "dartMIdx": 0,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      }
     },
     "タイセミッション": {
-      "sabcZI": 105, "ziRank": 6, "runStyle": "逃", "saikinIdx": 93, "dartSIdx": 0, "dartMIdx": 98,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 105,
+      "ziRank": 6,
+      "runStyle": "逃",
+      "saikinIdx": 93,
+      "dartSIdx": 0,
+      "dartMIdx": 98,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      }
     },
     "タンゴバイラリン": {
-      "sabcZI": 88, "ziRank": 16, "runStyle": "追", "saikinIdx": 90, "dartSIdx": 83, "dartMIdx": 99,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 88,
+      "ziRank": 16,
+      "runStyle": "追",
+      "saikinIdx": 90,
+      "dartSIdx": 83,
+      "dartMIdx": 99,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      },
+      "extFacility": "山元トレセン（宮城）",
+      "extGrade": "B"
     },
     "デルアヴァー": {
-      "sabcZI": 110, "ziRank": 2, "runStyle": "差", "saikinIdx": 0, "dartSIdx": 104, "dartMIdx": 96,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 110,
+      "ziRank": 2,
+      "runStyle": "差",
+      "saikinIdx": 0,
+      "dartSIdx": 104,
+      "dartMIdx": 96,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      },
+      "extFacility": "大山ヒルズ（鳥取）",
+      "extGrade": "B"
     },
     "トルーマンテソーロ": {
-      "sabcZI": 91, "ziRank": 13, "runStyle": "先", "saikinIdx": 74, "dartSIdx": 91, "dartMIdx": 0,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 91,
+      "ziRank": 13,
+      "runStyle": "先",
+      "saikinIdx": 74,
+      "dartSIdx": 91,
+      "dartMIdx": 0,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "バリアントバイオ": {
-      "sabcZI": 86, "ziRank": 18, "runStyle": "追", "saikinIdx": 70, "dartSIdx": 0, "dartMIdx": 91,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 86,
+      "ziRank": 18,
+      "runStyle": "追",
+      "saikinIdx": 70,
+      "dartSIdx": 0,
+      "dartMIdx": 91,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      },
+      "extFacility": "チャンピオンヒルズ（滋賀）",
+      "extGrade": "A"
     },
     "ベンヌ": {
-      "sabcZI": 110, "ziRank": 2, "runStyle": "先", "saikinIdx": 85, "dartSIdx": 96, "dartMIdx": 102,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 110,
+      "ziRank": 2,
+      "runStyle": "先",
+      "saikinIdx": 85,
+      "dartSIdx": 96,
+      "dartMIdx": 102,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      },
+      "extFacility": "ミッドウェイF（茨城）",
+      "extGrade": "B"
     },
     "ペイシャモノノフ": {
-      "sabcZI": 101, "ziRank": 8, "runStyle": "逃", "saikinIdx": 94, "dartSIdx": 82, "dartMIdx": 94,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 101,
+      "ziRank": 8,
+      "runStyle": "逃",
+      "saikinIdx": 94,
+      "dartSIdx": 82,
+      "dartMIdx": 94,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      },
+      "extFacility": "帰厩"
     },
     "ホルトバージ": {
-      "sabcZI": 100, "ziRank": 9, "runStyle": "差", "saikinIdx": 95, "dartSIdx": 0, "dartMIdx": 95,
-      "sabc": { "tan": {"zi": "B", "total": 2}, "fuku": {"zi": "B", "total": 2} }
+      "sabcZI": 100,
+      "ziRank": 9,
+      "runStyle": "差",
+      "saikinIdx": 95,
+      "dartSIdx": 0,
+      "dartMIdx": 95,
+      "sabc": {
+        "tan": {
+          "zi": "B",
+          "total": 2
+        },
+        "fuku": {
+          "zi": "B",
+          "total": 2
+        }
+      }
     },
     "メイショウフジ": {
-      "sabcZI": 96, "ziRank": 11, "runStyle": "差", "saikinIdx": 0, "dartSIdx": 84, "dartMIdx": 98,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 96,
+      "ziRank": 11,
+      "runStyle": "差",
+      "saikinIdx": 0,
+      "dartSIdx": 84,
+      "dartMIdx": 98,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "メリークリスマス": {
-      "sabcZI": 113, "ziRank": 1, "runStyle": "先", "saikinIdx": 92, "dartSIdx": 0, "dartMIdx": 95,
-      "sabc": { "tan": {"zi": "A", "total": 3}, "fuku": {"zi": "A", "total": 3} }
+      "sabcZI": 113,
+      "ziRank": 1,
+      "runStyle": "先",
+      "saikinIdx": 92,
+      "dartSIdx": 0,
+      "dartMIdx": 95,
+      "sabc": {
+        "tan": {
+          "zi": "A",
+          "total": 3
+        },
+        "fuku": {
+          "zi": "A",
+          "total": 3
+        }
+      }
     },
     "ラオラシオン": {
-      "sabcZI": 96, "ziRank": 11, "runStyle": "先", "saikinIdx": 92, "dartSIdx": 79, "dartMIdx": 92,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 96,
+      "ziRank": 11,
+      "runStyle": "先",
+      "saikinIdx": 92,
+      "dartSIdx": 79,
+      "dartMIdx": 92,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     },
     "ラテラルシンキング": {
-      "sabcZI": 90, "ziRank": 14, "runStyle": "差", "saikinIdx": 91, "dartSIdx": 0, "dartMIdx": 0,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 90,
+      "ziRank": 14,
+      "runStyle": "差",
+      "saikinIdx": 91,
+      "dartSIdx": 0,
+      "dartMIdx": 0,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      },
+      "extFacility": "山元トレセン（宮城）",
+      "extGrade": "B"
     },
     "レッドラパルマ": {
-      "sabcZI": 88, "ziRank": 16, "runStyle": "差", "saikinIdx": 0, "dartSIdx": 0, "dartMIdx": 77,
-      "sabc": { "tan": {"zi": "C", "total": 1}, "fuku": {"zi": "C", "total": 1} }
+      "sabcZI": 88,
+      "ziRank": 16,
+      "runStyle": "差",
+      "saikinIdx": 0,
+      "dartSIdx": 0,
+      "dartMIdx": 77,
+      "sabc": {
+        "tan": {
+          "zi": "C",
+          "total": 1
+        },
+        "fuku": {
+          "zi": "C",
+          "total": 1
+        }
+      }
     }
   },
   "sabcRankTan": [
-    {"name": "メリークリスマス", "total": 3},
-    {"name": "ウィンドフォール", "total": 3},
-    {"name": "デルアヴァー", "total": 3},
-    {"name": "ベンヌ", "total": 3},
-    {"name": "クロースコンバット", "total": 2},
-    {"name": "グレイテストソング", "total": 2},
-    {"name": "タイセミッション", "total": 2},
-    {"name": "ペイシャモノノフ", "total": 2},
-    {"name": "シゲルソロソロ", "total": 2},
-    {"name": "ホルトバージ", "total": 2},
-    {"name": "メイショウフジ", "total": 1},
-    {"name": "ラオラシオン", "total": 1},
-    {"name": "トルーマンテソーロ", "total": 1},
-    {"name": "オレデイイノカ", "total": 1},
-    {"name": "ラテラルシンキング", "total": 1},
-    {"name": "タンゴバイラリン", "total": 1},
-    {"name": "レッドラパルマ", "total": 1},
-    {"name": "バリアントバイオ", "total": 1}
+    {
+      "name": "メリークリスマス",
+      "total": 3
+    },
+    {
+      "name": "ウィンドフォール",
+      "total": 3
+    },
+    {
+      "name": "デルアヴァー",
+      "total": 3
+    },
+    {
+      "name": "ベンヌ",
+      "total": 3
+    },
+    {
+      "name": "クロースコンバット",
+      "total": 2
+    },
+    {
+      "name": "グレイテストソング",
+      "total": 2
+    },
+    {
+      "name": "タイセミッション",
+      "total": 2
+    },
+    {
+      "name": "ペイシャモノノフ",
+      "total": 2
+    },
+    {
+      "name": "シゲルソロソロ",
+      "total": 2
+    },
+    {
+      "name": "ホルトバージ",
+      "total": 2
+    },
+    {
+      "name": "メイショウフジ",
+      "total": 1
+    },
+    {
+      "name": "ラオラシオン",
+      "total": 1
+    },
+    {
+      "name": "トルーマンテソーロ",
+      "total": 1
+    },
+    {
+      "name": "オレデイイノカ",
+      "total": 1
+    },
+    {
+      "name": "ラテラルシンキング",
+      "total": 1
+    },
+    {
+      "name": "タンゴバイラリン",
+      "total": 1
+    },
+    {
+      "name": "レッドラパルマ",
+      "total": 1
+    },
+    {
+      "name": "バリアントバイオ",
+      "total": 1
+    }
   ],
   "sabcRankFuku": [
-    {"name": "メリークリスマス", "total": 3},
-    {"name": "ウィンドフォール", "total": 3},
-    {"name": "デルアヴァー", "total": 3},
-    {"name": "ベンヌ", "total": 3},
-    {"name": "クロースコンバット", "total": 2},
-    {"name": "グレイテストソング", "total": 2},
-    {"name": "タイセミッション", "total": 2},
-    {"name": "ペイシャモノノフ", "total": 2},
-    {"name": "シゲルソロソロ", "total": 2},
-    {"name": "ホルトバージ", "total": 2},
-    {"name": "メイショウフジ", "total": 1},
-    {"name": "ラオラシオン", "total": 1},
-    {"name": "トルーマンテソーロ", "total": 1},
-    {"name": "オレデイイノカ", "total": 1},
-    {"name": "ラテラルシンキング", "total": 1},
-    {"name": "タンゴバイラリン", "total": 1},
-    {"name": "レッドラパルマ", "total": 1},
-    {"name": "バリアントバイオ", "total": 1}
+    {
+      "name": "メリークリスマス",
+      "total": 3
+    },
+    {
+      "name": "ウィンドフォール",
+      "total": 3
+    },
+    {
+      "name": "デルアヴァー",
+      "total": 3
+    },
+    {
+      "name": "ベンヌ",
+      "total": 3
+    },
+    {
+      "name": "クロースコンバット",
+      "total": 2
+    },
+    {
+      "name": "グレイテストソング",
+      "total": 2
+    },
+    {
+      "name": "タイセミッション",
+      "total": 2
+    },
+    {
+      "name": "ペイシャモノノフ",
+      "total": 2
+    },
+    {
+      "name": "シゲルソロソロ",
+      "total": 2
+    },
+    {
+      "name": "ホルトバージ",
+      "total": 2
+    },
+    {
+      "name": "メイショウフジ",
+      "total": 1
+    },
+    {
+      "name": "ラオラシオン",
+      "total": 1
+    },
+    {
+      "name": "トルーマンテソーロ",
+      "total": 1
+    },
+    {
+      "name": "オレデイイノカ",
+      "total": 1
+    },
+    {
+      "name": "ラテラルシンキング",
+      "total": 1
+    },
+    {
+      "name": "タンゴバイラリン",
+      "total": 1
+    },
+    {
+      "name": "レッドラパルマ",
+      "total": 1
+    },
+    {
+      "name": "バリアントバイオ",
+      "total": 1
+    }
   ]
 }
