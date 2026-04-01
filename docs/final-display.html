@@ -172,6 +172,16 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .bet-row{display:flex;align-items:baseline;gap:10px;padding:9px 14px;border-radius:10px;background:rgba(139,26,26,.06);border:1px solid rgba(139,26,26,.18);}
 .bet-type{font-size:10px;font-weight:900;color:var(--gold);min-width:52px;white-space:nowrap;letter-spacing:.05em;}
 .bet-val{font-size:13px;font-weight:700;color:#1C2B4A;}
+/* 1頭軸検知バッジ */
+.jiku-detect-banner{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;margin-bottom:8px;
+  background:linear-gradient(135deg,rgba(232,0,61,.14),rgba(139,26,26,.08));
+  border:2px solid rgba(232,0,61,.45);box-shadow:0 0 16px rgba(232,0,61,.15);}
+.jiku-detect-icon{font-size:16px;line-height:1;flex-shrink:0;}
+.jiku-detect-text{font-size:11px;font-weight:900;color:#c0002a;letter-spacing:.04em;line-height:1.4;}
+.jiku-detect-sub{font-size:10px;font-weight:700;color:rgba(28,43,74,.55);margin-top:1px;}
+.bet-row.bet-row-jiku{background:linear-gradient(135deg,rgba(232,0,61,.12),rgba(242,217,176,.9));border:2px solid rgba(232,0,61,.55);box-shadow:0 0 12px rgba(232,0,61,.15);}
+.bet-row.bet-row-jiku .bet-type{color:#c0002a;}
+.bet-row.bet-row-jiku .bet-val{color:#1C2B4A;font-weight:900;}
 
 /* Comments */
 .comment-area{display:flex;flex-direction:column;gap:10px;}
@@ -446,6 +456,26 @@ function calcInvestment(horses) {
            total: tansho + batan + fuku*100 + tan*100 };
 }
 
+// ── ◎抜け判定（他の印馬最高ptより7pt以上高ければ「抜け」）
+function isHonmeiDetached(horses) {
+  const honmei = horses.find(h => h.mark === '◎');
+  if (!honmei || honmei.totalPt == null) return false;
+  const othersWithMark = horses.filter(h => h.mark && h.mark !== '◎' && h.totalPt != null);
+  if (othersWithMark.length === 0) return false;
+  const secondBest = Math.max(...othersWithMark.map(h => parseFloat(h.totalPt) || 0));
+  return (parseFloat(honmei.totalPt) - secondBest) >= 7;
+}
+
+// n頭から2頭選ぶ組み合わせ数
+function comb2(n) { return n >= 2 ? Math.floor(n * (n - 1) / 2) : 0; }
+
+// 1頭軸モードの投資額
+function calcInvestmentJiku(horses) {
+  const opponents = horses.filter(h => h.mark && h.mark !== '◎' && ['○','▲','☆','△'].includes(h.mark));
+  const pts = comb2(opponents.length);
+  return { total: 100 + pts * 100, jiku: true, pts, opponentCount: opponents.length };
+}
+
 function renderResult(data) {
   const res = data.result;
   if (!res) return '';
@@ -486,8 +516,10 @@ function renderResult(data) {
     </div>`;
   }).join('');
 
-  // 回収率
-  const inv = calcInvestment(data.horses || []);
+  // 回収率（◎抜け時は1頭軸で計算）
+  const inv = isHonmeiDetached(data.horses || [])
+    ? calcInvestmentJiku(data.horses || [])
+    : calcInvestment(data.horses || []);
   const rtn = res.returnAmount || 0;
   const pct = inv.total > 0 ? Math.round(rtn / inv.total * 100) : 0;
   const kaishuriHtml = inv.total > 0 ? `
@@ -584,9 +616,8 @@ function renderRaceDetail(data) {
     });
   }
 
-  // 統一買い目を印から自動生成
+  // 統一買い目を印から自動生成（◎抜け時は1頭軸に切替）
   const betsHtml = (() => {
-    const inv = calcInvestment(allHorses);
     const A=[], B=[], C=[];
     allHorses.forEach((h,i) => {
       const m = h.mark||'';
@@ -595,11 +626,34 @@ function renderRaceDetail(data) {
       else if(m==='△'){C.push(i);}
     });
     if(A.length===0){
-      // 印がなければJSON betsにフォールバック
       const betTypes=['単勝','馬単','馬連','ワイド','三連複','三連単','買い目1'];
       return betTypes.filter(k=>bets[k])
         .map(k=>`<div class="bet-row"><span class="bet-type">${k}</span><span class="bet-val">${esc(bets[k])}</span></div>`).join('');
     }
+
+    // ◎抜け判定 → 1頭軸モード
+    if (isHonmeiDetached(allHorses)) {
+      const opponents = allHorses.filter(h => h.mark && h.mark !== '◎' && ['○','▲','☆','△'].includes(h.mark));
+      const opponentMarks = opponents.map(h => h.mark).join('');
+      const pts = comb2(opponents.length);
+      const honmei = allHorses.find(h => h.mark === '◎');
+      const secondBest = Math.max(...opponents.map(h => parseFloat(h.totalPt)||0));
+      const gap = honmei ? (parseFloat(honmei.totalPt) - secondBest).toFixed(1) : '?';
+      const banner = `<div class="jiku-detect-banner">
+        <span class="jiku-detect-icon">🎯</span>
+        <div>
+          <div class="jiku-detect-text">◎指数抜け検出 → 1頭軸ロジック適用</div>
+          <div class="jiku-detect-sub">2位との差 +${gap}pt ／ 3連複1頭軸を自動選択</div>
+        </div>
+      </div>`;
+      return banner + [
+        ['単勝',  `◎ 1点`, false],
+        ['三連複', `◎1頭軸 → 相手${opponents.length}頭（${opponentMarks}） ${pts}点`, true],
+      ].map(([k,v,isJiku])=>`<div class="bet-row${isJiku?' bet-row-jiku':''}"><span class="bet-type">${k}</span><span class="bet-val">${esc(v)}</span></div>`).join('');
+    }
+
+    // 通常フォーメーションモード
+    const inv = calcInvestment(allHorses);
     const col1 = A.map(i=>allHorses[i].mark).join('');
     const col2 = B.map(i=>allHorses[i].mark).join('');
     const col3 = C.map(i=>allHorses[i].mark).join('');
