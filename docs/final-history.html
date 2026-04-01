@@ -192,6 +192,10 @@ footer{margin-top:60px;padding:24px 20px;border-top:1px solid rgba(232,0,61,.18)
         <span style="font-size:11px;color:var(--muted);">総ピック数</span>
         <span style="font-size:12px;font-weight:700;color:var(--text);" id="totalPicks"></span>
       </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;">
+        <span style="font-size:11px;color:var(--muted);">総投資 / 総回収</span>
+        <span style="font-size:12px;font-weight:700;color:var(--text);" id="invSummary"></span>
+      </div>
     </div>
   </section>
 
@@ -262,8 +266,14 @@ function render(data) {
   document.getElementById('mainContent').style.display = 'block';
   const weeks = (data.weeks || []).slice().reverse();
   let totalPicks=0, tanHits=0, fukuHits=0, tanReturn=0, fukuReturn=0;
+  let totalInvestment=0, totalReturn=0;
   weeks.forEach(w => {
     (w.races||[]).forEach(r => {
+      const hasResult = (r.picks||[]).some(h => h.result && h.result.chakujun != null);
+      if (hasResult) {
+        totalInvestment += r.investment ? r.investment : calcInvestment(r.picks||[]).total;
+        totalReturn += r.returnAmount || 0;
+      }
       (r.picks||[]).forEach(h => {
         const res = h.result;
         if (!res || res.chakujun == null) return;
@@ -274,21 +284,20 @@ function render(data) {
       });
     });
   });
-  renderScoreboard(totalPicks, tanHits, fukuHits, tanReturn, fukuReturn);
+  renderScoreboard(totalPicks, tanHits, fukuHits, tanReturn, fukuReturn, totalInvestment, totalReturn);
   if (weeks.length===0) { document.getElementById('emptyState').style.display='block'; return; }
   renderWeeks(weeks);
 }
 
-function renderScoreboard(total, tanH, fukuH, tanRet, fukuRet) {
+function renderScoreboard(total, tanH, fukuH, tanRet, fukuRet, totalInv, totalRet) {
   const tanRate  = total>0 ? tanH/total*100 : 0;
   const fukuRate = total>0 ? fukuH/total*100 : 0;
-  const tanKaichi  = total>0 ? Math.round(tanRet/(total*100)*100) : 0;
-  const fukuKaichi = total>0 ? Math.round(fukuRet/(total*100)*100) : 0;
+  const betKaichi = totalInv>0 ? Math.round(totalRet/totalInv*100) : 0;
   const cols = [
     { label:'単勝的中率', value: total>0 ? tanRate.toFixed(1)+'%'  : '-%', color:'#E8003D' },
-    { label:'単勝回収率', value: total>0 ? tanKaichi+'%'            : '-%', color:'#B5002E' },
     { label:'複勝的中率', value: total>0 ? fukuRate.toFixed(1)+'%'  : '-%', color:'#8B1A1A' },
-    { label:'複勝回収率', value: total>0 ? fukuKaichi+'%'           : '-%', color:'#6b1111' },
+    { label:'総回収率',   value: totalInv>0 ? betKaichi+'%'          : '-%', color: betKaichi>=100 ? '#22c55e' : '#B5002E' },
+    { label:'回収額',     value: totalInv>0 ? '¥'+totalRet.toLocaleString() : '-', color:'#1C2B4A' },
   ];
   document.getElementById('scoreCols').innerHTML = cols.map(c => `
     <div class="score-col score-animate">
@@ -300,6 +309,8 @@ function renderScoreboard(total, tanH, fukuH, tanRet, fukuRet) {
   document.getElementById('tanRateLabel').textContent  = total>0 ? '的中率 '+tanRate.toFixed(1)+'%' : '-';
   document.getElementById('fukuRateLabel').textContent = total>0 ? '的中率 '+fukuRate.toFixed(1)+'%' : '-';
   document.getElementById('totalPicks').textContent = total+'頭（結果入力済）';
+  document.getElementById('invSummary').textContent = totalInv>0
+    ? `¥${totalInv.toLocaleString()} → ¥${totalRet.toLocaleString()}` : '-';
   setTimeout(() => {
     document.getElementById('tanBar').style.width  = Math.min(tanRate,100)+'%';
     document.getElementById('fukuBar').style.width = Math.min(fukuRate,100)+'%';
@@ -344,14 +355,15 @@ function renderWeeks(weeks) {
 
 function buildRaceBlock(race) {
   const picks = race.picks || [];
-  const inv = calcInvestment(picks);
   const rtn = race.returnAmount || 0;
   const hasResult = picks.some(h => h.result && h.result.chakujun != null);
-  const pct = (hasResult && inv.total>0) ? Math.round(rtn/inv.total*100) : null;
+  // race.investment が設定されていればそれを優先、なければ自動計算
+  const invTotal = race.investment ? race.investment : calcInvestment(picks).total;
+  const pct = (hasResult && invTotal>0) ? Math.round(rtn/invTotal*100) : null;
   const pctColor = pct!=null ? (pct>=100?'#22c55e':'#E8003D') : '';
   const pctHtml = pct!=null ? `<span style="font-size:14px;font-weight:900;color:${pctColor};margin-left:6px;">${pct}%</span>` : '';
-  const invHtml = (hasResult && inv.total>0)
-    ? `<p style="font-size:10px;margin-top:2px;color:var(--muted);">投資¥${inv.total.toLocaleString()} 回収¥${rtn.toLocaleString()}</p>` : '';
+  const invHtml = (hasResult && invTotal>0)
+    ? `<p style="font-size:10px;margin-top:2px;color:var(--muted);">投資¥${invTotal.toLocaleString()} 回収¥${rtn.toLocaleString()}</p>` : '';
   return `
     <div class="race-block">
       <div class="race-head">

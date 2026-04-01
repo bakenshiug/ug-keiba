@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-28",
+  "lastUpdated": "2026-03-29",
   "weeks": [
     {
       "weekId": "2026-W13",
@@ -10,14 +10,15 @@
           "course": "中山芝2500m",
           "date": "2026-03-28",
           "hitBets": ["馬単", "三連複"],
-          "returnAmount": 3560,
+          "returnAmount": 6700,
+          "investment": 5100,
           "picks": [
-            { "name": "ミクニインスパイア", "mark": "◎", "result": { "chakujun": 2, "tanOdds": null, "fukuOdds": null } },
-            { "name": "コスモキュランダ",   "mark": "○", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "アスクナイスショー", "mark": "▲", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "マイユニバース",     "mark": "☆", "result": { "chakujun": 1, "tanOdds": null, "fukuOdds": null } },
-            { "name": "チャックネイト",     "mark": "△", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "ローシャムパーク",   "mark": "△", "result": { "chakujun": 3, "tanOdds": null, "fukuOdds": null } }
+            { "name": "ミクニインスパイア", "mark": "◎", "result": { "chakujun": 2,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "コスモキュランダ",   "mark": "○", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "アスクナイスショー", "mark": "▲", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "マイユニバース",     "mark": "☆", "result": { "chakujun": 1,  "tanOdds": "7.0", "fukuOdds": null } },
+            { "name": "チャックネイト",     "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "ローシャムパーク",   "mark": "△", "result": { "chakujun": 3,  "tanOdds": null, "fukuOdds": null } }
           ]
         },
         {
@@ -25,12 +26,13 @@
           "course": "阪神芝1800m",
           "date": "2026-03-28",
           "hitBets": ["単勝", "馬単", "三連複"],
-          "returnAmount": 0,
+          "returnAmount": 1780,
+          "investment": 1900,
           "picks": [
-            { "name": "アルトラムス",       "mark": "◎", "result": { "chakujun": 1, "tanOdds": null, "fukuOdds": null } },
-            { "name": "カフジエメンタール", "mark": "○", "result": { "chakujun": 3, "tanOdds": null, "fukuOdds": null } },
-            { "name": "フレイムスター",     "mark": "▲", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "ローベルクランツ",   "mark": "△", "result": { "chakujun": 2, "tanOdds": null, "fukuOdds": null } }
+            { "name": "アルトラムス",       "mark": "◎", "result": { "chakujun": 1,  "tanOdds": "2.4", "fukuOdds": null } },
+            { "name": "カフジエメンタール", "mark": "○", "result": { "chakujun": 3,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "フレイムスター",     "mark": "▲", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "ローベルクランツ",   "mark": "△", "result": { "chakujun": 2,  "tanOdds": null, "fukuOdds": null } }
           ]
         },
         {
@@ -39,14 +41,15 @@
           "date": "2026-03-29",
           "hitBets": ["三連複"],
           "returnAmount": 17960,
+          "investment": 1500,
           "picks": [
-            { "name": "ブレイクフォース",   "mark": "◎", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "チュウワクリスエス", "mark": "○", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "オメガギネス",       "mark": "▲", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "ミッキーヌチバナ",   "mark": "☆", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "ヴァルツァーシャル", "mark": "△", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "アクションプラン",   "mark": "△", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "サンデーファンデー", "mark": "△", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } }
+            { "name": "ブレイクフォース",   "mark": "◎", "result": { "chakujun": 3,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "チュウワクリスエス", "mark": "○", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "オメガギネス",       "mark": "▲", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "ミッキーヌチバナ",   "mark": "☆", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "ヴァルツァーシャル", "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "アクションプラン",   "mark": "△", "result": { "chakujun": 2,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "サンデーファンデー", "mark": "△", "result": { "chakujun": 1,  "tanOdds": "12.8", "fukuOdds": null } }
           ]
         },
         {
@@ -55,14 +58,15 @@
           "date": "2026-03-29",
           "hitBets": [],
           "returnAmount": 0,
+          "investment": 3000,
           "picks": [
-            { "name": "パンジャタワー",     "mark": "◎", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "ナムラクレア",       "mark": "○", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "サトノレーヴ",       "mark": "▲", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "ダノンマッキンリー", "mark": "☆", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "ママコチャ",         "mark": "△", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "レイピア",           "mark": "△", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } },
-            { "name": "ジューンブレア",     "mark": "△", "result": { "chakujun": null, "tanOdds": null, "fukuOdds": null } }
+            { "name": "パンジャタワー",     "mark": "◎", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "ナムラクレア",       "mark": "○", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "サトノレーヴ",       "mark": "▲", "result": { "chakujun": 1,  "tanOdds": "3.5", "fukuOdds": null } },
+            { "name": "ダノンマッキンリー", "mark": "☆", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "ママコチャ",         "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "レイピア",           "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
+            { "name": "ジューンブレア",     "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } }
           ]
         }
       ]
