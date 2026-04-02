@@ -291,11 +291,13 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .sabc-rank-score span{font-size:10px;font-weight:700;margin-left:1px;opacity:.7;}
 
 /* ── 馬場予想 ─────────────────────────────────────────────── */
-.baba-row{display:flex;align-items:center;gap:8px;margin-top:10px;justify-content:center;flex-wrap:wrap;}
-.weather-info{font-size:11px;color:rgba(28,43,74,.6);display:flex;align-items:center;gap:4px;}
+.baba-row{display:flex;align-items:center;gap:12px;margin-top:10px;justify-content:center;flex-wrap:wrap;}
+.baba-venue-block{display:flex;align-items:center;gap:6px;}
+.baba-venue-label{font-size:10px;font-weight:900;letter-spacing:.08em;color:rgba(28,43,74,.5);border:1px solid rgba(28,43,74,.2);padding:2px 7px;border-radius:10px;}
+.baba-divider{color:rgba(28,43,74,.2);font-size:13px;}
+.weather-info{font-size:11px;color:rgba(28,43,74,.55);}
 .baba-badge{font-size:11px;font-weight:900;padding:4px 12px;border-radius:20px;letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px;}
 .baba-badge.turf{background:rgba(34,197,94,.18);color:#15803d;border:1px solid rgba(34,197,94,.4);}
-.baba-badge.dirt{background:rgba(180,130,60,.18);color:#7a4e1a;border:1px solid rgba(180,130,60,.4);}
 .baba-type{font-size:9px;font-weight:900;letter-spacing:.08em;opacity:.75;}
 
 /* Loading */
@@ -320,8 +322,17 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
     <div class="date-header">
       <div class="date-main" id="date-main"></div>
       <div class="baba-row">
-        <span class="weather-info">🌧️ 雨時々止む（降水量30mm超）</span>
-        <span class="baba-badge turf"><span class="baba-type">芝</span>重〜不良</span>
+        <span class="baba-venue-block">
+          <span class="baba-venue-label">阪神</span>
+          <span class="weather-info">🌧️ 雨時々止む</span>
+          <span class="baba-badge turf"><span class="baba-type">芝</span>重〜不良</span>
+        </span>
+        <span class="baba-divider">｜</span>
+        <span class="baba-venue-block">
+          <span class="baba-venue-label">中山</span>
+          <span class="weather-info">☁️ くもり</span>
+          <span class="baba-badge turf"><span class="baba-type">芝</span>良〜稍重</span>
+        </span>
       </div>
     </div>
 
