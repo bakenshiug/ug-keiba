@@ -424,9 +424,9 @@ const TREND_SCORE = { up: 2, stable: 1, down: 0 };
 function compareHorses(na, nb) {
   const d = computeScore(nb) - computeScore(na);
   if (d !== 0) return d;
-  const ziDiff = (nb.sabcZI || 0) - (na.sabcZI || 0);
+  const ziDiff = ((nb && nb.sabcZI) || 0) - ((na && na.sabcZI) || 0);
   if (ziDiff !== 0) return ziDiff;
-  return (TREND_SCORE[nb.trend] || 0) - (TREND_SCORE[na.trend] || 0);
+  return ((nb && TREND_SCORE[nb.trend]) || 0) - ((na && TREND_SCORE[na.trend]) || 0);
 }
 
 // 単複ランキング用タイブレーク再ソート（total同点時: ZI→trend）
@@ -965,14 +965,18 @@ async function init() {
 
     document.getElementById('date-main').textContent = soutei.label || soutei.date;
     document.getElementById('race-tabs').innerHTML   = buildTabs(soutei.races);
-    document.getElementById('race-panels').innerHTML = soutei.races.map((r,i) =>
-      buildPanel(r, i, notesMap[r.notesKey]||null, horsesMap, prevraceMapByKey[r.notesKey]||null)
-    ).join('');
+    document.getElementById('race-panels').innerHTML = soutei.races.map((r,i) => {
+      try {
+        return buildPanel(r, i, notesMap[r.notesKey]||null, horsesMap, prevraceMapByKey[r.notesKey]||null);
+      } catch(panelErr) {
+        return `<div class="race-panel${i===0?' active':''}" id="panel-${i}"><div style="color:red;padding:16px;">パネルエラー[${r.raceNo}]: ${panelErr.message}<br><pre style="font-size:10px;">${panelErr.stack||''}</pre></div></div>`;
+      }
+    }).join('');
 
     document.getElementById('loading').style.display  = 'none';
     document.getElementById('content').style.display  = 'block';
   } catch(e) {
-    document.getElementById('loading').textContent = 'エラー: ' + e.message;
+    document.getElementById('loading').innerHTML = 'エラー: ' + e.message + '<br><pre style="font-size:10px;">' + (e.stack||'') + '</pre>';
   }
 }
 init();

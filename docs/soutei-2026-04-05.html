@@ -437,9 +437,9 @@ const TREND_SCORE = { up: 2, stable: 1, down: 0 };
 function compareHorses(na, nb) {
   const d = computeScore(nb) - computeScore(na);
   if (d !== 0) return d;
-  const ziDiff = (nb.sabcZI || 0) - (na.sabcZI || 0);
+  const ziDiff = ((nb && nb.sabcZI) || 0) - ((na && na.sabcZI) || 0);
   if (ziDiff !== 0) return ziDiff;
-  return (TREND_SCORE[nb.trend] || 0) - (TREND_SCORE[na.trend] || 0);
+  return ((nb && TREND_SCORE[nb.trend]) || 0) - ((na && TREND_SCORE[na.trend]) || 0);
 }
 
 // 単複ランキング用タイブレーク再ソート（total同点時: ZI→trend）
