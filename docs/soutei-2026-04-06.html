@@ -857,12 +857,11 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     horses.sort((a, b) => compareHorses(horsesNotes[a.name]||null, horsesNotes[b.name]||null));
   }
 
-  // 印割り当て（重賞のみ・総合スコア降順）
+  // 印割り当て（全レース・総合スコア降順）
   const MARK_KEYS  = ['honmei','taikou','saban','hoshi','renge','renge','renge'];
   const MARK_LABEL = {honmei:'◎', taikou:'○', saban:'▲', hoshi:'☆', renge:'△'};
   const markMap = {};
-  const isGradeRace = /G[1-3]/.test(notes && notes.grade || '');
-  if (hasNotes && isGradeRace) {
+  if (hasNotes) {
     horses.forEach((h, i) => {
       if (i < MARK_KEYS.length) markMap[h.name] = MARK_KEYS[i];
     });
