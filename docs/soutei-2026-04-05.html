@@ -380,6 +380,17 @@ function compareHorses(na, nb) {
   return (TREND_SCORE[nb.trend] || 0) - (TREND_SCORE[na.trend] || 0);
 }
 
+// 単複ランキング用タイブレーク再ソート（total同点時: ZI→trend）
+function sortRankWithTiebreak(rank, horses) {
+  return [...rank].sort((a, b) => {
+    if (b.total !== a.total) return b.total - a.total;
+    const ha = horses[a.name] || {}, hb = horses[b.name] || {};
+    const ziDiff = (hb.sabcZI || 0) - (ha.sabcZI || 0);
+    if (ziDiff !== 0) return ziDiff;
+    return (TREND_SCORE[hb.trend] || 0) - (TREND_SCORE[ha.trend] || 0);
+  });
+}
+
 function gradeHtml(g) {
   if (!g) return `<span class="race-grade-badge grade-OP">オープン</span>`;
   return `<span class="race-grade-badge ${GRADE_CLASS[g]}">${g}</span>`;
@@ -532,6 +543,10 @@ function sabcPickHtml(notes, race) {
   if (!notes || !notes.sabcRankTan || !notes.sabcRankFuku) return '';
   if (!notes.sabcRankTan[0] || !notes.sabcRankFuku[0]) return '';
 
+  const horses   = notes.horses || {};
+  const rankTan  = sortRankWithTiebreak(notes.sabcRankTan,  horses);
+  const rankFuku = sortRankWithTiebreak(notes.sabcRankFuku, horses);
+
   const isGrade = /G[1-3]/.test(notes.grade || '');
 
   function umabanOf(name) {
@@ -565,13 +580,13 @@ function sabcPickHtml(notes, race) {
       </div>`;
     }
     return `<div class="sabc-rank-wrap">
-      ${rankBlock('tan',  notes.sabcRankTan,  '単勝')}
-      ${rankBlock('fuku', notes.sabcRankFuku, '複勝')}
+      ${rankBlock('tan',  rankTan,  '単勝')}
+      ${rankBlock('fuku', rankFuku, '複勝')}
     </div>`;
   }
 
   // ── 非重賞: 従来の注目表示 ──────────────────────────────
-  const firstHn = notes.horses && notes.horses[notes.sabcRankTan[0].name];
+  const firstHn = notes.horses && notes.horses[rankTan[0].name];
   const factors = (firstHn && firstHn.sabc) ? sabcFactors(firstHn.sabc.tan) : [];
   function topTied(rank) {
     if (!rank || !rank.length) return [];
@@ -609,8 +624,8 @@ function sabcPickHtml(notes, race) {
     </div>`;
   }
   return `<div class="sabc-pick-section">
-    ${row('tan',  notes.sabcRankTan,  'pick-tan',  '単勝')}
-    ${row('fuku', notes.sabcRankFuku, 'pick-fuku', '複勝')}
+    ${row('tan',  rankTan,  'pick-tan',  '単勝')}
+    ${row('fuku', rankFuku, 'pick-fuku', '複勝')}
   </div>`;
 }
 
@@ -643,8 +658,10 @@ function generateBetHtml(sortedHorses, horsesNotes, notes, race) {
   else                          { pattern='C'; patternLabel='混戦';  patternCls='pat-c'; }
 
   // 単勝・複勝（SABC単/複1位馬）
-  const tanName  = (notes.sabcRankTan  && notes.sabcRankTan[0])  ? notes.sabcRankTan[0].name  : tagged[0].name;
-  const fukuName = (notes.sabcRankFuku && notes.sabcRankFuku[0]) ? notes.sabcRankFuku[0].name : tagged[0].name;
+  const _rTan  = (notes.sabcRankTan  && notes.sabcRankTan.length)  ? sortRankWithTiebreak(notes.sabcRankTan,  notes.horses||{}) : null;
+  const _rFuku = (notes.sabcRankFuku && notes.sabcRankFuku.length) ? sortRankWithTiebreak(notes.sabcRankFuku, notes.horses||{}) : null;
+  const tanName  = _rTan  ? _rTan[0].name  : tagged[0].name;
+  const fukuName = _rFuku ? _rFuku[0].name : tagged[0].name;
   const getNum = name => { const h = (race.horses||[]).find(x=>x.name===name); return h ? h.num : '?'; };
 
   const uma = h => `<span class="bet-uma"><span class="bet-mark">${h.mark}</span>${h.num}</span>`;
