@@ -293,6 +293,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .weather-info{font-size:11px;color:rgba(28,43,74,.55);}
 .baba-badge{font-size:11px;font-weight:900;padding:4px 12px;border-radius:20px;letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px;}
 .baba-badge.turf{background:rgba(34,197,94,.18);color:#15803d;border:1px solid rgba(34,197,94,.4);}
+.baba-badge.dirt{background:rgba(180,120,60,.18);color:#92400e;border:1px solid rgba(180,120,60,.4);}
 .baba-type{font-size:9px;font-weight:900;letter-spacing:.08em;opacity:.75;}
 
 /* ── セクション見出し ─────────────────────────────────────── */
@@ -382,6 +383,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
           <span class="baba-venue-label">阪神</span>
           <span class="weather-info">🌤️ くもり→晴れ（前日雨残）</span>
           <span class="baba-badge turf"><span class="baba-type">芝</span>稍重〜重</span>
+          <span class="baba-badge dirt"><span class="baba-type">ダート</span>重</span>
         </span>
       </div>
     </div>
@@ -466,7 +468,7 @@ function abilityHtml(n, rank) {
   html += factorBadge('ラップ', lg);
   html += factorBadge('前走', pg);
   html += factorBadge('外厩', eg);
-  if (n.bmsGrade)     html += factorBadge('母父', n.bmsGrade);
+  if (n.bmsGrade)     html += factorBadge('舞台', n.bmsGrade);
   if (n.jockeyGrade)  html += factorBadge('騎手', n.jockeyGrade);
   if (n.trainingGrade)html += factorBadge('調教', n.trainingGrade);
   if (score > 0) {
