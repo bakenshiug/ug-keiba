@@ -128,6 +128,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .bet-section-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(28,43,74,.04);border-bottom:1px solid rgba(28,43,74,.08);}
 .bet-section-title{font-size:10px;font-weight:900;letter-spacing:.15em;color:rgba(28,43,74,.7);}
 .bet-pattern-badge{font-size:9px;font-weight:900;padding:2px 9px;border-radius:4px;letter-spacing:.05em;}
+.bet-note{font-size:9px;font-weight:700;padding:1px 7px;border-radius:4px;background:rgba(180,120,0,.12);color:#a06000;border:1px solid rgba(180,120,0,.35);letter-spacing:.03em;}
 .pat-a{background:rgba(180,20,20,.12);color:#b41414;border:1px solid rgba(180,20,20,.3);}
 .pat-b{background:rgba(29,78,216,.1);color:#1e3a8a;border:1px solid rgba(29,78,216,.28);}
 .pat-c{background:rgba(100,100,100,.1);color:#4a4a4a;border:1px solid rgba(100,100,100,.3);}
@@ -713,16 +714,16 @@ function generateBetHtml(sortedHorses, horsesNotes, notes, race) {
   } else {
     cardsHtml = `
     <div class="bet-card">
-      <div class="bet-card-head"><span class="bet-kind">馬単BOX</span><span class="bet-pts">12点</span></div>
-      <div class="bet-formula">${ul(top4)}</div>
+      <div class="bet-card-head"><span class="bet-kind">馬単フォーメーション</span><span class="bet-pts">12点</span></div>
+      <div class="bet-formula-grid">${grid([col1, all7])}</div>
     </div>
     <div class="bet-card">
-      <div class="bet-card-head"><span class="bet-kind">3連複BOX</span><span class="bet-pts">4点</span></div>
-      <div class="bet-formula">${ul(top4)}</div>
+      <div class="bet-card-head"><span class="bet-kind">3連複フォーメーション</span><span class="bet-pts">21点</span><span class="bet-note">万馬券強奪用</span></div>
+      <div class="bet-formula-grid">${grid([col1, col2, all7])}</div>
     </div>
     <div class="bet-card">
-      <div class="bet-card-head"><span class="bet-kind">3連単BOX</span><span class="bet-pts">24点</span></div>
-      <div class="bet-formula">${ul(top4)}</div>
+      <div class="bet-card-head"><span class="bet-kind">3連単フォーメーション</span><span class="bet-pts">30点</span><span class="bet-note">万馬券強奪用</span></div>
+      <div class="bet-formula-grid">${grid([col1, col2, all7])}</div>
     </div>`;
   }
 
