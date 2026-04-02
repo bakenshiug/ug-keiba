@@ -267,17 +267,22 @@ const GRADE_CLASS  = {G1:'grade-G1',G2:'grade-G2',G3:'grade-G3'};
 const GRADE_SCORE  = {S:4,A:3,B:2,C:1};
 
 function gradeScore(g){ return GRADE_SCORE[g]||0; }
+
+// 分析ファクター合計（ability+lap+prev+ext+bms、今後 jockey+training も追加）
 function computeBaseScore(n){
   if(!n) return 0;
-  return gradeScore(n.abilityGrade)+gradeScore(n.lapGrade)+gradeScore(n.prevGrade)+gradeScore(n.extGrade)+gradeScore(n.bmsGrade);
+  return gradeScore(n.abilityGrade)+gradeScore(n.lapGrade)+gradeScore(n.prevGrade)
+        +gradeScore(n.extGrade)+gradeScore(n.bmsGrade)
+        +gradeScore(n.jockeyGrade)+gradeScore(n.trainingGrade);
 }
-function computeSabcBonus(n){
-  if(!n || !n.sabc || !n.sabc.tan) return 0;
-  return Math.round(n.sabc.tan.total / 4);
-}
+
+// 総合スコア = 分析ファクター + SABC単勝pt + SABC複勝pt（完全内包）
 function computeScore(n){
   if(!n) return 0;
-  return computeBaseScore(n) + computeSabcBonus(n);
+  const base = computeBaseScore(n);
+  const tan  = (n.sabc && n.sabc.tan)  ? n.sabc.tan.total  : 0;
+  const fuku = (n.sabc && n.sabc.fuku) ? n.sabc.fuku.total : 0;
+  return base + tan + fuku;
 }
 
 function gradeHtml(g) {
@@ -296,8 +301,9 @@ function abilityHtml(n, rank) {
   const ag = n.abilityGrade, lg = n.lapGrade, pg = n.prevGrade, eg = n.extGrade;
   if (!ag && !lg && !pg && !eg) return '';
   const base  = computeBaseScore(n);
-  const bonus = computeSabcBonus(n);
-  const score = base + bonus;
+  const tan   = (n.sabc && n.sabc.tan)  ? n.sabc.tan.total  : 0;
+  const fuku  = (n.sabc && n.sabc.fuku) ? n.sabc.fuku.total : 0;
+  const score = base + tan + fuku;
   const rankHtml = rank != null ? `<span class="rank-num">${rank}位</span>` : '';
   let html = `<div class="ability-row">`;
   html += rankHtml;
@@ -305,25 +311,28 @@ function abilityHtml(n, rank) {
   html += factorBadge('ラップ', lg);
   html += factorBadge('前走', pg);
   html += factorBadge('外厩', eg);
-  if (n.bmsGrade) html += factorBadge('母父', n.bmsGrade);
+  if (n.bmsGrade)     html += factorBadge('母父', n.bmsGrade);
+  if (n.jockeyGrade)  html += factorBadge('騎手', n.jockeyGrade);
+  if (n.trainingGrade)html += factorBadge('調教', n.trainingGrade);
   if (score > 0) {
-    const fire = bonus >= 3 ? '🔥🔥' : bonus >= 1 ? '🔥' : '';
+    const sabcSum = tan + fuku;
+    const fire = sabcSum >= 52 ? '🔥🔥' : sabcSum >= 40 ? '🔥' : '';
     html += `<span class="score-badge">${score}pt</span>`;
     if (fire) html += `<span class="sabc-fire">${fire}</span>`;
   }
   html += `</div>`;
-  if (bonus > 0) {
-    html += `<div class="sabc-breakdown">
-      <span class="sabc-breakdown-base">基礎${base}</span>
-      <span style="color:rgba(28,43,74,.35);">+</span>
-      <span class="sabc-breakdown-plus">★${bonus} SABC</span>
-    </div>`;
+  // 内訳：分析ファクター + 単勝SABC + 複勝SABC
+  if (score > 0) {
+    let parts = `<span class="sabc-breakdown-base">分析 ${base}pt</span>`;
+    if (tan  > 0) parts += `<span style="color:rgba(28,43,74,.35);">+</span><span class="sabc-breakdown-plus">単 ${tan}pt</span>`;
+    if (fuku > 0) parts += `<span style="color:rgba(28,43,74,.35);">+</span><span style="color:#1e3a8a;font-weight:700;">複 ${fuku}pt</span>`;
+    html += `<div class="sabc-breakdown">${parts}</div>`;
   }
   if (n.extFacility) html += `<div class="ext-facility">▸ ${n.extFacility}</div>`;
   const abCmt = n.abilityCommentRtf || (n.abilityCommentRtf === undefined ? n.abilityComment : '');
   if (abCmt) html += `<div class="ability-comment">${abCmt}</div>`;
-  if (n.lapComment)     html += `<div class="ability-comment" style="border-left-color:rgba(59,130,246,.35);">${n.lapComment}</div>`;
-  if (n.prevComment)    html += `<div class="ability-comment" style="border-left-color:rgba(236,72,153,.35);">${n.prevComment}</div>`;
+  if (n.lapComment)  html += `<div class="ability-comment" style="border-left-color:rgba(59,130,246,.35);">${n.lapComment}</div>`;
+  if (n.prevComment) html += `<div class="ability-comment" style="border-left-color:rgba(236,72,153,.35);">${n.prevComment}</div>`;
   return html;
 }
 
@@ -390,15 +399,17 @@ function sabcBadge(g){ return `<span class="sabc-badge g-${g}">${g}</span>`; }
 
 // ファクターキー → 表示ラベル（全レース共通マップ）
 const SABC_LABEL_MAP = {
-  zi:      'ZI',
-  trainer: '厩',
-  sire:    '父',
-  style:   '脚',
-  last3f:  '3F',
-  pci:     'PCI',
-  age:     '齢',
-  weight:  '馬格',
-  diff3f:  '差',
+  zi:       'ZI',
+  trainer:  '厩',
+  sire:     '父',
+  style:    '脚',
+  last3f:   '3F',
+  pci:      'PCI',
+  age:      '齢',
+  weight:   '馬格',
+  diff3f:   '差',
+  jockey:   '騎手',
+  training: '調教',
 };
 
 function sabcFactors(sabc_tan) {
