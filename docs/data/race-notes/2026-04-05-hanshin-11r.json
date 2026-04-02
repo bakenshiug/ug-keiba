@@ -21,24 +21,24 @@
         "tan": {
           "zi": "S",
           "trainer": "C",
-          "sire": "A",
+          "sire": "S",
           "style": "C",
           "last3f": "B",
           "pci": "B",
           "weight": "B",
           "diff3f": "B",
-          "total": 17
+          "total": 18
         },
         "fuku": {
           "zi": "S",
           "trainer": "A",
-          "sire": "A",
+          "sire": "S",
           "style": "B",
           "last3f": "A",
           "pci": "A",
           "weight": "B",
           "diff3f": "B",
-          "total": 22
+          "total": 23
         }
       },
       "sabcTrainer": "(美)木村哲也",
@@ -103,9 +103,9 @@
           "style": "B",
           "last3f": "A",
           "pci": "B",
-          "weight": "B",
+          "weight": "S",
           "diff3f": "B",
-          "total": 16
+          "total": 18
         },
         "fuku": {
           "zi": "A",
@@ -114,9 +114,9 @@
           "style": "A",
           "last3f": "A",
           "pci": "A",
-          "weight": "A",
+          "weight": "S",
           "diff3f": "A",
-          "total": 22
+          "total": 23
         }
       },
       "sabcTrainer": "(美)上原佑紀",
@@ -144,7 +144,8 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 22
+          "total": 26,
+          "course": "S"
         },
         "fuku": {
           "zi": "B",
@@ -155,7 +156,8 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "A",
-          "total": 23
+          "total": 27,
+          "course": "S"
         }
       },
       "sabcTrainer": "(栗)松下武士",
@@ -183,7 +185,8 @@
           "pci": "B",
           "weight": "B",
           "diff3f": "C",
-          "total": 12
+          "total": 16,
+          "course": "S"
         },
         "fuku": {
           "zi": "C",
@@ -194,7 +197,8 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "C",
-          "total": 14
+          "total": 18,
+          "course": "S"
         }
       },
       "sabcTrainer": "(栗)安達昭夫",
@@ -217,23 +221,23 @@
           "zi": "B",
           "trainer": "B",
           "sire": "C",
-          "style": "C",
+          "style": "S",
           "last3f": "C",
-          "pci": "C",
+          "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 13
+          "total": 19
         },
         "fuku": {
           "zi": "B",
           "trainer": "B",
           "sire": "C",
-          "style": "B",
+          "style": "S",
           "last3f": "B",
-          "pci": "B",
+          "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 16
+          "total": 20
         }
       },
       "sabcTrainer": "(栗)宮地貴稔",
@@ -255,24 +259,24 @@
         "tan": {
           "zi": "B",
           "trainer": "A",
-          "sire": "A",
+          "sire": "S",
           "style": "B",
           "last3f": "A",
           "pci": "B",
-          "weight": "B",
+          "weight": "S",
           "diff3f": "B",
-          "total": 19
+          "total": 22
         },
         "fuku": {
           "zi": "B",
           "trainer": "B",
-          "sire": "A",
+          "sire": "S",
           "style": "A",
           "last3f": "A",
           "pci": "A",
-          "weight": "A",
+          "weight": "S",
           "diff3f": "A",
-          "total": 22
+          "total": 24
         }
       },
       "sabcTrainer": "(栗)藤原英昭",
@@ -300,7 +304,8 @@
           "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 24
+          "total": 28,
+          "course": "S"
         },
         "fuku": {
           "zi": "B",
@@ -311,7 +316,8 @@
           "pci": "A",
           "weight": "A",
           "diff3f": "A",
-          "total": 21
+          "total": 25,
+          "course": "S"
         }
       },
       "sabcTrainer": "(栗)寺島良",
@@ -336,10 +342,10 @@
           "sire": "C",
           "style": "C",
           "last3f": "C",
-          "pci": "C",
+          "pci": "S",
           "weight": "B",
           "diff3f": "C",
-          "total": 9
+          "total": 12
         },
         "fuku": {
           "zi": "C",
@@ -347,10 +353,10 @@
           "sire": "A",
           "style": "B",
           "last3f": "B",
-          "pci": "B",
+          "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 17
+          "total": 19
         }
       },
       "sabcTrainer": "(栗)角田晃一",
@@ -378,7 +384,8 @@
           "pci": "B",
           "weight": "C",
           "diff3f": "B",
-          "total": 20
+          "total": 24,
+          "course": "S"
         },
         "fuku": {
           "zi": "A",
@@ -389,7 +396,8 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "A",
-          "total": 25
+          "total": 29,
+          "course": "S"
         }
       },
       "sabcTrainer": "(栗)松下武士",
@@ -414,10 +422,10 @@
           "sire": "A",
           "style": "C",
           "last3f": "B",
-          "pci": "B",
+          "pci": "S",
           "weight": "B",
           "diff3f": "C",
-          "total": 13
+          "total": 15
         },
         "fuku": {
           "zi": "C",
@@ -425,10 +433,10 @@
           "sire": "B",
           "style": "B",
           "last3f": "A",
-          "pci": "A",
+          "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 16
+          "total": 17
         }
       },
       "sabcTrainer": "(栗)武英智",
@@ -454,9 +462,10 @@
           "style": "C",
           "last3f": "A",
           "pci": "S",
-          "weight": "B",
+          "weight": "S",
           "diff3f": "A",
-          "total": 16
+          "total": 22,
+          "course": "S"
         },
         "fuku": {
           "zi": "C",
@@ -465,9 +474,10 @@
           "style": "B",
           "last3f": "A",
           "pci": "A",
-          "weight": "A",
+          "weight": "S",
           "diff3f": "A",
-          "total": 17
+          "total": 22,
+          "course": "S"
         }
       },
       "sabcTrainer": "(栗)吉村圭司",
@@ -490,23 +500,23 @@
           "zi": "C",
           "trainer": "S",
           "sire": "S",
-          "style": "C",
+          "style": "S",
           "last3f": "A",
           "pci": "B",
           "weight": "C",
           "diff3f": "B",
-          "total": 18
+          "total": 21
         },
         "fuku": {
           "zi": "C",
           "trainer": "S",
           "sire": "S",
-          "style": "B",
+          "style": "S",
           "last3f": "A",
           "pci": "A",
           "weight": "B",
           "diff3f": "B",
-          "total": 21
+          "total": 23
         }
       },
       "sabcTrainer": "(栗)上村洋行",
@@ -531,10 +541,10 @@
           "sire": "C",
           "style": "C",
           "last3f": "A",
-          "pci": "B",
-          "weight": "B",
+          "pci": "S",
+          "weight": "S",
           "diff3f": "C",
-          "total": 12
+          "total": 16
         },
         "fuku": {
           "zi": "C",
@@ -542,10 +552,10 @@
           "sire": "S",
           "style": "B",
           "last3f": "A",
-          "pci": "A",
-          "weight": "A",
+          "pci": "S",
+          "weight": "S",
           "diff3f": "B",
-          "total": 19
+          "total": 21
         }
       },
       "sabcTrainer": "(栗)森秀行",
@@ -570,10 +580,10 @@
           "sire": "C",
           "style": "C",
           "last3f": "B",
-          "pci": "B",
+          "pci": "S",
           "weight": "C",
           "diff3f": "B",
-          "total": 12
+          "total": 14
         },
         "fuku": {
           "zi": "B",
@@ -581,10 +591,10 @@
           "sire": "C",
           "style": "B",
           "last3f": "A",
-          "pci": "A",
+          "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 16
+          "total": 17
         }
       },
       "sabcTrainer": "(美)斎藤誠",
@@ -597,22 +607,38 @@
   "sabcRankTan": [
     {
       "name": "シーミハットク",
-      "total": 24
+      "total": 28
     },
     {
       "name": "バルセシート",
-      "total": 22
+      "total": 26
     },
     {
       "name": "レザベーション",
-      "total": 20
+      "total": 24
     },
     {
       "name": "アスクイキゴミ",
-      "total": 19
+      "total": 22
+    },
+    {
+      "name": "エイシンティザー",
+      "total": 22
     },
     {
       "name": "サトノセプター",
+      "total": 21
+    },
+    {
+      "name": "クールデイトナ",
+      "total": 19
+    },
+    {
+      "name": "サンダーストラック",
+      "total": 18
+    },
+    {
+      "name": "リゾートアイランド",
       "total": 18
     },
     {
@@ -620,102 +646,86 @@
       "total": 17
     },
     {
-      "name": "サンダーストラック",
-      "total": 17
-    },
-    {
-      "name": "エイシンティザー",
-      "total": 16
-    },
-    {
-      "name": "リゾートアイランド",
-      "total": 16
-    },
-    {
-      "name": "クールデイトナ",
-      "total": 13
-    },
-    {
-      "name": "サーディンラン",
-      "total": 13
-    },
-    {
       "name": "ストームサンダー",
-      "total": 12
-    },
-    {
-      "name": "ファンクション",
-      "total": 12
+      "total": 16
     },
     {
       "name": "ユウファラオ",
-      "total": 12
+      "total": 16
+    },
+    {
+      "name": "サーディンラン",
+      "total": 15
+    },
+    {
+      "name": "ファンクション",
+      "total": 14
     },
     {
       "name": "メイショウソラリス",
-      "total": 9
+      "total": 12
     }
   ],
   "sabcRankFuku": [
     {
       "name": "レザベーション",
+      "total": 29
+    },
+    {
+      "name": "バルセシート",
+      "total": 27
+    },
+    {
+      "name": "シーミハットク",
       "total": 25
+    },
+    {
+      "name": "アスクイキゴミ",
+      "total": 24
+    },
+    {
+      "name": "サンダーストラック",
+      "total": 23
     },
     {
       "name": "アンドゥーリル",
       "total": 23
     },
     {
-      "name": "バルセシート",
+      "name": "リゾートアイランド",
       "total": 23
     },
     {
-      "name": "アスクイキゴミ",
-      "total": 22
-    },
-    {
-      "name": "サンダーストラック",
-      "total": 22
-    },
-    {
-      "name": "リゾートアイランド",
-      "total": 22
-    },
-    {
       "name": "サトノセプター",
-      "total": 21
-    },
-    {
-      "name": "シーミハットク",
-      "total": 21
-    },
-    {
-      "name": "ユウファラオ",
-      "total": 19
+      "total": 23
     },
     {
       "name": "エイシンティザー",
-      "total": 17
+      "total": 22
     },
     {
-      "name": "メイショウソラリス",
-      "total": 17
+      "name": "ユウファラオ",
+      "total": 21
     },
     {
       "name": "クールデイトナ",
-      "total": 16
+      "total": 20
     },
     {
-      "name": "サーディンラン",
-      "total": 16
-    },
-    {
-      "name": "ファンクション",
-      "total": 16
+      "name": "メイショウソラリス",
+      "total": 19
     },
     {
       "name": "ストームサンダー",
-      "total": 14
+      "total": 18
+    },
+    {
+      "name": "サーディンラン",
+      "total": 17
+    },
+    {
+      "name": "ファンクション",
+      "total": 17
     }
   ]
 }
