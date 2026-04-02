@@ -805,7 +805,7 @@ function wetPickHtml(notes, race) {
     return h ? h.num : '―';
   }
   const cards = picks.map(p => {
-    const comment = p.hn.lapComment || p.hn.abilityComment || '';
+    const comment = p.hn.wetComment || p.hn.lapComment || p.hn.abilityComment || '';
     const wetBBadge = p.hasWetB ? `<span class="wet-b-badge">道悪+ S</span>` : '';
     const pop = p.hn.popularity;
     return `<div class="wet-pick-card">

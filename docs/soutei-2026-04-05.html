@@ -302,6 +302,67 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .baba-badge.turf{background:rgba(34,197,94,.18);color:#15803d;border:1px solid rgba(34,197,94,.4);}
 .baba-type{font-size:9px;font-weight:900;letter-spacing:.08em;opacity:.75;}
 
+/* ── セクション見出し ──────────────────────────────────────── */
+.section-head{
+  display:flex;align-items:center;gap:8px;
+  margin:20px 0 10px;padding:0 2px;
+  font-size:9px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);scroll-margin-top:60px;
+}
+.section-head::before{content:'';width:3px;height:14px;border-radius:2px;background:var(--gold);flex-shrink:0;}
+.section-head::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.15);}
+
+/* ── INDEX / TOC ─────────────────────────────────────────── */
+.toc-nav{
+  display:flex;flex-wrap:wrap;gap:6px;
+  margin:10px 0 16px;padding:10px 12px;
+  background:rgba(28,43,74,.04);border:1px solid rgba(28,43,74,.1);border-radius:10px;
+}
+.toc-label{font-size:8px;font-weight:900;letter-spacing:.2em;color:rgba(28,43,74,.4);margin-right:4px;align-self:center;}
+.toc-link{
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:10px;font-weight:700;
+  padding:4px 10px;border-radius:14px;
+  background:rgba(255,255,255,.65);border:1px solid rgba(28,43,74,.12);
+  color:#1C2B4A;text-decoration:none;
+  transition:background .15s,border-color .15s;
+}
+.toc-link:hover{background:rgba(123,188,181,.25);border-color:rgba(123,188,181,.55);}
+
+/* ── 重馬場特注激走メモ ──────────────────────────────────── */
+.wet-pick-section{
+  margin-bottom:14px;border-radius:14px;overflow:hidden;
+  border:1px solid rgba(29,78,216,.2);
+}
+.wet-pick-label{
+  font-size:9px;font-weight:900;letter-spacing:.18em;
+  padding:9px 14px;
+  background:linear-gradient(135deg,rgba(29,78,216,.12),rgba(29,78,216,.04));
+  color:#1e3a8a;border-bottom:1px solid rgba(29,78,216,.15);
+  display:flex;align-items:center;gap:6px;
+}
+.wet-pick-card{
+  padding:10px 14px;background:rgba(255,255,255,.5);
+  border-bottom:1px solid rgba(29,78,216,.07);
+}
+.wet-pick-card:last-child{border-bottom:none;}
+.wet-pick-head{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px;}
+.wet-grade-badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;flex-shrink:0;}
+.wg-S{background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;}
+.wg-A{background:rgba(59,130,246,.35);color:#1d4ed8;border:1px solid rgba(29,78,216,.3);}
+.wet-b-badge{
+  font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;
+  background:rgba(16,185,129,.2);color:#065f46;border:1px solid rgba(16,185,129,.35);
+}
+.wet-pick-name{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;color:#1C2B4A;}
+.wet-pick-umaban{font-size:10px;font-weight:900;padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);margin-right:3px;}
+.wet-pick-pop{font-size:9px;color:rgba(28,43,74,.5);}
+.wet-pick-comment{
+  font-size:11px;color:#1C2B4A;line-height:1.75;
+  padding:5px 10px;margin-top:4px;
+  background:rgba(29,78,216,.04);border-left:2px solid rgba(29,78,216,.3);border-radius:0 5px 5px 0;
+}
+
 /* Loading */
 #loading{text-align:center;padding:60px;color:var(--muted);}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
@@ -498,6 +559,62 @@ function outlookHtml(notes) {
     <div class="outlook-label">展望</div>
     <div class="outlook-text">${notes.outlook}</div>
   </div>`;
+}
+
+function wetPickHtml(notes, race) {
+  if (!notes || !notes.horses) return '';
+  const picks = Object.keys(notes.horses)
+    .filter(n => {
+      const sabc = notes.horses[n].sabc;
+      return sabc && sabc.tan && (sabc.tan.wet === 'S' || sabc.tan.wet === 'A');
+    })
+    .map(n => {
+      const hn = notes.horses[n];
+      return { name: n, wetGrade: hn.sabc.tan.wet, hasWetB: hn.sabc.tan.wet_b === 'S', hn };
+    })
+    .sort((a, b) => ({ S: 0, A: 1 }[a.wetGrade]) - ({ S: 0, A: 1 }[b.wetGrade]));
+  if (picks.length === 0) return '';
+  function umabanOf(name) {
+    const h = (race.horses || []).find(x => x.name === name);
+    return h ? h.num : '―';
+  }
+  const cards = picks.map(p => {
+    const comment = p.hn.wetComment || p.hn.lapComment || p.hn.abilityComment || '';
+    const wetBBadge = p.hasWetB ? `<span class="wet-b-badge">道悪+ S</span>` : '';
+    const pop = p.hn.popularity;
+    return `<div class="wet-pick-card">
+      <div class="wet-pick-head">
+        <span class="wet-grade-badge wg-${p.wetGrade}">道悪 ${p.wetGrade}</span>
+        ${wetBBadge}
+        <span class="wet-pick-name"><span class="wet-pick-umaban">${umabanOf(p.name)}番</span>${p.name}</span>
+        ${pop ? `<span class="wet-pick-pop">${pop}番人気</span>` : ''}
+      </div>
+      ${comment ? `<div class="wet-pick-comment">${comment}</div>` : ''}
+    </div>`;
+  }).join('');
+  return `<div class="wet-pick-section">
+    <div class="wet-pick-label">🌧️ 重馬場 特注激走メモ</div>
+    ${cards}
+  </div>`;
+}
+
+function tocHtml(notes, idx) {
+  const isGrade = /G[1-3]/.test((notes && notes.grade) || '');
+  const hasLap  = !!(notes && notes.lapAnalysis);
+  const hasWet  = notes && notes.horses &&
+    Object.values(notes.horses).some(h => h.sabc && h.sabc.tan &&
+      (h.sabc.tan.wet === 'S' || h.sabc.tan.wet === 'A'));
+  const items = [
+    { id: `sabc-rank-${idx}`, label: '📊 単複ランク' },
+    isGrade ? { id: `bet-${idx}`,      label: '🎯 買い目' }      : null,
+    { id: `all-horses-${idx}`, label: '🐴 全頭診断' },
+    hasWet  ? { id: `wet-pick-${idx}`, label: '🌧️ 重馬場メモ' }  : null,
+    hasLap  ? { id: `lap-${idx}`,      label: '📈 ラップ分析' }   : null,
+  ].filter(Boolean);
+  const links = items.map(it =>
+    `<a href="#${it.id}" class="toc-link">${it.label}</a>`
+  ).join('');
+  return `<nav class="toc-nav"><span class="toc-label">INDEX</span>${links}</nav>`;
 }
 
 function sabcBadge(g){ return `<span class="sabc-badge g-${g}">${g}</span>`; }
@@ -793,24 +910,36 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     </tr>`;
   }).join('');
 
+  const _sabcRankHtml = sabcPickHtml(notes, race);
+  const _betHtml      = generateBetHtml(horses, horsesNotes, notes, race);
+  const _wetHtml      = wetPickHtml(notes, race);
+  const _lapHtml      = lapAnalysisHtml(notes);
+  const _outHtml      = outlookHtml(notes);
+
   return `<div class="race-panel${isActive}" id="panel-${idx}">
     <div class="race-header">
       ${gradeHtml(race.grade)}
       <div class="race-name">${race.raceName}<span class="count-badge">${race.horses.length}頭</span></div>
       <div class="race-meta"><span>${race.raceNo}</span><span>${race.course}</span></div>
     </div>
-    ${lapAnalysisHtml(notes)}
-    ${outlookHtml(notes)}
-    ${sabcPickHtml(notes, race)}
-    ${generateBetHtml(horses, horsesNotes, notes, race)}
+
+    ${tocHtml(notes, idx)}
+
+    ${_sabcRankHtml ? `<div id="sabc-rank-${idx}" class="section-head">単複ランキング</div>${_sabcRankHtml}` : ''}
+    ${_betHtml      ? `<div id="bet-${idx}"       class="section-head">買い目</div>${_betHtml}` : ''}
+
+    <div id="all-horses-${idx}" class="section-head">全頭診断</div>
     <table class="horse-table">
       <thead><tr>
         <th>人気</th>
         <th>馬名 / 父馬 / 重賞展望スコア</th>
-
       </tr></thead>
       <tbody>${rows}</tbody>
     </table>
+
+    ${_wetHtml ? `<div id="wet-pick-${idx}" class="section-head">重馬場特注激走メモ</div>${_wetHtml}` : ''}
+    ${_lapHtml ? `<div id="lap-${idx}"      class="section-head">ラップ分析</div>${_lapHtml}` : ''}
+    ${_outHtml}
   </div>`;
 }
 
