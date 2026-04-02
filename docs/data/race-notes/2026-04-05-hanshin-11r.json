@@ -12,7 +12,7 @@
       "abilityGrade": "S",
       "abilityComment": "2走前に記録したパフォーマンスは、今回のメンバー中で突出した能力値を示している。前走は数値を落としたものの、本来のスペックを引き出せればこの舞台でも主役を張れる能力の持ち主だ。",
       "lapGrade": "S",
-      "lapComment": "2走前にメンバー最高峰の能力値を記録。昨年の持続力勝負でも、2年前のような瞬発力勝負でも、この絶対的な能力値があれば押し切れる可能性が極めて高い。",
+      "lapComment": "2走前にメンバー最高峰の能力値を記録。昨年の持続力勝負でも、2年前のようなスローからの瞬発力勝負でも、この絶対的な能力値があれば押し切れる可能性が極めて高い。",
       "prevGrade": "S",
       "prevComment": "初ブリンカーで前半の行きたがる面は見せたが、ラチ沿いでリズムを重視した運びは秀逸。左ステッキ一発でグンと加速し、逃げ馬をあっさり捉えた反応の良さは、精神面の成長次第でさらなる飛躍を予感させる。",
       "extGrade": "S",
@@ -27,7 +27,9 @@
           "pci": "B",
           "weight": "B",
           "diff3f": "B",
-          "total": 18
+          "total": 25,
+          "wet": "A",
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "S",
@@ -38,7 +40,9 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "B",
-          "total": 23
+          "total": 30,
+          "wet": "A",
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(美)木村哲也",
@@ -66,7 +70,9 @@
           "pci": "B",
           "weight": "B",
           "diff3f": "B",
-          "total": 17
+          "total": 24,
+          "wet": "A",
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "S",
@@ -77,7 +83,9 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "A",
-          "total": 23
+          "total": 30,
+          "wet": "A",
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(栗)中内田充",
@@ -105,7 +113,9 @@
           "pci": "B",
           "weight": "S",
           "diff3f": "B",
-          "total": 18
+          "total": 26,
+          "wet": "S",
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "A",
@@ -116,7 +126,9 @@
           "pci": "A",
           "weight": "S",
           "diff3f": "A",
-          "total": 23
+          "total": 31,
+          "wet": "S",
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(美)上原佑紀",
@@ -144,8 +156,9 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 26,
-          "course": "S"
+          "total": 30,
+          "course": "S",
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "B",
@@ -156,8 +169,9 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "A",
-          "total": 27,
-          "course": "S"
+          "total": 31,
+          "course": "S",
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(栗)松下武士",
@@ -185,8 +199,9 @@
           "pci": "B",
           "weight": "B",
           "diff3f": "C",
-          "total": 16,
-          "course": "S"
+          "total": 19,
+          "course": "S",
+          "wet": "A"
         },
         "fuku": {
           "zi": "C",
@@ -197,8 +212,9 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "C",
-          "total": 18,
-          "course": "S"
+          "total": 21,
+          "course": "S",
+          "wet": "A"
         }
       },
       "sabcTrainer": "(栗)安達昭夫",
@@ -226,7 +242,8 @@
           "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 19
+          "total": 20,
+          "wet": "C"
         },
         "fuku": {
           "zi": "B",
@@ -237,7 +254,8 @@
           "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 20
+          "total": 21,
+          "wet": "C"
         }
       },
       "sabcTrainer": "(栗)宮地貴稔",
@@ -265,7 +283,9 @@
           "pci": "B",
           "weight": "S",
           "diff3f": "B",
-          "total": 22
+          "total": 29,
+          "wet": "A",
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "B",
@@ -276,7 +296,9 @@
           "pci": "A",
           "weight": "S",
           "diff3f": "A",
-          "total": 24
+          "total": 31,
+          "wet": "A",
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(栗)藤原英昭",
@@ -304,8 +326,10 @@
           "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 28,
-          "course": "S"
+          "total": 35,
+          "course": "S",
+          "wet": "A",
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "B",
@@ -316,8 +340,10 @@
           "pci": "A",
           "weight": "A",
           "diff3f": "A",
-          "total": 25,
-          "course": "S"
+          "total": 32,
+          "course": "S",
+          "wet": "A",
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(栗)寺島良",
@@ -345,7 +371,9 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "C",
-          "total": 12
+          "total": 20,
+          "wet": "S",
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "C",
@@ -356,7 +384,9 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 19
+          "total": 27,
+          "wet": "S",
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(栗)角田晃一",
@@ -384,8 +414,9 @@
           "pci": "B",
           "weight": "C",
           "diff3f": "B",
-          "total": 24,
-          "course": "S"
+          "total": 28,
+          "course": "S",
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "A",
@@ -396,8 +427,9 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "A",
-          "total": 29,
-          "course": "S"
+          "total": 33,
+          "course": "S",
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(栗)松下武士",
@@ -425,7 +457,8 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "C",
-          "total": 15
+          "total": 19,
+          "wet_b": "S"
         },
         "fuku": {
           "zi": "C",
@@ -436,7 +469,8 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 17
+          "total": 21,
+          "wet_b": "S"
         }
       },
       "sabcTrainer": "(栗)武英智",
@@ -544,7 +578,8 @@
           "pci": "S",
           "weight": "S",
           "diff3f": "C",
-          "total": 16
+          "total": 18,
+          "wet": "B"
         },
         "fuku": {
           "zi": "C",
@@ -555,7 +590,8 @@
           "pci": "S",
           "weight": "S",
           "diff3f": "B",
-          "total": 21
+          "total": 23,
+          "wet": "B"
         }
       },
       "sabcTrainer": "(栗)森秀行",
@@ -566,7 +602,7 @@
     },
     "ファンクション": {
       "abilityGrade": "C",
-      "abilityComment": "前走の勝利等で見せたスペックは一定の評価ができるが、強力なGIメンバーに入ると絶対的な能力値で一歩劣る印象だ。",
+      "abilityComment": "前走の勝利等で見せたスペックは一定の評価ができるが、重賞となれば絶対的な能力値で一歩劣る印象だ。",
       "lapGrade": "",
       "lapComment": "",
       "prevGrade": "C",
@@ -583,7 +619,8 @@
           "pci": "S",
           "weight": "C",
           "diff3f": "B",
-          "total": 14
+          "total": 18,
+          "wet": "S"
         },
         "fuku": {
           "zi": "B",
@@ -594,7 +631,8 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 17
+          "total": 21,
+          "wet": "S"
         }
       },
       "sabcTrainer": "(美)斎藤誠",
@@ -605,127 +643,37 @@
     }
   },
   "sabcRankTan": [
-    {
-      "name": "シーミハットク",
-      "total": 28
-    },
-    {
-      "name": "バルセシート",
-      "total": 26
-    },
-    {
-      "name": "レザベーション",
-      "total": 24
-    },
-    {
-      "name": "アスクイキゴミ",
-      "total": 22
-    },
-    {
-      "name": "エイシンティザー",
-      "total": 22
-    },
-    {
-      "name": "サトノセプター",
-      "total": 21
-    },
-    {
-      "name": "クールデイトナ",
-      "total": 19
-    },
-    {
-      "name": "サンダーストラック",
-      "total": 18
-    },
-    {
-      "name": "リゾートアイランド",
-      "total": 18
-    },
-    {
-      "name": "アンドゥーリル",
-      "total": 17
-    },
-    {
-      "name": "ストームサンダー",
-      "total": 16
-    },
-    {
-      "name": "ユウファラオ",
-      "total": 16
-    },
-    {
-      "name": "サーディンラン",
-      "total": 15
-    },
-    {
-      "name": "ファンクション",
-      "total": 14
-    },
-    {
-      "name": "メイショウソラリス",
-      "total": 12
-    }
+    { "name": "シーミハットク", "total": 35 },
+    { "name": "バルセシート", "total": 30 },
+    { "name": "アスクイキゴミ", "total": 29 },
+    { "name": "レザベーション", "total": 28 },
+    { "name": "リゾートアイランド", "total": 26 },
+    { "name": "サンダーストラック", "total": 25 },
+    { "name": "アンドゥーリル", "total": 24 },
+    { "name": "エイシンティザー", "total": 22 },
+    { "name": "サトノセプター", "total": 21 },
+    { "name": "クールデイトナ", "total": 20 },
+    { "name": "メイショウソラリス", "total": 20 },
+    { "name": "ストームサンダー", "total": 19 },
+    { "name": "サーディンラン", "total": 19 },
+    { "name": "ファンクション", "total": 18 },
+    { "name": "ユウファラオ", "total": 18 }
   ],
   "sabcRankFuku": [
-    {
-      "name": "レザベーション",
-      "total": 29
-    },
-    {
-      "name": "バルセシート",
-      "total": 27
-    },
-    {
-      "name": "シーミハットク",
-      "total": 25
-    },
-    {
-      "name": "アスクイキゴミ",
-      "total": 24
-    },
-    {
-      "name": "サンダーストラック",
-      "total": 23
-    },
-    {
-      "name": "アンドゥーリル",
-      "total": 23
-    },
-    {
-      "name": "リゾートアイランド",
-      "total": 23
-    },
-    {
-      "name": "サトノセプター",
-      "total": 23
-    },
-    {
-      "name": "エイシンティザー",
-      "total": 22
-    },
-    {
-      "name": "ユウファラオ",
-      "total": 21
-    },
-    {
-      "name": "クールデイトナ",
-      "total": 20
-    },
-    {
-      "name": "メイショウソラリス",
-      "total": 19
-    },
-    {
-      "name": "ストームサンダー",
-      "total": 18
-    },
-    {
-      "name": "サーディンラン",
-      "total": 17
-    },
-    {
-      "name": "ファンクション",
-      "total": 17
-    }
+    { "name": "レザベーション", "total": 33 },
+    { "name": "シーミハットク", "total": 32 },
+    { "name": "アスクイキゴミ", "total": 31 },
+    { "name": "バルセシート", "total": 31 },
+    { "name": "リゾートアイランド", "total": 31 },
+    { "name": "サンダーストラック", "total": 30 },
+    { "name": "アンドゥーリル", "total": 30 },
+    { "name": "メイショウソラリス", "total": 27 },
+    { "name": "サトノセプター", "total": 23 },
+    { "name": "ユウファラオ", "total": 23 },
+    { "name": "エイシンティザー", "total": 22 },
+    { "name": "クールデイトナ", "total": 21 },
+    { "name": "ストームサンダー", "total": 21 },
+    { "name": "サーディンラン", "total": 21 },
+    { "name": "ファンクション", "total": 21 }
   ]
 }
