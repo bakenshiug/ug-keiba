@@ -269,7 +269,7 @@ const GRADE_SCORE  = {S:4,A:3,B:2,C:1};
 function gradeScore(g){ return GRADE_SCORE[g]||0; }
 function computeBaseScore(n){
   if(!n) return 0;
-  return gradeScore(n.abilityGrade)+gradeScore(n.lapGrade)+gradeScore(n.prevGrade)+gradeScore(n.extGrade);
+  return gradeScore(n.abilityGrade)+gradeScore(n.lapGrade)+gradeScore(n.prevGrade)+gradeScore(n.extGrade)+gradeScore(n.bmsGrade);
 }
 function computeSabcBonus(n){
   if(!n || !n.sabc || !n.sabc.tan) return 0;
@@ -305,6 +305,7 @@ function abilityHtml(n, rank) {
   html += factorBadge('ラップ', lg);
   html += factorBadge('前走', pg);
   html += factorBadge('外厩', eg);
+  if (n.bmsGrade) html += factorBadge('母父', n.bmsGrade);
   if (score > 0) {
     const fire = bonus >= 3 ? '🔥🔥' : bonus >= 1 ? '🔥' : '';
     html += `<span class="score-badge">${score}pt</span>`;
