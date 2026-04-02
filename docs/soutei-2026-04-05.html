@@ -370,6 +370,16 @@ function computeScore(n){
   return base + tan + fuku;
 }
 
+// 同点タイブレーク: 1st=ZI値降順 / 2nd=トレンド(up>stable>down)降順
+const TREND_SCORE = { up: 2, stable: 1, down: 0 };
+function compareHorses(na, nb) {
+  const d = computeScore(nb) - computeScore(na);
+  if (d !== 0) return d;
+  const ziDiff = (nb.sabcZI || 0) - (na.sabcZI || 0);
+  if (ziDiff !== 0) return ziDiff;
+  return (TREND_SCORE[nb.trend] || 0) - (TREND_SCORE[na.trend] || 0);
+}
+
 function gradeHtml(g) {
   if (!g) return `<span class="race-grade-badge grade-OP">オープン</span>`;
   return `<span class="race-grade-badge ${GRADE_CLASS[g]}">${g}</span>`;
@@ -718,7 +728,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
   // Sort horses by totalScore desc if notes available
   let horses = [...race.horses];
   if (hasNotes) {
-    horses.sort((a, b) => computeScore(horsesNotes[b.name]) - computeScore(horsesNotes[a.name]));
+    horses.sort((a, b) => compareHorses(horsesNotes[a.name]||null, horsesNotes[b.name]||null));
   }
 
   // 印割り当て（重賞のみ・総合スコア降順）
