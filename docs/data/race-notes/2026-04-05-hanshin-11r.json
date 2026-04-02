@@ -27,9 +27,11 @@
           "pci": "B",
           "weight": "B",
           "diff3f": "B",
-          "total": 25,
+          "total": 30,
           "wet": "A",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "A",
+          "jockey_b": "B"
         },
         "fuku": {
           "zi": "S",
@@ -40,9 +42,11 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "B",
-          "total": 30,
+          "total": 35,
           "wet": "A",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "A",
+          "jockey_b": "B"
         }
       },
       "sabcTrainer": "(美)木村哲也",
@@ -70,9 +74,11 @@
           "pci": "B",
           "weight": "B",
           "diff3f": "B",
-          "total": 24,
+          "total": 29,
           "wet": "A",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "A",
+          "jockey_b": "B"
         },
         "fuku": {
           "zi": "S",
@@ -83,9 +89,11 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "A",
-          "total": 30,
+          "total": 35,
           "wet": "A",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "A",
+          "jockey_b": "B"
         }
       },
       "sabcTrainer": "(栗)中内田充",
@@ -113,9 +121,10 @@
           "pci": "B",
           "weight": "S",
           "diff3f": "B",
-          "total": 26,
+          "total": 29,
           "wet": "S",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "A"
         },
         "fuku": {
           "zi": "A",
@@ -126,9 +135,10 @@
           "pci": "A",
           "weight": "S",
           "diff3f": "A",
-          "total": 31,
+          "total": 34,
           "wet": "S",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "A"
         }
       },
       "sabcTrainer": "(美)上原佑紀",
@@ -156,9 +166,10 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 30,
+          "total": 32,
           "course": "S",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "B"
         },
         "fuku": {
           "zi": "B",
@@ -169,9 +180,10 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "A",
-          "total": 31,
+          "total": 33,
           "course": "S",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "B"
         }
       },
       "sabcTrainer": "(栗)松下武士",
@@ -201,7 +213,8 @@
           "diff3f": "C",
           "total": 19,
           "course": "S",
-          "wet": "A"
+          "wet": "A",
+          "jockey": "D"
         },
         "fuku": {
           "zi": "C",
@@ -214,7 +227,8 @@
           "diff3f": "C",
           "total": 21,
           "course": "S",
-          "wet": "A"
+          "wet": "A",
+          "jockey": "D"
         }
       },
       "sabcTrainer": "(栗)安達昭夫",
@@ -242,8 +256,9 @@
           "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 20,
-          "wet": "C"
+          "total": 22,
+          "wet": "C",
+          "jockey": "B"
         },
         "fuku": {
           "zi": "B",
@@ -254,8 +269,9 @@
           "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 21,
-          "wet": "C"
+          "total": 23,
+          "wet": "C",
+          "jockey": "B"
         }
       },
       "sabcTrainer": "(栗)宮地貴稔",
@@ -283,9 +299,10 @@
           "pci": "B",
           "weight": "S",
           "diff3f": "B",
-          "total": 29,
+          "total": 32,
           "wet": "A",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "A"
         },
         "fuku": {
           "zi": "B",
@@ -296,9 +313,10 @@
           "pci": "A",
           "weight": "S",
           "diff3f": "A",
-          "total": 31,
+          "total": 34,
           "wet": "A",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "A"
         }
       },
       "sabcTrainer": "(栗)藤原英昭",
@@ -326,10 +344,11 @@
           "pci": "S",
           "weight": "A",
           "diff3f": "B",
-          "total": 35,
+          "total": 36,
           "course": "S",
           "wet": "A",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "C"
         },
         "fuku": {
           "zi": "B",
@@ -340,10 +359,11 @@
           "pci": "A",
           "weight": "A",
           "diff3f": "A",
-          "total": 32,
+          "total": 33,
           "course": "S",
           "wet": "A",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "C"
         }
       },
       "sabcTrainer": "(栗)寺島良",
@@ -373,7 +393,8 @@
           "diff3f": "C",
           "total": 20,
           "wet": "S",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "D"
         },
         "fuku": {
           "zi": "C",
@@ -386,7 +407,8 @@
           "diff3f": "B",
           "total": 27,
           "wet": "S",
-          "wet_b": "S"
+          "wet_b": "S",
+          "jockey": "D"
         }
       },
       "sabcTrainer": "(栗)角田晃一",
@@ -414,8 +436,9 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "C",
-          "total": 19,
-          "wet_b": "S"
+          "total": 21,
+          "wet_b": "S",
+          "jockey": "B"
         },
         "fuku": {
           "zi": "C",
@@ -426,8 +449,9 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 21,
-          "wet_b": "S"
+          "total": 23,
+          "wet_b": "S",
+          "jockey": "B"
         }
       },
       "sabcTrainer": "(栗)武英智",
@@ -455,8 +479,9 @@
           "pci": "S",
           "weight": "S",
           "diff3f": "A",
-          "total": 22,
-          "course": "S"
+          "total": 23,
+          "course": "S",
+          "jockey": "C"
         },
         "fuku": {
           "zi": "C",
@@ -467,8 +492,9 @@
           "pci": "A",
           "weight": "S",
           "diff3f": "A",
-          "total": 22,
-          "course": "S"
+          "total": 23,
+          "course": "S",
+          "jockey": "C"
         }
       },
       "sabcTrainer": "(栗)吉村圭司",
@@ -496,7 +522,8 @@
           "pci": "B",
           "weight": "C",
           "diff3f": "B",
-          "total": 21
+          "total": 24,
+          "jockey": "A"
         },
         "fuku": {
           "zi": "C",
@@ -507,7 +534,8 @@
           "pci": "A",
           "weight": "B",
           "diff3f": "B",
-          "total": 23
+          "total": 26,
+          "jockey": "A"
         }
       },
       "sabcTrainer": "(栗)上村洋行",
@@ -535,8 +563,9 @@
           "pci": "S",
           "weight": "S",
           "diff3f": "C",
-          "total": 18,
-          "wet": "B"
+          "total": 19,
+          "wet": "B",
+          "jockey": "C"
         },
         "fuku": {
           "zi": "C",
@@ -547,8 +576,9 @@
           "pci": "S",
           "weight": "S",
           "diff3f": "B",
-          "total": 23,
-          "wet": "B"
+          "total": 24,
+          "wet": "B",
+          "jockey": "C"
         }
       },
       "sabcTrainer": "(栗)森秀行",
@@ -576,8 +606,9 @@
           "pci": "S",
           "weight": "C",
           "diff3f": "B",
-          "total": 18,
-          "wet": "S"
+          "total": 20,
+          "wet": "S",
+          "jockey": "B"
         },
         "fuku": {
           "zi": "B",
@@ -588,8 +619,9 @@
           "pci": "S",
           "weight": "B",
           "diff3f": "B",
-          "total": 21,
-          "wet": "S"
+          "total": 23,
+          "wet": "S",
+          "jockey": "B"
         }
       },
       "sabcTrainer": "(美)斎藤誠",
@@ -602,42 +634,50 @@
   "sabcRankTan": [
     {
       "name": "シーミハットク",
-      "total": 35
+      "total": 36
     },
     {
       "name": "バルセシート",
-      "total": 30
+      "total": 32
     },
     {
       "name": "アスクイキゴミ",
+      "total": 32
+    },
+    {
+      "name": "サンダーストラック",
+      "total": 30
+    },
+    {
+      "name": "アンドゥーリル",
       "total": 29
     },
     {
       "name": "リゾートアイランド",
-      "total": 26
+      "total": 29
     },
     {
-      "name": "サンダーストラック",
-      "total": 25
-    },
-    {
-      "name": "アンドゥーリル",
+      "name": "サトノセプター",
       "total": 24
     },
     {
       "name": "エイシンティザー",
-      "total": 22
-    },
-    {
-      "name": "サトノセプター",
-      "total": 21
+      "total": 23
     },
     {
       "name": "クールデイトナ",
-      "total": 20
+      "total": 22
+    },
+    {
+      "name": "サーディンラン",
+      "total": 21
     },
     {
       "name": "メイショウソラリス",
+      "total": 20
+    },
+    {
+      "name": "ファンクション",
       "total": 20
     },
     {
@@ -645,42 +685,34 @@
       "total": 19
     },
     {
-      "name": "サーディンラン",
-      "total": 19
-    },
-    {
       "name": "ユウファラオ",
-      "total": 18
-    },
-    {
-      "name": "ファンクション",
-      "total": 18
+      "total": 19
     }
   ],
   "sabcRankFuku": [
     {
-      "name": "シーミハットク",
-      "total": 32
-    },
-    {
-      "name": "リゾートアイランド",
-      "total": 31
-    },
-    {
-      "name": "バルセシート",
-      "total": 31
-    },
-    {
-      "name": "アスクイキゴミ",
-      "total": 31
-    },
-    {
       "name": "サンダーストラック",
-      "total": 30
+      "total": 35
     },
     {
       "name": "アンドゥーリル",
-      "total": 30
+      "total": 35
+    },
+    {
+      "name": "リゾートアイランド",
+      "total": 34
+    },
+    {
+      "name": "アスクイキゴミ",
+      "total": 34
+    },
+    {
+      "name": "バルセシート",
+      "total": 33
+    },
+    {
+      "name": "シーミハットク",
+      "total": 33
     },
     {
       "name": "メイショウソラリス",
@@ -688,30 +720,30 @@
     },
     {
       "name": "サトノセプター",
-      "total": 23
+      "total": 26
     },
     {
       "name": "ユウファラオ",
+      "total": 24
+    },
+    {
+      "name": "クールデイトナ",
+      "total": 23
+    },
+    {
+      "name": "サーディンラン",
       "total": 23
     },
     {
       "name": "エイシンティザー",
-      "total": 22
-    },
-    {
-      "name": "ストームサンダー",
-      "total": 21
-    },
-    {
-      "name": "クールデイトナ",
-      "total": 21
-    },
-    {
-      "name": "サーディンラン",
-      "total": 21
+      "total": 23
     },
     {
       "name": "ファンクション",
+      "total": 23
+    },
+    {
+      "name": "ストームサンダー",
       "total": 21
     }
   ]
