@@ -81,7 +81,8 @@
           "wet": "B",
           "wet_b": "S",
           "jockey": "S",
-          "total": 34
+          "jockey_b": "S",
+          "total": 38
         },
         "fuku": {
           "zi": "S",
@@ -96,7 +97,8 @@
           "wet": "B",
           "wet_b": "S",
           "jockey": "S",
-          "total": 35
+          "jockey_b": "S",
+          "total": 39
         }
       },
       "sabcZI": 123,
@@ -129,7 +131,8 @@
           "wet": "A",
           "wet_b": "S",
           "jockey": "A",
-          "total": 31
+          "jockey_b": "S",
+          "total": 35
         },
         "fuku": {
           "zi": "S",
@@ -144,7 +147,8 @@
           "wet": "A",
           "wet_b": "S",
           "jockey": "A",
-          "total": 38
+          "jockey_b": "S",
+          "total": 42
         }
       },
       "sabcZI": 126,
@@ -729,6 +733,10 @@
   },
   "sabcRankTan": [
     {
+      "name": "ショウヘイ",
+      "total": 38
+    },
+    {
       "name": "デビットバローズ",
       "total": 38
     },
@@ -745,11 +753,11 @@
       "total": 36
     },
     {
-      "name": "クロワデュノール",
-      "total": 34
+      "name": "レーベンスティール",
+      "total": 35
     },
     {
-      "name": "ショウヘイ",
+      "name": "クロワデュノール",
       "total": 34
     },
     {
@@ -763,10 +771,6 @@
     {
       "name": "ダノンデサイル",
       "total": 32
-    },
-    {
-      "name": "レーベンスティール",
-      "total": 31
     },
     {
       "name": "ボルドグフーシュ",
@@ -791,12 +795,16 @@
   ],
   "sabcRankFuku": [
     {
-      "name": "ヨーホーレイク",
+      "name": "レーベンスティール",
+      "total": 42
+    },
+    {
+      "name": "ショウヘイ",
       "total": 39
     },
     {
-      "name": "レーベンスティール",
-      "total": 38
+      "name": "ヨーホーレイク",
+      "total": 39
     },
     {
       "name": "デビットバローズ",
@@ -817,10 +825,6 @@
     {
       "name": "エコロヴァルツ",
       "total": 36
-    },
-    {
-      "name": "ショウヘイ",
-      "total": 35
     },
     {
       "name": "ダノンデサイル",
