@@ -36,9 +36,13 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-tab{flex-shrink:0;padding:7px 14px;border-radius:20px;background:rgba(0,0,0,0.05);border:1px solid rgba(0,0,0,0.12);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap;}
 .race-tab:hover{background:rgba(0,0,0,0.08);}
 .race-tab.active{background:rgba(123,188,181,.2);border-color:rgba(123,188,181,.7);color:#1C2B4A;}
-.race-tab.grade-tab{border-color:rgba(139,26,26,.4);color:var(--gold);}
-.race-tab.grade-tab.active{background:rgba(139,26,26,.15);border-color:var(--gold);color:var(--gold);}
-.tab-grade{font-size:9px;display:inline-block;margin-left:3px;padding:1px 4px;border-radius:3px;background:rgba(139,26,26,.3);color:var(--gold);}
+.race-tab.grade-tab{border-color:rgba(180,140,0,.5);color:#a16207;}
+.race-tab.grade-tab.active{background:rgba(180,140,0,.15);border-color:var(--gold);color:#7c5700;}
+.tab-grade{font-size:9px;display:inline-block;margin-left:3px;padding:1px 4px;border-radius:3px;background:rgba(180,140,0,.25);color:#7c5700;}
+.race-tab.turf-tab{border-color:rgba(34,197,94,.5);color:#15803d;}
+.race-tab.turf-tab.active{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.8);color:#15803d;}
+.race-tab.dirt-tab{border-color:rgba(180,120,60,.5);color:#92400e;}
+.race-tab.dirt-tab.active{background:rgba(180,120,60,.15);border-color:rgba(180,120,60,.8);color:#92400e;}
 
 /* Race panel */
 .race-panel{display:none;}
@@ -385,6 +389,13 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
           <span class="baba-badge turf"><span class="baba-type">芝</span>稍重〜重</span>
           <span class="baba-badge dirt"><span class="baba-type">ダート</span>重</span>
         </span>
+        <span class="baba-divider">｜</span>
+        <span class="baba-venue-block">
+          <span class="baba-venue-label">中山</span>
+          <span class="weather-info">🌤️ くもり→晴れ</span>
+          <span class="baba-badge turf"><span class="baba-type">芝</span>良〜稍重</span>
+          <span class="baba-badge dirt"><span class="baba-type">ダート</span>良〜稍重</span>
+        </span>
       </div>
     </div>
 
@@ -686,8 +697,11 @@ function sabcPickHtml(notes, race) {
 function buildTabs(races) {
   return races.map((r, i) => {
     const gradeTag = r.grade ? `<span class="tab-grade">${r.grade}</span>` : '';
-    const grCls    = r.grade ? ' grade-tab' : '';
-    return `<div class="race-tab${grCls}${i===0?' active':''}" onclick="switchRace(${i})" id="tab-${i}">${r.raceNo}${gradeTag}</div>`;
+    let cls;
+    if (r.grade) cls = ' grade-tab';
+    else if (r.course && r.course.includes('ダート')) cls = ' dirt-tab';
+    else cls = ' turf-tab';
+    return `<div class="race-tab${cls}${i===0?' active':''}" onclick="switchRace(${i})" id="tab-${i}">${r.raceNo}${gradeTag}</div>`;
   }).join('');
 }
 
