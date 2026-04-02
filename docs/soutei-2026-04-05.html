@@ -123,6 +123,33 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .mark-saban{background:rgba(28,43,74,.09);color:#1C2B4A;border:1.5px solid rgba(28,43,74,.38);}
 .mark-hoshi{background:rgba(170,130,0,.1);color:#7a5e00;border:1.5px solid rgba(170,130,0,.42);}
 .mark-renge{background:rgba(28,43,74,.04);color:rgba(28,43,74,.42);border:1px solid rgba(28,43,74,.2);}
+/* ── 買い目セクション ───────────────────────────────────── */
+.bet-section{margin:14px 0 6px;border-radius:12px;overflow:hidden;border:1px solid rgba(28,43,74,.12);background:rgba(255,255,255,.5);}
+.bet-section-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(28,43,74,.04);border-bottom:1px solid rgba(28,43,74,.08);}
+.bet-section-title{font-size:10px;font-weight:900;letter-spacing:.15em;color:rgba(28,43,74,.7);}
+.bet-pattern-badge{font-size:9px;font-weight:900;padding:2px 9px;border-radius:4px;letter-spacing:.05em;}
+.pat-a{background:rgba(180,20,20,.12);color:#b41414;border:1px solid rgba(180,20,20,.3);}
+.pat-b{background:rgba(29,78,216,.1);color:#1e3a8a;border:1px solid rgba(29,78,216,.28);}
+.pat-c{background:rgba(100,100,100,.1);color:#4a4a4a;border:1px solid rgba(100,100,100,.3);}
+.bet-threshold-note{font-size:8px;color:rgba(28,43,74,.3);margin-left:auto;}
+.bet-common{display:flex;gap:16px;padding:10px 14px;border-bottom:1px solid rgba(28,43,74,.06);flex-wrap:wrap;}
+.bet-row{display:flex;align-items:center;gap:6px;}
+.bet-type-tag{font-size:9px;font-weight:900;padding:1px 6px;border-radius:3px;background:rgba(28,43,74,.08);color:rgba(28,43,74,.7);letter-spacing:.05em;white-space:nowrap;}
+.bet-sub{font-size:10px;color:rgba(28,43,74,.55);font-family:'Noto Serif JP',serif;}
+.bet-cards{display:flex;flex-direction:column;}
+.bet-card{padding:10px 14px;border-bottom:1px solid rgba(28,43,74,.06);}
+.bet-card:last-child{border-bottom:none;}
+.bet-card-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.bet-kind{font-size:10px;font-weight:900;color:rgba(28,43,74,.8);letter-spacing:.04em;}
+.bet-pts{font-size:10px;font-weight:900;padding:1px 7px;border-radius:4px;background:rgba(139,26,26,.08);color:#8B1A1A;border:1px solid rgba(139,26,26,.2);}
+.bet-formula{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
+.bet-formula-grid{display:flex;flex-direction:column;gap:5px;}
+.bet-formula-grid>div{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
+.bet-col-label{font-size:8px;font-weight:900;color:rgba(28,43,74,.4);min-width:34px;flex-shrink:0;}
+.bet-arrow{font-size:12px;font-weight:700;color:rgba(28,43,74,.4);margin:0 1px;}
+.bet-axis{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:900;color:rgba(28,43,74,.5);}
+.bet-uma{display:inline-flex;align-items:center;gap:2px;background:rgba(28,43,74,.07);border:1px solid rgba(28,43,74,.15);border-radius:5px;padding:2px 6px;font-size:11px;font-weight:900;color:#1C2B4A;}
+.bet-mark{font-size:9px;color:rgba(28,43,74,.45);}
 .td-jockey-row{font-size:11px;color:rgba(28,43,74,.7);margin-top:3px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
 .td-jockey-name{font-weight:700;}
 .td-weight-val{font-weight:900;color:var(--gold);}
@@ -559,6 +586,104 @@ function buildTabs(races) {
   }).join('');
 }
 
+// ── 買い目自動生成 ────────────────────────────────────────
+function generateBetHtml(sortedHorses, horsesNotes, notes, race) {
+  if (!sortedHorses || sortedHorses.length < 7) return '';
+  if (!/G[1-3]/.test((notes && notes.grade) || '')) return '';
+
+  const MARKS = ['◎','○','▲','☆','△','△','△'];
+  const tagged = sortedHorses.slice(0, 7).map((h, i) => ({
+    name: h.name, num: h.num, mark: MARKS[i],
+    score: computeScore(horsesNotes[h.name] || null)
+  }));
+
+  // パターン判定（総合スコア差 4pt = Sファクター1個分）
+  const THRESHOLD = 4;
+  const gap12 = tagged[0].score - tagged[1].score;
+  const gap23 = tagged[1].score - tagged[2].score;
+  let pattern, patternLabel, patternCls;
+  if      (gap12 >= THRESHOLD) { pattern='A'; patternLabel='1強戦'; patternCls='pat-a'; }
+  else if (gap23 >= THRESHOLD) { pattern='B'; patternLabel='2強戦'; patternCls='pat-b'; }
+  else                          { pattern='C'; patternLabel='混戦';  patternCls='pat-c'; }
+
+  // 単勝・複勝（SABC単/複1位馬）
+  const tanName  = (notes.sabcRankTan  && notes.sabcRankTan[0])  ? notes.sabcRankTan[0].name  : tagged[0].name;
+  const fukuName = (notes.sabcRankFuku && notes.sabcRankFuku[0]) ? notes.sabcRankFuku[0].name : tagged[0].name;
+  const getNum = name => { const h = (race.horses||[]).find(x=>x.name===name); return h ? h.num : '?'; };
+
+  const uma = h => `<span class="bet-uma"><span class="bet-mark">${h.mark}</span>${h.num}</span>`;
+  const umaPlain = n => `<span class="bet-uma"><span class="bet-mark"></span>${n}</span>`;
+  const ul  = arr => arr.map(uma).join('');
+
+  const col1 = tagged.slice(0,2); // ◎○
+  const col2 = tagged.slice(0,4); // ◎○▲☆
+  const rest = tagged.slice(1);   // ○▲☆△△△
+  const top4 = tagged.slice(0,4); // ◎○▲☆
+  const all7 = tagged;
+
+  const commonHtml = `<div class="bet-common">
+    <div class="bet-row"><span class="bet-type-tag">単勝</span>${umaPlain(getNum(tanName))}<span class="bet-sub">${tanName}</span></div>
+    <div class="bet-row"><span class="bet-type-tag">複勝</span>${umaPlain(getNum(fukuName))}<span class="bet-sub">${fukuName}</span></div>
+  </div>`;
+
+  const grid = cols => cols.map((c,i)=>`<div><span class="bet-col-label">${i+1}列目</span>${ul(c)}</div>`).join('');
+
+  let cardsHtml = '';
+  if (pattern === 'A') {
+    cardsHtml = `
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">馬単マルチ</span><span class="bet-pts">12点</span></div>
+      <div class="bet-formula">${uma(tagged[0])}<span class="bet-arrow">↔</span>${ul(rest)}</div>
+    </div>
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">3連複 1頭軸流し</span><span class="bet-pts">15点</span></div>
+      <div class="bet-formula"><span class="bet-axis">${uma(tagged[0])}軸</span><span class="bet-arrow">→</span>${ul(rest)}</div>
+    </div>
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">3連単 1着固定</span><span class="bet-pts">30点</span></div>
+      <div class="bet-formula"><span class="bet-axis">${uma(tagged[0])}1着</span><span class="bet-arrow">→</span>${ul(rest)}<span class="bet-arrow">×</span>${ul(rest)}</div>
+    </div>`;
+  } else if (pattern === 'B') {
+    cardsHtml = `
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">馬単フォーメーション</span><span class="bet-pts">12点</span></div>
+      <div class="bet-formula-grid">${grid([col1, all7])}</div>
+    </div>
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">3連複フォーメーション</span><span class="bet-pts">21点</span></div>
+      <div class="bet-formula-grid">${grid([col1, col2, all7])}</div>
+    </div>
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">3連単フォーメーション</span><span class="bet-pts">30点</span></div>
+      <div class="bet-formula-grid">${grid([col1, col2, all7])}</div>
+    </div>`;
+  } else {
+    cardsHtml = `
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">馬単BOX</span><span class="bet-pts">12点</span></div>
+      <div class="bet-formula">${ul(top4)}</div>
+    </div>
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">3連複BOX</span><span class="bet-pts">4点</span></div>
+      <div class="bet-formula">${ul(top4)}</div>
+    </div>
+    <div class="bet-card">
+      <div class="bet-card-head"><span class="bet-kind">3連単BOX</span><span class="bet-pts">24点</span></div>
+      <div class="bet-formula">${ul(top4)}</div>
+    </div>`;
+  }
+
+  return `<div class="bet-section">
+    <div class="bet-section-header">
+      <span class="bet-section-title">買い目</span>
+      <span class="bet-pattern-badge ${patternCls}">${patternLabel}</span>
+      <span class="bet-threshold-note">総合スコア差 ${THRESHOLD}pt 基準</span>
+    </div>
+    ${commonHtml}
+    <div class="bet-cards">${cardsHtml}</div>
+  </div>`;
+}
+
 function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
   const isActive = idx === 0 ? ' active' : '';
   const horsesNotes = (notes && notes.horses) || {};
@@ -623,6 +748,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     ${lapAnalysisHtml(notes)}
     ${outlookHtml(notes)}
     ${sabcPickHtml(notes, race)}
+    ${generateBetHtml(horses, horsesNotes, notes, race)}
     <table class="horse-table">
       <thead><tr>
         <th>人気</th>
