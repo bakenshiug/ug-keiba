@@ -395,49 +395,6 @@
       "popularity": 15,
       "odds": 126.7
     },
-    "レザベーション": {
-      "abilityGrade": "C",
-      "abilityComment": "記録している能力値のレンジがS〜A評価組と比較して一段低く、相対的なスペック差を感じる。",
-      "lapGrade": "",
-      "lapComment": "",
-      "prevGrade": "A",
-      "prevComment": "ゲートをスムーズに出て外目で流れに乗る、非の打ち所がない立ち回り。4角で間合いを詰め、直線では追い出しを待つほどの圧倒的な手応えで3馬身差の完勝。この強い内容は、ここでも即通用するレベルにある。",
-      "extGrade": "A",
-      "extFacility": "社台ファーム鈴鹿",
-      "sabc": {
-        "tan": {
-          "zi": "A",
-          "trainer": "S",
-          "sire": "A",
-          "style": "B",
-          "last3f": "A",
-          "pci": "B",
-          "weight": "C",
-          "diff3f": "B",
-          "total": 28,
-          "course": "S",
-          "wet_b": "S"
-        },
-        "fuku": {
-          "zi": "A",
-          "trainer": "S",
-          "sire": "S",
-          "style": "A",
-          "last3f": "A",
-          "pci": "A",
-          "weight": "B",
-          "diff3f": "A",
-          "total": 33,
-          "course": "S",
-          "wet_b": "S"
-        }
-      },
-      "sabcTrainer": "(栗)松下武士",
-      "sabcSire": "ダノンプレミアム",
-      "sabcZI": 114,
-      "popularity": 7,
-      "odds": 27.1
-    },
     "サーディンラン": {
       "abilityGrade": "B",
       "abilityComment": "3走前に見せたパフォーマンスは優秀であり、スムーズな立ち回りが叶えば圏内に食い込む力はある。",
@@ -643,37 +600,119 @@
     }
   },
   "sabcRankTan": [
-    { "name": "シーミハットク", "total": 35 },
-    { "name": "バルセシート", "total": 30 },
-    { "name": "アスクイキゴミ", "total": 29 },
-    { "name": "レザベーション", "total": 28 },
-    { "name": "リゾートアイランド", "total": 26 },
-    { "name": "サンダーストラック", "total": 25 },
-    { "name": "アンドゥーリル", "total": 24 },
-    { "name": "エイシンティザー", "total": 22 },
-    { "name": "サトノセプター", "total": 21 },
-    { "name": "クールデイトナ", "total": 20 },
-    { "name": "メイショウソラリス", "total": 20 },
-    { "name": "ストームサンダー", "total": 19 },
-    { "name": "サーディンラン", "total": 19 },
-    { "name": "ファンクション", "total": 18 },
-    { "name": "ユウファラオ", "total": 18 }
+    {
+      "name": "シーミハットク",
+      "total": 35
+    },
+    {
+      "name": "バルセシート",
+      "total": 30
+    },
+    {
+      "name": "アスクイキゴミ",
+      "total": 29
+    },
+    {
+      "name": "リゾートアイランド",
+      "total": 26
+    },
+    {
+      "name": "サンダーストラック",
+      "total": 25
+    },
+    {
+      "name": "アンドゥーリル",
+      "total": 24
+    },
+    {
+      "name": "エイシンティザー",
+      "total": 22
+    },
+    {
+      "name": "サトノセプター",
+      "total": 21
+    },
+    {
+      "name": "クールデイトナ",
+      "total": 20
+    },
+    {
+      "name": "メイショウソラリス",
+      "total": 20
+    },
+    {
+      "name": "ストームサンダー",
+      "total": 19
+    },
+    {
+      "name": "サーディンラン",
+      "total": 19
+    },
+    {
+      "name": "ユウファラオ",
+      "total": 18
+    },
+    {
+      "name": "ファンクション",
+      "total": 18
+    }
   ],
   "sabcRankFuku": [
-    { "name": "レザベーション", "total": 33 },
-    { "name": "シーミハットク", "total": 32 },
-    { "name": "アスクイキゴミ", "total": 31 },
-    { "name": "バルセシート", "total": 31 },
-    { "name": "リゾートアイランド", "total": 31 },
-    { "name": "サンダーストラック", "total": 30 },
-    { "name": "アンドゥーリル", "total": 30 },
-    { "name": "メイショウソラリス", "total": 27 },
-    { "name": "サトノセプター", "total": 23 },
-    { "name": "ユウファラオ", "total": 23 },
-    { "name": "エイシンティザー", "total": 22 },
-    { "name": "クールデイトナ", "total": 21 },
-    { "name": "ストームサンダー", "total": 21 },
-    { "name": "サーディンラン", "total": 21 },
-    { "name": "ファンクション", "total": 21 }
+    {
+      "name": "シーミハットク",
+      "total": 32
+    },
+    {
+      "name": "リゾートアイランド",
+      "total": 31
+    },
+    {
+      "name": "バルセシート",
+      "total": 31
+    },
+    {
+      "name": "アスクイキゴミ",
+      "total": 31
+    },
+    {
+      "name": "サンダーストラック",
+      "total": 30
+    },
+    {
+      "name": "アンドゥーリル",
+      "total": 30
+    },
+    {
+      "name": "メイショウソラリス",
+      "total": 27
+    },
+    {
+      "name": "サトノセプター",
+      "total": 23
+    },
+    {
+      "name": "ユウファラオ",
+      "total": 23
+    },
+    {
+      "name": "エイシンティザー",
+      "total": 22
+    },
+    {
+      "name": "ストームサンダー",
+      "total": 21
+    },
+    {
+      "name": "クールデイトナ",
+      "total": 21
+    },
+    {
+      "name": "サーディンラン",
+      "total": 21
+    },
+    {
+      "name": "ファンクション",
+      "total": 21
+    }
   ]
 }
