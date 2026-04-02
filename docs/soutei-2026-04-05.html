@@ -423,13 +423,14 @@ function computeBaseScore(n){
         +gradeScore(n.jockeyGrade)+gradeScore(n.trainingGrade);
 }
 
-// 総合スコア = 分析ファクター + SABC単勝pt + SABC複勝pt（完全内包）
+// 総合スコア = 分析ファクター + SABC単勝pt + SABC複勝pt + wetScore（重馬場想定時）
 function computeScore(n){
   if(!n) return 0;
   const base = computeBaseScore(n);
   const tan  = (n.sabc && n.sabc.tan)  ? n.sabc.tan.total  : 0;
   const fuku = (n.sabc && n.sabc.fuku) ? n.sabc.fuku.total : 0;
-  return base + tan + fuku;
+  const wet  = n.wetScore || 0;
+  return (base + tan + fuku) || wet;
 }
 
 // 同点タイブレーク: 1st=ZI値降順 / 2nd=トレンド(up>stable>down)降順
