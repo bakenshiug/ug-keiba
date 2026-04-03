@@ -167,6 +167,13 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 /* Divider */
 .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(232,0,61,.3),transparent);margin:16px 0;}
 
+/* ── 前日人気・オッズ行 ── */
+.odds-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:6px 0 4px;}
+.odds-pop{font-size:11px;font-weight:900;color:#fff;background:rgba(232,0,61,.8);padding:2px 8px;border-radius:10px;letter-spacing:.03em;}
+.odds-sep{font-size:10px;color:rgba(28,43,74,.45);font-weight:700;}
+.odds-tan{font-size:12px;font-weight:900;color:#8B1A1A;letter-spacing:.02em;}
+.odds-fuku{font-size:12px;font-weight:700;color:rgba(28,43,74,.7);letter-spacing:.02em;}
+
 /* ── 馬コメント ── */
 .horse-comment-block{margin-top:10px;display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(0,0,0,.12);padding-top:8px;}
 .hcmt-ability{font-size:12px;color:#1C2B4A;line-height:1.75;padding:6px 10px;background:rgba(139,26,26,.05);border-left:3px solid rgba(139,26,26,.45);border-radius:0 6px 6px 0;}
@@ -644,6 +651,16 @@ function renderHeroCard(h, orderMap, noteHorse) {
   // コメント要約（abilityComment → lapComment → prevComment の優先順）
   const rawComment = noteHorse && (noteHorse.abilityComment || noteHorse.lapComment || noteHorse.prevComment) || '';
   const summary = summarizeComment(rawComment, 110);
+  // 前日人気・オッズ
+  const popularity = noteHorse && noteHorse.popularity;
+  const oddsVal   = noteHorse && noteHorse.odds;
+  const fukuOdds  = noteHorse && noteHorse.fuku_odds;
+  const popLabel  = popularity ? `<span class="odds-pop">${popularity}番人気</span>` : '';
+  const oddsLabel = oddsVal    ? `<span class="odds-tan">${oddsVal}倍</span>` : '';
+  const fukuLabel = fukuOdds   ? `<span class="odds-fuku">${fukuOdds}</span>` : '';
+  const oddsRowHtml = (popLabel || oddsLabel)
+    ? `<div class="odds-row">${popLabel}${oddsLabel ? `<span class="odds-sep">単</span>${oddsLabel}` : ''}${fukuLabel ? `<span class="odds-sep">複</span>${fukuLabel}` : ''}</div>`
+    : '';
   return `
   <div class="horse-hero ${meta.cls}">
     <span class="horse-hero-mark">${meta.icon}</span>
@@ -659,6 +676,7 @@ function renderHeroCard(h, orderMap, noteHorse) {
       </div>
       <span class="info-pt">${h.totalPt} pt</span>
     </div>
+    ${oddsRowHtml}
     <div class="horse-info-rows">
       ${infoRow('外厩', gaikuBadge(h.gaiku))}
       ${infoRow('騎手', h.jockey ? `<span class="info-val">${esc(h.jockey)}</span>` : '<span class="info-val-muted">—</span>')}
@@ -1182,14 +1200,11 @@ async function loadAll() {
       weekList.appendChild(accEl);
     });
 
-    // 最新週の1番目を自動表示
+    // 最新週の1番目を自動表示（showRace経由でnotesも取得）
     const firstBtn = document.querySelector(`#btns-${CSS.escape(index.currentWeek)} .race-btn`);
     if (firstBtn) {
-      firstBtn.classList.add('active');
-      const detailWrap = document.getElementById('detailWrap');
-      const detail = document.getElementById('detail');
-      detailWrap.style.display = 'block';
-      detail.innerHTML = renderRaceDetail(cache[firstBtn.dataset.file]);
+      document.getElementById('detailWrap').style.display = 'block';
+      showRace(firstBtn.dataset.file, firstBtn);
     }
 
   } catch(e) {
