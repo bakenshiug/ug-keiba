@@ -13,39 +13,19 @@
   "published": true,
   "horses": [
     {
-      "num": 16,
-      "gate": 8,
-      "name": "サイルーン",
-      "basePt": 108,
-      "scores": {
-        "SABC単": 26,
-        "SABC複": 27,
-        "馬場": "A"
-      },
-      "totalPt": 67,
-      "mark": "◎",
-      "jockey": "大野拓弥",
-      "sire": "ディープインパクト",
-      "weight": 57,
-      "runStyle": "",
-      "bmsGrade": "A",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 67
-    },
-    {
       "num": 8,
       "gate": 4,
       "name": "ファーヴェント",
       "basePt": 128,
       "scores": {
-        "SABC単": 23,
-        "SABC複": 26,
-        "馬場": "B"
+        "SABC基礎": 67,
+        "枠番": "A",
+        "調教": "A",
+        "馬場": "A",
+        "加点": "+6"
       },
-      "totalPt": 67,
-      "mark": "○",
+      "totalPt": 73,
+      "mark": "◎",
       "jockey": "横山武史",
       "sire": "ハーツクライ",
       "weight": 57,
@@ -57,16 +37,42 @@
       "wetPt": 67
     },
     {
+      "num": 16,
+      "gate": 8,
+      "name": "サイルーン",
+      "basePt": 108,
+      "scores": {
+        "SABC基礎": 67,
+        "枠番": "B",
+        "調教": "S",
+        "馬場": "B",
+        "加点": "+5"
+      },
+      "totalPt": 72,
+      "mark": "○",
+      "jockey": "大野拓弥",
+      "sire": "ディープインパクト",
+      "weight": 57,
+      "runStyle": "",
+      "bmsGrade": "A",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 67
+    },
+    {
       "num": 13,
       "gate": 7,
       "name": "イミグラントソング",
       "basePt": 105,
       "scores": {
-        "SABC単": 24,
-        "SABC複": 23,
-        "馬場": "B"
+        "SABC基礎": 65,
+        "枠番": "A",
+        "調教": "A",
+        "馬場": "B",
+        "加点": "+5"
       },
-      "totalPt": 65,
+      "totalPt": 70,
       "mark": "▲",
       "jockey": "石川裕紀",
       "sire": "マクフィ",
@@ -84,11 +90,13 @@
       "name": "ケイアイセナ",
       "basePt": 127,
       "scores": {
-        "SABC単": 24,
-        "SABC複": 25,
-        "馬場": "D"
+        "SABC基礎": 63,
+        "枠番": "A",
+        "調教": "C",
+        "馬場": "A",
+        "加点": "+4"
       },
-      "totalPt": 63,
+      "totalPt": 67,
       "mark": "☆",
       "jockey": "津村明秀",
       "sire": "ディープインパクト",
@@ -106,11 +114,13 @@
       "name": "メタルスピード",
       "basePt": 98,
       "scores": {
-        "SABC単": 24,
-        "SABC複": 28,
-        "馬場": "A"
+        "SABC基礎": 63,
+        "枠番": "C",
+        "調教": "B",
+        "馬場": "B",
+        "加点": "+2"
       },
-      "totalPt": 63,
+      "totalPt": 65,
       "mark": "△",
       "jockey": "岩田康誠",
       "sire": "シルバーステート",
@@ -123,38 +133,18 @@
       "wetPt": 63
     },
     {
-      "num": 15,
-      "gate": 8,
-      "name": "シリウスコルト",
-      "basePt": 109,
-      "scores": {
-        "SABC単": 21,
-        "SABC複": 24,
-        "馬場": "B"
-      },
-      "totalPt": 60,
-      "mark": "△",
-      "jockey": "三浦皇成",
-      "sire": "マクフィ",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "B",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 60
-    },
-    {
       "num": 2,
       "gate": 1,
       "name": "ミニトランザット",
       "basePt": 112,
       "scores": {
-        "SABC単": 25,
-        "SABC複": 24,
-        "馬場": "B"
+        "SABC基礎": 60,
+        "枠番": "C",
+        "調教": "S",
+        "馬場": "B",
+        "加点": "+4"
       },
-      "totalPt": 60,
+      "totalPt": 64,
       "mark": "△",
       "jockey": "西村淳也",
       "sire": "エピファネイア",
@@ -167,16 +157,66 @@
       "wetPt": 60
     },
     {
+      "num": 15,
+      "gate": 8,
+      "name": "シリウスコルト",
+      "basePt": 109,
+      "scores": {
+        "SABC基礎": 60,
+        "枠番": "C",
+        "調教": "B",
+        "馬場": "B",
+        "加点": "+2"
+      },
+      "totalPt": 62,
+      "mark": "△",
+      "jockey": "三浦皇成",
+      "sire": "マクフィ",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "B",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 60
+    },
+    {
+      "num": 5,
+      "gate": 3,
+      "name": "ブエナオンダ",
+      "basePt": 98,
+      "scores": {
+        "SABC基礎": 55,
+        "枠番": "A",
+        "調教": "A",
+        "馬場": "A",
+        "加点": "+6"
+      },
+      "totalPt": 61,
+      "mark": "",
+      "jockey": "佐々木大輝",
+      "sire": "リオンディーズ",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "B",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 55
+    },
+    {
       "num": 14,
       "gate": 7,
       "name": "ジュンブロッサム",
       "basePt": 110,
       "scores": {
-        "SABC単": 19,
-        "SABC複": 19,
-        "馬場": "B"
+        "SABC基礎": 56,
+        "枠番": "A",
+        "調教": "A",
+        "馬場": "C",
+        "加点": "+4"
       },
-      "totalPt": 56,
+      "totalPt": 60,
       "mark": "",
       "jockey": "荻野極",
       "sire": "ワールドエース",
@@ -194,11 +234,13 @@
       "name": "スズハローム",
       "basePt": 107,
       "scores": {
-        "SABC単": 20,
-        "SABC複": 24,
-        "馬場": "D"
+        "SABC基礎": 55,
+        "枠番": "A",
+        "調教": "B",
+        "馬場": "B",
+        "加点": "+4"
       },
-      "totalPt": 55,
+      "totalPt": 59,
       "mark": "",
       "jockey": "藤懸貴志",
       "sire": "サトノダイヤモンド",
@@ -211,60 +253,18 @@
       "wetPt": 55
     },
     {
-      "num": 5,
-      "gate": 3,
-      "name": "ブエナオンダ",
-      "basePt": 98,
-      "scores": {
-        "SABC単": 19,
-        "SABC複": 21,
-        "馬場": "B"
-      },
-      "totalPt": 55,
-      "mark": "",
-      "jockey": "佐々木大輝",
-      "sire": "リオンディーズ",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "B",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 55
-    },
-    {
-      "num": 12,
-      "gate": 6,
-      "name": "ダディーズビビッド",
-      "basePt": 92,
-      "scores": {
-        "SABC単": 23,
-        "SABC複": 24,
-        "馬場": "D"
-      },
-      "totalPt": 52,
-      "mark": "",
-      "jockey": "横山和生",
-      "sire": "キズナ",
-      "weight": 57.5,
-      "runStyle": "",
-      "bmsGrade": "D",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 52
-    },
-    {
       "num": 3,
       "gate": 2,
       "name": "エンペラーズソード",
       "basePt": 99,
       "scores": {
-        "SABC単": 19,
-        "SABC複": 21,
-        "馬場": "B"
+        "SABC基礎": 51,
+        "枠番": "S",
+        "調教": "B",
+        "馬場": "A",
+        "加点": "+6"
       },
-      "totalPt": 51,
+      "totalPt": 57,
       "mark": "",
       "jockey": "丹内祐次",
       "sire": "ドレフォン",
@@ -277,26 +277,28 @@
       "wetPt": 51
     },
     {
-      "num": 1,
-      "gate": 1,
-      "name": "ゾンニッヒ",
-      "basePt": 96,
+      "num": 12,
+      "gate": 6,
+      "name": "ダディーズビビッド",
+      "basePt": 92,
       "scores": {
-        "SABC単": 19,
-        "SABC複": 19,
-        "馬場": "C"
+        "SABC基礎": 52,
+        "枠番": "B",
+        "調教": "C",
+        "馬場": "C",
+        "加点": "+1"
       },
-      "totalPt": 48,
+      "totalPt": 53,
       "mark": "",
-      "jockey": "団野大成",
-      "sire": "ラブリーデイ",
+      "jockey": "横山和生",
+      "sire": "キズナ",
       "weight": 57.5,
       "runStyle": "",
-      "bmsGrade": "C",
+      "bmsGrade": "D",
       "lastRace": "",
       "trainer": "",
       "gaiku": "",
-      "wetPt": 48
+      "wetPt": 52
     },
     {
       "num": 7,
@@ -304,11 +306,13 @@
       "name": "タイムトゥヘヴン",
       "basePt": 87,
       "scores": {
-        "SABC単": 20,
-        "SABC複": 23,
-        "馬場": "C"
+        "SABC基礎": 48,
+        "枠番": "B",
+        "調教": "C",
+        "馬場": "S",
+        "加点": "+4"
       },
-      "totalPt": 48,
+      "totalPt": 52,
       "mark": "",
       "jockey": "田辺裕信",
       "sire": "ロードカナロア",
@@ -326,11 +330,13 @@
       "name": "エエヤン",
       "basePt": 73,
       "scores": {
-        "SABC単": 18,
-        "SABC複": 21,
-        "馬場": "A"
+        "SABC基礎": 46,
+        "枠番": "A",
+        "調教": "C",
+        "馬場": "S",
+        "加点": "+5"
       },
-      "totalPt": 46,
+      "totalPt": 51,
       "mark": "",
       "jockey": "杉原誠人",
       "sire": "シルバーステート",
@@ -343,16 +349,42 @@
       "wetPt": 46
     },
     {
+      "num": 1,
+      "gate": 1,
+      "name": "ゾンニッヒ",
+      "basePt": 96,
+      "scores": {
+        "SABC基礎": 48,
+        "枠番": "C",
+        "調教": "B",
+        "馬場": "B",
+        "加点": "+2"
+      },
+      "totalPt": 50,
+      "mark": "",
+      "jockey": "団野大成",
+      "sire": "ラブリーデイ",
+      "weight": 57.5,
+      "runStyle": "",
+      "bmsGrade": "C",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 48
+    },
+    {
       "num": 6,
       "gate": 3,
       "name": "マテンロウオリオン",
       "basePt": 99,
       "scores": {
-        "SABC単": 17,
-        "SABC複": 19,
-        "馬場": "A"
+        "SABC基礎": 43,
+        "枠番": "B",
+        "調教": "C",
+        "馬場": "B",
+        "加点": "+2"
       },
-      "totalPt": 43,
+      "totalPt": 45,
       "mark": "",
       "jockey": "横山典弘",
       "sire": "ダイワメジャー",
@@ -372,10 +404,10 @@
     "三連複": "",
     "三連単": ""
   },
-  "raceCondNote": "ペースM想定（曇り〜雨／良〜稍重）。中山芝1600mはSABC総合スコア順。",
+  "raceCondNote": "ペースM想定（曇り〜雨／良〜稍重）。SABC総合スコア＋枠番・調教・馬場評価。",
   "betMemo": "",
   "comments": {
-    "final": "◎サイルーン（67pt） ○ファーヴェント（67pt） ▲イミグラントソング（65pt） ☆ケイアイセナ（63pt）\n\nSABC単複合計＋グレードファクターによる総合スコア順。",
+    "final": "◎ファーヴェント（73pt） ○サイルーン（72pt） ▲イミグラントソング（70pt） ☆ケイアイセナ（67pt）\n\nSABC総合スコア＋枠番・調教・馬場評価（S=+3/A=+2/B=+1/C=0/D=-1）の最終スコア。",
     "risk": "",
     "extra": ""
   }
