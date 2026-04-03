@@ -961,7 +961,6 @@ function renderRaceDetail(data, notes) {
         </div>
       </div>`;
       return banner
-        + betRow('単勝',  `◎ 1点`)
         + betRow('馬単',  `◎→${opMarks} 流し ${N}点`)
         + betRow('三連複', `◎1頭軸 → 相手${N}頭（${opMarks}） ${pts}点`, ' bet-row-jiku');
     }
@@ -984,7 +983,6 @@ function renderRaceDetail(data, notes) {
         </div>
       </div>`;
       return banner
-        + betRow('単勝',  `◎ 1点`)
         + betRow('馬連',  `◎○ 1点`)
         + betRow('馬単',  `◎○マルチ 2点`)
         + betRow('三連複', `◎○2頭軸 → 相手${N}頭（${opMarks}） ${N}点`, ' bet-row-2jiku')
@@ -1000,8 +998,7 @@ function renderRaceDetail(data, notes) {
     const batanPts = inba.length * 2;
     const fukuPts  = inv.sanrenpuku / 100;
     const tanPts   = inv.sanrentan  / 100;
-    return betRow('単勝',  `◎ 1点`)
-      + betRow('馬単',  `◎↔${inba} マルチ${batanPts}点`)
+    return betRow('馬単',  `◎↔${inba} マルチ${batanPts}点`)
       + betRow('三連複', `1列${col1}×2列${col2}×3列${col3} フォーメーション${fukuPts}点`)
       + betRow('三連単', `1列${col1}×2列${col2}×3列${col3} フォーメーション${tanPts}点`);
   })();
