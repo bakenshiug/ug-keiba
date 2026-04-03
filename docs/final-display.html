@@ -1226,8 +1226,25 @@ async function loadAll() {
       weekList.appendChild(accEl);
     });
 
-    // 最新週の1番目を自動表示（showRace経由でnotesも取得）
-    const firstBtn = document.querySelector(`#btns-${CSS.escape(index.currentWeek)} .race-btn`);
+    // URLパラメータで週指定があればそちらを優先、なければ最新週
+    const urlWeek = new URLSearchParams(location.search).get('week');
+    const targetWeekId = (urlWeek && weeks.find(w => w.weekId === urlWeek))
+      ? urlWeek
+      : index.currentWeek;
+
+    // 指定週のアコーディオンを開く
+    if (urlWeek && urlWeek !== index.currentWeek) {
+      const targetAcc = document.querySelector(
+        `.week-accordion:not(.is-current) #btns-${CSS.escape(targetWeekId)}`
+      )?.closest('.week-accordion');
+      if (targetAcc) {
+        targetAcc.querySelector('.week-acc-body').classList.add('open');
+        targetAcc.querySelector('.week-acc-arrow').classList.add('open');
+      }
+    }
+
+    // 対象週の1番目を自動表示（showRace経由でnotesも取得）
+    const firstBtn = document.querySelector(`#btns-${CSS.escape(targetWeekId)} .race-btn`);
     if (firstBtn) {
       document.getElementById('detailWrap').style.display = 'block';
       showRace(firstBtn.dataset.file, firstBtn);
