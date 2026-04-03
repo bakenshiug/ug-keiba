@@ -335,6 +335,39 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .week-hit-chip{font-size:9px;font-weight:900;padding:2px 8px;border-radius:4px;letter-spacing:.04em;}
 .chip-hit{background:rgba(232,0,61,.15);color:#c0002a;border:1px solid rgba(232,0,61,.3);}
 .chip-miss{background:rgba(0,0,0,.07);color:rgba(28,43,74,.5);border:1px solid rgba(0,0,0,.1);}
+
+/* ══ soutei 展望・分析セクション（移植） ══ */
+.section-head{display:flex;align-items:center;gap:8px;margin:20px 0 10px;padding:0 2px;font-size:9px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);scroll-margin-top:60px;}
+.section-head::before{content:'';width:3px;height:14px;border-radius:2px;background:var(--gold);flex-shrink:0;}
+.section-head::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.15);}
+
+.outlook-card{margin-bottom:14px;padding:18px;border-radius:14px;background:linear-gradient(135deg,rgba(139,26,26,.08),rgba(242,217,176,.9));border:1px solid rgba(139,26,26,.35);position:relative;overflow:hidden;}
+.outlook-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.outlook-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.outlook-label::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.2);}
+.outlook-text{font-size:13px;color:#1C2B4A;line-height:1.8;}
+.outlook-text table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0;}
+.outlook-text th,.outlook-text td{padding:4px 8px;text-align:center;border:1px solid rgba(28,43,74,.2);}
+.outlook-text th{background:rgba(28,43,74,.06);}
+
+.lap-card{margin-bottom:14px;padding:16px 18px;border-radius:14px;background:linear-gradient(135deg,rgba(139,26,26,.06),rgba(242,217,176,.92));border:1px solid rgba(139,26,26,.25);position:relative;overflow:hidden;}
+.lap-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(139,26,26,.5),transparent);}
+.lap-card-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.lap-card-label::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.15);}
+.lap-card-text{font-size:12px;color:#1C2B4A;line-height:1.9;white-space:pre-line;}
+
+.wet-pick-section{margin-bottom:14px;border-radius:14px;overflow:hidden;border:1px solid rgba(29,78,216,.2);}
+.wet-pick-label{font-size:9px;font-weight:900;letter-spacing:.18em;padding:9px 14px;background:linear-gradient(135deg,rgba(29,78,216,.12),rgba(29,78,216,.04));color:#1e3a8a;border-bottom:1px solid rgba(29,78,216,.15);display:flex;align-items:center;gap:6px;}
+.wet-pick-card{padding:10px 14px;background:rgba(255,255,255,.5);border-bottom:1px solid rgba(29,78,216,.07);}
+.wet-pick-card:last-child{border-bottom:none;}
+.wet-pick-head{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px;}
+.wet-grade-badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;flex-shrink:0;}
+.wg-S{background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;}
+.wg-A{background:rgba(59,130,246,.35);color:#1d4ed8;border:1px solid rgba(29,78,216,.3);}
+.wet-b-badge{font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(16,185,129,.2);color:#065f46;border:1px solid rgba(16,185,129,.35);}
+.wet-pick-name{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;color:#1C2B4A;}
+.wet-pick-umaban{font-size:10px;font-weight:900;padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);margin-right:3px;}
+.wet-pick-comment{font-size:11px;color:#1C2B4A;line-height:1.75;padding:5px 10px;margin-top:4px;background:rgba(29,78,216,.04);border-left:2px solid rgba(29,78,216,.3);border-radius:0 5px 5px 0;}
 </style>
 </head>
 <body>
@@ -395,6 +428,58 @@ function gaikuBadge(gaiku) {
 
 function infoRow(label, valHtml) {
   return `<div class="horse-info-row"><span class="info-lbl">${label}</span>${valHtml}</div>`;
+}
+
+// ── 展望・ラップ分析・重馬場メモ（race-notesから） ──
+function outlookHtml(notes) {
+  if (!notes || !notes.outlook) return '';
+  return `<div class="outlook-card">
+    <div class="outlook-label">展望</div>
+    <div class="outlook-text">${notes.outlook}</div>
+  </div>`;
+}
+
+function lapAnalysisHtml(notes) {
+  if (!notes || !notes.lapAnalysis) return '';
+  return `<div class="lap-card">
+    <div class="lap-card-label">ラップ分析</div>
+    <div class="lap-card-text">${esc(notes.lapAnalysis)}</div>
+  </div>`;
+}
+
+function wetPickHtml(notes, horses) {
+  if (!notes || !notes.horses) return '';
+  const picks = Object.keys(notes.horses)
+    .filter(n => {
+      const sabc = notes.horses[n].sabc;
+      return sabc && sabc.tan && (sabc.tan.wet === 'S' || sabc.tan.wet === 'A');
+    })
+    .map(n => {
+      const hn = notes.horses[n];
+      return { name: n, wetGrade: hn.sabc.tan.wet, hasWetB: hn.sabc.tan.wet_b === 'S', hn };
+    })
+    .sort((a, b) => ({S:0,A:1}[a.wetGrade]||0) - ({S:0,A:1}[b.wetGrade]||0));
+  if (!picks.length) return '';
+  function numOf(name) {
+    const h = (horses||[]).find(x => x.name === name);
+    return h ? h.num : '—';
+  }
+  const cards = picks.map(p => {
+    const comment = p.hn.wetComment || p.hn.lapComment || p.hn.abilityComment || '';
+    const wetBBadge = p.hasWetB ? `<span class="wet-b-badge">道悪+ S</span>` : '';
+    return `<div class="wet-pick-card">
+      <div class="wet-pick-head">
+        <span class="wet-grade-badge wg-${p.wetGrade}">道悪 ${p.wetGrade}</span>
+        ${wetBBadge}
+        <span class="wet-pick-name"><span class="wet-pick-umaban">${numOf(p.name)}番</span>${esc(p.name)}</span>
+      </div>
+      ${comment ? `<div class="wet-pick-comment">${esc(comment)}</div>` : ''}
+    </div>`;
+  }).join('');
+  return `<div class="wet-pick-section">
+    <div class="wet-pick-label">🌧️ 重馬場 特注激走メモ</div>
+    ${cards}
+  </div>`;
 }
 
 function renderHeroCard(h, orderMap) {
@@ -626,7 +711,7 @@ function renderCompactRows(horses) {
   </div>`;
 }
 
-function renderRaceDetail(data) {
+function renderRaceDetail(data, notes) {
   const r = data.race || {};
   const allHorses = (data.horses || []).slice().sort((a,b) => {
     const ai = MARK_ORDER.indexOf(a.mark||'');
@@ -755,6 +840,12 @@ function renderRaceDetail(data) {
       <div class="divider"></div>
       ${betsHtml ? `<div class="sec-title">買い目</div><div class="bets-grid">${betsHtml}</div><div class="divider"></div>` : ''}
       ${commentsHtml ? `<div class="sec-title">分析コメント</div><div class="comment-area">${commentsHtml}</div>` : ''}
+      ${notes ? `
+      <div class="divider"></div>
+      ${outlookHtml(notes) ? `<div class="section-head">展望</div>${outlookHtml(notes)}` : ''}
+      ${lapAnalysisHtml(notes) ? `<div class="section-head">ラップ分析</div>${lapAnalysisHtml(notes)}` : ''}
+      ${wetPickHtml(notes, data.horses) ? `<div class="section-head">重馬場メモ</div>${wetPickHtml(notes, data.horses)}` : ''}
+      ` : ''}
     </div>
   </div>`;
 }
@@ -785,7 +876,20 @@ async function showRace(file, btnEl) {
       if (!r.ok) throw new Error(`${file}.json が見つかりません`);
       cache[file] = await r.json();
     }
-    detail.innerHTML = renderRaceDetail(cache[file]);
+    const data = cache[file];
+    // race-notes を並行フェッチ（notesFile フィールドがある場合）
+    let notes = null;
+    if (data.notesFile) {
+      const nkey = data.notesFile;
+      if (!cache[nkey]) {
+        try {
+          const nr = await fetch(`data/${nkey}.json?v=` + Date.now());
+          if (nr.ok) cache[nkey] = await nr.json();
+        } catch(e2) { /* notesなくても続行 */ }
+      }
+      notes = cache[nkey] || null;
+    }
+    detail.innerHTML = renderRaceDetail(data, notes);
     detail.scrollIntoView({behavior:'smooth', block:'start'});
   } catch(e) {
     detail.innerHTML = `<div class="err">⚠️ 読み込みエラー：${e.message}</div>`;
