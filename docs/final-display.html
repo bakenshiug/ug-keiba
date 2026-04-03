@@ -73,7 +73,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-head{background:linear-gradient(120deg,rgba(232,0,61,.12) 0%,rgba(242,217,176,.9) 55%,rgba(139,26,26,.04) 100%);border-bottom:1px solid rgba(232,0,61,.35);padding:16px 20px;display:flex;align-items:flex-start;gap:12px;}
 .race-grade-badge{font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;white-space:nowrap;margin-top:2px;letter-spacing:.06em;flex-shrink:0;}
 .race-name{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:900;color:#1C2B4A;letter-spacing:.04em;line-height:1.1;}
-.race-meta{font-size:11px;color:rgba(28,43,74,.6);margin-top:5px;letter-spacing:.04em;}
+.race-meta{font-size:12px;color:rgba(28,43,74,.75);margin-top:5px;letter-spacing:.04em;font-weight:600;}
 .race-body{padding:18px 18px 22px;}
 
 /* Condition note */
@@ -94,22 +94,22 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .h-honmei .horse-hero-mark{color:#E8003D;text-shadow:0 0 20px rgba(232,0,61,.9);}
 .h-taikou .horse-hero-mark{color:#1C2B4A;text-shadow:0 0 18px rgba(255,255,255,.7);}
 .h-sangen .horse-hero-mark{color:#8B1A1A;text-shadow:0 0 16px rgba(139,26,26,.8);}
-.h-star   .horse-hero-mark{color:#d8b4fe;text-shadow:0 0 14px rgba(168,85,247,.7);}
-.h-delta  .horse-hero-mark{color:#93c5fd;text-shadow:0 0 12px rgba(100,160,255,.6);}
+.h-star   .horse-hero-mark{color:#7c3aed;text-shadow:0 0 14px rgba(168,85,247,.5);}
+.h-delta  .horse-hero-mark{color:#2563eb;text-shadow:0 0 12px rgba(100,160,255,.4);}
 
 .hero-rank-pill{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:900;letter-spacing:.1em;padding:2px 8px;border-radius:4px;text-transform:uppercase;margin-bottom:7px;}
-.h-honmei .hero-rank-pill{background:rgba(232,0,61,.25);color:#ff6b8a;border:1px solid rgba(232,0,61,.4);}
-.h-taikou .hero-rank-pill{background:rgba(28,43,74,.12);color:#1C2B4A;border:1px solid rgba(28,43,74,.25);}
-.h-sangen .hero-rank-pill{background:rgba(139,26,26,.15);color:#8B1A1A;border:1px solid rgba(139,26,26,.35);}
-.h-star   .hero-rank-pill{background:rgba(168,85,247,.18);color:#d8b4fe;border:1px solid rgba(168,85,247,.35);}
-.h-delta  .hero-rank-pill{background:rgba(100,160,255,.15);color:#93c5fd;border:1px solid rgba(100,160,255,.30);}
+.h-honmei .hero-rank-pill{background:rgba(232,0,61,.25);color:#c0002a;border:1px solid rgba(232,0,61,.4);}
+.h-taikou .hero-rank-pill{background:rgba(28,43,74,.12);color:#1C2B4A;border:1px solid rgba(28,43,74,.35);}
+.h-sangen .hero-rank-pill{background:rgba(139,26,26,.15);color:#7a1010;border:1px solid rgba(139,26,26,.45);}
+.h-star   .hero-rank-pill{background:rgba(168,85,247,.18);color:#7c3aed;border:1px solid rgba(168,85,247,.45);}
+.h-delta  .hero-rank-pill{background:rgba(100,160,255,.15);color:#2563eb;border:1px solid rgba(100,160,255,.40);}
 
 .horse-num-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:13px;font-weight:900;flex-shrink:0;margin-right:5px;}
 .h-honmei .horse-num-badge{background:rgba(232,0,61,.3);color:#fff;border:1px solid rgba(232,0,61,.6);}
-.h-taikou .horse-num-badge{background:rgba(28,43,74,.12);color:#1C2B4A;border:1px solid rgba(28,43,74,.3);}
-.h-sangen .horse-num-badge{background:rgba(139,26,26,.15);color:#8B1A1A;border:1px solid rgba(139,26,26,.4);}
-.h-star   .horse-num-badge{background:rgba(168,85,247,.2);color:#d8b4fe;border:1px solid rgba(168,85,247,.4);}
-.h-delta  .horse-num-badge{background:rgba(100,160,255,.15);color:#93c5fd;border:1px solid rgba(100,160,255,.35);}
+.h-taikou .horse-num-badge{background:rgba(28,43,74,.15);color:#1C2B4A;border:1px solid rgba(28,43,74,.4);}
+.h-sangen .horse-num-badge{background:rgba(139,26,26,.2);color:#7a1010;border:1px solid rgba(139,26,26,.5);}
+.h-star   .horse-num-badge{background:rgba(168,85,247,.22);color:#6d28d9;border:1px solid rgba(168,85,247,.5);}
+.h-delta  .horse-num-badge{background:rgba(100,160,255,.18);color:#1d4ed8;border:1px solid rgba(100,160,255,.45);}
 
 .horse-hero-name{font-family:'Noto Serif JP',serif;font-size:21px;font-weight:900;line-height:1.15;display:flex;align-items:center;gap:4px;padding-right:44px;}
 .h-honmei .horse-hero-name{color:#1C2B4A;text-shadow:0 0 20px rgba(232,0,61,.5);}
@@ -122,11 +122,11 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .info-pt{font-size:14px;font-weight:900;color:var(--gold);text-shadow:0 0 8px rgba(139,26,26,.5);}
 
 /* ── 馬情報グリッド（枠番・外厩・騎手・厩舎・前走・父名） ── */
-.horse-info-rows{margin-top:10px;display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(0,0,0,.1);padding-top:10px;}
-.horse-info-row{display:flex;align-items:center;gap:8px;min-height:20px;}
-.info-lbl{font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(28,43,74,.5);min-width:30px;flex-shrink:0;}
-.info-val{font-size:12px;font-weight:700;color:#1C2B4A;}
-.info-val-muted{font-size:12px;color:rgba(28,43,74,.5);}
+.horse-info-rows{margin-top:10px;display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(0,0,0,.15);padding-top:10px;}
+.horse-info-row{display:flex;align-items:center;gap:8px;min-height:22px;}
+.info-lbl{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:rgba(28,43,74,.65);min-width:34px;flex-shrink:0;}
+.info-val{font-size:13px;font-weight:700;color:#1C2B4A;}
+.info-val-muted{font-size:13px;color:rgba(28,43,74,.45);}
 /* 枠番カラー */
 .waku-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px;font-size:11px;font-weight:900;}
 .waku-1{background:#111;color:#fff;border:1px solid #444;}
@@ -152,15 +152,15 @@ table.horse-tbl{width:100%;border-collapse:collapse;font-size:12px;}
 table.horse-tbl th{background:rgba(0,0,0,.05);color:rgba(28,43,74,.6);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 6px;text-align:center;border-bottom:1px solid rgba(0,0,0,.1);white-space:nowrap;}
 table.horse-tbl td{padding:7px 6px;border-bottom:1px solid rgba(0,0,0,.07);text-align:center;color:#1C2B4A;}
 table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:#1C2B4A;font-size:13px;white-space:nowrap;}
-table.horse-tbl td.tbl-sub{font-size:11px;color:rgba(28,43,74,.65);}
+table.horse-tbl td.tbl-sub{font-size:11px;color:rgba(28,43,74,.75);}
 table.horse-tbl tr:last-child td{border-bottom:none;}
 table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .mark-badge{display:inline-block;font-size:14px;font-weight:900;width:22px;text-align:center;}
 .mark-◎{color:#E8003D;text-shadow:0 0 6px rgba(232,0,61,.6);}
 .mark-○{color:#1C2B4A;}
-.mark-▲{color:var(--gold);text-shadow:0 0 6px rgba(139,26,26,.5);}
-.mark-△{color:#93c5fd;}
-.mark-☆{color:#d8b4fe;}
+.mark-▲{color:#7a1010;text-shadow:0 0 4px rgba(139,26,26,.3);}
+.mark-△{color:#1d4ed8;}
+.mark-☆{color:#7c3aed;}
 .mark-×{color:var(--muted);}
 .pt-val{font-family:'Inter',sans-serif;font-weight:700;font-size:12px;}
 
@@ -421,7 +421,7 @@ function renderHeroCard(h, orderMap) {
     <div class="horse-hero-top">
       <div style="display:flex;align-items:center;gap:6px;">
         ${wakuHtml}
-        <span style="font-size:11px;color:rgba(255,255,255,.5);">馬番 <strong style="color:#fff;">${h.num}</strong></span>
+        <span style="font-size:11px;color:rgba(28,43,74,.6);">馬番 <strong style="color:#1C2B4A;font-weight:900;">${h.num}</strong></span>
       </div>
       <span class="info-pt">${h.totalPt} pt</span>
     </div>
