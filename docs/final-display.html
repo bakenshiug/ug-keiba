@@ -428,7 +428,7 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 /* SABC推奨買い目バナー */
 .sabc-bet-banner{
   display:flex;align-items:center;gap:10px;
-  padding:14px 16px;border-radius:14px;margin-bottom:10px;
+  padding:12px 14px;border-radius:14px;margin-bottom:10px;
   background:linear-gradient(135deg,#8B1A1A 0%,#B5002E 60%,#E8003D 100%);
   border:none;
   box-shadow:0 4px 18px rgba(232,0,61,.45),0 1px 4px rgba(0,0,0,.2);
@@ -439,29 +439,30 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);
   pointer-events:none;
 }
-.sabc-bet-icon{font-size:22px;flex-shrink:0;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));}
+.sabc-bet-icon{font-size:20px;flex-shrink:0;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));}
+.sabc-bet-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px;}
 .sabc-bet-label{
   font-size:9px;font-weight:900;letter-spacing:.14em;
-  color:rgba(255,255,255,.75);min-width:52px;text-transform:uppercase;
+  color:rgba(255,255,255,.7);text-transform:uppercase;
 }
-.sabc-bet-val{
-  font-size:16px;font-weight:900;color:#fff;
+.sabc-bet-name{
+  font-size:15px;font-weight:900;color:#fff;
   text-shadow:0 1px 6px rgba(0,0,0,.3);letter-spacing:.02em;
-  flex:1;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .sabc-bet-sub{
   font-size:11px;font-weight:700;color:rgba(255,220,180,.9);
   background:rgba(0,0,0,.2);padding:3px 8px;border-radius:8px;
-  white-space:nowrap;
+  white-space:nowrap;flex-shrink:0;
 }
 .sabc-bet-mark{
-  font-size:18px;font-weight:900;margin-right:3px;
+  font-size:15px;font-weight:900;margin-right:2px;
   text-shadow:0 1px 4px rgba(0,0,0,.4);
 }
 .sabc-bet-meta{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
 .sabc-bet-meta-chip{
-  font-size:10px;font-weight:900;color:rgba(255,255,255,.9);
-  background:rgba(0,0,0,.28);padding:2px 7px;border-radius:8px;
+  font-size:9px;font-weight:900;color:rgba(255,255,255,.9);
+  background:rgba(0,0,0,.28);padding:1px 6px;border-radius:6px;
   white-space:nowrap;letter-spacing:.02em;
 }
 </style>
@@ -576,14 +577,12 @@ function sabcBetsHtml(notes, horses) {
   if (!notes || !notes.sabcRankTan || !notes.sabcRankFuku) return '';
   const nh = notes.horses || {};
 
-  // ランキング内で popularity が最大（=最も人気薄）の馬を選ぶ
-  // popularity が未設定の馬はランキング順位を fallback に使う
+  // ランキング上位3位以内から popularity が最大（=最も人気薄）の馬を選ぶ
   function pickLeastFavorite(rankList) {
-    const sorted = sortRankWithTiebreak(rankList, nh);
-    if (!sorted.length) return null;
-    // popularity が設定されているものだけ対象にしてmax探索
-    const withPop = sorted.filter(e => nh[e.name] && nh[e.name].popularity);
-    if (!withPop.length) return sorted[0]; // fallback: 1位
+    const top3 = sortRankWithTiebreak(rankList, nh).slice(0, 3);
+    if (!top3.length) return null;
+    const withPop = top3.filter(e => nh[e.name] && nh[e.name].popularity);
+    if (!withPop.length) return top3[0]; // fallback: 1位
     return withPop.reduce((best, e) =>
       (nh[e.name].popularity > (nh[best.name]?.popularity || 0)) ? e : best
     , withPop[0]);
@@ -611,9 +610,11 @@ function sabcBetsHtml(notes, horses) {
       .map(t => `<span class="sabc-bet-meta-chip">${t}</span>`).join('');
     return `<div class="sabc-bet-banner">
       <span class="sabc-bet-icon">🥇</span>
-      <span class="sabc-bet-label">${labelText}</span>
-      <span class="sabc-bet-val">${markHtml}${num}番 ${esc(pick.name)}</span>
-      ${metaHtml ? `<span class="sabc-bet-meta">${metaHtml}</span>` : ''}
+      <div class="sabc-bet-body">
+        <div class="sabc-bet-label">${labelText}</div>
+        <div class="sabc-bet-name">${markHtml}${num}番 ${esc(pick.name)}</div>
+        ${metaHtml ? `<div class="sabc-bet-meta">${metaHtml}</div>` : ''}
+      </div>
       <span class="sabc-bet-sub">${pick.total}pt</span>
     </div>`;
   }
