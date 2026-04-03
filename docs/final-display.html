@@ -454,9 +454,14 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   background:rgba(0,0,0,.2);padding:3px 8px;border-radius:8px;
   white-space:nowrap;
 }
-.sabc-bet-pop{
-  font-size:10px;font-weight:900;color:rgba(255,255,255,.85);
-  background:rgba(0,0,0,.25);padding:2px 7px;border-radius:8px;
+.sabc-bet-mark{
+  font-size:18px;font-weight:900;margin-right:3px;
+  text-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+.sabc-bet-meta{display:flex;align-items:center;gap:4px;flex-wrap:wrap;}
+.sabc-bet-meta-chip{
+  font-size:10px;font-weight:900;color:rgba(255,255,255,.9);
+  background:rgba(0,0,0,.28);padding:2px 7px;border-radius:8px;
   white-space:nowrap;letter-spacing:.02em;
 }
 </style>
@@ -588,34 +593,34 @@ function sabcBetsHtml(notes, horses) {
   const pickFuku = pickLeastFavorite(notes.sabcRankFuku);
   if (!pickTan && !pickFuku) return '';
 
-  function numOf(name) {
-    const h = (horses||[]).find(x => x.name === name);
-    return h ? h.num : '—';
+  function horseInfo(name) {
+    const h  = (horses||[]).find(x => x.name === name) || {};
+    const hn = nh[name] || {};
+    const num    = h.num  || '—';
+    const mark   = h.mark || '';
+    const pop    = hn.popularity ? `${hn.popularity}番人気` : '';
+    const odds   = hn.odds       ? `単${hn.odds}倍`         : '';
+    const fuku   = hn.fuku_odds  ? `複${hn.fuku_odds}`      : '';
+    return { num, mark, pop, odds, fuku };
   }
-  function popLabel(name) {
-    const pop = nh[name]?.popularity;
-    return pop ? `<span class="sabc-bet-pop">${pop}番人気</span>` : '';
+
+  function betBanner(labelText, pick) {
+    const { num, mark, pop, odds, fuku } = horseInfo(pick.name);
+    const markHtml = mark ? `<span class="sabc-bet-mark">${mark}</span>` : '';
+    const metaHtml = [pop, odds, fuku].filter(Boolean)
+      .map(t => `<span class="sabc-bet-meta-chip">${t}</span>`).join('');
+    return `<div class="sabc-bet-banner">
+      <span class="sabc-bet-icon">🥇</span>
+      <span class="sabc-bet-label">${labelText}</span>
+      <span class="sabc-bet-val">${markHtml}${num}番 ${esc(pick.name)}</span>
+      ${metaHtml ? `<span class="sabc-bet-meta">${metaHtml}</span>` : ''}
+      <span class="sabc-bet-sub">${pick.total}pt</span>
+    </div>`;
   }
 
   const rows = [];
-  if (pickTan) {
-    rows.push(`<div class="sabc-bet-banner">
-      <span class="sabc-bet-icon">🥇</span>
-      <span class="sabc-bet-label">単勝期待値</span>
-      <span class="sabc-bet-val">${numOf(pickTan.name)}番 ${esc(pickTan.name)}</span>
-      ${popLabel(pickTan.name)}
-      <span class="sabc-bet-sub">${pickTan.total}pt</span>
-    </div>`);
-  }
-  if (pickFuku) {
-    rows.push(`<div class="sabc-bet-banner">
-      <span class="sabc-bet-icon">🥇</span>
-      <span class="sabc-bet-label">複勝期待値</span>
-      <span class="sabc-bet-val">${numOf(pickFuku.name)}番 ${esc(pickFuku.name)}</span>
-      ${popLabel(pickFuku.name)}
-      <span class="sabc-bet-sub">${pickFuku.total}pt</span>
-    </div>`);
-  }
+  if (pickTan)  rows.push(betBanner('単勝期待値', pickTan));
+  if (pickFuku) rows.push(betBanner('複勝期待値', pickFuku));
   return rows.join('');
 }
 
