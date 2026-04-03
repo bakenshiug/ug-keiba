@@ -13,44 +13,17 @@
   "published": true,
   "horses": [
     {
-      "num": 15,
-      "gate": 8,
-      "name": "クロワデュノール",
-      "basePt": 125,
-      "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 4,
-        "SABC単": 36,
-        "SABC複": 36
-      },
-      "totalPt": 0,
-      "mark": "◎",
-      "jockey": "北村友一",
-      "sire": "キタサンブラック",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "A",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": ""
-    },
-    {
       "num": 5,
       "gate": 3,
       "name": "ショウヘイ",
       "basePt": 125,
       "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 5,
         "SABC単": 42,
-        "SABC複": 43
+        "SABC複": 43,
+        "馬場": "S"
       },
-      "totalPt": 0,
-      "mark": "○",
+      "totalPt": 105,
+      "mark": "◎",
       "jockey": "川田将雅",
       "sire": "サートゥルナーリア",
       "weight": 58,
@@ -58,7 +31,74 @@
       "bmsGrade": "S",
       "lastRace": "",
       "trainer": "",
-      "gaiku": ""
+      "gaiku": "",
+      "wetPt": 105
+    },
+    {
+      "num": 11,
+      "gate": 6,
+      "name": "デビットバローズ",
+      "basePt": 121,
+      "scores": {
+        "SABC単": 42,
+        "SABC複": 42,
+        "馬場": "B"
+      },
+      "totalPt": 97,
+      "mark": "○",
+      "jockey": "岩田望来",
+      "sire": "ロードカナロア",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "B",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 97
+    },
+    {
+      "num": 9,
+      "gate": 5,
+      "name": "ヨーホーレイク",
+      "basePt": 102,
+      "scores": {
+        "SABC単": 38,
+        "SABC複": 39,
+        "馬場": "S"
+      },
+      "totalPt": 92,
+      "mark": "▲",
+      "jockey": "西村淳也",
+      "sire": "ディープインパクト",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "S",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 92
+    },
+    {
+      "num": 15,
+      "gate": 8,
+      "name": "クロワデュノール",
+      "basePt": 125,
+      "scores": {
+        "SABC単": 36,
+        "SABC複": 36,
+        "馬場": "A"
+      },
+      "totalPt": 91,
+      "mark": "☆",
+      "jockey": "北村友一",
+      "sire": "キタサンブラック",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "A",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 91
     },
     {
       "num": 12,
@@ -66,15 +106,12 @@
       "name": "レーベンスティール",
       "basePt": 126,
       "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 0,
         "SABC単": 35,
-        "SABC複": 42
+        "SABC複": 42,
+        "馬場": "D"
       },
-      "totalPt": 0,
-      "mark": "▲",
+      "totalPt": 90,
+      "mark": "△",
       "jockey": "ルメール",
       "sire": "リアルスティール",
       "weight": 58,
@@ -82,31 +119,30 @@
       "bmsGrade": "D",
       "lastRace": "",
       "trainer": "",
-      "gaiku": ""
+      "gaiku": "",
+      "wetPt": 90
     },
     {
-      "num": 4,
-      "gate": 3,
-      "name": "ダノンデサイル",
-      "basePt": 125,
+      "num": 7,
+      "gate": 4,
+      "name": "エコロディノス",
+      "basePt": 115,
       "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 2,
-        "SABC単": 32,
-        "SABC複": 35
+        "SABC単": 37,
+        "SABC複": 37,
+        "馬場": "S"
       },
-      "totalPt": 0,
-      "mark": "☆",
-      "jockey": "坂井瑠星",
-      "sire": "エピファネイア",
+      "totalPt": 87,
+      "mark": "△",
+      "jockey": "池添謙一",
+      "sire": "キタサンブラック",
       "weight": 58,
       "runStyle": "",
-      "bmsGrade": "C",
+      "bmsGrade": "S",
       "lastRace": "",
       "trainer": "",
-      "gaiku": ""
+      "gaiku": "",
+      "wetPt": 87
     },
     {
       "num": 14,
@@ -114,14 +150,11 @@
       "name": "タガノデュード",
       "basePt": 116,
       "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 4,
         "SABC単": 31,
-        "SABC複": 37
+        "SABC複": 37,
+        "馬場": "A"
       },
-      "totalPt": 0,
+      "totalPt": 81,
       "mark": "△",
       "jockey": "古川吉洋",
       "sire": "ヤマカツエース",
@@ -130,151 +163,8 @@
       "bmsGrade": "A",
       "lastRace": "",
       "trainer": "",
-      "gaiku": ""
-    },
-    {
-      "num": 11,
-      "gate": 6,
-      "name": "デビットバローズ",
-      "basePt": 121,
-      "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 3,
-        "SABC単": 42,
-        "SABC複": 42
-      },
-      "totalPt": 0,
-      "mark": "△",
-      "jockey": "岩田望来",
-      "sire": "ロードカナロア",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "B",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": ""
-    },
-    {
-      "num": 8,
-      "gate": 5,
-      "name": "エコロヴァルツ",
-      "basePt": 116,
-      "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 5,
-        "SABC単": 33,
-        "SABC複": 36
-      },
-      "totalPt": 0,
-      "mark": "△",
-      "jockey": "浜中俊",
-      "sire": "ブラックタイド",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "S",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": ""
-    },
-    {
-      "num": 2,
-      "gate": 2,
-      "name": "マテンロウレオ",
-      "basePt": 108,
-      "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 0,
-        "SABC単": 17,
-        "SABC複": 24
-      },
-      "totalPt": 0,
-      "mark": "",
-      "jockey": "横山典弘",
-      "sire": "ハーツクライ",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "D",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": ""
-    },
-    {
-      "num": 7,
-      "gate": 4,
-      "name": "エコロディノス",
-      "basePt": 115,
-      "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 5,
-        "SABC単": 37,
-        "SABC複": 37
-      },
-      "totalPt": 0,
-      "mark": "",
-      "jockey": "池添謙一",
-      "sire": "キタサンブラック",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "S",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": ""
-    },
-    {
-      "num": 9,
-      "gate": 5,
-      "name": "ヨーホーレイク",
-      "basePt": 102,
-      "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 5,
-        "SABC単": 38,
-        "SABC複": 39
-      },
-      "totalPt": 0,
-      "mark": "",
-      "jockey": "西村淳也",
-      "sire": "ディープインパクト",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "S",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": ""
-    },
-    {
-      "num": 3,
-      "gate": 2,
-      "name": "セイウンハーデス",
-      "basePt": 104,
-      "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 4,
-        "SABC単": 33,
-        "SABC複": 36
-      },
-      "totalPt": 0,
-      "mark": "",
-      "jockey": "幸英明",
-      "sire": "シルバーステート",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "A",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": ""
+      "gaiku": "",
+      "wetPt": 81
     },
     {
       "num": 6,
@@ -282,14 +172,11 @@
       "name": "メイショウタバル",
       "basePt": 109,
       "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 5,
         "SABC単": 36,
-        "SABC複": 37
+        "SABC複": 37,
+        "馬場": "S"
       },
-      "totalPt": 0,
+      "totalPt": 81,
       "mark": "",
       "jockey": "武豊",
       "sire": "ゴールドシップ",
@@ -298,55 +185,30 @@
       "bmsGrade": "S",
       "lastRace": "",
       "trainer": "",
-      "gaiku": ""
+      "gaiku": "",
+      "wetPt": 81
     },
     {
-      "num": 10,
-      "gate": 6,
-      "name": "ボルドグフーシュ",
-      "basePt": 111,
+      "num": 8,
+      "gate": 5,
+      "name": "エコロヴァルツ",
+      "basePt": 116,
       "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 0,
-        "SABC単": 31,
-        "SABC複": 31
+        "SABC単": 33,
+        "SABC複": 36,
+        "馬場": "S"
       },
-      "totalPt": 0,
+      "totalPt": 79,
       "mark": "",
-      "jockey": "松山弘平",
-      "sire": "スクリーンヒーロー",
+      "jockey": "浜中俊",
+      "sire": "ブラックタイド",
       "weight": 58,
       "runStyle": "",
-      "bmsGrade": "D",
+      "bmsGrade": "S",
       "lastRace": "",
       "trainer": "",
-      "gaiku": ""
-    },
-    {
-      "num": 1,
-      "gate": 1,
-      "name": "サンストックトン",
-      "basePt": 88,
-      "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 4,
-        "SABC単": 27,
-        "SABC複": 27
-      },
-      "totalPt": 0,
-      "mark": "",
-      "jockey": "高杉吏麒",
-      "sire": "ワールドエース",
-      "weight": 58,
-      "runStyle": "",
-      "bmsGrade": "A",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": ""
+      "gaiku": "",
+      "wetPt": 79
     },
     {
       "num": 13,
@@ -354,14 +216,11 @@
       "name": "ファウストラーゼン",
       "basePt": 90,
       "scores": {
-        "枠番": 0,
-        "調教": 0,
-        "勝負気配": 0,
-        "馬場": 5,
         "SABC単": 34,
-        "SABC複": 37
+        "SABC複": 37,
+        "馬場": "S"
       },
-      "totalPt": 0,
+      "totalPt": 79,
       "mark": "",
       "jockey": "岩田康誠",
       "sire": "モズアスコット",
@@ -370,7 +229,118 @@
       "bmsGrade": "S",
       "lastRace": "",
       "trainer": "",
-      "gaiku": ""
+      "gaiku": "",
+      "wetPt": 79
+    },
+    {
+      "num": 3,
+      "gate": 2,
+      "name": "セイウンハーデス",
+      "basePt": 104,
+      "scores": {
+        "SABC単": 33,
+        "SABC複": 36,
+        "馬場": "A"
+      },
+      "totalPt": 77,
+      "mark": "",
+      "jockey": "幸英明",
+      "sire": "シルバーステート",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "A",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 77
+    },
+    {
+      "num": 4,
+      "gate": 3,
+      "name": "ダノンデサイル",
+      "basePt": 125,
+      "scores": {
+        "SABC単": 32,
+        "SABC複": 35,
+        "馬場": "C"
+      },
+      "totalPt": 76,
+      "mark": "",
+      "jockey": "坂井瑠星",
+      "sire": "エピファネイア",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "C",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 76
+    },
+    {
+      "num": 10,
+      "gate": 6,
+      "name": "ボルドグフーシュ",
+      "basePt": 111,
+      "scores": {
+        "SABC単": 31,
+        "SABC複": 31,
+        "馬場": "D"
+      },
+      "totalPt": 68,
+      "mark": "",
+      "jockey": "松山弘平",
+      "sire": "スクリーンヒーロー",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "D",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 68
+    },
+    {
+      "num": 1,
+      "gate": 1,
+      "name": "サンストックトン",
+      "basePt": 88,
+      "scores": {
+        "SABC単": 27,
+        "SABC複": 27,
+        "馬場": "A"
+      },
+      "totalPt": 62,
+      "mark": "",
+      "jockey": "高杉吏麒",
+      "sire": "ワールドエース",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "A",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 62
+    },
+    {
+      "num": 2,
+      "gate": 2,
+      "name": "マテンロウレオ",
+      "basePt": 108,
+      "scores": {
+        "SABC単": 17,
+        "SABC複": 24,
+        "馬場": "D"
+      },
+      "totalPt": 48,
+      "mark": "",
+      "jockey": "横山典弘",
+      "sire": "ハーツクライ",
+      "weight": 58,
+      "runStyle": "",
+      "bmsGrade": "D",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 48
     }
   ],
   "bets": {
@@ -380,10 +350,10 @@
     "三連複": "",
     "三連単": ""
   },
-  "raceCondNote": "【過去5年 勝ち馬の傾向】① ラップ傾向年馬場RPCI勝ち馬PCI上り3F2021重48.848.836.82022良48.950.935.32023良49.749.735.32024良51.952.334.92025良49.053.234.1→ RPCI平均49.7＝前傾ペース・持続力勝負が基本→ 重馬場（2021）はPCI48台・上り36.8秒という別次元の消耗戦② 重馬場（2021）の教訓・コントレイル（1番人気）・グランアレグリア（2番人気）が3・4着に沈む大波乱・勝ったレイパパレ（4番人気）は逃げ馬。先行力と重馬場適性で押し切り・重馬場適性＞実力が顕著に出たレース。実績馬を鵜呑みにしてはいけない③ 人気傾向・勝ち馬平均 3.6番人気（G1にしては荒れる）・3着以内15頭中 1〜6番人気が10頭・10番人気以下が2頭・重馬場時は特に波乱必至（上位人気を素直に信用しない）④ 今年 重",
+  "raceCondNote": "阪神芝2000m内。SABC総合スコアによる順位。",
   "betMemo": "",
   "comments": {
-    "final": "wetScore（重馬場想定スコア）による分析。◎クロワデュノール ○ショウヘイ ▲レーベンスティール ☆ダノンデサイル",
+    "final": "◎ショウヘイ（105pt） ○デビットバローズ（97pt） ▲ヨーホーレイク（92pt） ☆クロワデュノール（91pt）\n\nSABC単複合計＋グレードファクターによる総合スコア順。",
     "risk": "",
     "extra": ""
   }

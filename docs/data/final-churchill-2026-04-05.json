@@ -13,125 +13,17 @@
   "published": true,
   "horses": [
     {
-      "num": 6,
-      "gate": 4,
-      "name": "サンダーストラック",
-      "basePt": 123,
-      "scores": {
-        "ZI": 55.4,
-        "枠番": 1,
-        "調教": 12,
-        "ラップ": 5,
-        "枠番G": "B",
-        "調教G": "S",
-        "ラップG": "A"
-      },
-      "totalPt": 73.4,
-      "mark": "◎",
-      "jockey": "ルメール",
-      "sire": "ロードカナロア",
-      "weight": 57,
-      "runStyle": "",
-      "bmsGrade": "A",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 55.4
-    },
-    {
-      "num": 8,
-      "gate": 5,
-      "name": "アンドゥーリル",
-      "basePt": 127,
-      "scores": {
-        "ZI": 57.1,
-        "枠番": 4,
-        "調教": 6,
-        "ラップ": 0,
-        "枠番G": "A",
-        "調教G": "A",
-        "ラップG": "-"
-      },
-      "totalPt": 67.1,
-      "mark": "○",
-      "jockey": "川田将雅",
-      "sire": "サートゥルナーリア",
-      "weight": 57,
-      "runStyle": "",
-      "bmsGrade": "B",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 57.1
-    },
-    {
-      "num": 14,
-      "gate": 8,
-      "name": "アスクイキゴミ",
-      "basePt": 107,
-      "scores": {
-        "ZI": 48.1,
-        "枠番": 4,
-        "調教": 12,
-        "ラップ": 0,
-        "枠番G": "A",
-        "調教G": "S",
-        "ラップG": "-"
-      },
-      "totalPt": 64.1,
-      "mark": "▲",
-      "jockey": "坂井瑠星",
-      "sire": "ロードカナロア",
-      "weight": 57,
-      "runStyle": "",
-      "bmsGrade": "B",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 48.1
-    },
-    {
-      "num": 3,
-      "gate": 3,
-      "name": "リゾートアイランド",
-      "basePt": 119,
-      "scores": {
-        "ZI": 53.6,
-        "枠番": 4,
-        "調教": 6,
-        "ラップ": 0,
-        "枠番G": "A",
-        "調教G": "A",
-        "ラップG": "-"
-      },
-      "totalPt": 63.6,
-      "mark": "☆",
-      "jockey": "武豊",
-      "sire": "イスラボニータ",
-      "weight": 57,
-      "runStyle": "",
-      "bmsGrade": "B",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 53.6
-    },
-    {
       "num": 5,
       "gate": 4,
       "name": "シーミハットク",
       "basePt": 100,
       "scores": {
-        "ZI": 45.0,
-        "枠番": 1,
-        "調教": 6,
-        "ラップ": 8,
-        "枠番G": "B",
-        "調教G": "A",
-        "ラップG": "S"
+        "SABC単": 40,
+        "SABC複": 37,
+        "馬場": "A"
       },
-      "totalPt": 60.0,
-      "mark": "△",
+      "totalPt": 93,
+      "mark": "◎",
       "jockey": "高杉吏麒",
       "sire": "オルフェーヴル",
       "weight": 57,
@@ -140,33 +32,29 @@
       "lastRace": "",
       "trainer": "",
       "gaiku": "",
-      "wetPt": 45.0
+      "wetPt": 93
     },
     {
-      "num": 13,
-      "gate": 8,
-      "name": "ファンクション",
-      "basePt": 100,
+      "num": 6,
+      "gate": 4,
+      "name": "サンダーストラック",
+      "basePt": 123,
       "scores": {
-        "ZI": 45.0,
-        "枠番": 4,
-        "調教": 6,
-        "ラップ": 0,
-        "枠番G": "A",
-        "調教G": "A",
-        "ラップG": "-"
+        "SABC単": 32,
+        "SABC複": 37,
+        "馬場": "A"
       },
-      "totalPt": 55.0,
-      "mark": "△",
-      "jockey": "鮫島克駿",
-      "sire": "アルアイン",
-      "weight": 55,
+      "totalPt": 91,
+      "mark": "○",
+      "jockey": "ルメール",
+      "sire": "ロードカナロア",
+      "weight": 57,
       "runStyle": "",
-      "bmsGrade": "C",
+      "bmsGrade": "A",
       "lastRace": "",
       "trainer": "",
       "gaiku": "",
-      "wetPt": 45.0
+      "wetPt": 91
     },
     {
       "num": 10,
@@ -174,16 +62,12 @@
       "name": "バルセシート",
       "basePt": 108,
       "scores": {
-        "ZI": 48.6,
-        "枠番": 4,
-        "調教": 2,
-        "ラップ": 0,
-        "枠番G": "A",
-        "調教G": "B",
-        "ラップG": "-"
+        "SABC単": 36,
+        "SABC複": 37,
+        "馬場": "B"
       },
-      "totalPt": 54.6,
-      "mark": "△",
+      "totalPt": 86,
+      "mark": "▲",
       "jockey": "北村友一",
       "sire": "キズナ",
       "weight": 57,
@@ -192,7 +76,73 @@
       "lastRace": "",
       "trainer": "",
       "gaiku": "",
-      "wetPt": 48.6
+      "wetPt": 86
+    },
+    {
+      "num": 8,
+      "gate": 5,
+      "name": "アンドゥーリル",
+      "basePt": 127,
+      "scores": {
+        "SABC単": 32,
+        "SABC複": 38,
+        "馬場": "B"
+      },
+      "totalPt": 85,
+      "mark": "☆",
+      "jockey": "川田将雅",
+      "sire": "サートゥルナーリア",
+      "weight": 57,
+      "runStyle": "",
+      "bmsGrade": "B",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 85
+    },
+    {
+      "num": 3,
+      "gate": 3,
+      "name": "リゾートアイランド",
+      "basePt": 119,
+      "scores": {
+        "SABC単": 29,
+        "SABC複": 34,
+        "馬場": "B"
+      },
+      "totalPt": 81,
+      "mark": "△",
+      "jockey": "武豊",
+      "sire": "イスラボニータ",
+      "weight": 57,
+      "runStyle": "",
+      "bmsGrade": "B",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 81
+    },
+    {
+      "num": 14,
+      "gate": 8,
+      "name": "アスクイキゴミ",
+      "basePt": 107,
+      "scores": {
+        "SABC単": 32,
+        "SABC複": 34,
+        "馬場": "B"
+      },
+      "totalPt": 81,
+      "mark": "△",
+      "jockey": "坂井瑠星",
+      "sire": "ロードカナロア",
+      "weight": 57,
+      "runStyle": "",
+      "bmsGrade": "B",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 81
     },
     {
       "num": 7,
@@ -200,16 +150,12 @@
       "name": "サトノセプター",
       "basePt": 87,
       "scores": {
-        "ZI": 39.1,
-        "枠番": 1,
-        "調教": 2,
-        "ラップ": 8,
-        "枠番G": "B",
-        "調教G": "B",
-        "ラップG": "S"
+        "SABC単": 27,
+        "SABC複": 29,
+        "馬場": "B"
       },
-      "totalPt": 50.1,
-      "mark": "",
+      "totalPt": 70,
+      "mark": "△",
       "jockey": "岩田望来",
       "sire": "Kingman",
       "weight": 57,
@@ -218,85 +164,7 @@
       "lastRace": "",
       "trainer": "",
       "gaiku": "",
-      "wetPt": 39.1
-    },
-    {
-      "num": 9,
-      "gate": 6,
-      "name": "クールデイトナ",
-      "basePt": 102,
-      "scores": {
-        "ZI": 45.9,
-        "枠番": 1,
-        "調教": 0,
-        "ラップ": 0,
-        "枠番G": "B",
-        "調教G": "C",
-        "ラップG": "-"
-      },
-      "totalPt": 46.9,
-      "mark": "",
-      "jockey": "吉村誠之",
-      "sire": "フォーウィールドラ",
-      "weight": 57,
-      "runStyle": "",
-      "bmsGrade": "D",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 45.9
-    },
-    {
-      "num": 4,
-      "gate": 3,
-      "name": "エイシンティザー",
-      "basePt": 97,
-      "scores": {
-        "ZI": 43.6,
-        "枠番": 1,
-        "調教": 2,
-        "ラップ": 0,
-        "枠番G": "B",
-        "調教G": "B",
-        "ラップG": "-"
-      },
-      "totalPt": 46.6,
-      "mark": "",
-      "jockey": "西塚洸二",
-      "sire": "モズアスコット",
-      "weight": 57,
-      "runStyle": "",
-      "bmsGrade": "B",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 43.6
-    },
-    {
-      "num": 1,
-      "gate": 1,
-      "name": "ストームサンダー",
-      "basePt": 98,
-      "scores": {
-        "ZI": 44.1,
-        "枠番": 1,
-        "調教": 0,
-        "ラップ": 0,
-        "枠番G": "B",
-        "調教G": "C",
-        "ラップG": "-"
-      },
-      "totalPt": 45.1,
-      "mark": "",
-      "jockey": "斎藤新",
-      "sire": "ヘンリーバローズ",
-      "weight": 57,
-      "runStyle": "",
-      "bmsGrade": "D",
-      "lastRace": "",
-      "trainer": "",
-      "gaiku": "",
-      "wetPt": 44.1
+      "wetPt": 70
     },
     {
       "num": 2,
@@ -304,15 +172,11 @@
       "name": "メイショウソラリス",
       "basePt": 96,
       "scores": {
-        "ZI": 43.2,
-        "枠番": 0,
-        "調教": 0,
-        "ラップ": 0,
-        "枠番G": "C",
-        "調教G": "C",
-        "ラップG": "-"
+        "SABC単": 20,
+        "SABC複": 27,
+        "馬場": "C"
       },
-      "totalPt": 43.2,
+      "totalPt": 55,
       "mark": "",
       "jockey": "角田大和",
       "sire": "シスキン",
@@ -322,7 +186,29 @@
       "lastRace": "",
       "trainer": "",
       "gaiku": "",
-      "wetPt": 43.2
+      "wetPt": 55
+    },
+    {
+      "num": 4,
+      "gate": 3,
+      "name": "エイシンティザー",
+      "basePt": 97,
+      "scores": {
+        "SABC単": 23,
+        "SABC複": 23,
+        "馬場": "B"
+      },
+      "totalPt": 54,
+      "mark": "",
+      "jockey": "西塚洸二",
+      "sire": "モズアスコット",
+      "weight": 57,
+      "runStyle": "",
+      "bmsGrade": "B",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 54
     },
     {
       "num": 12,
@@ -330,15 +216,11 @@
       "name": "サーディンラン",
       "basePt": 93,
       "scores": {
-        "ZI": 41.9,
-        "枠番": 0,
-        "調教": 0,
-        "ラップ": 0,
-        "枠番G": "C",
-        "調教G": "C",
-        "ラップG": "-"
+        "SABC単": 21,
+        "SABC複": 23,
+        "馬場": "C"
       },
-      "totalPt": 41.9,
+      "totalPt": 53,
       "mark": "",
       "jockey": "松山弘平",
       "sire": "レイデオロ",
@@ -348,7 +230,29 @@
       "lastRace": "",
       "trainer": "",
       "gaiku": "",
-      "wetPt": 41.9
+      "wetPt": 53
+    },
+    {
+      "num": 9,
+      "gate": 6,
+      "name": "クールデイトナ",
+      "basePt": 102,
+      "scores": {
+        "SABC単": 22,
+        "SABC複": 23,
+        "馬場": "D"
+      },
+      "totalPt": 52,
+      "mark": "",
+      "jockey": "吉村誠之",
+      "sire": "フォーウィールドラ",
+      "weight": 57,
+      "runStyle": "",
+      "bmsGrade": "D",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 52
     },
     {
       "num": 11,
@@ -356,15 +260,11 @@
       "name": "ユウファラオ",
       "basePt": 80,
       "scores": {
-        "ZI": 36.0,
-        "枠番": -4,
-        "調教": 0,
-        "ラップ": 0,
-        "枠番G": "D",
-        "調教G": "C",
-        "ラップG": "-"
+        "SABC単": 19,
+        "SABC複": 24,
+        "馬場": "D"
       },
-      "totalPt": 32.0,
+      "totalPt": 50,
       "mark": "",
       "jockey": "松若風馬",
       "sire": "American Pharoah",
@@ -374,7 +274,51 @@
       "lastRace": "",
       "trainer": "",
       "gaiku": "",
-      "wetPt": 36.0
+      "wetPt": 50
+    },
+    {
+      "num": 13,
+      "gate": 8,
+      "name": "ファンクション",
+      "basePt": 100,
+      "scores": {
+        "SABC単": 20,
+        "SABC複": 23,
+        "馬場": "C"
+      },
+      "totalPt": 50,
+      "mark": "",
+      "jockey": "鮫島克駿",
+      "sire": "アルアイン",
+      "weight": 55,
+      "runStyle": "",
+      "bmsGrade": "C",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 50
+    },
+    {
+      "num": 1,
+      "gate": 1,
+      "name": "ストームサンダー",
+      "basePt": 98,
+      "scores": {
+        "SABC単": 19,
+        "SABC複": 21,
+        "馬場": "D"
+      },
+      "totalPt": 48,
+      "mark": "",
+      "jockey": "斎藤新",
+      "sire": "ヘンリーバローズ",
+      "weight": 57,
+      "runStyle": "",
+      "bmsGrade": "D",
+      "lastRace": "",
+      "trainer": "",
+      "gaiku": "",
+      "wetPt": 48
     }
   ],
   "bets": {
@@ -384,10 +328,10 @@
     "三連複": "",
     "三連単": ""
   },
-  "raceCondNote": "ペースM想定（雨／稍重〜不良）。阪神外回り芝1600m。道悪で持続力とラップ適性が問われる。3歳マイル重賞。",
+  "raceCondNote": "ペースM想定（雨／稍重〜不良）。阪神外回り芝1600m。SABC総合スコア順。",
   "betMemo": "",
   "comments": {
-    "final": "◎サンダーストラック（73.4pt） ○アンドゥーリル（67.1pt） ▲アスクイキゴミ（64.1pt） ☆リゾートアイランド（63.6pt）\n\nZI基礎点（ZI×0.45）＋枠番・調教・ラップ適性の総合スコア。雨／稍重〜不良の阪神外回りでラップ適性が加点要素。",
+    "final": "◎シーミハットク（93pt） ○サンダーストラック（91pt） ▲バルセシート（86pt） ☆アンドゥーリル（85pt）\n\nSABC単複合計＋グレードファクターによる総合スコア順。",
     "risk": "",
     "extra": ""
   }
