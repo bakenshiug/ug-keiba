@@ -454,6 +454,11 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   background:rgba(0,0,0,.2);padding:3px 8px;border-radius:8px;
   white-space:nowrap;
 }
+.sabc-bet-pop{
+  font-size:10px;font-weight:900;color:rgba(255,255,255,.85);
+  background:rgba(0,0,0,.25);padding:2px 7px;border-radius:8px;
+  white-space:nowrap;letter-spacing:.02em;
+}
 </style>
 </head>
 <body>
@@ -561,32 +566,54 @@ function sabcRankHtml(notes, horses) {
   </div>`;
 }
 
-// SABC1位から買い目バナーを生成
+// SACBランキングから「最も人気のない馬（穴馬）」を推奨買い目として表示
 function sabcBetsHtml(notes, horses) {
   if (!notes || !notes.sabcRankTan || !notes.sabcRankFuku) return '';
   const nh = notes.horses || {};
-  const top1Tan  = sortRankWithTiebreak(notes.sabcRankTan,  nh)[0];
-  const top1Fuku = sortRankWithTiebreak(notes.sabcRankFuku, nh)[0];
-  if (!top1Tan && !top1Fuku) return '';
+
+  // ランキング内で popularity が最大（=最も人気薄）の馬を選ぶ
+  // popularity が未設定の馬はランキング順位を fallback に使う
+  function pickLeastFavorite(rankList) {
+    const sorted = sortRankWithTiebreak(rankList, nh);
+    if (!sorted.length) return null;
+    // popularity が設定されているものだけ対象にしてmax探索
+    const withPop = sorted.filter(e => nh[e.name] && nh[e.name].popularity);
+    if (!withPop.length) return sorted[0]; // fallback: 1位
+    return withPop.reduce((best, e) =>
+      (nh[e.name].popularity > (nh[best.name]?.popularity || 0)) ? e : best
+    , withPop[0]);
+  }
+
+  const pickTan  = pickLeastFavorite(notes.sabcRankTan);
+  const pickFuku = pickLeastFavorite(notes.sabcRankFuku);
+  if (!pickTan && !pickFuku) return '';
+
   function numOf(name) {
     const h = (horses||[]).find(x => x.name === name);
     return h ? h.num : '—';
   }
+  function popLabel(name) {
+    const pop = nh[name]?.popularity;
+    return pop ? `<span class="sabc-bet-pop">${pop}番人気</span>` : '';
+  }
+
   const rows = [];
-  if (top1Tan) {
+  if (pickTan) {
     rows.push(`<div class="sabc-bet-banner">
       <span class="sabc-bet-icon">🥇</span>
       <span class="sabc-bet-label">単勝期待値</span>
-      <span class="sabc-bet-val">${numOf(top1Tan.name)}番 ${esc(top1Tan.name)}</span>
-      <span class="sabc-bet-sub">${top1Tan.total}pt</span>
+      <span class="sabc-bet-val">${numOf(pickTan.name)}番 ${esc(pickTan.name)}</span>
+      ${popLabel(pickTan.name)}
+      <span class="sabc-bet-sub">${pickTan.total}pt</span>
     </div>`);
   }
-  if (top1Fuku) {
+  if (pickFuku) {
     rows.push(`<div class="sabc-bet-banner">
       <span class="sabc-bet-icon">🥇</span>
       <span class="sabc-bet-label">複勝期待値</span>
-      <span class="sabc-bet-val">${numOf(top1Fuku.name)}番 ${esc(top1Fuku.name)}</span>
-      <span class="sabc-bet-sub">${top1Fuku.total}pt</span>
+      <span class="sabc-bet-val">${numOf(pickFuku.name)}番 ${esc(pickFuku.name)}</span>
+      ${popLabel(pickFuku.name)}
+      <span class="sabc-bet-sub">${pickFuku.total}pt</span>
     </div>`);
   }
   return rows.join('');
