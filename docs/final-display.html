@@ -985,7 +985,8 @@ function renderRaceDetail(data, notes) {
       </div>`;
       return banner
         + betRow('馬単',  `◎→${opMarks} 流し ${N}点`)
-        + betRow('三連複', `◎1頭軸 → 相手${N}頭（${opMarks}） ${pts}点`, ' bet-row-jiku');
+        + betRow('三連複', `◎1頭軸 → 相手${N}頭（${opMarks}） ${pts}点`, ' bet-row-jiku')
+        + (bets['三連単1着固定'] ? betRow('三連単1着固定', bets['三連単1着固定']) : '');
     }
 
     // ── 優先度2: ◎○2頭抜け → 2頭軸
@@ -1009,7 +1010,8 @@ function renderRaceDetail(data, notes) {
         + betRow('馬連',  `◎○ 1点`)
         + betRow('馬単',  `◎○マルチ 2点`)
         + betRow('三連複', `◎○2頭軸 → 相手${N}頭（${opMarks}） ${N}点`, ' bet-row-2jiku')
-        + betRow('三連単', `◎○2頭軸マルチ → 相手${N}頭 ${6*N}点`,       ' bet-row-2jiku');
+        + betRow('三連単', `◎○2頭軸マルチ → 相手${N}頭 ${6*N}点`,       ' bet-row-2jiku')
+        + (bets['三連単1着固定'] ? betRow('三連単1着固定', bets['三連単1着固定']) : '');
     }
 
     // ── 優先度3: 混戦 → フォーメーション
@@ -1021,15 +1023,14 @@ function renderRaceDetail(data, notes) {
     const batanPts = inba.length * 2;
     const fukuPts  = inv.sanrenpuku / 100;
     const tanPts   = inv.sanrentan  / 100;
+    const extra1 = bets['三連単1着固定']
+      ? betRow('三連単1着固定', bets['三連単1着固定'])
+      : '';
     return betRow('馬単',  `◎↔${inba} マルチ${batanPts}点`)
       + betRow('三連複', `1列${col1}×2列${col2}×3列${col3} フォーメーション${fukuPts}点`)
-      + betRow('三連単', `1列${col1}×2列${col2}×3列${col3} フォーメーション${tanPts}点`);
+      + betRow('三連単', `1列${col1}×2列${col2}×3列${col3} フォーメーション${tanPts}点`)
+      + extra1;
   })();
-
-  // betsに三連単1着固定が指定されている場合は末尾に追加
-  if (bets['三連単1着固定']) {
-    betsHtml += betRow('三連単1着固定', bets['三連単1着固定']);
-  }
 
   const commentsHtml = [
     comments.final ? `<div class="final-card"><div class="clabel">■ 最終結論</div><div class="ctext">${esc(comments.final).replace(/\n/g,'<br>')}</div></div>` : '',
