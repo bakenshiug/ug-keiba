@@ -167,6 +167,18 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 /* Divider */
 .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(232,0,61,.3),transparent);margin:16px 0;}
 
+/* ── 馬コメント ── */
+.horse-comment-block{margin-top:10px;display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(0,0,0,.12);padding-top:8px;}
+.hcmt-ability{font-size:12px;color:#1C2B4A;line-height:1.75;padding:6px 10px;background:rgba(139,26,26,.05);border-left:3px solid rgba(139,26,26,.45);border-radius:0 6px 6px 0;}
+.hcmt-lap{font-size:11px;color:#1C2B4A;line-height:1.75;padding:5px 10px;background:rgba(59,130,246,.05);border-left:3px solid rgba(59,130,246,.4);border-radius:0 6px 6px 0;}
+.hcmt-prev{font-size:11px;color:#1C2B4A;line-height:1.75;padding:5px 10px;background:rgba(16,185,129,.05);border-left:3px solid rgba(16,185,129,.4);border-radius:0 6px 6px 0;}
+/* 全馬コメントリスト */
+.all-horse-comments{display:flex;flex-direction:column;gap:10px;margin-bottom:4px;}
+.horse-cmt-item{border-radius:12px;padding:13px 15px;background:rgba(255,255,255,.55);border:1px solid rgba(28,43,74,.1);}
+.horse-cmt-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.horse-cmt-num{font-size:11px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(28,43,74,.07);color:rgba(28,43,74,.7);}
+.horse-cmt-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#1C2B4A;}
+
 /* Bets */
 .bets-grid{display:flex;flex-direction:column;gap:6px;margin-bottom:4px;}
 .bet-row{display:flex;align-items:baseline;gap:10px;padding:9px 14px;border-radius:10px;background:rgba(139,26,26,.06);border:1px solid rgba(139,26,26,.18);}
@@ -238,6 +250,16 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .race-btn.active.grade-g1 .active-dot{background:#f0c040;box-shadow:0 0 8px rgba(139,26,26,.9);}
 .race-btn.active.grade-g2 .active-dot{background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.9);}
 .race-btn.active.grade-g3 .active-dot{background:#3b82f6;box-shadow:0 0 8px rgba(59,130,246,.9);}
+/* アクティブ時 全テキストを白系に */
+.race-btn.active.grade-g1 .btn-meta,
+.race-btn.active.grade-g2 .btn-meta,
+.race-btn.active.grade-g3 .btn-meta{color:rgba(255,255,255,.65);}
+.race-btn.active.grade-g1 .btn-picks,
+.race-btn.active.grade-g2 .btn-picks,
+.race-btn.active.grade-g3 .btn-picks{color:rgba(255,200,160,.9) !important;}
+.race-btn.active.grade-g1 .btn-result,
+.race-btn.active.grade-g2 .btn-result,
+.race-btn.active.grade-g3 .btn-result{opacity:.9;}
 
 /* ─ レースカード：グレード別ネオン枠線 ─ */
 .race-card.grade-g1{border-color:rgba(139,26,26,.55);animation:fadeUp .22s ease both,neonG1 2.5s ease-in-out infinite;}
@@ -1021,7 +1043,7 @@ function buildRaceButtons(buttons) {
       ${gradeLabel(r.grade)}
       <div class="btn-name">${esc(r.name||file)}</div>
       <div class="btn-meta">${esc(r.venue||'')} ${esc(r.distance||'')} ／ ${esc(r.date||'')}</div>
-      ${picksLine ? `<div style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(139,26,26,.8);">${esc(picksLine)}</div>` : ''}
+      ${picksLine ? `<div class="btn-picks" style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(139,26,26,.8);">${esc(picksLine)}</div>` : ''}
       ${resultBadge}
     </button>`;
   }).join('');
