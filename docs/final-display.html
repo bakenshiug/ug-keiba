@@ -270,9 +270,16 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .race-card.grade-g1 .race-head{border-bottom-color:rgba(139,26,26,.5);background:linear-gradient(120deg,rgba(139,26,26,.14) 0%,rgba(10,0,3,.9) 55%,rgba(139,26,26,.04) 100%);}
 .race-card.grade-g2 .race-head{border-bottom-color:rgba(34,197,94,.5);background:linear-gradient(120deg,rgba(34,197,94,.11) 0%,rgba(10,0,3,.9) 55%,rgba(34,197,94,.04) 100%);}
 .race-card.grade-g3 .race-head{border-bottom-color:rgba(59,130,246,.5);background:linear-gradient(120deg,rgba(59,130,246,.11) 0%,rgba(10,0,3,.9) 55%,rgba(59,130,246,.04) 100%);}
-.race-card.grade-g1 .race-name{text-shadow:0 0 22px rgba(139,26,26,.6);}
-.race-card.grade-g2 .race-name{text-shadow:0 0 22px rgba(34,197,94,.5);}
-.race-card.grade-g3 .race-name{text-shadow:0 0 22px rgba(59,130,246,.5);}
+/* ── グレードカード ヘッダー：白文字＋グレード色グロー ── */
+.race-card.grade-g1 .race-name{color:#fff;text-shadow:0 0 24px rgba(255,180,0,.9),0 0 8px rgba(255,180,0,.5);}
+.race-card.grade-g2 .race-name{color:#fff;text-shadow:0 0 24px rgba(34,197,94,.9),0 0 8px rgba(34,197,94,.5);}
+.race-card.grade-g3 .race-name{color:#fff;text-shadow:0 0 24px rgba(100,160,255,.9),0 0 8px rgba(100,160,255,.5);}
+.race-card.grade-g1 .race-meta,
+.race-card.grade-g2 .race-meta,
+.race-card.grade-g3 .race-meta{color:rgba(255,255,255,.7);}
+.race-card.grade-g1 .race-grade-badge,
+.race-card.grade-g2 .race-grade-badge,
+.race-card.grade-g3 .race-grade-badge{box-shadow:0 0 10px rgba(255,255,255,.2);}
 
 /* ── 結果セクション ── */
 .result-wrap{border-radius:16px;overflow:hidden;margin-bottom:6px;}
