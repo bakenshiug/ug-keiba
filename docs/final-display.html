@@ -426,11 +426,34 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .sabc-rank-score.fuku{color:#1e3a8a;}
 .sabc-rank-score span{font-size:10px;font-weight:700;opacity:.7;margin-left:1px;}
 /* SABC推奨買い目バナー */
-.sabc-bet-banner{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;margin-bottom:8px;background:linear-gradient(135deg,rgba(139,26,26,.08),rgba(29,78,216,.06));border:1px solid rgba(28,43,74,.15);}
-.sabc-bet-icon{font-size:14px;flex-shrink:0;}
-.sabc-bet-label{font-size:9px;font-weight:900;letter-spacing:.12em;color:rgba(28,43,74,.5);min-width:50px;}
-.sabc-bet-val{font-size:13px;font-weight:900;color:#1C2B4A;}
-.sabc-bet-sub{font-size:10px;color:rgba(28,43,74,.5);margin-left:4px;}
+.sabc-bet-banner{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 16px;border-radius:14px;margin-bottom:10px;
+  background:linear-gradient(135deg,#8B1A1A 0%,#B5002E 60%,#E8003D 100%);
+  border:none;
+  box-shadow:0 4px 18px rgba(232,0,61,.45),0 1px 4px rgba(0,0,0,.2);
+  position:relative;overflow:hidden;
+}
+.sabc-bet-banner::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,transparent 60%);
+  pointer-events:none;
+}
+.sabc-bet-icon{font-size:22px;flex-shrink:0;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));}
+.sabc-bet-label{
+  font-size:9px;font-weight:900;letter-spacing:.14em;
+  color:rgba(255,255,255,.75);min-width:52px;text-transform:uppercase;
+}
+.sabc-bet-val{
+  font-size:16px;font-weight:900;color:#fff;
+  text-shadow:0 1px 6px rgba(0,0,0,.3);letter-spacing:.02em;
+  flex:1;
+}
+.sabc-bet-sub{
+  font-size:11px;font-weight:700;color:rgba(255,220,180,.9);
+  background:rgba(0,0,0,.2);padding:3px 8px;border-radius:8px;
+  white-space:nowrap;
+}
 </style>
 </head>
 <body>
