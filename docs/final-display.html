@@ -1026,6 +1026,11 @@ function renderRaceDetail(data, notes) {
       + betRow('三連単', `1列${col1}×2列${col2}×3列${col3} フォーメーション${tanPts}点`);
   })();
 
+  // betsに三連単1着固定が指定されている場合は末尾に追加
+  if (bets['三連単1着固定']) {
+    betsHtml += betRow('三連単1着固定', bets['三連単1着固定']);
+  }
+
   const commentsHtml = [
     comments.final ? `<div class="final-card"><div class="clabel">■ 最終結論</div><div class="ctext">${esc(comments.final).replace(/\n/g,'<br>')}</div></div>` : '',
     comments.risk  ? `<div class="risk-card"><div class="clabel">⚠️ 波乱ファクター</div><div class="ctext">${esc(comments.risk)}</div></div>` : '',
