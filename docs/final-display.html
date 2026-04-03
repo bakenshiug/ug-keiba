@@ -368,6 +368,33 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .wet-pick-name{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;color:#1C2B4A;}
 .wet-pick-umaban{font-size:10px;font-weight:900;padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);margin-right:3px;}
 .wet-pick-comment{font-size:11px;color:#1C2B4A;line-height:1.75;padding:5px 10px;margin-top:4px;background:rgba(29,78,216,.04);border-left:2px solid rgba(29,78,216,.3);border-radius:0 5px 5px 0;}
+
+/* ── SABC期待値ランキング ── */
+.sabc-rank-wrap{display:flex;gap:10px;margin:6px 0 14px;flex-wrap:wrap;}
+.sabc-rank-block{flex:1;min-width:160px;}
+.sabc-rank-header{font-size:9px;font-weight:900;letter-spacing:.16em;padding:7px 12px;border-radius:8px 8px 0 0;text-align:center;}
+.sabc-rank-header.tan{background:linear-gradient(135deg,rgba(139,26,26,.2),rgba(139,26,26,.06));color:#8B1A1A;border:1px solid rgba(139,26,26,.3);border-bottom:none;}
+.sabc-rank-header.fuku{background:linear-gradient(135deg,rgba(29,78,216,.2),rgba(29,78,216,.06));color:#1e3a8a;border:1px solid rgba(29,78,216,.3);border-bottom:none;}
+.sabc-rank-list{border:1px solid rgba(28,43,74,.1);border-radius:0 0 8px 8px;overflow:hidden;}
+.sabc-rank-row{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,.65);}
+.sabc-rank-row+.sabc-rank-row{border-top:1px solid rgba(28,43,74,.06);}
+.sabc-rank-badge{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
+.sabc-rank-badge.r1{background:linear-gradient(135deg,#ffd700,#f5a800);color:#5a3a00;box-shadow:0 1px 3px rgba(245,168,0,.4);}
+.sabc-rank-badge.r2{background:linear-gradient(135deg,#e0e0e0,#b0b0b0);color:#3a3a3a;}
+.sabc-rank-badge.r3{background:linear-gradient(135deg,#d4884a,#b8642a);color:#fff;}
+.sabc-rank-name-block{flex:1;min-width:0;}
+.sabc-rank-name{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;color:#1C2B4A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sabc-rank-pop{font-size:9px;color:rgba(28,43,74,.5);margin-top:1px;}
+.sabc-rank-score{font-size:18px;font-weight:900;white-space:nowrap;flex-shrink:0;}
+.sabc-rank-score.tan{color:#8B1A1A;}
+.sabc-rank-score.fuku{color:#1e3a8a;}
+.sabc-rank-score span{font-size:10px;font-weight:700;opacity:.7;margin-left:1px;}
+/* SABC推奨買い目バナー */
+.sabc-bet-banner{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;margin-bottom:8px;background:linear-gradient(135deg,rgba(139,26,26,.08),rgba(29,78,216,.06));border:1px solid rgba(28,43,74,.15);}
+.sabc-bet-icon{font-size:14px;flex-shrink:0;}
+.sabc-bet-label{font-size:9px;font-weight:900;letter-spacing:.12em;color:rgba(28,43,74,.5);min-width:50px;}
+.sabc-bet-val{font-size:13px;font-weight:900;color:#1C2B4A;}
+.sabc-bet-sub{font-size:10px;color:rgba(28,43,74,.5);margin-left:4px;}
 </style>
 </head>
 <body>
@@ -428,6 +455,82 @@ function gaikuBadge(gaiku) {
 
 function infoRow(label, valHtml) {
   return `<div class="horse-info-row"><span class="info-lbl">${label}</span>${valHtml}</div>`;
+}
+
+// ── SABC期待値ランキング ──
+function sortRankWithTiebreak(rank, horses) {
+  return [...rank].sort((a, b) => {
+    if (b.total !== a.total) return b.total - a.total;
+    const ha = horses[a.name] || {}, hb = horses[b.name] || {};
+    return (hb.sabcZI || 0) - (ha.sabcZI || 0);
+  });
+}
+
+function sabcRankHtml(notes, horses) {
+  if (!notes || !notes.sabcRankTan || !notes.sabcRankFuku) return '';
+  if (!notes.sabcRankTan[0] || !notes.sabcRankFuku[0]) return '';
+  const nh = notes.horses || {};
+  const rankTan  = sortRankWithTiebreak(notes.sabcRankTan,  nh);
+  const rankFuku = sortRankWithTiebreak(notes.sabcRankFuku, nh);
+  const RANK_CLS = ['r1','r2','r3'];
+  function numOf(name) {
+    const h = (horses||[]).find(x => x.name === name);
+    return h ? h.num : '—';
+  }
+  function rankRow(entry, i, dim) {
+    const hn = nh[entry.name] || {};
+    const popInfo = hn.popularity ? `${hn.popularity}番人気` : '';
+    return `<div class="sabc-rank-row">
+      <div class="sabc-rank-badge ${RANK_CLS[i]||''}">${i+1}</div>
+      <div class="sabc-rank-name-block">
+        <div class="sabc-rank-name">${numOf(entry.name)}番 ${esc(entry.name)}</div>
+        ${popInfo ? `<div class="sabc-rank-pop">${popInfo}</div>` : ''}
+      </div>
+      <div class="sabc-rank-score ${dim}">${entry.total}<span>pt</span></div>
+    </div>`;
+  }
+  function rankBlock(dim, rank, label) {
+    const rows = rank.slice(0,3).map((e,i) => rankRow(e,i,dim)).join('');
+    return `<div class="sabc-rank-block">
+      <div class="sabc-rank-header ${dim}">${label}</div>
+      <div class="sabc-rank-list">${rows}</div>
+    </div>`;
+  }
+  return `<div class="sabc-rank-wrap">
+    ${rankBlock('tan',  rankTan,  '単勝期待値ランキング')}
+    ${rankBlock('fuku', rankFuku, '複勝期待値ランキング')}
+  </div>`;
+}
+
+// SABC1位から買い目バナーを生成
+function sabcBetsHtml(notes, horses) {
+  if (!notes || !notes.sabcRankTan || !notes.sabcRankFuku) return '';
+  const nh = notes.horses || {};
+  const top1Tan  = sortRankWithTiebreak(notes.sabcRankTan,  nh)[0];
+  const top1Fuku = sortRankWithTiebreak(notes.sabcRankFuku, nh)[0];
+  if (!top1Tan && !top1Fuku) return '';
+  function numOf(name) {
+    const h = (horses||[]).find(x => x.name === name);
+    return h ? h.num : '—';
+  }
+  const rows = [];
+  if (top1Tan) {
+    rows.push(`<div class="sabc-bet-banner">
+      <span class="sabc-bet-icon">🥇</span>
+      <span class="sabc-bet-label">単勝期待値</span>
+      <span class="sabc-bet-val">${numOf(top1Tan.name)}番 ${esc(top1Tan.name)}</span>
+      <span class="sabc-bet-sub">${top1Tan.total}pt</span>
+    </div>`);
+  }
+  if (top1Fuku) {
+    rows.push(`<div class="sabc-bet-banner">
+      <span class="sabc-bet-icon">🥇</span>
+      <span class="sabc-bet-label">複勝期待値</span>
+      <span class="sabc-bet-val">${numOf(top1Fuku.name)}番 ${esc(top1Fuku.name)}</span>
+      <span class="sabc-bet-sub">${top1Fuku.total}pt</span>
+    </div>`);
+  }
+  return rows.join('');
 }
 
 // ── 展望・ラップ分析・重馬場メモ（race-notesから） ──
@@ -835,10 +938,13 @@ function renderRaceDetail(data, notes) {
       ${renderResult(data)}
       ${data.result ? '<div class="divider"></div>' : ''}
       ${data.raceCondNote ? `<div class="cond-note">🏟️ ${esc(data.raceCondNote).replace(/\n/g,'<br>')}</div>` : ''}
+      ${notes ? `<div class="sec-title">単複期待値ランキング</div>${sabcRankHtml(notes, data.horses)}` : ''}
       ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(h => renderHeroCard(h, orderMap)).join('')}` : ''}
       ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses)}` : ''}
       <div class="divider"></div>
-      ${betsHtml ? `<div class="sec-title">買い目</div><div class="bets-grid">${betsHtml}</div><div class="divider"></div>` : ''}
+      ${notes ? `<div class="sec-title">推奨買い目（期待値ランキング1位）</div><div class="bets-grid">${sabcBetsHtml(notes, data.horses)}</div>` : ''}
+      ${betsHtml ? `<div class="sec-title" style="margin-top:10px;">印順フォーメーション</div><div class="bets-grid">${betsHtml}</div>` : ''}
+      <div class="divider"></div>
       ${commentsHtml ? `<div class="sec-title">分析コメント</div><div class="comment-area">${commentsHtml}</div>` : ''}
       ${notes ? `
       <div class="divider"></div>
