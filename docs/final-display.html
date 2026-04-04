@@ -478,6 +478,11 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   background:rgba(0,0,0,.28);padding:1px 6px;border-radius:6px;
   white-space:nowrap;letter-spacing:.02em;
 }
+.sabc-bet-result{
+  font-size:11px;font-weight:900;margin-top:5px;padding:3px 10px;border-radius:8px;display:inline-block;
+}
+.sabc-bet-result.hit{background:rgba(34,197,94,.25);color:#86efac;border:1px solid rgba(34,197,94,.45);}
+.sabc-bet-result.near{background:rgba(251,191,36,.2);color:#fde68a;border:1px solid rgba(251,191,36,.4);}
 </style>
 </head>
 <body>
@@ -616,25 +621,31 @@ function sabcBetsHtml(notes, horses) {
     return { num, mark, pop, odds, fuku };
   }
 
-  function betBanner(labelText, pick) {
+  const betResult = notes.betResult || {};
+
+  function betBanner(labelText, pick, resultText) {
     const { num, mark, pop, odds, fuku } = horseInfo(pick.name);
     const markHtml = mark ? `<span class="sabc-bet-mark">${mark}</span>` : '';
     const metaHtml = [pop, odds, fuku].filter(Boolean)
       .map(t => `<span class="sabc-bet-meta-chip">${t}</span>`).join('');
+    const isHit = resultText && (resultText.includes('的中') || resultText.includes('！'));
+    const resultHtml = resultText
+      ? `<div><span class="sabc-bet-result ${isHit ? 'hit' : 'near'}">${esc(resultText)}</span></div>` : '';
     return `<div class="sabc-bet-banner">
       <span class="sabc-bet-icon">🥇</span>
       <div class="sabc-bet-body">
         <div class="sabc-bet-label">${labelText}</div>
         <div class="sabc-bet-name">${markHtml}${num}番 ${esc(pick.name)}</div>
         ${metaHtml ? `<div class="sabc-bet-meta">${metaHtml}</div>` : ''}
+        ${resultHtml}
       </div>
       <span class="sabc-bet-sub">${pick.total}pt</span>
     </div>`;
   }
 
   const rows = [];
-  if (pickTan)  rows.push(betBanner('単勝期待値', pickTan));
-  if (pickFuku) rows.push(betBanner('複勝期待値', pickFuku));
+  if (pickTan)  rows.push(betBanner('単勝期待値', pickTan,  betResult.tan  || ''));
+  if (pickFuku) rows.push(betBanner('複勝期待値', pickFuku, betResult.fuku || ''));
   return rows.join('');
 }
 
