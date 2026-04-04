@@ -260,6 +260,23 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .bottom-nav-item:hover,.bottom-nav-item.active{color:var(--pink);}
 .bottom-nav-item .material-symbols-outlined{font-size:22px;}
 
+/* 大阪杯 最終結論ビッグボタン */
+.osaka-final-btn{
+  background:linear-gradient(135deg,#6b0012 0%,#B5002E 55%,#E8003D 100%);
+  border:2px solid rgba(232,0,61,.85)!important;
+  box-shadow:0 0 32px rgba(232,0,61,.45),inset 0 1px 0 rgba(255,255,255,.1);
+  padding:22px 22px!important;
+  animation:finalPulse 2.2s ease-in-out infinite;
+}
+@keyframes finalPulse{
+  0%,100%{box-shadow:0 0 32px rgba(232,0,61,.45),inset 0 1px 0 rgba(255,255,255,.1);}
+  50%{box-shadow:0 0 55px rgba(232,0,61,.75),0 0 80px rgba(232,0,61,.3),inset 0 1px 0 rgba(255,255,255,.1);}
+}
+.osaka-final-btn .osaka-label{font-size:10px;font-weight:900;color:rgba(255,220,220,.9);letter-spacing:.18em;margin-bottom:5px;text-transform:uppercase;}
+.osaka-final-btn .card-title{color:#fff!important;font-size:19px!important;}
+.osaka-final-btn .card-desc{color:rgba(255,255,255,.75)!important;}
+.osaka-final-btn .card-arrow{color:rgba(255,255,255,.7)!important;font-size:22px!important;}
+.osaka-final-btn:hover{transform:translateY(-2px)!important;box-shadow:0 0 60px rgba(232,0,61,.75)!important;}
 /* ── Footer ── */
 .page-footer{
   background:linear-gradient(135deg,#EDD9A3,#E8C898);
@@ -396,11 +413,11 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
     <div class="hero-content">
       <a href="final-display.html" class="hero-announce">
         <span class="hero-announce-badge">G1 大阪杯</span>
-        <span class="hero-announce-text">伏兵ジョーカー馬キャッチ</span>
+        <span class="hero-announce-text">馬場急上昇ジョーカー出現</span>
         <span class="hero-announce-arrow">›</span>
       </a>
       <div class="hero-scroll-hint">
-        🐶 AI自動買い目生成ディープラーニング中 🐶
+        💰大阪杯 ドル箱設定レースに変貌💰
       </div>
     </div>
   </section>
@@ -417,36 +434,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   <!-- ══ CONTENT ══ -->
   <div class="content">
 
-    <div class="section-label">今週の出走想定表</div>
-    <div class="card-grid">
-      <a href="soutei-2026-04-06.html" class="nav-card gold">
-        <div class="card-icon">📋</div>
-        <div>
-          <div class="card-title">4月6日(日) 特別レース データ分析</div>
-          <div class="card-desc">大阪杯<span class="grade-pill g1">G1</span></div>
-        </div>
-        <div class="card-arrow">›</div>
-      </a>
-      <a href="soutei-2026-04-05.html" class="nav-card">
-        <div class="card-icon">📋</div>
-        <div>
-          <div class="card-title">4月5日(土) 特別レース データ分析</div>
-          <div class="card-desc">チャーチルダウンズC<span class="grade-pill g3">G3</span>　ダービー卿CT<span class="grade-pill g3">G3</span></div>
-        </div>
-        <div class="card-arrow">›</div>
-      </a>
-    </div>
-
     <div class="section-label">予想・分析</div>
     <div class="card-grid">
-      <a href="final-display.html" class="nav-card">
-        <div class="card-icon">🎯</div>
-        <div>
-          <div class="card-title">最終予想</div>
-          <div class="card-desc">買い目・本命・軸馬</div>
+
+      <!-- 大阪杯 最終結論 ビッグボタン -->
+      <a href="final-display.html" class="nav-card osaka-final-btn full">
+        <div class="card-icon" style="font-size:28px;">🎯</div>
+        <div style="flex:1;">
+          <div class="osaka-label">G1 大阪杯 最終結論</div>
+          <div class="card-title">馬場急上昇ジョーカー × 買い目全公開</div>
+          <div class="card-desc">◎ショウヘイ ○ヨーホーレイク ▲タガノデュード</div>
         </div>
         <div class="card-arrow">›</div>
       </a>
+
       <a href="kinkai-display.html" class="nav-card">
         <div class="card-icon">🏅</div>
         <div>
@@ -455,10 +456,11 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
         </div>
         <div class="card-arrow">›</div>
       </a>
-      <a href="final-display.html" class="nav-card full">
+      <a href="final-display.html" class="nav-card">
         <div class="card-icon">🏆</div>
         <div>
           <div class="card-title">レース結果</div>
+          <div class="card-desc">的中・回収率チェック</div>
         </div>
         <div class="card-arrow">›</div>
       </a>
@@ -479,6 +481,22 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
         <div>
           <div class="card-title">馬券の買い方</div>
           <div class="card-desc">買い方ガイド・ルール</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+      <a href="soutei-2026-04-06.html" class="nav-card gold">
+        <div class="card-icon">📋</div>
+        <div>
+          <div class="card-title">4月6日(日) データ分析</div>
+          <div class="card-desc">大阪杯<span class="grade-pill g1">G1</span></div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+      <a href="soutei-2026-04-05.html" class="nav-card">
+        <div class="card-icon">📋</div>
+        <div>
+          <div class="card-title">4月5日(土) データ分析</div>
+          <div class="card-desc">チャーチルダウンズC<span class="grade-pill g3">G3</span>　ダービー卿CT<span class="grade-pill g3">G3</span></div>
         </div>
         <div class="card-arrow">›</div>
       </a>
