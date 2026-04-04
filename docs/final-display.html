@@ -766,7 +766,7 @@ function renderHeroCard(h, orderMap, noteHorse) {
     </div>
     ${oddsRowHtml}
     <div class="horse-info-rows">
-      ${infoRow('外厩', gaikuBadge(h.gaiku))}
+      ${infoRow('外厩', gaikuBadge(h.gaiku || (noteHorse && noteHorse.extFacility)))}
       ${infoRow('騎手', h.jockey ? `<span class="info-val">${esc(h.jockey)}</span>` : '<span class="info-val-muted">—</span>')}
       ${infoRow('厩舎', h.trainer ? `<span class="info-val">${esc(h.trainer)}</span>` : '<span class="info-val-muted">—</span>')}
       ${infoRow('父', h.sire ? `<span class="info-val">${esc(h.sire)}</span>` : '<span class="info-val-muted">—</span>')}
@@ -978,7 +978,7 @@ function renderResult(data, notes) {
   }
 }
 
-function renderCompactRows(horses, orderMap) {
+function renderCompactRows(horses, orderMap, notes) {
   if (!horses.length) return '';
   const dash = '<span style="color:rgba(255,255,255,.3)">—</span>';
   const hasResult = orderMap && Object.keys(orderMap).length > 0;
@@ -989,7 +989,9 @@ function renderCompactRows(horses, orderMap) {
       : '<span style="color:rgba(255,255,255,.25);font-size:10px;">—</span>';
     const wc = wakuClass(h.gate);
     const wakuDisp = h.gate ? `<span class="waku-badge ${wc}" style="font-size:9px;width:18px;height:18px;">${h.gate}</span>` : dash;
-    const gaikuDisp = h.gaiku ? gaikuBadge(h.gaiku) : dash;
+    const noteH = notes && notes.horses && notes.horses[h.name];
+    const gaikuVal = h.gaiku || (noteH && noteH.extFacility);
+    const gaikuDisp = gaikuVal ? gaikuBadge(gaikuVal) : dash;
     const rank = orderMap && orderMap[h.num];
     const rankDisp = rank
       ? `<span class="order-badge ${rankClsArr[rank-1]||'order-other'}" style="font-size:9px;padding:1px 6px;">${rank}着</span>`
@@ -1160,7 +1162,7 @@ function renderRaceDetail(data, notes) {
       <div class="divider"></div>` : ''}
       ${notes ? `<div class="sec-title">単複期待値ランキング</div>${sabcRankHtml(notes, data.horses)}` : ''}
       ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(h => renderHeroCard(h, orderMap, notes && notes.horses && notes.horses[h.name])).join('')}` : ''}
-      ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses, orderMap)}` : ''}
+      ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses, orderMap, notes)}` : ''}
       ${notes ? `<div class="sec-title" style="margin-top:14px;">全馬コメント</div>${allHorseCommentsHtml(notes, allHorses)}` : ''}
       <div class="divider"></div>
       ${notes ? `<div class="sec-title">推奨買い目（期待値ランキング1位）</div><div class="bets-grid">${sabcBetsHtml(notes, data.horses)}</div>` : ''}
