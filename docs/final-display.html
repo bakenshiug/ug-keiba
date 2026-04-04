@@ -304,7 +304,12 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .result-medal{font-size:20px;line-height:1;width:26px;text-align:center;flex-shrink:0;}
 .result-num-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;font-size:12px;font-weight:900;flex-shrink:0;}
 .result-mark{font-size:15px;font-weight:900;width:18px;text-align:center;flex-shrink:0;}
+.result-wrap .mark-○{color:#7dd3fc;text-shadow:0 0 6px rgba(125,211,252,.5);}
+.result-wrap .mark-▲{color:#fb923c;text-shadow:0 0 6px rgba(251,146,60,.5);}
+.result-wrap .mark-☆{color:#fde047;text-shadow:0 0 6px rgba(253,224,71,.5);}
+.result-wrap .mark-△{color:#86efac;text-shadow:0 0 6px rgba(134,239,172,.4);}
 .result-horse-name{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:900;color:#fff;flex:1;}
+.result-popularity{font-size:10px;color:rgba(255,255,255,.55);white-space:nowrap;margin-right:6px;}
 .result-rank-badge{font-size:11px;font-weight:900;padding:3px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);white-space:nowrap;background:rgba(255,255,255,.08);}
 /* 払い戻しセクション */
 .result-payout-head{background:linear-gradient(90deg,rgba(232,0,61,.5),rgba(150,0,30,.5));padding:8px 18px;font-size:10px;font-weight:900;letter-spacing:.14em;color:#fff;text-transform:uppercase;}
@@ -850,7 +855,7 @@ function calcInvestment2jiku(horses) {
   return { total: 100 + 100 + 200 + N * 100 + 6 * N * 100, jiku: '2', pts3renpuku: N, pts3rentan: 6 * N, opponentCount: N };
 }
 
-function renderResult(data) {
+function renderResult(data, notes) {
   const res = data.result;
   if (!res) return '';
   const isHit = res.hitFlag;
@@ -864,17 +869,28 @@ function renderResult(data) {
   const numToName = {};
   (data.horses||[]).forEach(h => { if(h.num) numToName[h.num] = h.name || ''; });
 
+  // 馬名→人気マップ（notes.horsesから引き当て）
+  const namePopMap = {};
+  if (notes && notes.horses) {
+    Object.entries(notes.horses).forEach(([n, v]) => {
+      if (v && v.popularity) namePopMap[n] = v.popularity;
+    });
+  }
+
   // 着順リスト
   const orderRows = (res.top3||[]).map((h,i) => {
     const mk = numMark[h.num] || '';
     const wc = h.num ? `waku-${Math.min(h.gate||Math.ceil(h.num/2),8)}` : '';
     const rankBadgeCls = ['order-1st','order-2nd','order-3rd'][i] || 'order-other';
     const name = h.name || numToName[h.num] || '';
+    const pop = namePopMap[name];
+    const popHtml = pop ? `<span class="result-popularity">${pop}番人気</span>` : '';
     return `<div class="result-order-row">
       <span class="result-medal">${medals[i]||''}</span>
       <span class="result-num-badge ${wc}" style="font-size:11px;">${h.num}</span>
       <span class="result-mark ${mk ? markClsMap[mk] : ''}">${mk||'　'}</span>
       <span class="result-horse-name">${esc(name)}</span>
+      ${popHtml}
       <span class="result-rank-badge ${rankBadgeCls}">${i+1}着</span>
     </div>`;
   }).join('');
@@ -1116,7 +1132,7 @@ function renderRaceDetail(data, notes) {
       </div>
     </div>
     <div class="race-body">
-      ${renderResult(data)}
+      ${renderResult(data, notes)}
       ${data.result ? '<div class="divider"></div>' : ''}
       ${data.raceCondNote ? `<div class="cond-note">🏟️ ${esc(data.raceCondNote).replace(/\n/g,'<br>')}</div>` : ''}
       ${data.postRaceLesson ? `
