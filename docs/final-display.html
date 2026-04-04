@@ -328,6 +328,8 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .result-kaishuri-pct.miss{color:rgba(232,0,61,.85);}
 /* 振り返りノート */
 .result-note-wrap{background:rgba(0,0,0,.15);padding:10px 18px;font-size:12px;line-height:1.65;color:rgba(255,255,255,.65);border-top:1px solid rgba(255,255,255,.06);}
+/* 馬場設定急上昇バッジ */
+.wet-rise-badge{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:900;padding:2px 8px;border-radius:10px;background:linear-gradient(90deg,rgba(29,78,216,.25),rgba(16,185,129,.2));color:#34d399;border:1px solid rgba(52,211,153,.4);letter-spacing:.04em;white-space:nowrap;margin-left:6px;flex-shrink:0;}
 /* 今後への教訓 */
 .lesson-wrap{background:linear-gradient(135deg,rgba(15,23,42,.85),rgba(30,27,75,.7));border:1px solid rgba(139,92,246,.3);border-radius:16px;overflow:hidden;margin-top:14px;}
 .lesson-header{padding:10px 16px;background:linear-gradient(90deg,rgba(139,92,246,.25),rgba(139,92,246,.08));border-bottom:1px solid rgba(139,92,246,.2);display:flex;align-items:center;gap:8px;font-size:10px;font-weight:900;letter-spacing:.16em;color:#c4b5fd;text-transform:uppercase;}
@@ -723,13 +725,15 @@ function renderHeroCard(h, orderMap, noteHorse) {
   const oddsRowHtml = (popLabel || oddsLabel)
     ? `<div class="odds-row">${popLabel}${oddsLabel ? `<span class="odds-sep">単</span>${oddsLabel}` : ''}${fukuLabel ? `<span class="odds-sep">複</span>${fukuLabel}` : ''}</div>`
     : '';
+  const wetRiseBadge = h.wetRise
+    ? `<span class="wet-rise-badge">⬆ 馬場設定急上昇</span>` : '';
   return `
   <div class="horse-hero ${meta.cls}">
     <span class="horse-hero-mark">${meta.icon}</span>
     <div class="hero-rank-pill">${esc(meta.label)}</div>
     <div class="horse-hero-name">
       <span class="horse-num-badge">${h.num}</span>
-      <span>${esc(h.name)}</span>${rankBadge}
+      <span>${esc(h.name)}</span>${rankBadge}${wetRiseBadge}
     </div>
     <div class="horse-hero-top">
       <div style="display:flex;align-items:center;gap:6px;">
@@ -957,10 +961,12 @@ function renderCompactRows(horses, orderMap) {
     const rankDisp = rank
       ? `<span class="order-badge ${rankClsArr[rank-1]||'order-other'}" style="font-size:9px;padding:1px 6px;">${rank}着</span>`
       : (hasResult ? `<span style="color:rgba(255,255,255,.25);font-size:10px;">—</span>` : '');
+    const wetRiseDisp = h.wetRise
+      ? `<span class="wet-rise-badge" style="font-size:8px;padding:1px 5px;">⬆ 馬場↑</span>` : '';
     return `<tr>
       <td>${wakuDisp}</td>
       <td style="font-weight:700;color:rgba(255,255,255,.8);">${h.num}</td>
-      <td class="tbl-name">${esc(h.name)}</td>
+      <td class="tbl-name">${esc(h.name)}${wetRiseDisp}</td>
       <td class="tbl-sub">${gaikuDisp}</td>
       <td class="tbl-sub">${h.jockey ? esc(h.jockey) : dash}</td>
       <td class="tbl-sub">${h.trainer ? esc(h.trainer) : dash}</td>
