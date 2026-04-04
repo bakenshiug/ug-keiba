@@ -1081,8 +1081,8 @@ function renderRaceDetail(data, notes) {
         </div>
       </div>`;
       return banner
-        + betRow('馬単',  `◎→${opMarks} 流し ${N}点`)
-        + betRow('三連複', `◎1頭軸 → 相手${N}頭（${opMarks}） ${pts}点`, ' bet-row-jiku')
+        + betRow('馬単', bets['馬単'] || `◎→${opMarks} 流し ${N}点`)
+        + betRow('三連複', bets['三連複'] || `◎1頭軸 → 相手${N}頭（${opMarks}） ${pts}点`, ' bet-row-jiku')
         + (bets['三連単1着固定'] ? betRow('三連単1着固定', bets['三連単1着固定']) : '');
     }
 
