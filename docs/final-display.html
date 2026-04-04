@@ -328,6 +328,12 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .result-kaishuri-pct.miss{color:rgba(232,0,61,.85);}
 /* 振り返りノート */
 .result-note-wrap{background:rgba(0,0,0,.15);padding:10px 18px;font-size:12px;line-height:1.65;color:rgba(255,255,255,.65);border-top:1px solid rgba(255,255,255,.06);}
+/* 今後への教訓 */
+.lesson-wrap{background:linear-gradient(135deg,rgba(15,23,42,.85),rgba(30,27,75,.7));border:1px solid rgba(139,92,246,.3);border-radius:16px;overflow:hidden;margin-top:14px;}
+.lesson-header{padding:10px 16px;background:linear-gradient(90deg,rgba(139,92,246,.25),rgba(139,92,246,.08));border-bottom:1px solid rgba(139,92,246,.2);display:flex;align-items:center;gap:8px;font-size:10px;font-weight:900;letter-spacing:.16em;color:#c4b5fd;text-transform:uppercase;}
+.lesson-body{padding:14px 16px;font-size:12px;line-height:1.85;color:rgba(255,255,255,.82);}
+.lesson-body p{margin-bottom:10px;}
+.lesson-body p:last-child{margin-bottom:0;}
 /* ヒーローカード内の着順バッジ */
 .order-badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:10px;margin-left:6px;white-space:nowrap;}
 .order-1st{background:rgba(255,215,0,.25);color:#ffd700;border:1px solid rgba(255,215,0,.4);}
@@ -930,9 +936,11 @@ function renderResult(data) {
   }
 }
 
-function renderCompactRows(horses) {
+function renderCompactRows(horses, orderMap) {
   if (!horses.length) return '';
   const dash = '<span style="color:rgba(255,255,255,.3)">—</span>';
+  const hasResult = orderMap && Object.keys(orderMap).length > 0;
+  const rankClsArr = ['order-1st','order-2nd','order-3rd'];
   const rows = horses.map(h => {
     const markDisp = h.mark
       ? `<span class="mark-badge mark-${h.mark}">${h.mark}</span>`
@@ -940,6 +948,10 @@ function renderCompactRows(horses) {
     const wc = wakuClass(h.gate);
     const wakuDisp = h.gate ? `<span class="waku-badge ${wc}" style="font-size:9px;width:18px;height:18px;">${h.gate}</span>` : dash;
     const gaikuDisp = h.gaiku ? gaikuBadge(h.gaiku) : dash;
+    const rank = orderMap && orderMap[h.num];
+    const rankDisp = rank
+      ? `<span class="order-badge ${rankClsArr[rank-1]||'order-other'}" style="font-size:9px;padding:1px 6px;">${rank}着</span>`
+      : (hasResult ? `<span style="color:rgba(255,255,255,.25);font-size:10px;">—</span>` : '');
     return `<tr>
       <td>${wakuDisp}</td>
       <td style="font-weight:700;color:rgba(255,255,255,.8);">${h.num}</td>
@@ -950,12 +962,14 @@ function renderCompactRows(horses) {
       <td class="tbl-sub" style="font-size:10px;max-width:90px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${h.lastRace ? esc(h.lastRace) : dash}</td>
       <td>${markDisp}</td>
       <td class="pt-val" style="color:var(--gold);font-weight:900;">${h.totalPt}</td>
+      ${hasResult ? `<td>${rankDisp}</td>` : ''}
     </tr>`;
   }).join('');
+  const resultTh = hasResult ? '<th>着順</th>' : '';
   return `
   <div class="compact-table-wrap">
     <table class="horse-tbl">
-      <thead><tr><th>枠</th><th>番</th><th style="text-align:left;">馬名</th><th style="text-align:left;">外厩</th><th style="text-align:left;">騎手</th><th style="text-align:left;">厩舎</th><th style="text-align:left;">前走</th><th>印</th><th>pt</th></tr></thead>
+      <thead><tr><th>枠</th><th>番</th><th style="text-align:left;">馬名</th><th style="text-align:left;">外厩</th><th style="text-align:left;">騎手</th><th style="text-align:left;">厩舎</th><th style="text-align:left;">前走</th><th>印</th><th>pt</th>${resultTh}</tr></thead>
       <tbody>${rows}</tbody>
     </table>
   </div>`;
@@ -974,12 +988,18 @@ function renderRaceDetail(data, notes) {
   const heroHorses = allHorses.filter(h => h.mark && MARK_META[h.mark]);
   const restHorses = allHorses.filter(h => !h.mark || !MARK_META[h.mark] || h.mark==='×');
 
-  // 着順マップ: {馬番 → 順位(1/2/3)}
+  // 着順マップ: {馬番 → 順位}（全着順対応）
   const orderMap = {};
-  if (data.result && data.result.top3) {
-    data.result.top3.forEach((entry, i) => {
-      if (entry && entry.num) orderMap[entry.num] = i + 1;
-    });
+  if (data.result) {
+    if (data.result.finishOrder) {
+      data.result.finishOrder.forEach((num, i) => {
+        if (num) orderMap[num] = i + 1;
+      });
+    } else if (data.result.top3) {
+      data.result.top3.forEach((entry, i) => {
+        if (entry && entry.num) orderMap[entry.num] = i + 1;
+      });
+    }
   }
 
   // 統一買い目を印から自動生成（◎抜け時は1頭軸に切替）
@@ -1090,7 +1110,7 @@ function renderRaceDetail(data, notes) {
       ${data.raceCondNote ? `<div class="cond-note">🏟️ ${esc(data.raceCondNote).replace(/\n/g,'<br>')}</div>` : ''}
       ${notes ? `<div class="sec-title">単複期待値ランキング</div>${sabcRankHtml(notes, data.horses)}` : ''}
       ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(h => renderHeroCard(h, orderMap, notes && notes.horses && notes.horses[h.name])).join('')}` : ''}
-      ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses)}` : ''}
+      ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses, orderMap)}` : ''}
       ${notes ? `<div class="sec-title" style="margin-top:14px;">全馬コメント</div>${allHorseCommentsHtml(notes, allHorses)}` : ''}
       <div class="divider"></div>
       ${notes ? `<div class="sec-title">推奨買い目（期待値ランキング1位）</div><div class="bets-grid">${sabcBetsHtml(notes, data.horses)}</div>` : ''}
@@ -1103,6 +1123,11 @@ function renderRaceDetail(data, notes) {
       ${lapAnalysisHtml(notes) ? `<div class="section-head">ラップ分析</div>${lapAnalysisHtml(notes)}` : ''}
       ${wetPickHtml(notes, data.horses) ? `<div class="section-head">重馬場メモ</div>${wetPickHtml(notes, data.horses)}` : ''}
       ` : ''}
+      ${data.postRaceLesson ? `
+      <div class="lesson-wrap">
+        <div class="lesson-header">📝 今後への教訓</div>
+        <div class="lesson-body">${data.postRaceLesson.split('\n\n').map(p => `<p>${esc(p)}</p>`).join('')}</div>
+      </div>` : ''}
     </div>
   </div>`;
 }
