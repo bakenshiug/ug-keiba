@@ -297,7 +297,7 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .result-hit-bets-banner{background:rgba(0,0,0,.35);border-radius:0;padding:8px 18px;display:flex;flex-wrap:wrap;gap:6px;}
 .result-hit-bet{font-size:12px;font-weight:700;color:#fff;display:flex;align-items:center;gap:4px;}
 /* 着順セクション */
-.result-order-head{padding:10px 18px 6px;font-size:10px;font-weight:900;letter-spacing:.12em;color:rgba(28,43,74,.55);text-transform:uppercase;background:rgba(0,0,0,.2);}
+.result-order-head{padding:10px 18px 6px;font-size:10px;font-weight:900;letter-spacing:.12em;color:rgba(255,255,255,.55);text-transform:uppercase;background:rgba(0,0,0,.2);}
 .result-order-list{padding:6px 18px 12px;display:flex;flex-direction:column;gap:0;background:rgba(0,0,0,.15);}
 .result-order-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);}
 .result-order-row:last-child{border-bottom:none;}
@@ -856,16 +856,21 @@ function renderResult(data) {
   const numMark = {};
   (data.horses||[]).forEach(h => { if(h.mark) numMark[h.num] = h.mark; });
 
+  // 馬番→馬名マップ（data.horsesから引き当て）
+  const numToName = {};
+  (data.horses||[]).forEach(h => { if(h.num) numToName[h.num] = h.name || ''; });
+
   // 着順リスト
   const orderRows = (res.top3||[]).map((h,i) => {
     const mk = numMark[h.num] || '';
     const wc = h.num ? `waku-${Math.min(h.gate||Math.ceil(h.num/2),8)}` : '';
     const rankBadgeCls = ['order-1st','order-2nd','order-3rd'][i] || 'order-other';
+    const name = h.name || numToName[h.num] || '';
     return `<div class="result-order-row">
       <span class="result-medal">${medals[i]||''}</span>
       <span class="result-num-badge ${wc}" style="font-size:11px;">${h.num}</span>
       <span class="result-mark ${mk ? markClsMap[mk] : ''}">${mk||'　'}</span>
-      <span class="result-horse-name">${esc(h.name)}</span>
+      <span class="result-horse-name">${esc(name)}</span>
       <span class="result-rank-badge ${rankBadgeCls}">${i+1}着</span>
     </div>`;
   }).join('');
