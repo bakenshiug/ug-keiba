@@ -6,79 +6,80 @@
 <title>来週の出走予定馬 | UG競馬</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:#0a0f1e;color:#e8edf8;font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;min-height:100vh;}
+body{background:linear-gradient(160deg,#1a0510 0%,#150318 40%,#0f0a1a 100%);color:#f0e6f0;font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;min-height:100vh;}
 
 /* ── ヘッダー ── */
 .page-header{
-  background:linear-gradient(135deg,#0d1b3e,#1a2f5e);
-  border-bottom:1px solid rgba(100,160,255,.2);
+  background:linear-gradient(135deg,#3d0a20,#6b1040,#3d0a20);
+  border-bottom:2px solid rgba(255,150,200,.25);
   padding:14px 20px;
   display:flex;align-items:center;gap:14px;
   position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 20px rgba(220,50,120,.2);
 }
 .back-btn{
   display:inline-flex;align-items:center;gap:5px;
-  font-size:12px;font-weight:700;color:rgba(180,210,255,.8);
+  font-size:12px;font-weight:700;color:rgba(255,182,210,.9);
   text-decoration:none;padding:5px 10px;border-radius:8px;
-  border:1px solid rgba(100,160,255,.3);
+  border:1px solid rgba(255,150,200,.35);
   transition:background .15s;
 }
-.back-btn:hover{background:rgba(100,160,255,.12);}
+.back-btn:hover{background:rgba(255,100,160,.15);}
 .page-title{font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;}
-.page-sub{font-size:10px;color:rgba(180,210,255,.6);letter-spacing:.05em;margin-top:1px;}
+.page-sub{font-size:10px;color:rgba(255,182,210,.65);letter-spacing:.05em;margin-top:1px;}
 
 /* ── バナー（大阪杯→桜花賞） ── */
 .breadcrumb-banner{
   margin:16px 16px 0;padding:12px 16px;border-radius:12px;
-  background:linear-gradient(135deg,#1a1030,#2a1548,#1a1030);
-  border:1px solid rgba(200,100,255,.25);
+  background:linear-gradient(135deg,rgba(120,20,60,.5),rgba(180,30,90,.3),rgba(120,20,60,.5));
+  border:1px solid rgba(255,130,180,.2);
   display:flex;align-items:center;gap:8px;flex-wrap:wrap;
 }
-.bc-item{font-size:11px;font-weight:700;color:rgba(200,160,255,.7);}
-.bc-sep{font-size:13px;color:rgba(200,100,255,.5);font-weight:900;}
-.bc-current{font-size:12px;font-weight:900;color:#f9a8d4;}
+.bc-item{font-size:11px;font-weight:700;color:rgba(255,182,210,.65);}
+.bc-sep{font-size:13px;color:rgba(255,130,180,.5);font-weight:900;}
+.bc-current{font-size:12px;font-weight:900;color:#fda4c8;}
 
 /* ── レースセクション ── */
 .section{margin:16px 12px 0;}
 .race-header{
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
   padding:12px 16px;border-radius:12px 12px 0 0;
-  background:linear-gradient(90deg,rgba(30,50,100,.9),rgba(20,35,75,.7));
-  border:1px solid rgba(100,160,255,.2);border-bottom:none;
+  background:linear-gradient(90deg,rgba(100,20,55,.85),rgba(70,10,40,.7));
+  border:1px solid rgba(255,130,180,.2);border-bottom:none;
 }
 .race-grade{
   font-size:10px;font-weight:900;padding:3px 8px;border-radius:5px;
   letter-spacing:.06em;white-space:nowrap;
 }
 .grade-g1{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a1000;}
-.grade-g2{background:linear-gradient(135deg,#c0c0e0,#9090b0);color:#0a0a20;}
+.grade-g2{background:linear-gradient(135deg,#e8b0c8,#c080a0);color:#2a0a1a;}
 .race-name{font-size:15px;font-weight:900;color:#fff;letter-spacing:.04em;}
-.race-meta{font-size:10px;color:rgba(180,210,255,.6);margin-left:auto;}
+.race-meta{font-size:10px;color:rgba(255,182,210,.55);margin-left:auto;}
 
 /* ── テーブル ── */
 .table-wrap{
   overflow-x:auto;
-  border:1px solid rgba(100,160,255,.18);
+  border:1px solid rgba(255,130,180,.15);
   border-top:none;border-radius:0 0 12px 12px;
-  background:rgba(10,20,50,.6);
+  background:rgba(30,5,20,.55);
 }
 table{width:100%;border-collapse:collapse;min-width:520px;}
 thead th{
-  font-size:10px;font-weight:900;letter-spacing:.06em;color:rgba(180,210,255,.7);
-  padding:8px 10px;background:rgba(20,40,90,.8);
-  border-bottom:1px solid rgba(100,160,255,.15);
+  font-size:10px;font-weight:900;letter-spacing:.06em;color:rgba(255,182,210,.7);
+  padding:8px 10px;background:rgba(80,10,45,.7);
+  border-bottom:1px solid rgba(255,130,180,.15);
   text-align:left;white-space:nowrap;
 }
-tbody tr{border-bottom:1px solid rgba(100,160,255,.08);transition:background .1s;}
-tbody tr:hover{background:rgba(100,160,255,.07);}
+tbody tr{border-bottom:1px solid rgba(255,130,180,.07);transition:background .1s;}
+tbody tr:hover{background:rgba(255,100,160,.06);}
 tbody tr:last-child{border-bottom:none;}
 td{padding:9px 10px;font-size:12px;vertical-align:middle;}
 
-.td-num{width:32px;text-align:center;font-weight:900;color:rgba(180,210,255,.6);font-size:11px;}
-.td-name{font-weight:900;color:#e8edf8;white-space:nowrap;}
-.td-sire{color:rgba(220,235,255,.8);font-size:11px;}
-.td-damsire{color:rgba(180,210,255,.65);font-size:11px;}
-.td-trainer{color:rgba(180,210,255,.7);font-size:11px;white-space:nowrap;}
+.td-num{width:32px;text-align:center;font-weight:900;color:rgba(255,182,210,.5);font-size:11px;}
+.td-name{font-weight:900;color:#f5e0ec;white-space:nowrap;}
+.td-sire{color:rgba(240,210,230,.8);font-size:11px;}
+.td-damsire{color:rgba(220,180,210,.65);font-size:11px;}
+.td-trainer{color:rgba(220,180,210,.7);font-size:11px;white-space:nowrap;}
 
 /* 外厩バッジ */
 .ext-badge{
@@ -86,20 +87,20 @@ td{padding:9px 10px;font-size:12px;vertical-align:middle;}
   padding:2px 8px;border-radius:10px;white-space:nowrap;
 }
 .ext-northern-tei{background:rgba(251,191,36,.2);color:#fcd34d;border:1px solid rgba(251,191,36,.3);}
-.ext-northern-shi{background:rgba(59,130,246,.2);color:#93c5fd;border:1px solid rgba(59,130,246,.3);}
+.ext-northern-shi{background:rgba(96,165,250,.2);color:#93c5fd;border:1px solid rgba(96,165,250,.3);}
 .ext-champion   {background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.3);}
 .ext-yamamoto   {background:rgba(249,115,22,.2);color:#fdba74;border:1px solid rgba(249,115,22,.3);}
 .ext-canyon     {background:rgba(168,85,247,.2);color:#d8b4fe;border:1px solid rgba(168,85,247,.3);}
 .ext-esutei     {background:rgba(236,72,153,.2);color:#f9a8d4;border:1px solid rgba(236,72,153,.3);}
-.ext-other      {background:rgba(100,116,139,.2);color:#cbd5e1;border:1px solid rgba(100,116,139,.3);}
-.ext-zaiku      {background:rgba(50,60,80,.4);color:rgba(150,170,200,.5);border:1px solid rgba(100,120,160,.15);font-style:italic;}
+.ext-other      {background:rgba(180,100,140,.2);color:#e8b4cc;border:1px solid rgba(180,100,140,.3);}
+.ext-zaiku      {background:rgba(60,20,40,.5);color:rgba(200,150,175,.45);border:1px solid rgba(180,80,120,.12);font-style:italic;}
 
 /* ── フッター ── */
 .page-footer{
   text-align:center;padding:32px 16px;
-  font-size:10px;color:rgba(100,130,180,.4);letter-spacing:.08em;
+  font-size:10px;color:rgba(200,100,150,.35);letter-spacing:.08em;
 }
-.loading{text-align:center;padding:40px;color:rgba(180,210,255,.5);font-size:13px;}
+.loading{text-align:center;padding:40px;color:rgba(255,182,210,.5);font-size:13px;}
 </style>
 </head>
 <body>
