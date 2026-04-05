@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-29",
+  "lastUpdated": "2026-04-06",
   "weeks": [
     {
       "weekId": "2026-W13",
@@ -9,47 +9,192 @@
           "raceName": "日経賞 G2",
           "course": "中山芝2500m",
           "date": "2026-03-28",
-          "hitBets": ["馬単", "三連複"],
+          "hitBets": [
+            "馬単",
+            "三連複"
+          ],
           "returnAmount": 6700,
           "investment": 5100,
           "picks": [
-            { "name": "ミクニインスパイア", "mark": "◎", "result": { "chakujun": 2,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "コスモキュランダ",   "mark": "○", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "アスクナイスショー", "mark": "▲", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "マイユニバース",     "mark": "☆", "result": { "chakujun": 1,  "tanOdds": "7.0", "fukuOdds": null } },
-            { "name": "チャックネイト",     "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "ローシャムパーク",   "mark": "△", "result": { "chakujun": 3,  "tanOdds": null, "fukuOdds": null } }
+            {
+              "name": "ミクニインスパイア",
+              "mark": "◎",
+              "result": {
+                "chakujun": 2,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "コスモキュランダ",
+              "mark": "○",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "アスクナイスショー",
+              "mark": "▲",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "マイユニバース",
+              "mark": "☆",
+              "result": {
+                "chakujun": 1,
+                "tanOdds": "7.0",
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "チャックネイト",
+              "mark": "△",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ローシャムパーク",
+              "mark": "△",
+              "result": {
+                "chakujun": 3,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            }
           ]
         },
         {
           "raceName": "毎日杯 G3",
           "course": "阪神芝1800m",
           "date": "2026-03-28",
-          "hitBets": ["単勝", "馬単", "三連複"],
+          "hitBets": [
+            "単勝",
+            "馬単",
+            "三連複"
+          ],
           "returnAmount": 1780,
           "investment": 1900,
           "picks": [
-            { "name": "アルトラムス",       "mark": "◎", "result": { "chakujun": 1,  "tanOdds": "2.4", "fukuOdds": null } },
-            { "name": "カフジエメンタール", "mark": "○", "result": { "chakujun": 3,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "フレイムスター",     "mark": "▲", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "ローベルクランツ",   "mark": "△", "result": { "chakujun": 2,  "tanOdds": null, "fukuOdds": null } }
+            {
+              "name": "アルトラムス",
+              "mark": "◎",
+              "result": {
+                "chakujun": 1,
+                "tanOdds": "2.4",
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "カフジエメンタール",
+              "mark": "○",
+              "result": {
+                "chakujun": 3,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "フレイムスター",
+              "mark": "▲",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ローベルクランツ",
+              "mark": "△",
+              "result": {
+                "chakujun": 2,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            }
           ]
         },
         {
           "raceName": "マーチS G3",
           "course": "中山ダート1800m",
           "date": "2026-03-29",
-          "hitBets": ["三連複"],
+          "hitBets": [
+            "三連複"
+          ],
           "returnAmount": 17960,
           "investment": 1500,
           "picks": [
-            { "name": "ブレイクフォース",   "mark": "◎", "result": { "chakujun": 3,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "チュウワクリスエス", "mark": "○", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "オメガギネス",       "mark": "▲", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "ミッキーヌチバナ",   "mark": "☆", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "ヴァルツァーシャル", "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "アクションプラン",   "mark": "△", "result": { "chakujun": 2,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "サンデーファンデー", "mark": "△", "result": { "chakujun": 1,  "tanOdds": "12.8", "fukuOdds": null } }
+            {
+              "name": "ブレイクフォース",
+              "mark": "◎",
+              "result": {
+                "chakujun": 3,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "チュウワクリスエス",
+              "mark": "○",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "オメガギネス",
+              "mark": "▲",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ミッキーヌチバナ",
+              "mark": "☆",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ヴァルツァーシャル",
+              "mark": "△",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "アクションプラン",
+              "mark": "△",
+              "result": {
+                "chakujun": 2,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "サンデーファンデー",
+              "mark": "△",
+              "result": {
+                "chakujun": 1,
+                "tanOdds": "12.8",
+                "fukuOdds": null
+              }
+            }
           ]
         },
         {
@@ -60,13 +205,319 @@
           "returnAmount": 0,
           "investment": 3000,
           "picks": [
-            { "name": "パンジャタワー",     "mark": "◎", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "ナムラクレア",       "mark": "○", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "サトノレーヴ",       "mark": "▲", "result": { "chakujun": 1,  "tanOdds": "3.5", "fukuOdds": null } },
-            { "name": "ダノンマッキンリー", "mark": "☆", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "ママコチャ",         "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "レイピア",           "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } },
-            { "name": "ジューンブレア",     "mark": "△", "result": { "chakujun": 4,  "tanOdds": null, "fukuOdds": null } }
+            {
+              "name": "パンジャタワー",
+              "mark": "◎",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ナムラクレア",
+              "mark": "○",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "サトノレーヴ",
+              "mark": "▲",
+              "result": {
+                "chakujun": 1,
+                "tanOdds": "3.5",
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ダノンマッキンリー",
+              "mark": "☆",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ママコチャ",
+              "mark": "△",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "レイピア",
+              "mark": "△",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ジューンブレア",
+              "mark": "△",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "weekId": "2026-W14",
+      "label": "4月5日〜6日",
+      "races": [
+        {
+          "raceName": "ダービー卿チャレンジT G3",
+          "course": "中山芝1600m",
+          "date": "2026-04-05",
+          "hitBets": [
+            "複勝"
+          ],
+          "returnAmount": 0,
+          "investment": 0,
+          "picks": [
+            {
+              "name": "ファーヴェント",
+              "mark": "◎",
+              "betType": "単複",
+              "result": {
+                "chakujun": 3,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "サイルーン",
+              "mark": "○",
+              "betType": "複勝",
+              "result": {
+                "chakujun": 2,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "イミグラントソング",
+              "mark": "▲",
+              "betType": null,
+              "result": {
+                "chakujun": 5,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ケイアイセナ",
+              "mark": "☆",
+              "betType": null,
+              "result": {
+                "chakujun": 10,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "メタルスピード",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 9,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ミニトランザット",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 4,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ブエナオンダ",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 6,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            }
+          ]
+        },
+        {
+          "raceName": "チャーチルダウンズT G3",
+          "course": "阪神芝1600m",
+          "date": "2026-04-05",
+          "hitBets": [
+            "複勝"
+          ],
+          "returnAmount": 0,
+          "investment": 0,
+          "picks": [
+            {
+              "name": "シーミハットク",
+              "mark": "◎",
+              "betType": "単複",
+              "result": {
+                "chakujun": 5,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "サンダーストラック",
+              "mark": "○",
+              "betType": null,
+              "result": {
+                "chakujun": 6,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "アンドゥーリル",
+              "mark": "▲",
+              "betType": null,
+              "result": {
+                "chakujun": 7,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "バルセシート",
+              "mark": "☆",
+              "betType": "複勝",
+              "result": {
+                "chakujun": 3,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "アスクイキゴミ",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 1,
+                "tanOdds": "9.2",
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "リゾートアイランド",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 8,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "サトノセプター",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 9,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            }
+          ]
+        },
+        {
+          "raceName": "大阪杯 G1",
+          "course": "阪神芝2000m",
+          "date": "2026-04-06",
+          "hitBets": [],
+          "returnAmount": 0,
+          "investment": 4300,
+          "picks": [
+            {
+              "name": "ショウヘイ",
+              "mark": "◎",
+              "betType": "単勝",
+              "result": {
+                "chakujun": 10,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "タガノデュード",
+              "mark": "○",
+              "betType": "単複",
+              "result": {
+                "chakujun": 4,
+                "tanOdds": "113.2",
+                "fukuOdds": "9.4"
+              }
+            },
+            {
+              "name": "デビットバローズ",
+              "mark": "▲",
+              "betType": null,
+              "result": {
+                "chakujun": 8,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "ヨーホーレイク",
+              "mark": "☆",
+              "betType": null,
+              "result": {
+                "chakujun": 7,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "エコロヴァルツ",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 14,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "レーベンスティール",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 6,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            },
+            {
+              "name": "エコロディノス",
+              "mark": "△",
+              "betType": null,
+              "result": {
+                "chakujun": 15,
+                "tanOdds": null,
+                "fukuOdds": null
+              }
+            }
           ]
         }
       ]
