@@ -227,15 +227,19 @@ const BET_CLASS = {
 };
 
 function calcInvestment(picks) {
-  const A = [], B = [], C = [];
+  const A = [], B = [], C = [], O = [];
   (picks || []).forEach((h, i) => {
     const m = h.mark || '';
-    if (m === '◎' || m === '○')      { A.push(i); B.push(i); C.push(i); }
-    else if (m === '▲' || m === '☆') { B.push(i); C.push(i); }
-    else if (m === '△')               { C.push(i); }
+    if (m === '◎')                      { A.push(i); B.push(i); C.push(i); }
+    else if (m === '○')                  { A.push(i); B.push(i); C.push(i); O.push(i); }
+    else if (m === '▲' || m === '☆')   { B.push(i); C.push(i); }
+    else if (m === '△')                  { C.push(i); }
   });
   const inba = B.length + C.filter(i => !B.includes(i)).length;
-  const tansho = 100, batan = inba * 2 * 100;
+  // 単勝:◎×1000円、複勝:○×1000円、馬単/三連複/三連単:100円/line
+  const tansho  = (A.length - O.length) * 1000; // ◎の数 × 1000
+  const fukusho = O.length * 1000;               // ○の数 × 1000
+  const batan   = inba * 2 * 100;
   let fuku = 0;
   for (let i = 0; i < C.length; i++)
     for (let j = i+1; j < C.length; j++)
@@ -246,7 +250,7 @@ function calcInvestment(picks) {
   let tan = 0;
   for (const a of A) for (const b of B) { if (b===a) continue;
     for (const c of C) { if (c===a||c===b) continue; tan++; } }
-  return { total: tansho + batan + fuku*100 + tan*100 };
+  return { total: tansho + fukusho + batan + fuku*100 + tan*100 };
 }
 
 async function loadHistory() {
