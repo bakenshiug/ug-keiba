@@ -3,104 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>来週の出走予定馬 | UG競馬</title>
+<title>出走予定馬 分析 | UG競馬</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:linear-gradient(160deg,#2a0518 0%,#3d0825 50%,#280416 100%);color:#fff;font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;min-height:100vh;}
+:root{
+  --bg1:#2a0518;--bg2:#3d0825;--bg3:#280416;
+  --pink:#e8306e;--pink-dk:#c0185a;--pink-lt:#ff6fa8;
+  --gold:#fcd34d;
+  --card:rgba(255,255,255,.06);--border:rgba(255,140,185,.18);
+  --text:#fff;--muted:rgba(255,210,230,.65);
+  --zi-s:#fcd34d;--zi-a:#86efac;--zi-b:#93c5fd;--zi-c:#fda4af;--zi-d:rgba(255,150,160,.45);
+}
+html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);color:var(--text);font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;min-height:100vh;}
 
 /* ── ヘッダー ── */
 .page-header{
   background:linear-gradient(135deg,#7b1040,#c01860,#7b1040);
   border-bottom:2px solid rgba(255,160,200,.35);
-  padding:14px 20px;
-  display:flex;align-items:center;gap:14px;
-  position:sticky;top:0;z-index:100;
+  padding:12px 16px;
+  display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:200;
   box-shadow:0 2px 24px rgba(220,30,100,.35);
 }
 .back-btn{
-  display:inline-flex;align-items:center;gap:5px;
+  display:inline-flex;align-items:center;gap:4px;
   font-size:12px;font-weight:700;color:#fff;
   text-decoration:none;padding:5px 10px;border-radius:8px;
-  border:1px solid rgba(255,200,220,.45);
-  transition:background .15s;
+  border:1px solid rgba(255,200,220,.4);
+  white-space:nowrap;flex-shrink:0;
 }
-.back-btn:hover{background:rgba(255,120,180,.2);}
 .page-title{font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;}
-.page-sub{font-size:10px;color:rgba(255,210,230,.8);letter-spacing:.05em;margin-top:1px;}
+.page-sub{font-size:10px;color:rgba(255,210,230,.8);margin-top:1px;}
 
-/* ── バナー（大阪杯→桜花賞） ── */
+/* ── バナー ── */
 .breadcrumb-banner{
-  margin:16px 16px 0;padding:12px 16px;border-radius:12px;
-  background:linear-gradient(135deg,rgba(180,30,80,.5),rgba(220,50,110,.35),rgba(180,30,80,.5));
-  border:1px solid rgba(255,150,190,.3);
+  padding:10px 16px;
+  background:linear-gradient(135deg,rgba(180,30,80,.45),rgba(220,50,110,.3),rgba(180,30,80,.45));
+  border-bottom:1px solid rgba(255,150,190,.2);
   display:flex;align-items:center;gap:8px;flex-wrap:wrap;
 }
-.bc-item{font-size:11px;font-weight:700;color:rgba(255,210,230,.8);}
-.bc-sep{font-size:13px;color:rgba(255,170,200,.7);font-weight:900;}
-.bc-current{font-size:12px;font-weight:900;color:#ffb3d4;}
+.bc-item{font-size:11px;font-weight:700;color:rgba(255,210,230,.7);}
+.bc-sep{font-size:13px;color:rgba(255,170,200,.6);font-weight:900;}
+.bc-current{font-size:11px;font-weight:900;color:#ffb3d4;}
 
-/* ── レースセクション ── */
-.section{margin:16px 12px 0;}
-.race-header{
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  padding:12px 16px;border-radius:12px 12px 0 0;
-  background:linear-gradient(90deg,rgba(180,30,80,.9),rgba(140,15,60,.8));
-  border:1px solid rgba(255,150,190,.3);border-bottom:none;
+/* ── タブ ── */
+.tab-bar{
+  display:flex;gap:0;
+  background:rgba(0,0,0,.25);
+  border-bottom:2px solid rgba(255,140,185,.2);
+  position:sticky;top:57px;z-index:100;
 }
-.race-grade{
-  font-size:10px;font-weight:900;padding:3px 8px;border-radius:5px;
-  letter-spacing:.06em;white-space:nowrap;
+.tab-btn{
+  flex:1;padding:11px 8px;
+  font-size:12px;font-weight:700;color:var(--muted);
+  background:transparent;border:none;cursor:pointer;
+  border-bottom:3px solid transparent;
+  transition:all .18s;letter-spacing:.03em;
+  text-align:center;
+}
+.tab-btn.active{
+  color:#fff;
+  border-bottom:3px solid var(--pink);
+  background:rgba(232,48,110,.12);
+}
+.tab-btn .tab-grade{
+  font-size:9px;font-weight:900;
+  padding:1px 5px;border-radius:3px;margin-right:4px;
+  vertical-align:middle;
 }
 .grade-g1{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a1000;}
-.grade-g2{background:linear-gradient(135deg,#f5d0e0,#e8a0c0);color:#2a0a1a;}
-.race-name{font-size:15px;font-weight:900;color:#fff;letter-spacing:.04em;text-shadow:0 1px 4px rgba(0,0,0,.4);}
-.race-meta{font-size:10px;color:rgba(255,220,235,.75);margin-left:auto;}
+.grade-g2{background:linear-gradient(135deg,#e0b0d0,#c080a0);color:#2a0a1a;}
 
-/* ── テーブル ── */
-.table-wrap{
-  overflow-x:auto;
-  border:1px solid rgba(255,150,190,.2);
-  border-top:none;border-radius:0 0 12px 12px;
-  background:rgba(50,5,25,.6);
+/* ── レース情報 ── */
+.race-info{
+  padding:12px 16px;
+  background:rgba(255,255,255,.04);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
 }
-table{width:100%;border-collapse:collapse;min-width:520px;}
-thead th{
-  font-size:10px;font-weight:900;letter-spacing:.06em;color:rgba(255,220,235,.9);
-  padding:8px 10px;background:rgba(130,20,60,.7);
-  border-bottom:1px solid rgba(255,150,190,.2);
-  text-align:left;white-space:nowrap;
+.race-info-name{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#fff;}
+.race-info-meta{font-size:10px;color:var(--muted);margin-top:2px;}
+.horse-count{
+  margin-left:auto;font-size:10px;font-weight:700;
+  padding:3px 10px;border-radius:20px;
+  background:rgba(255,140,185,.12);color:rgba(255,200,225,.8);
+  border:1px solid rgba(255,140,185,.2);
 }
-tbody tr{border-bottom:1px solid rgba(255,150,190,.1);transition:background .1s;}
-tbody tr:hover{background:rgba(255,100,160,.08);}
-tbody tr:last-child{border-bottom:none;}
-td{padding:9px 10px;font-size:12px;vertical-align:middle;}
 
-.td-num{width:32px;text-align:center;font-weight:900;color:rgba(255,210,230,.6);font-size:11px;}
-.td-name{font-weight:900;color:#fff;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.3);}
-.td-sire{color:rgba(255,230,240,.9);font-size:11px;}
-.td-damsire{color:rgba(255,210,230,.8);font-size:11px;}
-.td-trainer{color:rgba(255,220,235,.8);font-size:11px;white-space:nowrap;}
-
-/* 外厩バッジ */
-.ext-badge{
-  display:inline-block;font-size:10px;font-weight:700;
-  padding:2px 8px;border-radius:10px;white-space:nowrap;
+/* ── 馬カード ── */
+.horse-list{padding:12px 12px 80px;}
+.horse-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,140,185,.15);
+  border-radius:16px;
+  margin-bottom:10px;
+  overflow:hidden;
+  transition:border-color .15s;
 }
-.ext-northern-tei{background:rgba(251,191,36,.2);color:#fcd34d;border:1px solid rgba(251,191,36,.3);}
-.ext-northern-shi{background:rgba(96,165,250,.2);color:#93c5fd;border:1px solid rgba(96,165,250,.3);}
-.ext-champion   {background:rgba(34,197,94,.2);color:#86efac;border:1px solid rgba(34,197,94,.3);}
-.ext-yamamoto   {background:rgba(249,115,22,.2);color:#fdba74;border:1px solid rgba(249,115,22,.3);}
-.ext-canyon     {background:rgba(168,85,247,.2);color:#d8b4fe;border:1px solid rgba(168,85,247,.3);}
-.ext-esutei     {background:rgba(236,72,153,.2);color:#f9a8d4;border:1px solid rgba(236,72,153,.3);}
-.ext-other      {background:rgba(180,100,140,.2);color:#e8b4cc;border:1px solid rgba(180,100,140,.3);}
-.ext-zaiku      {background:rgba(60,20,40,.5);color:rgba(200,150,175,.45);border:1px solid rgba(180,80,120,.12);font-style:italic;}
+.horse-card:active{border-color:rgba(255,140,185,.4);}
 
-/* ── フッター ── */
-.page-footer{
-  text-align:center;padding:32px 16px;
-  font-size:10px;color:rgba(200,100,150,.35);letter-spacing:.08em;
+/* カードヘッダー */
+.card-head{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 14px;
+  background:rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,140,185,.1);
 }
-.loading{text-align:center;padding:40px;color:rgba(255,182,210,.5);font-size:13px;}
+.horse-num{
+  width:26px;height:26px;border-radius:50%;
+  background:rgba(255,140,185,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;color:rgba(255,200,225,.8);
+  flex-shrink:0;
+}
+.horse-name{
+  font-family:'Noto Serif JP',serif;
+  font-size:15px;font-weight:900;color:#fff;
+  flex:1;min-width:0;
+}
+.badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
+
+/* ZI能力値バッジ */
+.zi-badge{
+  font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;
+  white-space:nowrap;letter-spacing:.04em;
+}
+.zi-s{background:rgba(252,211,77,.2);color:var(--zi-s);border:1px solid rgba(252,211,77,.35);}
+.zi-a{background:rgba(134,239,172,.2);color:var(--zi-a);border:1px solid rgba(134,239,172,.35);}
+.zi-b{background:rgba(147,197,253,.2);color:var(--zi-b);border:1px solid rgba(147,197,253,.35);}
+.zi-c{background:rgba(253,164,175,.15);color:var(--zi-c);border:1px solid rgba(253,164,175,.3);}
+.zi-d{background:rgba(255,100,120,.08);color:rgba(255,140,155,.55);border:1px solid rgba(255,100,120,.15);}
+
+/* 外厩グレードバッジ */
+.ext-grade{
+  font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;
+  white-space:nowrap;
+}
+.extg-s{background:rgba(252,211,77,.15);color:#fcd34d;border:1px solid rgba(252,211,77,.3);}
+.extg-a{background:rgba(134,239,172,.12);color:#86efac;border:1px solid rgba(134,239,172,.25);}
+.extg-b{background:rgba(255,255,255,.07);color:rgba(255,220,235,.5);border:1px solid rgba(255,255,255,.1);}
+
+/* カード本体 */
+.card-body{padding:10px 14px;}
+.horse-meta-row{
+  display:flex;gap:12px;flex-wrap:wrap;
+  font-size:11px;color:var(--muted);margin-bottom:8px;
+}
+.horse-meta-row span{display:flex;align-items:center;gap:3px;}
+.meta-label{font-size:9px;color:rgba(255,180,210,.4);font-weight:700;text-transform:uppercase;}
+
+/* 外厩フルバッジ */
+.ext-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap;margin-bottom:8px;}
+.ext-northern-tei{background:rgba(251,191,36,.18);color:#fcd34d;border:1px solid rgba(251,191,36,.3);}
+.ext-northern-shi{background:rgba(96,165,250,.18);color:#93c5fd;border:1px solid rgba(96,165,250,.3);}
+.ext-champion    {background:rgba(34,197,94,.18);color:#86efac;border:1px solid rgba(34,197,94,.3);}
+.ext-yamamoto    {background:rgba(249,115,22,.18);color:#fdba74;border:1px solid rgba(249,115,22,.3);}
+.ext-canyon      {background:rgba(168,85,247,.18);color:#d8b4fe;border:1px solid rgba(168,85,247,.3);}
+.ext-esutei      {background:rgba(236,72,153,.18);color:#f9a8d4;border:1px solid rgba(236,72,153,.3);}
+.ext-other       {background:rgba(180,100,140,.15);color:#e8b4cc;border:1px solid rgba(180,100,140,.25);}
+.ext-zaiku       {background:rgba(60,20,40,.4);color:rgba(200,150,175,.4);border:1px solid rgba(180,80,120,.1);font-style:italic;}
+
+/* ギーニョ分析 */
+.ginyo-box{
+  background:rgba(232,48,110,.06);
+  border:1px solid rgba(232,48,110,.2);
+  border-left:3px solid rgba(232,48,110,.5);
+  border-radius:10px;
+  padding:10px 12px;
+  margin-top:4px;
+}
+.ginyo-header{
+  display:flex;align-items:center;gap:6px;
+  margin-bottom:7px;
+}
+.ginyo-label{
+  font-size:10px;font-weight:900;letter-spacing:.08em;
+  color:rgba(255,140,185,.8);text-transform:uppercase;
+}
+.ginyo-section{margin-bottom:6px;}
+.ginyo-section-title{
+  font-size:9px;font-weight:900;color:rgba(255,140,185,.5);
+  letter-spacing:.08em;margin-bottom:3px;text-transform:uppercase;
+}
+.ginyo-text{
+  font-size:12px;line-height:1.7;color:rgba(255,230,240,.85);
+}
+.no-comment{
+  font-size:11px;color:rgba(255,180,210,.3);
+  font-style:italic;padding:4px 0;
+}
+.prev-finish{
+  display:inline-block;font-size:10px;font-weight:900;
+  padding:1px 7px;border-radius:4px;margin-bottom:6px;
+  background:rgba(255,200,80,.15);color:#fcd34d;
+  border:1px solid rgba(255,200,80,.25);
+}
+
+/* 前走なし */
+.no-race{font-size:11px;color:rgba(255,180,210,.3);font-style:italic;}
+
+/* ランク表示 */
+.rank-badge{
+  font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px;
+  background:rgba(232,48,110,.15);color:rgba(255,140,185,.8);
+  border:1px solid rgba(232,48,110,.25);margin-right:6px;
+}
+
+.loading{text-align:center;padding:48px 16px;color:var(--muted);font-size:13px;}
 </style>
 </head>
 <body>
@@ -108,7 +218,7 @@ td{padding:9px 10px;font-size:12px;vertical-align:middle;}
 <div class="page-header">
   <a href="index.html" class="back-btn">‹ TOP</a>
   <div>
-    <div class="page-title">🌸 来週の出走予定馬</div>
+    <div class="page-title">🌸 出走予定馬 解析</div>
     <div class="page-sub">NZT / 阪神牝馬S / 桜花賞</div>
   </div>
 </div>
@@ -119,9 +229,21 @@ td{padding:9px 10px;font-size:12px;vertical-align:middle;}
   <span class="bc-current">🌸 桜花賞 徹底解析中</span>
 </div>
 
-<div id="content"><p class="loading">データ読み込み中...</p></div>
+<!-- タブ -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" data-idx="0">
+    <span class="tab-grade grade-g2">G2</span>NZT
+  </button>
+  <button class="tab-btn" data-idx="1">
+    <span class="tab-grade grade-g2">G2</span>阪神牝馬S
+  </button>
+  <button class="tab-btn" data-idx="2">
+    <span class="tab-grade grade-g1">G1</span>桜花賞
+  </button>
+</div>
 
-<div class="page-footer">🐶 AIギーニョ | UG競馬 来週出走予定馬</div>
+<!-- コンテンツ -->
+<div id="content"><p class="loading">データ読み込み中...</p></div>
 
 <script>
 const RACES = [
@@ -142,73 +264,155 @@ const RACES = [
   },
 ];
 
-function extBadge(fac) {
-  if (!fac || fac === '在厩調整') return `<span class="ext-badge ext-zaiku">在厩調整</span>`;
-  if (fac.includes('天栄'))        return `<span class="ext-badge ext-northern-tei">${fac}</span>`;
-  if (fac.includes('しがらき'))    return `<span class="ext-badge ext-northern-shi">${fac}</span>`;
-  if (fac.includes('チャンピオン'))return `<span class="ext-badge ext-champion">${fac}</span>`;
-  if (fac.includes('山元'))        return `<span class="ext-badge ext-yamamoto">${fac}</span>`;
-  if (fac.includes('キャニオン'))  return `<span class="ext-badge ext-canyon">${fac}</span>`;
-  if (fac.includes('エスティ'))    return `<span class="ext-badge ext-esutei">${fac}</span>`;
-  return `<span class="ext-badge ext-other">${fac}</span>`;
-}
+let allData = [];
+let currentIdx = 0;
 
 function esc(s) {
-  if (!s) return '—';
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-function renderRace(cfg, notes) {
-  const horses = Object.entries(notes.horses)
-    .sort((a, b) => a[1].num - b[1].num);
+// ZI能力値グレード
+function ziGrade(zi) {
+  if (!zi) return 'D';
+  if (zi >= 120) return 'S';
+  if (zi >= 110) return 'A';
+  if (zi >= 100) return 'B';
+  if (zi >= 90)  return 'C';
+  return 'D';
+}
 
-  const rows = horses.map(([name, h]) => `
-    <tr>
-      <td class="td-num">${h.num}</td>
-      <td class="td-name">${esc(name)}</td>
-      <td class="td-sire">${esc(h.sabcSire)}</td>
-      <td class="td-damsire">${esc(h.damSire)}</td>
-      <td class="td-trainer">${esc(h.sabcTrainer)}</td>
-      <td>${extBadge(h.extFacility)}</td>
-    </tr>
-  `).join('');
+// 外厩グレード
+function extGrade(fac) {
+  if (!fac || fac === '在厩調整') return 'B';
+  if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
+  if (fac.includes('チャンピオン') || fac.includes('山元') || fac.includes('キャニオン')) return 'A';
+  return 'B';
+}
+
+function extBadge(fac) {
+  if (!fac || fac === '在厩調整') return `<span class="ext-badge ext-zaiku">在厩調整</span>`;
+  if (fac.includes('天栄'))       return `<span class="ext-badge ext-northern-tei">${esc(fac)}</span>`;
+  if (fac.includes('しがらき'))   return `<span class="ext-badge ext-northern-shi">${esc(fac)}</span>`;
+  if (fac.includes('チャンピオン'))return `<span class="ext-badge ext-champion">${esc(fac)}</span>`;
+  if (fac.includes('山元'))       return `<span class="ext-badge ext-yamamoto">${esc(fac)}</span>`;
+  if (fac.includes('キャニオン')) return `<span class="ext-badge ext-canyon">${esc(fac)}</span>`;
+  if (fac.includes('エスティ'))   return `<span class="ext-badge ext-esutei">${esc(fac)}</span>`;
+  return `<span class="ext-badge ext-other">${esc(fac)}</span>`;
+}
+
+function ziGradeBadge(zi) {
+  const g = ziGrade(zi);
+  return `<span class="zi-badge zi-${g.toLowerCase()}">能力${g}</span>`;
+}
+
+function extGradeBadge(fac) {
+  const g = extGrade(fac);
+  return `<span class="ext-grade extg-${g.toLowerCase()}">外厩${g}</span>`;
+}
+
+// ZI×外厩 でソートして順位付け
+function rankHorses(horses) {
+  const gradeOrder = {S:4,A:3,B:2,C:1,D:0};
+  return [...horses].sort((a,b) => {
+    const ziA = a[1].sabcZI || 0, ziB = b[1].sabcZI || 0;
+    if (ziB !== ziA) return ziB - ziA;
+    return gradeOrder[extGrade(b[1].extFacility)] - gradeOrder[extGrade(a[1].extFacility)];
+  });
+}
+
+function buildHorseCard(name, h, rank) {
+  const zg  = ziGrade(h.sabcZI);
+  const eg  = extGrade(h.extFacility);
+  const hasComment = h.prevJockeyComment || h.prevRaceNote;
+
+  const ginyoHtml = hasComment ? `
+    <div class="ginyo-box">
+      <div class="ginyo-header">
+        <span class="ginyo-label">🐶 ギーニョ分析</span>
+        ${h.prevFinish ? `<span class="prev-finish">前走 ${esc(h.prevFinish)}</span>` : ''}
+      </div>
+      ${h.prevRaceNote ? `
+        <div class="ginyo-section">
+          <div class="ginyo-section-title">▍ パドック・レース所見</div>
+          <div class="ginyo-text">${esc(h.prevRaceNote)}</div>
+        </div>` : ''}
+      ${h.prevJockeyComment ? `
+        <div class="ginyo-section">
+          <div class="ginyo-section-title">▍ 騎手インサイト</div>
+          <div class="ginyo-text">${esc(h.prevJockeyComment)}</div>
+        </div>` : ''}
+    </div>` : `<p class="no-comment">コメントデータなし</p>`;
 
   return `
-  <div class="section">
-    <div class="race-header">
-      <span class="race-grade ${cfg.gradeCls}">${cfg.label}</span>
-      <span class="race-name">${esc(notes.race?.name || cfg.label)}</span>
-      <span class="race-meta">${cfg.meta}</span>
+  <div class="horse-card">
+    <div class="card-head">
+      <span class="horse-num">${h.num}</span>
+      <span class="horse-name">${esc(name)}</span>
+      <div class="badges">
+        ${ziGradeBadge(h.sabcZI)}
+        ${extGradeBadge(h.extFacility)}
+      </div>
     </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>馬名</th>
-            <th>父</th>
-            <th>母父</th>
-            <th>厩舎</th>
-            <th>外厩</th>
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
+    <div class="card-body">
+      <div class="horse-meta-row">
+        <span><span class="meta-label">父</span>${esc(h.sabcSire) || '—'}</span>
+        <span><span class="meta-label">母父</span>${esc(h.damSire) || '—'}</span>
+        <span><span class="meta-label">厩</span>${esc(h.sabcTrainer) || '—'}</span>
+      </div>
+      ${extBadge(h.extFacility)}
+      ${ginyoHtml}
     </div>
   </div>`;
 }
 
-async function main() {
-  const results = await Promise.all(
-    RACES.map(cfg => fetch(cfg.file).then(r => r.json()).then(d => ({cfg, d})))
-  );
-  const html = results.map(({cfg, d}) => renderRace(cfg, d)).join('');
-  document.getElementById('content').innerHTML = html + '<div style="height:24px"></div>';
+function renderRace(idx) {
+  if (!allData[idx]) return;
+  const {cfg, d} = allData[idx];
+  const horses = Object.entries(d.horses);
+  const ranked = rankHorses(horses);
+
+  const cards = ranked.map(([name, h], i) =>
+    buildHorseCard(name, h, i + 1)
+  ).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="race-info">
+      <div>
+        <div class="race-info-name">${esc(d.race?.name || cfg.label)}</div>
+        <div class="race-info-meta">${cfg.meta}</div>
+      </div>
+      <span class="horse-count">${horses.length}頭</span>
+    </div>
+    <div class="horse-list">${cards}</div>
+  `;
 }
-main().catch(e => {
-  document.getElementById('content').innerHTML =
-    `<p class="loading" style="color:#f87171">読み込みエラー: ${e.message}</p>`;
+
+// タブ切り替え
+document.getElementById('tabBar').addEventListener('click', e => {
+  const btn = e.target.closest('.tab-btn');
+  if (!btn) return;
+  const idx = parseInt(btn.dataset.idx);
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentIdx = idx;
+  renderRace(idx);
 });
+
+async function main() {
+  try {
+    allData = await Promise.all(
+      RACES.map(cfg => fetch(cfg.file + '?v=' + Date.now())
+        .then(r => r.json())
+        .then(d => ({cfg, d})))
+    );
+    renderRace(0);
+  } catch(e) {
+    document.getElementById('content').innerHTML =
+      `<p class="loading" style="color:#f87171">読み込みエラー: ${esc(e.message)}</p>`;
+  }
+}
+main();
 </script>
 </body>
 </html>
