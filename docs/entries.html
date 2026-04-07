@@ -355,6 +355,12 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   border-left:3px solid rgba(251,146,60,.5);
   padding:4px 8px;border-radius:4px;
 }
+.condition-comment-section .ginyo-section-title{color:#0369a1;}
+.condition-comment-section .ginyo-text{
+  background:rgba(14,165,233,.07);
+  border-left:3px solid rgba(14,165,233,.5);
+  padding:4px 8px;border-radius:4px;
+}
 .ginyo-text{
   font-size:12px;line-height:1.7;color:#222;
 }
@@ -620,14 +626,16 @@ function calcScores(h) {
   const agF = h.ageGradeFuku   ?? null;
   const rtT = h.rotGradeTan    ?? null;
   const rtF = h.rotGradeFuku   ?? null;
-  const s3T = h.sf3GradeTan    ?? null;
-  const s3F = h.sf3GradeFuku   ?? null;
+  const s3T = h.sf3GradeTan      ?? null;
+  const s3F = h.sf3GradeFuku     ?? null;
+  const cdT = h.conditionGradeTan  ?? null;
+  const cdF = h.conditionGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT,s3T]) {
+  for (const g of [ziT,exT,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT,s3T,cdT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F]) {
+  for (const g of [ziF,exF,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F,cdF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   return {tanScore, fukuScore, tanMax, fukuMax};
@@ -798,7 +806,8 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
   const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : 'ZI';
   const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : 'zi';
   const sf3Cmt = buildSf3Comment(h);
-  const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment || sf3Cmt;
+  const condCmt = h.conditionNote ?? null;
+  const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment || sf3Cmt || condCmt;
 
   const ginyoHtml = hasComment ? `
     <div class="ginyo-box">
@@ -830,6 +839,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         <div class="ginyo-section sf3-comment-section">
           <div class="ginyo-section-title">▍ 💰 穴馬評価（3F統計）</div>
           <div class="ginyo-text">${esc(sf3Cmt)}</div>
+        </div>` : ''}
+      ${condCmt ? `
+        <div class="ginyo-section condition-comment-section">
+          <div class="ginyo-section-title">▍ 📋 調教・気配評価</div>
+          <div class="ginyo-text">${esc(condCmt)}</div>
         </div>` : ''}
     </div>` : `<p class="no-comment">コメントデータなし</p>`;
 
@@ -867,6 +881,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         ${gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null)}
         ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
         ${gradeBadge('上3F', h.sf3GradeTan ?? null, h.sf3GradeFuku ?? null)}
+        ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
       </div>
       ${h.specialNote ? `<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>` : ''}
       ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank)}
