@@ -560,6 +560,8 @@ function infoRow(label, valHtml) {
 // ── SABC期待値ランキング ──
 function sortRankWithTiebreak(rank, horses) {
   return [...rank].sort((a, b) => {
+    // rankフィールドがあればそちらを優先（昇順）
+    if (a.rank != null && b.rank != null) return a.rank - b.rank;
     if (b.total !== a.total) return b.total - a.total;
     const ha = horses[a.name] || {}, hb = horses[b.name] || {};
     return (hb.sabcZI || 0) - (ha.sabcZI || 0);
