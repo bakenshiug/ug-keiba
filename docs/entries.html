@@ -776,25 +776,25 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           <span class="horse-num-mode">${modeLabel}</span>
         </div>
         <span class="horse-name">${esc(name)}</span>
-        <div class="badges">
-          ${ziGradeBadge(h.sabcZI)}
-          ${extGradeBadge(h.extFacility)}
-          ${bloodGradeBadge(h.bloodGradeTan, h.bloodGradeFuku)}
-          ${kinsoGradeBadge(h.kinsoGrade)}
-          ${paceGradeBadge(h.paceGrade)}
-          ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
-          ${gradeBadge('厩舎', h.stableGradeTan  ?? null, h.stableGradeFuku  ?? null)}
-          ${gradeBadge('騎厩', h.jockeyStableGrade ?? null, h.jockeyStableGrade ?? null)}
-          ${splitBadge('馬格', h.bodyGrade,   'body')}
-          ${splitBadge('コース', h.courseGrade,'course')}
-          ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
-          ${splitBadge('脚質', h.styleGrade,  'style')}
-          ${gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null)}
-          ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
-          ${gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null)}
-          ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
-          ${gradeBadge('上3F', h.sf3GradeTan ?? null, h.sf3GradeFuku ?? null)}
-        </div>
+      </div>
+      <div class="badges">
+        ${ziGradeBadge(h.sabcZI)}
+        ${extGradeBadge(h.extFacility)}
+        ${bloodGradeBadge(h.bloodGradeTan, h.bloodGradeFuku)}
+        ${kinsoGradeBadge(h.kinsoGrade)}
+        ${paceGradeBadge(h.paceGrade)}
+        ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
+        ${gradeBadge('厩舎', h.stableGradeTan  ?? null, h.stableGradeFuku  ?? null)}
+        ${gradeBadge('騎厩', h.jockeyStableGrade ?? null, h.jockeyStableGrade ?? null)}
+        ${splitBadge('馬格', h.bodyGrade,   'body')}
+        ${splitBadge('コース', h.courseGrade,'course')}
+        ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
+        ${splitBadge('脚質', h.styleGrade,  'style')}
+        ${gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null)}
+        ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
+        ${gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null)}
+        ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
+        ${gradeBadge('上3F', h.sf3GradeTan ?? null, h.sf3GradeFuku ?? null)}
       </div>
       ${h.specialNote ? `<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>` : ''}
       ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank)}
