@@ -290,10 +290,17 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   font-style:italic;padding:4px 0;
 }
 .prev-finish{
-  display:inline-block;font-size:10px;font-weight:900;
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;font-weight:900;
   padding:1px 7px;border-radius:4px;margin-bottom:6px;
   background:#fef3c7;color:#92400e;
   border:1px solid #f59e0b;
+}
+.prev-race-name{
+  font-size:9px;font-weight:700;
+  background:#92400e;color:#fef3c7;
+  padding:0px 5px;border-radius:3px;
+  letter-spacing:.02em;
 }
 
 /* 前走なし */
@@ -649,7 +656,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
     <div class="ginyo-box">
       <div class="ginyo-header">
         <span class="ginyo-label">🐶 ギーニョ分析</span>
-        ${h.prevFinish ? `<span class="prev-finish">前走 ${esc(h.prevFinish)}</span>` : ''}
+        ${h.prevFinish ? `<span class="prev-finish">前走${h.prevRaceName ? ` <span class="prev-race-name">${esc(h.prevRaceName)}</span>` : ''} ${esc(h.prevFinish)}</span>` : ''}
       </div>
       ${h.prevRaceNote ? `
         <div class="ginyo-section">
