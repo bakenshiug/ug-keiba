@@ -361,6 +361,12 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   border-left:3px solid rgba(14,165,233,.5);
   padding:4px 8px;border-radius:4px;
 }
+.blood-judge-section .ginyo-section-title{color:#7c3aed;}
+.blood-judge-section .ginyo-text{
+  background:rgba(139,92,246,.07);
+  border-left:3px solid rgba(139,92,246,.5);
+  padding:4px 8px;border-radius:4px;
+}
 .ginyo-text{
   font-size:12px;line-height:1.7;color:#222;
 }
@@ -807,7 +813,8 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
   const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : 'zi';
   const sf3Cmt = buildSf3Comment(h);
   const condCmt = h.conditionNote ?? null;
-  const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment || sf3Cmt || condCmt;
+  const bloodNote = h.bloodNote ?? null;
+  const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment || sf3Cmt || condCmt || bloodNote;
 
   const ginyoHtml = hasComment ? `
     <div class="ginyo-box">
@@ -844,6 +851,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         <div class="ginyo-section condition-comment-section">
           <div class="ginyo-section-title">▍ 📋 調教・気配評価</div>
           <div class="ginyo-text">${esc(condCmt)}</div>
+        </div>` : ''}
+      ${bloodNote ? `
+        <div class="ginyo-section blood-judge-section">
+          <div class="ginyo-section-title">▍ 🧬 血統配合ジャッジ</div>
+          <div class="ginyo-text">${esc(bloodNote)}</div>
         </div>` : ''}
     </div>` : `<p class="no-comment">コメントデータなし</p>`;
 
