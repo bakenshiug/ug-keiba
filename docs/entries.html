@@ -105,11 +105,12 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
 /* カードヘッダー */
 .card-head{
-  display:flex;align-items:center;gap:10px;
+  display:flex;flex-direction:column;gap:8px;
   padding:11px 14px;
   background:rgba(255,255,255,.04);
   border-bottom:1px solid rgba(255,140,185,.1);
 }
+.card-head-top{display:flex;align-items:center;gap:10px;}
 .horse-num{
   width:26px;height:26px;border-radius:50%;
   background:rgba(255,140,185,.15);
@@ -156,6 +157,84 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .bg-d{background:rgba(255,100,120,.05);color:rgba(255,140,155,.4);border:1px solid rgba(255,100,120,.12);}
 .bg-n{background:rgba(255,255,255,.04);color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.08);}
 .bg-analyzing{background:rgba(80,80,100,.08);color:rgba(180,180,200,.35);border:1px solid rgba(100,100,130,.12);font-style:italic;letter-spacing:.01em;}
+
+/* ── デュアルバッジ (単/複 分割) ── */
+.dual-badge{
+  display:inline-flex;align-items:stretch;
+  border-radius:5px;overflow:hidden;
+  white-space:nowrap;font-size:9px;font-weight:900;
+  border:1px solid rgba(255,140,185,.15);
+}
+.dual-lbl{
+  display:flex;align-items:center;padding:0 5px;
+  background:rgba(50,10,30,.6);
+  color:rgba(255,190,215,.35);font-size:8px;font-weight:700;
+  border-right:1px solid rgba(255,140,185,.1);
+}
+.dual-t,.dual-f{
+  display:flex;align-items:center;padding:2px 5px;gap:1px;
+}
+.dual-t{border-right:1px solid rgba(255,140,185,.1);}
+.dual-t::before{content:'単';font-size:7px;opacity:.45;font-weight:700;}
+.dual-f::before{content:'複';font-size:7px;opacity:.45;font-weight:700;}
+
+/* ── スコアバー ── */
+.score-bars{
+  display:flex;flex-direction:column;gap:4px;
+  padding:5px 8px;
+  background:rgba(0,0,0,.25);
+  border-radius:8px;
+}
+.score-row{display:flex;align-items:center;gap:6px;}
+.score-lbl{
+  font-size:9px;font-weight:900;width:14px;text-align:center;flex-shrink:0;
+}
+.score-lbl.tan-lbl{color:rgba(252,211,77,.7);}
+.score-lbl.fuku-lbl{color:rgba(110,231,183,.7);}
+.score-track{
+  flex:1;height:5px;background:rgba(255,255,255,.08);
+  border-radius:3px;overflow:hidden;min-width:0;
+}
+.score-fill{height:100%;border-radius:3px;transition:width .3s;}
+.score-fill.tan-fill{background:linear-gradient(90deg,#d97706,#fcd34d);}
+.score-fill.fuku-fill{background:linear-gradient(90deg,#059669,#6ee7b7);}
+.score-val{
+  font-size:9px;font-weight:900;width:36px;text-align:right;flex-shrink:0;
+}
+.score-val.tan-val{color:rgba(252,211,77,.8);}
+.score-val.fuku-val{color:rgba(110,231,183,.8);}
+.score-rank{
+  font-size:9px;font-weight:900;width:24px;text-align:center;flex-shrink:0;
+  color:rgba(255,200,220,.35);
+}
+.score-rank.rk1{color:#fcd34d;}
+.score-rank.rk2{color:#d1d5db;}
+.score-rank.rk3{color:#fdba74;}
+
+/* ── ソートバー ── */
+.sort-bar{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 12px;
+  background:rgba(255,255,255,.025);
+  border-bottom:1px solid rgba(255,140,185,.1);
+}
+.sort-bar-label{
+  font-size:9px;font-weight:700;
+  color:rgba(255,190,215,.4);white-space:nowrap;
+}
+.sort-btn{
+  font-size:10px;font-weight:700;
+  padding:4px 10px;border-radius:8px;
+  border:1px solid rgba(255,140,185,.2);
+  background:rgba(255,255,255,.04);
+  color:rgba(255,200,220,.5);
+  cursor:pointer;white-space:nowrap;
+}
+.sort-btn.active{
+  background:rgba(232,48,110,.2);
+  border-color:rgba(232,48,110,.4);
+  color:#fff;
+}
 
 /* カード本体 */
 .card-body{padding:10px 14px;}
@@ -381,43 +460,123 @@ function ziGradeBadge(zi) {
 
 function extGradeBadge(fac) {
   const g = extGrade(fac);
-  return `<span class="ext-grade extg-${g.toLowerCase()}">外厩${g}</span>`;
+  const [t, f] = GRADE_MAPS.ext[g] || ['C','B'];
+  return dualBadge('外厩', t, f);
 }
 
 function bloodGradeBadge(tan, fuku) {
-  const cls = g => g === 'S' ? 'bg-s' : g === 'A' ? 'bg-a' : g === 'B' ? 'bg-b' : g === 'C' ? 'bg-c' : g === 'D' ? 'bg-d' : 'bg-n';
-  const t = tan  || '—';
-  const f = fuku || '—';
-  return `<span class="blood-grade ${cls(t)}">血統単${t}</span><span class="blood-grade ${cls(f)}">血統複${f}</span>`;
+  const t = (tan  && tan  !== '—') ? tan  : null;
+  const f = (fuku && fuku !== '—') ? fuku : null;
+  return dualBadge('血統', t, f);
 }
 
+// ── グレード分割マップ (単勝 / 複勝) ──
+// [tanGrade, fukuGrade]
+const GRADE_MAPS = {
+  zi:    {S:['S','S'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  ext:   {S:['A','S'],A:['B','A'],B:['C','B']},
+  kinso: {S:['S','S'],A:['A','A'],B:['B','A'],C:['D','C'],D:['D','D']},
+  pace:  {S:['S','S'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  body:  {S:['S','S'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  course:{S:['S','S'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  style: {S:['S','S'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+};
+
+function splitGrade(g, key) {
+  if (!g || g === '—') return [null, null];
+  return (GRADE_MAPS[key] && GRADE_MAPS[key][g]) ? GRADE_MAPS[key][g] : [null, null];
+}
+
+function gradePoints(g) {
+  return {S:4,A:3,B:2,C:1,D:0}[g] ?? null;
+}
+
+function calcScores(h) {
+  const [ziT, ziF]   = splitGrade(ziGrade(h.sabcZI), 'zi');
+  const [exT, exF]   = splitGrade(extGrade(h.extFacility), 'ext');
+  const [kT,  kF]    = splitGrade(h.kinsoGrade, 'kinso');
+  const [pT,  pF]    = splitGrade(h.paceGrade,  'pace');
+  const [bdT, bdF]   = splitGrade(h.bodyGrade,  'body');
+  const [cT,  cF]    = splitGrade(h.courseGrade,'course');
+  const [syT, syF]   = splitGrade(h.styleGrade, 'style');
+  const bT  = (h.bloodGradeTan  && h.bloodGradeTan  !== '—') ? h.bloodGradeTan  : null;
+  const bF  = (h.bloodGradeFuku && h.bloodGradeFuku !== '—') ? h.bloodGradeFuku : null;
+  const stT = h.stableGradeTan  ?? null;
+  const stF = h.stableGradeFuku ?? null;
+  const brT = h.breederGradeTan  ?? null;
+  const brF = h.breederGradeFuku ?? null;
+  const jkT = h.jockeyGradeTan  ?? null;
+  const jkF = h.jockeyGradeFuku ?? null;
+  const gtT = h.gateGradeTan    ?? null;
+  const gtF = h.gateGradeFuku   ?? null;
+  const spT = h.specialGrade    ?? null;
+  const spF = h.specialGrade    ?? null;
+
+  let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
+  for (const g of [ziT,exT,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT]) {
+    const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=4;}
+  }
+  for (const g of [ziF,exF,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF]) {
+    const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=4;}
+  }
+  return {tanScore, fukuScore, tanMax, fukuMax};
+}
+
+// ── デュアルバッジ (ラベル + 単grade + 複grade) ──
+function cls(g) {
+  return g==='S'?'bg-s':g==='A'?'bg-a':g==='B'?'bg-b':g==='C'?'bg-c':g==='D'?'bg-d':'bg-analyzing';
+}
+function dualBadge(label, gTan, gFuku) {
+  const tl = gTan  || '?';
+  const fl = gFuku || '?';
+  return `<span class="dual-badge"><span class="dual-lbl">${esc(label)}</span><span class="dual-t ${cls(gTan)}">${tl}</span><span class="dual-f ${cls(gFuku)}">${fl}</span></span>`;
+}
+
+// ── 既存ファクターを分割してデュアルバッジ化 ──
 function kinsoGradeBadge(g) {
-  const cls = g === 'S' ? 'bg-s' : g === 'A' ? 'bg-a' : g === 'B' ? 'bg-b' : g === 'C' ? 'bg-c' : g === 'D' ? 'bg-d' : 'bg-n';
-  const label = g || '—';
-  return `<span class="blood-grade ${cls}">近走${label}</span>`;
+  const [t,f] = splitGrade(g, 'kinso');
+  return dualBadge('近走', t, f);
 }
-
 function paceGradeBadge(g) {
-  const cls = g === 'S' ? 'bg-s' : g === 'A' ? 'bg-a' : g === 'B' ? 'bg-b' : g === 'C' ? 'bg-c' : g === 'D' ? 'bg-d' : 'bg-n';
-  const label = g || '—';
-  return `<span class="blood-grade ${cls}">ペース${label}</span>`;
+  const [t,f] = splitGrade(g, 'pace');
+  return dualBadge('ペース', t, f);
+}
+// 汎用: JSON に既に Tan/Fuku があるファクター用
+function gradeBadge(label, gTan, gFuku) {
+  if (!gTan && !gFuku) return `<span class="blood-grade bg-analyzing">${esc(label)} 解析中</span>`;
+  return dualBadge(label, gTan ?? null, gFuku ?? null);
+}
+// body / course / style 用 (単一grade → 分割)
+function splitBadge(label, g, key) {
+  if (!g) return `<span class="blood-grade bg-analyzing">${esc(label)} 解析中</span>`;
+  const [t,f] = splitGrade(g, key);
+  return dualBadge(label, t, f);
 }
 
-function gradeBadge(label, g) {
-  if (!g) return `<span class="blood-grade bg-analyzing">${label} 解析中</span>`;
-  const cls = g==='S'?'bg-s':g==='A'?'bg-a':g==='B'?'bg-b':g==='C'?'bg-c':g==='D'?'bg-d':'bg-n';
-  return `<span class="blood-grade ${cls}">${label}${g}</span>`;
+// ── スコアバー HTML ──
+function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank) {
+  const tp = tanMax  > 0 ? Math.round(tanScore/tanMax*100)  : 0;
+  const fp = fukuMax > 0 ? Math.round(fukuScore/fukuMax*100) : 0;
+  const rkCls = r => r===1?'rk1':r===2?'rk2':r===3?'rk3':'';
+  return `
+  <div class="score-bars">
+    <div class="score-row">
+      <span class="score-lbl tan-lbl">単</span>
+      <div class="score-track"><div class="score-fill tan-fill" style="width:${tp}%"></div></div>
+      <span class="score-val tan-val">${tanScore}/${tanMax}</span>
+      <span class="score-rank ${rkCls(tanRank)}">#${tanRank}</span>
+    </div>
+    <div class="score-row">
+      <span class="score-lbl fuku-lbl">複</span>
+      <div class="score-track"><div class="score-fill fuku-fill" style="width:${fp}%"></div></div>
+      <span class="score-val fuku-val">${fukuScore}/${fukuMax}</span>
+      <span class="score-rank ${rkCls(fukuRank)}">#${fukuRank}</span>
+    </div>
+  </div>`;
 }
 
-// ZI×外厩 でソートして順位付け
-function rankHorses(horses) {
-  const gradeOrder = {S:4,A:3,B:2,C:1,D:0};
-  return [...horses].sort((a,b) => {
-    const ziA = a[1].sabcZI || 0, ziB = b[1].sabcZI || 0;
-    if (ziB !== ziA) return ziB - ziA;
-    return gradeOrder[extGrade(b[1].extFacility)] - gradeOrder[extGrade(a[1].extFacility)];
-  });
-}
+let sortMode = 'zi';
+function setSortMode(mode) { sortMode = mode; renderRace(currentIdx); }
 
 function buildRankList(items) {
   if (!items || items.length === 0) return '';
@@ -488,9 +647,7 @@ function buildAnalysisSection(d) {
   return html;
 }
 
-function buildHorseCard(name, h, rank) {
-  const zg  = ziGrade(h.sabcZI);
-  const eg  = extGrade(h.extFacility);
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank) {
   const hasComment = h.prevJockeyComment || h.prevRaceNote;
 
   const ginyoHtml = hasComment ? `
@@ -514,24 +671,27 @@ function buildHorseCard(name, h, rank) {
   return `
   <div class="horse-card">
     <div class="card-head">
-      <span class="horse-num">${h.num}</span>
-      <span class="horse-name">${esc(name)}</span>
-      <div class="badges">
-        ${ziGradeBadge(h.sabcZI)}
-        ${extGradeBadge(h.extFacility)}
-        ${bloodGradeBadge(h.bloodGradeTan, h.bloodGradeFuku)}
-        ${kinsoGradeBadge(h.kinsoGrade)}
-        ${paceGradeBadge(h.paceGrade)}
-        ${gradeBadge('騎手', h.jockeyGrade)}
-        ${gradeBadge('厩舎', h.stableGrade)}
-        ${gradeBadge('騎厩', h.jockeyStableGrade)}
-        ${gradeBadge('馬格', h.bodyGrade)}
-        ${gradeBadge('コース', h.courseGrade)}
-        ${gradeBadge('枠番', h.gateGrade)}
-        ${gradeBadge('脚質', h.styleGrade)}
-        ${gradeBadge('特注', h.specialGrade)}
-        ${gradeBadge('生産', h.breederGrade)}
+      <div class="card-head-top">
+        <span class="horse-num">${h.num}</span>
+        <span class="horse-name">${esc(name)}</span>
+        <div class="badges">
+          ${ziGradeBadge(h.sabcZI)}
+          ${extGradeBadge(h.extFacility)}
+          ${bloodGradeBadge(h.bloodGradeTan, h.bloodGradeFuku)}
+          ${kinsoGradeBadge(h.kinsoGrade)}
+          ${paceGradeBadge(h.paceGrade)}
+          ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
+          ${gradeBadge('厩舎', h.stableGradeTan  ?? null, h.stableGradeFuku  ?? null)}
+          ${gradeBadge('騎厩', h.jockeyStableGrade ?? null, h.jockeyStableGrade ?? null)}
+          ${splitBadge('馬格', h.bodyGrade,   'body')}
+          ${splitBadge('コース', h.courseGrade,'course')}
+          ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
+          ${splitBadge('脚質', h.styleGrade,  'style')}
+          ${gradeBadge('特注', h.specialGrade ?? null, h.specialGrade ?? null)}
+          ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
+        </div>
       </div>
+      ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank)}
     </div>
     <div class="card-body">
       <div class="horse-meta-row">
@@ -550,11 +710,35 @@ function renderRace(idx) {
   if (!allData[idx]) return;
   const {cfg, d} = allData[idx];
   const horses = Object.entries(d.horses);
-  const ranked = rankHorses(horses);
 
-  const cards = ranked.map(([name, h], i) =>
-    buildHorseCard(name, h, i + 1)
+  // 全馬のスコアを計算
+  const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h)}));
+
+  // 単勝/複勝 順位マップ
+  const byTan  = [...scored].sort((a,b) => b.tanScore  - a.tanScore  || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byFuku = [...scored].sort((a,b) => b.fukuScore - a.fukuScore || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const tanRankMap={}, fukuRankMap={};
+  byTan.forEach(({name},i)  => tanRankMap[name]  = i+1);
+  byFuku.forEach(({name},i) => fukuRankMap[name] = i+1);
+
+  // 表示順
+  let display;
+  if (sortMode === 'tan')       display = byTan;
+  else if (sortMode === 'fuku') display = byFuku;
+  else display = [...scored].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
+
+  const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax}) =>
+    buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax,
+                   tanRankMap[name], fukuRankMap[name])
   ).join('');
+
+  const sortBar = `
+    <div class="sort-bar">
+      <span class="sort-bar-label">並び順:</span>
+      <button class="sort-btn ${sortMode==='zi'  ?'active':''}" onclick="setSortMode('zi')">ZI順</button>
+      <button class="sort-btn ${sortMode==='tan' ?'active':''}" onclick="setSortMode('tan')">単勝スコア順</button>
+      <button class="sort-btn ${sortMode==='fuku'?'active':''}" onclick="setSortMode('fuku')">複勝スコア順</button>
+    </div>`;
 
   document.getElementById('content').innerHTML = `
     <div class="race-info">
@@ -564,6 +748,7 @@ function renderRace(idx) {
       </div>
       <span class="horse-count">${horses.length}頭</span>
     </div>
+    ${sortBar}
     ${buildAnalysisSection(d)}
     <div class="horse-list">${cards}</div>
   `;
