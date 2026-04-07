@@ -547,12 +547,14 @@ function calcScores(h) {
   const agF = h.ageGradeFuku   ?? null;
   const rtT = h.rotGradeTan    ?? null;
   const rtF = h.rotGradeFuku   ?? null;
+  const s3T = h.sf3GradeTan    ?? null;
+  const s3F = h.sf3GradeFuku   ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT]) {
+  for (const g of [ziT,exT,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT,s3T]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=4;}
   }
-  for (const g of [ziF,exF,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF]) {
+  for (const g of [ziF,exF,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=4;}
   }
   return {tanScore, fukuScore, tanMax, fukuMax};
@@ -730,6 +732,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
           ${gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null)}
           ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
+          ${gradeBadge('上3F', h.sf3GradeTan ?? null, h.sf3GradeFuku ?? null)}
         </div>
       </div>
       ${h.specialNote ? `<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>` : ''}
