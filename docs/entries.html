@@ -939,8 +939,10 @@ function renderRace(idx) {
   const hasFukuEdit = Object.keys(fukuEditRank).length > 0;
 
   // 単勝/複勝/ZI/穴馬/総合/人気 順位マップ
-  const byTan    = [...withAna].sort((a,b) => b.tanScore    - a.tanScore    || (b.h.sabcZI||0)-(a.h.sabcZI||0));
-  const byFuku   = [...withAna].sort((a,b) => b.fukuScore   - a.fukuScore   || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const tanPct  = s => s.tanMax  > 0 ? s.tanScore  / s.tanMax  : 0;
+  const fukuPct = s => s.fukuMax > 0 ? s.fukuScore / s.fukuMax : 0;
+  const byTan    = [...withAna].sort((a,b) => tanPct(b)  - tanPct(a)  || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byFuku   = [...withAna].sort((a,b) => fukuPct(b) - fukuPct(a) || (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byZI     = [...withAna].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byAna    = [...withAna].sort((a,b) => b.anaScore    - a.anaScore);
   const bySougou = [...withAna].sort((a,b) => b.sougouScore - a.sougouScore || (b.h.sabcZI||0)-(a.h.sabcZI||0));
