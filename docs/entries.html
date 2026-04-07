@@ -396,6 +396,12 @@ function kinsoGradeBadge(g) {
   return `<span class="blood-grade ${cls}">近走${label}</span>`;
 }
 
+function paceGradeBadge(g) {
+  const cls = g === 'S' ? 'bg-s' : g === 'A' ? 'bg-a' : g === 'B' ? 'bg-b' : g === 'C' ? 'bg-c' : g === 'D' ? 'bg-d' : 'bg-n';
+  const label = g || '—';
+  return `<span class="blood-grade ${cls}">ペース${label}</span>`;
+}
+
 // ZI×外厩 でソートして順位付け
 function rankHorses(horses) {
   const gradeOrder = {S:4,A:3,B:2,C:1,D:0};
@@ -508,6 +514,7 @@ function buildHorseCard(name, h, rank) {
         ${extGradeBadge(h.extFacility)}
         ${bloodGradeBadge(h.bloodGradeTan, h.bloodGradeFuku)}
         ${kinsoGradeBadge(h.kinsoGrade)}
+        ${paceGradeBadge(h.paceGrade)}
       </div>
     </div>
     <div class="card-body">
