@@ -94,8 +94,8 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 /* ── 馬カード ── */
 .horse-list{padding:12px 12px 80px;}
 .horse-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,140,185,.15);
+  background:#fff;
+  border:1px solid rgba(200,30,80,.18);
   border-radius:16px;
   margin-bottom:10px;
   overflow:hidden;
@@ -107,8 +107,8 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .card-head{
   display:flex;flex-direction:column;gap:8px;
   padding:11px 14px;
-  background:rgba(255,255,255,.04);
-  border-bottom:1px solid rgba(255,140,185,.1);
+  background:#f9f2f5;
+  border-bottom:1px solid rgba(200,30,80,.12);
 }
 .card-head-top{display:flex;align-items:center;gap:10px;}
 .horse-num{
@@ -120,7 +120,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 }
 .horse-name{
   font-family:'Noto Serif JP',serif;
-  font-size:15px;font-weight:900;color:#fff;
+  font-size:15px;font-weight:900;color:#111;
   flex:1;min-width:0;
 }
 .badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
@@ -189,10 +189,10 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .score-lbl{
   font-size:9px;font-weight:900;width:14px;text-align:center;flex-shrink:0;
 }
-.score-lbl.tan-lbl{color:rgba(252,211,77,.7);}
-.score-lbl.fuku-lbl{color:rgba(110,231,183,.7);}
+.score-lbl.tan-lbl{color:#b45309;}
+.score-lbl.fuku-lbl{color:#047857;}
 .score-track{
-  flex:1;height:5px;background:rgba(255,255,255,.08);
+  flex:1;height:5px;background:#e5e7eb;
   border-radius:3px;overflow:hidden;min-width:0;
 }
 .score-fill{height:100%;border-radius:3px;transition:width .3s;}
@@ -201,15 +201,15 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .score-val{
   font-size:9px;font-weight:900;width:36px;text-align:right;flex-shrink:0;
 }
-.score-val.tan-val{color:rgba(252,211,77,.8);}
-.score-val.fuku-val{color:rgba(110,231,183,.8);}
+.score-val.tan-val{color:#b45309;}
+.score-val.fuku-val{color:#047857;}
 .score-rank{
   font-size:9px;font-weight:900;width:24px;text-align:center;flex-shrink:0;
-  color:rgba(255,200,220,.35);
+  color:#bbb;
 }
-.score-rank.rk1{color:#fcd34d;}
-.score-rank.rk2{color:#d1d5db;}
-.score-rank.rk3{color:#fdba74;}
+.score-rank.rk1{color:#d97706;}
+.score-rank.rk2{color:#6b7280;}
+.score-rank.rk3{color:#c2410c;}
 
 /* ── ソートバー ── */
 .sort-bar{
@@ -237,13 +237,13 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 }
 
 /* カード本体 */
-.card-body{padding:10px 14px;}
+.card-body{padding:10px 14px;background:#fff;color:#222;}
 .horse-meta-row{
   display:flex;gap:12px;flex-wrap:wrap;
-  font-size:11px;color:var(--muted);margin-bottom:8px;
+  font-size:11px;color:#555;margin-bottom:8px;
 }
 .horse-meta-row span{display:flex;align-items:center;gap:3px;}
-.meta-label{font-size:9px;color:rgba(255,180,210,.4);font-weight:700;text-transform:uppercase;}
+.meta-label{font-size:9px;color:#999;font-weight:700;text-transform:uppercase;}
 
 /* 外厩フルバッジ */
 .ext-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap;margin-bottom:8px;}
@@ -258,7 +258,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
 /* ギーニョ分析 */
 .ginyo-box{
-  background:rgba(232,48,110,.06);
+  background:#fff8fa;
   border:1px solid rgba(232,48,110,.2);
   border-left:3px solid rgba(232,48,110,.5);
   border-radius:10px;
@@ -271,18 +271,18 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 }
 .ginyo-label{
   font-size:10px;font-weight:900;letter-spacing:.08em;
-  color:rgba(255,140,185,.8);text-transform:uppercase;
+  color:#c01860;text-transform:uppercase;
 }
 .ginyo-section{margin-bottom:6px;}
 .ginyo-section-title{
-  font-size:9px;font-weight:900;color:rgba(255,140,185,.5);
+  font-size:9px;font-weight:900;color:#c01860;
   letter-spacing:.08em;margin-bottom:3px;text-transform:uppercase;
 }
 .ginyo-text{
-  font-size:12px;line-height:1.7;color:rgba(255,230,240,.85);
+  font-size:12px;line-height:1.7;color:#222;
 }
 .no-comment{
-  font-size:11px;color:rgba(255,180,210,.3);
+  font-size:11px;color:#bbb;
   font-style:italic;padding:4px 0;
 }
 .prev-finish{
@@ -293,7 +293,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 }
 
 /* 前走なし */
-.no-race{font-size:11px;color:rgba(255,180,210,.3);font-style:italic;}
+.no-race{font-size:11px;color:#bbb;font-style:italic;}
 
 /* ランク表示 */
 .rank-badge{
@@ -307,25 +307,25 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   margin:12px 12px 0;
   border-radius:16px;
   overflow:hidden;
-  border:1px solid rgba(255,140,185,.2);
+  border:1px solid rgba(200,30,80,.18);
 }
 .analysis-block{
-  background:rgba(40,5,24,.7);
+  background:#fff;
   padding:14px 16px;
-  border-bottom:1px solid rgba(255,140,185,.1);
+  border-bottom:1px solid rgba(200,30,80,.1);
 }
 .analysis-block:last-child{border-bottom:none;}
 .analysis-block-title{
   display:flex;align-items:center;gap:8px;
   font-size:11px;font-weight:900;letter-spacing:.1em;
-  color:rgba(255,140,185,.9);text-transform:uppercase;
+  color:#c01860;text-transform:uppercase;
   margin-bottom:10px;padding-bottom:6px;
-  border-bottom:1px solid rgba(255,140,185,.15);
+  border-bottom:1px solid rgba(200,30,80,.15);
 }
 .analysis-icon{font-size:14px;}
 .analysis-comment{
   font-size:12px;line-height:1.8;
-  color:rgba(255,230,240,.82);
+  color:#222;
 }
 /* ランキングリスト */
 .rank-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
