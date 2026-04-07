@@ -102,6 +102,16 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   transition:border-color .15s;
 }
 .horse-card:active{border-color:rgba(255,140,185,.4);}
+.tokuchuu-banner{
+  margin:6px 0 2px;
+  padding:5px 10px;
+  background:linear-gradient(90deg,#fff7e6,#fff3cd);
+  border:1px solid #f59e0b;
+  border-radius:8px;
+  font-size:11px;font-weight:800;
+  color:#92400e;
+  letter-spacing:.03em;
+}
 
 /* カードヘッダー */
 .card-head{
@@ -706,6 +716,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
         </div>
       </div>
+      ${h.specialNote ? `<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>` : ''}
       ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank)}
     </div>
     <div class="card-body">
