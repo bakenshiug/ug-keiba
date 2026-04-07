@@ -144,6 +144,18 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .extg-a{background:rgba(134,239,172,.12);color:#86efac;border:1px solid rgba(134,239,172,.25);}
 .extg-b{background:rgba(255,255,255,.07);color:rgba(255,220,235,.5);border:1px solid rgba(255,255,255,.1);}
 
+/* 血統グレードバッジ */
+.blood-grade{
+  font-size:9px;font-weight:900;padding:2px 6px;border-radius:5px;
+  white-space:nowrap;letter-spacing:.03em;
+}
+.bg-s{background:rgba(252,211,77,.18);color:#fcd34d;border:1px solid rgba(252,211,77,.35);}
+.bg-a{background:rgba(134,239,172,.15);color:#86efac;border:1px solid rgba(134,239,172,.3);}
+.bg-b{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
+.bg-c{background:rgba(253,164,175,.1);color:#fda4af;border:1px solid rgba(253,164,175,.2);}
+.bg-d{background:rgba(255,100,120,.05);color:rgba(255,140,155,.4);border:1px solid rgba(255,100,120,.12);}
+.bg-n{background:rgba(255,255,255,.04);color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.08);}
+
 /* カード本体 */
 .card-body{padding:10px 14px;}
 .horse-meta-row{
@@ -371,6 +383,13 @@ function extGradeBadge(fac) {
   return `<span class="ext-grade extg-${g.toLowerCase()}">外厩${g}</span>`;
 }
 
+function bloodGradeBadge(tan, fuku) {
+  const cls = g => g === 'S' ? 'bg-s' : g === 'A' ? 'bg-a' : g === 'B' ? 'bg-b' : g === 'C' ? 'bg-c' : g === 'D' ? 'bg-d' : 'bg-n';
+  const t = tan  || '—';
+  const f = fuku || '—';
+  return `<span class="blood-grade ${cls(t)}">血統単${t}</span><span class="blood-grade ${cls(f)}">血統複${f}</span>`;
+}
+
 // ZI×外厩 でソートして順位付け
 function rankHorses(horses) {
   const gradeOrder = {S:4,A:3,B:2,C:1,D:0};
@@ -481,6 +500,7 @@ function buildHorseCard(name, h, rank) {
       <div class="badges">
         ${ziGradeBadge(h.sabcZI)}
         ${extGradeBadge(h.extFacility)}
+        ${bloodGradeBadge(h.bloodGradeTan, h.bloodGradeFuku)}
       </div>
     </div>
     <div class="card-body">
