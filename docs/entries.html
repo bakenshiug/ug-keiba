@@ -133,60 +133,61 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;
   white-space:nowrap;letter-spacing:.04em;
 }
-.zi-s{background:rgba(252,211,77,.2);color:var(--zi-s);border:1px solid rgba(252,211,77,.35);}
-.zi-a{background:rgba(134,239,172,.2);color:var(--zi-a);border:1px solid rgba(134,239,172,.35);}
-.zi-b{background:rgba(147,197,253,.2);color:var(--zi-b);border:1px solid rgba(147,197,253,.35);}
-.zi-c{background:rgba(253,164,175,.15);color:var(--zi-c);border:1px solid rgba(253,164,175,.3);}
-.zi-d{background:rgba(255,100,120,.08);color:rgba(255,140,155,.55);border:1px solid rgba(255,100,120,.15);}
+.zi-s{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
+.zi-a{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
+.zi-b{background:#dbeafe;color:#1e40af;border:1px solid #60a5fa;}
+.zi-c{background:#ffe4e6;color:#9f1239;border:1px solid #fb7185;}
+.zi-d{background:#f3f4f6;color:#9ca3af;border:1px solid #d1d5db;}
 
 /* 外厩グレードバッジ */
 .ext-grade{
   font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;
   white-space:nowrap;
 }
-.extg-s{background:rgba(252,211,77,.15);color:#fcd34d;border:1px solid rgba(252,211,77,.3);}
-.extg-a{background:rgba(134,239,172,.12);color:#86efac;border:1px solid rgba(134,239,172,.25);}
-.extg-b{background:rgba(255,255,255,.07);color:rgba(255,220,235,.5);border:1px solid rgba(255,255,255,.1);}
+.extg-s{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
+.extg-a{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
+.extg-b{background:#f3f4f6;color:#6b7280;border:1px solid #d1d5db;}
 
 /* 血統グレードバッジ */
 .blood-grade{
   font-size:9px;font-weight:900;padding:2px 6px;border-radius:5px;
   white-space:nowrap;letter-spacing:.03em;
 }
-.bg-s{background:rgba(252,211,77,.18);color:#fcd34d;border:1px solid rgba(252,211,77,.35);}
-.bg-a{background:rgba(134,239,172,.15);color:#86efac;border:1px solid rgba(134,239,172,.3);}
-.bg-b{background:rgba(147,197,253,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.3);}
-.bg-c{background:rgba(253,164,175,.1);color:#fda4af;border:1px solid rgba(253,164,175,.2);}
-.bg-d{background:rgba(255,100,120,.05);color:rgba(255,140,155,.4);border:1px solid rgba(255,100,120,.12);}
-.bg-n{background:rgba(255,255,255,.04);color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.08);}
-.bg-analyzing{background:rgba(80,80,100,.08);color:rgba(180,180,200,.35);border:1px solid rgba(100,100,130,.12);font-style:italic;letter-spacing:.01em;}
+.bg-s{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
+.bg-a{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
+.bg-b{background:#dbeafe;color:#1e40af;border:1px solid #60a5fa;}
+.bg-c{background:#ffe4e6;color:#9f1239;border:1px solid #fb7185;}
+.bg-d{background:#f3f4f6;color:#9ca3af;border:1px solid #d1d5db;}
+.bg-n{background:#f9fafb;color:#d1d5db;border:1px solid #e5e7eb;}
+.bg-analyzing{background:#f3f4f6;color:#9ca3af;border:1px solid #e5e7eb;font-style:italic;letter-spacing:.01em;}
 
 /* ── デュアルバッジ (単/複 分割) ── */
 .dual-badge{
   display:inline-flex;align-items:stretch;
   border-radius:5px;overflow:hidden;
   white-space:nowrap;font-size:9px;font-weight:900;
-  border:1px solid rgba(255,140,185,.15);
+  border:1px solid #d1d5db;
 }
 .dual-lbl{
   display:flex;align-items:center;padding:0 5px;
-  background:rgba(50,10,30,.6);
-  color:rgba(255,190,215,.35);font-size:8px;font-weight:700;
-  border-right:1px solid rgba(255,140,185,.1);
+  background:#f3f4f6;
+  color:#6b7280;font-size:8px;font-weight:700;
+  border-right:1px solid #d1d5db;
 }
 .dual-t,.dual-f{
   display:flex;align-items:center;padding:2px 5px;gap:1px;
 }
-.dual-t{border-right:1px solid rgba(255,140,185,.1);}
-.dual-t::before{content:'単';font-size:7px;opacity:.45;font-weight:700;}
-.dual-f::before{content:'複';font-size:7px;opacity:.45;font-weight:700;}
+.dual-t{border-right:1px solid #e5e7eb;}
+.dual-t::before{content:'単';font-size:7px;opacity:.6;font-weight:700;}
+.dual-f::before{content:'複';font-size:7px;opacity:.6;font-weight:700;}
 
 /* ── スコアバー ── */
 .score-bars{
   display:flex;flex-direction:column;gap:4px;
-  padding:5px 8px;
-  background:rgba(0,0,0,.25);
+  padding:6px 10px;
+  background:#f9f2f5;
   border-radius:8px;
+  border:1px solid rgba(200,30,80,.1);
 }
 .score-row{display:flex;align-items:center;gap:6px;}
 .score-lbl{
@@ -250,14 +251,14 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
 /* 外厩フルバッジ */
 .ext-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap;margin-bottom:8px;}
-.ext-northern-tei{background:rgba(251,191,36,.18);color:#fcd34d;border:1px solid rgba(251,191,36,.3);}
-.ext-northern-shi{background:rgba(96,165,250,.18);color:#93c5fd;border:1px solid rgba(96,165,250,.3);}
-.ext-champion    {background:rgba(34,197,94,.18);color:#86efac;border:1px solid rgba(34,197,94,.3);}
-.ext-yamamoto    {background:rgba(249,115,22,.18);color:#fdba74;border:1px solid rgba(249,115,22,.3);}
-.ext-canyon      {background:rgba(168,85,247,.18);color:#d8b4fe;border:1px solid rgba(168,85,247,.3);}
-.ext-esutei      {background:rgba(236,72,153,.18);color:#f9a8d4;border:1px solid rgba(236,72,153,.3);}
-.ext-other       {background:rgba(180,100,140,.15);color:#e8b4cc;border:1px solid rgba(180,100,140,.25);}
-.ext-zaiku       {background:rgba(60,20,40,.4);color:rgba(200,150,175,.4);border:1px solid rgba(180,80,120,.1);font-style:italic;}
+.ext-northern-tei{background:#fef9c3;color:#713f12;border:1px solid #eab308;}
+.ext-northern-shi{background:#dbeafe;color:#1e3a8a;border:1px solid #3b82f6;}
+.ext-champion    {background:#dcfce7;color:#14532d;border:1px solid #22c55e;}
+.ext-yamamoto    {background:#ffedd5;color:#7c2d12;border:1px solid #f97316;}
+.ext-canyon      {background:#f3e8ff;color:#581c87;border:1px solid #a855f7;}
+.ext-esutei      {background:#fce7f3;color:#831843;border:1px solid #ec4899;}
+.ext-other       {background:#fdf2f8;color:#701a75;border:1px solid #d946ef;}
+.ext-zaiku       {background:#f9fafb;color:#9ca3af;border:1px solid #e5e7eb;font-style:italic;}
 
 /* ギーニョ分析 */
 .ginyo-box{
@@ -291,8 +292,8 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .prev-finish{
   display:inline-block;font-size:10px;font-weight:900;
   padding:1px 7px;border-radius:4px;margin-bottom:6px;
-  background:rgba(255,200,80,.15);color:#fcd34d;
-  border:1px solid rgba(255,200,80,.25);
+  background:#fef3c7;color:#92400e;
+  border:1px solid #f59e0b;
 }
 
 /* 前走なし */
