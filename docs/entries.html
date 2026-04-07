@@ -596,10 +596,9 @@ function buildRankList(items) {
 }
 
 function buildAnalysisSection(d) {
-  const hasTan  = d.sabcRankTan && d.sabcRankTan.length > 0;
-  const hasFuku = d.sabcRankFuku && d.sabcRankFuku.length > 0;
   const hasAnalysis = d.raceAnalysis;
-  if (!hasAnalysis && !hasTan && !hasFuku) return '';
+  const hasBlood    = d.bloodAnalysis;
+  if (!hasAnalysis && !hasBlood) return '';
 
   let html = '<div class="analysis-section">';
 
@@ -613,7 +612,7 @@ function buildAnalysisSection(d) {
     </div>`;
   }
 
-  if (d.bloodAnalysis) {
+  if (hasBlood) {
     html += `
     <div class="analysis-block">
       <div class="analysis-block-title">
@@ -623,32 +622,20 @@ function buildAnalysisSection(d) {
     </div>`;
   }
 
-  if (hasTan) {
-    html += `
-    <div class="analysis-block">
-      <div class="analysis-block-title">
-        <span class="analysis-icon">🥇</span>単勝期待値ランキング
-      </div>
-      ${buildRankList(d.sabcRankTan)}
-    </div>`;
-  }
-
-  if (hasFuku) {
-    html += `
-    <div class="analysis-block">
-      <div class="analysis-block-title">
-        <span class="analysis-icon">🎯</span>複勝期待値ランキング
-      </div>
-      ${buildRankList(d.sabcRankFuku)}
-    </div>`;
-  }
-
   html += '</div>';
   return html;
 }
 
-function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank) {
-  const hasComment = h.prevJockeyComment || h.prevRaceNote;
+// 馬名→単勝/複勝コメントの検索マップを作成
+function buildCommentMaps(d) {
+  const tan = {}, fuku = {};
+  (d.sabcRankTan  || []).forEach(item => { if (item.horse) tan[item.horse]  = item.comment; });
+  (d.sabcRankFuku || []).forEach(item => { if (item.horse) fuku[item.horse] = item.comment; });
+  return {tan, fuku};
+}
+
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, tanComment, fukuComment) {
+  const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment;
 
   const ginyoHtml = hasComment ? `
     <div class="ginyo-box">
@@ -665,6 +652,16 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         <div class="ginyo-section">
           <div class="ginyo-section-title">▍ ギーニョの前走ジャッジ</div>
           <div class="ginyo-text">${esc(h.prevJockeyComment)}</div>
+        </div>` : ''}
+      ${tanComment ? `
+        <div class="ginyo-section">
+          <div class="ginyo-section-title">▍ 🥇 単勝評価</div>
+          <div class="ginyo-text">${esc(tanComment)}</div>
+        </div>` : ''}
+      ${fukuComment ? `
+        <div class="ginyo-section">
+          <div class="ginyo-section-title">▍ 🎯 複勝評価</div>
+          <div class="ginyo-text">${esc(fukuComment)}</div>
         </div>` : ''}
     </div>` : `<p class="no-comment">コメントデータなし</p>`;
 
@@ -727,9 +724,12 @@ function renderRace(idx) {
   else if (sortMode === 'fuku') display = byFuku;
   else display = [...scored].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
 
+  const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
+
   const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax}) =>
     buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax,
-                   tanRankMap[name], fukuRankMap[name])
+                   tanRankMap[name], fukuRankMap[name],
+                   tanCmt[name] || null, fukuCmt[name] || null)
   ).join('');
 
   const sortBar = `
