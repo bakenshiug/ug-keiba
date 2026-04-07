@@ -210,6 +210,66 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   border:1px solid rgba(232,48,110,.25);margin-right:6px;
 }
 
+/* ── ギーニョ重賞データ解析セクション ── */
+.analysis-section{
+  margin:12px 12px 0;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,140,185,.2);
+}
+.analysis-block{
+  background:rgba(40,5,24,.7);
+  padding:14px 16px;
+  border-bottom:1px solid rgba(255,140,185,.1);
+}
+.analysis-block:last-child{border-bottom:none;}
+.analysis-block-title{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:900;letter-spacing:.1em;
+  color:rgba(255,140,185,.9);text-transform:uppercase;
+  margin-bottom:10px;padding-bottom:6px;
+  border-bottom:1px solid rgba(255,140,185,.15);
+}
+.analysis-icon{font-size:14px;}
+.analysis-comment{
+  font-size:12px;line-height:1.8;
+  color:rgba(255,230,240,.82);
+}
+/* ランキングリスト */
+.rank-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+.rank-item{
+  display:flex;align-items:flex-start;gap:10px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,140,185,.1);
+  border-radius:10px;padding:10px 12px;
+}
+.rank-item.rank-keshi{
+  opacity:.55;
+  border-color:rgba(248,113,113,.15);
+  background:rgba(248,113,113,.04);
+}
+.rank-num{
+  flex-shrink:0;
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;
+}
+.rank-num.r1{background:rgba(252,211,77,.2);color:#fcd34d;border:1px solid rgba(252,211,77,.4);}
+.rank-num.r2{background:rgba(209,213,219,.15);color:#d1d5db;border:1px solid rgba(209,213,219,.3);}
+.rank-num.r3{background:rgba(180,83,9,.2);color:#fdba74;border:1px solid rgba(180,83,9,.35);}
+.rank-num.rn{background:rgba(255,255,255,.07);color:rgba(255,210,230,.5);border:1px solid rgba(255,255,255,.1);}
+.rank-num.rx{background:rgba(248,113,113,.1);color:rgba(248,113,113,.6);border:1px solid rgba(248,113,113,.2);font-size:10px;}
+.rank-info{flex:1;min-width:0;}
+.rank-horse{
+  font-family:'Noto Serif JP',serif;
+  font-size:13px;font-weight:900;color:#fff;
+  margin-bottom:4px;
+}
+.rank-horse-comment{
+  font-size:11px;line-height:1.7;
+  color:rgba(255,210,230,.7);
+}
+
 .loading{text-align:center;padding:48px 16px;color:var(--muted);font-size:13px;}
 </style>
 </head>
@@ -321,6 +381,65 @@ function rankHorses(horses) {
   });
 }
 
+function buildRankList(items) {
+  if (!items || items.length === 0) return '';
+  return '<ul class="rank-list">' + items.map(item => {
+    const isKeshi = String(item.rank) === '消';
+    const rankCls = isKeshi ? 'rx' : (item.rank === 1 ? 'r1' : item.rank === 2 ? 'r2' : item.rank === 3 ? 'r3' : 'rn');
+    const rankLabel = isKeshi ? '消' : String(item.rank);
+    return `
+    <li class="rank-item${isKeshi ? ' rank-keshi' : ''}">
+      <div class="rank-num ${rankCls}">${rankLabel}</div>
+      <div class="rank-info">
+        <div class="rank-horse">${esc(item.horse)}</div>
+        <div class="rank-horse-comment">${esc(item.comment)}</div>
+      </div>
+    </li>`;
+  }).join('') + '</ul>';
+}
+
+function buildAnalysisSection(d) {
+  const hasTan  = d.sabcRankTan && d.sabcRankTan.length > 0;
+  const hasFuku = d.sabcRankFuku && d.sabcRankFuku.length > 0;
+  const hasAnalysis = d.raceAnalysis;
+  if (!hasAnalysis && !hasTan && !hasFuku) return '';
+
+  let html = '<div class="analysis-section">';
+
+  if (hasAnalysis) {
+    html += `
+    <div class="analysis-block">
+      <div class="analysis-block-title">
+        <span class="analysis-icon">📊</span>ギーニョの重賞データ解析
+      </div>
+      <div class="analysis-comment">${esc(d.raceAnalysis)}</div>
+    </div>`;
+  }
+
+  if (hasTan) {
+    html += `
+    <div class="analysis-block">
+      <div class="analysis-block-title">
+        <span class="analysis-icon">🥇</span>単勝期待値ランキング
+      </div>
+      ${buildRankList(d.sabcRankTan)}
+    </div>`;
+  }
+
+  if (hasFuku) {
+    html += `
+    <div class="analysis-block">
+      <div class="analysis-block-title">
+        <span class="analysis-icon">🎯</span>複勝期待値ランキング
+      </div>
+      ${buildRankList(d.sabcRankFuku)}
+    </div>`;
+  }
+
+  html += '</div>';
+  return html;
+}
+
 function buildHorseCard(name, h, rank) {
   const zg  = ziGrade(h.sabcZI);
   const eg  = extGrade(h.extFacility);
@@ -384,6 +503,7 @@ function renderRace(idx) {
       </div>
       <span class="horse-count">${horses.length}頭</span>
     </div>
+    ${buildAnalysisSection(d)}
     <div class="horse-list">${cards}</div>
   `;
 }
