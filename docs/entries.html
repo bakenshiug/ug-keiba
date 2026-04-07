@@ -557,8 +557,8 @@ function calcScores(h) {
   const jkF = h.jockeyGradeFuku ?? null;
   const gtT = h.gateGradeTan    ?? null;
   const gtF = h.gateGradeFuku   ?? null;
-  const spT = h.specialGrade    ?? null;
-  const spF = h.specialGrade    ?? null;
+  const spT = h.specialGradeTan  ?? h.specialGrade ?? null;
+  const spF = h.specialGradeFuku ?? h.specialGrade ?? null;
   const agT = h.ageGradeTan    ?? null;
   const agF = h.ageGradeFuku   ?? null;
   const rtT = h.rotGradeTan    ?? null;
@@ -789,7 +789,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${splitBadge('コース', h.courseGrade,'course')}
           ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
           ${splitBadge('脚質', h.styleGrade,  'style')}
-          ${gradeBadge('特注', h.specialGrade ?? null, h.specialGrade ?? null)}
+          ${gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null)}
           ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
           ${gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null)}
           ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
