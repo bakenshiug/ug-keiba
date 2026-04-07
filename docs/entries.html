@@ -131,6 +131,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .horse-num-zi  {background:rgba(232,48,110,.15);color:#c01860;}
 .horse-num-tan {background:rgba(252,211,77,.22);color:#b45309;}
 .horse-num-fuku{background:rgba(110,231,183,.22);color:#047857;}
+.horse-num-ana {background:rgba(167,139,250,.22);color:#6d28d9;}
 .horse-name{
   font-family:'Noto Serif JP',serif;
   font-size:15px;font-weight:900;color:#111;
@@ -248,6 +249,15 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   background:rgba(232,48,110,.2);
   border-color:rgba(232,48,110,.4);
   color:#fff;
+}
+.sort-btn.ana-btn{
+  border-color:rgba(167,139,250,.35);
+  color:rgba(196,181,253,.7);
+}
+.sort-btn.ana-btn.active{
+  background:rgba(109,40,217,.25);
+  border-color:rgba(167,139,250,.6);
+  color:#ddd6fe;
 }
 
 /* カード本体 */
@@ -660,10 +670,10 @@ function buildCommentMaps(d) {
   return {tan, fuku};
 }
 
-function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, tanComment, fukuComment) {
-  const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : ziRank;
-  const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : 'ZI';
-  const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : 'zi';
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, tanComment, fukuComment) {
+  const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : ziRank;
+  const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : 'ZI';
+  const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : 'zi';
   const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment;
 
   const ginyoHtml = hasComment ? `
@@ -747,26 +757,36 @@ function renderRace(idx) {
   // 全馬のスコアを計算
   const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h)}));
 
-  // 単勝/複勝/ZI 順位マップ
-  const byTan  = [...scored].sort((a,b) => b.tanScore  - a.tanScore  || (b.h.sabcZI||0)-(a.h.sabcZI||0));
-  const byFuku = [...scored].sort((a,b) => b.fukuScore - a.fukuScore || (b.h.sabcZI||0)-(a.h.sabcZI||0));
-  const byZI   = [...scored].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
-  const tanRankMap={}, fukuRankMap={}, ziRankMap={};
+  // 穴馬スコア = (複勝率) × ln(オッズ)
+  const withAna = scored.map(s => {
+    const odds = s.h.expectedOdds || 1;
+    const pct  = s.fukuMax > 0 ? s.fukuScore / s.fukuMax : 0;
+    return {...s, anaScore: pct * Math.log(odds)};
+  });
+
+  // 単勝/複勝/ZI/穴馬 順位マップ
+  const byTan  = [...withAna].sort((a,b) => b.tanScore  - a.tanScore  || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byFuku = [...withAna].sort((a,b) => b.fukuScore - a.fukuScore || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byZI   = [...withAna].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byAna  = [...withAna].sort((a,b) => b.anaScore  - a.anaScore);
+  const tanRankMap={}, fukuRankMap={}, ziRankMap={}, anaRankMap={};
   byTan.forEach(({name},i)  => tanRankMap[name]  = i+1);
   byFuku.forEach(({name},i) => fukuRankMap[name] = i+1);
   byZI.forEach(({name},i)   => ziRankMap[name]   = i+1);
+  byAna.forEach(({name},i)  => anaRankMap[name]  = i+1);
 
   // 表示順
   let display;
-  if (sortMode === 'tan')       display = byTan;
+  if      (sortMode === 'tan')  display = byTan;
   else if (sortMode === 'fuku') display = byFuku;
-  else display = byZI;
+  else if (sortMode === 'ana')  display = byAna;
+  else                          display = byZI;
 
   const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
 
   const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax}) =>
     buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax,
-                   tanRankMap[name], fukuRankMap[name], ziRankMap[name],
+                   tanRankMap[name], fukuRankMap[name], ziRankMap[name], anaRankMap[name],
                    tanCmt[name] || null, fukuCmt[name] || null)
   ).join('');
 
@@ -776,6 +796,7 @@ function renderRace(idx) {
       <button class="sort-btn ${sortMode==='zi'  ?'active':''}" onclick="setSortMode('zi')">ZI順</button>
       <button class="sort-btn ${sortMode==='tan' ?'active':''}" onclick="setSortMode('tan')">単勝スコア順</button>
       <button class="sort-btn ${sortMode==='fuku'?'active':''}" onclick="setSortMode('fuku')">複勝スコア順</button>
+      <button class="sort-btn ana-btn ${sortMode==='ana'?'active':''}" onclick="setSortMode('ana')">穴馬スコア順</button>
     </div>`;
 
   document.getElementById('content').innerHTML = `
