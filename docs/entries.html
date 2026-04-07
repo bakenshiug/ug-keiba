@@ -939,11 +939,15 @@ function renderRace(idx) {
   const hasFukuEdit = Object.keys(fukuEditRank).length > 0;
 
   // 単勝/複勝/ZI/穴馬/総合/人気 順位マップ
+  function toSortNum(map, name) {
+    const r = map[name];
+    return (typeof r === 'number') ? r : 999;
+  }
   const byTan    = hasTanEdit
-    ? [...withAna].sort((a,b) => (tanEditRank[a.name]||999)  - (tanEditRank[b.name]||999))
+    ? [...withAna].sort((a,b) => toSortNum(tanEditRank,a.name)  - toSortNum(tanEditRank,b.name))
     : [...withAna].sort((a,b) => b.tanScore    - a.tanScore    || (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byFuku   = hasFukuEdit
-    ? [...withAna].sort((a,b) => (fukuEditRank[a.name]||999) - (fukuEditRank[b.name]||999))
+    ? [...withAna].sort((a,b) => toSortNum(fukuEditRank,a.name) - toSortNum(fukuEditRank,b.name))
     : [...withAna].sort((a,b) => b.fukuScore   - a.fukuScore   || (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byZI     = [...withAna].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byAna    = [...withAna].sort((a,b) => b.anaScore    - a.anaScore);
