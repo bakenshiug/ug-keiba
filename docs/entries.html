@@ -927,7 +927,7 @@ function renderRace(idx) {
     const sabcPart  = pct * Math.log(odds);
     const sf3Part   = s.h.sf3AnaScore ?? 0;
     const anaScore  = sabcPart + sf3Part;
-    const sougouScore = s.tanScore + s.fukuScore;
+    const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
     return {...s, anaScore, sougouScore};
   });
 
