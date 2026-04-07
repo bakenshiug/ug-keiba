@@ -165,10 +165,23 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   font-size:9px;font-weight:900;padding:2px 6px;border-radius:5px;
   white-space:nowrap;letter-spacing:.03em;
 }
-.bg-s{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
-.bg-a{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
-.bg-b{background:#dbeafe;color:#1e40af;border:1px solid #60a5fa;}
-.bg-c{background:#ffe4e6;color:#9f1239;border:1px solid #fb7185;}
+/* S grades: 金・amber 3段階 */
+.bg-3s{background:#f59e0b;color:#1c0a00;border:1px solid #b45309;font-weight:900;}
+.bg-2s,.bg-s{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
+.bg-1s{background:#fffbeb;color:#b45309;border:1px solid #fcd34d;}
+/* A grades: 緑・emerald 3段階 */
+.bg-3a{background:#10b981;color:#022c22;border:1px solid #059669;font-weight:900;}
+.bg-2a,.bg-a{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
+.bg-1a{background:#ecfdf5;color:#166534;border:1px solid #86efac;}
+/* B grades: 青・blue 3段階 */
+.bg-3b{background:#60a5fa;color:#172554;border:1px solid #2563eb;font-weight:900;}
+.bg-2b,.bg-b{background:#dbeafe;color:#1e40af;border:1px solid #60a5fa;}
+.bg-1b{background:#eff6ff;color:#3b82f6;border:1px solid #bfdbfe;}
+/* C grades: 赤・rose 3段階 */
+.bg-3c{background:#fb7185;color:#4c0519;border:1px solid #e11d48;font-weight:900;}
+.bg-2c,.bg-c{background:#ffe4e6;color:#9f1239;border:1px solid #fb7185;}
+.bg-1c{background:#fff1f2;color:#be123c;border:1px solid #fda4af;}
+/* D */
 .bg-d{background:#f3f4f6;color:#9ca3af;border:1px solid #d1d5db;}
 .bg-n{background:#f9fafb;color:#d1d5db;border:1px solid #e5e7eb;}
 .bg-analyzing{background:#f3f4f6;color:#9ca3af;border:1px solid #e5e7eb;font-style:italic;letter-spacing:.01em;}
@@ -532,12 +545,25 @@ const GRADE_MAPS = {
 
 function splitGrade(g, key) {
   if (!g || g === '—') return [null, null];
-  return (GRADE_MAPS[key] && GRADE_MAPS[key][g]) ? GRADE_MAPS[key][g] : [null, null];
+  if (GRADE_MAPS[key] && GRADE_MAPS[key][g]) return GRADE_MAPS[key][g];
+  // 12段階グレード（3S等）はGRADE_MAPSにないので単複同値で返す
+  return g ? [g, g] : [null, null];
 }
 
 function gradePoints(g) {
-  return {S:4,A:3,B:2,C:1,D:0}[g] ?? null;
+  // 12段階評価
+  const pts = {
+    '3S':12,'2S':11,'1S':10,
+    '3A': 9,'2A': 8,'1A': 7,
+    '3B': 6,'2B': 5,'1B': 4,
+    '3C': 3,'2C': 2,'1C': 1,
+    'D':  0,
+    // 後方互換: 旧1文字グレード → 中間値(= 2X相当)
+    'S': 11, 'A': 8, 'B': 5, 'C': 2
+  };
+  return g != null ? (pts[g] ?? null) : null;
 }
+function gradeMax() { return 12; }
 
 function calcScores(h) {
   const [ziT, ziF]   = splitGrade(ziGrade(h.sabcZI), 'zi');
@@ -568,17 +594,26 @@ function calcScores(h) {
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
   for (const g of [ziT,exT,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT,s3T]) {
-    const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=4;}
+    const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
   for (const g of [ziF,exF,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F]) {
-    const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=4;}
+    const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   return {tanScore, fukuScore, tanMax, fukuMax};
 }
 
 // ── デュアルバッジ (ラベル + 単grade + 複grade) ──
 function cls(g) {
-  return g==='S'?'bg-s':g==='A'?'bg-a':g==='B'?'bg-b':g==='C'?'bg-c':g==='D'?'bg-d':'bg-analyzing';
+  const m = {
+    '3S':'bg-3s','2S':'bg-2s','1S':'bg-1s',
+    '3A':'bg-3a','2A':'bg-2a','1A':'bg-1a',
+    '3B':'bg-3b','2B':'bg-2b','1B':'bg-1b',
+    '3C':'bg-3c','2C':'bg-2c','1C':'bg-1c',
+    'D':'bg-d',
+    // 後方互換
+    'S':'bg-2s','A':'bg-2a','B':'bg-2b','C':'bg-2c'
+  };
+  return m[g] || 'bg-analyzing';
 }
 function dualBadge(label, gTan, gFuku) {
   const tl = gTan  || '?';
@@ -617,13 +652,13 @@ function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank) {
     <div class="score-row">
       <span class="score-lbl tan-lbl">単</span>
       <div class="score-track"><div class="score-fill tan-fill" style="width:${tp}%"></div></div>
-      <span class="score-val tan-val">${tanScore}/${tanMax}</span>
+      <span class="score-val tan-val">${tanScore}/${tanMax} <span style="opacity:.6;font-size:9px">${tp}%</span></span>
       <span class="score-rank ${rkCls(tanRank)}">#${tanRank}</span>
     </div>
     <div class="score-row">
       <span class="score-lbl fuku-lbl">複</span>
       <div class="score-track"><div class="score-fill fuku-fill" style="width:${fp}%"></div></div>
-      <span class="score-val fuku-val">${fukuScore}/${fukuMax}</span>
+      <span class="score-val fuku-val">${fukuScore}/${fukuMax} <span style="opacity:.6;font-size:9px">${fp}%</span></span>
       <span class="score-rank ${rkCls(fukuRank)}">#${fukuRank}</span>
     </div>
   </div>`;
