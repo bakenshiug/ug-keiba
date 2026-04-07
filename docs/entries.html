@@ -112,12 +112,15 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 }
 .card-head-top{display:flex;align-items:center;gap:10px;}
 .horse-num{
-  width:26px;height:26px;border-radius:50%;
-  background:rgba(255,140,185,.15);
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:900;color:rgba(255,200,225,.8);
+  width:34px;height:34px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
   flex-shrink:0;
 }
+.horse-num-rank{font-size:13px;font-weight:900;line-height:1;}
+.horse-num-mode{font-size:7px;font-weight:700;line-height:1;letter-spacing:.03em;opacity:.85;}
+.horse-num-zi  {background:rgba(232,48,110,.15);color:#c01860;}
+.horse-num-tan {background:rgba(252,211,77,.22);color:#b45309;}
+.horse-num-fuku{background:rgba(110,231,183,.22);color:#047857;}
 .horse-name{
   font-family:'Noto Serif JP',serif;
   font-size:15px;font-weight:900;color:#111;
@@ -634,7 +637,10 @@ function buildCommentMaps(d) {
   return {tan, fuku};
 }
 
-function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, tanComment, fukuComment) {
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, tanComment, fukuComment) {
+  const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : ziRank;
+  const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : 'ZI';
+  const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : 'zi';
   const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment;
 
   const ginyoHtml = hasComment ? `
@@ -669,7 +675,10 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
   <div class="horse-card">
     <div class="card-head">
       <div class="card-head-top">
-        <span class="horse-num">${h.num}</span>
+        <div class="horse-num horse-num-${modeCls}">
+          <span class="horse-num-rank">${dispRank}</span>
+          <span class="horse-num-mode">${modeLabel}</span>
+        </div>
         <span class="horse-name">${esc(name)}</span>
         <div class="badges">
           ${ziGradeBadge(h.sabcZI)}
@@ -711,24 +720,26 @@ function renderRace(idx) {
   // 全馬のスコアを計算
   const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h)}));
 
-  // 単勝/複勝 順位マップ
+  // 単勝/複勝/ZI 順位マップ
   const byTan  = [...scored].sort((a,b) => b.tanScore  - a.tanScore  || (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byFuku = [...scored].sort((a,b) => b.fukuScore - a.fukuScore || (b.h.sabcZI||0)-(a.h.sabcZI||0));
-  const tanRankMap={}, fukuRankMap={};
+  const byZI   = [...scored].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const tanRankMap={}, fukuRankMap={}, ziRankMap={};
   byTan.forEach(({name},i)  => tanRankMap[name]  = i+1);
   byFuku.forEach(({name},i) => fukuRankMap[name] = i+1);
+  byZI.forEach(({name},i)   => ziRankMap[name]   = i+1);
 
   // 表示順
   let display;
   if (sortMode === 'tan')       display = byTan;
   else if (sortMode === 'fuku') display = byFuku;
-  else display = [...scored].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  else display = byZI;
 
   const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
 
   const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax}) =>
     buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax,
-                   tanRankMap[name], fukuRankMap[name],
+                   tanRankMap[name], fukuRankMap[name], ziRankMap[name],
                    tanCmt[name] || null, fukuCmt[name] || null)
   ).join('');
 
