@@ -535,6 +535,7 @@ function buildHorseCard(name, h, rank) {
     </div>
     <div class="card-body">
       <div class="horse-meta-row">
+        <span><span class="meta-label">騎</span>${esc(h.jockey) || '未定'}</span>
         <span><span class="meta-label">父</span>${esc(h.sabcSire) || '—'}</span>
         <span><span class="meta-label">母父</span>${esc(h.damSire) || '—'}</span>
         <span><span class="meta-label">厩</span>${esc(h.sabcTrainer) || '—'}</span>
