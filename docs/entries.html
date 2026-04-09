@@ -140,6 +140,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .horse-num-fuku   {background:rgba(110,231,183,.22);color:#047857;}
 .horse-num-ana    {background:rgba(167,139,250,.22);color:#6d28d9;}
 .horse-num-sf3    {background:rgba(251,146,60,.22);color:#c2410c;}
+.horse-num-keshi  {background:rgba(248,113,113,.12);color:rgba(248,113,113,.7);border:1px solid rgba(248,113,113,.25);}
 .horse-name{
   font-family:'Noto Serif JP',serif;
   font-size:16px;font-weight:900;color:#1a0a10;
@@ -1115,7 +1116,7 @@ function buildSf3Comment(h) {
   return `${diffStr} × ${rankStr} × ${oddsStr} → スコア${score.toFixed(2)}（${eval_}）`;
 }
 
-function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore) {
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore, isKeshi) {
   const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : ziRank;
   const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : 'ZI';
   const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : 'zi';
@@ -1177,11 +1178,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
   <div class="horse-card">
     <div class="card-head">
       <div class="card-head-top">
-        <div class="horse-num horse-num-${modeCls}${dispRank === 1 ? ' rank1-highlight' : ''}">
-          <span class="horse-num-rank">${dispRank}</span>
-          <span class="horse-num-mode">${modeLabel}</span>
+        <div class="horse-num horse-num-${isKeshi ? 'keshi' : modeCls}${!isKeshi && dispRank === 1 ? ' rank1-highlight' : ''}">
+          <span class="horse-num-rank">${isKeshi ? '消' : dispRank}</span>
+          <span class="horse-num-mode">${isKeshi ? '消し' : modeLabel}</span>
         </div>
-        <span class="horse-name${dispRank === 1 ? ' rank1-name' : ''}">${esc(name)}</span>
+        <span class="horse-name${!isKeshi && dispRank === 1 ? ' rank1-name' : ''}">${esc(name)}</span>
         ${h.expectedOdds
           ? `<div class="odds-tag">
                <span class="odds-pop">${popularity}人気</span>
@@ -1272,7 +1273,8 @@ function renderRace(idx) {
     const bloodPart = ((gradePoints(bT) ?? 5) + (gradePoints(bF) ?? 5) - 10) / 24;
     const anaScore = sf3Part + racePart + bloodPart + jkAna + frameAna + sireAna + breederAna + damSireAna + jkStableAna + styleAna + lemaireAna + marginAna;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
-    return {...s, anaScore, sougouScore};
+    const isKeshi = s.tanScore === 0 && s.fukuScore === 0;
+    return {...s, anaScore, sougouScore, isKeshi};
   });
 
   // sabcRankTan/Fuku の編集順位マップ（存在する場合はそちらを優先）
@@ -1288,7 +1290,7 @@ function renderRace(idx) {
   const byTan    = [...withAna].sort((a,b) => tanPct(b)  - tanPct(a)  || (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byFuku   = [...withAna].sort((a,b) => fukuPct(b) - fukuPct(a) || (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byZI     = [...withAna].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
-  const byAna    = [...withAna].sort((a,b) => b.anaScore    - a.anaScore);
+  const byAna    = [...withAna].sort((a,b) => (a.isKeshi?1:0)-(b.isKeshi?1:0) || b.anaScore - a.anaScore);
   const bySougou = [...withAna].sort((a,b) => b.sougouScore - a.sougouScore || (b.h.sabcZI||0)-(a.h.sabcZI||0));
   // 人気順（オッズ昇順）
   const byOdds   = [...withAna].sort((a,b) => (a.h.expectedOdds||999) - (b.h.expectedOdds||999));
@@ -1311,12 +1313,12 @@ function renderRace(idx) {
   const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
 
   const anaMax = Math.max(...withAna.map(s => s.anaScore ?? 0), 0.01);
-  const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax, anaScore, sougouScore}) =>
+  const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax, anaScore, sougouScore, isKeshi}) =>
     buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax,
                    tanRankMap[name], fukuRankMap[name], ziRankMap[name], anaRankMap[name],
                    sougouRankMap[name], popularityMap[name],
                    tanCmt[name] || null, fukuCmt[name] || null,
-                   anaScore ?? 0, anaMax, sougouScore ?? 0)
+                   anaScore ?? 0, anaMax, sougouScore ?? 0, isKeshi ?? false)
   ).join('');
 
   const sortBar = `
