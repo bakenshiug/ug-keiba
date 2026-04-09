@@ -290,63 +290,64 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 /* ── 買い目提案 ── */
 .bet-section{
   margin:10px 12px;padding:14px 16px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,200,100,.25);
+  background:rgba(232,19,110,.08);
+  border:1.5px solid rgba(232,19,110,.35);
   border-radius:12px;
 }
 .bet-header{
   display:flex;align-items:center;gap:10px;margin-bottom:12px;
+  border-bottom:1px solid rgba(232,19,110,.2);padding-bottom:10px;
 }
 .bet-race-type{
-  font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;
-  color:#fff;letter-spacing:.5px;
+  font-size:11px;font-weight:900;padding:4px 10px;border-radius:20px;
+  color:#fff;letter-spacing:.5px;background:#E8136E;
 }
-.bet-title{font-size:13px;font-weight:700;color:rgba(255,220,150,.9);}
-.bet-total{margin-left:auto;font-size:11px;font-weight:700;color:rgba(255,200,100,.8);}
+.bet-title{font-size:13px;font-weight:700;color:#E8136E;}
+.bet-total{margin-left:auto;font-size:11px;font-weight:700;color:rgba(255,255,255,.7);}
 .bet-row{
   display:flex;align-items:center;gap:8px;
-  padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);
+  padding:8px 0;border-bottom:1px solid rgba(232,19,110,.12);
   flex-wrap:wrap;
 }
 .bet-row:last-child{border-bottom:none;}
 .bet-type{
-  font-size:12px;font-weight:900;padding:3px 10px;border-radius:6px;
-  background:rgba(255,255,255,.1);color:#fff;white-space:nowrap;min-width:44px;text-align:center;
+  font-size:12px;font-weight:900;padding:3px 10px;border-radius:20px;
+  background:#E8136E;color:#fff;white-space:nowrap;min-width:44px;text-align:center;
 }
 .bet-horses{
-  font-size:13px;font-weight:700;color:rgba(255,240,200,.9);flex:1;
+  font-size:13px;font-weight:700;color:#fff;flex:1;
 }
 .bet-points{
-  font-size:11px;font-weight:900;color:rgba(255,200,100,.9);white-space:nowrap;
+  font-size:11px;font-weight:900;color:rgba(255,255,255,.7);white-space:nowrap;
 }
 .bet-note{
-  font-size:10px;color:rgba(255,255,255,.4);width:100%;padding-left:2px;
+  font-size:10px;color:rgba(255,180,210,.7);width:100%;padding-left:2px;
 }
 .bet-row-detail{flex-direction:column;align-items:stretch;gap:6px;padding:10px 0;}
 .bet-row-top{display:flex;align-items:center;gap:8px;}
-.bet-note-inline{font-size:10px;color:rgba(255,255,255,.4);margin-left:auto;}
-.bet-formation-rows{display:flex;flex-direction:column;gap:5px;margin-top:4px;}
+.bet-note-inline{font-size:10px;color:rgba(255,180,210,.7);margin-left:auto;}
+.bet-formation-rows{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
 .bet-formation-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .bet-chakuban{
-  font-size:11px;font-weight:900;color:rgba(255,200,100,.8);
+  font-size:11px;font-weight:900;color:#E8136E;
   white-space:nowrap;min-width:40px;
 }
 .bet-horse-chips{display:flex;flex-wrap:wrap;gap:4px;}
 .bet-horses-detail{
   display:flex;align-items:center;gap:6px;flex-wrap:wrap;
-  padding:6px 10px;background:rgba(255,255,255,.04);border-radius:6px;
+  padding:6px 10px;background:rgba(232,19,110,.08);border-radius:6px;
 }
 .bet-jiku{
-  font-size:12px;font-weight:900;color:#F5B731;white-space:nowrap;
+  font-size:12px;font-weight:900;color:#E8136E;white-space:nowrap;
 }
-.bet-arrow{font-size:14px;color:rgba(255,200,100,.6);flex-shrink:0;}
+.bet-arrow{font-size:14px;color:rgba(232,19,110,.6);flex-shrink:0;}
 .bet-aite-chips{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
 .bet-horse-chip{
   font-size:11px;font-weight:700;
-  padding:3px 8px;border-radius:6px;
-  background:rgba(232,19,110,.15);
-  border:1px solid rgba(232,19,110,.3);
-  color:rgba(255,200,220,.95);
+  padding:3px 9px;border-radius:20px;
+  background:rgba(232,19,110,.2);
+  border:1px solid rgba(232,19,110,.5);
+  color:#fff;
   white-space:nowrap;
 }
 /* ── ソートバー ── */
@@ -835,12 +836,14 @@ function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, a
 // ── 買い目生成ロジック ──
 function detectRaceType(byTan) {
   if (byTan.length < 4) return '混戦';
-  const pct = s => s.tanMax > 0 ? s.tanScore / s.tanMax : 0;
-  const d12 = pct(byTan[0]) - pct(byTan[1]);
-  const d23 = pct(byTan[1]) - pct(byTan[2]);
-  const d34 = pct(byTan[2]) - pct(byTan[3]);
-  if (d12 >= 0.05)                          return '1強';
-  if (d12 <  0.05 && d23 >= 0.05)          return '2強';
+  // 総合スコアで判定（ginyoGrade乗算後の単勝スコアだと偏るため）
+  const bySg = [...byTan].sort((a,b) => (b.sougouScore??0) - (a.sougouScore??0));
+  const pct = s => s.sougouScore ?? 0;
+  const d12 = pct(bySg[0]) - pct(bySg[1]);
+  const d23 = pct(bySg[1]) - pct(bySg[2]);
+  const d34 = pct(bySg[2]) - pct(bySg[3]);
+  if (d12 >= 0.05)                               return '1強';
+  if (d12 <  0.05 && d23 >= 0.05)               return '2強';
   if (d12 <  0.05 && d23 < 0.07 && d34 >= 0.05) return '3強';
   return '混戦';
 }
