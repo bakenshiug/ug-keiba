@@ -69,7 +69,11 @@
       "frame": 3,
       "gateGradeTan": "B",
       "gateGradeFuku": "A",
-      "jockeyAnaBonus": -0.085
+      "jockeyAnaBonus": -0.085,
+      "frameAnaBonus": -0.0925,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "アランカール": {
       "num": 7,
@@ -132,7 +136,11 @@
       "frame": 4,
       "gateGradeTan": "A",
       "gateGradeFuku": "B",
-      "jockeyAnaBonus": 0.0075
+      "jockeyAnaBonus": 0.0075,
+      "frameAnaBonus": 0.0225,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "エレガンスアスク": {
       "num": 4,
@@ -195,7 +203,11 @@
       "frame": 2,
       "gateGradeTan": "B",
       "gateGradeFuku": "B",
-      "jockeyAnaBonus": -0.025
+      "jockeyAnaBonus": -0.025,
+      "frameAnaBonus": 0.1025,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 1.0875,
+      "damSireAnaBonus": 0
     },
     "ギャラボーグ": {
       "num": 5,
@@ -258,7 +270,11 @@
       "frame": 3,
       "gateGradeTan": "B",
       "gateGradeFuku": "A",
-      "jockeyAnaBonus": 0.3825
+      "jockeyAnaBonus": 0.3825,
+      "frameAnaBonus": -0.0925,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "サンアントワーヌ": {
       "num": 2,
@@ -322,7 +338,11 @@
       "frame": 1,
       "gateGradeTan": "D",
       "gateGradeFuku": "C",
-      "jockeyAnaBonus": -0.0775
+      "jockeyAnaBonus": -0.0775,
+      "frameAnaBonus": -0.125,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0.06
     },
     "ショウナンカリス": {
       "num": 16,
@@ -386,7 +406,11 @@
       "frame": 8,
       "gateGradeTan": "C",
       "gateGradeFuku": "C",
-      "jockeyAnaBonus": 0.01
+      "jockeyAnaBonus": 0.01,
+      "frameAnaBonus": -0.055,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "ジッピーチューン": {
       "num": 11,
@@ -449,7 +473,11 @@
       "frame": 6,
       "gateGradeTan": "C",
       "gateGradeFuku": "A",
-      "jockeyAnaBonus": -0.1075
+      "jockeyAnaBonus": -0.1075,
+      "frameAnaBonus": -0.0275,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "スウィートハピネス": {
       "num": 12,
@@ -513,7 +541,11 @@
       "frame": 6,
       "gateGradeTan": "C",
       "gateGradeFuku": "A",
-      "jockeyAnaBonus": -0.06
+      "jockeyAnaBonus": -0.06,
+      "frameAnaBonus": -0.0275,
+      "sireAnaBonus": 0.8125,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "スターアニス": {
       "num": 15,
@@ -576,7 +608,11 @@
       "frame": 7,
       "gateGradeTan": "C",
       "gateGradeFuku": "C",
-      "jockeyAnaBonus": -0.0725
+      "jockeyAnaBonus": -0.0725,
+      "frameAnaBonus": 0.04,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "ディアダイヤモンド": {
       "num": 3,
@@ -639,7 +675,11 @@
       "frame": 2,
       "gateGradeTan": "B",
       "gateGradeFuku": "B",
-      "jockeyAnaBonus": -0.2
+      "jockeyAnaBonus": -0.2,
+      "frameAnaBonus": 0.1025,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "ドリームコア": {
       "num": 14,
@@ -702,7 +742,11 @@
       "frame": 7,
       "gateGradeTan": "C",
       "gateGradeFuku": "C",
-      "jockeyAnaBonus": -0.08
+      "jockeyAnaBonus": -0.08,
+      "frameAnaBonus": 0.04,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0.06
     },
     "ナムラコスモス": {
       "num": 10,
@@ -765,7 +809,11 @@
       "frame": 5,
       "gateGradeTan": "B",
       "gateGradeFuku": "A",
-      "jockeyAnaBonus": -0.01
+      "jockeyAnaBonus": -0.01,
+      "frameAnaBonus": 0.065,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "フェスティバルヒル": {
       "num": 1,
@@ -829,7 +877,11 @@
       "frame": 1,
       "gateGradeTan": "D",
       "gateGradeFuku": "C",
-      "jockeyAnaBonus": 0.2225
+      "jockeyAnaBonus": 0.2225,
+      "frameAnaBonus": -0.125,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "ブラックチャリス": {
       "num": 17,
@@ -892,7 +944,11 @@
       "frame": 8,
       "gateGradeTan": "C",
       "gateGradeFuku": "C",
-      "jockeyAnaBonus": -0.2
+      "jockeyAnaBonus": -0.2,
+      "frameAnaBonus": -0.055,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "プレセピオ": {
       "num": 18,
@@ -956,7 +1012,11 @@
       "frame": 8,
       "gateGradeTan": "C",
       "gateGradeFuku": "C",
-      "jockeyAnaBonus": -0.2
+      "jockeyAnaBonus": -0.2,
+      "frameAnaBonus": -0.055,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "リリージョワ": {
       "num": 13,
@@ -1020,7 +1080,11 @@
       "frame": 7,
       "gateGradeTan": "C",
       "gateGradeFuku": "C",
-      "jockeyAnaBonus": 0.2625
+      "jockeyAnaBonus": 0.2625,
+      "frameAnaBonus": 0.04,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "ルールザウェイヴ": {
       "num": 9,
@@ -1083,7 +1147,11 @@
       "frame": 5,
       "gateGradeTan": "B",
       "gateGradeFuku": "A",
-      "jockeyAnaBonus": -0.2
+      "jockeyAnaBonus": -0.2,
+      "frameAnaBonus": 0.065,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     },
     "ロンギングセリーヌ": {
       "num": 8,
@@ -1146,7 +1214,11 @@
       "frame": 4,
       "gateGradeTan": "A",
       "gateGradeFuku": "B",
-      "jockeyAnaBonus": -0.2
+      "jockeyAnaBonus": -0.2,
+      "frameAnaBonus": 0.0225,
+      "sireAnaBonus": 0,
+      "breederAnaBonus": 0,
+      "damSireAnaBonus": 0
     }
   },
   "bloodAnalysis": "【父系】このレースで血統的に最も目を引くのはキタサンブラック産駒の複勝率66.7%（3頭）だ。ブラックチャリスが該当する。レースデータでは別角度の消し根拠を持ちながら、血統データは真逆の最高評価を与えており、「データの相克」という稀な局面を生み出している。取捨は慎重を期すべき一頭だ。エピファネイア産駒（28.6%複勝・7頭）のアランカールは血統面でまずまずの評価。一方、ロードカナロア産駒は複勝率こそ22.2%あるが勝率0%というデータが示す通り「複勝は取れても勝てない血統」であり、ジッピーチューン・ルールザウェイヴは馬券の軸には不向きだ。\n\n【母父】最強は母父ハーツクライ（50%・2頭）、次いで母父クロフネ（42.9%・7頭）が続く。フェスティバルヒルは母父ハーツクライから強烈な血統後押しを受けており、レースデータとも一致する高評価馬だ。ルールザウェイヴ（父ロードカナロア・母父ディープインパクト0%）は父・母父のダブルマイナスで消し根拠がさらに強固になった。\n\n【特別解析】父キタサンブラック（複勝率66.7%）と母父ハーツクライ（50%）は、このレースにおける2大突起データだ。キタサンブラック産駒のブラックチャリスは頭数3頭と少ないながらも全頭複勝圏という驚異的な数字を残しており、血統単体では最上位評価に値する。また、ロードカナロア産駒は「複勝率22.2%・勝率0%」という独特のパターンを示しており、単勝では消し・複勝では抑えという使い分けが合理的な判断となる。\n\n【血統総括】血統面のトップ評価は、父キタサンブラック66.7%のブラックチャリスと、母父ハーツクライ50%のフェスティバルヒルの2頭だ。フェスティバルヒルは全ファクターが好方向に揃い、最終的な買い目構成の核心となる。",
