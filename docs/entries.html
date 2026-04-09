@@ -1262,11 +1262,12 @@ function renderRace(idx) {
     const jkStableAna = s.h.jockeyStableAnaBonus   ?? 0;
     const styleAna    = s.h.styleAnaBonus          ?? 0;  // 先行×上がり最速等
     const lemaireAna  = s.h.lemaireChangeBonus     ?? 0;  // 前走ルメール→乗替（素質馬の証明）
+    const marginAna   = s.h.prevMarginBonus        ?? 0;  // 前走着差ボーナス（0.3〜0.9差勝ち）
     // 血統配合グレード（B=0基準、S+S→+0.5、A+A→+0.25、D+D→-0.42）
     const bT = s.h.bloodGradeTan  ?? 'B';
     const bF = s.h.bloodGradeFuku ?? 'B';
     const bloodPart = ((gradePoints(bT) ?? 5) + (gradePoints(bF) ?? 5) - 10) / 24;
-    const anaScore = sf3Part + racePart + bloodPart + jkAna + frameAna + sireAna + breederAna + damSireAna + jkStableAna + styleAna + lemaireAna;
+    const anaScore = sf3Part + racePart + bloodPart + jkAna + frameAna + sireAna + breederAna + damSireAna + jkStableAna + styleAna + lemaireAna + marginAna;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
     return {...s, anaScore, sougouScore};
   });
