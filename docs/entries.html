@@ -820,9 +820,10 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
   const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : 'ZI';
   const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : 'zi';
   const sf3Cmt = buildSf3Comment(h);
+  const raceAnaCmt = h.raceAnaNote ?? null;
   const condCmt = h.conditionNote ?? null;
   const bloodNote = h.bloodNote ?? null;
-  const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment || sf3Cmt || condCmt || bloodNote;
+  const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment || sf3Cmt || raceAnaCmt || condCmt || bloodNote;
 
   const ginyoHtml = hasComment ? `
     <div class="ginyo-box">
@@ -854,6 +855,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         <div class="ginyo-section sf3-comment-section">
           <div class="ginyo-section-title">▍ 💰 穴馬評価（3F統計）</div>
           <div class="ginyo-text">${esc(sf3Cmt)}</div>
+        </div>` : ''}
+      ${raceAnaCmt ? `
+        <div class="ginyo-section sf3-comment-section">
+          <div class="ginyo-section-title">▍ 🎯 穴馬ファクター（レース統計）</div>
+          <div class="ginyo-text">${esc(raceAnaCmt)}</div>
         </div>` : ''}
       ${condCmt ? `
         <div class="ginyo-section condition-comment-section">
@@ -930,13 +936,11 @@ function renderRace(idx) {
   // 全馬のスコアを計算
   const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h)}));
 
-  // 穴馬スコア = (複勝率) × ln(オッズ) + 3F統計穴スコア
+  // 穴馬スコア = 3F統計穴スコア + レース統計穴ボーナス
   const withAna = scored.map(s => {
-    const odds      = s.h.expectedOdds || 1;
-    const pct       = s.fukuMax > 0 ? s.fukuScore / s.fukuMax : 0;
-    const sabcPart  = pct * Math.log(odds);
-    const sf3Part   = s.h.sf3AnaScore ?? 0;
-    const anaScore  = sabcPart + sf3Part;
+    const sf3Part  = s.h.sf3AnaScore  ?? 0;
+    const racePart = s.h.raceAnaBonus ?? 0;
+    const anaScore = sf3Part + racePart;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
     return {...s, anaScore, sougouScore};
   });
