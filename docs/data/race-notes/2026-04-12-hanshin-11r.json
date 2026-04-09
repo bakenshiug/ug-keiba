@@ -7,11 +7,11 @@
     "surface": "芝",
     "distance": 1600,
     "course": "外",
-    "numHorses": 19
+    "numHorses": 18
   },
   "horses": {
     "アイニードユー": {
-      "num": 1,
+      "num": 6,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -35,7 +35,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "C",
-      "gateGrade": null,
       "styleGrade": "A",
       "specialGrade": null,
       "jockey": "川田将雅",
@@ -43,8 +42,8 @@
       "stableGradeFuku": "C",
       "breederGradeTan": "D",
       "breederGradeFuku": "D",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "A",
+      "jockeyGradeFuku": "A",
       "prevRaceName": "フィリーG2",
       "rotGradeTan": "C",
       "rotGradeFuku": "D",
@@ -66,10 +65,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 1.0,
-      "raceAnaNote": "フィリーズR前走3着（1400→1600延長組）+1.0"
+      "raceAnaNote": "フィリーズR前走3着（1400→1600延長組）+1.0",
+      "frame": 3,
+      "gateGradeTan": "B",
+      "gateGradeFuku": "A"
     },
     "アランカール": {
-      "num": 2,
+      "num": 7,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -93,7 +95,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "B",
-      "gateGrade": null,
       "styleGrade": "C",
       "specialGrade": null,
       "jockey": "武豊",
@@ -101,8 +102,8 @@
       "stableGradeFuku": "S",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "B",
+      "jockeyGradeFuku": "B",
       "prevRaceName": "チューリG2",
       "rotGradeTan": "D",
       "rotGradeFuku": "B",
@@ -126,10 +127,13 @@
       "damSireGrade2Tan": "A",
       "damSireGrade2Fuku": "A",
       "raceAnaBonus": 1.1,
-      "raceAnaNote": "チューリップ賞GII経由（過去3頭穴輩出・着順不問）+0.8 / 前走3着（好走加算）+0.3"
+      "raceAnaNote": "チューリップ賞GII経由（過去3頭穴輩出・着順不問）+0.8 / 前走3着（好走加算）+0.3",
+      "frame": 4,
+      "gateGradeTan": "A",
+      "gateGradeFuku": "B"
     },
     "エレガンスアスク": {
-      "num": 3,
+      "num": 4,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -153,7 +157,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "B",
       "specialGrade": null,
       "jockey": "岩田望来",
@@ -161,8 +164,8 @@
       "stableGradeFuku": "C",
       "breederGradeTan": "B",
       "breederGradeFuku": "C",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "A",
+      "jockeyGradeFuku": "A",
       "prevRaceName": "チューリG2",
       "rotGradeTan": "D",
       "rotGradeFuku": "B",
@@ -186,10 +189,13 @@
       "damSireGrade2Tan": "D",
       "damSireGrade2Fuku": "A",
       "raceAnaBonus": 0.8,
-      "raceAnaNote": "チューリップ賞GII経由（過去3頭穴輩出・着順不問）+0.8"
+      "raceAnaNote": "チューリップ賞GII経由（過去3頭穴輩出・着順不問）+0.8",
+      "frame": 2,
+      "gateGradeTan": "B",
+      "gateGradeFuku": "B"
     },
     "ギャラボーグ": {
-      "num": 4,
+      "num": 5,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -213,7 +219,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "A",
       "courseGrade": "A",
-      "gateGrade": null,
       "styleGrade": "C",
       "specialGrade": null,
       "jockey": "西村淳也",
@@ -221,8 +226,8 @@
       "stableGradeFuku": "B",
       "breederGradeTan": "B",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "B",
+      "jockeyGradeFuku": "A",
       "prevRaceName": "クイーンG3",
       "rotGradeTan": "B",
       "rotGradeFuku": "C",
@@ -246,10 +251,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 0.0,
-      "raceAnaNote": null
+      "raceAnaNote": null,
+      "frame": 3,
+      "gateGradeTan": "B",
+      "gateGradeFuku": "A"
     },
     "サンアントワーヌ": {
-      "num": 5,
+      "num": 2,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -273,7 +281,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "B",
-      "gateGrade": null,
       "styleGrade": "C",
       "specialGrade": null,
       "jockey": "荻野極",
@@ -281,8 +288,8 @@
       "stableGradeFuku": "A",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "D",
+      "jockeyGradeFuku": "D",
       "prevRaceName": "フィリーG2",
       "rotGradeTan": "C",
       "rotGradeFuku": "D",
@@ -307,10 +314,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 1.0,
-      "raceAnaNote": "フィリーズR前走2着（1400→1600延長組）+1.0"
+      "raceAnaNote": "フィリーズR前走2着（1400→1600延長組）+1.0",
+      "frame": 1,
+      "gateGradeTan": "D",
+      "gateGradeFuku": "C"
     },
     "ショウナンカリス": {
-      "num": 6,
+      "num": 16,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -334,7 +344,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "B",
       "specialGrade": null,
       "jockey": "池添謙一",
@@ -342,8 +351,8 @@
       "stableGradeFuku": "A",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "C",
+      "jockeyGradeFuku": "C",
       "prevRaceName": "フィリーG2",
       "rotGradeTan": "C",
       "rotGradeFuku": "D",
@@ -368,10 +377,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 0.0,
-      "raceAnaNote": null
+      "raceAnaNote": null,
+      "frame": 8,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C"
     },
     "ジッピーチューン": {
-      "num": 7,
+      "num": 11,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -395,7 +407,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "A",
       "specialGrade": null,
       "jockey": "北村友一",
@@ -403,8 +414,8 @@
       "stableGradeFuku": null,
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "C",
+      "jockeyGradeFuku": "B",
       "prevRaceName": "クイーンG3",
       "rotGradeTan": "B",
       "rotGradeFuku": "C",
@@ -428,10 +439,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 0.6,
-      "raceAnaNote": "クイーンCGIII前走2着+0.6"
+      "raceAnaNote": "クイーンCGIII前走2着+0.6",
+      "frame": 6,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "A"
     },
     "スウィートハピネス": {
-      "num": 8,
+      "num": 12,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -455,16 +469,15 @@
       "jockeyStableGrade": null,
       "bodyGrade": "A",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "B",
       "specialGrade": null,
-      "jockey": "高杉吏",
+      "jockey": "高杉吏麒",
       "stableGradeTan": "B",
       "stableGradeFuku": "A",
       "breederGradeTan": "D",
       "breederGradeFuku": "D",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "D",
+      "jockeyGradeFuku": "C",
       "prevRaceName": "エルフィ(L)",
       "rotGradeTan": "S",
       "rotGradeFuku": "A",
@@ -489,10 +502,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 1.2,
-      "raceAnaNote": "エルフィ(L)前走1着（ライトバックと同パターン）+1.2"
+      "raceAnaNote": "エルフィ(L)前走1着（ライトバックと同パターン）+1.2",
+      "frame": 6,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "A"
     },
     "スターアニス": {
-      "num": 9,
+      "num": 15,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -516,15 +532,14 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "S",
-      "gateGrade": null,
       "styleGrade": "B",
       "jockey": "松山弘平",
       "stableGradeTan": "A",
       "stableGradeFuku": "A",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "C",
+      "jockeyGradeFuku": "B",
       "prevRaceName": "阪神ジュG1",
       "specialNote": "G1前走1着(阪神JF)→桜花賞連対率100%（ソダシ1着・リバティアイランド1着・アスコリピチェーノ2着・アルマヴェローチェ2着）／ZI最高値132／体重478kgベストゾーン一致",
       "rotGradeTan": "S",
@@ -549,10 +564,13 @@
       "damSireGrade2Tan": "B",
       "damSireGrade2Fuku": "C",
       "raceAnaBonus": 0.8,
-      "raceAnaNote": "阪神JFG1前走1着+0.8"
+      "raceAnaNote": "阪神JFG1前走1着+0.8",
+      "frame": 7,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C"
     },
     "ディアダイヤモンド": {
-      "num": 10,
+      "num": 3,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -576,7 +594,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "A",
       "specialGrade": null,
       "jockey": "戸崎圭太",
@@ -584,8 +601,8 @@
       "stableGradeFuku": "B",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "D",
+      "jockeyGradeFuku": "D",
       "prevRaceName": "アネモネ(L)",
       "rotGradeTan": "D",
       "rotGradeFuku": "D",
@@ -609,10 +626,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 1.2,
-      "raceAnaNote": "アネモネ(L)前走1着（ライトバックと同パターン）+1.2"
+      "raceAnaNote": "アネモネ(L)前走1着（ライトバックと同パターン）+1.2",
+      "frame": 2,
+      "gateGradeTan": "B",
+      "gateGradeFuku": "B"
     },
     "ドリームコア": {
-      "num": 11,
+      "num": 14,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -636,15 +656,14 @@
       "jockeyStableGrade": null,
       "bodyGrade": "A",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "B",
       "jockey": "C.ルメール",
       "stableGradeTan": null,
       "stableGradeFuku": null,
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "B",
+      "jockeyGradeFuku": "A",
       "prevRaceName": "クイーンG3",
       "specialNote": "クイーンCG3 1着ローテ→2022スターズオンアース(7番人気1着)の同パターン／ZI=123上位",
       "rotGradeTan": "B",
@@ -669,10 +688,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 1.2,
-      "raceAnaNote": "クイーンCGIII前走1着（スターズオンアースと同パターン）+1.2"
+      "raceAnaNote": "クイーンCGIII前走1着（スターズオンアースと同パターン）+1.2",
+      "frame": 7,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C"
     },
     "ナムラコスモス": {
-      "num": 12,
+      "num": 10,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -696,7 +718,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "B",
-      "gateGrade": null,
       "styleGrade": "B",
       "specialGrade": null,
       "jockey": "田口貫太",
@@ -704,8 +725,8 @@
       "stableGradeFuku": "B",
       "breederGradeTan": "S",
       "breederGradeFuku": "S",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "D",
+      "jockeyGradeFuku": "C",
       "prevRaceName": "チューリG2",
       "rotGradeTan": "D",
       "rotGradeFuku": "B",
@@ -729,68 +750,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 1.1,
-      "raceAnaNote": "チューリップ賞GII経由（過去3頭穴輩出・着順不問）+0.8 / 前走2着（好走加算）+0.3"
-    },
-    "ビッグカレンルーフ": {
-      "num": 13,
-      "sex": "牝",
-      "age": 3,
-      "weight": 55,
-      "sabcTrainer": "(美)堀内岳志",
-      "owner": "ビッグルーフ",
-      "breeder": "笹地牧場",
-      "sabcSire": "アメリカンペイトリオット",
-      "damSire": "フジキセキ",
-      "sabcZI": 109,
-      "ziEstimated": false,
-      "extFacility": "エスティファーム小見川",
-      "prevFinish": "2着",
-      "prevJockey": "松岡正騎手",
-      "prevJockeyComment": "正攻法の競馬で好位から渋太く伸びた内容は評価に値する。レースセンスが高く、厩舎の仕上げも丁寧だ。距離路線の幅広さは武器であり、今回のG1の舞台でも器用な立ち回りで善戦できる地力は持っている。",
-      "prevRaceNote": "二人引き。好気合。発馬を決めて好位４番手の内追走。十分に脚をためると、直線は勝ち馬と併せ馬の形で伸びた。ゴール寸前で２番手に上がる。器用な脚をうまく生かした騎乗。",
-      "bloodGradeTan": "D",
-      "bloodGradeFuku": "D",
-      "kinsoGrade": "2B",
-      "paceGrade": "C",
-      "jockeyGrade": null,
-      "jockeyStableGrade": null,
-      "bodyGrade": "A",
-      "courseGrade": "D",
-      "gateGrade": null,
-      "styleGrade": "B",
-      "specialGrade": null,
-      "jockey": null,
-      "stableGradeTan": "D",
-      "stableGradeFuku": "D",
-      "breederGradeTan": null,
-      "breederGradeFuku": null,
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
-      "prevRaceName": "フェアリG3",
-      "rotGradeTan": "D",
-      "rotGradeFuku": "C",
-      "expectedOdds": 116.5,
-      "prevSF3Rank": 2,
-      "prevSF3Diff": 0.4,
-      "sf3AnaScore": 0.9392,
-      "specialGradeTan": "1B",
-      "specialGradeFuku": "2A",
-      "bloodNote": "「芝対応にも不安」「ズブく反応いま一つ」= 芝適性マイナス大。将来的底力・成長力欠如。",
-      "horseWeight": 440,
-      "penaltyNote": "❌馬体重440kg→440〜459kg危険ゾーン（複勝率4.1%）ペナルティ適用。",
-      "sireGradeTan": "D",
-      "sireGradeFuku": "A",
-      "damSireGradeTan": "A",
-      "damSireGradeFuku": "A",
-      "sireGrade2Tan": null,
-      "sireGrade2Fuku": null,
-      "damSireGrade2Tan": "A",
-      "damSireGrade2Fuku": "A",
-      "raceAnaBonus": 0.4,
-      "raceAnaNote": "フェアリーSGIII前走2着+0.4"
+      "raceAnaNote": "チューリップ賞GII経由（過去3頭穴輩出・着順不問）+0.8 / 前走2着（好走加算）+0.3",
+      "frame": 5,
+      "gateGradeTan": "B",
+      "gateGradeFuku": "A"
     },
     "フェスティバルヒル": {
-      "num": 14,
+      "num": 1,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -814,7 +780,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "A",
       "courseGrade": "B",
-      "gateGrade": null,
       "styleGrade": "B",
       "specialGrade": null,
       "jockey": "坂井瑠星",
@@ -822,8 +787,8 @@
       "stableGradeFuku": "B",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "A",
+      "jockeyGradeFuku": "B",
       "prevRaceName": "ファンタG3",
       "rotGradeTan": null,
       "rotGradeFuku": null,
@@ -848,10 +813,13 @@
       "damSireGrade2Tan": "D",
       "damSireGrade2Fuku": "A",
       "raceAnaBonus": 1.2,
-      "raceAnaNote": "ファンタジーSGIII前走1着（1400→1600延長）+1.2"
+      "raceAnaNote": "ファンタジーSGIII前走1着（1400→1600延長）+1.2",
+      "frame": 1,
+      "gateGradeTan": "D",
+      "gateGradeFuku": "C"
     },
     "ブラックチャリス": {
-      "num": 15,
+      "num": 17,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -875,7 +843,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "A",
       "specialGrade": null,
       "jockey": "津村明秀",
@@ -883,8 +850,8 @@
       "stableGradeFuku": "B",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "D",
+      "jockeyGradeFuku": "D",
       "prevRaceName": "フェアリG3",
       "rotGradeTan": "D",
       "rotGradeFuku": "C",
@@ -908,10 +875,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 0.8,
-      "raceAnaNote": "フェアリーSGIII前走1着+0.8"
+      "raceAnaNote": "フェアリーSGIII前走1着+0.8",
+      "frame": 8,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C"
     },
     "プレセピオ": {
-      "num": 16,
+      "num": 18,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -935,7 +905,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "B",
       "specialGrade": null,
       "jockey": "富田暁",
@@ -943,8 +912,8 @@
       "stableGradeFuku": "B",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "D",
+      "jockeyGradeFuku": "D",
       "prevRaceName": "フィリーG2",
       "rotGradeTan": "C",
       "rotGradeFuku": "D",
@@ -969,10 +938,13 @@
       "damSireGrade2Tan": null,
       "damSireGrade2Fuku": null,
       "raceAnaBonus": 0.3,
-      "raceAnaNote": "フィリーズR経由5着+0.3"
+      "raceAnaNote": "フィリーズR経由5着+0.3",
+      "frame": 8,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C"
     },
     "リリージョワ": {
-      "num": 17,
+      "num": 13,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -996,7 +968,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "A",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "A",
       "specialGrade": null,
       "jockey": "浜中俊",
@@ -1004,8 +975,8 @@
       "stableGradeFuku": "B",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "B",
+      "jockeyGradeFuku": "C",
       "prevRaceName": "紅梅S(L)",
       "rotGradeTan": "D",
       "rotGradeFuku": "D",
@@ -1030,10 +1001,13 @@
       "damSireGrade2Tan": "B",
       "damSireGrade2Fuku": "A",
       "raceAnaBonus": 1.0,
-      "raceAnaNote": "紅梅S(L)前走1着（1400→1600延長）+1.0"
+      "raceAnaNote": "紅梅S(L)前走1着（1400→1600延長）+1.0",
+      "frame": 7,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C"
     },
     "ルールザウェイヴ": {
-      "num": 18,
+      "num": 9,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -1057,7 +1031,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "A",
       "specialGrade": null,
       "jockey": "原優介",
@@ -1065,8 +1038,8 @@
       "stableGradeFuku": "D",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "D",
+      "jockeyGradeFuku": "D",
       "prevRaceName": "アネモネ(L)",
       "rotGradeTan": "D",
       "rotGradeFuku": "D",
@@ -1090,10 +1063,13 @@
       "damSireGrade2Tan": "A",
       "damSireGrade2Fuku": "A",
       "raceAnaBonus": 0.5,
-      "raceAnaNote": "アネモネ(L)前走2着+0.5"
+      "raceAnaNote": "アネモネ(L)前走2着+0.5",
+      "frame": 5,
+      "gateGradeTan": "B",
+      "gateGradeFuku": "A"
     },
     "ロンギングセリーヌ": {
-      "num": 19,
+      "num": 8,
       "sex": "牝",
       "age": 3,
       "weight": 55,
@@ -1117,7 +1093,6 @@
       "jockeyStableGrade": null,
       "bodyGrade": "B",
       "courseGrade": "D",
-      "gateGrade": null,
       "styleGrade": "S",
       "specialGrade": null,
       "jockey": "石橋脩",
@@ -1125,8 +1100,8 @@
       "stableGradeFuku": "D",
       "breederGradeTan": "A",
       "breederGradeFuku": "A",
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "D",
+      "jockeyGradeFuku": "D",
       "prevRaceName": "フラワーG3",
       "rotGradeTan": "D",
       "rotGradeFuku": "D",
@@ -1150,7 +1125,10 @@
       "damSireGrade2Tan": "B",
       "damSireGrade2Fuku": "C",
       "raceAnaBonus": 0.2,
-      "raceAnaNote": "フラワーCGIII(1800→1600短縮)経由+0.2"
+      "raceAnaNote": "フラワーCGIII(1800→1600短縮)経由+0.2",
+      "frame": 4,
+      "gateGradeTan": "A",
+      "gateGradeFuku": "B"
     }
   },
   "bloodAnalysis": "【父系】このレースで血統的に最も目を引くのはキタサンブラック産駒の複勝率66.7%（3頭）だ。ブラックチャリスが該当する。レースデータでは別角度の消し根拠を持ちながら、血統データは真逆の最高評価を与えており、「データの相克」という稀な局面を生み出している。取捨は慎重を期すべき一頭だ。エピファネイア産駒（28.6%複勝・7頭）のアランカールは血統面でまずまずの評価。一方、ロードカナロア産駒は複勝率こそ22.2%あるが勝率0%というデータが示す通り「複勝は取れても勝てない血統」であり、ジッピーチューン・ルールザウェイヴは馬券の軸には不向きだ。\n\n【母父】最強は母父ハーツクライ（50%・2頭）、次いで母父クロフネ（42.9%・7頭）が続く。フェスティバルヒルは母父ハーツクライから強烈な血統後押しを受けており、レースデータとも一致する高評価馬だ。ルールザウェイヴ（父ロードカナロア・母父ディープインパクト0%）は父・母父のダブルマイナスで消し根拠がさらに強固になった。\n\n【特別解析】父キタサンブラック（複勝率66.7%）と母父ハーツクライ（50%）は、このレースにおける2大突起データだ。キタサンブラック産駒のブラックチャリスは頭数3頭と少ないながらも全頭複勝圏という驚異的な数字を残しており、血統単体では最上位評価に値する。また、ロードカナロア産駒は「複勝率22.2%・勝率0%」という独特のパターンを示しており、単勝では消し・複勝では抑えという使い分けが合理的な判断となる。\n\n【血統総括】血統面のトップ評価は、父キタサンブラック66.7%のブラックチャリスと、母父ハーツクライ50%のフェスティバルヒルの2頭だ。フェスティバルヒルは全ファクターが好方向に揃い、最終的な買い目構成の核心となる。",
@@ -1163,8 +1141,8 @@
     },
     {
       "rank": 2,
-      "horse": "ナムラコスモス",
-      "comment": "【単勝2位昇格】conditionGrade 2S（全馬最高クラス）・kinso S（92.8急上昇）・馬体重484kg（安全圏）・〜3戦×前走2着=38.5%データ。フェスティバルヒルの危険ゾーン降格により繰り上がり。状態の良さが最大の根拠だ。"
+      "horse": "アランカール",
+      "comment": "pace S（後半330・Hペース経験あり！）・kinso S（91.8上昇）で5位評価を強化。サンアントワーヌと同様にH経験+後半330という高適性データが揃っており、どんな展開でも戦える能力を証明している。"
     },
     {
       "rank": 3,
@@ -1178,58 +1156,58 @@
     },
     {
       "rank": 5,
-      "horse": "アランカール",
-      "comment": "pace S（後半330・Hペース経験あり！）・kinso S（91.8上昇）で5位評価を強化。サンアントワーヌと同様にH経験+後半330という高適性データが揃っており、どんな展開でも戦える能力を証明している。"
-    },
-    {
-      "rank": 6,
-      "horse": "ブラックチャリス",
-      "comment": "【穴馬最高評価】G3前走1着(フェアリーS)×父キタサンブラック複勝率66.7%（全馬最高血統）の二大根拠が揃う穴馬最有力。G2前走罠データには非該当・G3前走1着はスターズオンアース/エンブロイダリーと同じ好パターン。差し脚質×阪神外回り後傾ラップ適合。データの相克を「血統が勝つ」と解釈すれば27.7倍の穴馬評価筆頭だ。"
-    },
-    {
-      "rank": 7,
-      "horse": "ギャラボーグ",
-      "comment": "kinso S（3A評価）・血統A（配合完成度全馬最高）・馬体重500kg（安全圏）・course A（阪神実績）で7位。陣営「ピーク間に合うか不透明」の懸念のみが割引材料。状態が戻れば台頭十分の穴候補だ。"
-    },
-    {
-      "rank": 8,
-      "horse": "ジッピーチューン",
-      "comment": "pace A（後半338・Hペース経験あり）・kinso S（90.2急上昇）でアイニードユーと同点27も、ペース上位（A>D）でジッピーチューンが9位に浮上。H経験+急上昇という組み合わせは本番での覚醒を示唆する。"
-    },
-    {
-      "rank": 9,
-      "horse": "アイニードユー",
-      "comment": "pace D（後半357/Mペース・レース平均より遅い後半）・kinso S（88.6）でジッピーチューンに逆転され10位。後半がレース平均より遅いというデータはペース面で割り引きが必要な証拠だ。"
-    },
-    {
-      "rank": 10,
-      "horse": "ビッグカレンルーフ",
-      "comment": "馬体重440kg→危険ゾーン境界値（複勝率4.1%）ペナルティ加算。kinso 2B・blood D/Dと重なり10位評価。"
-    },
-    {
-      "rank": 11,
       "horse": "フェスティバルヒル",
       "comment": "【危険ゾーン+骨折明けダブルペナルティで11位降格】馬体重448kg→危険ゾーン（複勝率4.1%）＋骨折明けの2大ペナルティが血統×末脚の高評価を完全に打ち消す。単勝から除外が先頭見解の結論だ。"
     },
     {
-      "rank": 12,
-      "horse": "リリージョワ",
-      "comment": "馬体重450kg→危険ゾーン（4.1%）＋前走紅梅S→複勝率0%のダブル消し根拠。pace D（1600m未経験）も重なり12位評価。"
+      "rank": 6,
+      "horse": "ナムラコスモス",
+      "comment": "【単勝2位昇格】conditionGrade 2S（全馬最高クラス）・kinso S（92.8急上昇）・馬体重484kg（安全圏）・〜3戦×前走2着=38.5%データ。フェスティバルヒルの危険ゾーン降格により繰り上がり。状態の良さが最大の根拠だ。"
     },
     {
-      "rank": 13,
-      "horse": "スウィートハピネス",
-      "comment": "馬体重440kg→危険ゾーン境界値ペナルティ。「上がり勝負だと分が悪い」陣営コメントも加わり13位評価。"
-    },
-    {
-      "rank": 14,
+      "rank": 7,
       "horse": "ディアダイヤモンド",
       "comment": ""
     },
     {
-      "rank": 15,
+      "rank": 8,
       "horse": "ロンギングセリーヌ",
       "comment": "kinso S（91.2急上昇）だがpace B（後半340→Sペース専門で降格）で12位。上昇トレンドは評価するがSペース専門の制約がある。"
+    },
+    {
+      "rank": 9,
+      "horse": "ギャラボーグ",
+      "comment": "kinso S（3A評価）・血統A（配合完成度全馬最高）・馬体重500kg（安全圏）・course A（阪神実績）で7位。陣営「ピーク間に合うか不透明」の懸念のみが割引材料。状態が戻れば台頭十分の穴候補だ。"
+    },
+    {
+      "rank": 10,
+      "horse": "リリージョワ",
+      "comment": "馬体重450kg→危険ゾーン（4.1%）＋前走紅梅S→複勝率0%のダブル消し根拠。pace D（1600m未経験）も重なり12位評価。"
+    },
+    {
+      "rank": 11,
+      "horse": "ブラックチャリス",
+      "comment": "【穴馬最高評価】G3前走1着(フェアリーS)×父キタサンブラック複勝率66.7%（全馬最高血統）の二大根拠が揃う穴馬最有力。G2前走罠データには非該当・G3前走1着はスターズオンアース/エンブロイダリーと同じ好パターン。差し脚質×阪神外回り後傾ラップ適合。データの相克を「血統が勝つ」と解釈すれば27.7倍の穴馬評価筆頭だ。"
+    },
+    {
+      "rank": 12,
+      "horse": "ジッピーチューン",
+      "comment": "pace A（後半338・Hペース経験あり）・kinso S（90.2急上昇）でアイニードユーと同点27も、ペース上位（A>D）でジッピーチューンが9位に浮上。H経験+急上昇という組み合わせは本番での覚醒を示唆する。"
+    },
+    {
+      "rank": 13,
+      "horse": "アイニードユー",
+      "comment": "pace D（後半357/Mペース・レース平均より遅い後半）・kinso S（88.6）でジッピーチューンに逆転され10位。後半がレース平均より遅いというデータはペース面で割り引きが必要な証拠だ。"
+    },
+    {
+      "rank": 14,
+      "horse": "スウィートハピネス",
+      "comment": "馬体重440kg→危険ゾーン境界値ペナルティ。「上がり勝負だと分が悪い」陣営コメントも加わり13位評価。"
+    },
+    {
+      "rank": 15,
+      "horse": "ショウナンカリス",
+      "comment": "【フィリーズレビューペナルティで穴馬降格】sf3スコアは統計上高値だったが先頭見解「フィリーズレビュー前走→複勝率6.8%」の低ローテペナルティを適用し大幅降格。前走8着・blood D/D・course D も重なり統計と定性が完全に逆転。穴馬候補から除外が先頭見解の結論だ。"
     },
     {
       "rank": 16,
@@ -1245,43 +1223,38 @@
       "rank": 18,
       "horse": "プレセピオ",
       "comment": ""
-    },
-    {
-      "rank": 19,
-      "horse": "ショウナンカリス",
-      "comment": "【フィリーズレビューペナルティで穴馬降格】sf3スコアは統計上高値だったが先頭見解「フィリーズレビュー前走→複勝率6.8%」の低ローテペナルティを適用し大幅降格。前走8着・blood D/D・course D も重なり統計と定性が完全に逆転。穴馬候補から除外が先頭見解の結論だ。"
     }
   ],
   "sabcRankFuku": [
     {
       "rank": 1,
-      "horse": "スターアニス",
-      "comment": "pace B（後半345/Hペース対応）・kinso S（93.7）・G1前走1着×中9週=複勝100%で複勝首位は盤石。HペースのGⅠでも後半345を安定して刻む能力が複勝最高確率を保証する。"
-    },
-    {
-      "rank": 2,
-      "horse": "ナムラコスモス",
-      "comment": "kinso S（92.8）・pace B（Sペース専門で降格）・〜3戦×前走2着=38.5%データで3位。後方差しスタイルはSペースで最大限発揮され、スローになれば複勝圏の確率が急上昇する。"
-    },
-    {
-      "rank": 3,
-      "horse": "ドリームコア",
-      "comment": "kinso S（93.7）・pace B（Sペース専門で降格）で2位。血統と展開の二重警告を抱えつつも近走指数とZI・外厩Sの高評価で2位を維持。Sペース展開なら評価上昇、H/Mなら下落という展開依存馬として把握しておく。"
-    },
-    {
-      "rank": 4,
-      "horse": "サンアントワーヌ",
-      "comment": "pace S（後半330・Hペース経験あり）・kinso S（88.6）でペース適性最強の複勝4位に浮上。どんな展開にも対応できるオールラウンダーとして複勝では高信頼度の評価を与える。"
-    },
-    {
-      "rank": 5,
       "horse": "アランカール",
       "comment": "pace S（後半330・Hペース経験あり）・kinso S（91.8）でペース面最高評価の複勝6位。どんな展開でも対応できる能力を数字で証明しており、複勝の安定候補として高信頼度で推奨する。"
     },
     {
+      "rank": 2,
+      "horse": "スターアニス",
+      "comment": "pace B（後半345/Hペース対応）・kinso S（93.7）・G1前走1着×中9週=複勝100%で複勝首位は盤石。HペースのGⅠでも後半345を安定して刻む能力が複勝最高確率を保証する。"
+    },
+    {
+      "rank": 3,
+      "horse": "ナムラコスモス",
+      "comment": "kinso S（92.8）・pace B（Sペース専門で降格）・〜3戦×前走2着=38.5%データで3位。後方差しスタイルはSペースで最大限発揮され、スローになれば複勝圏の確率が急上昇する。"
+    },
+    {
+      "rank": 4,
+      "horse": "ドリームコア",
+      "comment": "kinso S（93.7）・pace B（Sペース専門で降格）で2位。血統と展開の二重警告を抱えつつも近走指数とZI・外厩Sの高評価で2位を維持。Sペース展開なら評価上昇、H/Mなら下落という展開依存馬として把握しておく。"
+    },
+    {
+      "rank": 5,
+      "horse": "フェスティバルヒル",
+      "comment": "【危険ゾーン+骨折明けで複勝も降格】448kg危険ゾーン（4.1%）＋骨折明けのダブルペナルティは複勝でも無視できない。血統×末脚の評価を2大ペナルティが打ち消す。複勝10位・買い控えが合理的判断だ。"
+    },
+    {
       "rank": 6,
-      "horse": "ブラックチャリス",
-      "comment": "【複勝穴馬最注目】父キタサンブラック複勝率66.7%（全馬最高）×G3前走1着の好パターンが揃い、複勝圏浮上の根拠は出走馬随一。先行力型のpace Cは複勝では問題なく、血統データが示す全頭複勝圏という驚異的な数字をそのまま信じれば複勝穴馬評価1位だ。"
+      "horse": "ジッピーチューン",
+      "comment": "pace A（後半338・Hペース経験あり）・kinso S（90.2）でアイニードユーと同点12も、ペース上位（A>D）でジッピーチューンが9位に浮上。H経験+急上昇の組み合わせで複勝穴候補として推奨する。"
     },
     {
       "rank": 7,
@@ -1290,18 +1263,18 @@
     },
     {
       "rank": 8,
-      "horse": "ジッピーチューン",
-      "comment": "pace A（後半338・Hペース経験あり）・kinso S（90.2）でアイニードユーと同点12も、ペース上位（A>D）でジッピーチューンが9位に浮上。H経験+急上昇の組み合わせで複勝穴候補として推奨する。"
+      "horse": "ブラックチャリス",
+      "comment": "【複勝穴馬最注目】父キタサンブラック複勝率66.7%（全馬最高）×G3前走1着の好パターンが揃い、複勝圏浮上の根拠は出走馬随一。先行力型のpace Cは複勝では問題なく、血統データが示す全頭複勝圏という驚異的な数字をそのまま信じれば複勝穴馬評価1位だ。"
     },
     {
       "rank": 9,
-      "horse": "アイニードユー",
-      "comment": "pace D（後半357・遅い）・kinso S（88.6）で10位。後半がレース平均より遅いというデータは展開が向いても末脚が限界を示しており、複勝でも慎重評価だ。"
+      "horse": "サンアントワーヌ",
+      "comment": "pace S（後半330・Hペース経験あり）・kinso S（88.6）でペース適性最強の複勝4位に浮上。どんな展開にも対応できるオールラウンダーとして複勝では高信頼度の評価を与える。"
     },
     {
-      "rank": 10,
-      "horse": "フェスティバルヒル",
-      "comment": "【危険ゾーン+骨折明けで複勝も降格】448kg危険ゾーン（4.1%）＋骨折明けのダブルペナルティは複勝でも無視できない。血統×末脚の評価を2大ペナルティが打ち消す。複勝10位・買い控えが合理的判断だ。"
+      "rank": 12,
+      "horse": "アイニードユー",
+      "comment": "pace D（後半357・遅い）・kinso S（88.6）で10位。後半がレース平均より遅いというデータは展開が向いても末脚が限界を示しており、複勝でも慎重評価だ。"
     },
     {
       "rank": "消",
@@ -1312,11 +1285,6 @@
       "rank": "消",
       "horse": "スウィートハピネス",
       "comment": "440kg危険ゾーン境界値＋「上がり勝負不向き」陣営コメントで複勝も消し。"
-    },
-    {
-      "rank": "消",
-      "horse": "ビッグカレンルーフ",
-      "comment": "440kg危険ゾーン境界値＋blood D/D＋stableGrade D で複勝も消し。"
     },
     {
       "rank": "消",
