@@ -255,6 +255,41 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .score-rank.rk2{color:#6b7280;}
 .score-rank.rk3{color:#c2410c;}
 
+/* ── 買い目提案 ── */
+.bet-section{
+  margin:8px 12px;padding:10px 12px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,200,100,.2);
+  border-radius:10px;
+}
+.bet-header{
+  display:flex;align-items:center;gap:8px;margin-bottom:8px;
+}
+.bet-race-type{
+  font-size:10px;font-weight:900;padding:3px 8px;border-radius:6px;
+  color:#fff;letter-spacing:.5px;
+}
+.bet-title{font-size:12px;font-weight:700;color:rgba(255,220,150,.9);}
+.bet-total{margin-left:auto;font-size:10px;font-weight:700;color:rgba(255,200,100,.7);}
+.bet-row{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);
+  flex-wrap:wrap;
+}
+.bet-row:last-child{border-bottom:none;}
+.bet-type{
+  font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;
+  background:rgba(255,255,255,.08);color:#fff;white-space:nowrap;min-width:36px;text-align:center;
+}
+.bet-horses{
+  font-size:11px;font-weight:700;color:rgba(255,240,200,.9);flex:1;
+}
+.bet-points{
+  font-size:10px;font-weight:900;color:rgba(255,200,100,.8);white-space:nowrap;
+}
+.bet-note{
+  font-size:9px;color:rgba(255,255,255,.4);width:100%;padding-left:2px;
+}
 /* ── ソートバー ── */
 .sort-bar{
   display:flex;align-items:center;gap:6px;
@@ -725,6 +760,120 @@ function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, a
   </div>`;
 }
 
+// ── 買い目生成ロジック ──
+function detectRaceType(byTan) {
+  if (byTan.length < 4) return '混戦';
+  const pct = s => s.tanMax > 0 ? s.tanScore / s.tanMax : 0;
+  const d12 = pct(byTan[0]) - pct(byTan[1]);
+  const d23 = pct(byTan[1]) - pct(byTan[2]);
+  const d34 = pct(byTan[2]) - pct(byTan[3]);
+  if (d12 >= 0.05)                          return '1強';
+  if (d12 <  0.05 && d23 >= 0.05)          return '2強';
+  if (d12 <  0.05 && d23 < 0.07 && d34 >= 0.05) return '3強';
+  return '混戦';
+}
+
+function pickUnique(lists, counts) {
+  const used = new Set();
+  return lists.map((list, i) => {
+    const picked = [];
+    for (const s of list) {
+      if (!used.has(s.name) && picked.length < counts[i]) {
+        picked.push(s.name); used.add(s.name);
+      }
+    }
+    return picked;
+  });
+}
+
+function generateBets(withAna, headCount) {
+  const tanPct  = s => s.tanMax  > 0 ? s.tanScore  / s.tanMax  : 0;
+  const fukuPct = s => s.fukuMax > 0 ? s.fukuScore / s.fukuMax : 0;
+  const byTan  = [...withAna].sort((a,b) => tanPct(b)  - tanPct(a));
+  const byFuku = [...withAna].sort((a,b) => fukuPct(b) - fukuPct(a));
+  const byAna  = [...withAna].sort((a,b) => b.anaScore  - a.anaScore);
+
+  const raceType = detectRaceType(byTan);
+  const bets = [];
+
+  // ── 共通：単勝・複勝 ──
+  const tan1  = byTan[0].name;
+  const fuku1 = byFuku[0].name;
+  const ana1  = byAna.find(s => s.name !== fuku1)?.name ?? byAna[0].name;
+  bets.push({ type:'単勝', horses:[tan1],        points:1, note:'単勝ランク1位' });
+  bets.push({ type:'複勝', horses:[fuku1, ana1], points:2, note:'複勝1位 ＋ 穴馬1位' });
+
+  // ── 1強戦 ──
+  if (raceType === '1強') {
+    const pool = withAna.filter(s => s.name !== tan1);
+    const [fg, ag] = pickUnique(
+      [pool.sort((a,b)=>fukuPct(b)-fukuPct(a)), pool.sort((a,b)=>b.anaScore-a.anaScore)],
+      [3, 3]
+    );
+    const aite = [...new Set([...fg, ...ag])].slice(0, 6);
+    const topAnaOdds = byAna[0]?.h?.expectedOdds ?? 0;
+    const use2ren = topAnaOdds >= 10 ? '馬単' : '馬連';
+    const pts2 = use2ren === '馬単' ? 12 : 6;
+    bets.push({ type:use2ren, horses:[tan1, ...aite], points:pts2,
+                note:`軸${tan1} × 相手6頭流し` });
+    bets.push({ type:'3連単', horses:[tan1, ...aite], points:30,
+                note:`1着固定 × 相手6頭流し（30点）` });
+
+  // ── 2強戦 ──
+  } else if (raceType === '2強') {
+    const jiku2 = [byTan[0].name, byTan[1].name];
+    const [rest] = pickUnique([byFuku.filter(s => !jiku2.includes(s.name))], [2]);
+    const box4 = [...jiku2, ...rest];
+    bets.push({ type:'馬連', horses:box4, points:6,
+                note:`4頭ボックス` });
+    bets.push({ type:'3連複', horses:jiku2, points:headCount - 2,
+                note:`軸2頭 × 残り全頭総流し（${headCount-2}点）` });
+
+  // ── 3強戦 ──
+  } else if (raceType === '3強') {
+    const jiku3 = [byTan[0].name, byTan[1].name, byTan[2].name];
+    const anaH  = byAna.find(s => !jiku3.includes(s.name))?.name;
+    const box4  = [...jiku3, ...(anaH ? [anaH] : [])];
+    bets.push({ type:'3連単', horses:box4, points:24,
+                note:`4頭ボックス（3強 ＋ 穴馬1位）` });
+
+  // ── 混戦 ──
+  } else {
+    const [fg, ag] = pickUnique([byFuku, byAna], [2, 2]);
+    const box4 = [...new Set([...fg, ...ag])].slice(0, 4);
+    bets.push({ type:'馬連', horses:box4, points:6,
+                note:`4頭ボックス` });
+    const jiku2 = [byTan[0].name, byTan[1].name];
+    bets.push({ type:'3連複', horses:jiku2, points:headCount - 2,
+                note:`軸2頭 × 残り全頭総流し（${headCount-2}点）` });
+  }
+
+  return { raceType, bets };
+}
+
+function buildBetSection(withAna, headCount) {
+  const { raceType, bets } = generateBets(withAna, headCount);
+  const typeColor = { '1強':'#d97706','2強':'#2563eb','3強':'#7c3aed','混戦':'#4b5563' };
+  const color = typeColor[raceType] ?? '#4b5563';
+  const totalPoints = bets.reduce((s, b) => s + b.points, 0);
+  const rows = bets.map(b => `
+    <div class="bet-row">
+      <span class="bet-type">${b.type}</span>
+      <span class="bet-horses">${b.horses.join(' ／ ')}</span>
+      <span class="bet-points">${b.points}点</span>
+      <div class="bet-note">${b.note}</div>
+    </div>`).join('');
+  return `
+  <div class="bet-section">
+    <div class="bet-header">
+      <span class="bet-race-type" style="background:${color};">${raceType}</span>
+      <span class="bet-title">🎯 買い目提案</span>
+      <span class="bet-total">合計 ${totalPoints}点</span>
+    </div>
+    ${rows}
+  </div>`;
+}
+
 let sortMode = 'sougou';
 function setSortMode(mode) { sortMode = mode; renderRace(currentIdx); }
 
@@ -1020,6 +1169,7 @@ function renderRace(idx) {
       <span class="horse-count">${horses.length}頭</span>
     </div>
     ${buildAnalysisSection(d)}
+    ${buildBetSection(withAna, horses.length)}
     ${sortBar}
     <div class="horse-list">${cards}</div>
   `;
