@@ -321,6 +321,26 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .bet-note{
   font-size:9px;color:rgba(255,255,255,.4);width:100%;padding-left:2px;
 }
+.bet-row-detail{flex-direction:column;align-items:stretch;gap:5px;}
+.bet-row-top{display:flex;align-items:center;gap:8px;}
+.bet-note-inline{font-size:9px;color:rgba(255,255,255,.4);margin-left:auto;}
+.bet-horses-detail{
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:5px 8px;background:rgba(255,255,255,.04);border-radius:6px;
+}
+.bet-jiku{
+  font-size:11px;font-weight:900;color:#F5B731;white-space:nowrap;
+}
+.bet-arrow{font-size:13px;color:rgba(255,200,100,.6);flex-shrink:0;}
+.bet-aite-chips{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
+.bet-horse-chip{
+  font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:5px;
+  background:rgba(232,19,110,.15);
+  border:1px solid rgba(232,19,110,.3);
+  color:rgba(255,200,220,.9);
+  white-space:nowrap;
+}
 /* ── ソートバー ── */
 .sort-bar{
   display:flex;align-items:center;gap:6px;
@@ -884,18 +904,44 @@ function generateBets(withAna, headCount) {
   return { raceType, bets };
 }
 
+function renderBetRow(b) {
+  const needsDetail = (b.type === '馬単' || b.type === '馬連' || b.type === '3連単' || b.type === '3連複') && b.horses.length > 2;
+  if (needsDetail) {
+    const jiku = b.horses[0];
+    const aite = b.horses.slice(1);
+    const aiteChips = aite.map(n =>
+      `<span class="bet-horse-chip">${n}</span>`
+    ).join('');
+    const label = (b.type === '3連単') ? '1着固定' : '◎ 軸';
+    return `
+    <div class="bet-row bet-row-detail">
+      <div class="bet-row-top">
+        <span class="bet-type">${b.type}</span>
+        <span class="bet-points">${b.points}点</span>
+        <div class="bet-note-inline">${b.note}</div>
+      </div>
+      <div class="bet-horses-detail">
+        <span class="bet-jiku">${label}　${jiku}</span>
+        <span class="bet-arrow">→</span>
+        <div class="bet-aite-chips">${aiteChips}</div>
+      </div>
+    </div>`;
+  }
+  return `
+  <div class="bet-row">
+    <span class="bet-type">${b.type}</span>
+    <span class="bet-horses">${b.horses.join(' ／ ')}</span>
+    <span class="bet-points">${b.points}点</span>
+    <div class="bet-note">${b.note}</div>
+  </div>`;
+}
+
 function buildBetSection(withAna, headCount) {
   const { raceType, bets } = generateBets(withAna, headCount);
   const typeColor = { '1強':'#d97706','2強':'#2563eb','3強':'#7c3aed','混戦':'#4b5563' };
   const color = typeColor[raceType] ?? '#4b5563';
   const totalPoints = bets.reduce((s, b) => s + b.points, 0);
-  const rows = bets.map(b => `
-    <div class="bet-row">
-      <span class="bet-type">${b.type}</span>
-      <span class="bet-horses">${b.horses.join(' ／ ')}</span>
-      <span class="bet-points">${b.points}点</span>
-      <div class="bet-note">${b.note}</div>
-    </div>`).join('');
+  const rows = bets.map(b => renderBetRow(b)).join('');
   return `
   <div class="bet-section">
     <div class="bet-header">
@@ -1142,15 +1188,16 @@ function renderRace(idx) {
   // 全馬のスコアを計算
   const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h)}));
 
-  // 穴馬スコア = 3F統計穴スコア + レース統計穴ボーナス + 血統配合グレードボーナス
+  // 穴馬スコア = 3F統計穴スコア + レース統計穴ボーナス + 血統配合グレードボーナス + 騎手単回値ボーナス
   const withAna = scored.map(s => {
-    const sf3Part  = s.h.sf3AnaScore  ?? 0;
-    const racePart = s.h.raceAnaBonus ?? 0;
+    const sf3Part  = s.h.sf3AnaScore     ?? 0;
+    const racePart = s.h.raceAnaBonus    ?? 0;
+    const jkAna    = s.h.jockeyAnaBonus  ?? 0;
     // 血統配合グレード（B=0基準、S+S→+0.5、A+A→+0.25、D+D→-0.42）
     const bT = s.h.bloodGradeTan  ?? 'B';
     const bF = s.h.bloodGradeFuku ?? 'B';
     const bloodPart = ((gradePoints(bT) ?? 5) + (gradePoints(bF) ?? 5) - 10) / 24;
-    const anaScore = sf3Part + racePart + bloodPart;
+    const anaScore = sf3Part + racePart + bloodPart + jkAna;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
     return {...s, anaScore, sougouScore};
   });
