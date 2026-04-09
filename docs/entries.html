@@ -116,18 +116,24 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 /* カードヘッダー */
 .card-head{
   display:flex;flex-direction:column;gap:8px;
-  padding:11px 14px;
-  background:#f9f2f5;
-  border-bottom:1px solid rgba(200,30,80,.12);
+  padding:11px 14px 10px;
+  background:linear-gradient(160deg,#fdf6f9 0%,#f9f0f5 100%);
+  border-bottom:2px solid rgba(200,30,80,.1);
 }
+/* Z字レイアウト：左(馬番+馬名) ↔ 右(オッズ) */
 .card-head-top{display:flex;align-items:center;gap:10px;}
 .horse-num{
-  width:34px;height:34px;border-radius:50%;
+  width:38px;height:38px;border-radius:50%;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
   flex-shrink:0;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
-.horse-num-rank{font-size:13px;font-weight:900;line-height:1;}
+.horse-num-rank{font-size:15px;font-weight:900;line-height:1;}
 .horse-num-mode{font-size:7px;font-weight:700;line-height:1;letter-spacing:.03em;opacity:.85;}
+/* ランク#1 強調（強弱の法則） */
+.horse-num.rank1-highlight{
+  box-shadow:0 0 0 2.5px #f59e0b, 0 3px 10px rgba(245,158,11,.35);
+}
 .horse-num-zi     {background:rgba(232,48,110,.15);color:#c01860;}
 .horse-num-sougou {background:linear-gradient(135deg,rgba(252,211,77,.18),rgba(110,231,183,.18));color:#6d28d9;}
 .horse-num-tan    {background:rgba(252,211,77,.22);color:#b45309;}
@@ -136,29 +142,41 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .horse-num-sf3    {background:rgba(251,146,60,.22);color:#c2410c;}
 .horse-name{
   font-family:'Noto Serif JP',serif;
-  font-size:15px;font-weight:900;color:#111;
+  font-size:16px;font-weight:900;color:#1a0a10;
   flex:1;min-width:0;
+  letter-spacing:.02em;line-height:1.2;
 }
+/* 馬名ランク#1 強調 */
+.horse-name.rank1-name{ color:#92400e; font-size:17px; }
 /* ── バッジグループ ── */
-.badge-groups{display:flex;flex-direction:column;gap:4px;flex-shrink:0;}
+.badge-groups{display:flex;flex-direction:column;gap:5px;flex-shrink:0;}
 .badge-group{display:flex;align-items:flex-start;gap:4px;flex-wrap:wrap;}
 .badge-group-label{
-  font-size:8px;font-weight:900;letter-spacing:.5px;
-  color:rgba(255,255,255,.28);white-space:nowrap;
+  font-size:7px;font-weight:900;letter-spacing:.6px;
+  color:rgba(0,0,0,.22);white-space:nowrap;
   min-width:22px;text-align:right;padding-top:3px;flex-shrink:0;
 }
+/* グループ別テーマ色（強弱・色は3色ルール） */
+.badge-group-label.lbl-blood  { color:rgba(180,83,9,.45);  }  /* 血統 → amber */
+.badge-group-label.lbl-ability{ color:rgba(4,120,87,.45);  }  /* 実力 → green */
+.badge-group-label.lbl-apt    { color:rgba(37,99,235,.38); }  /* 適性 → blue  */
+.badge-group-label.lbl-cond   { color:rgba(192,24,96,.4);  }  /* 条件 → pink  */
+.badge-group-label.lbl-state  { color:rgba(109,40,217,.4); }  /* 状態 → purple */
 .badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
 
-/* 想定人気・オッズ */
+/* 想定人気・オッズ（Z字 右端 = 視線のゴール） */
 .odds-tag{
   display:flex;flex-direction:column;align-items:flex-end;
   flex-shrink:0;gap:0px;
+  padding:4px 7px;border-radius:8px;
+  background:rgba(192,24,96,.06);
+  border:1px solid rgba(192,24,96,.12);
 }
 .odds-pop{
   font-size:9px;font-weight:900;color:#c01860;letter-spacing:.03em;white-space:nowrap;
 }
 .odds-val{
-  font-size:13px;font-weight:900;color:#111;letter-spacing:.01em;white-space:nowrap;
+  font-size:14px;font-weight:900;color:#1a0a10;letter-spacing:.01em;white-space:nowrap;
 }
 .odds-na{font-size:10px;color:#bbb;font-style:italic;}
 
@@ -228,13 +246,14 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .dual-t::before{content:'単';font-size:7px;opacity:.6;font-weight:700;}
 .dual-f::before{content:'複';font-size:7px;opacity:.6;font-weight:700;}
 
-/* ── スコアバー ── */
+/* ── スコアバー（Z字の底辺・情報密度のゴール） ── */
 .score-bars{
   display:flex;flex-direction:column;gap:4px;
-  padding:6px 10px;
-  background:#f9f2f5;
+  padding:7px 12px;
+  background:#f5eff3;
   border-radius:8px;
-  border:1px solid rgba(200,30,80,.1);
+  border:1px solid rgba(200,30,80,.13);
+  border-top:2px solid rgba(200,30,80,.15);
 }
 .score-row{display:flex;align-items:center;gap:6px;}
 .score-lbl{
@@ -257,11 +276,15 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .score-val.fuku-val{color:#047857;}
 .score-rank{
   font-size:9px;font-weight:900;width:24px;text-align:center;flex-shrink:0;
-  color:#bbb;
+  color:#ccc;
 }
-.score-rank.rk1{color:#d97706;}
+/* 強弱: #1 = ゴールド強調、#2#3 = サブカラー */
+.score-rank.rk1{
+  color:#92400e;background:#fef3c7;border-radius:4px;
+  padding:1px 3px;font-size:8px;
+}
 .score-rank.rk2{color:#6b7280;}
-.score-rank.rk3{color:#c2410c;}
+.score-rank.rk3{color:#b45309;}
 
 /* ── 買い目提案 ── */
 .bet-section{
@@ -1044,11 +1067,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
   <div class="horse-card">
     <div class="card-head">
       <div class="card-head-top">
-        <div class="horse-num horse-num-${modeCls}">
+        <div class="horse-num horse-num-${modeCls}${dispRank === 1 ? ' rank1-highlight' : ''}">
           <span class="horse-num-rank">${dispRank}</span>
           <span class="horse-num-mode">${modeLabel}</span>
         </div>
-        <span class="horse-name">${esc(name)}</span>
+        <span class="horse-name${dispRank === 1 ? ' rank1-name' : ''}">${esc(name)}</span>
         ${h.expectedOdds
           ? `<div class="odds-tag">
                <span class="odds-pop">${popularity}人気</span>
@@ -1058,14 +1081,14 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
       </div>
       <div class="badge-groups">
         <div class="badge-group">
-          <span class="badge-group-label">血統</span>
+          <span class="badge-group-label lbl-blood">血統</span>
           ${gradeBadge('父', h.sireGradeTan ?? null, h.sireGradeFuku ?? null)}
           ${gradeBadge('母父', h.damSireGradeTan ?? null, h.damSireGradeFuku ?? null)}
           ${gradeBadge('配合', h.bloodGradeTan && h.bloodGradeTan !== '—' ? h.bloodGradeTan : null, h.bloodGradeFuku && h.bloodGradeFuku !== '—' ? h.bloodGradeFuku : null)}
           ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
         </div>
         <div class="badge-group">
-          <span class="badge-group-label">実力</span>
+          <span class="badge-group-label lbl-ability">実力</span>
           ${ziGradeBadge(h.sabcZI)}
           ${kinsoGradeBadge(h.kinsoGrade)}
           ${gradeBadge('上3F', h.sf3GradeTan ?? null, h.sf3GradeFuku ?? null)}
@@ -1073,21 +1096,21 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
         </div>
         <div class="badge-group">
-          <span class="badge-group-label">適性</span>
+          <span class="badge-group-label lbl-apt">適性</span>
           ${splitBadge('コース', h.courseGrade,'course')}
           ${paceGradeBadge(h.paceGrade)}
           ${splitBadge('脚質', h.styleGrade,'style')}
           ${splitBadge('馬格', h.bodyGrade,'body')}
         </div>
         <div class="badge-group">
-          <span class="badge-group-label">条件</span>
+          <span class="badge-group-label lbl-cond">条件</span>
           ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
           ${gradeBadge('厩舎', h.stableGradeTan ?? null, h.stableGradeFuku ?? null)}
           ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
           ${gradeBadge('騎厩', h.jockeyStableGrade ?? null, h.jockeyStableGrade ?? null)}
         </div>
         <div class="badge-group">
-          <span class="badge-group-label">状態</span>
+          <span class="badge-group-label lbl-state">状態</span>
           ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
           ${gradeBadge('相馬眼', h.somaGradeTan ?? null, h.somaGradeFuku ?? null)}
           ${extGradeBadge(h.extFacility)}
