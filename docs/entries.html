@@ -139,6 +139,14 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   font-size:15px;font-weight:900;color:#111;
   flex:1;min-width:0;
 }
+/* ── バッジグループ ── */
+.badge-groups{display:flex;flex-direction:column;gap:4px;flex-shrink:0;}
+.badge-group{display:flex;align-items:flex-start;gap:4px;flex-wrap:wrap;}
+.badge-group-label{
+  font-size:8px;font-weight:900;letter-spacing:.5px;
+  color:rgba(255,255,255,.28);white-space:nowrap;
+  min-width:22px;text-align:right;padding-top:3px;flex-shrink:0;
+}
 .badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
 
 /* 想定人気・オッズ */
@@ -1048,28 +1056,43 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
              </div>`
           : `<div class="odds-tag"><span class="odds-na">オッズ未定</span></div>`}
       </div>
-      <div class="badges">
-        ${ziGradeBadge(h.sabcZI)}
-        ${extGradeBadge(h.extFacility)}
-        ${gradeBadge('父', h.sireGradeTan ?? null, h.sireGradeFuku ?? null)}
-        ${gradeBadge('母父', h.damSireGradeTan ?? null, h.damSireGradeFuku ?? null)}
-        ${gradeBadge('配合', h.bloodGradeTan && h.bloodGradeTan !== '—' ? h.bloodGradeTan : null, h.bloodGradeFuku && h.bloodGradeFuku !== '—' ? h.bloodGradeFuku : null)}
-        ${kinsoGradeBadge(h.kinsoGrade)}
-        ${paceGradeBadge(h.paceGrade)}
-        ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
-        ${gradeBadge('厩舎', h.stableGradeTan  ?? null, h.stableGradeFuku  ?? null)}
-        ${gradeBadge('騎厩', h.jockeyStableGrade ?? null, h.jockeyStableGrade ?? null)}
-        ${splitBadge('馬格', h.bodyGrade,   'body')}
-        ${splitBadge('コース', h.courseGrade,'course')}
-        ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
-        ${splitBadge('脚質', h.styleGrade,  'style')}
-        ${gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null)}
-        ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
-        ${gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null)}
-        ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
-        ${gradeBadge('上3F', h.sf3GradeTan ?? null, h.sf3GradeFuku ?? null)}
-        ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
-        ${gradeBadge('相馬眼', h.somaGradeTan ?? null, h.somaGradeFuku ?? null)}
+      <div class="badge-groups">
+        <div class="badge-group">
+          <span class="badge-group-label">血統</span>
+          ${gradeBadge('父', h.sireGradeTan ?? null, h.sireGradeFuku ?? null)}
+          ${gradeBadge('母父', h.damSireGradeTan ?? null, h.damSireGradeFuku ?? null)}
+          ${gradeBadge('配合', h.bloodGradeTan && h.bloodGradeTan !== '—' ? h.bloodGradeTan : null, h.bloodGradeFuku && h.bloodGradeFuku !== '—' ? h.bloodGradeFuku : null)}
+          ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
+        </div>
+        <div class="badge-group">
+          <span class="badge-group-label">実力</span>
+          ${ziGradeBadge(h.sabcZI)}
+          ${kinsoGradeBadge(h.kinsoGrade)}
+          ${gradeBadge('上3F', h.sf3GradeTan ?? null, h.sf3GradeFuku ?? null)}
+          ${gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null)}
+          ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
+        </div>
+        <div class="badge-group">
+          <span class="badge-group-label">適性</span>
+          ${splitBadge('コース', h.courseGrade,'course')}
+          ${paceGradeBadge(h.paceGrade)}
+          ${splitBadge('脚質', h.styleGrade,'style')}
+          ${splitBadge('馬格', h.bodyGrade,'body')}
+        </div>
+        <div class="badge-group">
+          <span class="badge-group-label">条件</span>
+          ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
+          ${gradeBadge('厩舎', h.stableGradeTan ?? null, h.stableGradeFuku ?? null)}
+          ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
+          ${gradeBadge('騎厩', h.jockeyStableGrade ?? null, h.jockeyStableGrade ?? null)}
+        </div>
+        <div class="badge-group">
+          <span class="badge-group-label">状態</span>
+          ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
+          ${gradeBadge('相馬眼', h.somaGradeTan ?? null, h.somaGradeFuku ?? null)}
+          ${extGradeBadge(h.extFacility)}
+          ${gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null)}
+        </div>
       </div>
       ${h.specialNote ? `<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>` : ''}
       ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore ?? 0, anaMax ?? 1, anaRank)}
