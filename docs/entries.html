@@ -738,16 +738,18 @@ function calcScores(h) {
   const rtF = h.rotGradeFuku   ?? null;
   const s3T = h.sf3GradeTan      ?? null;
   const s3F = h.sf3GradeFuku     ?? null;
+  const lpT = h.lapGradeTan      ?? null;
+  const lpF = h.lapGradeFuku     ?? null;
   const cdT = h.conditionGradeTan  ?? null;
   const cdF = h.conditionGradeFuku ?? null;
   const smT = h.somaGradeTan  ?? null;  // 相馬眼
   const smF = h.somaGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT,s3T,cdT,smT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F,cdF,smF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // ギーニョ評価：乗算（D=消し×0, B=中立×1, S=最高×1.3）
@@ -1188,8 +1190,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           <span class="badge-group-label lbl-ability">実力</span>
           ${ziGradeBadge(h.sabcZI)}
           ${kinsoGradeBadge(h.kinsoGrade)}
-          ${gradeBadge('上3F', h.sf3GradeTan ?? null, h.sf3GradeFuku ?? null)}
-          ${gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null)}
+          ${h.ageGradeTan || h.ageGradeFuku ? gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null) : `<span class="blood-grade bg-analyzing">年齢 3歳</span>`}
           ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
         </div>
         <div class="badge-group">
@@ -1198,6 +1199,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${paceGradeBadge(h.paceGrade)}
           ${splitBadge('脚質', h.styleGrade,'style')}
           ${splitBadge('馬格', h.bodyGrade,'body')}
+          ${gradeBadge('ラップ', h.lapGradeTan ?? null, h.lapGradeFuku ?? null)}
         </div>
         <div class="badge-group">
           <span class="badge-group-label lbl-cond">条件</span>
@@ -1241,18 +1243,19 @@ function renderRace(idx) {
 
   // 穴馬スコア = 3F統計穴スコア + レース統計穴ボーナス + 血統配合グレードボーナス + 各種単回値ボーナス
   const withAna = scored.map(s => {
-    const sf3Part     = s.h.sf3AnaScore      ?? 0;
-    const racePart    = s.h.raceAnaBonus     ?? 0;
-    const jkAna       = s.h.jockeyAnaBonus   ?? 0;
-    const frameAna    = s.h.frameAnaBonus    ?? 0;
-    const sireAna     = s.h.sireAnaBonus     ?? 0;
-    const breederAna  = s.h.breederAnaBonus  ?? 0;
-    const damSireAna  = s.h.damSireAnaBonus  ?? 0;
+    const sf3Part     = s.h.sf3AnaScore            ?? 0;
+    const racePart    = s.h.raceAnaBonus           ?? 0;
+    const jkAna       = s.h.jockeyAnaBonus         ?? 0;
+    const frameAna    = s.h.frameAnaBonus          ?? 0;
+    const sireAna     = s.h.sireAnaBonus           ?? 0;
+    const breederAna  = s.h.breederAnaBonus        ?? 0;
+    const damSireAna  = s.h.damSireAnaBonus        ?? 0;
+    const jkStableAna = s.h.jockeyStableAnaBonus   ?? 0;
     // 血統配合グレード（B=0基準、S+S→+0.5、A+A→+0.25、D+D→-0.42）
     const bT = s.h.bloodGradeTan  ?? 'B';
     const bF = s.h.bloodGradeFuku ?? 'B';
     const bloodPart = ((gradePoints(bT) ?? 5) + (gradePoints(bF) ?? 5) - 10) / 24;
-    const anaScore = sf3Part + racePart + bloodPart + jkAna + frameAna + sireAna + breederAna + damSireAna;
+    const anaScore = sf3Part + racePart + bloodPart + jkAna + frameAna + sireAna + breederAna + damSireAna + jkStableAna;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
     return {...s, anaScore, sougouScore};
   });
