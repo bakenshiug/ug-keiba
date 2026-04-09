@@ -749,6 +749,10 @@ function calcScores(h) {
   for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F,cdF,smF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
+  // ギーニョ評価：乗算（D=消し×0, B=中立×1, S=最高×1.3）
+  const ginyoMult = g => ({'S':1.3,'A':1.15,'B':1.0,'C':0.7,'D':0.0}[g] ?? 1.0);
+  tanScore  *= ginyoMult(h.ginyoGradeTan  ?? 'B');
+  fukuScore *= ginyoMult(h.ginyoGradeFuku ?? 'B');
   return {tanScore, fukuScore, tanMax, fukuMax};
 }
 
