@@ -241,6 +241,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .score-fill{height:100%;border-radius:3px;transition:width .3s;}
 .score-fill.tan-fill{background:linear-gradient(90deg,#d97706,#fcd34d);}
 .score-fill.fuku-fill{background:linear-gradient(90deg,#059669,#6ee7b7);}
+.score-fill.ana-fill{background:linear-gradient(90deg,#7c3aed,#c4b5fd);}
 .score-val{
   font-size:9px;font-weight:900;width:36px;text-align:right;flex-shrink:0;
 }
@@ -696,9 +697,10 @@ function splitBadge(label, g, key) {
 }
 
 // ── スコアバー HTML ──
-function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank) {
+function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore, anaMax, anaRank) {
   const tp = tanMax  > 0 ? Math.round(tanScore/tanMax*100)  : 0;
   const fp = fukuMax > 0 ? Math.round(fukuScore/fukuMax*100) : 0;
+  const ap = anaMax  > 0 ? Math.round(Math.max(0, anaScore)/anaMax*100) : 0;
   const rkCls = r => r===1?'rk1':r===2?'rk2':r===3?'rk3':'';
   return `
   <div class="score-bars">
@@ -713,6 +715,12 @@ function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank) {
       <div class="score-track"><div class="score-fill fuku-fill" style="width:${fp}%"></div></div>
       <span class="score-val fuku-val">${fukuScore}/${fukuMax} <span style="opacity:.6;font-size:9px">${fp}%</span></span>
       <span class="score-rank ${rkCls(fukuRank)}">#${fukuRank}</span>
+    </div>
+    <div class="score-row">
+      <span class="score-lbl" style="color:#a78bfa;">穴</span>
+      <div class="score-track"><div class="score-fill ana-fill" style="width:${ap}%"></div></div>
+      <span class="score-val" style="color:#a78bfa;">${anaScore.toFixed(2)} <span style="opacity:.6;font-size:9px">${ap}%</span></span>
+      <span class="score-rank ${rkCls(anaRank)}">#${anaRank}</span>
     </div>
   </div>`;
 }
@@ -815,7 +823,7 @@ function buildSf3Comment(h) {
   return `${diffStr} × ${rankStr} × ${oddsStr} → スコア${score.toFixed(2)}（${eval_}）`;
 }
 
-function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment) {
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax) {
   const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : ziRank;
   const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : 'ZI';
   const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : 'zi';
@@ -912,7 +920,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
       </div>
       ${h.specialNote ? `<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>` : ''}
-      ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank)}
+      ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore ?? 0, anaMax ?? 1, anaRank)}
     </div>
     <div class="card-body">
       <div class="horse-meta-row">
@@ -984,11 +992,13 @@ function renderRace(idx) {
 
   const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
 
-  const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax}) =>
+  const anaMax = Math.max(...withAna.map(s => s.anaScore ?? 0), 0.01);
+  const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax, anaScore}) =>
     buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax,
                    tanRankMap[name], fukuRankMap[name], ziRankMap[name], anaRankMap[name],
                    sougouRankMap[name], popularityMap[name],
-                   tanCmt[name] || null, fukuCmt[name] || null)
+                   tanCmt[name] || null, fukuCmt[name] || null,
+                   anaScore ?? 0, anaMax)
   ).join('');
 
   const sortBar = `
