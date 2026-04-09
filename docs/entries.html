@@ -620,10 +620,10 @@ function calcScores(h) {
   const srF  = h.sireGradeFuku    ?? null;
   const dsT  = h.damSireGradeTan  ?? null;  // 母父（データ1）
   const dsF  = h.damSireGradeFuku ?? null;
-  const sr2T = h.sireGrade2Tan    ?? null;  // 父（データ2）
-  const sr2F = h.sireGrade2Fuku   ?? null;
-  const ds2T = h.damSireGrade2Tan ?? null;  // 母父（データ2）
-  const ds2F = h.damSireGrade2Fuku?? null;
+  const sr2T = h.sireGrade2Tan    ?? 'B';  // 父（データ2）null→中央値B
+  const sr2F = h.sireGrade2Fuku   ?? 'B';
+  const ds2T = h.damSireGrade2Tan ?? 'B';  // 母父（データ2）null→中央値B
+  const ds2F = h.damSireGrade2Fuku?? 'B';
   const bT  = (h.bloodGradeTan  && h.bloodGradeTan  !== '—') ? h.bloodGradeTan  : null;  // 配合
   const bF  = (h.bloodGradeFuku && h.bloodGradeFuku !== '—') ? h.bloodGradeFuku : null;
   const stT = h.stableGradeTan  ?? null;
