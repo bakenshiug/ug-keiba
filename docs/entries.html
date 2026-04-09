@@ -323,6 +323,13 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .bet-note{
   font-size:10px;color:rgba(180,0,80,.7);width:100%;padding-left:2px;
 }
+.bet-optional-note{
+  font-size:11px;font-weight:600;color:#7c3aed;
+  width:100%;padding:4px 8px;margin-top:2px;
+  background:rgba(124,58,237,.07);
+  border-left:3px solid rgba(124,58,237,.4);
+  border-radius:0 4px 4px 0;
+}
 .bet-row-detail{flex-direction:column;align-items:stretch;gap:6px;padding:10px 0;}
 .bet-row-top{display:flex;align-items:center;gap:8px;}
 .bet-note-inline{font-size:10px;color:rgba(180,0,80,.7);margin-left:auto;}
@@ -982,6 +989,7 @@ function renderBetRow(b, numMap) {
     <span class="bet-horses">${horseLabels}</span>
     <span class="bet-points">${b.points}点</span>
     <div class="bet-note">${b.note}</div>
+    ${b.optionalNote ? `<div class="bet-optional-note">${esc(b.optionalNote)}</div>` : ''}
   </div>`;
 }
 
