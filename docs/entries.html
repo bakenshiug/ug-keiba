@@ -936,11 +936,15 @@ function renderRace(idx) {
   // 全馬のスコアを計算
   const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h)}));
 
-  // 穴馬スコア = 3F統計穴スコア + レース統計穴ボーナス
+  // 穴馬スコア = 3F統計穴スコア + レース統計穴ボーナス + 血統配合グレードボーナス
   const withAna = scored.map(s => {
     const sf3Part  = s.h.sf3AnaScore  ?? 0;
     const racePart = s.h.raceAnaBonus ?? 0;
-    const anaScore = sf3Part + racePart;
+    // 血統配合グレード（B=0基準、S+S→+0.5、A+A→+0.25、D+D→-0.42）
+    const bT = s.h.bloodGradeTan  ?? 'B';
+    const bF = s.h.bloodGradeFuku ?? 'B';
+    const bloodPart = ((gradePoints(bT) ?? 5) + (gradePoints(bF) ?? 5) - 10) / 24;
+    const anaScore = sf3Part + racePart + bloodPart;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
     return {...s, anaScore, sougouScore};
   });
