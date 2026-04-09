@@ -616,7 +616,11 @@ function calcScores(h) {
   const [bdT, bdF]   = splitGrade(h.bodyGrade,  'body');
   const [cT,  cF]    = splitGrade(h.courseGrade,'course');
   const [syT, syF]   = splitGrade(h.styleGrade, 'style');
-  const bT  = (h.bloodGradeTan  && h.bloodGradeTan  !== '—') ? h.bloodGradeTan  : null;
+  const srT = h.sireGradeTan    ?? null;  // 父
+  const srF = h.sireGradeFuku   ?? null;
+  const dsT = h.damSireGradeTan ?? null;  // 母父
+  const dsF = h.damSireGradeFuku?? null;
+  const bT  = (h.bloodGradeTan  && h.bloodGradeTan  !== '—') ? h.bloodGradeTan  : null;  // 配合
   const bF  = (h.bloodGradeFuku && h.bloodGradeFuku !== '—') ? h.bloodGradeFuku : null;
   const stT = h.stableGradeTan  ?? null;
   const stF = h.stableGradeFuku ?? null;
@@ -638,10 +642,10 @@ function calcScores(h) {
   const cdF = h.conditionGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT,s3T,cdT]) {
+  for (const g of [ziT,exT,srT,dsT,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,spT,agT,rtT,s3T,cdT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F,cdF]) {
+  for (const g of [ziF,exF,srF,dsF,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,spF,agF,rtF,s3F,cdF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   return {tanScore, fukuScore, tanMax, fukuMax};
@@ -878,7 +882,9 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
       <div class="badges">
         ${ziGradeBadge(h.sabcZI)}
         ${extGradeBadge(h.extFacility)}
-        ${bloodGradeBadge(h.bloodGradeTan, h.bloodGradeFuku)}
+        ${gradeBadge('父', h.sireGradeTan ?? null, h.sireGradeFuku ?? null)}
+        ${gradeBadge('母父', h.damSireGradeTan ?? null, h.damSireGradeFuku ?? null)}
+        ${gradeBadge('配合', h.bloodGradeTan && h.bloodGradeTan !== '—' ? h.bloodGradeTan : null, h.bloodGradeFuku && h.bloodGradeFuku !== '—' ? h.bloodGradeFuku : null)}
         ${kinsoGradeBadge(h.kinsoGrade)}
         ${paceGradeBadge(h.paceGrade)}
         ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
