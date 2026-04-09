@@ -225,6 +225,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .bg-d{background:#f3f4f6;color:#9ca3af;border:1px solid #d1d5db;}
 .bg-n{background:#f9fafb;color:#d1d5db;border:1px solid #e5e7eb;}
 .bg-analyzing{background:#f3f4f6;color:#9ca3af;border:1px solid #e5e7eb;font-style:italic;letter-spacing:.01em;}
+.bg-age-fixed{background:#e0f2fe;color:#0369a1;border:1px solid #7dd3fc;font-weight:700;}
 
 /* ── デュアルバッジ (単/複 分割) ── */
 .dual-badge{
@@ -1198,7 +1199,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           <span class="badge-group-label lbl-ability">実力</span>
           ${ziGradeBadge(h.sabcZI)}
           ${kinsoGradeBadge(h.kinsoGrade)}
-          ${h.ageGradeTan || h.ageGradeFuku ? gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null) : `<span class="blood-grade bg-analyzing">年齢 3歳</span>`}
+          ${h.ageGradeTan || h.ageGradeFuku ? gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null) : `<span class="blood-grade bg-age-fixed">年齢 3歳</span>`}
           ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
         </div>
         <div class="badge-group">
