@@ -819,13 +819,13 @@ function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, a
     <div class="score-row">
       <span class="score-lbl tan-lbl">単</span>
       <div class="score-track"><div class="score-fill tan-fill" style="width:${tp}%"></div></div>
-      <span class="score-val tan-val">${tanScore}/${tanMax} <span style="opacity:.6;font-size:9px">${tp}%</span></span>
+      <span class="score-val tan-val">${Math.round(tanScore)}/${tanMax} <span style="opacity:.6;font-size:9px">${tp}%</span></span>
       <span class="score-rank ${rkCls(tanRank)}">#${tanRank}</span>
     </div>
     <div class="score-row">
       <span class="score-lbl fuku-lbl">複</span>
       <div class="score-track"><div class="score-fill fuku-fill" style="width:${fp}%"></div></div>
-      <span class="score-val fuku-val">${fukuScore}/${fukuMax} <span style="opacity:.6;font-size:9px">${fp}%</span></span>
+      <span class="score-val fuku-val">${Math.round(fukuScore)}/${fukuMax} <span style="opacity:.6;font-size:9px">${fp}%</span></span>
       <span class="score-rank ${rkCls(fukuRank)}">#${fukuRank}</span>
     </div>
     <div class="score-row">
