@@ -269,6 +269,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .score-fill.tan-fill{background:linear-gradient(90deg,#d97706,#fcd34d);}
 .score-fill.fuku-fill{background:linear-gradient(90deg,#059669,#6ee7b7);}
 .score-fill.ana-fill{background:linear-gradient(90deg,#7c3aed,#c4b5fd);}
+.score-fill.sougo-fill{background:linear-gradient(90deg,#ea580c,#fb923c);}
 .score-val{
   font-size:9px;font-weight:900;width:36px;text-align:right;flex-shrink:0;
 }
@@ -288,57 +289,64 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
 /* ── 買い目提案 ── */
 .bet-section{
-  margin:8px 12px;padding:10px 12px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,200,100,.2);
-  border-radius:10px;
+  margin:10px 12px;padding:14px 16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,200,100,.25);
+  border-radius:12px;
 }
 .bet-header{
-  display:flex;align-items:center;gap:8px;margin-bottom:8px;
+  display:flex;align-items:center;gap:10px;margin-bottom:12px;
 }
 .bet-race-type{
-  font-size:10px;font-weight:900;padding:3px 8px;border-radius:6px;
+  font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;
   color:#fff;letter-spacing:.5px;
 }
-.bet-title{font-size:12px;font-weight:700;color:rgba(255,220,150,.9);}
-.bet-total{margin-left:auto;font-size:10px;font-weight:700;color:rgba(255,200,100,.7);}
+.bet-title{font-size:13px;font-weight:700;color:rgba(255,220,150,.9);}
+.bet-total{margin-left:auto;font-size:11px;font-weight:700;color:rgba(255,200,100,.8);}
 .bet-row{
   display:flex;align-items:center;gap:8px;
-  padding:5px 0;border-bottom:1px solid rgba(255,255,255,.06);
+  padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);
   flex-wrap:wrap;
 }
 .bet-row:last-child{border-bottom:none;}
 .bet-type{
-  font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;
-  background:rgba(255,255,255,.08);color:#fff;white-space:nowrap;min-width:36px;text-align:center;
+  font-size:12px;font-weight:900;padding:3px 10px;border-radius:6px;
+  background:rgba(255,255,255,.1);color:#fff;white-space:nowrap;min-width:44px;text-align:center;
 }
 .bet-horses{
-  font-size:11px;font-weight:700;color:rgba(255,240,200,.9);flex:1;
+  font-size:13px;font-weight:700;color:rgba(255,240,200,.9);flex:1;
 }
 .bet-points{
-  font-size:10px;font-weight:900;color:rgba(255,200,100,.8);white-space:nowrap;
+  font-size:11px;font-weight:900;color:rgba(255,200,100,.9);white-space:nowrap;
 }
 .bet-note{
-  font-size:9px;color:rgba(255,255,255,.4);width:100%;padding-left:2px;
+  font-size:10px;color:rgba(255,255,255,.4);width:100%;padding-left:2px;
 }
-.bet-row-detail{flex-direction:column;align-items:stretch;gap:5px;}
+.bet-row-detail{flex-direction:column;align-items:stretch;gap:6px;padding:10px 0;}
 .bet-row-top{display:flex;align-items:center;gap:8px;}
-.bet-note-inline{font-size:9px;color:rgba(255,255,255,.4);margin-left:auto;}
+.bet-note-inline{font-size:10px;color:rgba(255,255,255,.4);margin-left:auto;}
+.bet-formation-rows{display:flex;flex-direction:column;gap:5px;margin-top:4px;}
+.bet-formation-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.bet-chakuban{
+  font-size:11px;font-weight:900;color:rgba(255,200,100,.8);
+  white-space:nowrap;min-width:40px;
+}
+.bet-horse-chips{display:flex;flex-wrap:wrap;gap:4px;}
 .bet-horses-detail{
   display:flex;align-items:center;gap:6px;flex-wrap:wrap;
-  padding:5px 8px;background:rgba(255,255,255,.04);border-radius:6px;
+  padding:6px 10px;background:rgba(255,255,255,.04);border-radius:6px;
 }
 .bet-jiku{
-  font-size:11px;font-weight:900;color:#F5B731;white-space:nowrap;
+  font-size:12px;font-weight:900;color:#F5B731;white-space:nowrap;
 }
-.bet-arrow{font-size:13px;color:rgba(255,200,100,.6);flex-shrink:0;}
+.bet-arrow{font-size:14px;color:rgba(255,200,100,.6);flex-shrink:0;}
 .bet-aite-chips{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
 .bet-horse-chip{
-  font-size:10px;font-weight:700;
-  padding:2px 7px;border-radius:5px;
+  font-size:11px;font-weight:700;
+  padding:3px 8px;border-radius:6px;
   background:rgba(232,19,110,.15);
   border:1px solid rgba(232,19,110,.3);
-  color:rgba(255,200,220,.9);
+  color:rgba(255,200,220,.95);
   white-space:nowrap;
 }
 /* ── ソートバー ── */
@@ -785,10 +793,11 @@ function splitBadge(label, g, key) {
 }
 
 // ── スコアバー HTML ──
-function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore, anaMax, anaRank) {
+function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore, anaMax, anaRank, sougouScore, sougouRank) {
   const tp = tanMax  > 0 ? Math.round(tanScore/tanMax*100)  : 0;
   const fp = fukuMax > 0 ? Math.round(fukuScore/fukuMax*100) : 0;
   const ap = anaMax  > 0 ? Math.round(Math.max(0, anaScore)/anaMax*100) : 0;
+  const sp = Math.round((sougouScore ?? 0) * 100);
   const rkCls = r => r===1?'rk1':r===2?'rk2':r===3?'rk3':'';
   return `
   <div class="score-bars">
@@ -809,6 +818,12 @@ function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, a
       <div class="score-track"><div class="score-fill ana-fill" style="width:${ap}%"></div></div>
       <span class="score-val" style="color:#a78bfa;">${anaScore.toFixed(2)} <span style="opacity:.6;font-size:9px">${ap}%</span></span>
       <span class="score-rank ${rkCls(anaRank)}">#${anaRank}</span>
+    </div>
+    <div class="score-row">
+      <span class="score-lbl" style="color:#f97316;">総</span>
+      <div class="score-track"><div class="score-fill sougo-fill" style="width:${sp}%"></div></div>
+      <span class="score-val" style="color:#f97316;">${sp}% </span>
+      <span class="score-rank ${rkCls(sougouRank)}">#${sougouRank}</span>
     </div>
   </div>`;
 }
@@ -904,14 +919,36 @@ function generateBets(withAna, headCount) {
   return { raceType, bets };
 }
 
-function renderBetRow(b) {
+function renderBetRow(b, numMap) {
+  const chip = name => {
+    const num = numMap?.[name] ?? '';
+    return `<span class="bet-horse-chip">${num ? num+'番 ' : ''}${name}</span>`;
+  };
+
+  // フォーメーション表示（formation フィールドがある場合）
+  if (b.formation) {
+    const rows = Object.entries(b.formation).map(([label, names]) => `
+      <div class="bet-formation-row">
+        <span class="bet-chakuban">${label}</span>
+        <div class="bet-horse-chips">${names.map(chip).join('')}</div>
+      </div>`).join('');
+    return `
+    <div class="bet-row bet-row-detail">
+      <div class="bet-row-top">
+        <span class="bet-type">${b.type}</span>
+        <span class="bet-points">${b.points}点</span>
+        <div class="bet-note-inline">${b.note}</div>
+      </div>
+      <div class="bet-formation-rows">${rows}</div>
+    </div>`;
+  }
+
+  // 複数馬・軸流し表示
   const needsDetail = (b.type === '馬単' || b.type === '馬連' || b.type === '3連単' || b.type === '3連複') && b.horses.length > 2;
   if (needsDetail) {
     const jiku = b.horses[0];
     const aite = b.horses.slice(1);
-    const aiteChips = aite.map(n =>
-      `<span class="bet-horse-chip">${n}</span>`
-    ).join('');
+    const aiteChips = aite.map(chip).join('');
     const label = (b.type === '3連単') ? '1着固定' : '◎ 軸';
     return `
     <div class="bet-row bet-row-detail">
@@ -927,21 +964,28 @@ function renderBetRow(b) {
       </div>
     </div>`;
   }
+
+  // シンプル表示（単勝・複勝など）
+  const horseLabels = b.horses.map(chip).join(' ／ ');
   return `
   <div class="bet-row">
     <span class="bet-type">${b.type}</span>
-    <span class="bet-horses">${b.horses.join(' ／ ')}</span>
+    <span class="bet-horses">${horseLabels}</span>
     <span class="bet-points">${b.points}点</span>
     <div class="bet-note">${b.note}</div>
   </div>`;
 }
 
-function buildBetSection(withAna, headCount) {
-  const { raceType, bets } = generateBets(withAna, headCount);
+function buildBetSection(withAna, headCount, d) {
+  const customBets = d?.customBets;
+  const { raceType, bets: autoBets } = generateBets(withAna, headCount);
+  const bets = (customBets && customBets.length > 0) ? customBets : autoBets;
   const typeColor = { '1強':'#d97706','2強':'#2563eb','3強':'#7c3aed','混戦':'#4b5563' };
   const color = typeColor[raceType] ?? '#4b5563';
   const totalPoints = bets.reduce((s, b) => s + b.points, 0);
-  const rows = bets.map(b => renderBetRow(b)).join('');
+  const numMap = {};
+  withAna.forEach(s => { numMap[s.name] = s.h.num; });
+  const rows = bets.map(b => renderBetRow(b, numMap)).join('');
   return `
   <div class="bet-section">
     <div class="bet-header">
@@ -1051,7 +1095,7 @@ function buildSf3Comment(h) {
   return `${diffStr} × ${rankStr} × ${oddsStr} → スコア${score.toFixed(2)}（${eval_}）`;
 }
 
-function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax) {
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore) {
   const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : ziRank;
   const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : 'ZI';
   const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : 'zi';
@@ -1164,7 +1208,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         </div>
       </div>
       ${h.specialNote ? `<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>` : ''}
-      ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore ?? 0, anaMax ?? 1, anaRank)}
+      ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore ?? 0, anaMax ?? 1, anaRank, sougouScore ?? 0, sougouRank)}
     </div>
     <div class="card-body">
       <div class="horse-meta-row">
@@ -1242,12 +1286,12 @@ function renderRace(idx) {
   const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
 
   const anaMax = Math.max(...withAna.map(s => s.anaScore ?? 0), 0.01);
-  const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax, anaScore}) =>
+  const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax, anaScore, sougouScore}) =>
     buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax,
                    tanRankMap[name], fukuRankMap[name], ziRankMap[name], anaRankMap[name],
                    sougouRankMap[name], popularityMap[name],
                    tanCmt[name] || null, fukuCmt[name] || null,
-                   anaScore ?? 0, anaMax)
+                   anaScore ?? 0, anaMax, sougouScore ?? 0)
   ).join('');
 
   const sortBar = `
@@ -1269,7 +1313,7 @@ function renderRace(idx) {
       <span class="horse-count">${horses.length}頭</span>
     </div>
     ${buildAnalysisSection(d)}
-    ${buildBetSection(withAna, horses.length)}
+    ${buildBetSection(withAna, horses.length, d)}
     ${sortBar}
     <div class="horse-list">${cards}</div>
   `;
