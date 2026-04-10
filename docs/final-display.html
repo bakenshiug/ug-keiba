@@ -1167,7 +1167,7 @@ function renderRaceDetail(data, notes) {
       <div style="flex:1;">
         <div class="race-name">${esc(r.name||'')}</div>
         <div class="race-meta">${esc(r.venue||'')} ${esc(r.raceNum||'')} ／ ${esc(r.surface||'')}${esc(r.distance||'')} ／ ${esc(r.condition||'')} ／ ${esc(r.date||'')}</div>
-        ${r.raceType ? `<div style="margin-top:4px;"><span style="font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;background:rgba(28,43,74,.1);color:rgba(28,43,74,.65);letter-spacing:.06em;">レースタイプ：${esc(r.raceType)}</span></div>` : ''}
+        ${r.raceType ? `<div style="margin-top:5px;"><span style="font-size:10px;font-weight:900;padding:3px 9px;border-radius:5px;background:rgba(139,26,26,.18);color:#8B1A1A;border:1px solid rgba(139,26,26,.35);letter-spacing:.06em;">レースタイプ：${esc(r.raceType)}</span></div>` : ''}
       </div>
       ${r.analysisUrl ? `<a href="${esc(r.analysisUrl)}" style="flex-shrink:0;display:inline-flex;align-items:center;gap:4px;padding:7px 11px;border-radius:12px;background:rgba(232,0,61,.12);border:1px solid rgba(232,0,61,.3);color:#c0002a;font-size:10px;font-weight:900;text-decoration:none;letter-spacing:.04em;white-space:nowrap;" target="_blank">📊 詳細分析 →</a>` : ''}
     </div>
