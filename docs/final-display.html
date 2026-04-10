@@ -299,6 +299,41 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .race-card.grade-g2 .race-grade-badge,
 .race-card.grade-g3 .race-grade-badge{box-shadow:0 0 8px rgba(0,0,0,.12);}
 
+/* ── レースタイプバッジ ── */
+.race-type-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:900;letter-spacing:.08em;
+  padding:4px 12px;border-radius:20px;margin-top:7px;
+}
+.race-type-badge.rt-ikkyou{
+  background:linear-gradient(135deg,#c0002a,#e8003d);
+  color:#fff;
+  border:1px solid rgba(232,0,61,.5);
+  box-shadow:0 0 12px rgba(232,0,61,.5),0 2px 8px rgba(0,0,0,.2);
+  animation:rtPulse 2.2s ease-in-out infinite;
+}
+.race-type-badge.rt-sessen{
+  background:linear-gradient(135deg,#1d4ed8,#3b82f6);
+  color:#fff;
+  border:1px solid rgba(59,130,246,.5);
+  box-shadow:0 0 12px rgba(59,130,246,.45),0 2px 8px rgba(0,0,0,.2);
+}
+.race-type-badge.rt-konsen{
+  background:linear-gradient(135deg,#6d28d9,#a855f7);
+  color:#fff;
+  border:1px solid rgba(168,85,247,.5);
+  box-shadow:0 0 12px rgba(168,85,247,.45),0 2px 8px rgba(0,0,0,.2);
+}
+.race-type-badge.rt-default{
+  background:rgba(28,43,74,.12);
+  color:#1C2B4A;
+  border:1px solid rgba(28,43,74,.25);
+}
+@keyframes rtPulse{
+  0%,100%{box-shadow:0 0 12px rgba(232,0,61,.5),0 2px 8px rgba(0,0,0,.2);}
+  50%{box-shadow:0 0 22px rgba(232,0,61,.8),0 2px 12px rgba(0,0,0,.25);}
+}
+
 /* ── 結果セクション ── */
 .result-wrap{border-radius:16px;overflow:hidden;margin-bottom:6px;background:linear-gradient(135deg,rgba(20,5,10,.82),rgba(35,10,20,.78));border:1px solid rgba(255,255,255,.1);}
 /* 的中バナー */
@@ -558,6 +593,21 @@ function formatJpDate(d){
   const days=['日','月','火','水','木','金','土'];
   const dt = new Date(+m[1], +m[2]-1, +m[3]);
   return `${m[1]}年${+m[2]}月${+m[3]}日（${days[dt.getDay()]}曜日）`;
+}
+
+function raceTypeCls(t){
+  if(!t) return 'rt-default';
+  if(t.includes('1強')) return 'rt-ikkyou';
+  if(t.includes('接戦')) return 'rt-sessen';
+  if(t.includes('混戦')) return 'rt-konsen';
+  return 'rt-default';
+}
+function raceTypeIcon(t){
+  if(!t) return '';
+  if(t.includes('1強')) return '👑';
+  if(t.includes('接戦')) return '⚔️';
+  if(t.includes('混戦')) return '🌀';
+  return '🏇';
 }
 
 function wakuClass(gate){ return gate ? `waku-${Math.min(gate,8)}` : ''; }
@@ -1187,7 +1237,7 @@ function renderRaceDetail(data, notes) {
       <div style="flex:1;">
         <div class="race-name">${esc(r.name||'')}</div>
         <div class="race-meta">${esc(r.venue||'')} ${esc(r.raceNum||'')} ／ ${esc(r.surface||'')}${esc(r.distance||'')} ／ ${esc(r.condition||'')} ／ ${formatJpDate(r.date)}</div>
-        ${r.raceType ? `<div style="margin-top:5px;"><span style="font-size:10px;font-weight:900;padding:3px 9px;border-radius:5px;background:rgba(139,26,26,.18);color:#8B1A1A;border:1px solid rgba(139,26,26,.35);letter-spacing:.06em;">レースタイプ：${esc(r.raceType)}</span></div>` : ''}
+        ${r.raceType ? `<div><span class="race-type-badge ${raceTypeCls(r.raceType)}">${raceTypeIcon(r.raceType)} レースタイプ：${esc(r.raceType)}</span></div>` : ''}
       </div>
       ${r.analysisUrl ? `<a href="${esc(r.analysisUrl)}" style="flex-shrink:0;display:inline-flex;align-items:center;gap:4px;padding:7px 11px;border-radius:12px;background:rgba(232,0,61,.12);border:1px solid rgba(232,0,61,.3);color:#c0002a;font-size:10px;font-weight:900;text-decoration:none;letter-spacing:.04em;white-space:nowrap;" target="_blank">📊 詳細分析 →</a>` : ''}
     </div>
