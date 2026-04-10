@@ -1184,12 +1184,12 @@ function renderRaceDetail(data, notes) {
       ${Object.keys(bets).length ? `<div class="sec-title">🎯 買い目</div><div class="bets-grid">${
         Object.entries(bets).map(([k,v]) => `<div class="bet-row bet-row-jiku"><span class="bet-type">${esc(k)}</span><span class="bet-val">${esc(v)}</span></div>`).join('')
       }</div><div class="divider"></div>` : ''}
-      ${notes && notes.sabcRankTan && notes.sabcRankTan[0] ? `<div class="sec-title">単複期待値ランキング</div>${sabcRankHtml(notes, data.horses)}` : ''}
+      ${(() => { const hasSabc = notes && notes.sabcRankTan && notes.sabcRankTan[0] && notes.sabcRankTan[0].name; return hasSabc ? `<div class="sec-title">単複期待値ランキング</div>${sabcRankHtml(notes, data.horses)}` : ''; })()}
       ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(h => renderHeroCard(h, orderMap, notes && notes.horses && notes.horses[h.name])).join('')}` : ''}
       ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses, orderMap, notes)}` : ''}
       ${notes ? `<div class="sec-title" style="margin-top:14px;">全馬コメント</div>${allHorseCommentsHtml(notes, allHorses)}` : ''}
-      ${notes && notes.sabcRankTan && notes.sabcRankTan[0] ? `<div class="divider"></div><div class="sec-title">推奨買い目（期待値ランキング1位）</div><div class="bets-grid">${sabcBetsHtml(notes, data.horses)}</div>` : ''}
-      ${notes && notes.sabcRankTan && notes.sabcRankTan[0] && betsHtml ? `<div class="sec-title" style="margin-top:10px;">印順フォーメーション</div><div class="bets-grid">${betsHtml}</div>` : ''}
+      ${(() => { const hasSabc = notes && notes.sabcRankTan && notes.sabcRankTan[0] && notes.sabcRankTan[0].name; return hasSabc ? `<div class="divider"></div><div class="sec-title">推奨買い目（期待値ランキング1位）</div><div class="bets-grid">${sabcBetsHtml(notes, data.horses)}</div>` : ''; })()}
+      ${(() => { const hasSabc = notes && notes.sabcRankTan && notes.sabcRankTan[0] && notes.sabcRankTan[0].name; return hasSabc && betsHtml ? `<div class="sec-title" style="margin-top:10px;">印順フォーメーション</div><div class="bets-grid">${betsHtml}</div>` : ''; })()}
       ${commentsHtml ? `<div class="divider"></div><div class="sec-title">分析コメント</div><div class="comment-area">${commentsHtml}</div>` : ''}
       ${notes ? `
       <div class="divider"></div>
