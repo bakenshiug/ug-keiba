@@ -774,9 +774,10 @@ function renderHeroCard(h, orderMap, noteHorse) {
       <span>${esc(h.name)}</span>${rankBadge}${wetRiseBadge}
     </div>
     <div class="horse-hero-top">
-      <div style="display:flex;align-items:center;gap:6px;">
+      <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
         ${wakuHtml}
         <span style="font-size:11px;color:rgba(28,43,74,.6);">馬番 <strong style="color:#1C2B4A;font-weight:900;">${h.num}</strong></span>
+        ${h.popularity ? `<span class="odds-pop" style="font-size:10px;">${h.popularity}番人気</span>` : ''}
       </div>
       <span class="info-pt">${h.totalPt} pt</span>
     </div>
@@ -787,9 +788,10 @@ function renderHeroCard(h, orderMap, noteHorse) {
       ${infoRow('騎手', h.jockey ? `<span class="info-val">${esc(h.jockey)}</span>` : '<span class="info-val-muted">—</span>')}
       ${infoRow('厩舎', h.trainer ? `<span class="info-val">${esc(h.trainer)}</span>` : '<span class="info-val-muted">—</span>')}
       ${infoRow('父', h.sire ? `<span class="info-val">${esc(h.sire)}</span>` : '<span class="info-val-muted">—</span>')}
+      ${h.damSire ? infoRow('母父', `<span class="info-val">${esc(h.damSire)}</span>`) : ''}
       ${infoRow('前走', h.lastRace ? `<span class="info-val">${esc(h.lastRace)}</span>` : '<span class="info-val-muted">—</span>')}
     </div>
-    ${summary ? `<div class="horse-comment-block"><div class="hcmt-ability">${esc(summary)}</div></div>` : ''}
+    ${h.comment ? `<div class="horse-comment-block"><div class="hcmt-ability">${esc(h.comment)}</div></div>` : summary ? `<div class="horse-comment-block"><div class="hcmt-ability">${esc(summary)}</div></div>` : ''}
   </div>`;
 }
 
@@ -1162,10 +1164,12 @@ function renderRaceDetail(data, notes) {
   <div class="race-card ${gradeClass}">
     <div class="race-head">
       <span class="race-grade-badge" style="${gs}">${esc(r.grade||'')}</span>
-      <div>
+      <div style="flex:1;">
         <div class="race-name">${esc(r.name||'')}</div>
         <div class="race-meta">${esc(r.venue||'')} ${esc(r.raceNum||'')} ／ ${esc(r.surface||'')}${esc(r.distance||'')} ／ ${esc(r.condition||'')} ／ ${esc(r.date||'')}</div>
+        ${r.raceType ? `<div style="margin-top:4px;"><span style="font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;background:rgba(28,43,74,.1);color:rgba(28,43,74,.65);letter-spacing:.06em;">レースタイプ：${esc(r.raceType)}</span></div>` : ''}
       </div>
+      ${r.analysisUrl ? `<a href="${esc(r.analysisUrl)}" style="flex-shrink:0;display:inline-flex;align-items:center;gap:4px;padding:7px 11px;border-radius:12px;background:rgba(232,0,61,.12);border:1px solid rgba(232,0,61,.3);color:#c0002a;font-size:10px;font-weight:900;text-decoration:none;letter-spacing:.04em;white-space:nowrap;" target="_blank">📊 詳細分析 →</a>` : ''}
     </div>
     <div class="race-body">
       ${renderResult(data, notes)}
