@@ -416,6 +416,20 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   table.horse-tbl th:nth-child(6),table.horse-tbl td:nth-child(6){display:none;}
   table.horse-tbl{font-size:11px;}
   table.horse-tbl td.tbl-name{font-size:12px;}
+
+  /* ── スマホ：レースヘッダー ── */
+  .race-head{padding:12px 13px;gap:8px;flex-wrap:wrap;}
+  .race-name{font-size:18px;}
+  .race-meta{font-size:10px;line-height:1.7;letter-spacing:.01em;word-break:break-all;}
+  .race-grade-badge{font-size:10px;padding:3px 8px;}
+  .race-type-badge{font-size:10px;padding:3px 10px;margin-top:5px;}
+
+  /* 詳細分析ボタン：スマホでは幅100%の下段に */
+  .race-head > a[href]{
+    width:100%;justify-content:center;
+    padding:8px 0;border-radius:10px;
+    font-size:11px;
+  }
 }
 
 /* ── 週アコーディオン ── */
