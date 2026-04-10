@@ -186,6 +186,17 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .horse-cmt-num{font-size:11px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(28,43,74,.07);color:rgba(28,43,74,.7);}
 .horse-cmt-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#1C2B4A;}
 
+/* Odds Note */
+.odds-note{
+  padding:14px 16px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(28,43,74,.07),rgba(28,43,74,.03));
+  border:1px solid rgba(28,43,74,.18);
+  border-left:3px solid rgba(28,43,74,.5);
+  font-size:12px;font-weight:600;color:#1C2B4A;line-height:1.85;
+  letter-spacing:.02em;
+  margin-bottom:4px;
+}
+
 /* Bets */
 .bets-grid{display:flex;flex-direction:column;gap:6px;margin-bottom:4px;}
 .bet-row{display:flex;align-items:baseline;gap:10px;padding:9px 14px;border-radius:10px;background:rgba(139,26,26,.06);border:1px solid rgba(139,26,26,.18);}
@@ -1184,6 +1195,7 @@ function renderRaceDetail(data, notes) {
       ${Object.keys(bets).length ? `<div class="sec-title">🎯 買い目</div><div class="bets-grid">${
         Object.entries(bets).map(([k,v]) => `<div class="bet-row bet-row-jiku"><span class="bet-type">${esc(k)}</span><span class="bet-val">${esc(v)}</span></div>`).join('')
       }</div><div class="divider"></div>` : ''}
+      ${data.comments?.oddsNote ? `<div class="sec-title">📊 前日オッズ所感</div><div class="odds-note">${esc(data.comments.oddsNote)}</div><div class="divider"></div>` : ''}
       ${(() => { const hasSabc = notes && notes.sabcRankTan && notes.sabcRankTan[0] && notes.sabcRankTan[0].name; return hasSabc ? `<div class="sec-title">単複期待値ランキング</div>${sabcRankHtml(notes, data.horses)}` : ''; })()}
       ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(h => renderHeroCard(h, orderMap, notes && notes.horses && notes.horses[h.name])).join('')}` : ''}
       ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses, orderMap, notes)}` : ''}
