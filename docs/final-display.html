@@ -1151,7 +1151,7 @@ function renderRaceDetail(data, notes) {
   })();
 
   const commentsHtml = [
-    comments.final ? `<div class="final-card"><div class="clabel">■ 最終結論</div><div class="ctext">${esc(comments.final).replace(/\n/g,'<br>')}</div></div>` : '',
+    comments.final ? `<div class="final-card"><div class="clabel">🐶 ギーニョの最終ジャッジ</div><div class="ctext">${esc(comments.final).replace(/\n/g,'<br>')}</div></div>` : '',
     comments.risk  ? `<div class="risk-card"><div class="clabel">⚠️ 波乱ファクター</div><div class="ctext">${esc(comments.risk)}</div></div>` : '',
     data.betMemo   ? `<div class="betmemo-card"><div class="clabel">📝 買い目メモ</div><div class="ctext">${esc(data.betMemo)}</div></div>` : '',
     comments.extra ? `<div class="extra-card"><div class="clabel">🚨 補足</div><div class="ctext">${esc(comments.extra)}</div></div>` : '',
