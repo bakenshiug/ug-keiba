@@ -285,19 +285,19 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .race-card.grade-g3{border-color:rgba(59,130,246,.55);animation:fadeUp .22s ease both,neonG3 2.5s ease-in-out infinite;}
 
 /* ─ レースヘッダー・タイトル：グレード別カラー ─ */
-.race-card.grade-g1 .race-head{border-bottom-color:rgba(139,26,26,.5);background:linear-gradient(120deg,rgba(139,26,26,.14) 0%,rgba(10,0,3,.9) 55%,rgba(139,26,26,.04) 100%);}
-.race-card.grade-g2 .race-head{border-bottom-color:rgba(34,197,94,.5);background:linear-gradient(120deg,rgba(34,197,94,.11) 0%,rgba(10,0,3,.9) 55%,rgba(34,197,94,.04) 100%);}
-.race-card.grade-g3 .race-head{border-bottom-color:rgba(59,130,246,.5);background:linear-gradient(120deg,rgba(59,130,246,.11) 0%,rgba(10,0,3,.9) 55%,rgba(59,130,246,.04) 100%);}
-/* ── グレードカード ヘッダー：白文字＋グレード色グロー ── */
-.race-card.grade-g1 .race-name{color:#fff;text-shadow:0 0 24px rgba(255,180,0,.9),0 0 8px rgba(255,180,0,.5);}
-.race-card.grade-g2 .race-name{color:#fff;text-shadow:0 0 24px rgba(34,197,94,.9),0 0 8px rgba(34,197,94,.5);}
-.race-card.grade-g3 .race-name{color:#fff;text-shadow:0 0 24px rgba(100,160,255,.9),0 0 8px rgba(100,160,255,.5);}
-.race-card.grade-g1 .race-meta,
-.race-card.grade-g2 .race-meta,
-.race-card.grade-g3 .race-meta{color:rgba(255,255,255,.7);}
+.race-card.grade-g1 .race-head{border-bottom-color:rgba(255,180,0,.55);background:linear-gradient(120deg,rgba(255,200,160,.45) 0%,rgba(255,235,240,.96) 55%,rgba(255,210,180,.25) 100%);}
+.race-card.grade-g2 .race-head{border-bottom-color:rgba(34,197,94,.5);background:linear-gradient(120deg,rgba(200,255,220,.5) 0%,rgba(255,235,242,.96) 55%,rgba(220,255,230,.25) 100%);}
+.race-card.grade-g3 .race-head{border-bottom-color:rgba(59,130,246,.5);background:linear-gradient(120deg,rgba(200,220,255,.5) 0%,rgba(235,240,255,.96) 55%,rgba(210,225,255,.25) 100%);}
+/* ── グレードカード ヘッダー：濃いめ文字＋グレード色グロー ── */
+.race-card.grade-g1 .race-name{color:#5a1a00;text-shadow:0 0 18px rgba(255,160,0,.35),0 0 6px rgba(255,160,0,.2);}
+.race-card.grade-g2 .race-name{color:#0a3a1a;text-shadow:0 0 18px rgba(34,197,94,.35),0 0 6px rgba(34,197,94,.2);}
+.race-card.grade-g3 .race-name{color:#0a1a4a;text-shadow:0 0 18px rgba(100,160,255,.35),0 0 6px rgba(100,160,255,.2);}
+.race-card.grade-g1 .race-meta{color:rgba(90,26,0,.75);}
+.race-card.grade-g2 .race-meta{color:rgba(10,58,26,.75);}
+.race-card.grade-g3 .race-meta{color:rgba(10,26,74,.75);}
 .race-card.grade-g1 .race-grade-badge,
 .race-card.grade-g2 .race-grade-badge,
-.race-card.grade-g3 .race-grade-badge{box-shadow:0 0 10px rgba(255,255,255,.2);}
+.race-card.grade-g3 .race-grade-badge{box-shadow:0 0 8px rgba(0,0,0,.12);}
 
 /* ── 結果セクション ── */
 .result-wrap{border-radius:16px;overflow:hidden;margin-bottom:6px;background:linear-gradient(135deg,rgba(20,5,10,.82),rgba(35,10,20,.78));border:1px solid rgba(255,255,255,.1);}
@@ -550,6 +550,15 @@ function gradeStyle(g) {
 }
 
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function formatJpDate(d){
+  if(!d) return '';
+  const m = d.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(!m) return d;
+  const days=['日','月','火','水','木','金','土'];
+  const dt = new Date(+m[1], +m[2]-1, +m[3]);
+  return `${m[1]}年${+m[2]}月${+m[3]}日（${days[dt.getDay()]}曜日）`;
+}
 
 function wakuClass(gate){ return gate ? `waku-${Math.min(gate,8)}` : ''; }
 
@@ -1177,7 +1186,7 @@ function renderRaceDetail(data, notes) {
       <span class="race-grade-badge" style="${gs}">${esc(r.grade||'')}</span>
       <div style="flex:1;">
         <div class="race-name">${esc(r.name||'')}</div>
-        <div class="race-meta">${esc(r.venue||'')} ${esc(r.raceNum||'')} ／ ${esc(r.surface||'')}${esc(r.distance||'')} ／ ${esc(r.condition||'')} ／ ${esc(r.date||'')}</div>
+        <div class="race-meta">${esc(r.venue||'')} ${esc(r.raceNum||'')} ／ ${esc(r.surface||'')}${esc(r.distance||'')} ／ ${esc(r.condition||'')} ／ ${formatJpDate(r.date)}</div>
         ${r.raceType ? `<div style="margin-top:5px;"><span style="font-size:10px;font-weight:900;padding:3px 9px;border-radius:5px;background:rgba(139,26,26,.18);color:#8B1A1A;border:1px solid rgba(139,26,26,.35);letter-spacing:.06em;">レースタイプ：${esc(r.raceType)}</span></div>` : ''}
       </div>
       ${r.analysisUrl ? `<a href="${esc(r.analysisUrl)}" style="flex-shrink:0;display:inline-flex;align-items:center;gap:4px;padding:7px 11px;border-radius:12px;background:rgba(232,0,61,.12);border:1px solid rgba(232,0,61,.3);color:#c0002a;font-size:10px;font-weight:900;text-decoration:none;letter-spacing:.04em;white-space:nowrap;" target="_blank">📊 詳細分析 →</a>` : ''}
