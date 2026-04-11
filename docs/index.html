@@ -200,6 +200,30 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 /* ── Ticker (below hero) ── */
 .ticker-bar{position:sticky;top:0;z-index:100;}
 
+/* ── 激走キャッチログ ── */
+.catch-log-wrap{overflow-x:auto;padding:4px 0 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.catch-log-wrap::-webkit-scrollbar{display:none;}
+.catch-log-list{display:flex;gap:10px;padding:2px 4px 4px;width:max-content;}
+.catch-card{
+  min-width:120px;max-width:130px;border-radius:14px;padding:12px 12px 10px;
+  background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,240,245,.96));
+  border:1px solid rgba(190,60,80,.18);
+  box-shadow:0 2px 10px rgba(139,26,26,.08);
+  display:flex;flex-direction:column;gap:4px;cursor:default;
+  transition:transform .15s;
+}
+.catch-card:hover{transform:translateY(-2px);}
+.catch-card.hit1{border-color:rgba(200,140,0,.5);background:linear-gradient(135deg,rgba(255,248,220,.97),rgba(255,235,180,.95));}
+.catch-card.hit2{border-color:rgba(160,160,180,.5);background:linear-gradient(135deg,rgba(245,245,255,.97),rgba(230,230,240,.95));}
+.catch-race{font-size:9px;font-weight:900;color:rgba(139,26,26,.6);letter-spacing:.05em;}
+.catch-mark{font-size:13px;font-weight:900;color:#c0002a;}
+.catch-name{font-size:12px;font-weight:900;color:#1C2B4A;line-height:1.3;}
+.catch-pop{font-size:10px;font-weight:700;color:rgba(28,43,74,.5);}
+.catch-result{margin-top:4px;font-size:11px;font-weight:900;padding:2px 8px;border-radius:20px;text-align:center;align-self:flex-start;}
+.catch-result.r1{background:linear-gradient(90deg,#f59e0b,#d97706);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3);}
+.catch-result.r2{background:linear-gradient(90deg,#94a3b8,#64748b);color:#fff;}
+.catch-result.r4{background:rgba(100,116,139,.15);color:rgba(28,43,74,.45);font-weight:700;}
+
 /* ── Content ── */
 .content{padding:28px 32px 60px;max-width:800px;}
 
@@ -466,6 +490,70 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
         </div>
         <div class="card-arrow">›</div>
       </a>
+    </div>
+
+    <!-- 激走キャッチログ -->
+    <div class="section-label">🎯 激走キャッチログ</div>
+    <div class="catch-log-wrap">
+      <div class="catch-log-list">
+
+        <div class="catch-card hit1">
+          <div class="catch-race">NZT G2</div>
+          <div class="catch-mark">☆</div>
+          <div class="catch-name">レザベーション</div>
+          <div class="catch-pop">6番人気</div>
+          <div class="catch-result r1">🥇 1着激走🔥</div>
+        </div>
+
+        <div class="catch-card hit1">
+          <div class="catch-race">日経賞 G2</div>
+          <div class="catch-mark">☆</div>
+          <div class="catch-name">マイユニバース</div>
+          <div class="catch-pop">4番人気</div>
+          <div class="catch-result r1">🥇 1着激走🔥</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">ファルコンS G3</div>
+          <div class="catch-mark">○</div>
+          <div class="catch-name">エイシンディード</div>
+          <div class="catch-pop">8番人気</div>
+          <div class="catch-result r2">🥈 2着連対</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">若葉S OP</div>
+          <div class="catch-mark">☆</div>
+          <div class="catch-name">ロードフィレール</div>
+          <div class="catch-pop">8番人気</div>
+          <div class="catch-result r2">🥈 2着連対</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">阪神大賞典 G2</div>
+          <div class="catch-mark">☆</div>
+          <div class="catch-name">アクアヴァーナル</div>
+          <div class="catch-pop">6番人気</div>
+          <div class="catch-result r2">🥈 2着連対</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">ダービー卿CT G3</div>
+          <div class="catch-mark">○</div>
+          <div class="catch-name">サイルーン</div>
+          <div class="catch-pop">9番人気</div>
+          <div class="catch-result r2">🥈 2着連対</div>
+        </div>
+
+        <div class="catch-card">
+          <div class="catch-race">大阪杯 G1</div>
+          <div class="catch-mark">○</div>
+          <div class="catch-name">タガノデュード</div>
+          <div class="catch-pop">13番人気</div>
+          <div class="catch-result r4">4着</div>
+        </div>
+
+      </div>
     </div>
 
     <div class="section-label">その他</div>
