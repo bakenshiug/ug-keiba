@@ -329,6 +329,21 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   color:#1C2B4A;
   border:1px solid rgba(28,43,74,.25);
 }
+/* ── レース格言 ── */
+.race-quote{
+  margin-top:9px;padding:8px 14px;
+  border-left:3px solid rgba(139,26,26,.35);
+  background:rgba(139,26,26,.04);
+  border-radius:0 8px 8px 0;
+  font-size:11px;font-style:italic;
+  color:rgba(28,43,74,.7);line-height:1.6;
+  letter-spacing:.02em;
+}
+.race-quote-author{
+  display:block;margin-top:3px;
+  font-size:10px;font-weight:700;font-style:normal;
+  color:rgba(139,26,26,.6);letter-spacing:.05em;
+}
 @keyframes rtPulse{
   0%,100%{box-shadow:0 0 12px rgba(232,0,61,.5),0 2px 8px rgba(0,0,0,.2);}
   50%{box-shadow:0 0 22px rgba(232,0,61,.8),0 2px 12px rgba(0,0,0,.25);}
@@ -1246,6 +1261,7 @@ function renderRaceDetail(data, notes) {
         <div class="race-name">${esc(r.name||'')}</div>
         <div class="race-meta">${esc(r.venue||'')} ${esc(r.raceNum||'')} ／ ${esc(r.surface||'')}${esc(r.distance||'')} ／ ${esc(r.condition||'')} ／ ${formatJpDate(r.date)}</div>
         ${r.raceType ? `<div><span class="race-type-badge ${raceTypeCls(r.raceType)}">${raceTypeIcon(r.raceType)} レースタイプ：${esc(r.raceType)}</span></div>` : ''}
+        ${r.quote ? `<div class="race-quote">「${esc(r.quote.text)}」<span class="race-quote-author">〜 ${esc(r.quote.author)} 〜</span></div>` : ''}
       </div>
       ${r.analysisUrl ? `<a href="${esc(r.analysisUrl)}" style="flex-shrink:0;display:inline-flex;align-items:center;gap:4px;padding:7px 11px;border-radius:12px;background:rgba(232,0,61,.12);border:1px solid rgba(232,0,61,.3);color:#c0002a;font-size:10px;font-weight:900;text-decoration:none;letter-spacing:.04em;white-space:nowrap;" target="_blank">📊 詳細分析 →</a>` : ''}
     </div>
