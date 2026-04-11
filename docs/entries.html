@@ -763,8 +763,8 @@ function calcScores(h) {
   for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
-  // ギーニョ評価：乗算（D=消し×0, B=中立×1, S=最高×1.3）
-  const ginyoMult = g => ({'S':1.3,'A':1.15,'B':1.0,'C':0.7,'D':0.0}[g] ?? 1.0);
+  // ギーニョ評価：乗算（D=消し表示のみ・スコア影響なし, B=中立×1, S=最高×1.3）
+  const ginyoMult = g => ({'S':1.3,'A':1.15,'B':1.0,'C':0.7,'D':1.0}[g] ?? 1.0);
   tanScore  *= ginyoMult(h.ginyoGradeTan  ?? 'B');
   fukuScore *= ginyoMult(h.ginyoGradeFuku ?? 'B');
   return {tanScore, fukuScore, tanMax, fukuMax};
@@ -1273,7 +1273,7 @@ function renderRace(idx) {
     const bloodPart = ((gradePoints(bT) ?? 5) + (gradePoints(bF) ?? 5) - 10) / 24;
     const anaScore = sf3Part + racePart + bloodPart + jkAna + frameAna + sireAna + breederAna + damSireAna + jkStableAna + styleAna + lemaireAna + marginAna;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
-    const isKeshi = s.tanScore === 0 && s.fukuScore === 0;
+    const isKeshi = (s.h.ginyoGradeTan === 'D') && (s.h.ginyoGradeFuku === 'D');
     return {...s, anaScore, sougouScore, isKeshi};
   });
 
