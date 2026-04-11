@@ -989,11 +989,12 @@ function renderResult(data, notes) {
   const numToName = {};
   (data.horses||[]).forEach(h => { if(h.num) numToName[h.num] = h.name || ''; });
 
-  // 馬名→人気マップ（notes.horsesから引き当て）
+  // 馬名→人気マップ（data.horsesから引き当て、なければnotes.horsesにフォールバック）
   const namePopMap = {};
+  (data.horses||[]).forEach(h => { if(h.name && h.popularity) namePopMap[h.name] = h.popularity; });
   if (notes && notes.horses) {
     Object.entries(notes.horses).forEach(([n, v]) => {
-      if (v && v.popularity) namePopMap[n] = v.popularity;
+      if (v && v.popularity && !namePopMap[n]) namePopMap[n] = v.popularity;
     });
   }
 
