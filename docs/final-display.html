@@ -1039,14 +1039,7 @@ function renderResult(data, notes) {
       : calcInvestment(data.horses || []);
   const rtn = res.returnAmount || 0;
   const pct = inv.total > 0 ? Math.round(rtn / inv.total * 100) : 0;
-  const kaishuriHtml = inv.total > 0 ? `
-    <div class="result-kaishuri">
-      <div class="result-kaishuri-nums">
-        <span class="result-kaishuri-item">投資 <strong>¥${inv.total.toLocaleString()}</strong></span>
-        <span class="result-kaishuri-item">回収 <strong>¥${rtn.toLocaleString()}</strong></span>
-      </div>
-      <span class="result-kaishuri-pct ${pct>=100?'hit':'miss'}">${pct}%</span>
-    </div>` : '';
+  const kaishuriHtml = '';
 
   // 的中バナー内容
   const hitBetsLine = (res.hitBets||[]).map(b =>
