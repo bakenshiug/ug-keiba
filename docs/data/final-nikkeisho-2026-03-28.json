@@ -360,7 +360,8 @@
     },
     "hitBets": [
       "馬単",
-      "三連複"
+      "三連複",
+      "複勝"
     ],
     "hitFlag": true,
     "returnAmount": 6700,
@@ -382,6 +383,10 @@
     "三連単": {
       "invest": 2400,
       "return": 0
+    },
+    "複勝": {
+      "invest": 100,
+      "return": 170
     }
   }
 }
