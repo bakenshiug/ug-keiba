@@ -855,27 +855,39 @@ function renderPaceChart(pace){
   function calcCoords(horses){
     const coords = {};
     for(let pi = 0; pi < 3; pi++){
-      // 各positionグループ内のX分散を計算
-      const groups = {};
-      horses.forEach(h => {
-        const pos = getPhases(h)[pi];
-        (groups[pos] = groups[pos] || []).push(h.num);
-      });
-      horses.forEach(h => {
-        const pos  = getPhases(h)[pi];
-        const grp  = groups[pos];
-        const idx  = grp.indexOf(h.num);
-        const total = grp.length;
-        // 同グループはY方向（レーン内・内外ラチ方向）に分散
-        // → 同ポジションの馬は同じX（進行距離）に揃える
-        const lane = 54; // 1レーンあたりの高さ(px)
-        const spread = Math.min(13, (lane - 10) / Math.max(total, 1));
-        const offsetY = (idx - (total - 1) / 2) * spread;
-        const xPct = (PHASE_X[pi] / STAGE_W * 100).toFixed(2);
-        const yPct = ((POS_Y[pos] + offsetY) / STAGE_H * 100).toFixed(2);
-        if(!coords[h.num]) coords[h.num] = {};
-        coords[h.num][pi] = { x: xPct, y: yPct };
-      });
+      if(pi === 2){
+        // ゴール前フェーズ：finalRankで1〜18を縦に等間隔配置
+        const total = horses.length;
+        horses.forEach(h => {
+          const rank = h.finalRank || 18;
+          // Y: 上端20px〜下端280px に等間隔
+          const yPx = 20 + (rank - 1) / (total - 1) * 260;
+          const xPct = (PHASE_X[2] / STAGE_W * 100).toFixed(2);
+          const yPct = (yPx / STAGE_H * 100).toFixed(2);
+          if(!coords[h.num]) coords[h.num] = {};
+          coords[h.num][2] = { x: xPct, y: yPct };
+        });
+      } else {
+        // スタート後・4角：同ポジションをY方向（内外ラチ）に分散
+        const groups = {};
+        horses.forEach(h => {
+          const pos = getPhases(h)[pi];
+          (groups[pos] = groups[pos] || []).push(h.num);
+        });
+        horses.forEach(h => {
+          const pos  = getPhases(h)[pi];
+          const grp  = groups[pos];
+          const idx  = grp.indexOf(h.num);
+          const total = grp.length;
+          const lane = 54;
+          const spread = Math.min(13, (lane - 10) / Math.max(total, 1));
+          const offsetY = (idx - (total - 1) / 2) * spread;
+          const xPct = (PHASE_X[pi] / STAGE_W * 100).toFixed(2);
+          const yPct = ((POS_Y[pos] + offsetY) / STAGE_H * 100).toFixed(2);
+          if(!coords[h.num]) coords[h.num] = {};
+          coords[h.num][pi] = { x: xPct, y: yPct };
+        });
+      }
     }
     return coords;
   }
