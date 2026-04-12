@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "ug-keiba",
-      "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["-m", "http.server", "8787", "--directory", "/tmp/serve"],
-      "port": 8787
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8789"],
+      "cwd": "/Users/buntawakase/Desktop/ug-keiba/docs",
+      "port": 8789
     }
   ]
 }
