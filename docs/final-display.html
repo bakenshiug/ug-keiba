@@ -452,7 +452,7 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
   color:#c0002a;box-shadow:0 0 12px rgba(232,0,61,.2);
 }
 .pace-anim-stage{
-  position:relative;width:100%;height:620px;
+  position:relative;width:100%;height:820px;
   border-radius:12px;overflow:hidden;
   border:1px solid rgba(28,43,74,.12);
 }
@@ -830,9 +830,9 @@ function renderPaceChart(pace){
 
   const PHASE_LABELS = ['スタート後', '4角', 'ゴール前'];
   // SVG論理座標系（縦向き：下=START, 上=GOAL）
-  const STAGE_W = 340, STAGE_H = 620;
+  const STAGE_W = 340, STAGE_H = 820;
   // 各フェーズのY中心（下から上へ進行）
-  const PHASE_Y = [545, 340, 95];
+  const PHASE_Y = [720, 440, 110];
   // 各position(1-5)のX位置（左=逃げ, 右=追込）
   const POS_X   = { 1: 38, 2: 98, 3: 168, 4: 238, 5: 302 };
   // 脚質ごとの前後差オフセット（逃げが前=上、追込が後=下）
@@ -883,7 +883,7 @@ function renderPaceChart(pace){
   }
 
   const COURSE_SVG = `
-<svg class="course-svg" viewBox="0 0 340 620" preserveAspectRatio="none"
+<svg class="course-svg" viewBox="0 0 340 820" preserveAspectRatio="none"
      xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- 芝生横縞パターン -->
@@ -899,12 +899,12 @@ function renderPaceChart(pace){
     </linearGradient>
   </defs>
   <!-- 芝生ベース -->
-  <rect width="340" height="620" rx="12" fill="url(#gp)"/>
-  <rect width="340" height="620" rx="12" fill="url(#fade)"/>
+  <rect width="340" height="820" rx="12" fill="url(#gp)"/>
+  <rect width="340" height="820" rx="12" fill="url(#fade)"/>
 
   <!-- 枠区切り縦線（外枠/中枠/内枠 の3分割） -->
-  <line x1="113" y1="30" x2="113" y2="580" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
-  <line x1="226" y1="30" x2="226" y2="580" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+  <line x1="113" y1="30" x2="113" y2="778" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+  <line x1="226" y1="30" x2="226" y2="778" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
 
   <!-- 枠ラベル（上部）：右=内枠, 中=中枠, 左=外枠 -->
   <text x="57"  y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">外枠</text>
@@ -916,19 +916,19 @@ function renderPaceChart(pace){
   <text x="170" y="46" font-size="10" fill="rgba(255,255,255,.95)" font-family="sans-serif" font-weight="900" text-anchor="middle" letter-spacing="3">GOAL</text>
 
   <!-- 直線ライン - - - - - - - - - - - - - -->
-  <line x1="0" y1="200" x2="340" y2="200" stroke="rgba(255,230,0,.65)" stroke-width="2" stroke-dasharray="10,6"/>
-  <text x="12" y="195" font-size="8" fill="rgba(255,230,0,.9)" font-family="sans-serif" font-weight="900">直線</text>
+  <line x1="0" y1="270" x2="340" y2="270" stroke="rgba(255,230,0,.65)" stroke-width="2" stroke-dasharray="10,6"/>
+  <text x="12" y="265" font-size="8" fill="rgba(255,230,0,.9)" font-family="sans-serif" font-weight="900">直線</text>
 
   <!-- 4角ライン - - - - - - - - - - - - - -->
-  <line x1="0" y1="390" x2="340" y2="390" stroke="rgba(255,180,60,.55)" stroke-width="1.5" stroke-dasharray="8,6"/>
-  <text x="12" y="385" font-size="8" fill="rgba(255,200,80,.85)" font-family="sans-serif" font-weight="900">4角</text>
+  <line x1="0" y1="520" x2="340" y2="520" stroke="rgba(255,180,60,.55)" stroke-width="1.5" stroke-dasharray="8,6"/>
+  <text x="12" y="515" font-size="8" fill="rgba(255,200,80,.85)" font-family="sans-serif" font-weight="900">4角</text>
 
   <!-- STARTライン（下）━━━━━━━━━━━━━━ -->
-  <rect x="0" y="580" width="340" height="3" fill="rgba(255,255,255,.6)"/>
-  <text x="170" y="600" font-size="10" fill="rgba(255,255,255,.7)" font-family="sans-serif" font-weight="900" text-anchor="middle" letter-spacing="3">START</text>
+  <rect x="0" y="778" width="340" height="3" fill="rgba(255,255,255,.6)"/>
+  <text x="170" y="800" font-size="10" fill="rgba(255,255,255,.7)" font-family="sans-serif" font-weight="900" text-anchor="middle" letter-spacing="3">START</text>
 
   <!-- 進行方向矢印（右端・下から上） -->
-  <line x1="330" y1="560" x2="330" y2="55" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+  <line x1="330" y1="758" x2="330" y2="55" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
   <polygon points="323,57 330,35 337,57" fill="rgba(255,255,255,.3)"/>
 </svg>`;
 
