@@ -856,65 +856,29 @@ function renderPaceChart(pace){
 
   function calcCoords(horses){
     const coords = {};
-    for(let pi = 0; pi < 3; pi++){
-      if(pi === 2){
-        // ゴール前：finalRankでY決定（上=1着）、positionでX決定
-        const total = horses.length;
-        horses.forEach(h => {
-          const rank = h.finalRank || 18;
-          const pos  = h.position || 3;
-          const yPx  = 38 + (rank - 1) / (total - 1) * 140; // y=38〜178
-          const xPx  = POS_X[pos] || 168;
-          // 同ポジション内でX微分散
-          const grp  = horses.filter(h2 => h2.position === pos);
-          const idx  = grp.findIndex(h2 => h2.num === h.num);
-          const xOff = (idx - (grp.length - 1) / 2) * 5;
-          coords[h.num] = coords[h.num] || {};
-          coords[h.num][2] = {
-            x: ((xPx + xOff) / STAGE_W * 100).toFixed(2),
-            y: (yPx / STAGE_H * 100).toFixed(2)
-          };
-        });
-      } else if(pi === 0){
-        // スタート後：馬番でX配置（右=内枠=小番号, 左=外枠=大番号）
-        const total = horses.length;
-        horses.forEach(h => {
-          const xPx = 302 - (h.num - 1) / (total - 1) * (302 - 38);
-          const offsetY = (h.num % 2 === 0 ? -7 : 7); // 奇偶で微ズレ
-          const yPx = PHASE_Y[0] + offsetY;
-          coords[h.num] = coords[h.num] || {};
-          coords[h.num][0] = {
-            x: (xPx / STAGE_W * 100).toFixed(2),
-            y: (yPx / STAGE_H * 100).toFixed(2)
-          };
-        });
-      } else {
-        // 4角：positionでX決定、グループ内X分散
-        const groups = {};
-        horses.forEach(h => {
-          const pos = getPhases(h)[pi];
-          (groups[pos] = groups[pos] || []).push(h.num);
-        });
-        horses.forEach(h => {
-          const pos   = getPhases(h)[pi];
-          const grp   = groups[pos];
-          const idx   = grp.indexOf(h.num);
-          const total = grp.length;
-          const spreadX = Math.min(14, 70 / Math.max(total, 1));
-          const offsetX = (idx - (total - 1) / 2) * spreadX;
-          const xPx = (POS_X[pos] || 168) + offsetX;
-          // 脚質で前後差（逃げ=前=上、追込=後=下）＋グループ内微分散
-          const spreadY = Math.min(8, 40 / Math.max(total, 1));
-          const offsetY = (idx - (total - 1) / 2) * spreadY;
-          const yPx = PHASE_Y[pi] + (POS_Y_OFFSET[pos] || 0) + offsetY;
-          coords[h.num] = coords[h.num] || {};
-          coords[h.num][pi] = {
-            x: (xPx / STAGE_W * 100).toFixed(2),
-            y: (yPx / STAGE_H * 100).toFixed(2)
-          };
-        });
-      }
-    }
+    const total = horses.length;
+    // 全フェーズ共通：馬番→X（右=内枠=小番号, 左=外枠=大番号）
+    const numToX = num => (302 - (num - 1) / (total - 1) * (302 - 38)) / STAGE_W * 100;
+
+    horses.forEach(h => {
+      const xPct = numToX(h.num).toFixed(2);
+      coords[h.num] = {};
+
+      // Phase 0: スタート後 ── 馬番順横並び（Y=START付近）
+      const y0 = PHASE_Y[0] + (h.num % 2 === 0 ? -7 : 7);
+      coords[h.num][0] = { x: xPct, y: (y0 / STAGE_H * 100).toFixed(2) };
+
+      // Phase 1: 4角 ── Y=脚質ポジション（逃げ=上, 追込=下）
+      const pos1 = getPhases(h)[1];
+      const y1 = PHASE_Y[1] + (POS_Y_OFFSET[pos1] || 0);
+      coords[h.num][1] = { x: xPct, y: (y1 / STAGE_H * 100).toFixed(2) };
+
+      // Phase 2: ゴール前 ── Y=finalRank（1位=上, 18位=下）
+      const rank = h.finalRank || total;
+      const y2 = 38 + (rank - 1) / (total - 1) * 140;
+      coords[h.num][2] = { x: xPct, y: (y2 / STAGE_H * 100).toFixed(2) };
+    });
+
     return coords;
   }
 
