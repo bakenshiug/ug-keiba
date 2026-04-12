@@ -45,10 +45,13 @@
       "raceAnaNote": "スプリングS組の皐月賞成績は近10年1-0-1-33（複勝率5.7%）と低迷ルート。",
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "B",
-      "sireGradeTan": "C",
+      "sireGradeTan": "D",
       "sireGradeFuku": "C",
       "prevMarginGradeTan": "B",
-      "prevMarginGradeFuku": "B"
+      "prevMarginGradeFuku": "B",
+      "sire": "ロードカナロア",
+      "damSireGradeTan": "C",
+      "damSireGradeFuku": "A"
     },
     "アスクイキゴミ": {
       "num": 2,
@@ -81,8 +84,11 @@
       "raceAnaNote": "NZT→皐月賞ルートの距離延長400m。中山芝2000m未経験かつ短距離系血統が懸念。",
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "A",
-      "sireGradeTan": "C",
-      "sireGradeFuku": "C"
+      "sireGradeTan": "D",
+      "sireGradeFuku": "C",
+      "sire": "ロードカナロア",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "D"
     },
     "アスクエジンバラ": {
       "num": 3,
@@ -119,12 +125,15 @@
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "B",
       "sireGradeTan": "B",
-      "sireGradeFuku": "B",
+      "sireGradeFuku": "A",
       "somaGradeTan": "B",
       "somaGradeFuku": "A",
       "sf3AnaScore": 0.25,
       "prevMarginGradeTan": "B",
-      "prevMarginGradeFuku": "B"
+      "prevMarginGradeFuku": "B",
+      "sire": "リオンディーズ",
+      "damSireGradeTan": "C",
+      "damSireGradeFuku": "B"
     },
     "アドマイヤクワッズ": {
       "num": 4,
@@ -133,7 +142,7 @@
       "weight": 57,
       "sabcTrainer": "(栗)友道康夫",
       "sabcSire": "リアルスティール",
-      "damSire": "ゾファニー",
+      "damSire": "Zoffany",
       "sabcZI": 121,
       "extFacility": "在厩調整",
       "jockey": "坂井瑠星",
@@ -160,11 +169,14 @@
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "A",
       "sireGradeTan": "A",
-      "sireGradeFuku": "A",
+      "sireGradeFuku": "S",
       "somaGradeTan": "A",
       "somaGradeFuku": "A",
       "prevMarginGradeTan": "B",
-      "prevMarginGradeFuku": "B"
+      "prevMarginGradeFuku": "B",
+      "sire": "リアルスティール",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "B"
     },
     "アルトラムス": {
       "num": 5,
@@ -203,12 +215,15 @@
       "jockeyGradeFuku": "S",
       "specialGrade": "S",
       "specialNote": "☆穴馬最上位。毎日杯ルート単回値448×パドック◎×福島差し決め手",
-      "sireGradeTan": "C",
-      "sireGradeFuku": "B",
+      "sireGradeTan": "A",
+      "sireGradeFuku": "A",
       "somaGradeTan": "A",
       "somaGradeFuku": "S",
       "prevMarginGradeTan": "A",
-      "prevMarginGradeFuku": "A"
+      "prevMarginGradeFuku": "A",
+      "sire": "イスラボニータ",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "D"
     },
     "オルフセン": {
       "num": 6,
@@ -239,9 +254,12 @@
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "B",
       "sireGradeTan": "B",
-      "sireGradeFuku": "B",
+      "sireGradeFuku": "C",
       "stableGradeTan": "B",
-      "stableGradeFuku": "B"
+      "stableGradeFuku": "B",
+      "sire": "キズナ",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "D"
     },
     "カヴァレリッツォ": {
       "num": 7,
@@ -275,10 +293,13 @@
       "ginyoGradeFuku": "D",
       "jockeyGradeTan": "A",
       "jockeyGradeFuku": "B",
-      "sireGradeTan": "A",
+      "sireGradeTan": "D",
       "sireGradeFuku": "B",
       "somaGradeTan": "S",
-      "somaGradeFuku": "S"
+      "somaGradeFuku": "S",
+      "sire": "サートゥルナーリア",
+      "damSireGradeTan": "A",
+      "damSireGradeFuku": "A"
     },
     "グリーンエナジー": {
       "num": 8,
@@ -287,7 +308,7 @@
       "weight": 57,
       "sabcTrainer": "(美)上原佑雄",
       "sabcSire": "スワーヴリチャード",
-      "damSire": "シングスピール",
+      "damSire": "Singspiel",
       "sabcZI": 120,
       "extFacility": "チャンピオンヒルズ",
       "jockey": "戸崎圭太",
@@ -315,12 +336,15 @@
       "raceAnaNote": "穴馬2位候補。2018ジェネラーレウーノ8人気3着と完全一致（京成杯1着）。父スワーヴリチャード中山20%/40%・パドック仕上がり◎。",
       "raceAnaBonus": 0.8,
       "sireGradeTan": "A",
-      "sireGradeFuku": "A",
+      "sireGradeFuku": "S",
       "somaGradeTan": "A",
       "somaGradeFuku": "S",
       "sf3AnaScore": 0.6,
       "prevMarginGradeTan": "A",
-      "prevMarginGradeFuku": "A"
+      "prevMarginGradeFuku": "A",
+      "sire": "スワーヴリチャード",
+      "damSireGradeTan": "B",
+      "damSireGradeFuku": "B"
     },
     "サイモンシャリオ": {
       "num": 9,
@@ -350,10 +374,13 @@
       "ginyoGradeFuku": "D",
       "jockeyGradeTan": "D",
       "jockeyGradeFuku": "D",
-      "sireGradeTan": "C",
-      "sireGradeFuku": "C",
+      "sireGradeTan": "A",
+      "sireGradeFuku": "S",
       "stableGradeTan": "B",
-      "stableGradeFuku": "B"
+      "stableGradeFuku": "B",
+      "sire": "アルアイン",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "B"
     },
     "サウンドムーブ": {
       "num": 10,
@@ -388,7 +415,10 @@
       "jockeyGradeTan": "C",
       "jockeyGradeFuku": "C",
       "sireGradeTan": "A",
-      "sireGradeFuku": "A"
+      "sireGradeFuku": "S",
+      "sire": "リアルスティール",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "D"
     },
     "サノノグレーター": {
       "num": 11,
@@ -418,10 +448,13 @@
       "ginyoGradeFuku": "B",
       "jockeyGradeTan": "C",
       "jockeyGradeFuku": "C",
-      "sireGradeTan": "C",
-      "sireGradeFuku": "C",
+      "sireGradeTan": "B",
+      "sireGradeFuku": "A",
       "stableGradeTan": "B",
-      "stableGradeFuku": "B"
+      "stableGradeFuku": "B",
+      "sire": "グレーターロンドン",
+      "damSireGradeTan": "A",
+      "damSireGradeFuku": "A"
     },
     "ゾロアストロ": {
       "num": 12,
@@ -456,13 +489,16 @@
       "raceAnaNote": "大トビ特記あり。中山小回りは中段追走での脚の使いどころが鍵。距離延長はプラス要素。",
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "B",
-      "sireGradeTan": "B",
+      "sireGradeTan": "C",
       "sireGradeFuku": "B",
       "somaGradeTan": "A",
       "somaGradeFuku": "A",
       "sf3AnaScore": 0.35,
       "prevMarginGradeTan": "A",
-      "prevMarginGradeFuku": "A"
+      "prevMarginGradeFuku": "A",
+      "sire": "モーリス",
+      "damSireGradeTan": "C",
+      "damSireGradeFuku": "A"
     },
     "バステール": {
       "num": 13,
@@ -471,7 +507,7 @@
       "weight": 57,
       "sabcTrainer": "(栗)斉藤崇史",
       "sabcSire": "キタサンブラック",
-      "damSire": "アルデバラン2",
+      "damSire": "Aldebaran",
       "sabcZI": 122,
       "extFacility": "ノーザンFしがらき",
       "jockey": "川田将雅",
@@ -501,11 +537,14 @@
       "sf3AnaScore": 0.5,
       "raceAnaNote": "弥生賞1着→皐月賞は近10年複勝率21.1%（中位）。だが父キタサンブラック×斉藤崇史×川田将雅という三拍子が揃う最高のアクション。",
       "sireGradeTan": "S",
-      "sireGradeFuku": "S",
+      "sireGradeFuku": "A",
       "somaGradeTan": "A",
       "somaGradeFuku": "A",
       "prevMarginGradeTan": "A",
-      "prevMarginGradeFuku": "A"
+      "prevMarginGradeFuku": "A",
+      "sire": "キタサンブラック",
+      "damSireGradeTan": "B",
+      "damSireGradeFuku": "B"
     },
     "パントルナイーフ": {
       "num": 14,
@@ -541,11 +580,14 @@
       "jockeyGradeFuku": "A",
       "raceAnaNote": "21週ぶり超長期休養明け×太め残り×中山1戦のみ。ルメール継続のプラスと休養明けのマイナスが拮抗。",
       "sireGradeTan": "B",
-      "sireGradeFuku": "B",
+      "sireGradeFuku": "C",
       "somaGradeTan": "B",
       "somaGradeFuku": "B",
       "prevMarginGradeTan": "B",
-      "prevMarginGradeFuku": "B"
+      "prevMarginGradeFuku": "B",
+      "sire": "キズナ",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "D"
     },
     "フォルテアンジェロ": {
       "num": 15,
@@ -554,7 +596,7 @@
       "weight": 57,
       "sabcTrainer": "(美)上原佑雄",
       "sabcSire": "フィエールマン",
-      "damSire": "ダークエンジェル",
+      "damSire": "DarkAngel",
       "sabcZI": 125,
       "extFacility": "ノーザンF天栄",
       "jockey": "荻野極",
@@ -580,13 +622,16 @@
       "raceAnaNote": "ホープフルS2着→皐月賞は近10年複勝率42.9%（最高クラス）。中山成績2-0-0で鉄板の中山巧者。荻野極は乗替だが中山コース実績で補う。",
       "jockeyGradeTan": "C",
       "jockeyGradeFuku": "C",
-      "sireGradeTan": "B",
+      "sireGradeTan": "D",
       "sireGradeFuku": "A",
       "somaGradeTan": "A",
       "somaGradeFuku": "A",
       "sf3AnaScore": 0.25,
       "prevMarginGradeTan": "B",
-      "prevMarginGradeFuku": "A"
+      "prevMarginGradeFuku": "A",
+      "sire": "フィエールマン",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "A"
     },
     "マテンロウゲイル": {
       "num": 16,
@@ -595,7 +640,7 @@
       "weight": 57,
       "sabcTrainer": "(美)野中賢二",
       "sabcSire": "エピファネイア",
-      "damSire": "キャンディライド",
+      "damSire": "CandyRide",
       "sabcZI": 117,
       "extFacility": "チャンピオンヒルズ",
       "jockey": "横山和生",
@@ -622,13 +667,16 @@
       "raceAnaBonus": 0.467,
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "B",
-      "sireGradeTan": "A",
-      "sireGradeFuku": "A",
+      "sireGradeTan": "S",
+      "sireGradeFuku": "S",
       "somaGradeTan": "A",
       "somaGradeFuku": "S",
       "sf3AnaScore": 0.45,
       "prevMarginGradeTan": "A",
-      "prevMarginGradeFuku": "A"
+      "prevMarginGradeFuku": "A",
+      "sire": "エピファネイア",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "B"
     },
     "ラージアンサンブル": {
       "num": 17,
@@ -661,7 +709,10 @@
       "sireGradeTan": "D",
       "sireGradeFuku": "D",
       "stableGradeTan": "C",
-      "stableGradeFuku": "C"
+      "stableGradeFuku": "C",
+      "sire": "ベンバトル",
+      "damSireGradeTan": "D",
+      "damSireGradeFuku": "D"
     },
     "ライヒスアドラー": {
       "num": 18,
@@ -697,13 +748,16 @@
       "raceAnaBonus": 0.333,
       "jockeyGradeTan": "C",
       "jockeyGradeFuku": "C",
-      "sireGradeTan": "B",
+      "sireGradeTan": "D",
       "sireGradeFuku": "B",
       "somaGradeTan": "A",
       "somaGradeFuku": "S",
       "sf3AnaScore": 0.3,
       "prevMarginGradeTan": "B",
-      "prevMarginGradeFuku": "A"
+      "prevMarginGradeFuku": "A",
+      "sire": "シスキン",
+      "damSireGradeTan": "A",
+      "damSireGradeFuku": "A"
     },
     "リアライズシリウス": {
       "num": 19,
@@ -738,13 +792,16 @@
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "B",
       "raceAnaNote": "共同通信杯1着ルートは近10年複勝率40.9%（出走馬中最高）。speed94.3トップ×状態抜群×手塚貴久S/S。津村明秀は不安だが馬の力でカバーできるか。",
-      "sireGradeTan": "C",
-      "sireGradeFuku": "B",
+      "sireGradeTan": "D",
+      "sireGradeFuku": "D",
       "somaGradeTan": "S",
       "somaGradeFuku": "S",
       "sf3AnaScore": 0.2,
       "prevMarginGradeTan": "A",
-      "prevMarginGradeFuku": "A"
+      "prevMarginGradeFuku": "A",
+      "sire": "ポエティックフレア",
+      "damSireGradeTan": "A",
+      "damSireGradeFuku": "A"
     },
     "ロードフィレール": {
       "num": 20,
@@ -775,11 +832,14 @@
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "B",
       "sireGradeTan": "B",
-      "sireGradeFuku": "B",
+      "sireGradeFuku": "C",
       "somaGradeTan": "B",
       "somaGradeFuku": "B",
       "stableGradeTan": "B",
-      "stableGradeFuku": "B"
+      "stableGradeFuku": "B",
+      "sire": "キズナ",
+      "damSireGradeTan": "A",
+      "damSireGradeFuku": "S"
     },
     "ロブチェン": {
       "num": 21,
@@ -788,7 +848,7 @@
       "weight": 57,
       "sabcTrainer": "(栗)杉山晴紀",
       "sabcSire": "ワールドプレミア",
-      "damSire": "ジャイアンツコーズウェイ",
+      "damSire": "Giant'sCauseway",
       "sabcZI": 111,
       "extFacility": "ノーザンFしがらき",
       "jockey": "松山弘平",
@@ -816,12 +876,15 @@
       "jockeyGradeTan": "B",
       "jockeyGradeFuku": "B",
       "sireGradeTan": "B",
-      "sireGradeFuku": "A",
+      "sireGradeFuku": "B",
       "somaGradeTan": "A",
       "somaGradeFuku": "S",
       "sf3AnaScore": 0.4,
       "prevMarginGradeTan": "B",
-      "prevMarginGradeFuku": "B"
+      "prevMarginGradeFuku": "B",
+      "sire": "ワールドプレミア",
+      "damSireGradeTan": "A",
+      "damSireGradeFuku": "A"
     }
   }
 }
