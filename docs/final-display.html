@@ -566,6 +566,18 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .lesson-body{padding:14px 16px;font-size:12px;line-height:1.85;color:rgba(255,255,255,.82);}
 .lesson-body p{margin-bottom:10px;}
 .lesson-body p:last-child{margin-bottom:0;}
+/* ── 分析回顧 ── */
+.review-wrap{background:linear-gradient(135deg,rgba(139,26,26,.12),rgba(242,217,176,.9));border:1px solid rgba(139,26,26,.35);border-radius:16px;overflow:hidden;margin-top:16px;}
+.review-header{padding:10px 16px;background:linear-gradient(90deg,rgba(139,26,26,.2),rgba(139,26,26,.05));border-bottom:1px solid rgba(139,26,26,.2);font-size:10px;font-weight:900;letter-spacing:.16em;color:rgba(139,26,26,.9);text-transform:uppercase;}
+.review-body{padding:16px;}
+.review-catchcopy{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:900;color:#1C2B4A;line-height:1.35;margin-bottom:6px;}
+.review-theme{font-size:11px;color:rgba(28,43,74,.55);font-style:italic;margin-bottom:16px;border-left:2px solid rgba(139,26,26,.4);padding-left:8px;}
+.review-section-title{font-size:12px;font-weight:900;color:#8B1A1A;margin:14px 0 6px;letter-spacing:.02em;}
+.review-text{font-size:12px;line-height:1.85;color:#1C2B4A;margin-bottom:8px;white-space:pre-line;}
+.review-results-list{margin:10px 0;display:flex;flex-direction:column;gap:6px;}
+.review-result-row{background:rgba(139,26,26,.08);border-left:3px solid rgba(139,26,26,.6);border-radius:0 8px 8px 0;padding:7px 12px;font-size:12px;font-weight:800;color:#1C2B4A;letter-spacing:.02em;}
+.review-closing-quote{margin-top:14px;padding:10px 14px;background:rgba(28,43,74,.06);border-radius:10px;font-size:11px;font-style:italic;color:rgba(28,43,74,.65);line-height:1.7;}
+.review-footer{margin-top:14px;text-align:center;font-size:12px;color:rgba(139,26,26,.7);font-weight:700;letter-spacing:.08em;}
 /* ヒーローカード内の着順バッジ */
 .order-badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:10px;margin-left:6px;white-space:nowrap;}
 /* ヒーローカード（明背景）用 */
@@ -1699,8 +1711,48 @@ function renderRaceDetail(data, notes) {
       ${lapAnalysisHtml(notes) ? `<div class="section-head">ラップ分析</div>${lapAnalysisHtml(notes)}` : ''}
       ${wetPickHtml(notes, data.horses) ? `<div class="section-head">重馬場メモ</div>${wetPickHtml(notes, data.horses)}` : ''}
       ` : ''}
+      ${data.review ? renderReview(data.review) : ''}
     </div>
   </div>`;
+}
+
+// ── 分析回顧レンダリング ───────────────────────
+function renderReview(rv) {
+  const sections = (rv.body || []).map(s => {
+    if (s.type === 'lead') {
+      return `<div class="review-text">${esc(s.text)}</div>`;
+    }
+    if (s.type === 'section') {
+      return `
+        <div class="review-section-title">${esc(s.title)}</div>
+        <div class="review-text">${esc(s.text)}</div>
+      `;
+    }
+    if (s.type === 'closing') {
+      const rows = (s.results || []).map(r =>
+        `<div class="review-result-row">${esc(r)}</div>`
+      ).join('');
+      return `
+        <div class="review-section-title">${esc(s.title)}</div>
+        <div class="review-results-list">${rows}</div>
+        <div class="review-text">${esc(s.text)}</div>
+        <div class="review-closing-quote">「${esc(s.quote)}」</div>
+      `;
+    }
+    return '';
+  }).join('');
+
+  return `
+    <div class="review-wrap">
+      <div class="review-header">📝 分析回顧</div>
+      <div class="review-body">
+        <div class="review-catchcopy">${esc(rv.catchcopy)}</div>
+        <div class="review-theme">${esc(rv.theme)}</div>
+        ${sections}
+        <div class="review-footer">🌸 桜花賞 終幕 / 皐月賞へ続く 🌸</div>
+      </div>
+    </div>
+  `;
 }
 
 // ── ボタン生成 ─────────────────────────────────
