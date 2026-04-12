@@ -791,12 +791,18 @@ function calcScores(h) {
   const smF = h.somaGradeFuku ?? null;
   const tgtT = h.raceTargetGradeTan  ?? null;  // 思惑（皐月賞狙いA/両睨みB/ダービー思惑D）
   const tgtF = h.raceTargetGradeFuku ?? null;
+  const fwT  = h.finalWorkoutGradeTan  ?? null;  // 最終追い切り（4/17-18追加）
+  const fwF  = h.finalWorkoutGradeFuku ?? null;
+  const hgT  = h.haigoGradeTan  ?? null;  // 血統配合（IK配合分析）
+  const hgF  = h.haigoGradeFuku ?? null;
+  const pxT  = h.paradoxGradeTan  ?? null;  // パラドックス加点（皐月賞本気×能力値）
+  const pxF  = h.paradoxGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // ギーニョ評価：乗算（D=消し表示のみ・スコア影響なし, B=中立×1, S=最高×1.3）
@@ -1242,6 +1248,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('母父', h.damSireGradeTan ?? null, h.damSireGradeFuku ?? null)}
           ${gradeBadge('配合', h.bloodGradeTan && h.bloodGradeTan !== '—' ? h.bloodGradeTan : null, h.bloodGradeFuku && h.bloodGradeFuku !== '—' ? h.bloodGradeFuku : null)}
           ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
+          ${gradeBadge('配合', h.haigoGradeTan ?? null, h.haigoGradeFuku ?? null)}
         </div>
         <div class="badge-group">
           <span class="badge-group-label lbl-ability">実力</span>
@@ -1269,9 +1276,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         <div class="badge-group">
           <span class="badge-group-label lbl-state">状態</span>
           ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
+          ${gradeBadge('最終追切', h.finalWorkoutGradeTan ?? null, h.finalWorkoutGradeFuku ?? null)}
           ${gradeBadge('相馬眼', h.somaGradeTan ?? null, h.somaGradeFuku ?? null)}
           ${extGradeBadge(h.extFacility)}
           ${gradeBadge('思惑', h.raceTargetGradeTan ?? null, h.raceTargetGradeFuku ?? null)}
+          ${gradeBadge('逆説加点', h.paradoxGradeTan ?? null, h.paradoxGradeFuku ?? null)}
           ${gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null)}
         </div>
       </div>
