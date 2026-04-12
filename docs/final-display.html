@@ -1681,11 +1681,11 @@ function renderRaceDetail(data, notes) {
         <div class="lesson-body">${data.postRaceLesson.split('\n\n').map(p => `<p>${esc(p)}</p>`).join('')}</div>
       </div>
       <div class="divider"></div>` : ''}
+      ${data.pace ? window.renderPaceAnimation(data.pace) : ''}
       ${Object.keys(bets).length ? `<div class="sec-title">🎯 買い目</div><div class="bets-grid">${
         Object.entries(bets).map(([k,v]) => `<div class="bet-row bet-row-jiku"><span class="bet-type">${esc(k)}</span><span class="bet-val">${esc(v)}</span></div>`).join('')
       }</div><div class="divider"></div>` : ''}
       ${data.comments?.oddsNote ? `<div class="sec-title">📊 前日オッズ所感</div><div class="odds-note">${esc(data.comments.oddsNote)}</div><div class="divider"></div>` : ''}
-      ${data.pace ? window.renderPaceAnimation(data.pace) : ''}
       ${(() => { const hasSabc = notes && notes.sabcRankTan && notes.sabcRankTan[0] && notes.sabcRankTan[0].name; return hasSabc ? `<div class="sec-title">単複期待値ランキング</div>${sabcRankHtml(notes, data.horses)}` : ''; })()}
       ${heroHorses.length ? `<div class="sec-title">印付き馬</div>${heroHorses.map(h => renderHeroCard(h, orderMap, notes && notes.horses && notes.horses[h.name])).join('')}` : ''}
       ${restHorses.length ? `<div class="sec-title" style="margin-top:14px;">全馬スコア</div>${renderCompactRows(restHorses, orderMap, notes)}` : ''}
