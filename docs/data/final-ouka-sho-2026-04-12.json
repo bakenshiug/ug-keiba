@@ -343,24 +343,302 @@
     "paceEstimate": "ミドル〜ハイ",
     "paceNote": "アイニードユー逃げ・先行馬多数でペースは緩まない想定。阪神外1600の特性上、4角ポケット争いが鍵。",
     "horses": [
-      { "num": 1,  "name": "フェスティバルヒル", "mark": "",  "style": "差し",  "position": 4, "phases": [4, 4, 3], "finalRank": 12 },
-      { "num": 2,  "name": "サンアントワーヌ",   "mark": "△", "style": "差し",  "position": 4, "phases": [4, 4, 4], "finalRank": 7  },
-      { "num": 3,  "name": "ディアダイヤモンド", "mark": "△", "style": "先行",  "position": 2, "phases": [2, 2, 3], "finalRank": 9  },
-      { "num": 4,  "name": "エレガンスアスク",   "mark": "",  "style": "差し",  "position": 4, "phases": [4, 4, 4], "finalRank": 17 },
-      { "num": 5,  "name": "ギャラボーグ",       "mark": "",  "style": "差し",  "position": 5, "phases": [5, 5, 4], "finalRank": 14 },
-      { "num": 6,  "name": "アイニードユー",     "mark": "",  "style": "逃げ",  "position": 1, "phases": [1, 1, 3], "finalRank": 10 },
-      { "num": 7,  "name": "アランカール",       "mark": "△", "style": "追込",  "position": 5, "phases": [5, 4, 5], "finalRank": 5  },
-      { "num": 8,  "name": "ロンギングセリーヌ", "mark": "",  "style": "先行",  "position": 1, "phases": [1, 1, 3], "finalRank": 11 },
-      { "num": 9,  "name": "ルールザウェイヴ",   "mark": "",  "style": "先行",  "position": 2, "phases": [2, 3, 4], "finalRank": 13 },
-      { "num": 10, "name": "ナムラコスモス",     "mark": "○", "style": "先行",  "position": 2, "phases": [2, 2, 2], "finalRank": 2  },
-      { "num": 11, "name": "ジッピーチューン",   "mark": "△", "style": "中団",  "position": 3, "phases": [3, 3, 3], "finalRank": 8  },
-      { "num": 12, "name": "スウィートハピネス", "mark": "",  "style": "差し",  "position": 5, "phases": [5, 5, 5], "finalRank": 18 },
-      { "num": 13, "name": "リリージョワ",       "mark": "▲", "style": "先行",  "position": 2, "phases": [2, 1, 2], "finalRank": 3  },
-      { "num": 14, "name": "ドリームコア",       "mark": "△", "style": "先行",  "position": 2, "phases": [2, 2, 2], "finalRank": 6  },
-      { "num": 15, "name": "スターアニス",       "mark": "◎", "style": "中団",  "position": 3, "phases": [3, 2, 1], "finalRank": 1  },
-      { "num": 16, "name": "ショウナンカリス",   "mark": "",  "style": "中団",  "position": 3, "phases": [3, 3, 4], "finalRank": 15 },
-      { "num": 17, "name": "ブラックチャリス",   "mark": "☆", "style": "先行",  "position": 2, "phases": [2, 2, 2], "finalRank": 4  },
-      { "num": 18, "name": "プレセピオ",         "mark": "",  "style": "中団",  "position": 3, "phases": [3, 3, 4], "finalRank": 16 }
+      {
+        "num": 1,
+        "name": "フェスティバルヒル",
+        "mark": "",
+        "style": "差し",
+        "position": 4,
+        "phases": [
+          4,
+          4,
+          3
+        ],
+        "finalRank": 12
+      },
+      {
+        "num": 2,
+        "name": "サンアントワーヌ",
+        "mark": "△",
+        "style": "差し",
+        "position": 4,
+        "phases": [
+          4,
+          4,
+          4
+        ],
+        "finalRank": 7
+      },
+      {
+        "num": 3,
+        "name": "ディアダイヤモンド",
+        "mark": "△",
+        "style": "先行",
+        "position": 2,
+        "phases": [
+          2,
+          2,
+          3
+        ],
+        "finalRank": 9
+      },
+      {
+        "num": 4,
+        "name": "エレガンスアスク",
+        "mark": "",
+        "style": "差し",
+        "position": 4,
+        "phases": [
+          4,
+          4,
+          4
+        ],
+        "finalRank": 17
+      },
+      {
+        "num": 5,
+        "name": "ギャラボーグ",
+        "mark": "",
+        "style": "差し",
+        "position": 5,
+        "phases": [
+          5,
+          5,
+          4
+        ],
+        "finalRank": 14
+      },
+      {
+        "num": 6,
+        "name": "アイニードユー",
+        "mark": "",
+        "style": "逃げ",
+        "position": 1,
+        "phases": [
+          1,
+          1,
+          3
+        ],
+        "finalRank": 10
+      },
+      {
+        "num": 7,
+        "name": "アランカール",
+        "mark": "△",
+        "style": "追込",
+        "position": 5,
+        "phases": [
+          5,
+          4,
+          5
+        ],
+        "finalRank": 5
+      },
+      {
+        "num": 8,
+        "name": "ロンギングセリーヌ",
+        "mark": "",
+        "style": "先行",
+        "position": 1,
+        "phases": [
+          1,
+          1,
+          3
+        ],
+        "finalRank": 11
+      },
+      {
+        "num": 9,
+        "name": "ルールザウェイヴ",
+        "mark": "",
+        "style": "先行",
+        "position": 2,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "finalRank": 13
+      },
+      {
+        "num": 10,
+        "name": "ナムラコスモス",
+        "mark": "○",
+        "style": "先行",
+        "position": 2,
+        "phases": [
+          2,
+          2,
+          2
+        ],
+        "finalRank": 2
+      },
+      {
+        "num": 11,
+        "name": "ジッピーチューン",
+        "mark": "△",
+        "style": "中団",
+        "position": 3,
+        "phases": [
+          3,
+          3,
+          3
+        ],
+        "finalRank": 8
+      },
+      {
+        "num": 12,
+        "name": "スウィートハピネス",
+        "mark": "",
+        "style": "差し",
+        "position": 5,
+        "phases": [
+          5,
+          5,
+          5
+        ],
+        "finalRank": 18
+      },
+      {
+        "num": 13,
+        "name": "リリージョワ",
+        "mark": "▲",
+        "style": "先行",
+        "position": 2,
+        "phases": [
+          2,
+          1,
+          2
+        ],
+        "finalRank": 3
+      },
+      {
+        "num": 14,
+        "name": "ドリームコア",
+        "mark": "△",
+        "style": "先行",
+        "position": 2,
+        "phases": [
+          2,
+          2,
+          2
+        ],
+        "finalRank": 6
+      },
+      {
+        "num": 15,
+        "name": "スターアニス",
+        "mark": "◎",
+        "style": "中団",
+        "position": 3,
+        "phases": [
+          3,
+          2,
+          1
+        ],
+        "finalRank": 1
+      },
+      {
+        "num": 16,
+        "name": "ショウナンカリス",
+        "mark": "",
+        "style": "中団",
+        "position": 3,
+        "phases": [
+          3,
+          3,
+          4
+        ],
+        "finalRank": 15
+      },
+      {
+        "num": 17,
+        "name": "ブラックチャリス",
+        "mark": "☆",
+        "style": "先行",
+        "position": 2,
+        "phases": [
+          2,
+          2,
+          2
+        ],
+        "finalRank": 4
+      },
+      {
+        "num": 18,
+        "name": "プレセピオ",
+        "mark": "",
+        "style": "中団",
+        "position": 3,
+        "phases": [
+          3,
+          3,
+          4
+        ],
+        "finalRank": 16
+      }
     ]
+  },
+  "result": {
+    "top3": [
+      {
+        "rank": 1,
+        "num": 15,
+        "gate": 7,
+        "name": "スターアニス"
+      },
+      {
+        "rank": 2,
+        "num": 5,
+        "gate": 3,
+        "name": "ギャラボーグ"
+      },
+      {
+        "rank": 3,
+        "num": 11,
+        "gate": 6,
+        "name": "ジッピーチューン"
+      }
+    ],
+    "payouts": {
+      "単勝 15": "290円（2番人気）",
+      "複勝 15": "140円（2番人気）",
+      "複勝 5": "340円（5番人気）",
+      "複勝 11": "1,060円（12番人気）",
+      "枠連 3-7": "860円（3番人気）",
+      "馬連 05-15": "1,570円（5番人気）",
+      "ワイド 05-15": "560円（2番人気）",
+      "ワイド 11-15": "2,820円（31番人気）",
+      "ワイド 05-11": "7,690円（57番人気）",
+      "馬単 15-05": "2,280円（6番人気）",
+      "三連複 05-11-15": "27,590円（82番人気）",
+      "三連単 15-05-11": "82,710円（238番人気）"
+    },
+    "hitBets": [],
+    "hitFlag": false,
+    "returnAmount": 0,
+    "note": "◎スターアニス1着も2着ギャラボーグ（無印）で三連系全滅。リリージョワ単勝・ナムラコスモス＆ブラックチャリス複勝も不的中。"
+  },
+  "betRecord": {
+    "単勝": {
+      "invest": 100,
+      "return": 0
+    },
+    "複勝": {
+      "invest": 200,
+      "return": 0
+    },
+    "馬単": {
+      "invest": 1600,
+      "return": 0
+    },
+    "三連複": {
+      "invest": 700,
+      "return": 0
+    },
+    "三連単": {
+      "invest": 4200,
+      "return": 0
+    }
   }
 }
