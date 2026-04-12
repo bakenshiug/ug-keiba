@@ -104,7 +104,8 @@
       "conditionGradeFuku": "A",
       "ginyoGradeTan": "A",
       "ginyoGradeFuku": "A",
-      "raceAnaNote": "スプリングS組の皐月賞成績は近10年1-0-1-33（複勝率5.7%）。キャリア豊富な点はプラス。"
+      "raceAnaNote": "穴馬候補。2018エポカドーロ7人気1着（スプリングS2着）と同ルート。ただしスプリングS組全体の複勝率5.7%低迷が痛手。",
+      "raceAnaBonus": 0.467
     },
     "アドマイヤクワッズ": {
       "num": 4,
@@ -169,8 +170,8 @@
       "ginyoGradeTan": "A",
       "ginyoGradeFuku": "S",
       "sf3AnaScore": 1.5,
-      "raceAnaNote": "毎日杯→皐月賞ルートは近10年単回値448（穴馬最上位候補）。横山武史×中山G1は近10年40%/60%の優秀実績。",
-      "raceAnaBonus": 0.5,
+      "raceAnaNote": "★最高穴馬★ 2017アルアイン9人気1着と同ルート（毎日杯1着→皐月賞・単回値448）。差し脚質×速度指数急上昇94.0×横山武史中山G1実績4割。",
+      "raceAnaBonus": 1.0,
       "jockeyGradeTan": "S",
       "jockeyGradeFuku": "S",
       "specialGrade": "S",
@@ -266,7 +267,8 @@
       "ginyoGradeFuku": "A",
       "jockeyGradeTan": "A",
       "jockeyGradeFuku": "A",
-      "raceAnaNote": "京成杯1着→皐月賞。中山コース実績◎（speed94.1）。鼻出血歴があるため本番での出血リスクは要注視。"
+      "raceAnaNote": "穴馬2位候補。2018ジェネラーレウーノ8人気3着と完全一致（京成杯1着）。父スワーヴリチャード中山20%/40%・パドック仕上がり◎。",
+      "raceAnaBonus": 0.8
     },
     "サイモンシャリオ": {
       "num": 9,
@@ -322,7 +324,9 @@
       "rotGradeTan": "D",
       "rotGradeFuku": "D",
       "ginyoGradeTan": "B",
-      "ginyoGradeFuku": "B"
+      "ginyoGradeFuku": "B",
+      "raceAnaBonus": 0.267,
+      "raceAnaNote": "穴馬下位候補。斉藤崇史中山最強厩舎が唯一のプラス。ZI低くスプリングS4着では力不足感。"
     },
     "サノノグレーター": {
       "num": 11,
@@ -516,7 +520,8 @@
       "conditionGradeFuku": "S",
       "ginyoGradeTan": "A",
       "ginyoGradeFuku": "A",
-      "raceAnaNote": "若葉S→皐月賞は近10年で2-0-0-12（単勝率14.3%）。エピファネイア産駒×中山は好相性。一戦毎の良化が本物ならば圏内。"
+      "raceAnaNote": "穴馬候補。2019ヴェロックス若葉S1着→2着と同ルート。エピファネイア中山37%×一戦毎良化×パドック筋肉量◎。",
+      "raceAnaBonus": 0.467
     },
     "ラージアンサンブル": {
       "num": 17,
@@ -575,7 +580,8 @@
       "conditionGradeFuku": "S",
       "ginyoGradeTan": "B",
       "ginyoGradeFuku": "A",
-      "raceAnaNote": "弥生賞2着（0.1差）×中山100%複勝率×パドック仕上がり◎。モタれ癖改善が本物なら侮れない。佐々木大輔は不安材料。"
+      "raceAnaNote": "穴馬3位候補。2024コスモキュランダ7人気2着（弥生賞2着）に類似。中山成績1-1-0-0の100%複勝率×パドック仕上がり◎。",
+      "raceAnaBonus": 0.533
     },
     "リアライズシリウス": {
       "num": 19,
@@ -668,7 +674,8 @@
       "conditionGradeFuku": "S",
       "ginyoGradeTan": "B",
       "ginyoGradeFuku": "A",
-      "raceAnaNote": "共同通信杯3着（リアライズシリウスに完敗）×中山1戦。パドック最高仕上がり×fukuPt乖離+5で穴候補ライン。"
+      "raceAnaNote": "穴馬候補。2021ステラヴェローチェ6人気3着（共同通信杯5着差し）に近い。パドック最高評価×中山1勝×fukuPt乖離+5。",
+      "raceAnaBonus": 0.467
     }
   }
 }
