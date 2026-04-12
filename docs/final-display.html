@@ -1681,7 +1681,7 @@ function renderRaceDetail(data, notes) {
         <div class="lesson-body">${data.postRaceLesson.split('\n\n').map(p => `<p>${esc(p)}</p>`).join('')}</div>
       </div>
       <div class="divider"></div>` : ''}
-      ${data.pace ? window.renderPaceAnimation(data.pace) : ''}
+      ${data.pace ? renderPaceChart(data.pace) : ''}
       ${Object.keys(bets).length ? `<div class="sec-title">🎯 買い目</div><div class="bets-grid">${
         Object.entries(bets).map(([k,v]) => `<div class="bet-row bet-row-jiku"><span class="bet-type">${esc(k)}</span><span class="bet-val">${esc(v)}</span></div>`).join('')
       }</div><div class="divider"></div>` : ''}
