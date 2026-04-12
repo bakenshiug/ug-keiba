@@ -875,8 +875,21 @@ function renderPaceChart(pace){
             y: (yPx / STAGE_H * 100).toFixed(2)
           };
         });
+      } else if(pi === 0){
+        // スタート後：馬番でX配置（右=内枠=小番号, 左=外枠=大番号）
+        const total = horses.length;
+        horses.forEach(h => {
+          const xPx = 302 - (h.num - 1) / (total - 1) * (302 - 38);
+          const offsetY = (h.num % 2 === 0 ? -7 : 7); // 奇偶で微ズレ
+          const yPx = PHASE_Y[0] + offsetY;
+          coords[h.num] = coords[h.num] || {};
+          coords[h.num][0] = {
+            x: (xPx / STAGE_W * 100).toFixed(2),
+            y: (yPx / STAGE_H * 100).toFixed(2)
+          };
+        });
       } else {
-        // スタート後・4角：positionでX決定、グループ内X分散
+        // 4角：positionでX決定、グループ内X分散
         const groups = {};
         horses.forEach(h => {
           const pos = getPhases(h)[pi];
@@ -925,18 +938,14 @@ function renderPaceChart(pace){
   <rect width="340" height="620" rx="12" fill="url(#gp)"/>
   <rect width="340" height="620" rx="12" fill="url(#fade)"/>
 
-  <!-- 脚質レーン縦区切り（薄く） -->
-  <line x1="68"  y1="30" x2="68"  y2="580" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <line x1="133" y1="30" x2="133" y2="580" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <line x1="203" y1="30" x2="203" y2="580" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-  <line x1="270" y1="30" x2="270" y2="580" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+  <!-- 枠区切り縦線（外枠/中枠/内枠 の3分割） -->
+  <line x1="113" y1="30" x2="113" y2="580" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+  <line x1="226" y1="30" x2="226" y2="580" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
 
-  <!-- 脚質ラベル（上部） -->
-  <text x="38"  y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">逃げ</text>
-  <text x="100" y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">先行</text>
-  <text x="168" y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">中団</text>
-  <text x="236" y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">差し</text>
-  <text x="302" y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">追込</text>
+  <!-- 枠ラベル（上部）：右=内枠, 中=中枠, 左=外枠 -->
+  <text x="57"  y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">外枠</text>
+  <text x="170" y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">中枠</text>
+  <text x="283" y="26" font-size="8" fill="rgba(255,255,255,.55)" font-family="sans-serif" font-weight="700" text-anchor="middle">内枠</text>
 
   <!-- GOALライン（上）━━━━━━━━━━━━━━ -->
   <rect x="0" y="30" width="340" height="4" fill="rgba(232,0,61,.9)"/>
