@@ -432,6 +432,12 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .ext-other       {background:#fdf2f8;color:#701a75;border:1px solid #d946ef;}
 .ext-zaiku       {background:#f9fafb;color:#9ca3af;border:1px solid #e5e7eb;font-style:italic;}
 
+/* レース目標バッジ */
+.rt-badge{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:8px;white-space:nowrap;margin-bottom:8px;margin-left:5px;letter-spacing:0.02em;}
+.rt-derby  {background:#dbeafe;color:#1e3a8a;border:1px solid #3b82f6;}
+.rt-both   {background:#fef9c3;color:#713f12;border:1px solid #eab308;}
+.rt-satsuki{background:#fce7f3;color:#831843;border:1px solid #ec4899;}
+
 /* ギーニョ分析 */
 .ginyo-box{
   background:#fff8fa;
@@ -627,6 +633,13 @@ function extGrade(fac) {
   if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
   if (fac.includes('チャンピオン') || fac.includes('山元') || fac.includes('キャニオン')) return 'A';
   return 'B';
+}
+
+function raceTargetBadge(t) {
+  if (t === 'derby')   return `<span class="rt-badge rt-derby">🔵 ダービー狙い</span>`;
+  if (t === 'both')    return `<span class="rt-badge rt-both">🟡 両睨み</span>`;
+  if (t === 'satsuki') return `<span class="rt-badge rt-satsuki">🔴 皐月賞本気</span>`;
+  return '';
 }
 
 function extBadge(fac) {
@@ -1225,7 +1238,9 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         <span><span class="meta-label">厩</span>${esc(h.sabcTrainer) || '—'}</span>
         ${h.age ? `<span><span class="meta-label">齢</span>${esc(h.sex||'')}${h.age}</span>` : ''}
       </div>
-      ${extBadge(h.extFacility)}
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0;">
+        ${extBadge(h.extFacility)}${raceTargetBadge(h.raceTarget ?? null)}
+      </div>
       ${ginyoHtml}
     </div>
   </div>`;
