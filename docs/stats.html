@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>回収率レポート | ug-keiba</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#F2D9B0; --bg-dk:#E8C898;
+  --pink:#E8003D; --pink-dk:#B5002E; --gold:#8B1A1A;
+  --green:#16a34a; --green-lt:rgba(22,163,74,.12);
+  --red:#dc2626; --red-lt:rgba(220,38,38,.1);
+  --text:#1C2B4A; --muted:rgba(28,43,74,.55);
+  --card:rgba(255,255,255,.85); --border:rgba(232,0,61,.2);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+
+/* ── Header ── */
+.hdr{background:linear-gradient(135deg,#EDD9A3,#E8C898 60%,#EDD9A3);border-bottom:2px solid rgba(232,0,61,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(232,0,61,.2);}
+.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(0,0,0,.06);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(0,0,0,.12);}
+.hdr-back:hover{background:rgba(0,0,0,.1);}
+.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#1C2B4A;letter-spacing:.05em;}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.hdr-info{margin-left:auto;text-align:right;}
+
+/* ── Layout ── */
+.container{max-width:680px;margin:0 auto;padding:20px 16px 72px;}
+
+/* ── Period badge ── */
+.period-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,0,61,.1);border:1px solid rgba(232,0,61,.3);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:var(--pink);letter-spacing:.08em;margin-bottom:16px;}
+
+/* ── Section title ── */
+.sec-title{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px;padding-left:2px;}
+
+/* ── Hero grid ── */
+.hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:4px;}
+@media(min-width:480px){.hero-grid{grid-template-columns:repeat(4,1fr);}}
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08);}
+.hero-label{font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.hero-value{font-size:26px;font-weight:900;color:var(--text);line-height:1;}
+.hero-value.green{color:var(--green);}
+.hero-value.red{color:var(--red);}
+.hero-value.accent{color:var(--pink);}
+.hero-sub{font-size:10px;color:var(--muted);margin-top:4px;}
+
+/* ── Cards ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 16px;box-shadow:0 4px 20px rgba(0,0,0,.07);}
+
+/* ── Bet type bar chart ── */
+.bet-row{margin-bottom:18px;}
+.bet-row:last-child{margin-bottom:0;}
+.bet-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+.bet-name{font-size:14px;font-weight:800;}
+.bet-roi-wrap{display:flex;align-items:baseline;gap:6px;}
+.bet-roi{font-size:18px;font-weight:900;}
+.bet-roi.green{color:var(--green);}
+.bet-roi.red{color:var(--red);}
+.bet-roi.orange{color:#d97706;}
+.bet-hitrate{font-size:10px;font-weight:700;color:var(--muted);}
+.bet-bar-track{position:relative;height:12px;background:rgba(28,43,74,.07);border-radius:8px;overflow:hidden;margin-bottom:5px;}
+.bet-bar-fill{height:100%;border-radius:8px;transition:width .8s cubic-bezier(.4,0,.2,1);}
+.bet-bar-fill.green{background:linear-gradient(90deg,#15803d,#22c55e);}
+.bet-bar-fill.orange{background:linear-gradient(90deg,#b45309,#f59e0b);}
+.bet-bar-fill.red{background:#ef4444;width:2px!important;}
+.bet-ref-line{position:absolute;top:0;bottom:0;width:1px;background:rgba(28,43,74,.3);}
+.bet-amounts{display:flex;gap:10px;font-size:10px;color:var(--muted);}
+.bet-amounts span b{color:var(--text);font-weight:700;}
+
+/* ── SVG chart ── */
+.chart-wrap{width:100%;overflow:hidden;}
+.chart-svg{width:100%;display:block;}
+
+/* ── Race record cards ── */
+.race-grid{display:grid;gap:10px;}
+.race-rec-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.race-rec-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.race-rec-name{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:900;color:var(--text);}
+.race-rec-date{font-size:10px;color:var(--muted);margin-top:2px;}
+.hit-badge{padding:4px 12px;border-radius:12px;font-size:10px;font-weight:800;letter-spacing:.06em;white-space:nowrap;}
+.hit-badge.hit{background:var(--green-lt);color:var(--green);border:1px solid rgba(22,163,74,.3);}
+.hit-badge.miss{background:var(--red-lt);color:var(--red);border:1px solid rgba(220,38,38,.2);}
+.race-rec-bets{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;}
+.bet-pill{font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;}
+.bet-pill.hit{background:var(--green-lt);color:var(--green);border:1px solid rgba(22,163,74,.3);}
+.bet-pill.miss{background:rgba(28,43,74,.06);color:var(--muted);border:1px solid rgba(28,43,74,.12);}
+.race-rec-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid rgba(28,43,74,.08);}
+.race-profit{font-size:13px;font-weight:900;}
+.race-profit.plus{color:var(--green);}
+.race-profit.minus{color:var(--red);}
+.race-invest{font-size:11px;color:var(--muted);}
+
+/* ── Loading ── */
+.loading{text-align:center;padding:60px 20px;color:var(--muted);font-size:13px;}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="hdr-back" href="final-display.html">← 予想</a>
+  <div>
+    <div class="hdr-logo">ug‑keiba</div>
+    <div class="hdr-sub">Stats</div>
+  </div>
+</header>
+
+<div class="container" id="root">
+  <div class="loading">データを読み込み中...</div>
+</div>
+
+<script>
+// ──────────────────────────────────────
+// レース設定（betRecord追加済みのJSONへのパス）
+// ──────────────────────────────────────
+const RACES = [
+  { file:'data/final-mainichi-hai-2026-03-28.json',       label:'毎日杯',       date:'3/28' },
+  { file:'data/final-nikkeisho-2026-03-28.json',          label:'日経賞',       date:'3/28' },
+  { file:'data/final-march-stakes-2026-03-29.json',       label:'マーチS',      date:'3/29' },
+  { file:'data/final-takamatsunomiya-kinen-2026-03-29.json', label:'高松宮記念', date:'3/29' },
+];
+
+// 馬券種表示順
+const BET_ORDER = ['三連複','馬単','単勝','三連単','馬連','ワイド','複勝'];
+
+// ──────────────────────────────────────
+// データロード & 集計
+// ──────────────────────────────────────
+async function loadAll() {
+  const results = await Promise.all(
+    RACES.map(r => fetch(r.file).then(res => res.json()).catch(() => null))
+  );
+
+  // レース別データ
+  const races = RACES.map((cfg, i) => {
+    const d = results[i];
+    if (!d) return null;
+    const rec = d.betRecord || {};
+    const hitBets = (d.result && d.result.hitBets) ? d.result.hitBets : [];
+    const hitFlag = d.result && d.result.hitFlag;
+    const invest  = Object.values(rec).reduce((s,v)=>s+v.invest,0);
+    const ret     = Object.values(rec).reduce((s,v)=>s+v.return,0);
+    return { label:cfg.label, date:cfg.date, rec, hitBets, hitFlag, invest, ret };
+  }).filter(Boolean);
+
+  // 馬券種別集計
+  const betStats = {};
+  races.forEach(race => {
+    Object.entries(race.rec).forEach(([type, v]) => {
+      if (!betStats[type]) betStats[type] = {invest:0, ret:0, races:0, hits:0};
+      betStats[type].invest += v.invest;
+      betStats[type].ret    += v.return;
+      betStats[type].races  += 1;
+      if (race.hitBets.includes(type)) betStats[type].hits += 1;
+    });
+  });
+
+  // 全体集計
+  const totalInvest = races.reduce((s,r)=>s+r.invest, 0);
+  const totalRet    = races.reduce((s,r)=>s+r.ret, 0);
+  const hitRaces    = races.filter(r=>r.hitFlag).length;
+
+  render(races, betStats, totalInvest, totalRet, hitRaces);
+}
+
+// ──────────────────────────────────────
+// レンダリング
+// ──────────────────────────────────────
+function fmt(n) { return n.toLocaleString('ja-JP'); }
+function roi(inv, ret) { return inv > 0 ? Math.round(ret/inv*100) : 0; }
+
+function render(races, betStats, totalInvest, totalRet, hitRaces) {
+  const profit = totalRet - totalInvest;
+  const profitSign = profit >= 0 ? '+' : '';
+
+  // ── ヒーロー ──
+  const heroHTML = `
+    <div class="hero-card">
+      <div class="hero-label">的中率</div>
+      <div class="hero-value accent">${hitRaces}/${races.length}</div>
+      <div class="hero-sub">${Math.round(hitRaces/races.length*100)}%</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">回収率</div>
+      <div class="hero-value ${roi(totalInvest,totalRet)>=100?'green':'red'}">${roi(totalInvest,totalRet)}%</div>
+      <div class="hero-sub">${races.length}レース計</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">総投資</div>
+      <div class="hero-value">${fmt(totalInvest)}</div>
+      <div class="hero-sub">円</div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-label">収支</div>
+      <div class="hero-value ${profit>=0?'green':'red'}">${profitSign}${fmt(profit)}</div>
+      <div class="hero-sub">円</div>
+    </div>
+  `;
+
+  // ── 馬券種別バーチャート ──
+  const sortedBets = BET_ORDER
+    .filter(t => betStats[t])
+    .concat(Object.keys(betStats).filter(t => !BET_ORDER.includes(t)));
+
+  const maxRoi = Math.max(...sortedBets.map(t => roi(betStats[t].invest, betStats[t].ret)), 100);
+  const refPct = (100 / maxRoi * 100).toFixed(1); // 100%基準線の位置
+
+  const betRows = sortedBets.map(type => {
+    const s = betStats[type];
+    const r = roi(s.invest, s.ret);
+    const barW = (r / maxRoi * 100).toFixed(1);
+    const cls = r >= 200 ? 'green' : r >= 100 ? 'green' : r > 0 ? 'orange' : 'red';
+    return `
+      <div class="bet-row">
+        <div class="bet-header">
+          <span class="bet-name">${type}</span>
+          <div class="bet-roi-wrap">
+            <span class="bet-roi ${cls}">${r}%</span>
+            <span class="bet-hitrate">${s.hits}/${s.races}的中</span>
+          </div>
+        </div>
+        <div class="bet-bar-track">
+          <div class="bet-bar-fill ${cls}" style="width:${barW}%"></div>
+          <div class="bet-ref-line" style="left:${refPct}%"></div>
+        </div>
+        <div class="bet-amounts">
+          <span>投資 <b>${fmt(s.invest)}円</b></span>
+          <span>回収 <b>${fmt(s.ret)}円</b></span>
+          <span>収支 <b style="color:${s.ret-s.invest>=0?'var(--green)':'var(--red)'}">
+            ${s.ret-s.invest>=0?'+':''}${fmt(s.ret-s.invest)}円
+          </b></span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // ── 累積収支グラフ（SVG） ──
+  const cumulPoints = [{x:0,y:0}];
+  let cumI=0, cumR=0;
+  races.forEach(race => {
+    cumI += race.invest;
+    cumR += race.ret;
+    cumulPoints.push({x:0, y:cumR-cumI});
+  });
+  const svgHTML = buildSVG(cumulPoints, races.map(r=>r.label));
+
+  // ── レース別カード ──
+  const raceCards = races.map(race => {
+    const profit2 = race.ret - race.invest;
+    const profitSign2 = profit2 >= 0 ? '+' : '';
+    const pills = Object.keys(race.rec).map(type => {
+      const hit = race.hitBets.includes(type);
+      return `<span class="bet-pill ${hit?'hit':'miss'}">${type}${hit?' ✓':''}</span>`;
+    }).join('');
+    return `
+      <div class="race-rec-card">
+        <div class="race-rec-top">
+          <div>
+            <div class="race-rec-name">${race.label}</div>
+            <div class="race-rec-date">2026.${race.date}</div>
+          </div>
+          <span class="hit-badge ${race.hitFlag?'hit':'miss'}">${race.hitFlag?'✅ 的中':'❌ 外れ'}</span>
+        </div>
+        <div class="race-rec-bets">${pills}</div>
+        <div class="race-rec-footer">
+          <span class="race-invest">投資 ${fmt(race.invest)}円 → 回収 ${fmt(race.ret)}円</span>
+          <span class="race-profit ${profit2>=0?'plus':'minus'}">${profitSign2}${fmt(profit2)}円</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // ── 描画 ──
+  document.getElementById('root').innerHTML = `
+    <div class="period-badge">📅 2026.3.28 〜 3.29</div>
+    <div class="hero-grid">${heroHTML}</div>
+
+    <div class="sec-title">📊 馬券種別 回収率</div>
+    <div class="card">${betRows}</div>
+
+    <div class="sec-title">📈 累積収支推移</div>
+    <div class="card chart-wrap">${svgHTML}</div>
+
+    <div class="sec-title">🏇 レース別記録</div>
+    <div class="race-grid">${raceCards}</div>
+  `;
+}
+
+// ──────────────────────────────────────
+// SVG 累積収支折れ線グラフ
+// ──────────────────────────────────────
+function buildSVG(points, labels) {
+  const W = 560, H = 200;
+  const PL = 62, PR = 16, PT = 14, PB = 32;
+  const dW = W - PL - PR;
+  const dH = H - PT - PB;
+
+  const vals = points.map(p=>p.y);
+  const yMin = Math.min(...vals, 0);
+  const yMax = Math.max(...vals, 0);
+  const ySpan = yMax - yMin || 1;
+  const yPadFactor = 1.15;
+  const yBottom = yMin - Math.abs(yMin) * 0.12;
+  const yTop    = yMax + Math.abs(yMax) * 0.12;
+  const yRange  = (yTop - yBottom) || 1;
+
+  const toX = i => PL + (i / (points.length-1)) * dW;
+  const toY = v => PT + (1 - (v - yBottom) / yRange) * dH;
+
+  // ゼロライン
+  const zeroY = toY(0);
+
+  // パス
+  const coords = points.map((p,i) => `${toX(i).toFixed(1)},${toY(p.y).toFixed(1)}`);
+  const linePath = `M ${coords.join(' L ')}`;
+
+  // エリア塗り（ゼロ基準）
+  const areaCoords = [
+    `${toX(0).toFixed(1)},${zeroY.toFixed(1)}`,
+    ...points.map((p,i) => `${toX(i).toFixed(1)},${toY(p.y).toFixed(1)}`),
+    `${toX(points.length-1).toFixed(1)},${zeroY.toFixed(1)}`
+  ];
+  const areaPath = `M ${areaCoords.join(' L ')} Z`;
+
+  // Y軸ラベル（3本）
+  const yTicks = [yBottom + yRange*0.25, 0, yBottom + yRange*0.75].map(v => {
+    const label = v >= 0 ? `+${fmt(Math.round(v/1000))}K` : `${fmt(Math.round(v/1000))}K`;
+    return `<text x="${PL-6}" y="${toY(v).toFixed(1)}" text-anchor="end" font-size="9" fill="rgba(28,43,74,.45)" dominant-baseline="middle">${label}</text>`;
+  });
+
+  // X軸ラベル（レース名）
+  const xLabels = ['スタート', ...labels].map((l,i) => {
+    return `<text x="${toX(i).toFixed(1)}" y="${H - PB/3}" text-anchor="middle" font-size="9" fill="rgba(28,43,74,.55)">${l}</text>`;
+  });
+
+  // データ点
+  const dots = points.map((p,i) => {
+    const cx = toX(i).toFixed(1);
+    const cy = toY(p.y).toFixed(1);
+    const isPositive = p.y >= 0;
+    const color = isPositive ? '#16a34a' : '#dc2626';
+    if (i === 0) return ''; // スタートは省略
+    const labelY = p.y >= 0 ? parseFloat(cy) - 8 : parseFloat(cy) + 16;
+    const val = (p.y>=0?'+':'')+fmt(p.y)+'円';
+    return `
+      <circle cx="${cx}" cy="${cy}" r="5" fill="${color}" stroke="white" stroke-width="2"/>
+      <text x="${cx}" y="${labelY}" text-anchor="middle" font-size="9" font-weight="700" fill="${color}">${val}</text>
+    `;
+  });
+
+  // グリッド横線（ゼロライン）
+  const zeroLine = `<line x1="${PL}" y1="${zeroY.toFixed(1)}" x2="${W-PR}" y2="${zeroY.toFixed(1)}" stroke="rgba(28,43,74,.2)" stroke-width="1" stroke-dasharray="4,3"/>`;
+
+  return `
+    <svg class="chart-svg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#16a34a" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#16a34a" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      ${zeroLine}
+      ${yTicks.join('')}
+      ${xLabels.join('')}
+      <path d="${areaPath}" fill="url(#areaGrad)"/>
+      <path d="${linePath}" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      ${dots.join('')}
+    </svg>
+  `;
+}
+
+// ──────────────────────────────────────
+// 起動
+// ──────────────────────────────────────
+loadAll().catch(err => {
+  document.getElementById('root').innerHTML = `<div class="loading">読み込みエラー: ${err.message}</div>`;
+});
+</script>
+</body>
+</html>

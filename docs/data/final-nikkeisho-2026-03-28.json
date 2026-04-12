@@ -365,5 +365,23 @@
     "hitFlag": true,
     "returnAmount": 6700,
     "note": "馬単(☆→◎)3140円・三連複3560円 合計6700円"
+  },
+  "betRecord": {
+    "単勝": {
+      "invest": 100,
+      "return": 0
+    },
+    "馬単": {
+      "invest": 1000,
+      "return": 3140
+    },
+    "三連複": {
+      "invest": 1400,
+      "return": 3560
+    },
+    "三連単": {
+      "invest": 2400,
+      "return": 0
+    }
   }
 }
