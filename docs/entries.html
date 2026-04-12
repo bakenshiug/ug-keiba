@@ -535,6 +535,42 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   color:#222;
   white-space:pre-wrap;
 }
+/* ── レース別タイトルヘッドライン ── */
+.analysis-headline{
+  text-align:center;
+  padding:14px 12px 16px;
+  border-bottom:1px solid rgba(200,30,80,.12);
+  margin-bottom:14px;
+}
+.rt-main{
+  display:block;
+  font-size:22px;font-weight:900;
+  color:#b01050;
+  letter-spacing:.08em;
+  line-height:1.3;
+  margin-bottom:4px;
+}
+.rt-sub{
+  display:block;
+  font-size:16px;font-weight:700;
+  color:#1a1a1a;
+  letter-spacing:.04em;
+  margin-bottom:6px;
+}
+.rt-desc{
+  display:block;
+  font-size:12px;
+  color:#666;
+  font-style:italic;
+  margin-bottom:8px;
+}
+.rt-humor{
+  display:block;
+  font-size:11px;
+  color:#999;
+  font-style:italic;
+  line-height:1.6;
+}
 /* ランキングリスト */
 .rank-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
 .rank-item{
@@ -1046,11 +1082,20 @@ function buildAnalysisSection(d) {
   let html = '<div class="analysis-section">';
 
   if (hasAnalysis) {
+    const rt = d.raceTitle ?? null;
+    const headlineHtml = rt ? `
+      <div class="analysis-headline">
+        <span class="rt-main">${esc(rt.main)}</span>
+        <span class="rt-sub">${esc(rt.sub)}</span>
+        <span class="rt-desc">${esc(rt.desc)}</span>
+        <span class="rt-humor">${esc(rt.humor)}</span>
+      </div>` : '';
     html += `
     <div class="analysis-block">
       <div class="analysis-block-title">
         <span class="analysis-icon">📊</span>ギーニョの重賞データ解析
       </div>
+      ${headlineHtml}
       <div class="analysis-comment">${esc(d.raceAnalysis)}</div>
     </div>`;
   }
