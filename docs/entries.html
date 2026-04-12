@@ -8,10 +8,10 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg1:#2a0518;--bg2:#3d0825;--bg3:#280416;
-  --pink:#e8306e;--pink-dk:#c0185a;--pink-lt:#ff6fa8;
+  --bg1:#022c22;--bg2:#064e3b;--bg3:#022c22;
+  --pink:#10b981;--pink-dk:#059669;--pink-lt:#6ee7b7;
   --gold:#fcd34d;
-  --card:rgba(255,255,255,.06);--border:rgba(255,140,185,.18);
+  --card:rgba(255,255,255,.06);--border:rgba(100,210,160,.18);
   --text:#fff;--muted:rgba(255,210,230,.65);
   --zi-s:#fcd34d;--zi-a:#86efac;--zi-b:#93c5fd;--zi-c:#fda4af;--zi-d:rgba(255,150,160,.45);
 }
@@ -19,12 +19,12 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
 /* ── ヘッダー ── */
 .page-header{
-  background:linear-gradient(135deg,#7b1040,#c01860,#7b1040);
-  border-bottom:2px solid rgba(255,160,200,.35);
+  background:linear-gradient(135deg,#022c22,#065f46,#022c22);
+  border-bottom:2px solid rgba(100,210,160,.35);
   padding:12px 16px;
   display:flex;align-items:center;gap:12px;
   position:sticky;top:0;z-index:200;
-  box-shadow:0 2px 24px rgba(220,30,100,.35);
+  box-shadow:0 2px 24px rgba(5,150,105,.35);
 }
 .back-btn{
   display:inline-flex;align-items:center;gap:4px;
@@ -34,24 +34,24 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   white-space:nowrap;flex-shrink:0;
 }
 .page-title{font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;}
-.page-sub{font-size:10px;color:rgba(255,210,230,.8);margin-top:1px;}
+.page-sub{font-size:10px;color:rgba(180,240,210,.8);margin-top:1px;}
 
 /* ── バナー ── */
 .breadcrumb-banner{
   padding:10px 16px;
-  background:linear-gradient(135deg,rgba(180,30,80,.45),rgba(220,50,110,.3),rgba(180,30,80,.45));
-  border-bottom:1px solid rgba(255,150,190,.2);
+  background:linear-gradient(135deg,rgba(2,44,34,.55),rgba(6,95,70,.4),rgba(2,44,34,.55));
+  border-bottom:1px solid rgba(100,210,160,.2);
   display:flex;align-items:center;gap:8px;flex-wrap:wrap;
 }
 .bc-item{font-size:11px;font-weight:700;color:rgba(255,210,230,.7);}
 .bc-sep{font-size:13px;color:rgba(255,170,200,.6);font-weight:900;}
-.bc-current{font-size:11px;font-weight:900;color:#ffb3d4;}
+.bc-current{font-size:11px;font-weight:900;color:#6ee7b7;}
 
 /* ── タブ ── */
 .tab-bar{
   display:flex;gap:0;
   background:rgba(0,0,0,.25);
-  border-bottom:2px solid rgba(255,140,185,.2);
+  border-bottom:2px solid rgba(100,210,160,.2);
   position:sticky;top:57px;z-index:100;
 }
 .tab-btn{
@@ -65,7 +65,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .tab-btn.active{
   color:#fff;
   border-bottom:3px solid var(--pink);
-  background:rgba(232,48,110,.12);
+  background:rgba(16,185,129,.12);
 }
 .tab-btn .tab-grade{
   font-size:9px;font-weight:900;
@@ -79,7 +79,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .race-info{
   padding:12px 16px;
   background:rgba(255,255,255,.04);
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid rgba(100,210,160,.2);
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
 }
 .race-info-name{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#fff;}
@@ -87,8 +87,8 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .horse-count{
   margin-left:auto;font-size:10px;font-weight:700;
   padding:3px 10px;border-radius:20px;
-  background:rgba(255,140,185,.12);color:rgba(255,200,225,.8);
-  border:1px solid rgba(255,140,185,.2);
+  background:rgba(16,185,129,.12);color:rgba(110,231,183,.9);
+  border:1px solid rgba(16,185,129,.2);
 }
 
 /* ── 馬カード ── */
@@ -364,23 +364,23 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   display:flex;align-items:center;gap:6px;
   padding:8px 12px;
   background:rgba(255,255,255,.025);
-  border-bottom:1px solid rgba(255,140,185,.1);
+  border-bottom:1px solid rgba(100,210,160,.1);
 }
 .sort-bar-label{
   font-size:9px;font-weight:700;
-  color:rgba(255,190,215,.4);white-space:nowrap;
+  color:rgba(100,210,160,.5);white-space:nowrap;
 }
 .sort-btn{
   font-size:10px;font-weight:700;
   padding:4px 10px;border-radius:8px;
-  border:1px solid rgba(255,140,185,.2);
+  border:1px solid rgba(100,210,160,.2);
   background:rgba(255,255,255,.04);
-  color:rgba(255,200,220,.5);
+  color:rgba(110,231,183,.5);
   cursor:pointer;white-space:nowrap;
 }
 .sort-btn.active{
-  background:rgba(232,48,110,.2);
-  border-color:rgba(232,48,110,.4);
+  background:rgba(16,185,129,.2);
+  border-color:rgba(16,185,129,.4);
   color:#fff;
 }
 .sort-btn.ana-btn{
@@ -572,29 +572,20 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 <div class="page-header">
   <a href="index.html" class="back-btn">‹ TOP</a>
   <div>
-    <div class="page-title">🌸 出走予定馬 解析</div>
-    <div class="page-sub">NZT / 阪神牝馬S / 桜花賞 / 皐月賞</div>
+    <div class="page-title">🏇 出走予定馬 解析</div>
+    <div class="page-sub">皐月賞</div>
   </div>
 </div>
 
 <div class="breadcrumb-banner">
-  <span class="bc-item">G1 大阪杯 馬場急上昇ジョーカー出現</span>
+  <span class="bc-item">🎯 NZT☆レザベーション6番人気1着 / 🎯 桜花賞△ジッピーチューン12番人気3着</span>
   <span class="bc-sep">›</span>
-  <span class="bc-current">🌸 桜花賞 徹底解析中</span>
+  <span class="bc-current">🏇 皐月賞 高精度解析中</span>
 </div>
 
 <!-- タブ -->
 <div class="tab-bar" id="tabBar">
   <button class="tab-btn active" data-idx="0">
-    <span class="tab-grade grade-g2">G2</span>NZT
-  </button>
-  <button class="tab-btn" data-idx="1">
-    <span class="tab-grade grade-g2">G2</span>阪神牝馬S
-  </button>
-  <button class="tab-btn" data-idx="2">
-    <span class="tab-grade grade-g1">G1</span>桜花賞
-  </button>
-  <button class="tab-btn" data-idx="3">
     <span class="tab-grade grade-g1">G1</span>皐月賞
   </button>
 </div>
@@ -604,21 +595,6 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
 <script>
 const RACES = [
-  {
-    file: 'data/race-notes/2026-04-11-nakayama-11r.json',
-    label: 'NZT', gradeCls: 'grade-g2',
-    meta: '4月11日(土) 中山 芝1600m 15頭'
-  },
-  {
-    file: 'data/race-notes/2026-04-11-hanshin-11r.json',
-    label: '阪神牝馬S', gradeCls: 'grade-g2',
-    meta: '4月11日(土) 阪神 芝1600m外 10頭'
-  },
-  {
-    file: 'data/race-notes/2026-04-12-hanshin-11r.json',
-    label: '桜花賞', gradeCls: 'grade-g1',
-    meta: '4月12日(日) 阪神 芝1600m外 19頭'
-  },
   {
     file: 'data/race-notes/2026-04-19-nakayama-11r.json',
     label: '皐月賞', gradeCls: 'grade-g1',
