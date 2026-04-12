@@ -866,11 +866,13 @@ function renderPaceChart(pace){
         const grp  = groups[pos];
         const idx  = grp.indexOf(h.num);
         const total = grp.length;
-        // 同グループを横に分散（中央寄せ）
-        const spread = Math.min(16, 80 / Math.max(total, 1));
-        const offsetX = (idx - (total - 1) / 2) * spread;
-        const xPct = ((PHASE_X[pi] + offsetX) / STAGE_W * 100).toFixed(2);
-        const yPct = ((POS_Y[pos]) / STAGE_H * 100).toFixed(2);
+        // 同グループはY方向（レーン内・内外ラチ方向）に分散
+        // → 同ポジションの馬は同じX（進行距離）に揃える
+        const lane = 54; // 1レーンあたりの高さ(px)
+        const spread = Math.min(13, (lane - 10) / Math.max(total, 1));
+        const offsetY = (idx - (total - 1) / 2) * spread;
+        const xPct = (PHASE_X[pi] / STAGE_W * 100).toFixed(2);
+        const yPct = ((POS_Y[pos] + offsetY) / STAGE_H * 100).toFixed(2);
         if(!coords[h.num]) coords[h.num] = {};
         coords[h.num][pi] = { x: xPct, y: yPct };
       });
