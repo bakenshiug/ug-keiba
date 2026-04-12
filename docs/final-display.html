@@ -885,10 +885,13 @@ function renderPaceChart(pace){
           const grp   = groups[pos];
           const idx   = grp.indexOf(h.num);
           const total = grp.length;
-          const spread = Math.min(16, 80 / Math.max(total, 1));
-          const offsetX = (idx - (total - 1) / 2) * spread;
+          const spreadX = Math.min(14, 70 / Math.max(total, 1));
+          const offsetX = (idx - (total - 1) / 2) * spreadX;
           const xPx = (POS_X[pos] || 168) + offsetX;
-          const yPx = PHASE_Y[pi];
+          // グループ内で前後にもズレをつけて縦にも散らす
+          const spreadY = Math.min(10, 50 / Math.max(total, 1));
+          const offsetY = (idx - (total - 1) / 2) * spreadY;
+          const yPx = PHASE_Y[pi] + offsetY;
           coords[h.num] = coords[h.num] || {};
           coords[h.num][pi] = {
             x: (xPx / STAGE_W * 100).toFixed(2),
