@@ -797,12 +797,14 @@ function calcScores(h) {
   const hgF  = h.haigoGradeFuku ?? null;
   const pxT  = h.paradoxGradeTan  ?? null;  // パラドックス加点（皐月賞本気×能力値）
   const pxF  = h.paradoxGradeFuku ?? null;
+  const coT  = h.commentGradeTan  ?? null;  // コメント評価（先行/スタミナ/粘り加点・平坦向き/追って案外減点）
+  const coF  = h.commentGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // ギーニョ評価：乗算（D=消し表示のみ・スコア影響なし, B=中立×1, S=最高×1.3）
@@ -1281,6 +1283,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${extGradeBadge(h.extFacility)}
           ${gradeBadge('思惑', h.raceTargetGradeTan ?? null, h.raceTargetGradeFuku ?? null)}
           ${gradeBadge('逆説加点', h.paradoxGradeTan ?? null, h.paradoxGradeFuku ?? null)}
+          ${gradeBadge('コメント', h.commentGradeTan ?? null, h.commentGradeFuku ?? null)}
           ${gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null)}
         </div>
       </div>
