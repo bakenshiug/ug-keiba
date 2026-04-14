@@ -835,6 +835,8 @@ function calcScores(h) {
   const coF  = h.commentGradeFuku ?? null;
   const prT  = h.pastRaceGradeTan  ?? null;  // 過去走スコア（クラス×着順×コース適性）×3倍ウェイト
   const prF  = h.pastRaceGradeFuku ?? null;
+  const gkT  = h.gekisouGradeTan  ?? null;  // 🔥激走スコア（高人気乖離×本気×配合）×2倍ウェイト
+  const gkF  = h.gekisouGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
   for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT]) {
@@ -846,6 +848,9 @@ function calcScores(h) {
   // 過去走スコアは×3倍ウェイト
   const prPtsT = gradePoints(prT); if (prPtsT !== null){ tanScore  += prPtsT * 3; tanMax  += gradeMax() * 3; }
   const prPtsF = gradePoints(prF); if (prPtsF !== null){ fukuScore += prPtsF * 3; fukuMax += gradeMax() * 3; }
+  // 🔥激走スコアは×2倍ウェイト
+  const gkPtsT = gradePoints(gkT); if (gkPtsT !== null){ tanScore  += gkPtsT * 2; tanMax  += gradeMax() * 2; }
+  const gkPtsF = gradePoints(gkF); if (gkPtsF !== null){ fukuScore += gkPtsF * 2; fukuMax += gradeMax() * 2; }
   // ギーニョ評価：乗算（D=消し表示のみ・スコア影響なし, B=中立×1, S=最高×1.3）
   const ginyoMult = g => ({'S':1.3,'A':1.15,'B':1.0,'C':0.7,'D':1.0}[g] ?? 1.0);
   tanScore  *= ginyoMult(h.ginyoGradeTan  ?? 'B');
@@ -1341,6 +1346,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('思惑', h.raceTargetGradeTan ?? null, h.raceTargetGradeFuku ?? null)}
           ${gradeBadge('逆説加点', h.paradoxGradeTan ?? null, h.paradoxGradeFuku ?? null)}
           ${gradeBadge('コメント', h.commentGradeTan ?? null, h.commentGradeFuku ?? null)}
+          ${h.gekisouGradeTan ? gradeBadge('🔥激走', h.gekisouGradeTan, h.gekisouGradeFuku ?? null) : ''}
           ${gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null)}
         </div>
       </div>
