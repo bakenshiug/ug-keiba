@@ -526,8 +526,32 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   display:flex;align-items:center;gap:8px;
   font-size:11px;font-weight:900;letter-spacing:.1em;
   color:#c01860;text-transform:uppercase;
-  margin-bottom:10px;padding-bottom:6px;
+  padding-bottom:6px;
   border-bottom:1px solid rgba(200,30,80,.15);
+}
+.analysis-block-title.analysis-toggle{
+  cursor:pointer;user-select:none;
+  margin-bottom:0;
+  border-bottom:none;
+  transition:background .15s;
+  border-radius:4px;
+  padding:6px 4px;
+}
+.analysis-block-title.analysis-toggle:hover{
+  background:rgba(200,30,80,.06);
+}
+.analysis-toggle-icon{
+  margin-left:auto;font-size:11px;color:#c01860;
+  transition:transform .2s;
+}
+.analysis-toggle-hint{
+  font-size:9px;font-weight:400;color:#aaa;letter-spacing:0;
+  white-space:nowrap;
+}
+.analysis-body{
+  padding-top:10px;
+  border-top:1px solid rgba(200,30,80,.15);
+  margin-top:8px;
 }
 .analysis-icon{font-size:14px;}
 .analysis-comment{
@@ -1092,6 +1116,16 @@ function buildRankList(items) {
   }).join('') + '</ul>';
 }
 
+function toggleAnalysis(el) {
+  const body = el.nextElementSibling;
+  const icon = el.querySelector('.analysis-toggle-icon');
+  const hint = el.querySelector('.analysis-toggle-hint');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  icon.textContent   = isOpen ? '▶' : '▼';
+  hint.textContent   = isOpen ? '展開' : '閉じる';
+}
+
 function buildAnalysisSection(d) {
   const hasAnalysis = d.raceAnalysis;
   const hasBlood    = d.bloodAnalysis;
@@ -1110,21 +1144,29 @@ function buildAnalysisSection(d) {
       </div>` : '';
     html += `
     <div class="analysis-block">
-      <div class="analysis-block-title">
+      <div class="analysis-block-title analysis-toggle" onclick="toggleAnalysis(this)">
         <span class="analysis-icon">📊</span>ギーニョの重賞データ解析
+        <span class="analysis-toggle-icon">▶</span>
+        <span class="analysis-toggle-hint">展開</span>
       </div>
-      ${headlineHtml}
-      <div class="analysis-comment">${esc(d.raceAnalysis)}</div>
+      <div class="analysis-body" style="display:none">
+        ${headlineHtml}
+        <div class="analysis-comment">${esc(d.raceAnalysis)}</div>
+      </div>
     </div>`;
   }
 
   if (hasBlood) {
     html += `
     <div class="analysis-block">
-      <div class="analysis-block-title">
+      <div class="analysis-block-title analysis-toggle" onclick="toggleAnalysis(this)">
         <span class="analysis-icon">🧬</span>ギーニョの血統解析
+        <span class="analysis-toggle-icon">▶</span>
+        <span class="analysis-toggle-hint">展開</span>
       </div>
-      <div class="analysis-comment">${esc(d.bloodAnalysis)}</div>
+      <div class="analysis-body" style="display:none">
+        <div class="analysis-comment">${esc(d.bloodAnalysis)}</div>
+      </div>
     </div>`;
   }
 
