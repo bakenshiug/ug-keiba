@@ -1300,7 +1300,6 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           <span class="badge-group-label lbl-blood">血統</span>
           ${gradeBadge('父', h.sireGradeTan ?? null, h.sireGradeFuku ?? null)}
           ${gradeBadge('母父', h.damSireGradeTan ?? null, h.damSireGradeFuku ?? null)}
-          ${gradeBadge('配合', h.bloodGradeTan && h.bloodGradeTan !== '—' ? h.bloodGradeTan : null, h.bloodGradeFuku && h.bloodGradeFuku !== '—' ? h.bloodGradeFuku : null)}
           ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
           ${gradeBadge('G配合', h.haigoGradeTan ?? null, h.haigoGradeFuku ?? null)}
         </div>
