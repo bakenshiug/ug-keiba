@@ -757,7 +757,10 @@ function gradeMax() { return 12; }
 function calcScores(h) {
   const [ziT, ziF]   = splitGrade(ziGrade(h.sabcZI), 'zi');
   const [exT, exF]   = splitGrade(extGrade(h.extFacility), 'ext');
-  const [kT,  kF]    = splitGrade(h.kinsoGrade, 'kinso');
+  // kinsoGrade: スコア計算は12段階元値をそのまま使用（gradePointsが3S〜1C対応済み）
+  // バッジ表示は kinsoGradeBadge(h.kinsoGrade) 側で GRADE_MAPS 変換するため分離
+  const kT  = h.kinsoGrade ?? null;
+  const kF  = h.kinsoGrade ?? null;
   const [pT,  pF]    = splitGrade(h.paceGrade,  'pace');
   const [bdT, bdF]   = splitGrade(h.bodyGrade,  'body');
   const [cT,  cF]    = splitGrade(h.courseGrade,'course');
