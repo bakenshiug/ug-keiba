@@ -301,6 +301,17 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .osaka-final-btn .card-desc{color:rgba(255,255,255,.75)!important;}
 .osaka-final-btn .card-arrow{color:rgba(255,255,255,.7)!important;font-size:22px!important;}
 .osaka-final-btn:hover{transform:translateY(-2px)!important;box-shadow:0 0 60px rgba(5,150,105,.85)!important;}
+/* WIN5ボタン */
+.win5-btn{
+  background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
+  border:1.5px solid rgba(255,215,0,.35);
+  box-shadow:0 0 24px rgba(255,215,0,.15),inset 0 1px 0 rgba(255,215,0,.1);
+  cursor:default;opacity:.85;
+}
+.win5-btn .win5-label{font-size:10px;font-weight:900;color:rgba(255,215,0,.9);letter-spacing:.2em;margin-bottom:4px;text-transform:uppercase;}
+.win5-btn .card-title{color:#fff!important;font-size:17px!important;}
+.win5-btn .card-desc{color:rgba(255,255,255,.6)!important;}
+.win5-btn .win5-badge{display:inline-block;background:rgba(255,215,0,.15);border:1px solid rgba(255,215,0,.4);color:rgba(255,215,0,.9);font-size:9px;font-weight:900;padding:2px 8px;border-radius:10px;letter-spacing:.12em;margin-top:6px;}
 /* ── Footer ── */
 .page-footer{
   background:linear-gradient(135deg,#EDD9A3,#E8C898);
@@ -474,6 +485,17 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
         </div>
         <div class="card-arrow">›</div>
       </a>
+
+      <!-- WIN5徹底解析ボタン（準備中） -->
+      <div class="nav-card win5-btn full">
+        <div class="card-icon" style="font-size:28px;">🔑</div>
+        <div style="flex:1;">
+          <div class="win5-label">WIN5 徹底解析</div>
+          <div class="card-title">5レース全制覇への道</div>
+          <div class="card-desc">皐月賞・福島牝馬S＋3レース　単勝スコア×穴馬スコアで買い目自動生成</div>
+          <div class="win5-badge">🔧 準備中</div>
+        </div>
+      </div>
 
       <a href="kinkai-display.html" class="nav-card">
         <div class="card-icon">🏅</div>
