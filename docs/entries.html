@@ -888,7 +888,7 @@ function dualBadge(label, gTan, gFuku) {
 // ── 既存ファクターを分割してデュアルバッジ化 ──
 function kinsoGradeBadge(g) {
   const [t,f] = splitGrade(g, 'kinso');
-  return dualBadge('近走', t, f);
+  return dualBadge('着差', t, f);
 }
 function paceGradeBadge(g) {
   const [t,f] = splitGrade(g, 'pace');
@@ -1322,13 +1322,13 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('G配合', h.haigoGradeTan ?? null, h.haigoGradeFuku ?? null)}
         </div>
         <div class="badge-group">
-          <span class="badge-group-label lbl-ability">実力</span>
+          <span class="badge-group-label lbl-ability">能力</span>
           ${ziGradeBadge(h.sabcZI)}
           ${gradeBadge('過去走', h.pastRaceGradeTan ?? null, h.pastRaceGradeFuku ?? null)}
           ${kinsoGradeBadge(h.kinsoGrade)}
           ${h.ageGradeTan || h.ageGradeFuku ? gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null) : `<span class="blood-grade bg-age-fixed">年齢 3歳</span>`}
           ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
-          ${(h.prevMarginGradeTan || h.prevMarginGradeFuku) ? gradeBadge('近走', h.prevMarginGradeTan ?? null, h.prevMarginGradeFuku ?? null) : ''}
+          ${(h.prevMarginGradeTan || h.prevMarginGradeFuku) ? gradeBadge('上がり', h.prevMarginGradeTan ?? null, h.prevMarginGradeFuku ?? null) : ''}
         </div>
         <div class="badge-group">
           <span class="badge-group-label lbl-apt">適性</span>
