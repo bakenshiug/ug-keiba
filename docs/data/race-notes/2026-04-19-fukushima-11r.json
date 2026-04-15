@@ -190,8 +190,8 @@
       "weightChangeGrade": "D",
       "prevCourseGradeTan": "C",
       "prevCourseGradeFuku": "B",
-      "specialGrade": "A",
-      "specialNote": "穴傾向馬"
+      "specialGrade": "S",
+      "specialNote": "過去人気薄で激走した馬（穴傾向）"
     },
     "インヴォーグ": {
       "num": 2,
@@ -1020,8 +1020,8 @@
       "weightChangeGrade": "C",
       "prevCourseGradeTan": "D",
       "prevCourseGradeFuku": "B",
-      "specialGrade": "A",
-      "specialNote": "穴傾向馬"
+      "specialGrade": "S",
+      "specialNote": "過去人気薄で激走した馬（穴傾向）"
     },
     "フィールシンパシー": {
       "num": 14,
@@ -1092,7 +1092,9 @@
       "prevCourseGradeTan": "C",
       "prevCourseGradeFuku": "B",
       "specialGrade": "S",
-      "specialNote": "大穴傾向馬"
+      "specialNote": "過去人気薄で激走した馬（大穴傾向・福島で穴）",
+      "gekisouGradeTan": "S",
+      "gekisouGradeFuku": "S"
     },
     "ブラウンラチェット": {
       "num": 15,
@@ -1161,7 +1163,9 @@
       "prevMarginRaw": 0.5,
       "weightChangeGrade": "S",
       "prevCourseGradeTan": "D",
-      "prevCourseGradeFuku": "B"
+      "prevCourseGradeFuku": "B",
+      "specialGrade": "A",
+      "specialNote": "過去人気薄で激走した馬（穴傾向）"
     },
     "ミッキーゴージャス": {
       "num": 16,
@@ -1370,7 +1374,7 @@
       "prevCourseGradeTan": "D",
       "prevCourseGradeFuku": "A",
       "specialGrade": "A",
-      "specialNote": "穴傾向馬"
+      "specialNote": "過去人気薄で激走した馬（穴傾向）"
     },
     "レディマリオン": {
       "num": 20,
