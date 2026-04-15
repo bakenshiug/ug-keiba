@@ -667,6 +667,11 @@ const RACES = [
     label: '皐月賞', gradeCls: 'grade-g1',
     meta: '4月19日(日) 中山 芝2000m内 21頭'
   },
+  {
+    file: 'data/race-notes/2026-04-19-fukushima-11r.json',
+    label: '福島牝馬S', gradeCls: 'grade-g3',
+    meta: '4月19日(日) 福島 芝1800m外 18頭'
+  },
 ];
 
 let allData = [];
@@ -1379,9 +1384,10 @@ function renderRace(idx) {
 
   // 穴馬スコア = 本気係数 × 激走係数 × (1 + 人気乖離係数) + 配合ボーナス + 逆説ボーナス
   const withAna = scored.map(s => {
-    // ① 本気係数：皐月賞本命=2.0 / 両狙い=1.0 / ダービー専念=0
+    // ① 本気係数：このレース本命=2.0 / 両睨み=1.0 / 次走専念=0
+    // 皐月賞: satsuki/both/derby、福島牝馬S: fukushima/both_vm/vm
     const raceTarget  = s.h.raceTarget ?? '';
-    const honki       = {'satsuki':2.0, 'both':1.0, 'derby':0}[raceTarget] ?? 0;
+    const honki       = {'satsuki':2.0,'both':1.0,'derby':0,'fukushima':2.0,'both_vm':1.0,'vm':0}[raceTarget] ?? 0;
     // ② 激走係数：S=3 / A=2 / B=1 / C=0.5 / なし=0.3
     const gkGrade     = s.h.gekisouGradeTan ?? null;
     const gekisouCoef = {'S':3, 'A':2, 'B':1, 'C':0.5}[gkGrade] ?? 0.3;
