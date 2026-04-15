@@ -762,6 +762,8 @@ const GRADE_MAPS = {
   course:{S:['A','S'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
   // 脚質: 展開での決め手＝勝ちに来る → 単勝寄り
   style: {S:['S','A'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
+  // 斤量変化: S=+1~1.5kg増(単回225)最強, A=+2~2.5kg増(勝率13.3%), B=±0, C=今回減(単回33), D=+3kg以上増(勝率0%)
+  weightChange: {S:['S','A'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
 };
 
 function splitGrade(g, key) {
@@ -841,16 +843,17 @@ function calcScores(h) {
   const pxF  = h.paradoxGradeFuku ?? null;
   const coT  = h.commentGradeTan  ?? null;  // コメント評価（先行/スタミナ/粘り加点・平坦向き/追って案外減点）
   const coF  = h.commentGradeFuku ?? null;
+  const [wcT, wcF] = splitGrade(h.weightChangeGrade, 'weightChange');  // 斤量変化（今回増=優位/今回減=不利）
   const prT  = h.pastRaceGradeTan  ?? null;  // 過去走スコア（クラス×着順×コース適性）×3倍ウェイト
   const prF  = h.pastRaceGradeFuku ?? null;
   const gkT  = h.gekisouGradeTan  ?? null;  // 🔥激走スコア（高人気乖離×本気×配合）×2倍ウェイト
   const gkF  = h.gekisouGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // 過去走スコアは×3倍ウェイト
@@ -1344,6 +1347,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('厩舎', h.stableGradeTan ?? null, h.stableGradeFuku ?? null)}
           ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
           ${gradeBadge('騎厩', h.comboGradeTan ?? null, h.comboGradeFuku ?? null)}
+          ${splitBadge('斤量', h.weightChangeGrade, 'weightChange')}
         </div>
         <div class="badge-group">
           <span class="badge-group-label lbl-state">状態</span>
