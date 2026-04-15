@@ -1364,7 +1364,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
     <div class="card-body">
       <div class="horse-meta-row">
         <span><span class="meta-label">騎</span>${esc(h.jockey) || '未定'}</span>
-        <span><span class="meta-label">父</span>${esc(h.sabcSire) || '—'}</span>
+        <span><span class="meta-label">父</span>${esc(h.sire || h.sabcSire) || '—'}</span>
         <span><span class="meta-label">母父</span>${esc(h.damSire) || '—'}</span>
         <span><span class="meta-label">厩</span>${esc(h.sabcTrainer) || '—'}</span>
         ${h.age ? `<span><span class="meta-label">齢</span>${esc(h.sex||'')}${h.age}</span>` : ''}
