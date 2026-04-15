@@ -1404,8 +1404,8 @@ function renderRace(idx) {
     const oddsPt      = Math.min(Math.max(Math.log(odds / 5) * 1.5, 0), 4.0);
     // ④ 配合ボーナス：G配合グレードで微調整
     const haigoBonus  = {'S':1.0,'A':0.6,'B':0.2,'C':0,'D':-0.3}[s.h.haigoGradeTan ?? ''] ?? 0;
-    // ⑤ 逆説ボーナス：近走凡走からの激走期待
-    const paradoxBonus = {'A':0.5,'B':0.2,'C':0}[s.h.paradoxGradeTan ?? ''] ?? 0;
+    // ⑤ 逆説ボーナス：賞金本気度×穴馬動機（S=メイチ穴馬/D=叩き台減点）
+    const paradoxBonus = {'S':0.8,'A':0.5,'B':0.2,'C':0,'D':-0.3}[s.h.paradoxGradeTan ?? ''] ?? 0;
     const anaScore    = honki * gekisouCoef * (1 + oddsPt) + haigoBonus + paradoxBonus;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
     const isKeshi = (s.h.ginyoGradeTan === 'D') && (s.h.ginyoGradeFuku === 'D');
