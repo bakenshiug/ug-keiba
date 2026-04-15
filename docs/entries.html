@@ -905,8 +905,9 @@ function gradeBadge(label, gTan, gFuku) {
   return dualBadge(label, gTan ?? null, gFuku ?? null);
 }
 // body / course / style 用 (単一grade → 分割)
-function splitBadge(label, g, key) {
-  if (!g) return `<span class="blood-grade bg-analyzing">${esc(label)} 解析中</span>`;
+// nullLabel: null時に表示するテキスト（デフォルト「解析中」、完了系バッジは「解析完了」）
+function splitBadge(label, g, key, nullLabel = '解析中') {
+  if (!g) return `<span class="blood-grade bg-analyzing">${esc(label)} ${nullLabel}</span>`;
   const [t,f] = splitGrade(g, key);
   return dualBadge(label, t, f);
 }
@@ -1349,8 +1350,8 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('厩舎', h.stableGradeTan ?? null, h.stableGradeFuku ?? null)}
           ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
           ${gradeBadge('騎厩', h.comboGradeTan ?? null, h.comboGradeFuku ?? null)}
-          ${splitBadge('斤量', h.weightChangeGrade, 'weightChange')}
-          ${gradeBadge('前走C', h.prevCourseGradeTan ?? null, h.prevCourseGradeFuku ?? null)}
+          ${splitBadge('斤量', h.weightChangeGrade, 'weightChange', '解析完了')}
+          ${(h.prevCourseGradeTan || h.prevCourseGradeFuku) ? gradeBadge('前走C', h.prevCourseGradeTan ?? null, h.prevCourseGradeFuku ?? null) : ''}
         </div>
         <div class="badge-group">
           <span class="badge-group-label lbl-state">状態</span>
