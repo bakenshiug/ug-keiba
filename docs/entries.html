@@ -1380,6 +1380,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
 function renderRace(idx) {
   if (!allData[idx]) return;
   const {cfg, d} = allData[idx];
+  if (!d) {
+    document.getElementById('content').innerHTML =
+      `<p class="loading" style="color:#f87171">${esc(cfg.label)}のデータを取得できませんでした。準備中です。</p>`;
+    return;
+  }
   const horses = Object.entries(d.horses);
 
   // 全馬のスコアを計算
@@ -1487,17 +1492,15 @@ document.getElementById('tabBar').addEventListener('click', e => {
 });
 
 async function main() {
-  try {
-    allData = await Promise.all(
-      RACES.map(cfg => fetch(cfg.file + '?v=' + Date.now())
-        .then(r => r.json())
-        .then(d => ({cfg, d})))
-    );
-    renderRace(0);
-  } catch(e) {
-    document.getElementById('content').innerHTML =
-      `<p class="loading" style="color:#f87171">読み込みエラー: ${esc(e.message)}</p>`;
-  }
+  const results = await Promise.allSettled(
+    RACES.map(cfg => fetch(cfg.file + '?v=' + Date.now())
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(d => ({cfg, d})))
+  );
+  allData = results.map((res, i) =>
+    res.status === 'fulfilled' ? res.value : {cfg: RACES[i], d: null}
+  );
+  renderRace(0);
 }
 main();
 </script>
