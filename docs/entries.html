@@ -903,12 +903,18 @@ function calcScores(h) {
   const prF  = h.pastRaceGradeFuku ?? null;
   const gkT  = h.gekisouGradeTan  ?? null;  // 🔥激走スコア（高人気乖離×本気×配合）×2倍ウェイト
   const gkF  = h.gekisouGradeFuku ?? null;
+  const lhcT = h.lapHotCornerGrade  ?? null;  // ラップ①ホットコーナー指数
+  const lhcF = h.lapHotCornerGrade  ?? null;
+  const lgrT = h.lapGoldenRatioGrade ?? null; // ラップ②ゴールデン比率
+  const lgrF = h.lapGoldenRatioGrade ?? null;
+  const lttT = h.lapTotalTimeGrade  ?? null;  // ラップ③前半+後半タイム
+  const lttF = h.lapTotalTimeGrade  ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,hnT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,hnT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,lhcT,lgrT,lttT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,hnF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,hnF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,lhcF,lgrF,lttF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // 過去走スコアは×3倍ウェイト
@@ -1412,6 +1418,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('騎厩', h.comboGradeTan ?? null, h.comboGradeFuku ?? null)}
           ${splitBadge('斤量', h.weightChangeGrade, 'weightChange', '解析完了')}
           ${(h.prevCourseGradeTan || h.prevCourseGradeFuku) ? gradeBadge('前走C', h.prevCourseGradeTan ?? null, h.prevCourseGradeFuku ?? null) : ''}
+          ${(h.lapHotCornerGrade || h.lapGoldenRatioGrade || h.lapTotalTimeGrade) ? `
+            ${gradeBadge('コーナー', h.lapHotCornerGrade ?? null, h.lapHotCornerGrade ?? null)}
+            ${gradeBadge('比率', h.lapGoldenRatioGrade ?? null, h.lapGoldenRatioGrade ?? null)}
+            ${gradeBadge('タイム', h.lapTotalTimeGrade ?? null, h.lapTotalTimeGrade ?? null)}
+          ` : ''}
         </div>
         <div class="badge-group">
           <span class="badge-group-label lbl-state">状態</span>
