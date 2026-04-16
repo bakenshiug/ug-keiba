@@ -510,33 +510,12 @@ const TOP_QUOTES = [
 ───────────────────────────────────── */
 function buildTopTicket() {
   const q = TOP_QUOTES[new Date().getDate() % TOP_QUOTES.length];
-  const counts = WIN5_RACES.map(r => Math.max(sel[r.id].length, 0) || 1);
-  const total  = counts.reduce((a, b) => a*b, 1);
-  const ptClass = total <= 32 ? 'pts-ok' : 'pts-warn';
-
-  const rows = WIN5_RACES.map(raceDef => {
-    const picks = sel[raceDef.id];
-    const pickHtml = picks.length > 0
-      ? picks.map((n,i) => `<span class="top-tpick${i===0?' top1':''}">${n}</span>`).join('')
-      : `<span style="color:rgba(255,255,255,.25);font-size:10px;">─ 未選択</span>`;
-    return `<div class="top-bet-row">
-      <div class="top-bet-label">R${raceDef.raceNo} ${raceDef.label}</div>
-      <div class="top-bet-picks">${pickHtml}</div>
-    </div>`;
-  }).join('');
 
   return `<div class="top-bet-wrap">
-  <div class="top-bet-head">
-    <div>
-      <div class="top-bet-title">🎯 最終買い目</div>
-      <div style="font-size:9px;color:var(--muted);margin-top:1px;">馬名タップで選択・解除</div>
-    </div>
-    <div style="text-align:right">
-      <span class="top-bet-pts ${ptClass}">${total}</span>
-      <span style="font-size:11px;color:var(--muted);margin-left:2px;">点</span>
-    </div>
+  <div class="top-bet-head" style="justify-content:center;flex-direction:column;align-items:flex-start;gap:4px;">
+    <div class="top-bet-title">🎯 WIN5最終買い目</div>
+    <div style="font-size:11px;color:var(--muted);letter-spacing:.04em;">分析中...</div>
   </div>
-  <div class="top-bet-body">${rows}</div>
 </div>
 <div class="top-bet-quote">「${q.text}」<span style="font-size:9px;color:rgba(252,211,77,.4);margin-left:8px;">— ${q.author}</span></div>`;
 }
