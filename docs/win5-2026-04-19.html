@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WIN5 2026.4.19 | UG競馬</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg1:#08060f;--bg2:#0e0b22;--bg3:#08060f;
+  --gold:#fcd34d;--gold-lt:#fef08a;--gold-dk:#d97706;
+  --green:#10b981;--green-lt:#6ee7b7;
+  --blue:#60a5fa;--purple:#a78bfa;
+  --card:rgba(255,255,255,.05);
+  --border:rgba(252,211,77,.18);
+  --text:#fff;--muted:rgba(220,200,150,.65);
+}
+html,body{
+  background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 55%,var(--bg3) 100%);
+  color:var(--text);
+  font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  min-height:100vh;
+}
+
+/* ── ヘッダー ── */
+.page-header{
+  background:linear-gradient(135deg,#08060f,#16103a,#08060f);
+  border-bottom:2px solid rgba(252,211,77,.4);
+  padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 30px rgba(130,100,250,.3);
+}
+.header-icon{font-size:30px;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(252,211,77,.6));}
+.header-title{font-family:'Noto Serif JP',serif;font-size:19px;font-weight:900;color:var(--gold);letter-spacing:.07em;}
+.header-sub{font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.03em;}
+
+/* ── 戻るボタン ── */
+.back-bar{padding:10px 14px 4px;}
+.back-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12px;font-weight:700;color:rgba(252,211,77,.8);
+  text-decoration:none;padding:5px 12px;border-radius:8px;
+  border:1px solid rgba(252,211,77,.3);
+  transition:all .15s;
+}
+.back-btn:active{background:rgba(252,211,77,.1);}
+
+/* ── レースセクション ── */
+.race-section{
+  margin:10px 12px;
+  border-radius:16px;overflow:hidden;
+  border:1px solid rgba(252,211,77,.18);
+  background:rgba(14,11,34,.7);
+}
+.race-header{
+  padding:12px 14px;
+  background:linear-gradient(135deg,rgba(252,211,77,.1),rgba(130,100,250,.12));
+  border-bottom:1px solid rgba(252,211,77,.12);
+  display:flex;align-items:center;gap:10px;
+}
+.race-num-badge{
+  width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold),#c97d06);
+  color:#0a0810;font-weight:900;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  flex-shrink:0;box-shadow:0 2px 10px rgba(252,211,77,.3);
+}
+.r-label{font-size:7px;letter-spacing:.08em;opacity:.8;}
+.r-num{font-size:16px;line-height:1.1;}
+.race-title-block{flex:1;min-width:0;}
+.race-name{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:900;color:#fff;}
+.race-meta{font-size:10px;color:var(--muted);margin-top:2px;}
+.race-humor{font-size:9px;color:rgba(252,211,77,.65);margin-top:3px;font-style:italic;line-height:1.4;}
+
+/* ── 馬リスト ── */
+.horse-list-inner{padding:8px 10px 10px;}
+.horse-row{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 10px 8px;
+  border-radius:10px;
+  margin-bottom:6px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  cursor:pointer;
+  transition:background .12s, border-color .12s;
+  -webkit-tap-highlight-color:transparent;
+}
+.horse-row:last-child{margin-bottom:0;}
+.horse-row.selected{
+  background:rgba(252,211,77,.11);
+  border-color:rgba(252,211,77,.5);
+}
+.horse-row.rank1{
+  border-color:rgba(252,211,77,.25);
+  background:rgba(252,211,77,.06);
+}
+
+/* ランクバッジ */
+.rank-badge{
+  width:26px;height:26px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:900;flex-shrink:0;
+}
+.rb-1{background:linear-gradient(135deg,var(--gold),#e09000);color:#1a0d00;}
+.rb-2{background:rgba(220,220,235,.15);color:#c8cce0;}
+.rb-3{background:rgba(180,145,80,.18);color:#c8a84a;}
+.rb-n{background:rgba(255,255,255,.06);color:rgba(255,255,255,.3);font-size:10px;}
+
+/* 馬番 */
+.hnum{
+  font-size:10px;font-weight:700;color:rgba(220,200,150,.55);
+  flex-shrink:0;width:18px;text-align:center;
+}
+
+/* 馬名エリア */
+.hname-block{flex:1;min-width:0;}
+.hname{
+  font-family:'Noto Serif JP',serif;
+  font-size:13px;font-weight:900;color:#fff;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.hname.rank1-name{color:var(--gold);}
+
+/* グレードバッジ行 */
+.grade-row{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px;}
+.gb{font-size:8px;font-weight:900;padding:1px 5px;border-radius:3px;letter-spacing:.02em;}
+.gb-s{background:rgba(252,211,77,.18);color:#fcd34d;border:1px solid rgba(252,211,77,.4);}
+.gb-a{background:rgba(134,239,172,.12);color:#86efac;border:1px solid rgba(134,239,172,.3);}
+.gb-b{background:rgba(147,197,253,.1);color:#93c5fd;border:1px solid rgba(147,197,253,.25);}
+.gb-c{background:rgba(253,164,175,.08);color:#fda4af;border:1px solid rgba(253,164,175,.2);}
+.gb-d{background:rgba(160,80,90,.07);color:rgba(253,164,175,.45);border:1px solid rgba(160,80,90,.2);}
+
+/* スコアバー */
+.sbar-wrap{display:flex;align-items:center;gap:5px;flex-shrink:0;}
+.sbar-bg{width:54px;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;}
+.sbar-fill{height:100%;border-radius:3px;transition:width .3s;}
+.sf-1{background:linear-gradient(90deg,var(--gold),#e09000);}
+.sf-2{background:linear-gradient(90deg,#86efac,#059669);}
+.sf-3{background:linear-gradient(90deg,#93c5fd,#3b82f6);}
+.sf-n{background:rgba(255,255,255,.2);}
+.sbar-pct{font-size:10px;font-weight:700;color:var(--muted);min-width:26px;text-align:right;font-family:'Inter',sans-serif;}
+
+/* チェックアイコン */
+.chk{font-size:15px;flex-shrink:0;width:20px;text-align:center;}
+
+/* ── WIN5 買い目 ── */
+.ticket-wrap{
+  margin:14px 12px;
+  border:2px solid var(--gold);
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 0 30px rgba(252,211,77,.12);
+}
+.ticket-head{
+  padding:13px 16px;
+  background:linear-gradient(135deg,rgba(252,211,77,.15),rgba(210,140,20,.12));
+  border-bottom:1px solid rgba(252,211,77,.2);
+  display:flex;align-items:center;gap:10px;
+}
+.ticket-icon{font-size:22px;}
+.ticket-title{font-size:16px;font-weight:900;color:var(--gold);letter-spacing:.07em;}
+.ticket-sub{font-size:10px;color:var(--muted);margin-top:2px;}
+
+.ticket-body{padding:12px 14px;background:rgba(0,0,0,.4);}
+.ticket-row{
+  display:flex;align-items:flex-start;gap:8px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(252,211,77,.07);
+}
+.ticket-row:last-child{border-bottom:none;}
+.ticket-rlabel{
+  font-size:9px;font-weight:900;color:var(--gold);
+  background:rgba(252,211,77,.1);
+  padding:3px 8px;border-radius:5px;
+  white-space:nowrap;flex-shrink:0;margin-top:2px;
+  border:1px solid rgba(252,211,77,.2);
+}
+.ticket-picks{display:flex;flex-wrap:wrap;gap:5px;flex:1;}
+.tpick{
+  font-size:11px;font-weight:700;
+  padding:3px 10px;border-radius:6px;
+  border:1px solid rgba(252,211,77,.25);
+  color:rgba(252,211,77,.8);
+  background:rgba(252,211,77,.07);
+}
+.tpick.top1{
+  background:rgba(252,211,77,.18);
+  border-color:rgba(252,211,77,.55);
+  color:var(--gold);
+}
+
+.ticket-footer{
+  margin:0 14px 14px;
+  padding:14px 16px;
+  background:linear-gradient(135deg,rgba(252,211,77,.08),rgba(180,130,20,.08));
+  border:1px solid rgba(252,211,77,.28);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;
+}
+.tf-left{}
+.tf-label{font-size:11px;color:var(--muted);}
+.tf-formula{font-size:12px;font-weight:700;color:rgba(252,211,77,.75);margin-top:3px;font-family:'Inter',sans-serif;}
+.tf-pts{
+  font-size:32px;font-weight:900;
+  font-family:'Inter',sans-serif;
+  line-height:1;
+}
+.pts-ok{color:var(--green-lt);}
+.pts-warn{color:#fda4af;}
+.tf-pts-unit{font-size:13px;font-weight:700;color:var(--muted);margin-left:3px;}
+
+/* ── ギーニョ一言 ── */
+.ginyo-line{
+  margin:4px 12px 10px;
+  padding:9px 13px;
+  background:rgba(255,255,255,.03);
+  border-left:3px solid rgba(252,211,77,.5);
+  border-radius:0 9px 9px 0;
+  font-size:11px;color:rgba(220,200,150,.7);
+  line-height:1.65;font-style:italic;
+}
+
+/* ── ローディング ── */
+.loading{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px;}
+
+/* ── フッター余白 ── */
+.page-foot{height:70px;}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-icon">🔑</div>
+  <div>
+    <div class="header-title">WIN5 特設ページ</div>
+    <div class="header-sub">2026年4月19日（土）── 5レース単勝スコアランキング</div>
+  </div>
+</div>
+
+<div id="root"><div class="loading">📊 データロード中...</div></div>
+<div class="page-foot"></div>
+
+<script>
+/* ─────────────────────────────────────
+   スコアロジック（entries.htmlより移植）
+───────────────────────────────────── */
+const GRADE_MAPS = {
+  zi:    {S:['S','A'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  ext:   {S:['A','S'],A:['B','A'],B:['C','B']},
+  kinso: {
+    '3S':['S','S'],'2S':['S','A'],'1S':['A','S'],
+    '3A':['A','A'],'2A':['A','B'],'1A':['B','A'],
+    '3B':['B','B'],'2B':['C','B'],'1B':['C','C'],
+    '3C':['D','C'],'2C':['D','D'],'1C':['D','D'],
+    S:['S','S'],A:['A','A'],B:['B','A'],C:['D','C'],D:['D','D']
+  },
+  pace:  {S:['S','A'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  body:  {S:['A','S'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  course:{S:['A','S'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  style: {S:['S','A'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+  weightChange:{S:['S','A'],A:['A','A'],B:['C','B'],C:['D','C'],D:['D','D']},
+};
+function splitGrade(g, key) {
+  if (!g || g === '—') return [null, null];
+  if (GRADE_MAPS[key]?.[g]) return GRADE_MAPS[key][g];
+  return [g, g];
+}
+function ziGrade(zi) {
+  if (!zi) return 'B';
+  if (zi >= 130) return 'S'; if (zi >= 110) return 'A';
+  if (zi >= 90)  return 'B'; if (zi >= 70)  return 'C'; return 'D';
+}
+function extGrade(fac) {
+  if (!fac) return null;
+  const s = String(fac);
+  if (/ノーザン|NF|社台RH/.test(s)) return 'S';
+  if (/国枝|藤沢|堀|池江|矢作/.test(s)) return 'A';
+  return 'B';
+}
+function gradePoints(g) {
+  const pts = {
+    '3S':12,'2S':11,'1S':10,'3A':9,'2A':8,'1A':7,
+    '3B':6,'2B':5,'1B':4,'3C':3,'2C':2,'1C':1,'D':0,
+    S:11, A:8, B:5, C:2
+  };
+  return g != null ? (pts[g] ?? null) : null;
+}
+const gradeMax = () => 12;
+
+function calcTanScore(h) {
+  const [ziT]  = splitGrade(ziGrade(h.sabcZI), 'zi');
+  const [exT]  = splitGrade(extGrade(h.extFacility), 'ext');
+  const kT     = h.kinsoGrade ?? null;
+  const [pT]   = splitGrade(h.paceGrade,   'pace');
+  const [bdT]  = splitGrade(h.bodyGrade,   'body');
+  const [cT]   = splitGrade(h.courseGrade, 'course');
+  const [syT]  = splitGrade(h.styleGrade,  'style');
+  const srT    = h.sireGradeTan      ?? null;
+  const dsT    = h.damSireGradeTan   ?? null;
+  const sr2T   = h.sireGrade2Tan     ?? 'B';
+  const ds2T   = h.damSireGrade2Tan  ?? 'B';
+  const bT     = (h.bloodGradeTan && h.bloodGradeTan !== '—') ? h.bloodGradeTan : null;
+  const stT    = h.stableGradeTan    ?? null;
+  const brT    = h.breederGradeTan   ?? null;
+  const jkT    = h.jockeyGradeTan    ?? null;
+  const gtT    = h.gateGradeTan      ?? null;
+  const spT    = h.specialGradeTan   ?? h.specialGrade ?? null;
+  const agT    = h.ageGradeTan       ?? null;
+  const rtT    = h.rotGradeTan       ?? null;
+  const s3T    = h.sf3GradeTan       ?? null;
+  const lpT    = h.lapGradeTan       ?? null;
+  const pmT    = h.prevMarginGradeTan ?? null;
+  const cdT    = h.conditionGradeTan ?? null;
+  const smT    = h.somaGradeTan      ?? null;
+  const tgtT   = h.raceTargetGradeTan ?? null;
+  const fwT    = h.finalWorkoutGradeTan ?? null;
+  const hgT    = h.haigoGradeTan     ?? null;
+  const pxT    = h.paradoxGradeTan   ?? null;
+  const coT    = h.commentGradeTan   ?? null;
+  const [wcT]  = splitGrade(h.weightChangeGrade, 'weightChange');
+  const pcT    = h.prevCourseGradeTan ?? null;
+  const prT    = h.pastRaceGradeTan   ?? null;
+  const gkT    = h.gekisouGradeTan    ?? null;
+
+  let tanScore = 0, tanMax = 0;
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT]) {
+    const p = gradePoints(g);
+    if (p !== null){ tanScore += p; tanMax += gradeMax(); }
+  }
+  const prP = gradePoints(prT); if (prP !== null){ tanScore += prP*3; tanMax += gradeMax()*3; }
+  const gkP = gradePoints(gkT); if (gkP !== null){ tanScore += gkP*2; tanMax += gradeMax()*2; }
+  const gMult = {S:1.3,A:1.15,B:1.0,C:0.7,D:1.0}[h.ginyoGradeTan ?? 'B'] ?? 1.0;
+  tanScore *= gMult;
+
+  return { tanScore, tanMax, pct: tanMax > 0 ? tanScore / tanMax : 0 };
+}
+
+/* ─────────────────────────────────────
+   WIN5レース定義（レース順）
+───────────────────────────────────── */
+const WIN5_RACES = [
+  { raceNo:1, file:'data/race-notes/2026-04-19-hanshin-10r.json',
+    label:'陽春S',    meta:'阪神ダ1200 ハンデ戦',    id:'h10' },
+  { raceNo:2, file:'data/race-notes/2026-04-19-nakayama-10r.json',
+    label:'京葉S',    meta:'中山ダ1200 OP(L) 別定',   id:'n10' },
+  { raceNo:3, file:'data/race-notes/2026-04-19-hanshin-11r.json',
+    label:'立雲峡S',  meta:'阪神芝1600外 定量',        id:'h11' },
+  { raceNo:4, file:'data/race-notes/2026-04-19-fukushima-11r.json',
+    label:'福島牝馬S',meta:'福島芝1800 GⅢ',           id:'f11' },
+  { raceNo:5, file:'data/race-notes/2026-04-19-nakayama-11r.json',
+    label:'皐月賞',   meta:'中山芝2000 GⅠ',           id:'n11' },
+];
+
+/* 選択状態 */
+const sel = { h10:[], n10:[], h11:[], f11:[], n11:[] };
+
+/* ─────────────────────────────────────
+   グレードバッジ生成
+───────────────────────────────────── */
+function gbCls(g) {
+  return 'gb ' + ({S:'gb-s',A:'gb-a',B:'gb-b',C:'gb-c',D:'gb-d'}[g] || 'gb-b');
+}
+function buildBadges(h) {
+  const items = [
+    ['父',   h.sireGradeTan],
+    ['厩舎', h.stableGradeTan],
+    ['生産', h.breederGradeTan],
+    ['前走', h.prevCourseGradeTan],
+    ['脚質', h.styleGrade],
+    ['コメ', h.commentGradeTan],
+    ['血統', h.bloodGradeTan],
+    ['近走', h.kinsoGrade],
+    ['追切', h.finalWorkoutGradeTan],
+    ['激走', h.gekisouGradeTan],
+    ['過去', h.pastRaceGradeTan],
+    ['思惑', h.raceTargetGradeTan],
+    ['逆説', h.paradoxGradeTan],
+  ];
+  return items
+    .filter(([,g]) => g && g !== 'null' && g !== '—')
+    .map(([lbl,g]) => `<span class="${gbCls(g)}">${lbl}:${g}</span>`)
+    .join('');
+}
+
+/* ─────────────────────────────────────
+   馬の行HTML
+───────────────────────────────────── */
+function buildRow(raceId, name, h, rank, pct) {
+  const isSel = sel[raceId].includes(name);
+  const rbMap = {1:'rb-1',2:'rb-2',3:'rb-3'};
+  const rbClass = rbMap[rank] || 'rb-n';
+  const sfMap  = {1:'sf-1',2:'sf-2',3:'sf-3'};
+  const sfClass = sfMap[rank] || 'sf-n';
+  const pctPx = Math.min(Math.round(pct*100), 100);
+  const badges = buildBadges(h);
+  const nameEsc = name.replace(/'/g, '&#39;');
+
+  return `<div class="horse-row${rank===1?' rank1':''}${isSel?' selected':''}"
+    onclick="toggleSel('${raceId}','${nameEsc}')"
+    data-race="${raceId}" data-horse="${nameEsc}">
+  <div class="rank-badge ${rbClass}">${rank<=9?rank:'—'}</div>
+  <div class="hnum">${h.num??''}</div>
+  <div class="hname-block">
+    <div class="hname${rank===1?' rank1-name':''}">${name}</div>
+    ${badges ? `<div class="grade-row">${badges}</div>` : ''}
+  </div>
+  <div class="sbar-wrap">
+    <div class="sbar-bg"><div class="sbar-fill ${sfClass}" style="width:${pctPx}%"></div></div>
+    <div class="sbar-pct">${pctPx}%</div>
+  </div>
+  <div class="chk">${isSel?'✅':'☐'}</div>
+</div>`;
+}
+
+/* ─────────────────────────────────────
+   レースセクションHTML
+───────────────────────────────────── */
+function buildRaceSection(raceDef, data) {
+  const entries = Object.entries(data.horses || {});
+  const scored = entries
+    .map(([name, h]) => ({ name, h, ...calcTanScore(h) }))
+    .sort((a, b) => b.pct - a.pct);
+
+  const SHOW = Math.min(scored.length, 7);
+  const rows = scored.slice(0, SHOW).map(({name, h, pct}, i) =>
+    buildRow(raceDef.id, name, h, i+1, pct)
+  ).join('');
+
+  const humor = data.raceTitle?.humor ?? '';
+  const rest  = scored.length > SHOW ? scored.length - SHOW : 0;
+
+  return `<div class="race-section" id="sec-${raceDef.id}">
+  <div class="race-header">
+    <div class="race-num-badge"><div class="r-label">WIN5</div><div class="r-num">R${raceDef.raceNo}</div></div>
+    <div class="race-title-block">
+      <div class="race-name">${raceDef.label}</div>
+      <div class="race-meta">${raceDef.meta}</div>
+      ${humor ? `<div class="race-humor">${humor}</div>` : ''}
+    </div>
+  </div>
+  <div class="horse-list-inner">
+    ${rows}
+    ${rest ? `<div style="text-align:center;font-size:10px;color:var(--muted);padding:4px 0">他 ${rest}頭</div>` : ''}
+  </div>
+</div>`;
+}
+
+/* ─────────────────────────────────────
+   WIN5 買い目HTML（動的再描画用）
+───────────────────────────────────── */
+function buildTicket() {
+  const counts = WIN5_RACES.map(r => Math.max(sel[r.id].length, 0) || 1);
+  const total  = counts.reduce((a, b) => a*b, 1);
+  const formula = WIN5_RACES.map((r, i) => {
+    const n = sel[r.id].length || 1;
+    return `<span style="opacity:${n>1?1:.55}">${n}</span>`;
+  }).join('<span style="opacity:.5;font-size:10px;margin:0 2px">×</span>');
+  const ptClass = total <= 32 ? 'pts-ok' : 'pts-warn';
+
+  const rows = WIN5_RACES.map(raceDef => {
+    const picks = sel[raceDef.id];
+    const pickHtml = picks.length > 0
+      ? picks.map((n,i) => `<span class="tpick${i===0?' top1':''}">${n}</span>`).join('')
+      : `<span style="color:rgba(255,255,255,.25);font-size:11px;">─ 未選択</span>`;
+    return `<div class="ticket-row">
+  <div class="ticket-rlabel">R${raceDef.raceNo}&nbsp;${raceDef.label}</div>
+  <div class="ticket-picks">${pickHtml}</div>
+</div>`;
+  }).join('');
+
+  return `<div class="ticket-wrap" id="ticket-wrap">
+  <div class="ticket-head">
+    <div class="ticket-icon">🎯</div>
+    <div>
+      <div class="ticket-title">WIN5 買い目</div>
+      <div class="ticket-sub">馬名タップで選択・解除 ／ デフォルト: 各レース単勝1位</div>
+    </div>
+  </div>
+  <div class="ticket-body">${rows}</div>
+  <div class="ticket-footer">
+    <div class="tf-left">
+      <div class="tf-label">組み合わせ数</div>
+      <div class="tf-formula">${formula} = <b>${total}</b></div>
+    </div>
+    <div>
+      <span class="tf-pts ${ptClass}">${total}</span><span class="tf-pts-unit">点</span>
+    </div>
+  </div>
+</div>`;
+}
+
+/* ─────────────────────────────────────
+   トグル処理
+───────────────────────────────────── */
+function toggleSel(raceId, name) {
+  const arr = sel[raceId];
+  const idx = arr.indexOf(name);
+  if (idx >= 0) arr.splice(idx, 1); else arr.push(name);
+
+  /* 行の見た目を即時更新（再描画なしで高速化） */
+  document.querySelectorAll(`[data-race="${raceId}"][data-horse="${name}"]`).forEach(el => {
+    const on = sel[raceId].includes(name);
+    el.classList.toggle('selected', on);
+    const ci = el.querySelector('.chk');
+    if (ci) ci.textContent = on ? '✅' : '☐';
+  });
+
+  /* チケットセクションのみ再描画 */
+  const old = document.getElementById('ticket-wrap');
+  if (old) old.outerHTML = buildTicket();
+}
+
+/* ─────────────────────────────────────
+   エントリポイント
+───────────────────────────────────── */
+async function init() {
+  try {
+    const jsons = await Promise.all(
+      WIN5_RACES.map(r => fetch(r.file).then(res => {
+        if (!res.ok) throw new Error(`${r.file}: ${res.status}`);
+        return res.json();
+      }))
+    );
+
+    /* デフォルト選択: 各レース単勝1位 */
+    WIN5_RACES.forEach((raceDef, idx) => {
+      const entries = Object.entries(jsons[idx].horses || {});
+      const top = entries
+        .map(([name, h]) => ({ name, ...calcTanScore(h) }))
+        .sort((a, b) => b.pct - a.pct)[0];
+      if (top) sel[raceDef.id] = [top.name];
+    });
+
+    /* HTML構築 */
+    const html = [
+      `<div class="back-bar"><a href="index.html" class="back-btn">← トップに戻る</a></div>`,
+      ...WIN5_RACES.map((raceDef, idx) => buildRaceSection(raceDef, jsons[idx])),
+      buildTicket(),
+    ].join('');
+
+    document.getElementById('root').innerHTML = html;
+
+  } catch(e) {
+    document.getElementById('root').innerHTML =
+      `<div class="loading" style="color:#fda4af;">⚠ データ読み込みエラー<br><small>${e.message}</small></div>`;
+    console.error(e);
+  }
+}
+
+init();
+</script>
+</body>
+</html>
