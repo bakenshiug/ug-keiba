@@ -1445,9 +1445,11 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
   </div>`;
 }
 
-// ── 印マップ構築（繰り下げロジック付き） ──
-// markDeltaTopN: △を付ける総合スコア上位N位まで（JSONのrace.markDeltaTopNで指定）
-function buildMarkMap(sougouRankMap, anaRankMap, markDeltaTopN) {
+// ── 印マップ構築（出走馬の半数に印を付けるロジック） ──
+// totalHorseCount: 出走馬数（印数 = Math.floor(totalHorseCount / 2)）
+// 順序: ◎総合1位 → ○総合2位 → ▲穴馬1位 → ⭐穴馬2位 → △総合3位〜（半数に達するまで）
+function buildMarkMap(sougouRankMap, anaRankMap, totalHorseCount) {
+  const targetCount = Math.floor(totalHorseCount / 2);
   const markMap = {};
   const assigned = new Set();
   const sougouSorted = Object.keys(sougouRankMap).sort((a,b) => sougouRankMap[a] - sougouRankMap[b]);
@@ -1461,31 +1463,25 @@ function buildMarkMap(sougouRankMap, anaRankMap, markDeltaTopN) {
   // ◎ 総合1位
   if (sougouSorted[0]) assign(sougouSorted[0], '◎');
 
-  // ○ 穴馬1位（既に印があれば次へ）
-  for (const h of anaSorted) {
+  // ○ 総合2位（既に印があれば次へ）
+  for (const h of sougouSorted.slice(1)) {
     if (!assigned.has(h)) { assign(h, '○'); break; }
   }
 
-  // ▲ 総合2位（既に印があれば次へ）
-  for (const h of sougouSorted.slice(1)) {
+  // ▲ 穴馬1位（既に印があれば次へ）
+  for (const h of anaSorted) {
     if (!assigned.has(h)) { assign(h, '▲'); break; }
   }
 
-  // ⭐ 穴馬2位（1位を除いて次の未割当）
-  let anaSkip = 0;
+  // ⭐ 穴馬2位（未割当の穴馬2番手）
   for (const h of anaSorted) {
-    if (assigned.has(h)) continue;
-    anaSkip++;
-    if (anaSkip === 1) { assign(h, '⭐'); break; }
+    if (!assigned.has(h)) { assign(h, '⭐'); break; }
   }
 
-  // △ 総合3位〜 markDeltaTopN 位まで（繰り下げ: 既割当スキップ）
-  if (markDeltaTopN) {
-    let deltaCount = 0;
-    for (const h of sougouSorted.slice(2)) {
-      if (deltaCount >= markDeltaTopN - 2) break;
-      if (!assigned.has(h)) { assign(h, '△'); deltaCount++; }
-    }
+  // △ 総合3位〜（出走馬の半数に達するまで、繰り下げ）
+  for (const h of sougouSorted.slice(2)) {
+    if (assigned.size >= targetCount) break;
+    if (!assigned.has(h)) assign(h, '△');
   }
 
   return markMap;
@@ -1552,9 +1548,9 @@ function renderRace(idx) {
   bySougou.forEach(({name},i) => sougouRankMap[name] = i+1);
   byOdds.forEach(({name},i)   => popularityMap[name] = i+1);
 
-  // 印マップ（JSONのrace.markDeltaTopNが設定されている場合のみ構築）
+  // 印マップ（JSONのrace.markDeltaTopNが設定されている場合のみ構築、馬数は出走馬数から自動計算）
   const markDeltaTopN = d.race?.markDeltaTopN ?? null;
-  const markMap = markDeltaTopN ? buildMarkMap(sougouRankMap, anaRankMap, markDeltaTopN) : {};
+  const markMap = markDeltaTopN ? buildMarkMap(sougouRankMap, anaRankMap, horses.length) : {};
 
   // 印順ソート（◎1 ○2 ▲3 ⭐4 △5 無印9）
   const MARK_ORDER = {'◎':1,'○':2,'▲':3,'⭐':4,'△':5};
