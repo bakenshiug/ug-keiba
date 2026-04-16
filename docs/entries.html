@@ -856,6 +856,8 @@ function calcScores(h) {
   const jkF = h.jockeyGradeFuku ?? null;
   const gtT = h.gateGradeTan    ?? null;
   const gtF = h.gateGradeFuku   ?? null;
+  const hnT = h.horseNumGradeTan  ?? null;  // 馬番（単回収率ベース）
+  const hnF = h.horseNumGradeFuku ?? null;
   const spT = h.specialGradeTan  ?? h.specialGrade ?? null;
   const spF = h.specialGradeFuku ?? h.specialGrade ?? null;
   const agT = h.ageGradeTan    ?? null;
@@ -891,10 +893,10 @@ function calcScores(h) {
   const gkF  = h.gekisouGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,hnT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,hnF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // 過去走スコアは×3倍ウェイト
@@ -1393,6 +1395,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
           ${gradeBadge('厩舎', h.stableGradeTan ?? null, h.stableGradeFuku ?? null)}
           ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
+          ${(h.horseNumGradeTan || h.horseNumGradeFuku) ? gradeBadge('馬番', h.horseNumGradeTan ?? null, h.horseNumGradeFuku ?? null) : ''}
           ${gradeBadge('騎厩', h.comboGradeTan ?? null, h.comboGradeFuku ?? null)}
           ${splitBadge('斤量', h.weightChangeGrade, 'weightChange', '解析完了')}
           ${(h.prevCourseGradeTan || h.prevCourseGradeFuku) ? gradeBadge('前走C', h.prevCourseGradeTan ?? null, h.prevCourseGradeFuku ?? null) : ''}
