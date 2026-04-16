@@ -567,6 +567,31 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   overflow:hidden;
   border:1px solid rgba(200,30,80,.18);
 }
+/* ── ラップ解析中バナー ── */
+.lap-inprogress-block{
+  background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(6,182,212,.08));
+  border-bottom:1px solid rgba(16,185,129,.18) !important;
+}
+.lap-inprogress-head{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;
+}
+.lap-inprogress-icon{font-size:20px;flex-shrink:0;}
+.lap-inprogress-title{
+  font-size:12px;font-weight:900;color:#059669;letter-spacing:.08em;
+}
+.lap-inprogress-sub{
+  font-size:10px;color:#6b7280;margin-top:2px;line-height:1.5;
+}
+.lap-inprogress-badge{
+  margin-left:auto;flex-shrink:0;
+  font-size:9px;font-weight:900;letter-spacing:.1em;
+  padding:3px 8px;border-radius:20px;
+  background:#059669;color:#fff;
+  animation:livePulse 1.8s ease-in-out infinite;
+}
+@keyframes livePulse{
+  0%,100%{opacity:1;} 50%{opacity:.5;}
+}
 .analysis-block{
   background:#fff;
   padding:14px 16px;
@@ -1213,9 +1238,24 @@ function toggleAnalysis(el) {
 function buildAnalysisSection(d) {
   const hasAnalysis = d.raceAnalysis;
   const hasBlood    = d.bloodAnalysis;
-  if (!hasAnalysis && !hasBlood) return '';
+  const hasLapInProgress = d.race?.lapAnalysisInProgress;
+  if (!hasAnalysis && !hasBlood && !hasLapInProgress) return '';
 
   let html = '<div class="analysis-section">';
+
+  if (hasLapInProgress) {
+    html += `
+    <div class="analysis-block lap-inprogress-block">
+      <div class="lap-inprogress-head">
+        <span class="lap-inprogress-icon">🔍</span>
+        <div>
+          <div class="lap-inprogress-title">ラップ解析中</div>
+          <div class="lap-inprogress-sub">ホットコーナー指数・ゴールデン比率・前後半タイムをスコアに反映中。追い切り後に最終確定。</div>
+        </div>
+        <span class="lap-inprogress-badge">LIVE</span>
+      </div>
+    </div>`;
+  }
 
   if (hasAnalysis) {
     const rt = d.raceTitle ?? null;
