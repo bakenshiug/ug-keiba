@@ -450,6 +450,18 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   color:#a5b4fc;
   font-weight:800;
 }
+.sort-btn.mark-btn{
+  border-color:rgba(245,158,11,.5);
+  color:rgba(245,158,11,.9);
+  font-weight:800;
+}
+.sort-btn.mark-btn.active{
+  background:linear-gradient(90deg,rgba(245,158,11,.2),rgba(236,72,153,.15));
+  border-color:rgba(245,158,11,.7);
+  color:#fcd34d;
+  font-weight:900;
+}
+.horse-num-mark-sort{background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(236,72,153,.15));color:#d97706;border:1px solid rgba(245,158,11,.4);}
 
 /* カード本体 */
 .card-body{padding:10px 14px;background:#fff;color:#222;}
@@ -1287,9 +1299,9 @@ function buildSf3Comment(h) {
 }
 
 function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore, isKeshi, mark) {
-  const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : sortMode==='uma' ? (h.horseNum ?? 0) : ziRank;
-  const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : sortMode==='uma' ? '馬番' : 'ZI';
-  const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : sortMode==='uma' ? 'uma' : 'zi';
+  const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : sortMode==='uma' ? (h.horseNum ?? 0) : sortMode==='mark' ? (markRankMap?.[name] ?? 0) : ziRank;
+  const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : sortMode==='uma' ? '馬番' : sortMode==='mark' ? '印' : 'ZI';
+  const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : sortMode==='uma' ? 'uma' : sortMode==='mark' ? 'mark-sort' : 'zi';
   const sf3Cmt = buildSf3Comment(h);
   const raceAnaCmt = h.raceAnaNote ?? null;
   const condCmt = h.conditionNote ?? null;
@@ -1543,6 +1555,18 @@ function renderRace(idx) {
   const markDeltaTopN = d.race?.markDeltaTopN ?? null;
   const markMap = markDeltaTopN ? buildMarkMap(sougouRankMap, anaRankMap, markDeltaTopN) : {};
 
+  // 印順ソート（◎1 ○2 ▲3 ⭐4 △5 無印9）
+  const MARK_ORDER = {'◎':1,'○':2,'▲':3,'⭐':4,'△':5};
+  const byMark = markDeltaTopN
+    ? [...withAna].sort((a,b) => {
+        const ao = MARK_ORDER[markMap[a.name]] ?? 9;
+        const bo = MARK_ORDER[markMap[b.name]] ?? 9;
+        return ao - bo || b.sougouScore - a.sougouScore;
+      })
+    : byZI;
+  const markRankMap = {};
+  byMark.forEach(({name},i) => markRankMap[name] = i+1);
+
   // 表示順
   let display;
   if      (sortMode === 'tan')    display = byTan;
@@ -1550,6 +1574,7 @@ function renderRace(idx) {
   else if (sortMode === 'ana')    display = byAna;
   else if (sortMode === 'sougou') display = bySougou;
   else if (sortMode === 'uma')    display = byUma;
+  else if (sortMode === 'mark')   display = byMark;
   else                            display = byZI;
 
   const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
@@ -1573,6 +1598,7 @@ function renderRace(idx) {
       <button class="sort-btn ana-btn ${sortMode==='ana'?'active':''}" onclick="setSortMode('ana')">穴馬スコア順</button>
       <button class="sort-btn ${sortMode==='zi'    ?'active':''}" onclick="setSortMode('zi')">ZI順</button>
       ${withAna.some(s=>s.h.horseNum) ? `<button class="sort-btn uma-btn ${sortMode==='uma'?'active':''}" onclick="setSortMode('uma')">🏇 馬番順</button>` : ''}
+      ${markDeltaTopN ? `<button class="sort-btn mark-btn ${sortMode==='mark'?'active':''}" onclick="setSortMode('mark')">◎ 印順</button>` : ''}
     </div>`;
 
   document.getElementById('content').innerHTML = `
