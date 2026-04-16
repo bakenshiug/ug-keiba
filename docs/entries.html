@@ -1174,6 +1174,7 @@ function buildBetSection(withAna, headCount, d) {
 }
 
 let sortMode = 'sougou';
+let markRankMap = {};
 function setSortMode(mode) { sortMode = mode; renderRace(currentIdx); }
 
 function buildRankList(items) {
@@ -1564,7 +1565,7 @@ function renderRace(idx) {
         return ao - bo || b.sougouScore - a.sougouScore;
       })
     : byZI;
-  const markRankMap = {};
+  markRankMap = {};
   byMark.forEach(({name},i) => markRankMap[name] = i+1);
 
   // 表示順
