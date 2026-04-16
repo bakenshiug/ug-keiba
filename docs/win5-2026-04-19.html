@@ -227,6 +227,48 @@ html,body{
 
 /* ── フッター余白 ── */
 .page-foot{height:70px;}
+
+/* ── 最終買い目トップバナー ── */
+.top-bet-wrap{
+  margin:12px 12px 0;
+  border:2px solid rgba(252,211,77,.55);
+  border-radius:16px;overflow:hidden;
+  background:linear-gradient(135deg,rgba(252,211,77,.08),rgba(130,100,250,.1));
+  box-shadow:0 0 28px rgba(252,211,77,.18);
+}
+.top-bet-head{
+  padding:11px 14px;
+  background:linear-gradient(135deg,rgba(252,211,77,.15),rgba(180,140,20,.12));
+  border-bottom:1px solid rgba(252,211,77,.18);
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.top-bet-title{font-size:14px;font-weight:900;color:var(--gold);letter-spacing:.06em;}
+.top-bet-pts{font-family:'Inter',sans-serif;font-weight:900;font-size:22px;line-height:1;}
+.top-bet-body{padding:8px 12px 10px;display:flex;flex-direction:column;gap:5px;}
+.top-bet-row{display:flex;align-items:center;gap:6px;}
+.top-bet-label{
+  font-size:9px;font-weight:900;color:var(--gold);
+  background:rgba(252,211,77,.1);padding:2px 6px;
+  border-radius:4px;border:1px solid rgba(252,211,77,.2);
+  white-space:nowrap;flex-shrink:0;min-width:68px;text-align:center;
+}
+.top-bet-picks{display:flex;flex-wrap:wrap;gap:4px;}
+.top-tpick{
+  font-size:10px;font-weight:700;padding:2px 8px;
+  border-radius:5px;border:1px solid rgba(252,211,77,.25);
+  color:rgba(252,211,77,.8);background:rgba(252,211,77,.07);
+}
+.top-tpick.top1{
+  background:rgba(252,211,77,.18);border-color:rgba(252,211,77,.55);color:var(--gold);
+}
+.top-bet-quote{
+  margin:6px 12px 12px;padding:9px 13px;
+  background:rgba(0,0,0,.25);
+  border-left:3px solid rgba(252,211,77,.5);
+  border-radius:0 9px 9px 0;
+  font-size:11px;color:rgba(252,211,77,.7);
+  font-style:italic;line-height:1.65;
+}
 </style>
 </head>
 <body>
@@ -448,6 +490,58 @@ function buildRaceSection(raceDef, data) {
 }
 
 /* ─────────────────────────────────────
+   格言リスト
+───────────────────────────────────── */
+const TOP_QUOTES = [
+  { text: "馬券に「たぶん」はない。確信で買え、根拠で捨てろ。", author: "ギーニョ" },
+  { text: "市場が満場一致で推す馬は、すでに割高だ。", author: "逆張り鉄則" },
+  { text: "準備した者だけが、幸運と呼ばれる瞬間を掴める。", author: "セネカ" },
+  { text: "人気馬を疑う勇気と、穴馬を信じる根拠。その両方を持て。", author: "ギーニョ" },
+  { text: "オッズは過去の幻想だ。未来を買え。", author: "ギーニョ" },
+  { text: "叩き台馬に夢を見るな。本番馬に現実を見ろ。", author: "ギーニョ" },
+  { text: "リスクを取らないことが、最大のリスクだ。", author: "N.タレブ的思考" },
+  { text: "WIN5は5頭の合唱だ。一頭でも音痴がいれば終わる。", author: "ギーニョ" },
+  { text: "「みんな知ってる」情報に価値はない。知らない人が見えるものを買え。", author: "ギーニョ" },
+  { text: "強い馬が負けるのではない。強く見える馬が負けるのだ。", author: "ギーニョ" },
+];
+
+/* ─────────────────────────────────────
+   最終買い目トップバナー（動的再描画用）
+───────────────────────────────────── */
+function buildTopTicket() {
+  const q = TOP_QUOTES[new Date().getDate() % TOP_QUOTES.length];
+  const counts = WIN5_RACES.map(r => Math.max(sel[r.id].length, 0) || 1);
+  const total  = counts.reduce((a, b) => a*b, 1);
+  const ptClass = total <= 32 ? 'pts-ok' : 'pts-warn';
+
+  const rows = WIN5_RACES.map(raceDef => {
+    const picks = sel[raceDef.id];
+    const pickHtml = picks.length > 0
+      ? picks.map((n,i) => `<span class="top-tpick${i===0?' top1':''}">${n}</span>`).join('')
+      : `<span style="color:rgba(255,255,255,.25);font-size:10px;">─ 未選択</span>`;
+    return `<div class="top-bet-row">
+      <div class="top-bet-label">R${raceDef.raceNo} ${raceDef.label}</div>
+      <div class="top-bet-picks">${pickHtml}</div>
+    </div>`;
+  }).join('');
+
+  return `<div class="top-bet-wrap">
+  <div class="top-bet-head">
+    <div>
+      <div class="top-bet-title">🎯 最終買い目</div>
+      <div style="font-size:9px;color:var(--muted);margin-top:1px;">馬名タップで選択・解除</div>
+    </div>
+    <div style="text-align:right">
+      <span class="top-bet-pts ${ptClass}">${total}</span>
+      <span style="font-size:11px;color:var(--muted);margin-left:2px;">点</span>
+    </div>
+  </div>
+  <div class="top-bet-body">${rows}</div>
+</div>
+<div class="top-bet-quote">「${q.text}」<span style="font-size:9px;color:rgba(252,211,77,.4);margin-left:8px;">— ${q.author}</span></div>`;
+}
+
+/* ─────────────────────────────────────
    WIN5 買い目HTML（動的再描画用）
 ───────────────────────────────────── */
 function buildTicket() {
@@ -510,6 +604,10 @@ function toggleSel(raceId, name) {
   /* チケットセクションのみ再描画 */
   const old = document.getElementById('ticket-wrap');
   if (old) old.outerHTML = buildTicket();
+
+  /* トップバナーも同期更新 */
+  const tt = document.getElementById('top-ticket');
+  if (tt) tt.innerHTML = buildTopTicket();
 }
 
 /* ─────────────────────────────────────
@@ -536,6 +634,7 @@ async function init() {
     /* HTML構築 */
     const html = [
       `<div class="back-bar"><a href="index.html" class="back-btn">← トップに戻る</a></div>`,
+      `<div id="top-ticket">${buildTopTicket()}</div>`,
       ...WIN5_RACES.map((raceDef, idx) => buildRaceSection(raceDef, jsons[idx])),
       buildTicket(),
     ].join('');
