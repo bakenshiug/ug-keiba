@@ -141,6 +141,18 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .horse-num-ana    {background:rgba(167,139,250,.22);color:#6d28d9;}
 .horse-num-sf3    {background:rgba(251,146,60,.22);color:#c2410c;}
 .horse-num-keshi  {background:rgba(248,113,113,.12);color:rgba(248,113,113,.7);border:1px solid rgba(248,113,113,.25);}
+/* ── 印バッジ ── */
+.mark-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  font-size:16px;font-weight:900;flex-shrink:0;line-height:1;
+  box-shadow:0 2px 6px rgba(0,0,0,.18);
+}
+.mark-honmei { background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#fff; border:2px solid #d97706; }  /* ◎ */
+.mark-taikou { background:linear-gradient(135deg,#94a3b8,#64748b); color:#fff; border:2px solid #475569; }  /* ○ */
+.mark-tantan { background:linear-gradient(135deg,#f87171,#ef4444); color:#fff; border:2px solid #dc2626; }  /* ▲ */
+.mark-hoshi  { background:linear-gradient(135deg,#c084fc,#a855f7); color:#fff; border:2px solid #9333ea; }  /* ⭐ */
+.mark-sankaku{ background:linear-gradient(135deg,#6b7280,#4b5563); color:#fff; border:2px solid #374151; font-size:13px; } /* △ */
 .horse-name{
   font-family:'Noto Serif JP',serif;
   font-size:16px;font-weight:900;color:#1a0a10;
@@ -1245,7 +1257,7 @@ function buildSf3Comment(h) {
   return `${diffStr} × ${rankStr} × ${oddsStr} → スコア${score.toFixed(2)}（${eval_}）`;
 }
 
-function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore, isKeshi) {
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore, isKeshi, mark) {
   const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : ziRank;
   const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : 'ZI';
   const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : 'zi';
@@ -1311,6 +1323,10 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           <span class="horse-num-rank">${isKeshi ? '消' : dispRank}</span>
           <span class="horse-num-mode">${isKeshi ? '消し' : modeLabel}</span>
         </div>
+        ${mark ? (() => {
+          const cls = mark==='◎'?'mark-honmei':mark==='○'?'mark-taikou':mark==='▲'?'mark-tantan':mark==='⭐'?'mark-hoshi':'mark-sankaku';
+          return `<span class="mark-badge ${cls}" title="${mark}">${mark}</span>`;
+        })() : ''}
         <span class="horse-name${!isKeshi && dispRank === 1 ? ' rank1-name' : ''}">${esc(name)}</span>
         ${h.expectedOdds
           ? `<div class="odds-tag">
@@ -1385,6 +1401,52 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
   </div>`;
 }
 
+// ── 印マップ構築（繰り下げロジック付き） ──
+// markDeltaTopN: △を付ける総合スコア上位N位まで（JSONのrace.markDeltaTopNで指定）
+function buildMarkMap(sougouRankMap, anaRankMap, markDeltaTopN) {
+  const markMap = {};
+  const assigned = new Set();
+  const sougouSorted = Object.keys(sougouRankMap).sort((a,b) => sougouRankMap[a] - sougouRankMap[b]);
+  const anaSorted    = Object.keys(anaRankMap).sort((a,b) => anaRankMap[a] - anaRankMap[b]);
+
+  function assign(horse, mark) {
+    markMap[horse] = mark;
+    assigned.add(horse);
+  }
+
+  // ◎ 総合1位
+  if (sougouSorted[0]) assign(sougouSorted[0], '◎');
+
+  // ○ 穴馬1位（既に印があれば次へ）
+  for (const h of anaSorted) {
+    if (!assigned.has(h)) { assign(h, '○'); break; }
+  }
+
+  // ▲ 総合2位（既に印があれば次へ）
+  for (const h of sougouSorted.slice(1)) {
+    if (!assigned.has(h)) { assign(h, '▲'); break; }
+  }
+
+  // ⭐ 穴馬2位（1位を除いて次の未割当）
+  let anaSkip = 0;
+  for (const h of anaSorted) {
+    if (assigned.has(h)) continue;
+    anaSkip++;
+    if (anaSkip === 1) { assign(h, '⭐'); break; }
+  }
+
+  // △ 総合3位〜 markDeltaTopN 位まで（繰り下げ: 既割当スキップ）
+  if (markDeltaTopN) {
+    let deltaCount = 0;
+    for (const h of sougouSorted.slice(2)) {
+      if (deltaCount >= markDeltaTopN - 2) break;
+      if (!assigned.has(h)) { assign(h, '△'); deltaCount++; }
+    }
+  }
+
+  return markMap;
+}
+
 function renderRace(idx) {
   if (!allData[idx]) return;
   const {cfg, d} = allData[idx];
@@ -1445,6 +1507,10 @@ function renderRace(idx) {
   bySougou.forEach(({name},i) => sougouRankMap[name] = i+1);
   byOdds.forEach(({name},i)   => popularityMap[name] = i+1);
 
+  // 印マップ（JSONのrace.markDeltaTopNが設定されている場合のみ構築）
+  const markDeltaTopN = d.race?.markDeltaTopN ?? null;
+  const markMap = markDeltaTopN ? buildMarkMap(sougouRankMap, anaRankMap, markDeltaTopN) : {};
+
   // 表示順
   let display;
   if      (sortMode === 'tan')    display = byTan;
@@ -1461,7 +1527,8 @@ function renderRace(idx) {
                    tanRankMap[name], fukuRankMap[name], ziRankMap[name], anaRankMap[name],
                    sougouRankMap[name], popularityMap[name],
                    tanCmt[name] || null, fukuCmt[name] || null,
-                   anaScore ?? 0, anaMax, sougouScore ?? 0, isKeshi ?? false)
+                   anaScore ?? 0, anaMax, sougouScore ?? 0, isKeshi ?? false,
+                   markMap[name] ?? null)
   ).join('');
 
   const sortBar = `
