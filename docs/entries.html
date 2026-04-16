@@ -153,6 +153,23 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .mark-tantan { background:linear-gradient(135deg,#f87171,#ef4444); color:#fff; border:2px solid #dc2626; }  /* ▲ */
 .mark-hoshi  { background:linear-gradient(135deg,#c084fc,#a855f7); color:#fff; border:2px solid #9333ea; }  /* ⭐ */
 .mark-sankaku{ background:linear-gradient(135deg,#6b7280,#4b5563); color:#fff; border:2px solid #374151; font-size:13px; } /* △ */
+/* ── 枠番バッジ（JRA公式8色） ── */
+.gate-badge{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  width:30px;height:30px;border-radius:6px;flex-shrink:0;
+  font-weight:900;box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+.gate-num-main{font-size:13px;line-height:1;}
+.gate-frame-sub{font-size:6.5px;line-height:1;opacity:.85;letter-spacing:.02em;}
+.gate-1{background:#f0f0f0;color:#333;border:1.5px solid #aaa;}            /* 白 */
+.gate-2{background:#1a1a1a;color:#fff;border:1.5px solid #555;}            /* 黒 */
+.gate-3{background:#dc2626;color:#fff;border:1.5px solid #b91c1c;}         /* 赤 */
+.gate-4{background:#2563eb;color:#fff;border:1.5px solid #1e40af;}         /* 青 */
+.gate-5{background:#fbbf24;color:#333;border:1.5px solid #d97706;}         /* 黄 */
+.gate-6{background:#16a34a;color:#fff;border:1.5px solid #166534;}         /* 緑 */
+.gate-7{background:#ea580c;color:#fff;border:1.5px solid #c2410c;}         /* 橙 */
+.gate-8{background:#f472b6;color:#fff;border:1.5px solid #db2777;}         /* 桃 */
+.horse-num-uma{background:rgba(99,102,241,.15);color:#4338ca;border:1px solid rgba(99,102,241,.3);}
 .horse-name{
   font-family:'Noto Serif JP',serif;
   font-size:16px;font-weight:900;color:#1a0a10;
@@ -422,6 +439,16 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   background:linear-gradient(90deg,rgba(180,83,9,.2),rgba(4,120,87,.2));
   border-color:rgba(167,139,250,.6);
   color:#ddd6fe;
+}
+.sort-btn.uma-btn{
+  border-color:rgba(99,102,241,.35);
+  color:rgba(99,102,241,.8);
+}
+.sort-btn.uma-btn.active{
+  background:rgba(99,102,241,.15);
+  border-color:rgba(99,102,241,.6);
+  color:#a5b4fc;
+  font-weight:800;
 }
 
 /* カード本体 */
@@ -1258,9 +1285,9 @@ function buildSf3Comment(h) {
 }
 
 function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore, isKeshi, mark) {
-  const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : ziRank;
-  const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : 'ZI';
-  const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : 'zi';
+  const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : sortMode==='uma' ? (h.horseNum ?? 0) : ziRank;
+  const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : sortMode==='uma' ? '馬番' : 'ZI';
+  const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : sortMode==='uma' ? 'uma' : 'zi';
   const sf3Cmt = buildSf3Comment(h);
   const raceAnaCmt = h.raceAnaNote ?? null;
   const condCmt = h.conditionNote ?? null;
@@ -1327,6 +1354,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           const cls = mark==='◎'?'mark-honmei':mark==='○'?'mark-taikou':mark==='▲'?'mark-tantan':mark==='⭐'?'mark-hoshi':'mark-sankaku';
           return `<span class="mark-badge ${cls}" title="${mark}">${mark}</span>`;
         })() : ''}
+        ${(h.frameNum && h.horseNum) ? `<span class="gate-badge gate-${h.frameNum}" title="${h.frameNum}枠${h.horseNum}番"><span class="gate-num-main">${h.horseNum}</span><span class="gate-frame-sub">${h.frameNum}枠</span></span>` : ''}
         <span class="horse-name${!isKeshi && dispRank === 1 ? ' rank1-name' : ''}">${esc(name)}</span>
         ${h.expectedOdds
           ? `<div class="odds-tag">
@@ -1497,6 +1525,7 @@ function renderRace(idx) {
   const byZI     = [...withAna].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
   const byAna    = [...withAna].sort((a,b) => (a.isKeshi?1:0)-(b.isKeshi?1:0) || b.anaScore - a.anaScore);
   const bySougou = [...withAna].sort((a,b) => b.sougouScore - a.sougouScore || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byUma    = [...withAna].sort((a,b) => (a.h.horseNum||999) - (b.h.horseNum||999));
   // 人気順（オッズ昇順）
   const byOdds   = [...withAna].sort((a,b) => (a.h.expectedOdds||999) - (b.h.expectedOdds||999));
   const tanRankMap={}, fukuRankMap={}, ziRankMap={}, anaRankMap={}, sougouRankMap={}, popularityMap={};
@@ -1517,6 +1546,7 @@ function renderRace(idx) {
   else if (sortMode === 'fuku')   display = byFuku;
   else if (sortMode === 'ana')    display = byAna;
   else if (sortMode === 'sougou') display = bySougou;
+  else if (sortMode === 'uma')    display = byUma;
   else                            display = byZI;
 
   const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
@@ -1539,6 +1569,7 @@ function renderRace(idx) {
       <button class="sort-btn ${sortMode==='fuku'  ?'active':''}" onclick="setSortMode('fuku')">複勝スコア順</button>
       <button class="sort-btn ana-btn ${sortMode==='ana'?'active':''}" onclick="setSortMode('ana')">穴馬スコア順</button>
       <button class="sort-btn ${sortMode==='zi'    ?'active':''}" onclick="setSortMode('zi')">ZI順</button>
+      ${withAna.some(s=>s.h.horseNum) ? `<button class="sort-btn uma-btn ${sortMode==='uma'?'active':''}" onclick="setSortMode('uma')">🏇 馬番順</button>` : ''}
     </div>`;
 
   document.getElementById('content').innerHTML = `
