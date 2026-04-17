@@ -1551,23 +1551,23 @@ function buildMarkMap(sougouRankMap, anaRankMap, totalHorseCount) {
   // ◎ 総合1位
   if (sougouSorted[0]) assign(sougouSorted[0], '◎');
 
-  // ○ 総合2位（既に印があれば次へ）
+  // ○ 総合2位（繰り下げ）
   for (const h of sougouSorted.slice(1)) {
     if (!assigned.has(h)) { assign(h, '○'); break; }
   }
 
-  // ▲ 穴馬1位（既に印があれば次へ）
-  for (const h of anaSorted) {
+  // ▲ 総合3位（繰り下げ）
+  for (const h of sougouSorted.slice(2)) {
     if (!assigned.has(h)) { assign(h, '▲'); break; }
   }
 
-  // ⭐ 穴馬2位（未割当の穴馬2番手）
+  // ⭐ 穴馬1位（繰り下げ：◎○▲と被ったら次へ）
   for (const h of anaSorted) {
     if (!assigned.has(h)) { assign(h, '⭐'); break; }
   }
 
-  // △ 総合3位〜（出走馬の半数に達するまで、繰り下げ）
-  for (const h of sougouSorted.slice(2)) {
+  // △ 総合順（◎○▲⭐を除く、半数に達するまで）
+  for (const h of sougouSorted) {
     if (assigned.size >= targetCount) break;
     if (!assigned.has(h)) assign(h, '△');
   }
