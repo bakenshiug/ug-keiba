@@ -950,12 +950,16 @@ function calcScores(h) {
   const lgrF = h.lapGoldenRatioGrade ?? null;
   const lttT = h.lapTotalTimeGrade  ?? null;  // ラップ③前半+後半タイム
   const lttF = h.lapTotalTimeGrade  ?? null;
+  const sm2T = h.soma2GradeTan  ?? null;  // 相馬眼２
+  const sm2F = h.soma2GradeFuku ?? null;
+  const gbT  = h.ginyoBonusGradeTan  ?? null;  // ギーニョ加点
+  const gbF  = h.ginyoBonusGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,hnT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,lhcT,lgrT,lttT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,gtT,hnT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,lhcT,lgrT,lttT,sm2T,gbT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,hnF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,lhcF,lgrF,lttF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,gtF,hnF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,lhcF,lgrF,lttF,sm2F,gbF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // 過去走スコアは×3倍ウェイト
@@ -1470,6 +1474,8 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${h.ageGradeTan || h.ageGradeFuku ? gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null) : `<span class="blood-grade bg-age-fixed">年齢 3歳</span>`}
           ${gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null)}
           ${(h.prevMarginGradeTan || h.prevMarginGradeFuku) ? gradeBadge('上がり', h.prevMarginGradeTan ?? null, h.prevMarginGradeFuku ?? null) : ''}
+          ${(h.soma2GradeTan || h.soma2GradeFuku) ? gradeBadge('相馬眼２', h.soma2GradeTan ?? null, h.soma2GradeFuku ?? null) : ''}
+          ${(h.ginyoBonusGradeTan || h.ginyoBonusGradeFuku) ? gradeBadge('ギーニョ加点', h.ginyoBonusGradeTan ?? null, h.ginyoBonusGradeFuku ?? null) : ''}
         </div>
         <div class="badge-group">
           <span class="badge-group-label lbl-apt">適性</span>
