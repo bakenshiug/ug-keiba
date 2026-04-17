@@ -789,8 +789,9 @@ function ziGrade(zi) {
 
 // 外厩グレード
 function extGrade(fac) {
-  if (!fac || fac === '在厩調整') return 'B';
+  if (!fac || fac === '在厩調整') return 'C';           // 在厩=C（外厩優位性なし）
   if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
+  if (fac.includes('大山ヒルズ')) return 'A';           // 大山ヒルズ追加
   if (fac.includes('チャンピオン') || fac.includes('山元') || fac.includes('キャニオン')) return 'A';
   return 'B';
 }
@@ -836,7 +837,7 @@ const GRADE_MAPS = {
   // ZI能力値: 突出した能力＝勝ちに来る → 単勝寄り
   zi:    {S:['S','A'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
   // 外厩: 仕上げ＝連対安定 → 複勝寄り（既存維持）
-  ext:   {S:['A','S'], A:['B','A'], B:['C','B']},
+  ext:   {S:['A','S'], A:['B','A'], B:['C','B'], C:['D','C']},
   // 近走: B=やや低調でも複勝には踏ん張れる（既存維持）
   // 12段階入力にも対応（表示は標準5段階に変換）
   kinso: {
@@ -1636,9 +1637,10 @@ function renderRace(idx) {
   bySougou.forEach(({name},i) => sougouRankMap[name] = i+1);
   byOdds.forEach(({name},i)   => popularityMap[name] = i+1);
 
-  // 印マップ（JSONのrace.markDeltaTopNが設定されている場合のみ構築、馬数は出走馬数から自動計算）
+  // 印マップ（race.markDeltaTopN = 印数を直接指定。×2で出走馬数に変換して buildMarkMap へ）
   const markDeltaTopN = d.race?.markDeltaTopN ?? null;
-  const markMap = markDeltaTopN ? buildMarkMap(sougouRankMap, anaRankMap, horses.length) : {};
+  const markTotal = markDeltaTopN ? markDeltaTopN * 2 : horses.length;
+  const markMap = markDeltaTopN ? buildMarkMap(sougouRankMap, anaRankMap, markTotal) : {};
 
   // 印順ソート（◎1 ○2 ▲3 ⭐4 △5 無印9）
   const MARK_ORDER = {'◎':1,'○':2,'▲':3,'⭐':4,'△':5};

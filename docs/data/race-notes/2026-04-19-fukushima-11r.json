@@ -7,7 +7,7 @@
     "surface": "芝",
     "distance": 1800,
     "course": "外",
-    "numHorses": 20,
+    "numHorses": 16,
     "markDeltaTopN": 8,
     "finalWorkoutAnalysisInProgress": true
   },
@@ -195,7 +195,11 @@
       "specialGrade": "S",
       "specialNote": "過去人気薄で激走した馬（穴傾向）",
       "frameNum": 2,
-      "horseNum": 4
+      "horseNum": 4,
+      "gateGradeTan": "A",
+      "gateGradeFuku": "A",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "インヴォーグ": {
       "num": 2,
@@ -335,7 +339,11 @@
       "prevCourseGradeTan": "S",
       "prevCourseGradeFuku": "A",
       "frameNum": 1,
-      "horseNum": 1
+      "horseNum": 1,
+      "gateGradeTan": "S",
+      "gateGradeFuku": "A",
+      "horseNumGradeTan": "S",
+      "horseNumGradeFuku": "S"
     },
     "カニキュル": {
       "num": 4,
@@ -369,8 +377,8 @@
       "ginyoGradeTan": "B",
       "ginyoGradeFuku": "B",
       "raceAnaNote": null,
-      "jockeyGradeTan": null,
-      "jockeyGradeFuku": null,
+      "jockeyGradeTan": "C",
+      "jockeyGradeFuku": "B",
       "sireGradeTan": "D",
       "sireGradeFuku": "D",
       "prevMarginGradeTan": "A",
@@ -406,7 +414,11 @@
       "prevCourseGradeTan": "D",
       "prevCourseGradeFuku": "B",
       "frameNum": 8,
-      "horseNum": 16
+      "horseNum": 16,
+      "gateGradeTan": "D",
+      "gateGradeFuku": "D",
+      "horseNumGradeTan": "D",
+      "horseNumGradeFuku": "D"
     },
     "カネラフィーナ": {
       "num": 5,
@@ -477,7 +489,11 @@
       "prevCourseGradeTan": "C",
       "prevCourseGradeFuku": "C",
       "frameNum": 5,
-      "horseNum": 10
+      "horseNum": 10,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "ケリフレッドアスク": {
       "num": 6,
@@ -548,7 +564,11 @@
       "prevCourseGradeTan": "C",
       "prevCourseGradeFuku": "B",
       "frameNum": 6,
-      "horseNum": 11
+      "horseNum": 11,
+      "gateGradeTan": "B",
+      "gateGradeFuku": "B",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "コガネノソラ": {
       "num": 7,
@@ -619,7 +639,11 @@
       "prevCourseGradeTan": "A",
       "prevCourseGradeFuku": "C",
       "frameNum": 7,
-      "horseNum": 13
+      "horseNum": 13,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "コンドゥイア": {
       "num": 8,
@@ -690,7 +714,11 @@
       "prevCourseGradeTan": "D",
       "prevCourseGradeFuku": "A",
       "frameNum": 5,
-      "horseNum": 9
+      "horseNum": 9,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C",
+      "horseNumGradeTan": "A",
+      "horseNumGradeFuku": "A"
     },
     "ジョイフルニュース": {
       "num": 9,
@@ -761,7 +789,11 @@
       "prevCourseGradeTan": "D",
       "prevCourseGradeFuku": "D",
       "frameNum": 7,
-      "horseNum": 14
+      "horseNum": 14,
+      "gateGradeTan": "C",
+      "gateGradeFuku": "C",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "テレサ": {
       "num": 10,
@@ -832,7 +864,11 @@
       "prevCourseGradeTan": "D",
       "prevCourseGradeFuku": "B",
       "frameNum": 8,
-      "horseNum": 15
+      "horseNum": 15,
+      "gateGradeTan": "D",
+      "gateGradeFuku": "D",
+      "horseNumGradeTan": "D",
+      "horseNumGradeFuku": "D"
     },
     "パラディレーヌ": {
       "num": 11,
@@ -903,7 +939,11 @@
       "prevCourseGradeTan": "C",
       "prevCourseGradeFuku": "B",
       "frameNum": 2,
-      "horseNum": 3
+      "horseNum": 3,
+      "gateGradeTan": "A",
+      "gateGradeFuku": "A",
+      "horseNumGradeTan": "A",
+      "horseNumGradeFuku": "A"
     },
     "パレハ": {
       "num": 12,
@@ -974,7 +1014,11 @@
       "prevCourseGradeTan": "S",
       "prevCourseGradeFuku": "A",
       "frameNum": 3,
-      "horseNum": 5
+      "horseNum": 5,
+      "gateGradeTan": "A",
+      "gateGradeFuku": "A",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "ピンクジン": {
       "num": 13,
@@ -1120,7 +1164,11 @@
       "gekisouGradeTan": "S",
       "gekisouGradeFuku": "S",
       "frameNum": 1,
-      "horseNum": 2
+      "horseNum": 2,
+      "gateGradeTan": "S",
+      "gateGradeFuku": "A",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "ブラウンラチェット": {
       "num": 15,
@@ -1193,7 +1241,11 @@
       "specialGrade": "A",
       "specialNote": "過去人気薄で激走した馬（穴傾向）",
       "frameNum": 4,
-      "horseNum": 8
+      "horseNum": 8,
+      "gateGradeTan": "A",
+      "gateGradeFuku": "A",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "ミッキーゴージャス": {
       "num": 16,
@@ -1264,7 +1316,11 @@
       "prevCourseGradeTan": "C",
       "prevCourseGradeFuku": "S",
       "frameNum": 3,
-      "horseNum": 6
+      "horseNum": 6,
+      "gateGradeTan": "A",
+      "gateGradeFuku": "A",
+      "horseNumGradeTan": "B",
+      "horseNumGradeFuku": "B"
     },
     "ミッキージュエリー": {
       "num": 17,
@@ -1475,7 +1531,11 @@
       "prevCourseGradeTan": "D",
       "prevCourseGradeFuku": "D",
       "frameNum": 4,
-      "horseNum": 7
+      "horseNum": 7,
+      "gateGradeTan": "A",
+      "gateGradeFuku": "A",
+      "horseNumGradeTan": "A",
+      "horseNumGradeFuku": "A"
     },
     "レーゼドラマ": {
       "num": 19,
@@ -1546,7 +1606,11 @@
       "prevCourseGradeTan": "C",
       "prevCourseGradeFuku": "B",
       "frameNum": 6,
-      "horseNum": 12
+      "horseNum": 12,
+      "gateGradeTan": "B",
+      "gateGradeFuku": "B",
+      "horseNumGradeTan": "D",
+      "horseNumGradeFuku": "D"
     }
   }
 }
