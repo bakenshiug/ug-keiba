@@ -592,6 +592,21 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 @keyframes livePulse{
   0%,100%{opacity:1;} 50%{opacity:.5;}
 }
+/* ── 最終追い切り解析中バナー ── */
+.fw-inprogress-block{
+  background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(234,179,8,.08));
+  border-bottom:1px solid rgba(251,146,60,.18) !important;
+}
+.fw-inprogress-title{
+  font-size:12px;font-weight:900;color:#d97706;letter-spacing:.08em;
+}
+.fw-inprogress-badge{
+  margin-left:auto;flex-shrink:0;
+  font-size:9px;font-weight:900;letter-spacing:.1em;
+  padding:3px 8px;border-radius:20px;
+  background:#d97706;color:#fff;
+  animation:livePulse 1.8s ease-in-out infinite;
+}
 .analysis-block{
   background:#fff;
   padding:14px 16px;
@@ -1253,6 +1268,20 @@ function buildAnalysisSection(d) {
           <div class="lap-inprogress-sub">ホットコーナー指数・ゴールデン比率・前後半タイムをスコアに反映中。追い切り後に最終確定。</div>
         </div>
         <span class="lap-inprogress-badge">LIVE</span>
+      </div>
+    </div>`;
+  }
+
+  if (d.race?.finalWorkoutAnalysisInProgress) {
+    html += `
+    <div class="analysis-block fw-inprogress-block">
+      <div class="lap-inprogress-head">
+        <span class="lap-inprogress-icon">🏋️</span>
+        <div>
+          <div class="fw-inprogress-title">最終追い切り解析中</div>
+          <div class="lap-inprogress-sub">4/17〜18の追い切りタイム・動きをスコアに反映中。パドック後に最終確定。</div>
+        </div>
+        <span class="fw-inprogress-badge">LIVE</span>
       </div>
     </div>`;
   }
