@@ -8,7 +8,8 @@
     "distance": 1800,
     "course": "外",
     "numHorses": 20,
-    "markDeltaTopN": 6
+    "markDeltaTopN": 8,
+    "finalWorkoutAnalysisInProgress": true
   },
   "raceTitle": {
     "main": "福島牝馬S 2026",
@@ -192,7 +193,9 @@
       "prevCourseGradeTan": "C",
       "prevCourseGradeFuku": "B",
       "specialGrade": "S",
-      "specialNote": "過去人気薄で激走した馬（穴傾向）"
+      "specialNote": "過去人気薄で激走した馬（穴傾向）",
+      "frameNum": 2,
+      "horseNum": 4
     },
     "インヴォーグ": {
       "num": 2,
@@ -330,7 +333,9 @@
       "prevMarginRaw": 1.3,
       "weightChangeGrade": "A",
       "prevCourseGradeTan": "S",
-      "prevCourseGradeFuku": "A"
+      "prevCourseGradeFuku": "A",
+      "frameNum": 1,
+      "horseNum": 1
     },
     "カニキュル": {
       "num": 4,
@@ -343,7 +348,7 @@
       "damSire": "ゼンノロブロイ",
       "sabcZI": 101,
       "extFacility": "ノーザンF天栄",
-      "jockey": null,
+      "jockey": "杉原誠人",
       "prevFinish": "3着",
       "prevRaceName": "初音S(3勝C)",
       "prevRaceNote": "前走初音S3着。掛かりながら直線伸びてルメールに「精一杯」と言わせた。東京では安定感がある。今回は小回り福島、コース適性は正直怪しい。叩き良化型ではあるが、東京と福島は別の話だ。",
@@ -399,7 +404,9 @@
       "prevMarginRaw": 0.2,
       "weightChangeGrade": "C",
       "prevCourseGradeTan": "D",
-      "prevCourseGradeFuku": "B"
+      "prevCourseGradeFuku": "B",
+      "frameNum": 8,
+      "horseNum": 16
     },
     "カネラフィーナ": {
       "num": 5,
@@ -468,7 +475,9 @@
       "prevMarginRaw": 0.3,
       "weightChangeGrade": "S",
       "prevCourseGradeTan": "C",
-      "prevCourseGradeFuku": "C"
+      "prevCourseGradeFuku": "C",
+      "frameNum": 5,
+      "horseNum": 10
     },
     "ケリフレッドアスク": {
       "num": 6,
@@ -537,7 +546,9 @@
       "prevMarginRaw": 0.6,
       "weightChangeGrade": "A",
       "prevCourseGradeTan": "C",
-      "prevCourseGradeFuku": "B"
+      "prevCourseGradeFuku": "B",
+      "frameNum": 6,
+      "horseNum": 11
     },
     "コガネノソラ": {
       "num": 7,
@@ -606,7 +617,9 @@
       "prevMarginRaw": 0.8,
       "weightChangeGrade": "C",
       "prevCourseGradeTan": "A",
-      "prevCourseGradeFuku": "C"
+      "prevCourseGradeFuku": "C",
+      "frameNum": 7,
+      "horseNum": 13
     },
     "コンドゥイア": {
       "num": 8,
@@ -619,7 +632,7 @@
       "damSire": "ディープインパクト",
       "sabcZI": 78,
       "extFacility": "在厩調整",
-      "jockey": "鷲頭虎太郎",
+      "jockey": "鷲頭虎太",
       "prevFinish": "14着",
       "prevRaceName": "マレーC(3勝C)",
       "prevRaceNote": "前々走は中山芝1800mを1人気1着で勝ちながら、前走中京1600mで10人気14着と急落。距離・コース替わりで崩れたと読むのが自然だ。小回り向き・立ち回り○の特記は本物で、福島芝での連対実績もある。前走は度外視でいい。",
@@ -675,7 +688,9 @@
       "prevMarginRaw": 1.5,
       "weightChangeGrade": "C",
       "prevCourseGradeTan": "D",
-      "prevCourseGradeFuku": "A"
+      "prevCourseGradeFuku": "A",
+      "frameNum": 5,
+      "horseNum": 9
     },
     "ジョイフルニュース": {
       "num": 9,
@@ -744,7 +759,9 @@
       "prevMarginRaw": 0.0,
       "weightChangeGrade": "B",
       "prevCourseGradeTan": "D",
-      "prevCourseGradeFuku": "D"
+      "prevCourseGradeFuku": "D",
+      "frameNum": 7,
+      "horseNum": 14
     },
     "テレサ": {
       "num": 10,
@@ -813,7 +830,9 @@
       "prevMarginRaw": 0.2,
       "weightChangeGrade": "S",
       "prevCourseGradeTan": "D",
-      "prevCourseGradeFuku": "B"
+      "prevCourseGradeFuku": "B",
+      "frameNum": 8,
+      "horseNum": 15
     },
     "パラディレーヌ": {
       "num": 11,
@@ -882,7 +901,9 @@
       "prevMarginRaw": 0.2,
       "weightChangeGrade": "C",
       "prevCourseGradeTan": "C",
-      "prevCourseGradeFuku": "B"
+      "prevCourseGradeFuku": "B",
+      "frameNum": 2,
+      "horseNum": 3
     },
     "パレハ": {
       "num": 12,
@@ -895,7 +916,7 @@
       "damSire": "ディープインパクト",
       "sabcZI": 103,
       "extFacility": "大山ヒルズ",
-      "jockey": "田山旺",
+      "jockey": "田山旺佑",
       "prevFinish": "9着",
       "prevRaceName": "小倉大賞典(G3)",
       "prevRaceNote": "前走小倉大賞典9着。ポジションは取れた、終いがもう一つだっただけ。ただしこの馬、福島で(1-0-1-0)。牡馬相手の福島記念で3着の実績がある。得意の福島・距離1800m・牝馬限定で揃った今回、軽く扱うと痛い目を見る。",
@@ -951,7 +972,9 @@
       "prevMarginRaw": 0.8,
       "weightChangeGrade": "S",
       "prevCourseGradeTan": "S",
-      "prevCourseGradeFuku": "A"
+      "prevCourseGradeFuku": "A",
+      "frameNum": 3,
+      "horseNum": 5
     },
     "ピンクジン": {
       "num": 13,
@@ -1095,7 +1118,9 @@
       "specialGrade": "S",
       "specialNote": "過去人気薄で激走した馬（大穴傾向・福島で穴）",
       "gekisouGradeTan": "S",
-      "gekisouGradeFuku": "S"
+      "gekisouGradeFuku": "S",
+      "frameNum": 1,
+      "horseNum": 2
     },
     "ブラウンラチェット": {
       "num": 15,
@@ -1166,7 +1191,9 @@
       "prevCourseGradeTan": "D",
       "prevCourseGradeFuku": "B",
       "specialGrade": "A",
-      "specialNote": "過去人気薄で激走した馬（穴傾向）"
+      "specialNote": "過去人気薄で激走した馬（穴傾向）",
+      "frameNum": 4,
+      "horseNum": 8
     },
     "ミッキーゴージャス": {
       "num": 16,
@@ -1235,7 +1262,9 @@
       "prevMarginRaw": 0.3,
       "weightChangeGrade": "B",
       "prevCourseGradeTan": "C",
-      "prevCourseGradeFuku": "S"
+      "prevCourseGradeFuku": "S",
+      "frameNum": 3,
+      "horseNum": 6
     },
     "ミッキージュエリー": {
       "num": 17,
@@ -1444,7 +1473,9 @@
       "prevMarginRaw": 0.6,
       "weightChangeGrade": "B",
       "prevCourseGradeTan": "D",
-      "prevCourseGradeFuku": "D"
+      "prevCourseGradeFuku": "D",
+      "frameNum": 4,
+      "horseNum": 7
     },
     "レーゼドラマ": {
       "num": 19,
@@ -1513,7 +1544,9 @@
       "prevMarginRaw": 0.3,
       "weightChangeGrade": "C",
       "prevCourseGradeTan": "C",
-      "prevCourseGradeFuku": "B"
+      "prevCourseGradeFuku": "B",
+      "frameNum": 6,
+      "horseNum": 12
     }
   }
 }
