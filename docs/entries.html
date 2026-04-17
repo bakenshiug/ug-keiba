@@ -192,6 +192,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .badge-group-label.lbl-apt    { color:rgba(37,99,235,.38); }  /* 適性 → blue  */
 .badge-group-label.lbl-cond   { color:rgba(192,24,96,.4);  }  /* 条件 → pink  */
 .badge-group-label.lbl-state  { color:rgba(109,40,217,.4); }  /* 状態 → purple */
+.badge-group-label.lbl-lap    { color:rgba(6,148,162,.5);  }  /* ラップ → cyan  */
 .badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
 
 /* 想定人気・オッズ（Z字 右端 = 視線のゴール） */
@@ -1487,12 +1488,14 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('騎厩', h.comboGradeTan ?? null, h.comboGradeFuku ?? null)}
           ${splitBadge('斤量', h.weightChangeGrade, 'weightChange', '解析完了')}
           ${(h.prevCourseGradeTan || h.prevCourseGradeFuku) ? gradeBadge('前走C', h.prevCourseGradeTan ?? null, h.prevCourseGradeFuku ?? null) : ''}
-          ${(h.lapHotCornerGrade || h.lapGoldenRatioGrade || h.lapTotalTimeGrade) ? `
-            ${gradeBadge('コーナー', h.lapHotCornerGrade ?? null, h.lapHotCornerGrade ?? null)}
-            ${gradeBadge('比率', h.lapGoldenRatioGrade ?? null, h.lapGoldenRatioGrade ?? null)}
-            ${gradeBadge('タイム', h.lapTotalTimeGrade ?? null, h.lapTotalTimeGrade ?? null)}
-          ` : ''}
         </div>
+        ${(h.lapHotCornerGrade || h.lapGoldenRatioGrade || h.lapTotalTimeGrade) ? `
+        <div class="badge-group">
+          <span class="badge-group-label lbl-lap">ラップ</span>
+          ${gradeBadge('コーナー', h.lapHotCornerGrade ?? null, h.lapHotCornerGrade ?? null)}
+          ${gradeBadge('比率', h.lapGoldenRatioGrade ?? null, h.lapGoldenRatioGrade ?? null)}
+          ${gradeBadge('タイム', h.lapTotalTimeGrade ?? null, h.lapTotalTimeGrade ?? null)}
+        </div>` : ''}
         <div class="badge-group">
           <span class="badge-group-label lbl-state">状態</span>
           ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
