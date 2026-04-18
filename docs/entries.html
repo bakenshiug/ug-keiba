@@ -798,10 +798,12 @@ function ziGrade(zi) {
 
 // 外厩グレード
 function extGrade(fac) {
-  if (!fac || fac === '在厩調整') return 'C';           // 在厩=C（外厩優位性なし）
+  if (!fac || fac === '在厩調整') return 'C';                          // 在厩=C（外厩優位性なし）
   if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
-  if (fac.includes('大山ヒルズ')) return 'A';           // 大山ヒルズ追加
-  if (fac.includes('チャンピオン') || fac.includes('山元') || fac.includes('キャニオン')) return 'A';
+  if (fac.includes('チャンピオン')) return 'S';                        // チャンピオンヒルズ=S
+  if (fac.includes('大山ヒルズ') || fac.includes('宇治田原')) return 'A';
+  if (fac.includes('山元') || fac.includes('キャニオン')) return 'A';
+  if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
   return 'B';
 }
 
