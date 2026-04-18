@@ -1845,7 +1845,7 @@ function renderRaceDetail(data, notes) {
         <div class="lesson-body">${data.postRaceLesson.split('\n\n').map(p => `<p>${esc(p)}</p>`).join('')}</div>
       </div>
       <div class="divider"></div>` : ''}
-      ${data.pace ? window.renderPaceAnimation(data.pace) : ''}
+      ${(data.pace || (notes && notes.pace)) ? window.renderPaceAnimation(data.pace || notes.pace) : ''}
       ${Object.keys(bets).length ? `<div class="sec-title">🎯 買い目</div><div class="bets-grid">${
         Object.entries(bets).map(([k,v]) => {
           const rec      = data.ginyoRecommend;
