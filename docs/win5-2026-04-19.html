@@ -816,7 +816,7 @@ function buildSf3Comment(h) {
   return `${diffInfo?diffInfo.label+' 単回'+diffInfo.tan+tanStar:'差不明'} × ${rankInfo.label}（複勝率${rankInfo.fuku}%） × ${odds?odds+'倍':'?倍'} → スコア${score.toFixed(2)}（${eval_}）`;
 }
 
-function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRank,ziRank,anaRank,sougouRank,popularity,tanComment,fukuComment,anaScore,anaMax,sougouScore,isKeshi,mark) {
+function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRank,ziRank,anaRank,sougouRank,popularity,tanComment,fukuComment,anaScore,anaMax,sougouScore,isKeshi,mark,surface) {
   const dispRank=sortMode==='tan'?tanRank:sortMode==='ana'?anaRank:sortMode==='uma'?(h.num??h.horseNum??0):sortMode==='mark'?(markRankMap?.[name]??0):ziRank;
   const modeLabel=sortMode==='tan'?'単勝':sortMode==='ana'?'穴馬':sortMode==='uma'?'馬番':sortMode==='mark'?'印':'ZI';
   const modeCls=sortMode==='tan'?'tan':sortMode==='ana'?'ana':sortMode==='uma'?'uma':sortMode==='mark'?'mark-sort':'zi';
@@ -1060,7 +1060,7 @@ function renderRace(idx) {
       sougouRankMap[name],popularityMap[name],
       tanCmt[name]||null,fukuCmt[name]||null,
       anaScore??0,anaMax,sougouScore??0,isKeshi??false,
-      markMap[name]??null)
+      markMap[name]??null,surface)
   ).join('');
 
   const sortBar=`

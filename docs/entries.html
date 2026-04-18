@@ -1408,7 +1408,7 @@ function buildSf3Comment(h) {
   return `${diffStr} × ${rankStr} × ${oddsStr} → スコア${score.toFixed(2)}（${eval_}）`;
 }
 
-function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore, isKeshi, mark) {
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore, isKeshi, mark, surface) {
   const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : sortMode==='uma' ? (h.horseNum ?? 0) : sortMode==='mark' ? (markRankMap?.[name] ?? 0) : ziRank;
   const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : sortMode==='uma' ? '馬番' : sortMode==='mark' ? '印' : 'ZI';
   const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : sortMode==='uma' ? 'uma' : sortMode==='mark' ? 'mark-sort' : 'zi';
@@ -1703,7 +1703,7 @@ function renderRace(idx) {
                    sougouRankMap[name], popularityMap[name],
                    tanCmt[name] || null, fukuCmt[name] || null,
                    anaScore ?? 0, anaMax, sougouScore ?? 0, isKeshi ?? false,
-                   markMap[name] ?? null)
+                   markMap[name] ?? null, surface)
   ).join('');
 
   const sortBar = `
