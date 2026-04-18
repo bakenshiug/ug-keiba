@@ -874,7 +874,7 @@ function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRan
           ${extGradeBadge(h.extFacility)}
           ${gradeBadge('思惑',h.raceTargetGradeTan??null,h.raceTargetGradeFuku??null)}
           ${gradeBadge('逆説加点',h.paradoxGradeTan??null,h.paradoxGradeFuku??null)}
-          ${gradeBadge('コメント',h.commentGradeTan??null,h.commentGradeFuku??null)}
+          ${gradeBadge('前走内容',h.commentGradeTan??null,h.commentGradeFuku??null)}
           ${h.gekisouGradeTan?gradeBadge('🔥激走',h.gekisouGradeTan,h.gekisouGradeFuku??null):''}
           ${(h.specialGradeTan??h.specialGrade??h.specialGradeFuku)?gradeBadge('特注',h.specialGradeTan??h.specialGrade??null,h.specialGradeFuku??h.specialGrade??null):''}
         </div>
