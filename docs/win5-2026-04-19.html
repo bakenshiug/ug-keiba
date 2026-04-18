@@ -472,14 +472,24 @@ function ziGrade(zi) {
   return 'D';
 }
 
-function extGrade(fac) {
-  if (!fac || fac === '在厩調整') return 'C';                          // 在厩=C（外厩優位性なし）
-  if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
-  if (fac.includes('チャンピオン')) return 'S';                        // チャンピオンヒルズ=S
-  if (fac.includes('大山ヒルズ') || fac.includes('宇治田原')) return 'A';
-  if (fac.includes('山元') || fac.includes('キャニオン')) return 'A';
-  if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
-  return 'B';
+function extGrade(fac, surface) {
+  if (!fac || fac === '在厩調整') return 'C';
+  const isDirt = surface === 'ダ';
+  if (isDirt) {
+    if (fac.includes('チャンピオン') || fac.includes('しがらき')) return 'S';
+    if (fac.includes('天栄') || fac.includes('宇治田原') ||
+        fac.includes('山元')  || fac.includes('キャニオン') || fac.includes('大山ヒルズ')) return 'A';
+    if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
+    return 'B';
+  } else {
+    if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
+    if (fac.includes('チャンピオン') || fac.includes('大山ヒルズ') ||
+        fac.includes('山元')        || fac.includes('社台ファーム') ||
+        fac.includes('社台F'))       return 'A';
+    if (fac.includes('宇治田原') || fac.includes('キャニオン')) return 'B';
+    if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
+    return 'B';
+  }
 }
 
 function raceTargetBadge(t) {
@@ -537,9 +547,9 @@ function gradePoints(g) {
 }
 function gradeMax() { return 12; }
 
-function calcScores(h) {
+function calcScores(h, surface) {
   const [ziT,ziF]   = splitGrade(ziGrade(h.sabcZI),'zi');
-  const [exT,exF]   = splitGrade(extGrade(h.extFacility),'ext');
+  const [exT,exF]   = splitGrade(extGrade(h.extFacility,surface),'ext');
   const kT = h.kinsoGrade ?? null, kF = h.kinsoGrade ?? null;
   const [pT,pF]     = splitGrade(h.paceGrade,'pace');
   const [bdT,bdF]   = splitGrade(h.bodyGrade,'body');
@@ -611,8 +621,8 @@ function dualBadge(label, gTan, gFuku) {
   const tl = gTan  || '?', fl = gFuku || '?';
   return `<span class="dual-badge"><span class="dual-lbl">${esc(label)}</span><span class="dual-t ${cls(gTan)}">${tl}</span><span class="dual-f ${cls(gFuku)}">${fl}</span></span>`;
 }
-function extGradeBadge(fac) {
-  const g = extGrade(fac);
+function extGradeBadge(fac, surface) {
+  const g = extGrade(fac, surface);
   const [t,f] = GRADE_MAPS.ext[g] || ['C','B'];
   return dualBadge('外厩',t,f);
 }
@@ -876,7 +886,7 @@ function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRan
           ${gradeBadge('調教',h.conditionGradeTan??null,h.conditionGradeFuku??null)}
           ${gradeBadge('最終追切',h.finalWorkoutGradeTan??null,h.finalWorkoutGradeFuku??null)}
           ${gradeBadge('相馬眼',h.somaGradeTan??null,h.somaGradeFuku??null)}
-          ${extGradeBadge(h.extFacility)}
+          ${extGradeBadge(h.extFacility, surface)}
           ${gradeBadge('思惑',h.raceTargetGradeTan??null,h.raceTargetGradeFuku??null)}
           ${gradeBadge('逆説加点',h.paradoxGradeTan??null,h.paradoxGradeFuku??null)}
           ${gradeBadge('前走内容',h.commentGradeTan??null,h.commentGradeFuku??null)}
@@ -952,7 +962,8 @@ function updateWin5Summary() {
       return;
     }
     const horses=Object.entries(d.horses);
-    const scored=horses.map(([name,h])=>({name,h,...calcScores(h)}));
+    const surface=d.race?.surface??'芝';
+    const scored=horses.map(([name,h])=>({name,h,...calcScores(h,surface)}));
     const withAna=scored.map(s=>({...s,sougouScore:(s.tanMax+s.fukuMax)>0?(s.tanScore+s.fukuScore)/(s.tanMax+s.fukuMax):0}));
     // WIN5は単勝ゲーム → サマリーバーは単勝スコア1位を表示
     const bySg=[...withAna].sort((a,b)=>(b.tanMax>0?b.tanScore/b.tanMax:0)-(a.tanMax>0?a.tanScore/a.tanMax:0));
@@ -964,7 +975,8 @@ function updateWin5Summary() {
 
 function computeWithAna(d) {
   const horses = Object.entries(d.horses);
-  const scored = horses.map(([name,h])=>({name,h,...calcScores(h)}));
+  const surface = d.race?.surface ?? '芝';
+  const scored = horses.map(([name,h])=>({name,h,...calcScores(h,surface)}));
   return scored.map(s=>{
     const raceTarget=s.h.raceTarget??'';
     const honki={'satsuki':2.0,'both':1.0,'derby':0,'fukushima':2.0,'both_vm':1.0,'vm':0}[raceTarget]??0;
@@ -998,6 +1010,7 @@ function renderRace(idx) {
     return;
   }
   const horses=Object.entries(d.horses);
+  const surface=d.race?.surface??'芝';  // 外厩スコア芝/ダ分岐
   const withAna=computeWithAna(d);
 
   const tanEditRank={},fukuEditRank={};

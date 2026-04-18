@@ -797,14 +797,27 @@ function ziGrade(zi) {
 }
 
 // 外厩グレード
-function extGrade(fac) {
-  if (!fac || fac === '在厩調整') return 'C';                          // 在厩=C（外厩優位性なし）
-  if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
-  if (fac.includes('チャンピオン')) return 'S';                        // チャンピオンヒルズ=S
-  if (fac.includes('大山ヒルズ') || fac.includes('宇治田原')) return 'A';
-  if (fac.includes('山元') || fac.includes('キャニオン')) return 'A';
-  if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
-  return 'B';
+function extGrade(fac, surface) {
+  // surface: 'ダ'=ダート / それ以外=芝
+  if (!fac || fac === '在厩調整') return 'C';
+  const isDirt = surface === 'ダ';
+  if (isDirt) {
+    // ダート: チャンピオンヒルズ45勝・しがらき34勝がトップ (2026/04/18 PDF)
+    if (fac.includes('チャンピオン') || fac.includes('しがらき')) return 'S';
+    if (fac.includes('天栄') || fac.includes('宇治田原') ||
+        fac.includes('山元')  || fac.includes('キャニオン') || fac.includes('大山ヒルズ')) return 'A';
+    if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
+    return 'B';
+  } else {
+    // 芝: 天栄・しがらきが48勝で同率トップ
+    if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
+    if (fac.includes('チャンピオン') || fac.includes('大山ヒルズ') ||
+        fac.includes('山元')        || fac.includes('社台ファーム') ||
+        fac.includes('社台F'))       return 'A';
+    if (fac.includes('宇治田原') || fac.includes('キャニオン')) return 'B';
+    if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
+    return 'B';
+  }
 }
 
 function raceTargetBadge(t) {
@@ -830,8 +843,8 @@ function ziGradeBadge(zi) {
   return `<span class="zi-badge zi-${g.toLowerCase()}">能力${g}</span>`;
 }
 
-function extGradeBadge(fac) {
-  const g = extGrade(fac);
+function extGradeBadge(fac, surface) {
+  const g = extGrade(fac, surface);
   const [t, f] = GRADE_MAPS.ext[g] || ['C','B'];
   return dualBadge('外厩', t, f);
 }
@@ -892,9 +905,9 @@ function gradePoints(g) {
 }
 function gradeMax() { return 12; }
 
-function calcScores(h) {
+function calcScores(h, surface) {
   const [ziT, ziF]   = splitGrade(ziGrade(h.sabcZI), 'zi');
-  const [exT, exF]   = splitGrade(extGrade(h.extFacility), 'ext');
+  const [exT, exF]   = splitGrade(extGrade(h.extFacility, surface), 'ext');
   // kinsoGrade: スコア計算は12段階元値をそのまま使用（gradePointsが3S〜1C対応済み）
   // バッジ表示は kinsoGradeBadge(h.kinsoGrade) 側で GRADE_MAPS 変換するため分離
   const kT  = h.kinsoGrade ?? null;
@@ -1523,7 +1536,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
           ${gradeBadge('最終追切', h.finalWorkoutGradeTan ?? null, h.finalWorkoutGradeFuku ?? null)}
           ${gradeBadge('相馬眼', h.somaGradeTan ?? null, h.somaGradeFuku ?? null)}
-          ${extGradeBadge(h.extFacility)}
+          ${extGradeBadge(h.extFacility, surface)}
           ${gradeBadge('思惑', h.raceTargetGradeTan ?? null, h.raceTargetGradeFuku ?? null)}
           ${gradeBadge('逆説加点', h.paradoxGradeTan ?? null, h.paradoxGradeFuku ?? null)}
           ${gradeBadge('コメント', h.commentGradeTan ?? null, h.commentGradeFuku ?? null)}
@@ -1601,9 +1614,10 @@ function renderRace(idx) {
     return;
   }
   const horses = Object.entries(d.horses);
+  const surface = d.race?.surface ?? '芝';  // 外厩スコアの芝/ダ分岐用
 
   // 全馬のスコアを計算
-  const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h)}));
+  const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h, surface)}));
 
   // 穴馬スコア = 本気係数 × 激走係数 × (1 + 人気乖離係数) + 配合ボーナス + 逆説ボーナス
   const withAna = scored.map(s => {
