@@ -856,7 +856,7 @@ function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRan
           ${gradeBadge('厩舎',h.stableGradeTan??null,h.stableGradeFuku??null)}
           ${gradeBadge('枠番',h.gateGradeTan??null,h.gateGradeFuku??null)}
           ${(h.horseNumGradeTan||h.horseNumGradeFuku)?gradeBadge('馬番',h.horseNumGradeTan??null,h.horseNumGradeFuku??null):''}
-          ${gradeBadge('騎厩',h.comboGradeTan??null,h.comboGradeFuku??null)}
+          ${(h.comboGradeTan||h.comboGradeFuku)?gradeBadge('騎厩',h.comboGradeTan??null,h.comboGradeFuku??null):''}
           ${splitBadge('斤量',h.weightChangeGrade,'weightChange','解析完了')}
           ${(h.prevCourseGradeTan||h.prevCourseGradeFuku)?gradeBadge('前走C',h.prevCourseGradeTan??null,h.prevCourseGradeFuku??null):''}
         </div>
