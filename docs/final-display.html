@@ -221,6 +221,17 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .bet-row.bet-row-2jiku .bet-type{color:#7a5500;}
 .bet-row.bet-row-2jiku .bet-val{color:#1C2B4A;font-weight:900;}
 
+/* 単勝派・複勝派・ギーニョのオススメ */
+.bet-audience-tag{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:900;letter-spacing:.06em;padding:2px 9px;border-radius:20px;margin-bottom:4px;}
+.bet-tan-tag{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
+.bet-fuku-tag{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
+.bet-wrap{display:flex;flex-direction:column;}
+.bet-ginyo-banner{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px 8px 0 0;margin-bottom:-2px;
+  background:linear-gradient(135deg,#fde68a,#f59e0b);border:2px solid #d97706;border-bottom:none;}
+.bet-ginyo-banner-text{font-size:10px;font-weight:900;color:#1a0800;letter-spacing:.06em;}
+.bet-row.bet-row-ginyo{border:2px solid #d97706!important;border-radius:0 0 10px 10px!important;
+  box-shadow:0 4px 16px rgba(245,158,11,.35)!important;}
+
 /* Comments */
 .comment-area{display:flex;flex-direction:column;gap:10px;}
 .final-card{background:linear-gradient(140deg,rgba(139,26,26,.08),rgba(242,217,176,.9));border:2px solid rgba(139,26,26,.5);border-radius:14px;padding:15px 17px;box-shadow:0 0 28px rgba(139,26,26,.25),inset 0 0 20px rgba(139,26,26,.05);}
@@ -1691,7 +1702,21 @@ function renderRaceDetail(data, notes) {
       <div class="divider"></div>` : ''}
       ${data.pace ? window.renderPaceAnimation(data.pace) : ''}
       ${Object.keys(bets).length ? `<div class="sec-title">🎯 買い目</div><div class="bets-grid">${
-        Object.entries(bets).map(([k,v]) => `<div class="bet-row bet-row-jiku"><span class="bet-type">${esc(k)}</span><span class="bet-val">${esc(v)}</span></div>`).join('')
+        Object.entries(bets).map(([k,v]) => {
+          const rec = data.ginyoRecommend;
+          const isTan  = k === '単勝';
+          const isFuku = k === '複勝';
+          const isRec  = rec && k === rec;
+          const audienceTag = isTan
+            ? `<span class="bet-audience-tag bet-tan-tag">🔰 単勝派はコチラ</span>`
+            : isFuku
+            ? `<span class="bet-audience-tag bet-fuku-tag">🎯 複勝派はコチラ</span>`
+            : '';
+          const row = `<div class="bet-row bet-row-jiku${isRec?' bet-row-ginyo':''}"><span class="bet-type">${esc(k)}</span><span class="bet-val">${esc(v)}</span></div>`;
+          if (isRec) return `<div class="bet-wrap"><div class="bet-ginyo-banner"><span>🐶</span><span class="bet-ginyo-banner-text">ギーニョのオススメ！</span></div>${row}</div>`;
+          if (audienceTag) return `<div class="bet-wrap">${audienceTag}${row}</div>`;
+          return row;
+        }).join('')
       }</div><div class="divider"></div>` : ''}
       ${data.comments?.oddsNote ? `<div class="sec-title">📊 前日オッズ所感</div><div class="odds-note">${esc(data.comments.oddsNote)}</div><div class="divider"></div>` : ''}
       ${(() => { const hasSabc = notes && notes.sabcRankTan && notes.sabcRankTan[0] && notes.sabcRankTan[0].name; return hasSabc ? `<div class="sec-title">単複期待値ランキング</div>${sabcRankHtml(notes, data.horses)}` : ''; })()}
