@@ -921,6 +921,8 @@ function calcScores(h) {
   const gtF = h.gateGradeFuku   ?? null;
   const hnT = h.horseNumGradeTan  ?? null;  // 馬番（単回収率ベース）
   const hnF = h.horseNumGradeFuku ?? null;
+  const cbT = h.comboGradeTan    ?? null;  // 騎手×厩舎コンビ
+  const cbF = h.comboGradeFuku   ?? null;
   const spT = h.specialGradeTan  ?? h.specialGrade ?? null;
   const spF = h.specialGradeFuku ?? h.specialGrade ?? null;
   const agT = h.ageGradeTan    ?? null;
@@ -966,10 +968,10 @@ function calcScores(h) {
   const gbF  = h.ginyoBonusGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,hnT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,lhcT,lgrT,lttT,sm2T,gbT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,hnT,cbT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,lhcT,lgrT,lttT,sm2T,gbT]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,hnF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,lhcF,lgrF,lttF,sm2F,gbF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,hnF,cbF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,lhcF,lgrF,lttF,sm2F,gbF]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // 過去走スコアは×3倍ウェイト
