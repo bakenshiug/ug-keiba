@@ -75,6 +75,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .grade-g1{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a1000;}
 .grade-g2{background:linear-gradient(135deg,#e0b0d0,#c080a0);color:#2a0a1a;}
 .grade-l{background:linear-gradient(135deg,#7ab8e0,#4a90c0);color:#fff;}
+.grade-op{background:linear-gradient(135deg,#a0a0a0,#707070);color:#fff;}
 
 /* ── レース情報 ── */
 .race-info{
@@ -751,6 +752,9 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   <button class="tab-btn" data-idx="1">
     <span class="tab-grade grade-g3">G3</span>福島牝馬S
   </button>
+  <button class="tab-btn" data-idx="2">
+    <span class="tab-grade grade-op">OP</span>陽春S
+  </button>
 </div>
 
 <!-- コンテンツ -->
@@ -767,6 +771,11 @@ const RACES = [
     file: 'data/race-notes/2026-04-19-fukushima-11r.json',
     label: '福島牝馬S', gradeCls: 'grade-g3',
     meta: '4月19日(日) 福島 芝1800m外 18頭'
+  },
+  {
+    file: 'data/race-notes/2026-04-19-hanshin-10r.json',
+    label: '陽春S', gradeCls: 'grade-op',
+    meta: '4月19日(日) 阪神 ダ1200m 13頭'
   },
 ];
 
