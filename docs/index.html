@@ -292,23 +292,35 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .bottom-nav-item:hover,.bottom-nav-item.active{color:var(--pink);}
 .bottom-nav-item .material-symbols-outlined{font-size:22px;}
 
-/* 皐月賞 最終結論ビッグボタン */
+/* 皐月賞 最終結論ビッグボタン（FINAL VERDICT ワイン＆ゴールド） */
 .osaka-final-btn{
-  background:linear-gradient(135deg,#064e3b 0%,#065f46 40%,#047857 70%,#059669 100%);
-  border:2px solid rgba(5,150,105,.85)!important;
-  box-shadow:0 0 32px rgba(5,150,105,.45),inset 0 1px 0 rgba(255,255,255,.1);
+  background:linear-gradient(135deg,#1a0008 0%,#3a0014 40%,#6a001f 70%,#8b0030 100%);
+  border:2px solid rgba(232,0,61,.8)!important;
+  box-shadow:0 0 32px rgba(232,0,61,.5),inset 0 1px 0 rgba(255,220,100,.15);
   padding:22px 22px!important;
   animation:finalPulse 2.2s ease-in-out infinite;
+  position:relative;overflow:hidden;
+}
+.osaka-final-btn::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,220,100,.9),transparent);
+}
+.osaka-final-btn::after{
+  content:'VERDICT';position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  font-size:64px;font-weight:900;letter-spacing:.2em;
+  color:rgba(255,220,100,.05);
+  white-space:nowrap;pointer-events:none;
+  font-family:'Public Sans','Inter',sans-serif;line-height:1;
 }
 @keyframes finalPulse{
-  0%,100%{box-shadow:0 0 32px rgba(5,150,105,.45),inset 0 1px 0 rgba(255,255,255,.1);}
-  50%{box-shadow:0 0 55px rgba(5,150,105,.85),0 0 80px rgba(5,150,105,.35),inset 0 1px 0 rgba(255,255,255,.1);}
+  0%,100%{box-shadow:0 0 32px rgba(232,0,61,.5),inset 0 1px 0 rgba(255,220,100,.15);}
+  50%{box-shadow:0 0 55px rgba(232,0,61,.9),0 0 80px rgba(232,0,61,.4),inset 0 1px 0 rgba(255,220,100,.15);}
 }
-.osaka-final-btn .osaka-label{font-size:10px;font-weight:900;color:rgba(167,243,208,.95);letter-spacing:.18em;margin-bottom:5px;text-transform:uppercase;}
-.osaka-final-btn .card-title{color:#fff!important;font-size:19px!important;}
-.osaka-final-btn .card-desc{color:rgba(255,255,255,.75)!important;}
-.osaka-final-btn .card-arrow{color:rgba(255,255,255,.7)!important;font-size:22px!important;}
-.osaka-final-btn:hover{transform:translateY(-2px)!important;box-shadow:0 0 60px rgba(5,150,105,.85)!important;}
+.osaka-final-btn .osaka-label{font-size:10px;font-weight:900;color:rgba(255,220,100,.95);letter-spacing:.18em;margin-bottom:5px;text-transform:uppercase;text-shadow:0 0 12px rgba(255,200,80,.5);}
+.osaka-final-btn .card-title{color:#fff!important;font-size:19px!important;text-shadow:0 0 16px rgba(255,220,100,.3);}
+.osaka-final-btn .card-desc{color:rgba(255,230,200,.8)!important;}
+.osaka-final-btn .card-arrow{color:rgba(255,220,100,.85)!important;font-size:22px!important;}
+.osaka-final-btn:hover{transform:translateY(-2px)!important;box-shadow:0 0 60px rgba(232,0,61,.9)!important;}
 /* WIN5ボタン */
 .win5-btn{
   background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
@@ -463,15 +475,15 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 
     <!-- text: left side -->
     <div class="hero-content">
-      <a href="entries.html" class="hero-announce" style="background:linear-gradient(135deg,#064e3b 0%,#065f46 50%,#059669 100%);border-color:rgba(5,150,105,.55);box-shadow:0 0 32px rgba(5,150,105,.4),inset 0 1px 0 rgba(255,255,255,.12);">
-        <span class="hero-announce-badge" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46;">🏇 G1 皐月賞</span>
+      <a href="final-display.html" class="hero-announce" style="background:linear-gradient(135deg,#1a0008 0%,#4a0018 50%,#8b0030 100%);border-color:rgba(232,0,61,.7);box-shadow:0 0 40px rgba(232,0,61,.5),inset 0 1px 0 rgba(255,255,255,.15);">
+        <span class="hero-announce-badge" style="background:linear-gradient(135deg,#ffd700,#f5a800);color:#1a0800;">🎯 FINAL VERDICT</span>
         <span class="hero-announce-text">
-          混戦皐月賞 高精度解析中...必見です
+          G1皐月賞 最終ジャッジ公開！
         </span>
         <span class="hero-announce-arrow">›</span>
       </a>
-      <a href="entries.html" class="hero-scroll-hint" style="background:linear-gradient(135deg,#047857,#065f46);text-decoration:none;">
-        🏇 混戦皐月賞…根拠を全公開！
+      <a href="final-display.html" class="hero-scroll-hint" style="background:linear-gradient(135deg,#8b0030,#4a0018);text-decoration:none;">
+        🏇 混戦皐月賞…ギーニョの最終宣告！
       </a>
     </div>
   </section>
@@ -491,14 +503,14 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
     <div class="section-label">予想・分析</div>
     <div class="card-grid">
 
-      <!-- 皐月賞 メインバナー -->
-      <a href="entries.html" class="nav-card osaka-final-btn full">
-        <div class="card-icon" style="font-size:28px;">🏇</div>
+      <!-- 皐月賞 最終結論メインバナー -->
+      <a href="final-display.html" class="nav-card osaka-final-btn full">
+        <div class="card-icon" style="font-size:28px;">🎯</div>
         <div style="flex:1;">
-          <div class="osaka-label" style="font-size:15px;">GI皐月賞 徹底解析</div>
-          <div class="card-title">中山芝コース絶好調🔥</div>
-          <div class="card-desc">現時点のジャッジは...</div>
-          <div style="margin-top:8px;font-size:10px;font-style:italic;color:rgba(255,255,255,.75);line-height:1.6;border-left:2px solid rgba(255,255,255,.4);padding-left:8px;">「勝ちに不思議の勝ちあり、負けに不思議の負けなし」<span style="display:block;font-style:normal;font-weight:900;color:rgba(255,255,255,.6);margin-top:1px;">〜 野村克也 〜</span></div>
+          <div class="osaka-label" style="font-size:15px;">GI皐月賞 FINAL VERDICT</div>
+          <div class="card-title">ギーニョ最終ジャッジ公開🔥</div>
+          <div class="card-desc">◎本命宣告・買い目確定・最終結論</div>
+          <div style="margin-top:8px;font-size:10px;font-style:italic;color:rgba(255,255,255,.75);line-height:1.6;border-left:2px solid rgba(255,220,100,.5);padding-left:8px;">「誰でも計画を持っている。顔を殴られるまでは。」<span style="display:block;font-style:normal;font-weight:900;color:rgba(255,220,100,.7);margin-top:1px;">〜 マイク・タイソン 〜</span></div>
         </div>
         <div class="card-arrow">›</div>
       </a>
