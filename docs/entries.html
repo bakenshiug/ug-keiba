@@ -963,6 +963,7 @@ function calcScores(h, surface) {
   const tgtF = h.raceTargetGradeFuku ?? null;
   const fwT  = h.finalWorkoutGradeTan  ?? null;  // 最終追い切り（4/17-18追加）
   const fwF  = h.finalWorkoutGradeFuku ?? null;
+  const khG  = h.kehaiGrade ?? null;            // 気配（最終追い切り目視評価）
   const hgT  = h.haigoGradeTan  ?? null;  // 配合グレード（ギーニョ配合ジャッジ）
   const hgF  = h.haigoGradeFuku ?? null;
   const pxT  = h.paradoxGradeTan  ?? null;  // パラドックス加点（皐月賞本気×能力値）
@@ -990,10 +991,10 @@ function calcScores(h, surface) {
   const gbF  = h.ginyoBonusGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,hnT,cbT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,chT,lhcT,lgrT,lttT,sm2T,gbT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,hnT,cbT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,chT,lhcT,lgrT,lttT,sm2T,gbT,khG]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,hnF,cbF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,chF,lhcF,lgrF,lttF,sm2F,gbF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,hnF,cbF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,chF,lhcF,lgrF,lttF,sm2F,gbF,khG]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
   }
   // 過去走スコアは×3倍ウェイト
@@ -1540,6 +1541,7 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           <span class="badge-group-label lbl-state">状態</span>
           ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
           ${gradeBadge('最終追切', h.finalWorkoutGradeTan ?? null, h.finalWorkoutGradeFuku ?? null)}
+          ${h.kehaiGrade ? gradeBadge('気配', h.kehaiGrade, h.kehaiGrade) : ''}
           ${gradeBadge('相馬眼', h.somaGradeTan ?? null, h.somaGradeFuku ?? null)}
           ${extGradeBadge(h.extFacility, surface)}
           ${gradeBadge('思惑', h.raceTargetGradeTan ?? null, h.raceTargetGradeFuku ?? null)}
