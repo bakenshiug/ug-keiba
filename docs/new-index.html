@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ギーニョ・クロード競馬新聞・極式 | GINYO × CLAUDE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+JP:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════════════════════
+   ギーニョ・クロード競馬新聞・極式 — GINYO × CLAUDE
+   Design: Minimal Navy × Ivory × Lime (posimedi-inspired)
+   ══════════════════════════════════════════════════════════ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0F1B2E;
+  --navy-dk:#0A1321;
+  --navy-lt:#1A2942;
+  --ivory:#F8F5ED;
+  --ivory-dk:#E8E3D5;
+  --lime:#A8E05F;
+  --lime-dk:#8BC83C;
+  --gold:#D4A017;
+  --muted:#4A5A73;
+  --border:rgba(248,245,237,.12);
+}
+html,body{
+  background:var(--navy);
+  color:var(--ivory);
+  font-family:'Inter','Noto Sans JP',sans-serif;
+  font-weight:400;
+  min-height:100vh;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── Utility ── */
+.container{max-width:1240px;margin:0 auto;padding:0 48px;}
+.label-en{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.32em;color:var(--lime);text-transform:uppercase;}
+.label-ja{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--muted);}
+
+/* ── Top bar ── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(15,27,46,.85);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand-mark{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--lime);color:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;
+  letter-spacing:-.02em;
+}
+.brand-name{
+  font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;
+  color:var(--ivory);letter-spacing:.08em;line-height:1.3;
+}
+.brand-name-en{
+  font-family:'Inter',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.24em;color:var(--lime);margin-top:3px;text-transform:uppercase;
+}
+.topnav{display:flex;gap:36px;align-items:center;}
+.topnav a{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;
+  color:var(--ivory);text-decoration:none;text-transform:uppercase;
+  opacity:.7;transition:opacity .2s;
+}
+.topnav a:hover{opacity:1;color:var(--lime);}
+.topnav-cta{
+  padding:10px 22px;border:1px solid var(--lime);border-radius:999px;
+  font-size:11px!important;color:var(--lime)!important;opacity:1!important;
+  transition:all .2s;
+}
+.topnav-cta:hover{background:var(--lime);color:var(--navy)!important;}
+
+/* ── Hero ── */
+.hero{
+  min-height:100vh;
+  padding:180px 0 120px;
+  position:relative;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(248,245,237,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248,245,237,.03) 1px, transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+}
+.hero-glow{
+  position:absolute;top:20%;right:-10%;width:700px;height:700px;
+  background:radial-gradient(circle,rgba(168,224,95,.08) 0%,transparent 60%);
+  pointer-events:none;filter:blur(20px);
+}
+.hero-inner{position:relative;z-index:2;width:100%;}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:16px;margin-bottom:40px;
+}
+.hero-eyebrow-line{width:56px;height:1px;background:var(--lime);}
+.hero-title{
+  font-family:'Cormorant Garamond','Noto Serif JP',serif;
+  font-size:clamp(48px, 9vw, 136px);
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-.03em;
+  margin-bottom:28px;
+  color:var(--ivory);
+}
+.hero-title .em{color:var(--lime);font-style:italic;}
+.hero-title .dot{color:var(--lime);}
+.hero-sub{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(15px, 1.6vw, 19px);
+  font-weight:500;line-height:1.85;
+  color:rgba(248,245,237,.72);
+  max-width:620px;margin-bottom:48px;
+  letter-spacing:.02em;
+}
+.hero-cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:18px 32px;background:var(--lime);color:var(--navy);
+  border:none;border-radius:999px;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+  transition:all .2s;
+}
+.btn-primary:hover{background:var(--ivory);transform:translateY(-2px);}
+.btn-primary svg{transition:transform .2s;}
+.btn-primary:hover svg{transform:translateX(4px);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 28px;background:transparent;color:var(--ivory);
+  border:1px solid rgba(248,245,237,.25);border-radius:999px;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+  transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime);}
+
+.hero-footer{
+  position:absolute;bottom:32px;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+}
+.hero-date{
+  font-family:'Inter',sans-serif;font-size:10px;font-weight:500;
+  color:var(--muted);letter-spacing:.24em;text-transform:uppercase;
+}
+.hero-scroll{
+  font-family:'Inter',sans-serif;font-size:10px;font-weight:600;
+  color:var(--ivory);letter-spacing:.32em;text-transform:uppercase;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.hero-scroll-line{
+  width:1px;height:40px;background:linear-gradient(to bottom,var(--lime),transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:.3;transform:scaleY(.6);}
+  50%{opacity:1;transform:scaleY(1);}
+}
+
+/* ── Section base ── */
+.section{padding:140px 0;position:relative;}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:80px;flex-wrap:wrap;gap:24px;}
+.section-heading{
+  font-family:'Cormorant Garamond','Noto Serif JP',serif;
+  font-size:clamp(32px, 5vw, 62px);font-weight:500;
+  line-height:1.1;letter-spacing:-.02em;color:var(--ivory);
+}
+.section-heading .em{color:var(--lime);font-style:italic;}
+.section-heading-sub{
+  font-family:'Noto Serif JP',serif;font-size:14px;font-weight:500;
+  color:rgba(248,245,237,.55);line-height:1.85;max-width:420px;
+}
+
+/* ── Message section ── */
+.section-message{background:var(--navy-dk);}
+.message-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;}
+.message-lead{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(20px, 2.4vw, 28px);
+  font-weight:500;line-height:1.75;color:var(--ivory);
+  letter-spacing:.01em;
+}
+.message-lead .em{color:var(--lime);}
+.message-body{display:flex;flex-direction:column;gap:24px;}
+.message-body p{
+  font-family:'Noto Serif JP',serif;font-size:15px;font-weight:400;
+  line-height:2;color:rgba(248,245,237,.72);letter-spacing:.01em;
+}
+
+/* ── Arrow flow ── */
+.flow-grid{display:flex;flex-direction:column;gap:0;}
+.flow-row{
+  display:grid;grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:24px;align-items:center;
+  padding:28px 0;
+  border-top:1px solid var(--border);
+}
+.flow-row:last-child{border-bottom:1px solid var(--border);}
+.flow-item{
+  padding:18px 24px;
+  font-family:'Noto Serif JP',serif;font-size:16px;font-weight:500;
+  color:var(--ivory);letter-spacing:.02em;
+}
+.flow-item.problem{color:rgba(248,245,237,.55);}
+.flow-item.analysis{
+  background:var(--navy-lt);border-radius:8px;
+  border:1px solid rgba(168,224,95,.3);
+  color:var(--lime);font-weight:700;text-align:center;
+}
+.flow-item.solution{color:var(--ivory);font-weight:700;text-align:right;}
+.flow-arrow{
+  display:flex;align-items:center;justify-content:center;
+  color:var(--lime);font-size:20px;font-weight:300;
+}
+.flow-arrow svg{width:40px;height:12px;}
+
+/* ── Values circle ── */
+.values-wrap{
+  display:flex;justify-content:center;align-items:center;
+  padding:40px 0;
+  position:relative;
+}
+.values-svg{max-width:640px;width:100%;height:auto;}
+
+/* ── Services ── */
+.section-services{background:var(--navy-dk);}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);}
+.service-card{
+  background:var(--navy-dk);padding:56px 48px;
+  transition:background .25s;cursor:pointer;
+  display:flex;flex-direction:column;gap:24px;
+  text-decoration:none;color:inherit;
+  min-height:320px;position:relative;
+}
+.service-card:hover{background:var(--navy-lt);}
+.service-num{
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  color:var(--lime);letter-spacing:.3em;
+}
+.service-title{
+  font-family:'Cormorant Garamond','Noto Serif JP',serif;
+  font-size:36px;font-weight:500;line-height:1.1;color:var(--ivory);
+  letter-spacing:-.01em;
+}
+.service-title .em{color:var(--lime);font-style:italic;}
+.service-title-ja{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:500;color:rgba(248,245,237,.65);margin-top:4px;letter-spacing:.04em;}
+.service-desc{
+  font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:400;
+  line-height:1.9;color:rgba(248,245,237,.6);flex:1;
+}
+.service-arrow{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+  color:var(--lime);letter-spacing:.2em;text-transform:uppercase;
+  margin-top:auto;
+}
+.service-arrow svg{transition:transform .2s;}
+.service-card:hover .service-arrow svg{transform:translateX(6px);}
+
+/* ── Recent hits ── */
+.hits-list{display:flex;flex-direction:column;gap:0;}
+.hit-row{
+  display:grid;grid-template-columns:120px 60px 1fr auto auto;
+  gap:32px;align-items:center;
+  padding:28px 0;
+  border-top:1px solid var(--border);
+  transition:background .2s;
+}
+.hit-row:last-child{border-bottom:1px solid var(--border);}
+.hit-row:hover{background:rgba(168,224,95,.04);}
+.hit-race{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--lime);letter-spacing:.12em;text-transform:uppercase;}
+.hit-mark{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--ivory);text-align:center;}
+.hit-name{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:500;color:var(--ivory);letter-spacing:.02em;}
+.hit-pop{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.1em;}
+.hit-result{
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  padding:6px 14px;border-radius:999px;letter-spacing:.1em;
+}
+.hit-result.r1{background:rgba(168,224,95,.15);color:var(--lime);border:1px solid rgba(168,224,95,.35);}
+.hit-result.r2{background:rgba(212,160,23,.12);color:var(--gold);border:1px solid rgba(212,160,23,.3);}
+
+/* ── CTA ── */
+.section-cta{
+  padding:160px 0;
+  background:var(--navy-dk);
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:900px;height:900px;
+  background:radial-gradient(circle,rgba(168,224,95,.06) 0%,transparent 60%);
+  pointer-events:none;filter:blur(30px);
+}
+.cta-inner{position:relative;z-index:2;}
+.cta-title{
+  font-family:'Cormorant Garamond','Noto Serif JP',serif;
+  font-size:clamp(40px, 7vw, 96px);font-weight:500;
+  line-height:1.05;letter-spacing:-.02em;color:var(--ivory);
+  margin-bottom:40px;
+}
+.cta-title .em{color:var(--lime);font-style:italic;}
+.cta-sub{
+  font-family:'Noto Serif JP',serif;font-size:16px;font-weight:500;
+  color:rgba(248,245,237,.65);margin-bottom:48px;line-height:1.85;
+}
+
+/* ── Footer ── */
+.footer{
+  padding:80px 0 40px;border-top:1px solid var(--border);
+  background:var(--navy-dk);
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px;}
+.footer-brand-desc{
+  font-family:'Noto Sans JP',sans-serif;font-size:11px;font-weight:400;
+  color:rgba(248,245,237,.5);line-height:2;margin-top:20px;max-width:320px;
+}
+.footer-col h5{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:var(--lime);letter-spacing:.3em;text-transform:uppercase;margin-bottom:20px;}
+.footer-col a{display:block;font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:500;color:rgba(248,245,237,.7);text-decoration:none;padding:6px 0;transition:color .2s;}
+.footer-col a:hover{color:var(--lime);}
+.footer-bottom{
+  padding-top:32px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  font-family:'Inter',sans-serif;font-size:10px;color:var(--muted);letter-spacing:.2em;
+}
+
+/* ── Responsive ── */
+@media (max-width:900px){
+  .container{padding:0 24px;}
+  .topbar{padding:14px 24px;}
+  .topnav{display:none;}
+  .hero{padding:140px 0 100px;min-height:auto;}
+  .hero-footer{position:static;padding:40px 24px 0;}
+  .section{padding:80px 0;}
+  .message-grid{grid-template-columns:1fr;gap:40px;}
+  .flow-row{grid-template-columns:1fr;gap:12px;text-align:center;padding:20px 0;}
+  .flow-item{padding:10px 16px;}
+  .flow-item.solution{text-align:center;}
+  .flow-arrow{transform:rotate(90deg);}
+  .services-grid{grid-template-columns:1fr;}
+  .service-card{padding:40px 24px;min-height:auto;}
+  .hit-row{grid-template-columns:auto 40px 1fr auto;gap:16px;padding:20px 0;}
+  .hit-pop{display:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ Topbar ══════════ -->
+<nav class="topbar">
+  <div class="brand">
+    <div class="brand-mark">極</div>
+    <div>
+      <div class="brand-name">ギーニョ・クロード競馬新聞・極式</div>
+      <div class="brand-name-en">Ginyo × Claude / Keiba Oracle</div>
+    </div>
+  </div>
+  <div class="topnav">
+    <a href="final-display.html">Verdict</a>
+    <a href="win5-2026-04-19.html">WIN5</a>
+    <a href="kinkai-display.html">Kinkai</a>
+    <a href="entries-archive.html">Archive</a>
+    <a href="final-display.html" class="topnav-cta">Today's Bet →</a>
+  </div>
+</nav>
+
+<!-- ══════════ Hero ══════════ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line"></span>
+      <span class="label-en">Issue.04 — 2026 Satsuki Sho</span>
+    </div>
+    <h1 class="hero-title">
+      The AI <span class="em">Turf</span><br>
+      Oracle<span class="dot">.</span>
+    </h1>
+    <p class="hero-sub">
+      混戦を斬る、確信を買う。<br>
+      ギーニョ（キャラ）とクロード（AI）が作り上げた、プロ馬券師のための<strong style="color:var(--ivory);">戦略ラボ</strong>。
+      6ファクター診断・SABC自動採点・穴馬スコア検出で、競馬の"カオス"を"ジャッジ"に変換する。
+    </p>
+    <div class="hero-cta-row">
+      <a href="final-display.html" class="btn-primary">
+        Today's Verdict
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </a>
+      <a href="#message" class="btn-ghost">What is 極式?</a>
+    </div>
+  </div>
+  <div class="hero-footer">
+    <div class="hero-date">Updated · 2026.04.18 · FRI</div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <span class="hero-scroll-line"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ Message ══════════ -->
+<section class="section section-message" id="message">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="label-en" style="margin-bottom:16px;">01 — Message</div>
+        <h2 class="section-heading">
+          <span class="em">Bet</span> with<br>
+          conviction<span class="dot" style="color:var(--lime);">.</span>
+        </h2>
+      </div>
+      <p class="section-heading-sub">
+        当てるために、考える。<br>
+        考えるために、データに聞く。
+      </p>
+    </div>
+
+    <div class="message-grid">
+      <p class="message-lead">
+        競馬は偶然ではなく、<span class="em">因果の積み重ねだ。</span><br>
+        そしてAIは、その因果を最短で可視化する最良の相棒になる。
+      </p>
+      <div class="message-body">
+        <p>
+          「極式」は、キャラクター馬券師ギーニョの直感と、AIクロードの論理を融合させた競馬新聞の新しい形だ。血統・騎手・調教師・外厩・脚質・ラップ・ペース──6つのファクターをSABCで自動採点し、上位馬と穴馬を独立したロジックで抽出する。
+        </p>
+        <p>
+          人間の直感には見えない"期待値の歪み"を数字で指し示し、逆に、データだけでは拾えない"馬場のアヤ"をキャラクターが語る。<strong style="color:var(--ivory);">これは単なる予想サイトではない。プロ馬券師のための戦略ラボ、その極北を目指す実験だ。</strong>
+        </p>
+        <p>
+          混戦を嘆くな。混戦を買え。ここに来れば、答えは整理されている。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ Values Circle (posimedi-inspired) ══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header" style="justify-content:center;text-align:center;">
+      <div>
+        <div class="label-en" style="margin-bottom:16px;">02 — Values</div>
+        <h2 class="section-heading" style="text-align:center;">
+          極式の <span class="em">五原則</span><span class="dot">.</span>
+        </h2>
+      </div>
+    </div>
+    <div class="values-wrap">
+      <svg class="values-svg" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg">
+        <!-- connecting green arcs -->
+        <path d="M 300 70 L 462 170" stroke="#A8E05F" stroke-width="6" opacity=".9"/>
+        <path d="M 462 170 L 430 340" stroke="#A8E05F" stroke-width="6" opacity=".9"/>
+        <path d="M 430 340 L 215 400" stroke="#A8E05F" stroke-width="6" opacity=".9"/>
+        <path d="M 215 400 L 125 240" stroke="#A8E05F" stroke-width="6" opacity=".9"/>
+        <path d="M 125 240 L 300 70" stroke="#A8E05F" stroke-width="6" opacity=".9"/>
+
+        <!-- center text -->
+        <text x="300" y="235" text-anchor="middle" font-family="Inter,sans-serif" font-size="18" font-weight="900" fill="#F8F5ED" letter-spacing="2">KIWAMESHIKI</text>
+        <text x="300" y="260" text-anchor="middle" font-family="Inter,sans-serif" font-size="18" font-weight="900" fill="#F8F5ED" letter-spacing="2">VALUES</text>
+
+        <!-- 5 circles -->
+        <!-- 1. 率直に伝える -->
+        <circle cx="300" cy="70" r="60" fill="#0A1321" stroke="#A8E05F" stroke-width="2"/>
+        <text x="300" y="64" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">率直に</text>
+        <text x="300" y="82" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">伝える</text>
+
+        <!-- 2. 常にロジカル -->
+        <circle cx="462" cy="170" r="60" fill="#0A1321" stroke="#A8E05F" stroke-width="2"/>
+        <text x="462" y="164" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">常に</text>
+        <text x="462" y="182" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">ロジカル</text>
+
+        <!-- 3. 期待値で買う -->
+        <circle cx="430" cy="340" r="60" fill="#0A1321" stroke="#A8E05F" stroke-width="2"/>
+        <text x="430" y="334" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">期待値で</text>
+        <text x="430" y="352" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">買う</text>
+
+        <!-- 4. 穴馬を逃さない -->
+        <circle cx="215" cy="400" r="60" fill="#0A1321" stroke="#A8E05F" stroke-width="2"/>
+        <text x="215" y="394" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">穴馬を</text>
+        <text x="215" y="412" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">逃さない</text>
+
+        <!-- 5. 遊び心を残す -->
+        <circle cx="125" cy="240" r="60" fill="#0A1321" stroke="#A8E05F" stroke-width="2"/>
+        <text x="125" y="234" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">遊び心を</text>
+        <text x="125" y="252" text-anchor="middle" font-family="Noto Sans JP,sans-serif" font-size="12" font-weight="700" fill="#F8F5ED">残す</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ Arrow flow: Problem → Analysis → Solution ══════════ -->
+<section class="section section-message">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="label-en" style="margin-bottom:16px;">03 — Process</div>
+        <h2 class="section-heading">
+          Chaos to<br><span class="em">Verdict</span><span class="dot">.</span>
+        </h2>
+      </div>
+      <p class="section-heading-sub">
+        競馬の"混沌"を"判定"に変える、5つのフロー。
+      </p>
+    </div>
+
+    <div class="flow-grid">
+      <div class="flow-row">
+        <div class="flow-item problem">混戦オッズ</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item analysis">6ファクター診断</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item solution">確信の◎</div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-item problem">情報過多</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item analysis">SABC自動採点</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item solution">シンプルな買い目</div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-item problem">人気の罠</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item analysis">穴馬スコア検出</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item solution">激走先回り</div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-item problem">直感の限界</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item analysis">ロジックの確証</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item solution">回収率の向上</div>
+      </div>
+      <div class="flow-row">
+        <div class="flow-item problem">過去との比較困難</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item analysis">血統×コース分析</div>
+        <div class="flow-arrow"><svg viewBox="0 0 40 12" fill="none"><path d="M0 6H36M36 6L30 1M36 6L30 11" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="flow-item solution">金塊馬発見</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ Services ══════════ -->
+<section class="section section-services">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="label-en" style="margin-bottom:16px;">04 — Services</div>
+        <h2 class="section-heading">
+          Four <span class="em">Weapons</span><span class="dot">.</span>
+        </h2>
+      </div>
+      <p class="section-heading-sub">
+        最終ジャッジ・WIN5・金塊馬・アーカイブ。<br>
+        4つの武器で、週末の競馬を制す。
+      </p>
+    </div>
+  </div>
+  <div class="container" style="padding:0;">
+    <div class="services-grid">
+      <a href="final-display.html" class="service-card">
+        <div class="service-num">01 / Verdict</div>
+        <div>
+          <div class="service-title">Final <span class="em">Verdict</span><span style="color:var(--lime);">.</span></div>
+          <div class="service-title-ja">最終ジャッジ</div>
+        </div>
+        <p class="service-desc">6ファクター＋SABC採点で導いた最終結論。◎本命・買い目・ギーニョの決断を一枚で。カオス皐月賞も、答えはここに。</p>
+        <div class="service-arrow">
+          Read the verdict
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </a>
+      <a href="win5-2026-04-19.html" class="service-card">
+        <div class="service-num">02 / WIN5</div>
+        <div>
+          <div class="service-title">WIN<span class="em">5</span><span style="color:var(--lime);">.</span></div>
+          <div class="service-title-ja">WIN5徹底解析</div>
+        </div>
+        <p class="service-desc">単勝スコアランキングから買い目を自動生成。36点3,600円で最高3億3千万円のロマン。仮想配当レンジと10,000円お楽しみプランも公開中。</p>
+        <div class="service-arrow">
+          Enter the maze
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </a>
+      <a href="kinkai-display.html" class="service-card">
+        <div class="service-num">03 / Gold</div>
+        <div>
+          <div class="service-title">Gold <span class="em">Horse</span><span style="color:var(--lime);">.</span></div>
+          <div class="service-title-ja">今週の金塊馬</div>
+        </div>
+        <p class="service-desc">コース別・血統別に炙り出した今週の激走候補。人気薄の穴馬をピンポイントで指名。週末の配当を変える一頭がここにいる。</p>
+        <div class="service-arrow">
+          Dig the gold
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </a>
+      <a href="entries-archive.html" class="service-card">
+        <div class="service-num">04 / Archive</div>
+        <div>
+          <div class="service-title"><span class="em">Archive</span><span style="color:var(--lime);">.</span></div>
+          <div class="service-title-ja">スコア解析アーカイブ</div>
+        </div>
+        <p class="service-desc">NZT・阪神牝馬S・桜花賞など、過去の重賞解析を全て保存。勝った予想も外した予想も、次に勝つための教科書にする。</p>
+        <div class="service-arrow">
+          Read the past
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ Recent Hits ══════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="label-en" style="margin-bottom:16px;">05 — Recent Hits</div>
+        <h2 class="section-heading">
+          Latest <span class="em">Captures</span><span class="dot">.</span>
+        </h2>
+      </div>
+      <p class="section-heading-sub">
+        直近の激走キャッチ。<br>
+        数字は嘘をつかない。
+      </p>
+    </div>
+
+    <div class="hits-list">
+      <div class="hit-row">
+        <div class="hit-race">NZT G2</div>
+        <div class="hit-mark">☆</div>
+        <div class="hit-name">レザベーション</div>
+        <div class="hit-pop">6番人気</div>
+        <div class="hit-result r1">🥇 1着激走</div>
+      </div>
+      <div class="hit-row">
+        <div class="hit-race">桜花賞 G1</div>
+        <div class="hit-mark">◎</div>
+        <div class="hit-name">スターアニス</div>
+        <div class="hit-pop">2番人気</div>
+        <div class="hit-result r1">🥇 1着激走</div>
+      </div>
+      <div class="hit-row">
+        <div class="hit-race">日経賞 G2</div>
+        <div class="hit-mark">☆</div>
+        <div class="hit-name">マイユニバース</div>
+        <div class="hit-pop">4番人気</div>
+        <div class="hit-result r1">🥇 1着激走</div>
+      </div>
+      <div class="hit-row">
+        <div class="hit-race">桜花賞 G1</div>
+        <div class="hit-mark">△</div>
+        <div class="hit-name">ジッピーチューン</div>
+        <div class="hit-pop">12番人気</div>
+        <div class="hit-result r2">🥉 3着激走</div>
+      </div>
+      <div class="hit-row">
+        <div class="hit-race">ファルコンS G3</div>
+        <div class="hit-mark">○</div>
+        <div class="hit-name">エイシンディード</div>
+        <div class="hit-pop">8番人気</div>
+        <div class="hit-result r2">🥈 2着連対</div>
+      </div>
+      <div class="hit-row">
+        <div class="hit-race">ダービー卿CT G3</div>
+        <div class="hit-mark">○</div>
+        <div class="hit-name">サイルーン</div>
+        <div class="hit-pop">9番人気</div>
+        <div class="hit-result r2">🥈 2着連対</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="section-cta">
+  <div class="cta-glow"></div>
+  <div class="container cta-inner">
+    <div class="label-en" style="margin-bottom:24px;">— Ready? —</div>
+    <h2 class="cta-title">
+      Today's <span class="em">Verdict</span>,<br>
+      already <span class="em">waiting</span><span style="color:var(--lime);">.</span>
+    </h2>
+    <p class="cta-sub">
+      4月19日（日） G1皐月賞 最終ジャッジ公開中。
+    </p>
+    <a href="final-display.html" class="btn-primary">
+      Read Today's Verdict
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════ Footer ══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">
+          <div class="brand-mark">極</div>
+          <div>
+            <div class="brand-name">ギーニョ・クロード競馬新聞・極式</div>
+            <div class="brand-name-en">Ginyo × Claude / Keiba Oracle</div>
+          </div>
+        </div>
+        <p class="footer-brand-desc">
+          キャラクター馬券師ギーニョとAIクロードが共同制作する、プロ馬券師のための戦略ラボ。6ファクター診断で混戦を斬る。
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="final-display.html">Final Verdict</a>
+        <a href="win5-2026-04-19.html">WIN5 Analysis</a>
+        <a href="kinkai-display.html">Gold Horse</a>
+        <a href="entries-archive.html">Archive</a>
+      </div>
+      <div class="footer-col">
+        <h5>Read</h5>
+        <a href="archive.html">Past Records</a>
+        <a href="how-to-buy.html">How to Bet</a>
+        <a href="https://note.com/gaikyukeiba_ace" target="_blank" rel="noopener">Novel</a>
+      </div>
+      <div class="footer-col">
+        <h5>Meta</h5>
+        <a href="index.html">Classic Top</a>
+        <a href="#message">About</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 KIWAMESHIKI · GINYO × CLAUDE</div>
+      <div>DESIGNED FOR THE TRUE BETTORS</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
