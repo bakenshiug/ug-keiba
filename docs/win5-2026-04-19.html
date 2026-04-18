@@ -836,7 +836,7 @@ function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRan
           ${ziGradeBadge(h.sabcZI)}
           ${gradeBadge('過去走',h.pastRaceGradeTan??null,h.pastRaceGradeFuku??null)}
           ${kinsoGradeBadge(h.kinsoGrade)}
-          ${h.ageGradeTan||h.ageGradeFuku?gradeBadge('年齢',h.ageGradeTan??null,h.ageGradeFuku??null):`<span class="blood-grade bg-age-fixed">年齢 3歳</span>`}
+          ${h.ageGradeTan||h.ageGradeFuku?gradeBadge('年齢',h.ageGradeTan??null,h.ageGradeFuku??null):(h.age?`<span class="blood-grade bg-age-fixed">年齢 ${esc(String(h.age))}歳</span>`:'')}
           ${gradeBadge('ローテ',h.rotGradeTan??null,h.rotGradeFuku??null)}
           ${(h.prevMarginGradeTan||h.prevMarginGradeFuku)?gradeBadge('上がり',h.prevMarginGradeTan??null,h.prevMarginGradeFuku??null):''}
           ${(h.soma2GradeTan||h.soma2GradeFuku)?gradeBadge('相馬眼２',h.soma2GradeTan??null,h.soma2GradeFuku??null):''}
