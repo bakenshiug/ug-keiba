@@ -510,6 +510,17 @@ function extBadge(fac) {
   return `<span class="ext-badge ext-other">${esc(fac)}</span>`;
 }
 
+// 馬格グレード：prevWeight + sex から自動計算（牝馬は+20kg補正）
+function prevWeightGrade(w, sex) {
+  if (!w) return null;
+  const ww = w + (sex === '牝' ? 20 : 0);
+  if (ww >= 500) return 'S';
+  if (ww >= 480) return 'A';
+  if (ww >= 460) return 'B';
+  if (ww >= 440) return 'C';
+  return 'D';
+}
+
 function ziGradeBadge(zi) {
   const g = ziGrade(zi);
   return `<span class="zi-badge zi-${g.toLowerCase()}">能力${g}</span>`;
@@ -552,7 +563,8 @@ function calcScores(h, surface) {
   const [exT,exF]   = splitGrade(extGrade(h.extFacility,surface),'ext');
   const kT = h.kinsoGrade ?? null, kF = h.kinsoGrade ?? null;
   const [pT,pF]     = splitGrade(h.paceGrade,'pace');
-  const [bdT,bdF]   = splitGrade(h.bodyGrade,'body');
+  const resolvedBodyGrade = h.bodyGrade ?? prevWeightGrade(h.prevWeight, h.sex);
+  const [bdT,bdF]   = splitGrade(resolvedBodyGrade,'body');
   const [cT,cF]     = splitGrade(h.courseGrade,'course');
   const [syT,syF]   = splitGrade(h.styleGrade,'style');
   const srT  = h.sireGradeTan     ?? null, srF  = h.sireGradeFuku    ?? null;
@@ -861,7 +873,7 @@ function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRan
           ${splitBadge('コース',h.courseGrade,'course')}
           ${paceGradeBadge(h.paceGrade)}
           ${styleNameBadge(h.style,h.styleGrade)}
-          ${splitBadge('馬格',h.bodyGrade,'body')}
+          ${splitBadge('馬格',h.bodyGrade??prevWeightGrade(h.prevWeight,h.sex),'body')}
           ${(h.charGradeTan||h.charGradeFuku)?gradeBadge('キャラ',h.charGradeTan??null,h.charGradeFuku??null):''}
         </div>
         <div class="badge-group">
