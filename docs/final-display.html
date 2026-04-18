@@ -1706,18 +1706,20 @@ function renderRaceDetail(data, notes) {
         Object.entries(bets).map(([k,v]) => {
           const rec      = data.ginyoRecommend;
           const captions = data.betCaptions || {};
-          const isTan  = k === '単勝';
-          const isFuku = k === '複勝';
           const isRec  = rec && k === rec;
           const caption = captions[k] ? `<div class="bet-caption">${esc(captions[k])}</div>` : '';
-          const audienceTag = isTan
-            ? `<span class="bet-audience-tag bet-tan-tag">🔥 単勝一本勝負派はコチラ</span>`
-            : isFuku
-            ? `<span class="bet-audience-tag bet-fuku-tag">🏦 複勝で堅実資産形成したいなら</span>`
-            : '';
+          const BET_LABELS = {
+            '単勝':    ['bet-tan-tag',  '🔥 全力一点集中型'],
+            '複勝':    ['bet-fuku-tag', '🏦 堅実派の処方箋'],
+            '馬単マルチ':['bet-tan-tag', '⚡️ 軸馬信じてコスパ勝負'],
+            '3連複':   ['bet-fuku-tag', '🌈 順番は神に任せたい派'],
+            '3連単':   ['bet-tan-tag',  '👑 完全的中を目指す修羅道'],
+          };
+          const lbl = BET_LABELS[k];
+          const audienceTag = lbl ? `<span class="bet-audience-tag ${lbl[0]}">${lbl[1]}</span>` : '';
           const inner = `<span class="bet-type">${esc(k)}</span><div style="flex:1"><span class="bet-val">${esc(v)}</span>${caption}</div>`;
           const row = `<div class="bet-row bet-row-jiku${isRec?' bet-row-ginyo':''}">${inner}</div>`;
-          if (isRec) return `<div class="bet-wrap"><div class="bet-ginyo-banner"><span>🐶</span><span class="bet-ginyo-banner-text">ギーニョのオススメ！</span></div>${row}</div>`;
+          if (isRec) return `<div class="bet-wrap">${audienceTag}<div class="bet-ginyo-banner"><span>🐶</span><span class="bet-ginyo-banner-text">ギーニョのオススメ！</span></div>${row}</div>`;
           if (audienceTag) return `<div class="bet-wrap">${audienceTag}${row}</div>`;
           return row;
         }).join('')
