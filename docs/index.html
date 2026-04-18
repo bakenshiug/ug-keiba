@@ -321,6 +321,26 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .osaka-final-btn .card-desc{color:rgba(255,230,200,.8)!important;}
 .osaka-final-btn .card-arrow{color:rgba(255,220,100,.85)!important;font-size:22px!important;}
 .osaka-final-btn:hover{transform:translateY(-2px)!important;box-shadow:0 0 60px rgba(232,0,61,.9)!important;}
+/* その他セクションの最終結論リンクバナー（コンパクト版） */
+.verdict-link-btn{
+  background:linear-gradient(135deg,#1a0008 0%,#3a0014 50%,#6a001f 100%)!important;
+  border:1.5px solid rgba(232,0,61,.6)!important;
+  box-shadow:0 0 20px rgba(232,0,61,.3),inset 0 1px 0 rgba(255,220,100,.12)!important;
+  position:relative;overflow:hidden;
+}
+.verdict-link-btn::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1.5px;
+  background:linear-gradient(90deg,transparent,rgba(255,220,100,.8),transparent);
+}
+.verdict-link-btn .verdict-link-label{
+  font-size:9px;font-weight:900;color:rgba(255,220,100,.9);
+  letter-spacing:.22em;margin-bottom:3px;text-transform:uppercase;
+  text-shadow:0 0 10px rgba(255,200,80,.4);
+}
+.verdict-link-btn .card-title{color:#fff!important;font-size:15px!important;text-shadow:0 0 12px rgba(255,220,100,.25);}
+.verdict-link-btn .card-desc{color:rgba(255,230,200,.75)!important;font-size:11px!important;}
+.verdict-link-btn .card-arrow{color:rgba(255,220,100,.85)!important;}
+.verdict-link-btn:hover{transform:translateY(-1px)!important;box-shadow:0 0 32px rgba(232,0,61,.55)!important;}
 /* WIN5ボタン */
 .win5-btn{
   background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
@@ -627,6 +647,15 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 
     <div class="section-label">その他</div>
     <div class="card-grid">
+      <a href="final-display.html" class="nav-card verdict-link-btn full">
+        <div class="card-icon" style="font-size:24px;">🎯</div>
+        <div style="flex:1;">
+          <div class="verdict-link-label">FINAL VERDICT</div>
+          <div class="card-title">皐月賞 最終結論へ</div>
+          <div class="card-desc">◎本命・買い目・ジャッジを一枚で</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
       <a href="entries-archive.html" class="nav-card">
         <div class="card-icon">📁</div>
         <div>
@@ -648,22 +677,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
         <div>
           <div class="card-title">馬券の買い方</div>
           <div class="card-desc">買い方ガイド・ルール</div>
-        </div>
-        <div class="card-arrow">›</div>
-      </a>
-      <a href="soutei-2026-04-06.html" class="nav-card gold">
-        <div class="card-icon">📋</div>
-        <div>
-          <div class="card-title">4月6日(日) データ分析</div>
-          <div class="card-desc">大阪杯<span class="grade-pill g1">G1</span></div>
-        </div>
-        <div class="card-arrow">›</div>
-      </a>
-      <a href="soutei-2026-04-05.html" class="nav-card">
-        <div class="card-icon">📋</div>
-        <div>
-          <div class="card-title">4月5日(土) データ分析</div>
-          <div class="card-desc">チャーチルダウンズC<span class="grade-pill g3">G3</span>　ダービー卿CT<span class="grade-pill g3">G3</span></div>
         </div>
         <div class="card-arrow">›</div>
       </a>
