@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🏆 WIN5 過去戦績 | UG競馬</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg1:#06080f;--bg2:#0d0820;--bg3:#06080f;
+  --gold:#f0c040;--gold-dk:#c8890a;--gold-lt:#fde68a;
+  --card:rgba(255,255,255,.06);--border:rgba(240,192,64,.18);
+  --text:#fff;--muted:rgba(255,240,200,.65);
+  --hit:#22c55e;--miss:#ef4444;--upcoming:#a78bfa;
+}
+html,body{
+  background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);
+  color:var(--text);
+  font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  min-height:100vh;
+}
+
+/* ─ ヘッダー ─ */
+.page-header{
+  background:linear-gradient(135deg,#0a0616,#1a0a30,#0a0616);
+  border-bottom:2px solid rgba(240,192,64,.4);
+  padding:12px 16px;display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 24px rgba(200,140,10,.3);
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;font-weight:700;color:#fff;
+  text-decoration:none;padding:5px 10px;border-radius:8px;
+  border:1px solid rgba(240,192,64,.4);white-space:nowrap;flex-shrink:0;
+}
+.back-btn:hover{background:rgba(240,192,64,.1);}
+.header-badge{
+  font-size:12px;font-weight:900;padding:4px 10px;border-radius:6px;
+  background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a0800;
+  letter-spacing:.1em;flex-shrink:0;
+  box-shadow:0 0 10px rgba(240,192,64,.4);
+}
+.header-title{font-size:15px;font-weight:900;color:#f0c040;letter-spacing:.06em;}
+.header-sub{font-size:10px;color:rgba(255,230,140,.7);margin-top:1px;}
+
+/* ─ コンテンツ ─ */
+.content{max-width:520px;margin:0 auto;padding:16px 12px 80px;}
+
+/* ─ サマリーバナー ─ */
+.summary-banner{
+  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(180,100,10,.06));
+  border:1px solid rgba(240,192,64,.2);
+  border-radius:14px;padding:14px 16px;margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.summary-stat{text-align:center;min-width:60px;}
+.summary-stat-val{font-size:24px;font-weight:900;color:var(--gold);line-height:1;}
+.summary-stat-label{font-size:9px;font-weight:700;color:rgba(255,230,140,.6);margin-top:3px;letter-spacing:.06em;}
+.summary-divider{width:1px;height:40px;background:rgba(240,192,64,.15);}
+
+/* ─ セクションヘッダー ─ */
+.section-header{
+  font-size:9px;font-weight:900;letter-spacing:.1em;
+  color:rgba(240,192,64,.55);text-transform:uppercase;
+  padding:4px 0 10px;margin-top:8px;
+}
+
+/* ─ アーカイブカード ─ */
+.archive-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+  margin-bottom:16px;
+  transition:border-color .15s,box-shadow .15s;
+}
+.archive-card:hover{border-color:rgba(240,192,64,.45);box-shadow:0 4px 24px rgba(200,140,10,.15);}
+
+/* カードヘッダー */
+.card-head{
+  padding:12px 14px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  background:linear-gradient(135deg,rgba(240,192,64,.07),rgba(180,100,10,.04));
+  border-bottom:1px solid rgba(240,192,64,.12);
+}
+.card-date{
+  font-family:'Noto Serif JP',serif;
+  font-size:13px;font-weight:900;color:#f0c040;
+}
+.card-label{font-size:10px;color:var(--muted);margin-top:2px;}
+.card-status-badge{
+  font-size:10px;font-weight:900;padding:4px 10px;border-radius:20px;
+  white-space:nowrap;flex-shrink:0;
+}
+.status-hit{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.35);}
+.status-miss{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);}
+.status-upcoming{background:rgba(167,139,250,.15);color:#c4b5fd;border:1px solid rgba(167,139,250,.3);}
+
+/* 詳細ボタン */
+.card-link{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;color:rgba(240,192,64,.7);
+  text-decoration:none;padding:4px 8px;border-radius:8px;
+  border:1px solid rgba(240,192,64,.2);flex-shrink:0;
+  transition:all .15s;
+}
+.card-link:hover{color:#f0c040;border-color:rgba(240,192,64,.5);background:rgba(240,192,64,.08);}
+
+/* ── 脚ロウ ── */
+.legs-list{padding:10px 12px;}
+.leg-row{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);
+}
+.leg-row:last-child{border-bottom:none;}
+.leg-badge{
+  font-size:8px;font-weight:900;letter-spacing:.06em;
+  padding:3px 7px;border-radius:10px;
+  background:rgba(240,192,64,.1);color:rgba(240,192,64,.75);
+  border:1px solid rgba(240,192,64,.2);white-space:nowrap;flex-shrink:0;
+  min-width:38px;text-align:center;
+}
+.leg-info{flex:1;min-width:0;}
+.leg-race{font-size:11px;font-weight:700;color:#fff;}
+.leg-meta{font-size:9px;color:rgba(255,255,255,.4);margin-top:1px;}
+.leg-picks{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;}
+.leg-pick-chip{
+  display:inline-flex;align-items:center;
+  font-size:9px;font-weight:700;
+  padding:2px 7px;border-radius:10px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.75);
+  white-space:nowrap;
+}
+.leg-pick-chip.is-winner{
+  background:rgba(34,197,94,.15);
+  border-color:rgba(34,197,94,.4);
+  color:#4ade80;
+}
+.leg-pick-chip.is-winner::before{content:'🎯 ';}
+.leg-result{flex-shrink:0;text-align:right;}
+.leg-hit-badge{
+  font-size:9px;font-weight:900;padding:3px 8px;border-radius:10px;white-space:nowrap;
+}
+.leg-hit{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3);}
+.leg-miss{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.25);}
+.leg-pending{background:rgba(167,139,250,.12);color:#c4b5fd;border:1px solid rgba(167,139,250,.2);}
+
+/* ── カードフッター ── */
+.card-foot{
+  padding:9px 14px;
+  background:rgba(0,0,0,.2);
+  border-top:1px solid rgba(240,192,64,.08);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;
+}
+.combo-info{font-size:9px;color:rgba(255,230,140,.5);}
+.win5-payout{
+  font-size:12px;font-weight:900;
+  color:#f0c040;
+}
+.win5-hit-banner{
+  width:100%;
+  text-align:center;padding:8px;
+  background:linear-gradient(90deg,rgba(34,197,94,.1),rgba(34,197,94,.2),rgba(34,197,94,.1));
+  border-top:1px solid rgba(34,197,94,.3);
+  font-size:12px;font-weight:900;color:#4ade80;
+  letter-spacing:.06em;
+}
+
+/* ─ グレードバッジ ─ */
+.grade-badge{
+  display:inline-block;font-size:8px;font-weight:900;
+  padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle;
+}
+.grade-g1{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a1000;}
+.grade-g2{background:linear-gradient(135deg,#e0b0d0,#c080a0);color:#2a0a1a;}
+.grade-g3{background:linear-gradient(135deg,#80c090,#3a7050);color:#fff;}
+.grade-l{background:linear-gradient(135deg,#7ab8e0,#4a90c0);color:#fff;}
+.grade-3c{background:linear-gradient(135deg,#a0a0c0,#606080);color:#fff;}
+
+/* ─ 空っぽ ─ */
+.empty-state{
+  text-align:center;padding:60px 20px;
+  color:rgba(255,230,140,.3);
+  font-size:13px;
+}
+.empty-icon{font-size:40px;display:block;margin-bottom:12px;}
+
+/* ─ ローディング ─ */
+.loading-state{
+  text-align:center;padding:60px 20px;
+  color:rgba(255,230,140,.5);font-size:12px;
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="page-header">
+  <a href="index.html" class="back-btn">← TOP</a>
+  <span class="header-badge">WIN5</span>
+  <div style="flex:1;min-width:0;">
+    <div class="header-title">WIN5 過去戦績</div>
+    <div class="header-sub">予想アーカイブ &amp; 的中履歴</div>
+  </div>
+</header>
+
+<!-- コンテンツ -->
+<div class="content">
+
+  <!-- サマリー -->
+  <div class="summary-banner" id="summaryBanner">
+    <div class="summary-stat">
+      <div class="summary-stat-val" id="statTotal">—</div>
+      <div class="summary-stat-label">総参戦</div>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-stat">
+      <div class="summary-stat-val" id="statHit" style="color:#4ade80">—</div>
+      <div class="summary-stat-label">WIN5的中</div>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-stat">
+      <div class="summary-stat-val" id="statLegHit" style="color:rgba(240,192,64,.9)">—</div>
+      <div class="summary-stat-label">脚的中率</div>
+    </div>
+    <div class="summary-divider"></div>
+    <div class="summary-stat">
+      <div class="summary-stat-val" id="statPayout" style="color:#f0c040">—</div>
+      <div class="summary-stat-label">最大払戻</div>
+    </div>
+  </div>
+
+  <div class="section-header">▼ アーカイブ一覧（新しい順）</div>
+
+  <div id="archiveList">
+    <div class="loading-state">📡 データを読み込んでいます...</div>
+  </div>
+
+</div>
+
+<script>
+const GRADE_CSS = { G1:'grade-g1', G2:'grade-g2', G3:'grade-g3', L:'grade-l', '3C':'grade-3c', '':'grade-3c' };
+
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function legStatusBadge(leg) {
+  if (leg.hit === true)  return '<span class="leg-hit-badge leg-hit">✓ 的中</span>';
+  if (leg.hit === false) return `<span class="leg-hit-badge leg-miss">✗ ${esc(leg.winner||'外れ')}</span>`;
+  return '<span class="leg-hit-badge leg-pending">準備中</span>';
+}
+
+function cardStatusBadge(entry) {
+  if (entry.status === 'upcoming') return '<span class="card-status-badge status-upcoming">⏳ 開催前</span>';
+  if (entry.win5Result === true)   return '<span class="card-status-badge status-hit">🏆 WIN5的中！</span>';
+  if (entry.status === 'done')     return '<span class="card-status-badge status-miss">終了</span>';
+  return '<span class="card-status-badge status-upcoming">⏳ 結果待ち</span>';
+}
+
+function renderCard(entry) {
+  const gradeCssMap = { G1:'grade-g1',G2:'grade-g2',G3:'grade-g3',L:'grade-l','3C':'grade-3c' };
+  const legsHtml = entry.legs.map(leg => {
+    const picks = (leg.picks||[]).map(n => {
+      const isWin = leg.winner && n === leg.winner;
+      return `<span class="leg-pick-chip${isWin?' is-winner':''}">${esc(n)}</span>`;
+    }).join('');
+    const gradeCss = gradeCssMap[leg.gradeClass] || 'grade-3c';
+    return `
+      <div class="leg-row">
+        <span class="leg-badge">${esc(leg.leg)}</span>
+        <div class="leg-info">
+          <div class="leg-race">${esc(leg.raceName)}<span class="grade-badge ${gradeCss}">${esc(leg.gradeClass)}</span></div>
+          <div class="leg-meta">${esc(leg.raceId)} ${esc(leg.course)} ${leg.headsCount}頭 ／ ${leg.picksCount}頭選択</div>
+          <div class="leg-picks">${picks}</div>
+        </div>
+        <div class="leg-result">${legStatusBadge(leg)}</div>
+      </div>`;
+  }).join('');
+
+  const legHits  = entry.legs.filter(l=>l.hit===true).length;
+  const legTotal = entry.legs.filter(l=>l.hit!==null).length;
+  const legInfo  = legTotal > 0 ? `脚 ${legHits}/${legTotal}` : `${entry.totalCombinations}点`;
+
+  const footRight = entry.win5Payout
+    ? `<span class="win5-payout">💰 ${Number(entry.win5Payout).toLocaleString()}円</span>`
+    : `<span class="combo-info">${entry.totalCombinations||'—'}点</span>`;
+
+  const win5Banner = entry.win5Result === true
+    ? `<div class="win5-hit-banner">🏆 WIN5 的中！</div>` : '';
+
+  return `
+  <div class="archive-card">
+    <div class="card-head">
+      <div>
+        <div class="card-date">${esc(entry.date.replace('-','年').replace('-','月')+'日')}</div>
+        <div class="card-label">${esc(entry.label)}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        ${cardStatusBadge(entry)}
+        ${entry.pageFile ? `<a href="${esc(entry.pageFile)}" class="card-link">分析 →</a>` : ''}
+      </div>
+    </div>
+    <div class="legs-list">${legsHtml}</div>
+    ${win5Banner}
+    <div class="card-foot">
+      <span class="combo-info">${legInfo}</span>
+      ${footRight}
+    </div>
+  </div>`;
+}
+
+function computeStats(data) {
+  const done = data.filter(e=>e.status==='done');
+  const total = data.length;
+  const win5Hits = data.filter(e=>e.win5Result===true).length;
+  const allLegs = data.flatMap(e=>e.legs||[]);
+  const legDone = allLegs.filter(l=>l.hit!==null);
+  const legHit  = allLegs.filter(l=>l.hit===true);
+  const legRate = legDone.length>0 ? Math.round(legHit.length/legDone.length*100)+'%' : '—';
+  const payouts = data.map(e=>e.win5Payout).filter(Boolean);
+  const maxPay  = payouts.length > 0 ? Math.max(...payouts.map(Number)) : null;
+
+  document.getElementById('statTotal').textContent   = total;
+  document.getElementById('statHit').textContent     = win5Hits;
+  document.getElementById('statLegHit').textContent  = legRate;
+  document.getElementById('statPayout').textContent  = maxPay ? (maxPay>=10000 ? Math.round(maxPay/1000)+'K' : maxPay) : '—';
+}
+
+async function main() {
+  try {
+    const res = await fetch('data/win5-list.json?v='+Date.now());
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    const sorted = [...data].sort((a,b)=>b.date.localeCompare(a.date));
+    computeStats(sorted);
+    document.getElementById('archiveList').innerHTML = sorted.length
+      ? sorted.map(renderCard).join('')
+      : '<div class="empty-state"><span class="empty-icon">🏇</span>まだアーカイブがありません</div>';
+  } catch(e) {
+    document.getElementById('archiveList').innerHTML =
+      `<div class="empty-state"><span class="empty-icon">⚠️</span>データを読み込めませんでした</div>`;
+  }
+}
+main();
+</script>
+</body>
+</html>

@@ -603,12 +603,13 @@ function calcScores(h, surface) {
   const lttT = h.lapTotalTimeGrade ?? null, lttF = h.lapTotalTimeGrade ?? null;
   const sm2T = h.soma2GradeTan  ?? null, sm2F = h.soma2GradeFuku ?? null;
   const gbT  = h.ginyoBonusGradeTan  ?? null, gbF  = h.ginyoBonusGradeFuku ?? null;
+  const khG  = h.kehaiGrade ?? null;  // 気配
 
   let tanScore=0,tanMax=0,fukuScore=0,fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,hnT,cbT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,chT,lhcT,lgrT,lttT,sm2T,gbT]) {
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,hnT,cbT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,chT,lhcT,lgrT,lttT,sm2T,gbT,khG]) {
     const p=gradePoints(g); if(p!==null){tanScore+=p;tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,hnF,cbF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,chF,lhcF,lgrF,lttF,sm2F,gbF]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,hnF,cbF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,chF,lhcF,lgrF,lttF,sm2F,gbF,khG]) {
     const p=gradePoints(g); if(p!==null){fukuScore+=p;fukuMax+=gradeMax();}
   }
   const prPtsT=gradePoints(prT); if(prPtsT!==null){tanScore+=prPtsT*3;tanMax+=gradeMax()*3;}
