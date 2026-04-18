@@ -173,11 +173,7 @@ def calc_scores(h):
     tanScore  *= ginyo_mult(h.get('ginyoGradeTan'))
     fukuScore *= ginyo_mult(h.get('ginyoGradeFuku'))
 
-    # 総合スコア = (単+複) / (単Max+複Max) × 100
-    total = tanMax + fukuMax
-    sougou = round((tanScore + fukuScore) / total * 100, 1) if total > 0 else 0.0
-    fuku_pct = round(fukuScore / fukuMax * 100, 1) if fukuMax > 0 else 0.0
-    return sougou, fuku_pct
+    return round(tanScore, 1), round(fukuScore, 1)
 
 
 # ── メイン ────────────────────────────────────
