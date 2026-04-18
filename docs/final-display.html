@@ -8,20 +8,20 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#F2D9B0;--bg-dk:#E8C898;--bg-md:#EDD9A3;
-  --pink:#E8003D;--pink-dk:#B5002E;--gold:#8B1A1A;
+  --bg:#06080f;--bg-dk:#0d0820;--bg-md:#06080f;
+  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
   --green:#22c55e;
-  --text:#1C2B4A;--muted:rgba(28,43,74,0.55);
-  --card:rgba(255,255,255,0.75);--border:rgba(232,0,61,0.22);
+  --text:#ffffff;--muted:rgba(255,240,200,.65);
+  --card:rgba(255,255,255,.06);--border:rgba(240,192,64,.18);
 }
-html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+html,body{background:linear-gradient(160deg,#06080f 0%,#0d0820 50%,#06080f 100%);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
 
 /* ── Header ── */
-.hdr{background:linear-gradient(135deg,#EDD9A3,#E8C898 60%,#EDD9A3);border-bottom:2px solid rgba(232,0,61,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(232,0,61,.2);}
-.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(0,0,0,.06);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(0,0,0,0.12);}
-.hdr-back:hover{background:rgba(0,0,0,.1);}
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#1C2B4A;text-shadow:none;letter-spacing:.05em;}
-.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.hdr{background:linear-gradient(135deg,#0a0616,#180a2c,#0a0616);border-bottom:2px solid rgba(240,192,64,.4);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(200,140,10,.3);}
+.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(255,255,255,.07);color:rgba(255,240,200,.8);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(240,192,64,.25);}
+.hdr-back:hover{background:rgba(255,255,255,.13);}
+.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#f0c040;text-shadow:0 0 20px rgba(240,192,64,.5),0 0 40px rgba(240,192,64,.2);letter-spacing:.05em;}
+.hdr-sub{font-size:10px;color:rgba(255,240,200,.5);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
 
 /* ── Race Selector ── */
 .selector-wrap{padding:14px 12px 0;max-width:780px;margin:0 auto;}
@@ -29,20 +29,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-btns{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
 
 .race-btn{
-  background:linear-gradient(140deg,rgba(232,208,162,.5),rgba(242,217,176,.8));
-  border:1px solid rgba(232,0,61,.25);
+  background:linear-gradient(140deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
+  border:1px solid rgba(240,192,64,.2);
   border-radius:14px;
   padding:12px 14px;
   cursor:pointer;
   text-align:left;
-  color:#1C2B4A;
+  color:#fff;
   transition:all .18s ease;
   position:relative;
   overflow:hidden;
 }
 .race-btn:active{transform:scale(.97);}
 .race-btn.active{
-  background:linear-gradient(140deg,rgba(232,0,61,.15),rgba(242,217,176,.8));
+  background:linear-gradient(140deg,rgba(232,0,61,.18),rgba(10,0,8,.95));
   border:2px solid rgba(232,0,61,.75);
   box-shadow:0 0 20px rgba(232,0,61,.3),inset 0 0 16px rgba(232,0,61,.08);
 }
@@ -50,12 +50,12 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:5px;letter-spacing:.06em;
 }
 .race-btn .btn-name{
-  font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#1C2B4A;line-height:1.25;margin-bottom:4px;
+  font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#fff;line-height:1.25;margin-bottom:4px;
 }
 .race-btn .btn-meta{
-  font-size:10px;color:rgba(28,43,74,.55);line-height:1.4;
+  font-size:10px;color:rgba(255,240,200,.5);line-height:1.4;
 }
-.race-btn.active .btn-name{color:#fff;text-shadow:0 0 12px rgba(232,0,61,.5);}
+.race-btn.active .btn-name{color:#f0c040;text-shadow:0 0 12px rgba(240,192,64,.5);}
 .race-btn .active-dot{
   position:absolute;top:10px;right:10px;
   width:7px;height:7px;border-radius:50%;
@@ -69,26 +69,26 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .detail-wrap{max-width:780px;margin:0 auto;padding:14px 12px 100px;}
 
 /* Race card */
-.race-card{background:linear-gradient(160deg,rgba(232,208,162,.5),rgba(242,217,176,.85));border:1px solid rgba(232,0,61,.30);border-radius:22px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.7),0 0 0 1px rgba(232,0,61,.10);}
-.race-head{background:linear-gradient(120deg,rgba(232,0,61,.12) 0%,rgba(242,217,176,.9) 55%,rgba(139,26,26,.04) 100%);border-bottom:1px solid rgba(232,0,61,.35);padding:16px 20px;display:flex;align-items:flex-start;gap:12px;}
+.race-card{background:linear-gradient(160deg,rgba(18,10,28,.97),rgba(12,6,18,.99));border:1px solid rgba(232,0,61,.30);border-radius:22px;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,.9),0 0 0 1px rgba(232,0,61,.10);}
+.race-head{background:linear-gradient(120deg,rgba(232,0,61,.12) 0%,rgba(20,8,30,.95) 55%,rgba(139,26,26,.06) 100%);border-bottom:1px solid rgba(232,0,61,.25);padding:16px 20px;display:flex;align-items:flex-start;gap:12px;}
 .race-grade-badge{font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;white-space:nowrap;margin-top:2px;letter-spacing:.06em;flex-shrink:0;}
-.race-name{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:900;color:#1C2B4A;letter-spacing:.04em;line-height:1.1;}
-.race-meta{font-size:12px;color:rgba(28,43,74,.75);margin-top:5px;letter-spacing:.04em;font-weight:600;}
+.race-name{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:900;color:#fff;letter-spacing:.04em;line-height:1.1;text-shadow:0 0 20px rgba(255,255,255,.2);}
+.race-meta{font-size:12px;color:rgba(255,240,200,.6);margin-top:5px;letter-spacing:.04em;font-weight:600;}
 .race-body{padding:18px 18px 22px;}
 
 /* Condition note */
-.cond-note{background:rgba(139,26,26,.07);border:1px solid rgba(139,26,26,.2);border-left:3px solid rgba(139,26,26,.5);border-radius:10px;padding:10px 14px;margin-bottom:18px;font-size:12px;line-height:1.65;color:#1C2B4A;}
+.cond-note{background:rgba(139,26,26,.12);border:1px solid rgba(139,26,26,.3);border-left:3px solid rgba(232,0,61,.5);border-radius:10px;padding:10px 14px;margin-bottom:18px;font-size:12px;line-height:1.65;color:rgba(255,240,200,.85);}
 
 /* Section title */
-.sec-title{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(28,43,74,.5);margin-bottom:10px;margin-top:2px;padding-left:4px;}
+.sec-title{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,192,64,.6);margin-bottom:10px;margin-top:2px;padding-left:4px;}
 
 /* Hero cards */
 .horse-hero{border-radius:16px;padding:16px 18px;margin-bottom:12px;position:relative;overflow:hidden;}
-.horse-hero.h-honmei{background:linear-gradient(140deg,rgba(232,0,61,.15) 0%,rgba(242,217,176,.9) 55%);border:2px solid rgba(232,0,61,.75);box-shadow:0 0 32px rgba(232,0,61,.35),inset 0 0 20px rgba(232,0,61,.08);}
-.horse-hero.h-taikou{background:linear-gradient(140deg,rgba(28,43,74,.08) 0%,rgba(242,217,176,.9) 55%);border:2px solid rgba(255,255,255,.45);box-shadow:0 0 24px rgba(255,255,255,.12),inset 0 0 16px rgba(255,255,255,.04);}
-.horse-hero.h-sangen{background:linear-gradient(140deg,rgba(139,26,26,.10) 0%,rgba(242,217,176,.9) 55%);border:1px solid rgba(139,26,26,.55);box-shadow:0 0 20px rgba(139,26,26,.2),inset 0 0 14px rgba(139,26,26,.05);}
-.horse-hero.h-star{background:linear-gradient(140deg,rgba(168,85,247,.12) 0%,rgba(242,217,176,.9) 55%);border:1px solid rgba(168,85,247,.50);box-shadow:0 0 18px rgba(168,85,247,.2);}
-.horse-hero.h-delta{background:linear-gradient(140deg,rgba(100,160,255,.10) 0%,rgba(242,217,176,.9) 55%);border:1px solid rgba(100,160,255,.35);box-shadow:0 0 14px rgba(100,160,255,.12);}
+.horse-hero.h-honmei{background:linear-gradient(140deg,rgba(232,0,61,.2) 0%,rgba(20,5,12,.95) 60%);border:2px solid rgba(232,0,61,.75);box-shadow:0 0 40px rgba(232,0,61,.3),inset 0 0 24px rgba(232,0,61,.08);}
+.horse-hero.h-taikou{background:linear-gradient(140deg,rgba(100,140,255,.15) 0%,rgba(15,12,30,.95) 60%);border:2px solid rgba(100,140,255,.45);box-shadow:0 0 28px rgba(100,140,255,.15),inset 0 0 18px rgba(100,140,255,.05);}
+.horse-hero.h-sangen{background:linear-gradient(140deg,rgba(139,26,26,.2) 0%,rgba(18,6,6,.95) 60%);border:1px solid rgba(200,80,40,.55);box-shadow:0 0 24px rgba(180,60,20,.2),inset 0 0 16px rgba(139,26,26,.06);}
+.horse-hero.h-star{background:linear-gradient(140deg,rgba(168,85,247,.2) 0%,rgba(14,8,24,.95) 60%);border:1px solid rgba(168,85,247,.55);box-shadow:0 0 22px rgba(168,85,247,.2);}
+.horse-hero.h-delta{background:linear-gradient(140deg,rgba(59,130,246,.15) 0%,rgba(8,12,22,.95) 60%);border:1px solid rgba(59,130,246,.35);box-shadow:0 0 18px rgba(59,130,246,.12);}
 
 .horse-hero-mark{position:absolute;top:12px;right:14px;font-size:28px;font-weight:900;line-height:1;opacity:.9;}
 .h-honmei .horse-hero-mark{color:#E8003D;text-shadow:0 0 20px rgba(232,0,61,.9);}
@@ -112,21 +112,21 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .h-delta  .horse-num-badge{background:rgba(100,160,255,.18);color:#1d4ed8;border:1px solid rgba(100,160,255,.45);}
 
 .horse-hero-name{font-family:'Noto Serif JP',serif;font-size:21px;font-weight:900;line-height:1.15;display:flex;align-items:center;gap:4px;padding-right:44px;}
-.h-honmei .horse-hero-name{color:#1C2B4A;text-shadow:0 0 20px rgba(232,0,61,.5);}
-.h-taikou .horse-hero-name{color:#1C2B4A;text-shadow:0 0 16px rgba(255,255,255,.3);}
-.h-sangen .horse-hero-name{color:#1C2B4A;text-shadow:0 0 14px rgba(139,26,26,.3);}
-.h-star   .horse-hero-name{color:#1C2B4A;}
-.h-delta  .horse-hero-name{color:#1C2B4A;}
+.h-honmei .horse-hero-name{color:#fff;text-shadow:0 0 24px rgba(232,0,61,.6);}
+.h-taikou .horse-hero-name{color:#fff;text-shadow:0 0 18px rgba(100,140,255,.4);}
+.h-sangen .horse-hero-name{color:#fff;text-shadow:0 0 16px rgba(200,80,40,.4);}
+.h-star   .horse-hero-name{color:#fff;text-shadow:0 0 14px rgba(168,85,247,.4);}
+.h-delta  .horse-hero-name{color:#fff;text-shadow:0 0 12px rgba(59,130,246,.3);}
 
 .horse-hero-top{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
-.info-pt{font-size:14px;font-weight:900;color:var(--gold);text-shadow:0 0 8px rgba(139,26,26,.5);}
+.info-pt{font-size:14px;font-weight:900;color:var(--gold);text-shadow:0 0 10px rgba(240,192,64,.5);}
 
 /* ── 馬情報グリッド（枠番・外厩・騎手・厩舎・前走・父名） ── */
-.horse-info-rows{margin-top:10px;display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(0,0,0,.15);padding-top:10px;}
+.horse-info-rows{margin-top:10px;display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(255,255,255,.08);padding-top:10px;}
 .horse-info-row{display:flex;align-items:center;gap:8px;min-height:22px;}
-.info-lbl{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:rgba(28,43,74,.65);min-width:34px;flex-shrink:0;}
-.info-val{font-size:13px;font-weight:700;color:#1C2B4A;}
-.info-val-muted{font-size:13px;color:rgba(28,43,74,.45);}
+.info-lbl{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,240,200,.5);min-width:34px;flex-shrink:0;}
+.info-val{font-size:13px;font-weight:700;color:rgba(255,255,255,.92);}
+.info-val-muted{font-size:13px;color:rgba(255,240,200,.45);}
 /* 枠番カラー */
 .waku-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:4px;font-size:11px;font-weight:900;}
 .waku-1{background:#111;color:#fff;border:1px solid #444;}
@@ -149,12 +149,12 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 /* Compact table */
 .compact-table-wrap{overflow-x:auto;margin-bottom:14px;}
 table.horse-tbl{width:100%;border-collapse:collapse;font-size:12px;}
-table.horse-tbl th{background:rgba(0,0,0,.05);color:rgba(28,43,74,.6);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 6px;text-align:center;border-bottom:1px solid rgba(0,0,0,.1);white-space:nowrap;}
-table.horse-tbl td{padding:7px 6px;border-bottom:1px solid rgba(0,0,0,.07);text-align:center;color:#1C2B4A;}
-table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:#1C2B4A;font-size:13px;white-space:nowrap;}
-table.horse-tbl td.tbl-sub{font-size:11px;color:rgba(28,43,74,.75);}
+table.horse-tbl th{background:rgba(255,255,255,.04);color:rgba(255,240,200,.5);font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:7px 6px;text-align:center;border-bottom:1px solid rgba(255,255,255,.07);white-space:nowrap;}
+table.horse-tbl td{padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.05);text-align:center;color:rgba(255,255,255,.85);}
+table.horse-tbl td.tbl-name{text-align:left;font-weight:700;color:#fff;font-size:13px;white-space:nowrap;}
+table.horse-tbl td.tbl-sub{font-size:11px;color:rgba(255,240,200,.65);}
 table.horse-tbl tr:last-child td{border-bottom:none;}
-table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
+table.horse-tbl tr:hover td{background:rgba(255,255,255,.04);}
 .mark-badge{display:inline-block;font-size:14px;font-weight:900;width:22px;text-align:center;}
 .mark-◎{color:#E8003D;text-shadow:0 0 6px rgba(232,0,61,.6);}
 .mark-○{color:#1C2B4A;}
@@ -175,33 +175,33 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .odds-fuku{font-size:12px;font-weight:700;color:rgba(28,43,74,.7);letter-spacing:.02em;}
 
 /* ── 馬コメント ── */
-.horse-comment-block{margin-top:10px;display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(0,0,0,.12);padding-top:8px;}
-.hcmt-ability{font-size:12px;color:#1C2B4A;line-height:1.75;padding:6px 10px;background:rgba(139,26,26,.05);border-left:3px solid rgba(139,26,26,.45);border-radius:0 6px 6px 0;}
-.hcmt-lap{font-size:11px;color:#1C2B4A;line-height:1.75;padding:5px 10px;background:rgba(59,130,246,.05);border-left:3px solid rgba(59,130,246,.4);border-radius:0 6px 6px 0;}
-.hcmt-prev{font-size:11px;color:#1C2B4A;line-height:1.75;padding:5px 10px;background:rgba(16,185,129,.05);border-left:3px solid rgba(16,185,129,.4);border-radius:0 6px 6px 0;}
+.horse-comment-block{margin-top:10px;display:flex;flex-direction:column;gap:5px;border-top:1px solid rgba(255,255,255,.08);padding-top:8px;}
+.hcmt-ability{font-size:12px;color:rgba(255,255,255,.88);line-height:1.75;padding:6px 10px;background:rgba(232,0,61,.06);border-left:3px solid rgba(232,0,61,.45);border-radius:0 6px 6px 0;}
+.hcmt-lap{font-size:11px;color:rgba(255,255,255,.82);line-height:1.75;padding:5px 10px;background:rgba(59,130,246,.07);border-left:3px solid rgba(59,130,246,.4);border-radius:0 6px 6px 0;}
+.hcmt-prev{font-size:11px;color:rgba(255,255,255,.78);line-height:1.75;padding:5px 10px;background:rgba(16,185,129,.06);border-left:3px solid rgba(16,185,129,.4);border-radius:0 6px 6px 0;}
 /* 全馬コメントリスト */
 .all-horse-comments{display:flex;flex-direction:column;gap:10px;margin-bottom:4px;}
-.horse-cmt-item{border-radius:12px;padding:13px 15px;background:rgba(255,255,255,.55);border:1px solid rgba(28,43,74,.1);}
+.horse-cmt-item{border-radius:12px;padding:13px 15px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);}
 .horse-cmt-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-.horse-cmt-num{font-size:11px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(28,43,74,.07);color:rgba(28,43,74,.7);}
-.horse-cmt-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#1C2B4A;}
+.horse-cmt-num{font-size:11px;font-weight:900;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.08);color:rgba(255,240,200,.7);}
+.horse-cmt-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#fff;}
 
 /* Odds Note */
 .odds-note{
   padding:14px 16px;border-radius:12px;
-  background:linear-gradient(135deg,rgba(28,43,74,.07),rgba(28,43,74,.03));
-  border:1px solid rgba(28,43,74,.18);
-  border-left:3px solid rgba(28,43,74,.5);
-  font-size:12px;font-weight:600;color:#1C2B4A;line-height:1.85;
+  background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.1);
+  border-left:3px solid rgba(240,192,64,.5);
+  font-size:12px;font-weight:600;color:rgba(255,255,255,.85);line-height:1.85;
   letter-spacing:.02em;
   margin-bottom:4px;
 }
 
 /* Bets */
 .bets-grid{display:flex;flex-direction:column;gap:6px;margin-bottom:4px;}
-.bet-row{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;background:rgba(139,26,26,.06);border:1px solid rgba(139,26,26,.18);}
+.bet-row{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;background:rgba(240,192,64,.05);border:1px solid rgba(240,192,64,.15);}
 .bet-type{font-size:10px;font-weight:900;color:var(--gold);min-width:52px;white-space:nowrap;letter-spacing:.05em;padding-top:2px;}
-.bet-val{font-size:12px;font-weight:700;color:#1C2B4A;white-space:pre-line;line-height:1.85;flex:1;}
+.bet-val{font-size:12px;font-weight:700;color:rgba(255,255,255,.88);white-space:pre-line;line-height:1.85;flex:1;}
 .bet-caption{font-size:10px;font-style:italic;color:rgba(28,43,74,.45);margin-top:3px;line-height:1.5;}
 /* 1頭軸検知バッジ */
 .jiku-detect-banner{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;margin-bottom:8px;
@@ -235,18 +235,20 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 
 /* Comments */
 .comment-area{display:flex;flex-direction:column;gap:10px;}
-.final-card{background:linear-gradient(140deg,rgba(139,26,26,.08),rgba(242,217,176,.9));border:2px solid rgba(139,26,26,.5);border-radius:14px;padding:15px 17px;box-shadow:0 0 28px rgba(139,26,26,.25),inset 0 0 20px rgba(139,26,26,.05);}
-.final-card .clabel{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#8B1A1A;text-shadow:none;margin-bottom:7px;}
-.final-card .ctext{font-size:14px;line-height:1.75;color:#1C2B4A;font-weight:600;}
-.risk-card{background:rgba(232,0,61,.07);border:1px solid rgba(232,0,61,.25);border-radius:12px;padding:13px 15px;}
-.risk-card .clabel{font-size:10px;font-weight:900;letter-spacing:.1em;color:rgba(232,0,61,.7);margin-bottom:6px;}
-.risk-card .ctext{font-size:13px;line-height:1.65;color:#1C2B4A;}
-.extra-card{background:linear-gradient(140deg,rgba(255,100,0,.10),rgba(242,217,176,.9));border:2px solid rgba(255,140,0,.55);border-radius:12px;padding:13px 15px;box-shadow:0 0 18px rgba(255,120,0,.2);}
-.extra-card .clabel{font-size:11px;font-weight:900;letter-spacing:.1em;color:#C05A00;text-shadow:none;margin-bottom:6px;}
-.extra-card .ctext{font-size:14px;line-height:1.65;color:#1C2B4A;font-weight:700;}
-.betmemo-card{background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.1);border-radius:10px;padding:11px 14px;}
-.betmemo-card .clabel{font-size:9px;font-weight:900;letter-spacing:.12em;color:rgba(28,43,74,.5);margin-bottom:5px;}
-.betmemo-card .ctext{font-size:12px;line-height:1.6;color:#1C2B4A;}
+.final-card{background:linear-gradient(160deg,rgba(30,0,10,.98),rgba(18,0,6,1));border:2px solid rgba(232,0,61,.55);border-radius:14px;padding:20px 20px;box-shadow:0 0 50px rgba(232,0,61,.25),inset 0 0 40px rgba(232,0,61,.06);position:relative;overflow:hidden;}
+.final-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(232,0,61,.9),transparent);}
+.final-card .clabel{font-size:9px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,0,61,.8);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.final-card .clabel::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(232,0,61,.3),transparent);}
+.final-card .ctext{font-size:14px;line-height:1.9;color:rgba(255,255,255,.92);font-weight:600;letter-spacing:.01em;}
+.risk-card{background:rgba(232,0,61,.08);border:1px solid rgba(232,0,61,.25);border-radius:12px;padding:13px 15px;}
+.risk-card .clabel{font-size:10px;font-weight:900;letter-spacing:.1em;color:rgba(255,120,120,.7);margin-bottom:6px;}
+.risk-card .ctext{font-size:13px;line-height:1.65;color:rgba(255,255,255,.82);}
+.extra-card{background:linear-gradient(140deg,rgba(255,120,0,.12),rgba(20,8,0,.95));border:2px solid rgba(255,140,0,.5);border-radius:12px;padding:13px 15px;box-shadow:0 0 20px rgba(255,120,0,.15);}
+.extra-card .clabel{font-size:11px;font-weight:900;letter-spacing:.1em;color:rgba(255,180,80,.85);margin-bottom:6px;}
+.extra-card .ctext{font-size:14px;line-height:1.65;color:rgba(255,255,255,.88);font-weight:700;}
+.betmemo-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:11px 14px;}
+.betmemo-card .clabel{font-size:9px;font-weight:900;letter-spacing:.12em;color:rgba(255,240,200,.45);margin-bottom:5px;}
+.betmemo-card .ctext{font-size:12px;line-height:1.6;color:rgba(255,255,255,.78);}
 
 /* Loading / Error */
 .loading{text-align:center;padding:50px 20px;color:var(--muted);}
@@ -297,16 +299,16 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .race-card.grade-g3{border-color:rgba(59,130,246,.55);animation:fadeUp .22s ease both,neonG3 2.5s ease-in-out infinite;}
 
 /* ─ レースヘッダー・タイトル：グレード別カラー ─ */
-.race-card.grade-g1 .race-head{border-bottom-color:rgba(255,180,0,.55);background:linear-gradient(120deg,rgba(255,200,160,.45) 0%,rgba(255,235,240,.96) 55%,rgba(255,210,180,.25) 100%);}
-.race-card.grade-g2 .race-head{border-bottom-color:rgba(34,197,94,.5);background:linear-gradient(120deg,rgba(200,255,220,.5) 0%,rgba(255,235,242,.96) 55%,rgba(220,255,230,.25) 100%);}
-.race-card.grade-g3 .race-head{border-bottom-color:rgba(59,130,246,.5);background:linear-gradient(120deg,rgba(200,220,255,.5) 0%,rgba(235,240,255,.96) 55%,rgba(210,225,255,.25) 100%);}
-/* ── グレードカード ヘッダー：濃いめ文字＋グレード色グロー ── */
-.race-card.grade-g1 .race-name{color:#5a1a00;text-shadow:0 0 18px rgba(255,160,0,.35),0 0 6px rgba(255,160,0,.2);}
-.race-card.grade-g2 .race-name{color:#0a3a1a;text-shadow:0 0 18px rgba(34,197,94,.35),0 0 6px rgba(34,197,94,.2);}
-.race-card.grade-g3 .race-name{color:#0a1a4a;text-shadow:0 0 18px rgba(100,160,255,.35),0 0 6px rgba(100,160,255,.2);}
-.race-card.grade-g1 .race-meta{color:rgba(90,26,0,.75);}
-.race-card.grade-g2 .race-meta{color:rgba(10,58,26,.75);}
-.race-card.grade-g3 .race-meta{color:rgba(10,26,74,.75);}
+.race-card.grade-g1 .race-head{border-bottom-color:rgba(240,192,64,.4);background:linear-gradient(120deg,rgba(240,150,0,.12) 0%,rgba(18,8,24,.97) 55%,rgba(180,100,0,.06) 100%);}
+.race-card.grade-g2 .race-head{border-bottom-color:rgba(34,197,94,.4);background:linear-gradient(120deg,rgba(34,197,94,.1) 0%,rgba(8,20,14,.97) 55%,rgba(16,120,60,.05) 100%);}
+.race-card.grade-g3 .race-head{border-bottom-color:rgba(59,130,246,.4);background:linear-gradient(120deg,rgba(59,130,246,.1) 0%,rgba(8,14,24,.97) 55%,rgba(30,80,180,.05) 100%);}
+/* ── グレードカード ヘッダー：グレード色グロー ── */
+.race-card.grade-g1 .race-name{color:#fff;text-shadow:0 0 20px rgba(240,192,64,.5),0 0 8px rgba(240,192,64,.3);}
+.race-card.grade-g2 .race-name{color:#fff;text-shadow:0 0 20px rgba(34,197,94,.5),0 0 8px rgba(34,197,94,.3);}
+.race-card.grade-g3 .race-name{color:#fff;text-shadow:0 0 20px rgba(100,160,255,.5),0 0 8px rgba(100,160,255,.3);}
+.race-card.grade-g1 .race-meta{color:rgba(255,230,150,.65);}
+.race-card.grade-g2 .race-meta{color:rgba(180,255,200,.65);}
+.race-card.grade-g3 .race-meta{color:rgba(180,210,255,.65);}
 .race-card.grade-g1 .race-grade-badge,
 .race-card.grade-g2 .race-grade-badge,
 .race-card.grade-g3 .race-grade-badge{box-shadow:0 0 8px rgba(0,0,0,.12);}
@@ -344,17 +346,17 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 /* ── レース格言 ── */
 .race-quote{
   margin-top:9px;padding:8px 14px;
-  border-left:3px solid rgba(139,26,26,.35);
-  background:rgba(139,26,26,.04);
+  border-left:3px solid rgba(240,192,64,.35);
+  background:rgba(240,192,64,.05);
   border-radius:0 8px 8px 0;
   font-size:11px;font-style:italic;
-  color:rgba(28,43,74,.7);line-height:1.6;
+  color:rgba(255,240,200,.7);line-height:1.6;
   letter-spacing:.02em;
 }
 .race-quote-author{
   display:block;margin-top:3px;
   font-size:10px;font-weight:700;font-style:normal;
-  color:rgba(139,26,26,.6);letter-spacing:.05em;
+  color:rgba(240,192,64,.55);letter-spacing:.05em;
 }
 @keyframes rtPulse{
   0%,100%{box-shadow:0 0 12px rgba(232,0,61,.5),0 2px 8px rgba(0,0,0,.2);}
@@ -579,17 +581,17 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .lesson-body p{margin-bottom:10px;}
 .lesson-body p:last-child{margin-bottom:0;}
 /* ── 分析回顧 ── */
-.review-wrap{background:linear-gradient(135deg,rgba(139,26,26,.12),rgba(242,217,176,.9));border:1px solid rgba(139,26,26,.35);border-radius:16px;overflow:hidden;margin-top:16px;}
-.review-header{padding:10px 16px;background:linear-gradient(90deg,rgba(139,26,26,.2),rgba(139,26,26,.05));border-bottom:1px solid rgba(139,26,26,.2);font-size:10px;font-weight:900;letter-spacing:.16em;color:rgba(139,26,26,.9);text-transform:uppercase;}
+.review-wrap{background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(232,0,61,.25);border-radius:16px;overflow:hidden;margin-top:16px;}
+.review-header{padding:10px 16px;background:linear-gradient(90deg,rgba(232,0,61,.15),rgba(232,0,61,.03));border-bottom:1px solid rgba(232,0,61,.15);font-size:10px;font-weight:900;letter-spacing:.16em;color:rgba(232,100,100,.85);text-transform:uppercase;}
 .review-body{padding:16px;}
-.review-catchcopy{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:900;color:#1C2B4A;line-height:1.35;margin-bottom:6px;}
-.review-theme{font-size:11px;color:rgba(28,43,74,.55);font-style:italic;margin-bottom:16px;border-left:2px solid rgba(139,26,26,.4);padding-left:8px;}
-.review-section-title{font-size:12px;font-weight:900;color:#8B1A1A;margin:14px 0 6px;letter-spacing:.02em;}
-.review-text{font-size:12px;line-height:1.85;color:#1C2B4A;margin-bottom:8px;white-space:pre-line;}
+.review-catchcopy{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:900;color:#fff;line-height:1.35;margin-bottom:6px;text-shadow:0 0 20px rgba(255,255,255,.15);}
+.review-theme{font-size:11px;color:rgba(255,240,200,.5);font-style:italic;margin-bottom:16px;border-left:2px solid rgba(232,0,61,.4);padding-left:8px;}
+.review-section-title{font-size:12px;font-weight:900;color:rgba(240,192,64,.9);margin:14px 0 6px;letter-spacing:.02em;}
+.review-text{font-size:12px;line-height:1.85;color:rgba(255,255,255,.82);margin-bottom:8px;white-space:pre-line;}
 .review-results-list{margin:10px 0;display:flex;flex-direction:column;gap:6px;}
-.review-result-row{background:rgba(139,26,26,.08);border-left:3px solid rgba(139,26,26,.6);border-radius:0 8px 8px 0;padding:7px 12px;font-size:12px;font-weight:800;color:#1C2B4A;letter-spacing:.02em;}
-.review-closing-quote{margin-top:14px;padding:10px 14px;background:rgba(28,43,74,.06);border-radius:10px;font-size:11px;font-style:italic;color:rgba(28,43,74,.65);line-height:1.7;}
-.review-footer{margin-top:14px;text-align:center;font-size:12px;color:rgba(139,26,26,.7);font-weight:700;letter-spacing:.08em;}
+.review-result-row{background:rgba(232,0,61,.1);border-left:3px solid rgba(232,0,61,.6);border-radius:0 8px 8px 0;padding:7px 12px;font-size:12px;font-weight:800;color:#fff;letter-spacing:.02em;}
+.review-closing-quote{margin-top:14px;padding:10px 14px;background:rgba(255,255,255,.04);border-radius:10px;font-size:11px;font-style:italic;color:rgba(255,240,200,.6);line-height:1.7;}
+.review-footer{margin-top:14px;text-align:center;font-size:12px;color:rgba(232,0,61,.7);font-weight:700;letter-spacing:.08em;}
 /* ヒーローカード内の着順バッジ */
 .order-badge{font-size:10px;font-weight:900;padding:2px 8px;border-radius:10px;margin-left:6px;white-space:nowrap;}
 /* ヒーローカード（明背景）用 */
@@ -606,6 +608,121 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .race-btn .btn-result{font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;display:inline-block;margin-top:4px;letter-spacing:.04em;}
 .btn-result-hit{background:rgba(232,0,61,.3);color:#ff8aa0;border:1px solid rgba(232,0,61,.5);}
 .btn-result-miss{background:rgba(255,255,255,.08);color:rgba(28,43,74,.55);border:1px solid rgba(255,255,255,.15);}
+
+/* ══ FINAL VERDICT HERO ══ */
+@keyframes verdictGlow{
+  0%,100%{box-shadow:0 0 20px rgba(232,0,61,.4),0 0 50px rgba(232,0,61,.12);}
+  50%{box-shadow:0 0 50px rgba(232,0,61,.8),0 0 100px rgba(232,0,61,.3),0 0 160px rgba(232,0,61,.08);}
+}
+@keyframes verdictIn{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes verdictTextIn{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:translateX(0);}}
+
+.verdict-hero{
+  background:linear-gradient(160deg,#0e0006 0%,#1c000d 40%,#0e0006 100%);
+  border-bottom:1px solid rgba(232,0,61,.35);
+  padding:24px 20px 20px;
+  position:relative;overflow:hidden;
+  animation:verdictIn .38s cubic-bezier(.22,1,.36,1) both;
+  margin-bottom:14px;
+  border-radius:20px;
+  border:1px solid rgba(232,0,61,.3);
+  box-shadow:0 4px 40px rgba(232,0,61,.15);
+}
+.verdict-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% -10%,rgba(232,0,61,.15) 0%,transparent 60%);
+  pointer-events:none;
+}
+.verdict-hero::after{
+  content:'VERDICT';
+  position:absolute;right:-10px;top:50%;transform:translateY(-50%);
+  font-size:90px;font-weight:900;letter-spacing:.2em;
+  color:rgba(232,0,61,.04);
+  white-space:nowrap;pointer-events:none;
+  font-family:'Public Sans','Inter',sans-serif;
+  line-height:1;
+}
+.verdict-label{
+  font-size:9px;font-weight:900;letter-spacing:.28em;
+  color:rgba(232,0,61,.65);text-transform:uppercase;
+  margin-bottom:14px;display:flex;align-items:center;gap:8px;
+}
+.verdict-label::before{content:'';width:20px;height:1px;background:rgba(232,0,61,.4);}
+.verdict-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(232,0,61,.3),transparent);}
+.verdict-mark-row{
+  display:flex;align-items:center;gap:16px;margin:0 0 14px;
+  position:relative;z-index:1;
+  animation:verdictTextIn .45s .1s cubic-bezier(.22,1,.36,1) both;
+}
+.verdict-mark-circle{
+  width:56px;height:56px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,rgba(232,0,61,.4),rgba(100,0,20,.8));
+  border:2px solid rgba(232,0,61,.9);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:900;color:#fff;
+  text-shadow:0 0 16px rgba(232,0,61,1);
+  animation:verdictGlow 2.5s ease-in-out infinite;
+  flex-shrink:0;
+}
+.verdict-horse-info{flex:1;min-width:0;}
+.verdict-horse-name{
+  font-family:'Noto Serif JP',serif;
+  font-size:26px;font-weight:900;color:#fff;
+  text-shadow:0 2px 20px rgba(255,255,255,.2);
+  line-height:1.1;letter-spacing:.04em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.verdict-horse-sub{
+  font-size:11px;font-weight:700;color:rgba(255,240,200,.45);
+  letter-spacing:.06em;margin-top:5px;
+}
+.verdict-honmei-tag{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+  padding:3px 10px;border-radius:20px;margin-top:6px;
+  background:rgba(232,0,61,.2);color:rgba(255,150,150,.9);
+  border:1px solid rgba(232,0,61,.4);
+}
+.verdict-quote{
+  background:rgba(0,0,0,.35);
+  border-left:3px solid rgba(240,192,64,.45);
+  border-radius:0 8px 8px 0;
+  padding:10px 14px;margin-bottom:12px;
+  font-size:12px;font-style:italic;font-weight:600;
+  color:rgba(255,240,200,.75);line-height:1.65;
+  position:relative;z-index:1;
+}
+.verdict-quote-author{
+  display:block;margin-top:4px;
+  font-size:10px;font-weight:700;font-style:normal;
+  color:rgba(240,192,64,.5);letter-spacing:.06em;
+}
+.verdict-final-text{
+  background:rgba(0,0,0,.4);
+  border-left:3px solid rgba(232,0,61,.5);
+  border-radius:0 8px 8px 0;padding:10px 14px;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.88);
+  line-height:1.75;position:relative;z-index:1;
+  letter-spacing:.01em;margin-bottom:12px;
+}
+.verdict-chips-row{
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  position:relative;z-index:1;
+  padding-top:12px;border-top:1px solid rgba(255,255,255,.06);
+}
+.verdict-chip{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:5px 11px;border-radius:20px;
+  font-size:10px;font-weight:900;white-space:nowrap;
+  background:rgba(240,192,64,.1);color:rgba(255,230,150,.9);
+  border:1px solid rgba(240,192,64,.25);
+  letter-spacing:.02em;
+}
+.verdict-chip.vc-main{
+  background:linear-gradient(135deg,rgba(232,0,61,.25),rgba(100,0,20,.3));
+  color:rgba(255,180,180,.95);border-color:rgba(232,0,61,.5);
+}
+/* ══ / VERDICT HERO ══ */
 
 /* ── スマホ：全馬スコアテーブル 外厩(4列目)・厩舎(6列目)を非表示 ── */
 @media(max-width:640px){
@@ -633,18 +750,18 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .archive-wrap{padding:14px 12px 0;max-width:780px;margin:0 auto;}
 .archive-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
 .archive-title{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
-.archive-stats-link{font-size:11px;font-weight:700;color:rgba(28,43,74,.55);padding:5px 10px;border-radius:8px;background:rgba(139,26,26,.07);border:1px solid rgba(139,26,26,.18);text-decoration:none;transition:all .18s;}
-.archive-stats-link:hover{background:rgba(139,26,26,.14);color:#1C2B4A;}
+.archive-stats-link{font-size:11px;font-weight:700;color:rgba(255,240,200,.65);padding:5px 10px;border-radius:8px;background:rgba(240,192,64,.07);border:1px solid rgba(240,192,64,.18);text-decoration:none;transition:all .18s;}
+.archive-stats-link:hover{background:rgba(240,192,64,.14);color:#f0c040;}
 
-.week-accordion{background:linear-gradient(140deg,rgba(232,208,162,.4),rgba(242,217,176,.75));border:1px solid rgba(232,0,61,.18);border-radius:16px;overflow:hidden;margin-bottom:10px;}
+.week-accordion{background:linear-gradient(140deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(240,192,64,.18);border-radius:16px;overflow:hidden;margin-bottom:10px;}
 .week-accordion.is-current{border-color:rgba(232,0,61,.45);box-shadow:0 0 20px rgba(232,0,61,.12);}
 .week-acc-header{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;user-select:none;transition:background .18s;}
-.week-acc-header:hover{background:rgba(139,26,26,.06);}
+.week-acc-header:hover{background:rgba(255,255,255,.05);}
 .week-acc-left{display:flex;align-items:center;gap:10px;}
-.week-acc-label{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#1C2B4A;}
-.week-current-badge{font-size:9px;font-weight:900;padding:2px 8px;border-radius:4px;background:rgba(232,0,61,.2);color:#c0002a;border:1px solid rgba(232,0,61,.35);letter-spacing:.06em;}
-.week-acc-meta{font-size:10px;color:rgba(28,43,74,.5);margin-top:2px;}
-.week-acc-arrow{font-size:16px;color:rgba(28,43,74,.45);transition:transform .22s;line-height:1;}
+.week-acc-label{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#fff;}
+.week-current-badge{font-size:9px;font-weight:900;padding:2px 8px;border-radius:4px;background:rgba(232,0,61,.2);color:#ff8aa0;border:1px solid rgba(232,0,61,.35);letter-spacing:.06em;}
+.week-acc-meta{font-size:10px;color:rgba(255,240,200,.45);margin-top:2px;}
+.week-acc-arrow{font-size:16px;color:rgba(255,240,200,.45);transition:transform .22s;line-height:1;}
 .week-acc-arrow.open{transform:rotate(180deg);}
 .week-acc-body{display:none;padding:0 12px 12px;}
 .week-acc-body.open{display:block;}
@@ -652,27 +769,27 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .week-hit-summary{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
 .week-hit-chip{font-size:9px;font-weight:900;padding:2px 8px;border-radius:4px;letter-spacing:.04em;}
 .chip-hit{background:rgba(232,0,61,.15);color:#c0002a;border:1px solid rgba(232,0,61,.3);}
-.chip-miss{background:rgba(0,0,0,.07);color:rgba(28,43,74,.5);border:1px solid rgba(0,0,0,.1);}
+.chip-miss{background:rgba(255,255,255,.07);color:rgba(255,240,200,.5);border:1px solid rgba(255,255,255,.1);}
 
 /* ══ soutei 展望・分析セクション（移植） ══ */
 .section-head{display:flex;align-items:center;gap:8px;margin:20px 0 10px;padding:0 2px;font-size:9px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);scroll-margin-top:60px;}
 .section-head::before{content:'';width:3px;height:14px;border-radius:2px;background:var(--gold);flex-shrink:0;}
-.section-head::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.15);}
+.section-head::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.15);}
 
-.outlook-card{margin-bottom:14px;padding:18px;border-radius:14px;background:linear-gradient(135deg,rgba(139,26,26,.08),rgba(242,217,176,.9));border:1px solid rgba(139,26,26,.35);position:relative;overflow:hidden;}
+.outlook-card{margin-bottom:14px;padding:18px;border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(240,192,64,.2);position:relative;overflow:hidden;}
 .outlook-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 .outlook-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.outlook-label::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.2);}
-.outlook-text{font-size:13px;color:#1C2B4A;line-height:1.8;}
+.outlook-label::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.2);}
+.outlook-text{font-size:13px;color:rgba(255,255,255,.85);line-height:1.8;}
 .outlook-text table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0;}
-.outlook-text th,.outlook-text td{padding:4px 8px;text-align:center;border:1px solid rgba(28,43,74,.2);}
-.outlook-text th{background:rgba(28,43,74,.06);}
+.outlook-text th,.outlook-text td{padding:4px 8px;text-align:center;border:1px solid rgba(255,255,255,.12);}
+.outlook-text th{background:rgba(255,255,255,.06);}
 
-.lap-card{margin-bottom:14px;padding:16px 18px;border-radius:14px;background:linear-gradient(135deg,rgba(139,26,26,.06),rgba(242,217,176,.92));border:1px solid rgba(139,26,26,.25);position:relative;overflow:hidden;}
-.lap-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(139,26,26,.5),transparent);}
+.lap-card{margin-bottom:14px;padding:16px 18px;border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(240,192,64,.18);position:relative;overflow:hidden;}
+.lap-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(240,192,64,.5),transparent);}
 .lap-card-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.lap-card-label::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.15);}
-.lap-card-text{font-size:12px;color:#1C2B4A;line-height:1.9;white-space:pre-line;}
+.lap-card-label::after{content:'';flex:1;height:1px;background:rgba(240,192,64,.15);}
+.lap-card-text{font-size:12px;color:rgba(255,255,255,.82);line-height:1.9;white-space:pre-line;}
 
 .wet-pick-section{margin-bottom:14px;border-radius:14px;overflow:hidden;border:1px solid rgba(29,78,216,.2);}
 .wet-pick-label{font-size:9px;font-weight:900;letter-spacing:.18em;padding:9px 14px;background:linear-gradient(135deg,rgba(29,78,216,.12),rgba(29,78,216,.04));color:#1e3a8a;border-bottom:1px solid rgba(29,78,216,.15);display:flex;align-items:center;gap:6px;}
@@ -691,21 +808,21 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .sabc-rank-wrap{display:flex;gap:10px;margin:6px 0 14px;flex-wrap:wrap;}
 .sabc-rank-block{flex:1;min-width:160px;}
 .sabc-rank-header{font-size:9px;font-weight:900;letter-spacing:.16em;padding:7px 12px;border-radius:8px 8px 0 0;text-align:center;}
-.sabc-rank-header.tan{background:linear-gradient(135deg,rgba(139,26,26,.2),rgba(139,26,26,.06));color:#8B1A1A;border:1px solid rgba(139,26,26,.3);border-bottom:none;}
-.sabc-rank-header.fuku{background:linear-gradient(135deg,rgba(29,78,216,.2),rgba(29,78,216,.06));color:#1e3a8a;border:1px solid rgba(29,78,216,.3);border-bottom:none;}
-.sabc-rank-list{border:1px solid rgba(28,43,74,.1);border-radius:0 0 8px 8px;overflow:hidden;}
-.sabc-rank-row{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,.65);}
-.sabc-rank-row+.sabc-rank-row{border-top:1px solid rgba(28,43,74,.06);}
+.sabc-rank-header.tan{background:linear-gradient(135deg,rgba(232,0,61,.18),rgba(232,0,61,.06));color:rgba(255,160,160,.9);border:1px solid rgba(232,0,61,.3);border-bottom:none;}
+.sabc-rank-header.fuku{background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(59,130,246,.06));color:rgba(150,200,255,.9);border:1px solid rgba(59,130,246,.3);border-bottom:none;}
+.sabc-rank-list{border:1px solid rgba(255,255,255,.08);border-radius:0 0 8px 8px;overflow:hidden;}
+.sabc-rank-row{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,.04);}
+.sabc-rank-row+.sabc-rank-row{border-top:1px solid rgba(255,255,255,.05);}
 .sabc-rank-badge{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
 .sabc-rank-badge.r1{background:linear-gradient(135deg,#ffd700,#f5a800);color:#5a3a00;box-shadow:0 1px 3px rgba(245,168,0,.4);}
 .sabc-rank-badge.r2{background:linear-gradient(135deg,#e0e0e0,#b0b0b0);color:#3a3a3a;}
 .sabc-rank-badge.r3{background:linear-gradient(135deg,#d4884a,#b8642a);color:#fff;}
 .sabc-rank-name-block{flex:1;min-width:0;}
-.sabc-rank-name{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;color:#1C2B4A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.sabc-rank-pop{font-size:9px;color:rgba(28,43,74,.5);margin-top:1px;}
+.sabc-rank-name{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sabc-rank-pop{font-size:9px;color:rgba(255,240,200,.45);margin-top:1px;}
 .sabc-rank-score{font-size:18px;font-weight:900;white-space:nowrap;flex-shrink:0;}
-.sabc-rank-score.tan{color:#8B1A1A;}
-.sabc-rank-score.fuku{color:#1e3a8a;}
+.sabc-rank-score.tan{color:rgba(255,140,140,.9);}
+.sabc-rank-score.fuku{color:rgba(140,190,255,.9);}
 .sabc-rank-score span{font-size:10px;font-weight:700;opacity:.7;margin-left:1px;}
 /* SABC推奨買い目バナー */
 .sabc-bet-banner{
@@ -758,9 +875,9 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 
 <header class="hdr">
   <a href="index.html" class="hdr-back">← トップ</a>
-  <div>
-    <div class="hdr-sub">UG強奪競馬新聞 / 重賞最終予想</div>
-    <div class="hdr-logo">🎯 FINAL PICK アーカイブ</div>
+  <div style="flex:1;">
+    <div class="hdr-sub">UG強奪競馬新聞 / ギーニョ最終宣告</div>
+    <div class="hdr-logo">🎯 FINAL VERDICT</div>
   </div>
   <a href="stats.html" class="hdr-back" style="margin-left:auto;">📊 Stats</a>
 </header>
@@ -1669,6 +1786,33 @@ function renderRaceDetail(data, notes) {
       + extra1;
   })();
 
+  // ── VERDICT HERO: ◎馬の宣告ブロック ──
+  const honmei = heroHorses.find(h => h.mark === '◎');
+  const verdictHtml = honmei ? (() => {
+    const quoteHtml = r.quote ? `<div class="verdict-quote">「${esc(r.quote.text)}」<span class="verdict-quote-author">〜 ${esc(r.quote.author)} 〜</span></div>` : '';
+    const finalSnippet = comments.final ? comments.final.split('\n')[0] : '';
+    const finalHtml = finalSnippet ? `<div class="verdict-final-text">${esc(finalSnippet)}</div>` : '';
+    const betChips = Object.entries(data.bets || {}).slice(0,3).map(([k,v]) => {
+      const firstLine = v.split('\n').pop().trim();
+      return `<div class="verdict-chip ${k==='単勝'||k==='複勝'?'vc-main':''}">${esc(k)}：${esc(firstLine)}</div>`;
+    }).join('');
+    return `
+<div class="verdict-hero">
+  <div class="verdict-label">FINAL VERDICT — ${esc(r.name||'')} ${esc(r.grade||'')}</div>
+  <div class="verdict-mark-row">
+    <div class="verdict-mark-circle">◎</div>
+    <div class="verdict-horse-info">
+      <div class="verdict-horse-name">${esc(honmei.name)}</div>
+      <div class="verdict-horse-sub">${honmei.num}番 ／ ${esc(honmei.jockey||'')} ／ ${esc(honmei.gaiku||'')}</div>
+      <div class="verdict-honmei-tag">🎯 本命宣告</div>
+    </div>
+  </div>
+  ${quoteHtml}
+  ${finalHtml}
+  ${betChips ? `<div class="verdict-chips-row">${betChips}</div>` : ''}
+</div>`;
+  })() : '';
+
   const commentsHtml = [
     comments.final ? `<div class="final-card"><div class="clabel">🐶 ギーニョの最終ジャッジ</div><div class="ctext">${esc(comments.final).replace(/\n/g,'<br>')}</div></div>` : '',
     comments.risk  ? `<div class="risk-card"><div class="clabel">⚠️ 波乱ファクター</div><div class="ctext">${esc(comments.risk)}</div></div>` : '',
@@ -1679,7 +1823,7 @@ function renderRaceDetail(data, notes) {
   const gs = gradeStyle(r.grade||'');
   const gradeClass = r.grade ? 'grade-' + r.grade.toLowerCase() : '';
 
-  return `
+  return verdictHtml + `
   <div class="race-card ${gradeClass}">
     <div class="race-head">
       <span class="race-grade-badge" style="${gs}">${esc(r.grade||'')}</span>
@@ -1847,7 +1991,7 @@ function buildRaceButtons(buttons) {
       ${gradeLabel(r.grade)}
       <div class="btn-name">${esc(r.name||file)}</div>
       <div class="btn-meta">${esc(r.venue||'')} ${esc(r.distance||'')} ／ ${esc(r.date||'')}</div>
-      ${picksLine ? `<div class="btn-picks" style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(139,26,26,.8);">${esc(picksLine)}</div>` : ''}
+      ${picksLine ? `<div class="btn-picks" style="margin-top:5px;font-size:10px;font-weight:700;color:rgba(255,200,130,.8);">${esc(picksLine)}</div>` : ''}
       ${resultBadge}
     </button>`;
   }).join('');
