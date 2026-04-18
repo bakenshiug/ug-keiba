@@ -202,6 +202,7 @@ table.horse-tbl tr:hover td{background:rgba(0,0,0,.03);}
 .bet-row{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;background:rgba(139,26,26,.06);border:1px solid rgba(139,26,26,.18);}
 .bet-type{font-size:10px;font-weight:900;color:var(--gold);min-width:52px;white-space:nowrap;letter-spacing:.05em;padding-top:2px;}
 .bet-val{font-size:12px;font-weight:700;color:#1C2B4A;white-space:pre-line;line-height:1.85;flex:1;}
+.bet-caption{font-size:10px;font-style:italic;color:rgba(28,43,74,.45);margin-top:3px;line-height:1.5;}
 /* 1頭軸検知バッジ */
 .jiku-detect-banner{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;margin-bottom:8px;
   background:linear-gradient(135deg,rgba(232,0,61,.14),rgba(139,26,26,.08));
@@ -1703,16 +1704,19 @@ function renderRaceDetail(data, notes) {
       ${data.pace ? window.renderPaceAnimation(data.pace) : ''}
       ${Object.keys(bets).length ? `<div class="sec-title">🎯 買い目</div><div class="bets-grid">${
         Object.entries(bets).map(([k,v]) => {
-          const rec = data.ginyoRecommend;
+          const rec      = data.ginyoRecommend;
+          const captions = data.betCaptions || {};
           const isTan  = k === '単勝';
           const isFuku = k === '複勝';
           const isRec  = rec && k === rec;
+          const caption = captions[k] ? `<div class="bet-caption">${esc(captions[k])}</div>` : '';
           const audienceTag = isTan
-            ? `<span class="bet-audience-tag bet-tan-tag">🔰 単勝派はコチラ</span>`
+            ? `<span class="bet-audience-tag bet-tan-tag">🔥 単勝一本勝負派はコチラ</span>`
             : isFuku
-            ? `<span class="bet-audience-tag bet-fuku-tag">🎯 複勝派はコチラ</span>`
+            ? `<span class="bet-audience-tag bet-fuku-tag">🏦 複勝で堅実資産形成したいなら</span>`
             : '';
-          const row = `<div class="bet-row bet-row-jiku${isRec?' bet-row-ginyo':''}"><span class="bet-type">${esc(k)}</span><span class="bet-val">${esc(v)}</span></div>`;
+          const inner = `<span class="bet-type">${esc(k)}</span><div style="flex:1"><span class="bet-val">${esc(v)}</span>${caption}</div>`;
+          const row = `<div class="bet-row bet-row-jiku${isRec?' bet-row-ginyo':''}">${inner}</div>`;
           if (isRec) return `<div class="bet-wrap"><div class="bet-ginyo-banner"><span>🐶</span><span class="bet-ginyo-banner-text">ギーニョのオススメ！</span></div>${row}</div>`;
           if (audienceTag) return `<div class="bet-wrap">${audienceTag}${row}</div>`;
           return row;
