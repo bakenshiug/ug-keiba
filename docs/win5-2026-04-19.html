@@ -623,18 +623,19 @@ function splitBadge(label, g, key, nullLabel='解析中') {
   return dualBadge(label,t,f);
 }
 
-function scoreBarHtml(tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRank,anaScore,anaMax,anaRank,sougouScore,sougouRank) {
-  const tp = tanMax>0?Math.round(tanScore/tanMax*100):0;
-  const fp = fukuMax>0?Math.round(fukuScore/fukuMax*100):0;
-  const ap = anaMax>0?Math.round(Math.max(0,anaScore)/anaMax*100):0;
-  const sp = Math.round((sougouScore??0)*100);
-  const rkCls=r=>r===1?'rk1':r===2?'rk2':r===3?'rk3':'';
+/* WIN5は単勝ゲーム → 単勝スコア / 穴馬スコア / ZI能力値 の3本のみ表示 */
+function scoreBarHtml(tanScore, tanMax, tanRank, anaScore, anaMax, anaRank, zi, ziRank) {
+  const tp = tanMax > 0 ? Math.round(tanScore / tanMax * 100) : 0;
+  const ap = anaMax > 0 ? Math.round(Math.max(0, anaScore) / anaMax * 100) : 0;
+  const ziNum = zi ?? null;
+  const zp = ziNum ? Math.min(Math.round(ziNum / 140 * 100), 100) : 0;
+  const ziStr = ziNum ? ziNum.toString() : '—';
+  const rkCls = r => r===1?'rk1':r===2?'rk2':r===3?'rk3':'';
   return `
   <div class="score-bars">
     <div class="score-row"><span class="score-lbl tan-lbl">単</span><div class="score-track"><div class="score-fill tan-fill" style="width:${tp}%"></div></div><span class="score-val tan-val">${Math.round(tanScore)}/${tanMax} <span style="opacity:.6;font-size:9px">${tp}%</span></span><span class="score-rank ${rkCls(tanRank)}">#${tanRank}</span></div>
-    <div class="score-row"><span class="score-lbl fuku-lbl">複</span><div class="score-track"><div class="score-fill fuku-fill" style="width:${fp}%"></div></div><span class="score-val fuku-val">${Math.round(fukuScore)}/${fukuMax} <span style="opacity:.6;font-size:9px">${fp}%</span></span><span class="score-rank ${rkCls(fukuRank)}">#${fukuRank}</span></div>
     <div class="score-row"><span class="score-lbl" style="color:#a78bfa;" title="穴馬スコア">穴</span><div class="score-track"><div class="score-fill ana-fill" style="width:${ap}%"></div></div><span class="score-val" style="color:#a78bfa;">${anaScore.toFixed(2)} <span style="opacity:.6;font-size:9px">${ap}%</span></span><span class="score-rank ${rkCls(anaRank)}">#${anaRank}</span></div>
-    <div class="score-row"><span class="score-lbl" style="color:#f97316;">総</span><div class="score-track"><div class="score-fill sougo-fill" style="width:${sp}%"></div></div><span class="score-val" style="color:#f97316;">${sp}% </span><span class="score-rank ${rkCls(sougouRank)}">#${sougouRank}</span></div>
+    <div class="score-row"><span class="score-lbl" style="color:#c01860;" title="ZI能力値">ZI</span><div class="score-track"><div class="score-fill" style="width:${zp}%;background:linear-gradient(90deg,#c01860,#f9a8d4);"></div></div><span class="score-val" style="color:#c01860;">${ziStr}</span><span class="score-rank ${rkCls(ziRank)}">#${ziRank}</span></div>
   </div>`;
 }
 
@@ -724,7 +725,7 @@ function buildBetSection(withAna, headCount, d) {
   return `<div class="bet-section"><div class="bet-header"><span class="bet-race-type" style="background:${color};">${raceType}</span><span class="bet-title">🎯 買い目提案</span><span class="bet-total">合計 ${totalPoints}点</span></div>${bets.map(b=>renderBetRow(b,numMap)).join('')}</div>`;
 }
 
-let sortMode = 'sougou';
+let sortMode = 'tan';
 let markRankMap = {};
 function setSortMode(mode) { sortMode=mode; renderRace(currentIdx); }
 
@@ -757,7 +758,7 @@ function buildAnalysisSection(d) {
   if (d.raceAnalysis) {
     const rt=d.raceTitle??null;
     const headlineHtml=rt?`<div class="analysis-headline"><span class="rt-main">${esc(rt.main)}</span><span class="rt-sub">${esc(rt.sub)}</span><span class="rt-desc">${esc(rt.desc)}</span><span class="rt-humor">${esc(rt.humor)}</span></div>`:'';
-    html+=`<div class="analysis-block"><div class="analysis-block-title analysis-toggle" onclick="toggleAnalysis(this)"><span class="analysis-icon">📊</span>ギーニョの重賞データ解析<span class="analysis-toggle-icon">▶</span><span class="analysis-toggle-hint">展開</span></div><div class="analysis-body" style="display:none">${headlineHtml}<div class="analysis-comment">${esc(d.raceAnalysis)}</div></div></div>`;
+    html+=`<div class="analysis-block"><div class="analysis-block-title analysis-toggle" onclick="toggleAnalysis(this)"><span class="analysis-icon">📊</span>ギーニョ・クロード・極式のデータ解析<span class="analysis-toggle-icon">▶</span><span class="analysis-toggle-hint">展開</span></div><div class="analysis-body" style="display:none">${headlineHtml}<div class="analysis-comment">${esc(d.raceAnalysis)}</div></div></div>`;
   }
   if (d.bloodAnalysis) {
     html+=`<div class="analysis-block"><div class="analysis-block-title analysis-toggle" onclick="toggleAnalysis(this)"><span class="analysis-icon">🧬</span>ギーニョの血統解析<span class="analysis-toggle-icon">▶</span><span class="analysis-toggle-hint">展開</span></div><div class="analysis-body" style="display:none"><div class="analysis-comment">${esc(d.bloodAnalysis)}</div></div></div>`;
@@ -784,9 +785,9 @@ function buildSf3Comment(h) {
 }
 
 function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRank,ziRank,anaRank,sougouRank,popularity,tanComment,fukuComment,anaScore,anaMax,sougouScore,isKeshi,mark) {
-  const dispRank=sortMode==='tan'?tanRank:sortMode==='fuku'?fukuRank:sortMode==='ana'?anaRank:sortMode==='sougou'?sougouRank:sortMode==='uma'?(h.horseNum??0):sortMode==='mark'?(markRankMap?.[name]??0):ziRank;
-  const modeLabel=sortMode==='tan'?'単勝':sortMode==='fuku'?'複勝':sortMode==='ana'?'穴馬':sortMode==='sougou'?'総合':sortMode==='uma'?'馬番':sortMode==='mark'?'印':'ZI';
-  const modeCls=sortMode==='tan'?'tan':sortMode==='fuku'?'fuku':sortMode==='ana'?'ana':sortMode==='sougou'?'sougou':sortMode==='uma'?'uma':sortMode==='mark'?'mark-sort':'zi';
+  const dispRank=sortMode==='tan'?tanRank:sortMode==='ana'?anaRank:sortMode==='uma'?(h.num??h.horseNum??0):sortMode==='mark'?(markRankMap?.[name]??0):ziRank;
+  const modeLabel=sortMode==='tan'?'単勝':sortMode==='ana'?'穴馬':sortMode==='uma'?'馬番':sortMode==='mark'?'印':'ZI';
+  const modeCls=sortMode==='tan'?'tan':sortMode==='ana'?'ana':sortMode==='uma'?'uma':sortMode==='mark'?'mark-sort':'zi';
   const sf3Cmt=buildSf3Comment(h);
   const raceAnaCmt=h.raceAnaNote??null,condCmt=h.conditionNote??null,bloodNote=h.bloodNote??null;
   const hasComment=h.prevJockeyComment||h.prevRaceNote||tanComment||fukuComment||sf3Cmt||raceAnaCmt||condCmt||bloodNote;
@@ -861,7 +862,7 @@ function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRan
         </div>
       </div>
       ${h.specialNote?`<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>`:''}
-      ${scoreBarHtml(tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRank,anaScore??0,anaMax??1,anaRank,sougouScore??0,sougouRank)}
+      ${scoreBarHtml(tanScore,tanMax,tanRank,anaScore??0,anaMax??1,anaRank,h.sabcZI??null,ziRank)}
     </div>
     <div class="card-body">
       <div class="horse-meta-row">
@@ -893,18 +894,28 @@ function buildMarkMap(sougouRankMap, anaRankMap, totalHorseCount) {
   return markMap;
 }
 
-// WIN5コレクション（総合スコア上位3頭）
+// WIN5コレクション（単勝スコア上位3頭 ＋ 穴馬1位）
 function buildWin5Collection(withAna) {
-  const bySg=[...withAna].sort((a,b)=>b.sougouScore-a.sougouScore);
-  const marks=['◎','○','▲'];
-  const colors=['#f59e0b','#94a3b8','#f87171'];
-  const items=bySg.slice(0,3).map((s,i)=>`
+  const tanPct = s => s.tanMax > 0 ? s.tanScore / s.tanMax : 0;
+  const byTan  = [...withAna].sort((a,b) => tanPct(b) - tanPct(a));
+  const byAna  = [...withAna].sort((a,b) => b.anaScore - a.anaScore);
+  const marks  = ['◎','○','▲'];
+  const colors = ['#f59e0b','#94a3b8','#f87171'];
+  const items  = byTan.slice(0,3).map((s,i) => `
     <div class="win5-col-horse">
       <span class="win5-col-mark" style="color:${colors[i]}">${marks[i]}</span>
       <span class="win5-col-name">${esc(s.name)}</span>
-      <span class="win5-col-score">${Math.round(s.sougouScore*100)}%</span>
+      <span class="win5-col-score">${Math.round(tanPct(s)*100)}%</span>
     </div>`).join('');
-  return `<div class="win5-collection"><div class="win5-col-title">🏆 WIN5 予想印（総合スコア順）</div><div class="win5-col-horses">${items}</div></div>`;
+  // 穴馬1位（単勝3位以内と重複しない最上位）
+  const anaTop = byAna.find(s => !byTan.slice(0,3).some(t => t.name === s.name));
+  const anaChip = anaTop ? `
+    <div class="win5-col-horse" style="border-color:rgba(167,139,250,.4);background:rgba(109,40,217,.06);">
+      <span class="win5-col-mark" style="color:#a78bfa;">⭐</span>
+      <span class="win5-col-name">${esc(anaTop.name)}</span>
+      <span class="win5-col-score" style="color:#a78bfa;">穴${anaTop.anaScore.toFixed(1)}</span>
+    </div>` : '';
+  return `<div class="win5-collection"><div class="win5-col-title">🏆 WIN5 予想印（単勝スコア順）</div><div class="win5-col-horses">${items}${anaChip}</div></div>`;
 }
 
 // サマリーバー更新
@@ -919,11 +930,9 @@ function updateWin5Summary() {
     }
     const horses=Object.entries(d.horses);
     const scored=horses.map(([name,h])=>({name,h,...calcScores(h)}));
-    const withAna=scored.map(s=>{
-      const sougouScore=(s.tanMax+s.fukuMax)>0?(s.tanScore+s.fukuScore)/(s.tanMax+s.fukuMax):0;
-      return {...s,sougouScore};
-    });
-    const bySg=[...withAna].sort((a,b)=>b.sougouScore-a.sougouScore);
+    const withAna=scored.map(s=>({...s,sougouScore:(s.tanMax+s.fukuMax)>0?(s.tanScore+s.fukuScore)/(s.tanMax+s.fukuMax):0}));
+    // WIN5は単勝ゲーム → サマリーバーは単勝スコア1位を表示
+    const bySg=[...withAna].sort((a,b)=>(b.tanMax>0?b.tanScore/b.tanMax:0)-(a.tanMax>0?a.tanScore/a.tanMax:0));
     const top=bySg[0];
     chip.innerHTML = `<span class="win5-chip-leg">${RACES[idx].leg}</span><span class="win5-chip-horse">${esc(top?.name||'?')}</span>`;
     chip.onclick = () => switchTab(idx);
@@ -1021,13 +1030,10 @@ function renderRace(idx) {
   const sortBar=`
     <div class="sort-bar">
       <span class="sort-bar-label">並び順:</span>
-      <button class="sort-btn sougou-btn ${sortMode==='sougou'?'active':''}" onclick="setSortMode('sougou')">⭐ 総合スコア順</button>
-      <button class="sort-btn ${sortMode==='tan'?'active':''}" onclick="setSortMode('tan')">単勝スコア順</button>
-      <button class="sort-btn ${sortMode==='fuku'?'active':''}" onclick="setSortMode('fuku')">複勝スコア順</button>
-      <button class="sort-btn ana-btn ${sortMode==='ana'?'active':''}" onclick="setSortMode('ana')">穴馬スコア順</button>
-      <button class="sort-btn ${sortMode==='zi'?'active':''}" onclick="setSortMode('zi')">ZI順</button>
-      ${withAna.some(s=>s.h.horseNum)?`<button class="sort-btn uma-btn ${sortMode==='uma'?'active':''}" onclick="setSortMode('uma')">🏇 馬番順</button>`:''}
-      ${markDeltaTopN?`<button class="sort-btn mark-btn ${sortMode==='mark'?'active':''}" onclick="setSortMode('mark')">◎ 印順</button>`:''}
+      <button class="sort-btn ${sortMode==='tan'?'active':''}" onclick="setSortMode('tan')">🥇 単勝スコア</button>
+      <button class="sort-btn ana-btn ${sortMode==='ana'?'active':''}" onclick="setSortMode('ana')">⭐ 穴馬スコア</button>
+      <button class="sort-btn ${sortMode==='zi'?'active':''}" onclick="setSortMode('zi')">📊 ZI能力値</button>
+      <button class="sort-btn uma-btn ${sortMode==='uma'?'active':''}" onclick="setSortMode('uma')">🏇 馬番順</button>
     </div>`;
 
   document.getElementById('content').innerHTML=`
