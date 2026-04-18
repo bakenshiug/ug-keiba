@@ -1553,11 +1553,7 @@ function renderCompactRows(horses, orderMap, notes) {
 
 function renderRaceDetail(data, notes) {
   const r = data.race || {};
-  const allHorses = (data.horses || []).slice().sort((a,b) => {
-    const ai = MARK_ORDER.indexOf(a.mark||'');
-    const bi = MARK_ORDER.indexOf(b.mark||'');
-    return ai !== bi ? ai - bi : b.totalPt - a.totalPt;
-  });
+  const allHorses = (data.horses || []).slice().sort((a,b) => b.totalPt - a.totalPt);
   const bets = data.bets || {};
   const comments = data.comments || {};
 
