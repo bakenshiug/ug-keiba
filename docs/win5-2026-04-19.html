@@ -413,33 +413,33 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 <!-- WIN5サマリーバー -->
 <div class="win5-summary-bar" id="win5SummaryBar">
   <span class="win5-sb-label">◎本命</span>
-  <span class="win5-chip win5-chip-loading" data-leg="0">第1R <span class="win5-chip-horse">読込中...</span></span>
-  <span class="win5-chip win5-chip-loading" data-leg="1">第2R <span class="win5-chip-horse">読込中...</span></span>
-  <span class="win5-chip win5-chip-loading" data-leg="2">第3R <span class="win5-chip-horse">読込中...</span></span>
-  <span class="win5-chip win5-chip-loading" data-leg="3">第4R <span class="win5-chip-horse">読込中...</span></span>
-  <span class="win5-chip win5-chip-loading" data-leg="4">最終R <span class="win5-chip-horse">読込中...</span></span>
+  <span class="win5-chip win5-chip-loading" data-leg="0">WIN1 <span class="win5-chip-horse">読込中...</span></span>
+  <span class="win5-chip win5-chip-loading" data-leg="1">WIN2 <span class="win5-chip-horse">読込中...</span></span>
+  <span class="win5-chip win5-chip-loading" data-leg="2">WIN3 <span class="win5-chip-horse">読込中...</span></span>
+  <span class="win5-chip win5-chip-loading" data-leg="3">WIN4 <span class="win5-chip-horse">読込中...</span></span>
+  <span class="win5-chip win5-chip-loading" data-leg="4">WIN5 <span class="win5-chip-horse">読込中...</span></span>
 </div>
 
 <!-- タブ -->
 <div class="tab-bar" id="tabBar">
   <button class="tab-btn active" data-idx="0">
-    <span class="tab-leg">第1R</span>
+    <span class="tab-leg">WIN1</span>
     <span class="tab-grade grade-3c">L3</span>陽春S
   </button>
   <button class="tab-btn" data-idx="1">
-    <span class="tab-leg">第2R</span>
+    <span class="tab-leg">WIN2</span>
     <span class="tab-grade grade-l">L</span>京葉S
   </button>
   <button class="tab-btn" data-idx="2">
-    <span class="tab-leg">第3R</span>
+    <span class="tab-leg">WIN3</span>
     <span class="tab-grade grade-g3">G3</span>福島牝馬S
   </button>
   <button class="tab-btn" data-idx="3">
-    <span class="tab-leg">第4R</span>
+    <span class="tab-leg">WIN4</span>
     <span class="tab-grade grade-3c">L3</span>立雲峡S
   </button>
   <button class="tab-btn" data-idx="4">
-    <span class="tab-leg">最終R</span>
+    <span class="tab-leg">WIN5</span>
     <span class="tab-grade grade-g1">G1</span>皐月賞
   </button>
 </div>
@@ -448,11 +448,11 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
 <script>
 const RACES = [
-  { file: 'data/race-notes/2026-04-19-hanshin-10r.json',   label: '陽春S',   gradeCls: 'grade-3c', meta: '4月19日(日) 阪神 ダ1200m 13頭',      leg: '第1R' },
-  { file: 'data/race-notes/2026-04-19-nakayama-10r.json',  label: '京葉S',   gradeCls: 'grade-l',  meta: '4月19日(日) 中山 ダ1200m 15頭',      leg: '第2R' },
-  { file: 'data/race-notes/2026-04-19-fukushima-11r.json', label: '福島牝馬S',gradeCls: 'grade-g3', meta: '4月19日(日) 福島 芝1800m外 18頭',    leg: '第3R' },
-  { file: 'data/race-notes/2026-04-19-hanshin-11r.json',   label: '立雲峡S', gradeCls: 'grade-3c', meta: '4月19日(日) 阪神 芝1600m外 13頭',    leg: '第4R' },
-  { file: 'data/race-notes/2026-04-19-nakayama-11r.json',  label: '皐月賞',  gradeCls: 'grade-g1', meta: '4月19日(日) 中山 芝2000m内 21頭',    leg: '最終R' },
+  { file: 'data/race-notes/2026-04-19-hanshin-10r.json',   label: '陽春S',   gradeCls: 'grade-3c', meta: '阪神10R ダ1200m 13頭',   leg: 'WIN1' },
+  { file: 'data/race-notes/2026-04-19-nakayama-10r.json',  label: '京葉S',   gradeCls: 'grade-l',  meta: '中山10R ダ1200m 15頭',   leg: 'WIN2' },
+  { file: 'data/race-notes/2026-04-19-fukushima-11r.json', label: '福島牝馬S',gradeCls: 'grade-g3', meta: '福島11R 芝1800m外 16頭',  leg: 'WIN3' },
+  { file: 'data/race-notes/2026-04-19-hanshin-11r.json',   label: '立雲峡S', gradeCls: 'grade-3c', meta: '阪神11R 芝1600m外 10頭',  leg: 'WIN4' },
+  { file: 'data/race-notes/2026-04-19-nakayama-11r.json',  label: '皐月賞',  gradeCls: 'grade-g1', meta: '中山11R 芝2000m内 18頭',  leg: 'WIN5' },
 ];
 
 let allData = [];
