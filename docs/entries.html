@@ -974,11 +974,11 @@ function calcScores(h, surface) {
   const prF  = h.pastRaceGradeFuku ?? null;
   const gkT  = h.gekisouGradeTan  ?? null;  // 🔥激走スコア（高人気乖離×本気×配合）×2倍ウェイト
   const gkF  = h.gekisouGradeFuku ?? null;
-  const lhcT = h.lapHotCornerGrade  ?? null;  // ラップ①ホットコーナー指数
+  const lhcT = h.lapHotCornerGrade  ?? null;  // ラップ①4角（4コーナー通過順位）
   const lhcF = h.lapHotCornerGrade  ?? null;
-  const lgrT = h.lapGoldenRatioGrade ?? null; // ラップ②ゴールデン比率
+  const lgrT = h.lapGoldenRatioGrade ?? null; // ラップ②前後半ラップ比率
   const lgrF = h.lapGoldenRatioGrade ?? null;
-  const lttT = h.lapTotalTimeGrade  ?? null;  // ラップ③前半+後半タイム
+  const lttT = h.lapTotalTimeGrade  ?? null;  // ラップ③前後半計タイム
   const lttF = h.lapTotalTimeGrade  ?? null;
   const sm2T = h.soma2GradeTan  ?? null;  // 相馬眼２
   const sm2F = h.soma2GradeFuku ?? null;
@@ -1528,8 +1528,8 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
         ${(h.lapHotCornerGrade || h.lapGoldenRatioGrade || h.lapTotalTimeGrade) ? `
         <div class="badge-group">
           <span class="badge-group-label lbl-lap">ラップ</span>
-          ${gradeBadge('コーナー', h.lapHotCornerGrade ?? null, h.lapHotCornerGrade ?? null)}
-          ${gradeBadge('比率', h.lapGoldenRatioGrade ?? null, h.lapGoldenRatioGrade ?? null)}
+          ${gradeBadge('4角', h.lapHotCornerGrade ?? null, h.lapHotCornerGrade ?? null)}
+          ${gradeBadge('前後半比率', h.lapGoldenRatioGrade ?? null, h.lapGoldenRatioGrade ?? null)}
           ${gradeBadge('タイム', h.lapTotalTimeGrade ?? null, h.lapTotalTimeGrade ?? null)}
         </div>` : ''}
         <div class="badge-group">

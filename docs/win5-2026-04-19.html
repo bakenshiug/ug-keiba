@@ -782,7 +782,7 @@ function buildAnalysisSection(d) {
   if (!d.raceAnalysis&&!d.bloodAnalysis&&!d.race?.lapAnalysisInProgress) return '';
   let html='<div class="analysis-section">';
   if (d.race?.lapAnalysisInProgress) {
-    html+=`<div class="analysis-block lap-inprogress-block"><div class="lap-inprogress-head"><span class="lap-inprogress-icon">🔍</span><div><div class="lap-inprogress-title">ラップ解析中</div><div class="lap-inprogress-sub">ホットコーナー指数・ゴールデン比率・前後半タイムをスコアに反映中。</div></div><span class="lap-inprogress-badge">LIVE</span></div></div>`;
+    html+=`<div class="analysis-block lap-inprogress-block"><div class="lap-inprogress-head"><span class="lap-inprogress-icon">🔍</span><div><div class="lap-inprogress-title">ラップ解析中</div><div class="lap-inprogress-sub">4角・前後半ラップ比率・前後半計タイムをスコアに反映中。</div></div><span class="lap-inprogress-badge">LIVE</span></div></div>`;
   }
   if (d.race?.finalWorkoutAnalysisInProgress) {
     html+=`<div class="analysis-block fw-inprogress-block"><div class="lap-inprogress-head"><span class="lap-inprogress-icon">🏋️</span><div><div class="fw-inprogress-title">最終追い切り解析中</div><div class="lap-inprogress-sub">最終追い切りタイム・動きを徹底解析中...</div></div><span class="fw-inprogress-badge">LIVE</span></div></div>`;
@@ -877,8 +877,8 @@ function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRan
         ${(h.lapHotCornerGrade||h.lapGoldenRatioGrade||h.lapTotalTimeGrade)?`
         <div class="badge-group">
           <span class="badge-group-label lbl-lap">ラップ</span>
-          ${gradeBadge('コーナー',h.lapHotCornerGrade??null,h.lapHotCornerGrade??null)}
-          ${gradeBadge('比率',h.lapGoldenRatioGrade??null,h.lapGoldenRatioGrade??null)}
+          ${gradeBadge('4角',h.lapHotCornerGrade??null,h.lapHotCornerGrade??null)}
+          ${gradeBadge('前後半比率',h.lapGoldenRatioGrade??null,h.lapGoldenRatioGrade??null)}
           ${gradeBadge('タイム',h.lapTotalTimeGrade??null,h.lapTotalTimeGrade??null)}
         </div>`:''}
         <div class="badge-group">
