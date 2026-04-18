@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UG強奪競馬新聞 | トップ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F2D9B0;--bg-dk:#E8C898;--bg-md:#EDD9A3;
+  --pink:#E8003D;--pink-dk:#B5002E;--gold:#8B1A1A;
+  --text:#1C2B4A;--muted:#1C2B4A;
+  --border:rgba(232,0,61,0.25);--card:rgba(0,0,0,0.04);
+  --sidebar-w:220px;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+
+/* ── Ticker ── */
+.ticker-wrap{overflow:hidden;white-space:nowrap;background:var(--pink);padding:7px 0;}
+.ticker-text{display:inline-block;animation:ticker-scroll 26s linear infinite;padding-left:100%;font-size:11px;font-weight:900;color:#fff;letter-spacing:.06em;}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+/* ── Layout ── */
+.layout{display:flex;min-height:100vh;}
+
+/* ── Sidebar ── */
+.sidebar{
+  width:var(--sidebar-w);flex-shrink:0;
+  background:linear-gradient(180deg,#EDD9A3 0%,#E8C898 60%,#F2D9B0 100%);
+  border-right:1px solid rgba(232,0,61,.35);
+  display:flex;flex-direction:column;
+  position:fixed;top:0;left:0;bottom:0;
+  z-index:200;overflow-y:auto;
+}
+.sidebar-logo{
+  padding:20px 16px 18px;
+  border-bottom:1px solid rgba(232,0,61,.2);
+}
+.logo-img{width:100%;max-width:180px;height:auto;display:block;filter:drop-shadow(0 0 18px rgba(232,0,61,.6));}
+.logo-nick{font-size:11px;font-weight:900;color:var(--pink);margin-top:10px;letter-spacing:.05em;}
+
+/* sidebar nav */
+.sidebar-nav{padding:14px 10px;flex:1;}
+.nav-section-label{
+  font-size:8px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(28,43,74,.5);margin:14px 0 6px 8px;
+}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:10px;
+  color:rgba(28,43,74,.8);font-size:12px;font-weight:700;
+  text-decoration:none;
+  transition:all .16s ease;
+  margin-bottom:2px;
+  position:relative;
+}
+.nav-item:hover{background:rgba(232,0,61,.12);color:#1C2B4A;}
+.nav-item.active{background:rgba(232,0,61,.20);color:#1C2B4A;border:1px solid rgba(232,0,61,.45);}
+.nav-item .nav-icon{font-size:18px;flex-shrink:0;color:rgba(28,43,74,.5);}
+.nav-item:hover .nav-icon,.nav-item.active .nav-icon{color:var(--pink);}
+.nav-badge{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  font-size:7px;font-weight:900;padding:2px 5px;border-radius:10px;
+  background:var(--pink);color:#fff;letter-spacing:.04em;
+}
+.nav-item.nav-win5{
+  background:linear-gradient(135deg,rgba(240,192,64,.12),rgba(180,100,10,.08));
+  border:1px solid rgba(240,192,64,.35);color:#7a5500;
+}
+.nav-item.nav-win5:hover{background:linear-gradient(135deg,rgba(240,192,64,.22),rgba(180,100,10,.15));border-color:rgba(240,192,64,.7);}
+.nav-item.nav-win5 .nav-icon{color:rgba(200,140,10,.7);}
+.nav-item.nav-win5:hover .nav-icon{color:#c8890a;}
+.nav-badge.win5-badge{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a0800;}
+
+/* sidebar footer */
+.sidebar-footer{padding:14px;border-top:1px solid rgba(232,0,61,.15);}
+.sidebar-footer p{font-size:9px;color:rgba(28,43,74,.5);line-height:1.6;}
+
+/* ── Main column ── */
+.main{
+  margin-left:var(--sidebar-w);
+  flex:1;display:flex;flex-direction:column;
+  min-height:100vh;
+}
+
+/* ── Mobile header ── */
+.mobile-hdr{
+  display:none;
+  background:linear-gradient(135deg,#EDD9A3,#E8C898);
+  border-bottom:2px solid rgba(232,0,61,.5);
+  padding:10px 14px;
+  align-items:center;gap:12px;
+  position:sticky;top:0;z-index:150;
+  box-shadow:0 4px 24px rgba(232,0,61,.2);
+}
+.mobile-logo-img{height:36px;width:auto;filter:drop-shadow(0 0 10px rgba(232,0,61,.7));}
+
+/* ── HERO HEADER ── */
+.hero{
+  position:relative;
+  overflow:hidden;
+  min-height:360px;
+  display:flex;align-items:center;
+}
+
+/* bg-town background */
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('assets/img/bg-town.png') center center / cover no-repeat;
+  filter:grayscale(30%) brightness(0.4);
+  transform:scale(1.04);
+}
+/* crimson gradient overlay */
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to right, rgba(242,217,176,.95) 0%, rgba(242,217,176,.7) 45%, rgba(242,217,176,.3) 100%),
+    linear-gradient(to top,   rgba(242,217,176,.98) 0%, rgba(242,217,176,.2) 50%, transparent 100%);
+}
+/* red glow accent at top */
+.hero-glow{
+  position:absolute;top:-60px;left:30px;
+  width:340px;height:220px;
+  background:radial-gradient(ellipse, rgba(232,0,61,.28) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+/* character image — right side */
+.hero-char{
+  position:absolute;
+  right:0;bottom:0;
+  height:100%;
+  max-height:340px;
+  width:auto;
+  object-fit:contain;
+  object-position:bottom right;
+  filter:
+    drop-shadow(-8px 0 24px rgba(232,0,61,.50))
+    drop-shadow(-4px 0 60px rgba(13,0,3,.9))
+    contrast(1.08) brightness(0.95);
+  /* right-side fade via mask */
+  -webkit-mask-image:linear-gradient(to left, transparent 0%, black 28%);
+  mask-image:linear-gradient(to left, transparent 0%, black 28%);
+}
+
+/* hero content — left side */
+.hero-content{
+  position:relative;z-index:2;
+  padding:32px 36px;
+  max-width:500px;
+}
+.hero-logo-img{
+  width:auto;max-width:260px;height:auto;
+  display:block;
+  filter:drop-shadow(0 0 22px rgba(232,0,61,.7)) brightness(1.1);
+  margin-bottom:14px;
+}
+.hero-catch{
+  font-size:11px;color:rgba(28,43,74,.6);letter-spacing:.18em;margin-bottom:10px;
+}
+.hero-nick{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(232,0,61,.22);border:2px solid rgba(232,0,61,.60);
+  border-radius:20px;padding:7px 16px;
+  font-size:13px;font-weight:900;color:#c0002a;letter-spacing:.05em;
+  text-shadow:0 1px 2px rgba(255,255,255,.6);
+  box-shadow:0 2px 10px rgba(232,0,61,.15);
+}
+.hero-scroll-hint{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;border-radius:999px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dk));
+  box-shadow:0 0 18px rgba(232,0,61,.55),0 0 40px rgba(232,0,61,.25);
+  font-size:13px;font-weight:900;color:#fff;letter-spacing:.06em;
+  animation:aiPulse 2s ease-in-out infinite;
+}
+@keyframes aiPulse{
+  0%,100%{box-shadow:0 0 18px rgba(232,0,61,.55),0 0 40px rgba(232,0,61,.25);}
+  50%{box-shadow:0 0 28px rgba(232,0,61,.9),0 0 60px rgba(232,0,61,.5);}
+}
+/* 告知バナー */
+.hero-announce{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 20px;border-radius:16px;margin-bottom:16px;
+  background:linear-gradient(135deg,#7b0a3e 0%,#c0185a 50%,#e8306e 100%);
+  border:1px solid rgba(255,182,210,.45);
+  box-shadow:0 0 32px rgba(220,50,120,.4),inset 0 1px 0 rgba(255,255,255,.15);
+  text-decoration:none;
+  transition:transform .15s,box-shadow .15s;
+}
+.hero-announce:active{transform:scale(.97);}
+.hero-announce:hover{box-shadow:0 0 48px rgba(255,80,160,.55);}
+.hero-announce-badge{
+  font-size:10px;font-weight:900;padding:4px 10px;border-radius:5px;
+  background:linear-gradient(135deg,#fff0f5,#ffd6e8);color:#9b1a4e;
+  letter-spacing:.06em;white-space:nowrap;flex-shrink:0;
+}
+.hero-announce-text{
+  font-size:15px;font-weight:900;color:#fff;letter-spacing:.04em;
+  text-shadow:0 0 14px rgba(255,150,200,.7);line-height:1.3;
+}
+.hero-announce-arrow{
+  margin-left:auto;font-size:18px;color:rgba(255,200,220,.9);flex-shrink:0;
+}
+
+/* ── Ticker (below hero) ── */
+.ticker-bar{position:sticky;top:0;z-index:100;}
+
+/* ── 激走キャッチログ ── */
+.catch-log-wrap{overflow-x:auto;padding:4px 0 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.catch-log-wrap::-webkit-scrollbar{display:none;}
+.catch-log-list{display:flex;gap:10px;padding:2px 4px 4px;width:max-content;}
+.catch-card{
+  min-width:120px;max-width:130px;border-radius:14px;padding:12px 12px 10px;
+  background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,240,245,.96));
+  border:1px solid rgba(190,60,80,.18);
+  box-shadow:0 2px 10px rgba(139,26,26,.08);
+  display:flex;flex-direction:column;gap:4px;cursor:default;
+  transition:transform .15s;
+}
+.catch-card:hover{transform:translateY(-2px);}
+.catch-card.hit1{border-color:rgba(200,140,0,.5);background:linear-gradient(135deg,rgba(255,248,220,.97),rgba(255,235,180,.95));}
+.catch-card.hit2{border-color:rgba(160,160,180,.5);background:linear-gradient(135deg,rgba(245,245,255,.97),rgba(230,230,240,.95));}
+.catch-race{font-size:9px;font-weight:900;color:rgba(139,26,26,.6);letter-spacing:.05em;}
+.catch-mark{font-size:13px;font-weight:900;color:#c0002a;}
+.catch-name{font-size:12px;font-weight:900;color:#1C2B4A;line-height:1.3;}
+.catch-pop{font-size:10px;font-weight:700;color:rgba(28,43,74,.5);}
+.catch-result{margin-top:4px;font-size:11px;font-weight:900;padding:2px 8px;border-radius:20px;text-align:center;align-self:flex-start;}
+.catch-result.r1{background:linear-gradient(90deg,#f59e0b,#d97706);color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.3);}
+.catch-result.r2{background:linear-gradient(90deg,#94a3b8,#64748b);color:#fff;}
+.catch-result.r4{background:rgba(100,116,139,.15);color:rgba(28,43,74,.45);font-weight:700;}
+
+/* ── Content ── */
+.content{padding:28px 32px 60px;max-width:800px;}
+
+.section-label{
+  font-size:9px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin:30px 0 12px;
+  display:flex;align-items:center;gap:8px;
+}
+.section-label::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.2);}
+
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+
+.nav-card{
+  display:flex;align-items:center;gap:12px;
+  padding:15px 16px;border-radius:14px;
+  background:linear-gradient(140deg,rgba(232,208,162,.5),rgba(242,217,176,.7));
+  border:1px solid rgba(232,0,61,.22);
+  text-decoration:none;color:var(--text);
+  transition:all .18s ease;
+}
+.nav-card:hover{
+  border-color:rgba(232,0,61,.6);
+  background:linear-gradient(140deg,rgba(222,198,142,.6),rgba(242,217,176,.85));
+  transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,0,61,.15);
+}
+.nav-card.gold{border-color:rgba(139,26,26,.28);}
+.nav-card.gold:hover{border-color:rgba(139,26,26,.65);box-shadow:0 6px 24px rgba(139,26,26,.12);}
+.nav-card.full{grid-column:1/-1;}
+
+.card-icon{font-size:20px;flex-shrink:0;width:32px;text-align:center;}
+.card-title{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#1C2B4A;line-height:1.3;}
+.card-desc{font-size:10px;color:var(--muted);margin-top:2px;}
+.card-arrow{margin-left:auto;color:rgba(28,43,74,.3);font-size:13px;flex-shrink:0;}
+
+.grade-pill{display:inline-block;font-size:8px;font-weight:900;padding:2px 6px;border-radius:4px;margin-left:4px;letter-spacing:.06em;vertical-align:middle;}
+.g1{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
+.g2{background:linear-gradient(90deg,#0a4f0a,#22c55e);color:#fff;}
+.g3{background:linear-gradient(90deg,#0d3b6e,#3b82f6);color:#fff;}
+.date-pill{display:inline-block;font-size:8px;font-weight:700;padding:2px 7px;border-radius:10px;background:rgba(232,0,61,.18);border:1px solid rgba(232,0,61,.35);color:rgba(255,150,170,.9);margin-left:4px;vertical-align:middle;}
+
+/* ── Mobile bottom nav ── */
+.bottom-nav{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:150;
+  background:rgba(242,217,176,.97);
+  border-top:1px solid rgba(212,175,55,.25);
+}
+.bottom-nav-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:512px;margin:0 auto;}
+.bottom-nav-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:10px 0 8px;gap:2px;
+  color:rgba(28,43,74,.6);text-decoration:none;
+  border-right:1px solid rgba(212,175,55,.08);
+  font-size:9px;font-weight:900;letter-spacing:.03em;
+  transition:color .15s;
+}
+.bottom-nav-item:last-child{border-right:none;}
+.bottom-nav-item:hover,.bottom-nav-item.active{color:var(--pink);}
+.bottom-nav-item .material-symbols-outlined{font-size:22px;}
+
+/* 皐月賞 最終結論ビッグボタン（FINAL VERDICT ワイン＆ゴールド） */
+.osaka-final-btn{
+  background:linear-gradient(135deg,#1a0008 0%,#3a0014 40%,#6a001f 70%,#8b0030 100%);
+  border:2px solid rgba(232,0,61,.8)!important;
+  box-shadow:0 0 32px rgba(232,0,61,.5),inset 0 1px 0 rgba(255,220,100,.15);
+  padding:22px 22px!important;
+  animation:finalPulse 2.2s ease-in-out infinite;
+  position:relative;overflow:hidden;
+}
+.osaka-final-btn::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(255,220,100,.9),transparent);
+}
+.osaka-final-btn::after{
+  content:'VERDICT';position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  font-size:64px;font-weight:900;letter-spacing:.2em;
+  color:rgba(255,220,100,.05);
+  white-space:nowrap;pointer-events:none;
+  font-family:'Public Sans','Inter',sans-serif;line-height:1;
+}
+@keyframes finalPulse{
+  0%,100%{box-shadow:0 0 32px rgba(232,0,61,.5),inset 0 1px 0 rgba(255,220,100,.15);}
+  50%{box-shadow:0 0 55px rgba(232,0,61,.9),0 0 80px rgba(232,0,61,.4),inset 0 1px 0 rgba(255,220,100,.15);}
+}
+.osaka-final-btn .osaka-label{font-size:10px;font-weight:900;color:rgba(255,220,100,.95);letter-spacing:.18em;margin-bottom:5px;text-transform:uppercase;text-shadow:0 0 12px rgba(255,200,80,.5);}
+.osaka-final-btn .card-title{color:#fff!important;font-size:19px!important;text-shadow:0 0 16px rgba(255,220,100,.3);}
+.osaka-final-btn .card-desc{color:rgba(255,230,200,.8)!important;}
+.osaka-final-btn .card-arrow{color:rgba(255,220,100,.85)!important;font-size:22px!important;}
+.osaka-final-btn:hover{transform:translateY(-2px)!important;box-shadow:0 0 60px rgba(232,0,61,.9)!important;}
+/* その他セクションの最終結論リンクバナー（コンパクト版） */
+.verdict-link-btn{
+  background:linear-gradient(135deg,#1a0008 0%,#3a0014 50%,#6a001f 100%)!important;
+  border:1.5px solid rgba(232,0,61,.6)!important;
+  box-shadow:0 0 20px rgba(232,0,61,.3),inset 0 1px 0 rgba(255,220,100,.12)!important;
+  position:relative;overflow:hidden;
+}
+.verdict-link-btn::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1.5px;
+  background:linear-gradient(90deg,transparent,rgba(255,220,100,.8),transparent);
+}
+.verdict-link-btn .verdict-link-label{
+  font-size:9px;font-weight:900;color:rgba(255,220,100,.9);
+  letter-spacing:.22em;margin-bottom:3px;text-transform:uppercase;
+  text-shadow:0 0 10px rgba(255,200,80,.4);
+}
+.verdict-link-btn .card-title{color:#fff!important;font-size:15px!important;text-shadow:0 0 12px rgba(255,220,100,.25);}
+.verdict-link-btn .card-desc{color:rgba(255,230,200,.75)!important;font-size:11px!important;}
+.verdict-link-btn .card-arrow{color:rgba(255,220,100,.85)!important;}
+.verdict-link-btn:hover{transform:translateY(-1px)!important;box-shadow:0 0 32px rgba(232,0,61,.55)!important;}
+/* WIN5ボタン */
+.win5-btn{
+  background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
+  border:1.5px solid rgba(255,215,0,.35);
+  box-shadow:0 0 24px rgba(255,215,0,.15),inset 0 1px 0 rgba(255,215,0,.1);
+  cursor:default;opacity:.85;
+}
+.win5-btn .win5-label{font-size:10px;font-weight:900;color:rgba(255,215,0,.9);letter-spacing:.2em;margin-bottom:4px;text-transform:uppercase;}
+.win5-btn .card-title{color:#fff!important;font-size:17px!important;}
+.win5-btn .card-desc{color:rgba(255,255,255,.6)!important;}
+.win5-btn .win5-badge{display:inline-block;background:rgba(255,215,0,.15);border:1px solid rgba(255,215,0,.4);color:rgba(255,215,0,.9);font-size:9px;font-weight:900;padding:2px 8px;border-radius:10px;letter-spacing:.12em;margin-top:6px;}
+/* ── Footer ── */
+.page-footer{
+  background:linear-gradient(135deg,#EDD9A3,#E8C898);
+  border-top:1px solid rgba(232,0,61,.25);
+  padding:20px 32px;margin-top:auto;
+}
+.page-footer p{font-size:10px;color:rgba(28,43,74,.5);line-height:1.7;}
+
+/* ── Responsive ── */
+@media(max-width:700px){
+  :root{--sidebar-w:0px;}
+  .sidebar{display:none;}
+  .main{margin-left:0;}
+  .mobile-hdr{display:flex;}
+  .ticker-bar{top:57px;}
+
+  /* ── Hero: スマホ専用レイアウト ── */
+  .hero{
+    min-height:300px;
+    align-items:flex-end;       /* コンテンツを下に固定 */
+  }
+  /* キャラ画像: 右上に固定・バナーと被らないよう上部配置 */
+  .hero-char{
+    height:80%;
+    max-height:220px;
+    bottom:auto;
+    top:0;                      /* 上から配置 */
+    opacity:.80;
+  }
+  /* バナーエリア: 下部に帯状に表示 */
+  .hero-content{
+    padding:14px 16px 18px;
+    max-width:100%;             /* 全幅使う */
+    width:100%;
+    /* 背景を少し入れて文字を読みやすく */
+    background:linear-gradient(to top, rgba(242,217,176,.92) 0%, rgba(242,217,176,.75) 80%, transparent 100%);
+  }
+  /* スマホではバナーを少しコンパクトに */
+  .hero-announce{
+    padding:11px 14px;
+    margin-bottom:10px;
+  }
+  .hero-announce-text{font-size:13px;}
+  .hero-announce-badge{font-size:9px;padding:3px 8px;}
+  .hero-scroll-hint{
+    font-size:11px;
+    padding:8px 16px;
+    width:100%;
+    justify-content:center;
+  }
+
+  .hero-logo-img{max-width:200px;}
+  .content{padding:14px 14px 100px;}
+  .card-grid{grid-template-columns:1fr;}
+  .nav-card.full{grid-column:1;}
+  .bottom-nav{display:block;}
+  .page-footer{padding:16px 14px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <img src="assets/img/logo.png" alt="UG強奪競馬新聞" class="logo-img">
+    <div class="logo-nick">🤡 強奪ニック 責任編集</div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">今週のコンテンツ</div>
+
+    <a href="entries.html" class="nav-item active">
+      <span class="material-symbols-outlined nav-icon">trophy</span>
+      <span>重賞展望</span>
+    </a>
+    <a href="final-display.html" class="nav-item">
+      <span class="material-symbols-outlined nav-icon">flag</span>
+      <span>最終予想</span>
+      <span class="nav-badge">NEW</span>
+    </a>
+    <a href="win5-2026-04-19.html" class="nav-item nav-win5">
+      <span class="material-symbols-outlined nav-icon">workspace_premium</span>
+      <span>WIN5 最終予想</span>
+      <span class="nav-badge win5-badge">4/19</span>
+    </a>
+    <a href="win5-archive.html" class="nav-item nav-win5" style="opacity:.85;">
+      <span class="material-symbols-outlined nav-icon">history</span>
+      <span>WIN5 過去戦績</span>
+    </a>
+    <a href="final-display.html" class="nav-item">
+      <span class="material-symbols-outlined nav-icon">emoji_events</span>
+      <span>レース結果</span>
+    </a>
+
+    <div class="nav-section-label">バックナンバー</div>
+
+    <a href="archive.html" class="nav-item">
+      <span class="material-symbols-outlined nav-icon">history</span>
+      <span>過去戦績</span>
+    </a>
+    <a href="kinkai-display.html" class="nav-item">
+      <span class="material-symbols-outlined nav-icon">savings</span>
+      <span>今週の金塊馬</span>
+    </a>
+
+    <div class="nav-section-label">ガイド・小説</div>
+
+    <a href="how-to-buy.html" class="nav-item">
+      <span class="material-symbols-outlined nav-icon">help_outline</span>
+      <span>馬券の買い方</span>
+    </a>
+    <a href="https://note.com/gaikyukeiba_ace" class="nav-item" target="_blank" rel="noopener">
+      <span class="material-symbols-outlined nav-icon">auto_stories</span>
+      <span>小説を読む</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <p>UG強奪競馬新聞<br>※本情報は参考目的です。<br>投票は自己責任でお願いします。</p>
+  </div>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<div class="main">
+
+  <!-- mobile header -->
+  <header class="mobile-hdr">
+    <img src="assets/img/logo.png" alt="UG強奪競馬新聞" class="mobile-logo-img">
+  </header>
+
+  <!-- ══ HERO HEADER ══ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-glow"></div>
+
+    <!-- character: right side -->
+    <img src="assets/img/hero13.png" alt="強奪ニック" class="hero-char"
+      onerror="this.style.display='none'">
+
+    <!-- text: left side -->
+    <div class="hero-content">
+      <a href="final-display.html" class="hero-announce" style="background:linear-gradient(135deg,#1a0008 0%,#4a0018 50%,#8b0030 100%);border-color:rgba(232,0,61,.7);box-shadow:0 0 40px rgba(232,0,61,.5),inset 0 1px 0 rgba(255,255,255,.15);">
+        <span class="hero-announce-badge" style="background:linear-gradient(135deg,#ffd700,#f5a800);color:#1a0800;">🎯 FINAL VERDICT</span>
+        <span class="hero-announce-text">
+          G1皐月賞 最終ジャッジ公開！
+        </span>
+        <span class="hero-announce-arrow">›</span>
+      </a>
+      <a href="final-display.html" class="hero-scroll-hint" style="background:linear-gradient(135deg,#8b0030,#4a0018);text-decoration:none;">
+        🏇 混戦皐月賞…ギーニョの最終宣告！
+      </a>
+    </div>
+  </section>
+
+  <!-- ticker -->
+  <div class="ticker-bar">
+    <div class="ticker-wrap">
+      <span class="ticker-text">
+        🎯 NZT🔥穴馬スコア1位☆レザベーション6番人気1着激走🔥 &nbsp;｜&nbsp; 🎯 皐月賞🔥◎スターアニス優勝！△ジッピーチューン12番人気3着激走🔥 &nbsp;｜&nbsp; 👑皐月賞 徹底解析公開中🎯 混戦皐月賞を高精度分析！ &nbsp;｜&nbsp; 🐶 中山芝戦分析絶好調…今週皐月賞に乞うご期待！ &nbsp;｜&nbsp; 🎯 NZT🔥穴馬スコア1位☆レザベーション6番人気1着激走🔥 &nbsp;｜&nbsp; 🎯 皐月賞🔥◎スターアニス優勝！△ジッピーチューン12番人気3着激走🔥 &nbsp;｜&nbsp; 👑皐月賞 徹底解析公開中🎯 混戦皐月賞を高精度分析！ &nbsp;｜&nbsp; 🐶 中山芝戦分析絶好調…今週皐月賞に乞うご期待！
+      </span>
+    </div>
+  </div>
+
+  <!-- ══ CONTENT ══ -->
+  <div class="content">
+
+    <div class="section-label">予想・分析</div>
+    <div class="card-grid">
+
+      <!-- 皐月賞 最終結論メインバナー -->
+      <a href="final-display.html" class="nav-card osaka-final-btn full">
+        <div class="card-icon" style="font-size:28px;">🎯</div>
+        <div style="flex:1;">
+          <div class="osaka-label" style="font-size:15px;">GI皐月賞 FINAL VERDICT</div>
+          <div class="card-title">ギーニョ最終ジャッジ公開🔥</div>
+          <div class="card-desc">◎本命宣告・買い目確定・最終結論</div>
+          <div style="margin-top:8px;font-size:10px;font-style:italic;color:rgba(255,255,255,.75);line-height:1.6;border-left:2px solid rgba(255,220,100,.5);padding-left:8px;">「誰でも計画を持っている。顔を殴られるまでは。」<span style="display:block;font-style:normal;font-weight:900;color:rgba(255,220,100,.7);margin-top:1px;">〜 マイク・タイソン 〜</span></div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+
+      <!-- WIN5徹底解析ボタン -->
+      <a href="win5-2026-04-19.html" class="nav-card win5-btn full">
+        <div class="card-icon" style="font-size:28px;">🔑</div>
+        <div style="flex:1;">
+          <div class="win5-label">WIN5 徹底解析</div>
+          <div class="card-title">5レース全制覇への道</div>
+          <div class="card-desc">皐月賞・福島牝馬S＋3レース　単勝スコアランキングで買い目自動生成</div>
+          <div class="win5-badge" style="background:rgba(16,185,129,.15);border-color:rgba(16,185,129,.4);color:#6ee7b7;">✅ 公開中 2026.4.19</div>
+        </div>
+        <div class="card-arrow" style="color:var(--gold);">›</div>
+      </a>
+
+      <a href="kinkai-display.html" class="nav-card">
+        <div class="card-icon">🏅</div>
+        <div>
+          <div class="card-title">今週の金塊馬</div>
+          <div class="card-desc">コース別激走候補</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+      <a href="final-display.html" class="nav-card">
+        <div class="card-icon">🏆</div>
+        <div>
+          <div class="card-title">レース結果</div>
+          <div class="card-desc">的中・回収率チェック</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+    </div>
+
+    <!-- 激走キャッチログ -->
+    <div class="section-label">🎯 激走キャッチログ</div>
+    <div class="catch-log-wrap">
+      <div class="catch-log-list">
+
+        <div class="catch-card hit1">
+          <div class="catch-race">NZT G2</div>
+          <div class="catch-mark">☆</div>
+          <div class="catch-name">レザベーション</div>
+          <div class="catch-pop">6番人気</div>
+          <div class="catch-result r1">🥇 1着激走🔥</div>
+        </div>
+
+        <div class="catch-card hit1">
+          <div class="catch-race">日経賞 G2</div>
+          <div class="catch-mark">☆</div>
+          <div class="catch-name">マイユニバース</div>
+          <div class="catch-pop">4番人気</div>
+          <div class="catch-result r1">🥇 1着激走🔥</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">ファルコンS G3</div>
+          <div class="catch-mark">○</div>
+          <div class="catch-name">エイシンディード</div>
+          <div class="catch-pop">8番人気</div>
+          <div class="catch-result r2">🥈 2着連対</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">若葉S OP</div>
+          <div class="catch-mark">☆</div>
+          <div class="catch-name">ロードフィレール</div>
+          <div class="catch-pop">8番人気</div>
+          <div class="catch-result r2">🥈 2着連対</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">阪神大賞典 G2</div>
+          <div class="catch-mark">☆</div>
+          <div class="catch-name">アクアヴァーナル</div>
+          <div class="catch-pop">6番人気</div>
+          <div class="catch-result r2">🥈 2着連対</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">ダービー卿CT G3</div>
+          <div class="catch-mark">○</div>
+          <div class="catch-name">サイルーン</div>
+          <div class="catch-pop">9番人気</div>
+          <div class="catch-result r2">🥈 2着連対</div>
+        </div>
+
+        <div class="catch-card hit1">
+          <div class="catch-race">桜花賞 G1</div>
+          <div class="catch-mark">◎</div>
+          <div class="catch-name">スターアニス</div>
+          <div class="catch-pop">2番人気</div>
+          <div class="catch-result r1">🥇 1着激走🔥</div>
+        </div>
+
+        <div class="catch-card hit2">
+          <div class="catch-race">桜花賞 G1</div>
+          <div class="catch-mark">△</div>
+          <div class="catch-name">ジッピーチューン</div>
+          <div class="catch-pop">12番人気</div>
+          <div class="catch-result r2">🥉 3着激走🔥</div>
+        </div>
+
+        <div class="catch-card">
+          <div class="catch-race">大阪杯 G1</div>
+          <div class="catch-mark">○</div>
+          <div class="catch-name">タガノデュード</div>
+          <div class="catch-pop">13番人気</div>
+          <div class="catch-result r4">4着</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section-label">その他</div>
+    <div class="card-grid">
+      <a href="final-display.html" class="nav-card verdict-link-btn full">
+        <div class="card-icon" style="font-size:24px;">🎯</div>
+        <div style="flex:1;">
+          <div class="verdict-link-label">FINAL VERDICT</div>
+          <div class="card-title">皐月賞 最終結論へ</div>
+          <div class="card-desc">◎本命・買い目・ジャッジを一枚で</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+      <a href="entries-archive.html" class="nav-card">
+        <div class="card-icon">📁</div>
+        <div>
+          <div class="card-title">スコア解析アーカイブ</div>
+          <div class="card-desc">NZT / 阪神牝馬S / 桜花賞<span class="grade-pill g1">過去</span></div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+      <a href="archive.html" class="nav-card">
+        <div class="card-icon">🏆</div>
+        <div>
+          <div class="card-title">過去戦績</div>
+          <div class="card-desc">アーカイブ・回収率チェック</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+      <a href="how-to-buy.html" class="nav-card">
+        <div class="card-icon">💡</div>
+        <div>
+          <div class="card-title">馬券の買い方</div>
+          <div class="card-desc">買い方ガイド・ルール</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+      <a href="https://note.com/gaikyukeiba_ace" class="nav-card full" target="_blank" rel="noopener">
+        <div class="card-icon">📖</div>
+        <div>
+          <div class="card-title">小説を読む</div>
+          <div class="card-desc">馬券師小説「サラブレッド・アンダーグラウンド」〜馬券師グランプリ〜</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+    </div>
+
+  </div><!-- /content -->
+
+  <footer class="page-footer">
+    <p>UG強奪競馬新聞 — 🤡強奪ニック🤡 責任編集<br>※本情報は参考目的です。投票は自己責任でお願いします。</p>
+  </footer>
+
+</div><!-- /main -->
+
+<!-- ══ MOBILE BOTTOM NAV ══ -->
+<nav class="bottom-nav">
+  <div class="bottom-nav-grid">
+    <a href="index.html" class="bottom-nav-item active">
+      <span class="material-symbols-outlined">trophy</span>
+      <span>重賞展望</span>
+    </a>
+    <a href="final-display.html" class="bottom-nav-item">
+      <span class="material-symbols-outlined">flag</span>
+      <span>最終予想</span>
+    </a>
+    <a href="final-display.html" class="bottom-nav-item">
+      <span class="material-symbols-outlined">emoji_events</span>
+      <span>レース結果</span>
+    </a>
+    <a href="archive.html" class="bottom-nav-item">
+      <span class="material-symbols-outlined">history</span>
+      <span>過去戦績</span>
+    </a>
+  </div>
+</nav>
+
+</body>
+</html>
