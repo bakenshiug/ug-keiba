@@ -208,6 +208,13 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .badge-group-label.lbl-apt{color:rgba(37,99,235,.38);}
 .badge-group-label.lbl-cond{color:rgba(192,24,96,.4);}
 .badge-group-label.lbl-state{color:rgba(109,40,217,.4);}
+/* 脚質名ラベルカラー（逃げ=赤/先行=琥珀/中団=青/差し=紫/後方=灰/追込=スレート） */
+.style-lbl-nige   {background:#fee2e2!important;color:#991b1b!important;border-right-color:#fca5a5!important;}
+.style-lbl-senkou {background:#fef3c7!important;color:#92400e!important;border-right-color:#fcd34d!important;}
+.style-lbl-chutan {background:#dbeafe!important;color:#1e40af!important;border-right-color:#93c5fd!important;}
+.style-lbl-sashi  {background:#ede9fe!important;color:#5b21b6!important;border-right-color:#c4b5fd!important;}
+.style-lbl-koho   {background:#f3f4f6!important;color:#374151!important;border-right-color:#d1d5db!important;}
+.style-lbl-oikomi {background:#f1f5f9!important;color:#334155!important;border-right-color:#94a3b8!important;}
 .badge-group-label.lbl-lap{color:rgba(6,148,162,.5);}
 .badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
 
@@ -613,6 +620,17 @@ function paceGradeBadge(g) {
   const [t,f] = splitGrade(g,'pace');
   return dualBadge('ペース',t,f);
 }
+function styleNameBadge(name, grade) {
+  const [t,f] = splitGrade(grade,'style');
+  if (!name) return dualBadge('脚質',t,f);
+  const lcMap = {
+    '逃げ':'style-lbl-nige','先行':'style-lbl-senkou','中団':'style-lbl-chutan',
+    '差し':'style-lbl-sashi','後方':'style-lbl-koho','追込':'style-lbl-oikomi','マクリ':'style-lbl-oikomi'
+  };
+  const lc = lcMap[name] || '';
+  const tl = t||'?', fl = f||'?';
+  return `<span class="dual-badge"><span class="dual-lbl ${lc}">${esc(name)}</span><span class="dual-t ${cls(t)}">${tl}</span><span class="dual-f ${cls(f)}">${fl}</span></span>`;
+}
 function gradeBadge(label, gTan, gFuku) {
   if (!gTan && !gFuku) return `<span class="blood-grade bg-analyzing">${esc(label)} 解析中</span>`;
   return dualBadge(label, gTan??null, gFuku??null);
@@ -828,7 +846,7 @@ function buildHorseCard(name,h,tanScore,fukuScore,tanMax,fukuMax,tanRank,fukuRan
           <span class="badge-group-label lbl-apt">適性</span>
           ${splitBadge('コース',h.courseGrade,'course')}
           ${paceGradeBadge(h.paceGrade)}
-          ${splitBadge('脚質',h.styleGrade,'style')}
+          ${styleNameBadge(h.style,h.styleGrade)}
           ${splitBadge('馬格',h.bodyGrade,'body')}
         </div>
         <div class="badge-group">
