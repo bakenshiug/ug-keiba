@@ -3,7 +3,7 @@
     "date": "2026-04-19",
     "label": "4月19日（日）皐月賞週",
     "pageFile": "win5-2026-04-19.html",
-    "status": "upcoming",
+    "status": "settled",
     "totalCombinations": 36,
     "legs": [
       {
@@ -18,9 +18,10 @@
           "ボディブロー"
         ],
         "picksCount": 2,
-        "winner": null,
-        "winnerNum": null,
-        "hit": null
+        "winner": "ゼットエール",
+        "winnerNum": 3,
+        "winnerPopularity": 1,
+        "hit": true
       },
       {
         "leg": "WIN2",
@@ -33,9 +34,10 @@
           "モンドプリューム"
         ],
         "picksCount": 1,
-        "winner": null,
-        "winnerNum": null,
-        "hit": null
+        "winner": "ナムラフランク",
+        "winnerNum": 12,
+        "winnerPopularity": 5,
+        "hit": false
       },
       {
         "leg": "WIN3",
@@ -50,9 +52,13 @@
           "カニキュル"
         ],
         "picksCount": 3,
-        "winner": null,
-        "winnerNum": null,
-        "hit": null
+        "winner": "コガネノソラ",
+        "winnerNum": 13,
+        "winnerPopularity": 9,
+        "winnerOdds": 29.2,
+        "finishOrder": [13, 14, 16],
+        "raceTime": "1:45.6",
+        "hit": false
       },
       {
         "leg": "WIN4",
@@ -66,9 +72,10 @@
           "ラーンザロープス"
         ],
         "picksCount": 2,
-        "winner": null,
-        "winnerNum": null,
-        "hit": null
+        "winner": "スイープアワーズ",
+        "winnerNum": 5,
+        "winnerPopularity": 4,
+        "hit": false
       },
       {
         "leg": "WIN5",
@@ -98,7 +105,11 @@
       }
     ],
     "win5Result": false,
-    "win5Payout": null,
-    "memo": "皐月賞1着=ロブチェン(1人気印圏外)でWIN5不的中確定。印馬で1-2-3着独占。他4レース結果反映待ち。"
+    "win5Payout": 10041410,
+    "win5HitTickets": 55,
+    "win5WinningCombo": "3-12-13-5-4",
+    "win5Carryover": 0,
+    "legsHit": 1,
+    "memo": "WIN5的中組合せ3-12-13-5-4(払戻1,004万円・55票)。我々は陽春S=3ゼットエールのみ的中で1/5。京葉S/福島牝馬S/立雲峡S/皐月賞の4レグを取り逃した。印馬で1-2-3着独占だった福島牝馬Sと皐月賞の◎固定問題が直撃した週。"
   }
 ]
