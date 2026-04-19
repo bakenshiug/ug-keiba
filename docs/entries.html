@@ -194,7 +194,9 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .badge-group-label.lbl-apt    { color:rgba(37,99,235,.38); }  /* 適性 → blue  */
 .badge-group-label.lbl-cond   { color:rgba(192,24,96,.4);  }  /* 条件 → pink  */
 .badge-group-label.lbl-state  { color:rgba(109,40,217,.4); }  /* 状態 → purple */
-.badge-group-label.lbl-lap    { color:rgba(6,148,162,.5);  }  /* ラップ → cyan  */
+.badge-group-label.lbl-lap    { color:rgba(6,148,162,.8);  }  /* ラップ → cyan (×1.5強化後、濃度UP) */
+.badge-group-label.lbl-lap small { font-size:8px;margin-left:3px;color:rgba(6,148,162,.65); }
+.badge-group.badge-group-lap { background:linear-gradient(90deg,rgba(6,148,162,.08),rgba(6,148,162,.03)); border-left:2px solid rgba(6,148,162,.45); border-radius:6px; padding:3px 6px; }
 .badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
 
 /* 想定人気・オッズ（Z字 右端 = 視線のゴール） */
@@ -939,14 +941,12 @@ function calcScores(h, surface) {
   const jkF = h.jockeyGradeFuku ?? null;
   const gtT = h.gateGradeTan    ?? null;
   const gtF = h.gateGradeFuku   ?? null;
-  const hnT = h.horseNumGradeTan  ?? null;  // 馬番（単回収率ベース）
-  const hnF = h.horseNumGradeFuku ?? null;
+  // [削除: horseNumGrade — 皐月賞で1人気13着カヴァレリッツォA/A等ミスリード。枠番と機能重複]
   const cbT = h.comboGradeTan    ?? null;  // 騎手×厩舎コンビ
   const cbF = h.comboGradeFuku   ?? null;
   const spT = h.specialGradeTan  ?? h.specialGrade ?? null;
   const spF = h.specialGradeFuku ?? h.specialGrade ?? null;
-  const agT = h.ageGradeTan    ?? null;
-  const agF = h.ageGradeFuku   ?? null;
+  // [削除: ageGrade — 3歳クラシックで全員同世代、分散ゼロ]
   const rtT = h.rotGradeTan    ?? null;
   const rtF = h.rotGradeFuku   ?? null;
   const s3T = h.sf3GradeTan      ?? null;
@@ -959,43 +959,47 @@ function calcScores(h, surface) {
   const cdF = h.conditionGradeFuku ?? null;
   const smT = h.somaGradeTan  ?? null;  // 相馬眼
   const smF = h.somaGradeFuku ?? null;
-  const tgtT = h.raceTargetGradeTan  ?? null;  // 思惑（皐月賞狙いA/両睨みB/ダービー思惑D）
-  const tgtF = h.raceTargetGradeFuku ?? null;
+  // [削除: raceTargetGrade — 「皐月賞狙いA/ダービー思惑D」主観評価でデータ裏付けなし]
   const fwT  = h.finalWorkoutGradeTan  ?? null;  // 最終追い切り（4/17-18追加）
   const fwF  = h.finalWorkoutGradeFuku ?? null;
   const khG  = h.kehaiGrade ?? null;            // 気配（最終追い切り目視評価）
   const hgT  = h.haigoGradeTan  ?? null;  // 配合グレード（ギーニョ配合ジャッジ）
   const hgF  = h.haigoGradeFuku ?? null;
-  const pxT  = h.paradoxGradeTan  ?? null;  // パラドックス加点（皐月賞本気×能力値）
-  const pxF  = h.paradoxGradeFuku ?? null;
-  const coT  = h.commentGradeTan  ?? null;  // コメント評価（先行/スタミナ/粘り加点・平坦向き/追って案外減点）
-  const coF  = h.commentGradeFuku ?? null;
+  // [削除: paradoxGrade — 皐月賞で1着△ロブチェンC/B vs 惨敗ライヒスアドラーA/A等、逆相関傾向]
+  // [削除: commentGrade — 1〜3着と惨敗馬でほぼ全員B/B、分散ゼロ]
   const [wcT, wcF] = splitGrade(h.weightChangeGrade, 'weightChange');  // 斤量変化（今回増=優位/今回減=不利）
   const pcT  = h.prevCourseGradeTan  ?? null;  // 前走コース（単回/複回ベース）
   const pcF  = h.prevCourseGradeFuku ?? null;
-  const chT  = h.charGradeTan  ?? null;  // 適性/キャラ（D1200スタート・二の脚・砂被り等）
-  const chF  = h.charGradeFuku ?? null;
+  // [削除: charGrade — bodyGrade / styleGrade と機能重複]
   const prT  = h.pastRaceGradeTan  ?? null;  // 過去走スコア（クラス×着順×コース適性）×3倍ウェイト
   const prF  = h.pastRaceGradeFuku ?? null;
   const gkT  = h.gekisouGradeTan  ?? null;  // 🔥激走スコア（高人気乖離×本気×配合）×2倍ウェイト
   const gkF  = h.gekisouGradeFuku ?? null;
+  // ── ラップ分析 3ファクター（×1.5倍ウェイト強化 2026-04-19 皐月賞以降） ──
   const lhcT = h.lapHotCornerGrade  ?? null;  // ラップ①4角（4コーナー通過順位）
   const lhcF = h.lapHotCornerGrade  ?? null;
   const lgrT = h.lapGoldenRatioGrade ?? null; // ラップ②前後半ラップ比率
   const lgrF = h.lapGoldenRatioGrade ?? null;
   const lttT = h.lapTotalTimeGrade  ?? null;  // ラップ③前後半計タイム
   const lttF = h.lapTotalTimeGrade  ?? null;
-  const sm2T = h.soma2GradeTan  ?? null;  // 相馬眼２
-  const sm2F = h.soma2GradeFuku ?? null;
+  // [削除: soma2Grade — somaGrade と完全重複]
   const gbT  = h.ginyoBonusGradeTan  ?? null;  // ギーニョ加点
   const gbF  = h.ginyoBonusGradeFuku ?? null;
 
   let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
-  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,hnT,cbT,spT,agT,rtT,s3T,cdT,smT,lpT,pmT,tgtT,fwT,hgT,pxT,coT,wcT,pcT,chT,lhcT,lgrT,lttT,sm2T,gbT,khG]) {
+  // 基本ファクター（等倍）※削除済み: horseNum/age/raceTarget/paradox/comment/char/soma2
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,cbT,spT,rtT,s3T,cdT,smT,lpT,pmT,fwT,hgT,wcT,pcT,gbT,khG]) {
     const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
   }
-  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,hnF,cbF,spF,agF,rtF,s3F,cdF,smF,lpF,pmF,tgtF,fwF,hgF,pxF,coF,wcF,pcF,chF,lhcF,lgrF,lttF,sm2F,gbF,khG]) {
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,cbF,spF,rtF,s3F,cdF,smF,lpF,pmF,fwF,hgF,wcF,pcF,gbF,khG]) {
     const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
+  }
+  // ラップ分析3ファクターは×1.5倍ウェイト（皐月賞で1-2-3着の方向性を最も正確に捉えた主力ファクター）
+  for (const g of [lhcT, lgrT, lttT]) {
+    const p = gradePoints(g); if (p !== null){ tanScore  += p * 1.5; tanMax  += gradeMax() * 1.5; }
+  }
+  for (const g of [lhcF, lgrF, lttF]) {
+    const p = gradePoints(g); if (p !== null){ fukuScore += p * 1.5; fukuMax += gradeMax() * 1.5; }
   }
   // 過去走スコアは×3倍ウェイト
   const prPtsT = gradePoints(prT); if (prPtsT !== null){ tanScore  += prPtsT * 3; tanMax  += gradeMax() * 3; }
@@ -1506,10 +1510,8 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${ziGradeBadge(h.sabcZI)}
           ${gradeBadge('過去走', h.pastRaceGradeTan ?? null, h.pastRaceGradeFuku ?? null)}
           ${kinsoGradeBadge(h.kinsoGrade)}
-          ${h.ageGradeTan || h.ageGradeFuku ? gradeBadge('年齢', h.ageGradeTan ?? null, h.ageGradeFuku ?? null) : `<span class="blood-grade bg-age-fixed">年齢 3歳</span>`}
           ${(h.rotGradeTan||h.rotGradeFuku)?gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null):''}
           ${(h.prevMarginGradeTan || h.prevMarginGradeFuku) ? gradeBadge('上がり', h.prevMarginGradeTan ?? null, h.prevMarginGradeFuku ?? null) : ''}
-          ${(h.soma2GradeTan || h.soma2GradeFuku) ? gradeBadge('相馬眼２', h.soma2GradeTan ?? null, h.soma2GradeFuku ?? null) : ''}
           ${(h.ginyoBonusGradeTan || h.ginyoBonusGradeFuku) ? gradeBadge('ギーニョ加点', h.ginyoBonusGradeTan ?? null, h.ginyoBonusGradeFuku ?? null) : ''}
         </div>
         <div class="badge-group">
@@ -1518,21 +1520,19 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${paceGradeBadge(h.paceGrade)}
           ${splitBadge('脚質', h.styleGrade,'style')}
           ${splitBadge('馬格', h.bodyGrade ?? prevWeightGrade(h.prevWeight, h.sex),'body')}
-          ${(h.charGradeTan||h.charGradeFuku)?gradeBadge('キャラ',h.charGradeTan??null,h.charGradeFuku??null):''}
         </div>
         <div class="badge-group">
           <span class="badge-group-label lbl-cond">条件</span>
           ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
           ${gradeBadge('厩舎', h.stableGradeTan ?? null, h.stableGradeFuku ?? null)}
           ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
-          ${(h.horseNumGradeTan || h.horseNumGradeFuku) ? gradeBadge('馬番', h.horseNumGradeTan ?? null, h.horseNumGradeFuku ?? null) : ''}
           ${(h.comboGradeTan||h.comboGradeFuku)?gradeBadge('騎厩',h.comboGradeTan??null,h.comboGradeFuku??null):''}
           ${splitBadge('斤量', h.weightChangeGrade, 'weightChange', '解析完了')}
           ${(h.prevCourseGradeTan || h.prevCourseGradeFuku) ? gradeBadge('前走C', h.prevCourseGradeTan ?? null, h.prevCourseGradeFuku ?? null) : ''}
         </div>
         ${(h.lapHotCornerGrade || h.lapGoldenRatioGrade || h.lapTotalTimeGrade) ? `
-        <div class="badge-group">
-          <span class="badge-group-label lbl-lap">ラップ</span>
+        <div class="badge-group badge-group-lap">
+          <span class="badge-group-label lbl-lap">🏁ラップ<small style="opacity:.7;font-weight:700;">×1.5</small></span>
           ${gradeBadge('4角', h.lapHotCornerGrade ?? null, h.lapHotCornerGrade ?? null)}
           ${gradeBadge('前後半比率', h.lapGoldenRatioGrade ?? null, h.lapGoldenRatioGrade ?? null)}
           ${gradeBadge('タイム', h.lapTotalTimeGrade ?? null, h.lapTotalTimeGrade ?? null)}
@@ -1544,9 +1544,6 @@ function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, 
           ${h.kehaiGrade ? gradeBadge('気配', h.kehaiGrade, h.kehaiGrade) : ''}
           ${gradeBadge('相馬眼', h.somaGradeTan ?? null, h.somaGradeFuku ?? null)}
           ${extGradeBadge(h.extFacility, surface)}
-          ${gradeBadge('思惑', h.raceTargetGradeTan ?? null, h.raceTargetGradeFuku ?? null)}
-          ${gradeBadge('逆説加点', h.paradoxGradeTan ?? null, h.paradoxGradeFuku ?? null)}
-          ${gradeBadge('コメント', h.commentGradeTan ?? null, h.commentGradeFuku ?? null)}
           ${h.gekisouGradeTan ? gradeBadge('🔥激走', h.gekisouGradeTan, h.gekisouGradeFuku ?? null) : ''}
           ${(h.specialGradeTan ?? h.specialGrade ?? h.specialGradeFuku) ? gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null) : ''}
         </div>
@@ -1640,9 +1637,8 @@ function renderRace(idx) {
     const oddsPt      = Math.min(Math.max(Math.log(odds / 5) * 1.5, 0), 4.0);
     // ④ 配合ボーナス：G配合グレードで微調整
     const haigoBonus  = {'S':1.0,'A':0.6,'B':0.2,'C':0,'D':-0.3}[s.h.haigoGradeTan ?? ''] ?? 0;
-    // ⑤ 逆説ボーナス：賞金本気度×穴馬動機（S=メイチ穴馬/D=叩き台減点）
-    const paradoxBonus = {'S':0.8,'A':0.5,'B':0.2,'C':0,'D':-0.3}[s.h.paradoxGradeTan ?? ''] ?? 0;
-    const anaScore    = honki * gekisouCoef * (1 + oddsPt) + haigoBonus + paradoxBonus;
+    // [削除: paradoxBonus — 2026-04-19 皐月賞監査で逆相関傾向を確認したため撤廃]
+    const anaScore    = honki * gekisouCoef * (1 + oddsPt) + haigoBonus;
     const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
     const isKeshi = (s.h.ginyoGradeTan === 'D') && (s.h.ginyoGradeFuku === 'D');
     return {...s, anaScore, sougouScore, isKeshi};
