@@ -13,7 +13,10 @@
         "course": "ダ1200m",
         "gradeClass": "3C",
         "headsCount": 13,
-        "picks": ["ゼットエール", "ボディブロー"],
+        "picks": [
+          "ゼットエール",
+          "ボディブロー"
+        ],
         "picksCount": 2,
         "winner": null,
         "winnerNum": null,
@@ -26,7 +29,9 @@
         "course": "ダ1200m",
         "gradeClass": "L",
         "headsCount": 15,
-        "picks": ["モンドプリューム"],
+        "picks": [
+          "モンドプリューム"
+        ],
         "picksCount": 1,
         "winner": null,
         "winnerNum": null,
@@ -39,7 +44,11 @@
         "course": "芝1800m外",
         "gradeClass": "G3",
         "headsCount": 16,
-        "picks": ["パラディレーヌ", "ジョイフルニュース", "カニキュル"],
+        "picks": [
+          "パラディレーヌ",
+          "ジョイフルニュース",
+          "カニキュル"
+        ],
         "picksCount": 3,
         "winner": null,
         "winnerNum": null,
@@ -52,7 +61,10 @@
         "course": "芝1600m外",
         "gradeClass": "3C",
         "headsCount": 10,
-        "picks": ["ネーヴェフレスカ", "ラーンザロープス"],
+        "picks": [
+          "ネーヴェフレスカ",
+          "ラーンザロープス"
+        ],
         "picksCount": 2,
         "winner": null,
         "winnerNum": null,
@@ -65,15 +77,28 @@
         "course": "芝2000m内",
         "gradeClass": "G1",
         "headsCount": 18,
-        "picks": ["リアライズシリウス", "バステール", "サノノグレーター"],
+        "picks": [
+          "リアライズシリウス",
+          "バステール",
+          "サノノグレーター"
+        ],
         "picksCount": 3,
-        "winner": null,
-        "winnerNum": null,
-        "hit": null
+        "winner": "ロブチェン",
+        "winnerNum": 4,
+        "hit": false,
+        "winnerPopularity": 1,
+        "winnerOdds": 4.0,
+        "finishOrder": [
+          4,
+          15,
+          9
+        ],
+        "raceTime": "1:56.5",
+        "raceRecord": true
       }
     ],
-    "win5Result": null,
+    "win5Result": false,
     "win5Payout": null,
-    "memo": ""
+    "memo": "皐月賞1着=ロブチェン(1人気印圏外)でWIN5不的中確定。印馬で1-2-3着独占。他4レース結果反映待ち。"
   }
 ]
