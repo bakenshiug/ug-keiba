@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>マーチステークス 全頭診断 | 2026年3月29日 | UG強奪競馬新聞</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>
+<title>マーチステークス 全頭診断 | 2026年3月29日 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
   tailwind.config = {
@@ -56,193 +56,197 @@
   .border-E  { border-left: 4px solid #dc2626; }
 </style>
 
-<style id="ug-cherry-theme">
+<style id="ug-jinja-theme">
 /* ══════════════════════════════════════
-   UG DEEP CHERRY LUXURY THEME
+   UG JINJA SHRINE THEME
    ══════════════════════════════════════ */
 :root {
-  --ug-bg:         #130003;
-  --ug-cherry-dk:  #0b0002;
-  --ug-cherry-md:  #1a0004;
-  --ug-pink:       #E8003D;
-  --ug-pink-dk:    #B5002E;
-  --ug-gold:       #f0c040;
-  --ug-text:       #f5d0d5;
-  --ug-text-muted: rgba(255,255,255,0.50);
-  --ug-card-bg:    rgba(255,255,255,0.07);
-  --ug-card-border:rgba(232,0,61,0.25);
+  --ug-bg:         #FAFAFA;
+  --ug-paper:      #FBF7EE;
+  --ug-shu:        #9B2D30;
+  --ug-shu-dk:     #7A1E1E;
+  --ug-midori:     #1F4D2E;
+  --ug-kin:        #C9A961;
+  --ug-text:       #1A1A1A;
+  --ug-text-muted: rgba(26,26,26,0.60);
+  --ug-card-bg:    #FBF7EE;
+  --ug-card-border:rgba(201,169,97,0.40);
 }
 
 /* ── Base ─────────────────────────────── */
-html { background: #130003 !important; }
-body { background: #130003 !important; color: #f5d0d5 !important; min-height: 100vh; }
+html { background: #FAFAFA !important; }
+body { background: #FAFAFA !important; color: #1A1A1A !important; min-height: 100vh; font-family:'Shippori Mincho','Noto Serif JP',serif !important; }
 
 /* ── Header ──────────────────────────── */
 header {
-  background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important;
-  border-bottom: 1px solid rgba(232,0,61,0.40) !important;
-  backdrop-filter: blur(16px) !important;
+  background: rgba(250,250,250,0.92) !important;
+  border-bottom: 2px solid #9B2D30 !important;
+  box-shadow: 0 2px 0 #C9A961, 0 6px 14px rgba(155,45,48,0.08) !important;
+  backdrop-filter: blur(8px) !important;
 }
-header p, header span { color: rgba(255,255,255,0.80) !important; }
+header p, header span { color: rgba(26,26,26,0.65) !important; }
 header h1, header a h1 {
-  color: #ffffff !important;
-  text-shadow: 0 0 24px rgba(232,0,61,0.55) !important;
+  color: #9B2D30 !important;
+  text-shadow: none !important;
+  letter-spacing:.04em;
 }
-header .text-\[\#004900\], header .text-\[\#707a6a\] { color: rgba(255,255,255,0.70) !important; }
-header a, header button { color: rgba(255,255,255,0.80) !important; }
-header .bg-\[\#f2f4f2\] { background: rgba(255,255,255,0.10) !important; }
-header .text-\[\#9ca3af\] { color: rgba(255,255,255,0.50) !important; }
+header .text-\[\#004900\], header .text-\[\#707a6a\] { color: rgba(26,26,26,0.70) !important; }
+header a, header button { color: #9B2D30 !important; }
+header .bg-\[\#f2f4f2\] { background: rgba(201,169,97,0.12) !important; }
+header .text-\[\#9ca3af\] { color: rgba(26,26,26,0.50) !important; }
 header .bg-\[\#eceeec\] {
-  background: rgba(255,255,255,0.12) !important;
-  color: rgba(255,255,255,0.80) !important;
+  background: rgba(201,169,97,0.12) !important;
+  color: #7A1E1E !important;
 }
 
 /* ── Cards / boxes ─────────────────── */
 .bg-white, .card,
 [class*="rounded-2xl"].bg-white,
 [class*="rounded-2xl"].border {
-  background: rgba(255,255,255,0.07) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-color: rgba(232,0,61,0.22) !important;
-  color: #f5d0d5 !important;
+  background: #FBF7EE !important;
+  border-color: rgba(201,169,97,0.40) !important;
+  color: #1A1A1A !important;
 }
 
 /* ── Section boxes ─────────────────────── */
 .bg-\[\#f2f4f2\] {
-  background: rgba(232,0,61,0.10) !important;
-  border: 1px solid rgba(232,0,61,0.18) !important;
+  background: rgba(201,169,97,0.10) !important;
+  border: 1px solid rgba(201,169,97,0.30) !important;
 }
 
-/* ── Green headers → Pink gradient ── */
+/* ── Green headers → Shu gradient ── */
 .bg-\[\#006400\], .bg-\[\#004900\] {
-  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
+  background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important;
   border: none !important;
 }
 .bg-\[\#004900\].px-5.py-3 {
-  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+  background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important;
+  border-bottom: 1px solid rgba(201,169,97,0.45) !important;
 }
 
 /* ── Text ─────────────────────────── */
-.text-\[\#191c1b\], .text-\[\#374151\] { color: #f5d0d5 !important; }
-.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(255,255,255,0.50) !important; }
-.text-\[\#004900\]                        { color: #E8003D !important; }
-.text-\[\#2d5a27\]                        { color: #E8003D !important; }
+.text-\[\#191c1b\], .text-\[\#374151\] { color: #1A1A1A !important; }
+.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(26,26,26,0.55) !important; }
+.text-\[\#004900\]                        { color: #9B2D30 !important; }
+.text-\[\#2d5a27\]                        { color: #1F4D2E !important; }
 .text-sm, .text-base, p, span, li, td      { color: inherit; }
 
 /* ── Info pills ─────────── */
 .bg-\[\#eceeec\] {
-  background: rgba(255,255,255,0.10) !important;
-  color: #f5d0d5 !important;
-  border: 1px solid rgba(232,0,61,0.20) !important;
+  background: rgba(201,169,97,0.14) !important;
+  color: #7A1E1E !important;
+  border: 1px solid rgba(201,169,97,0.35) !important;
 }
 .bg-\[\#c4eab5\] {
-  background: rgba(232,0,61,0.15) !important;
-  color: #f5d0d5 !important;
+  background: rgba(31,77,46,0.12) !important;
+  color: #1F4D2E !important;
 }
 
 /* ── Ticker ──────────────────────────── */
-.ticker-wrap { background: #E8003D !important; }
+.ticker-wrap { background: #9B2D30 !important; }
+.ticker-text { color: #FBF7EE !important; }
 
 /* ── 激走警報 border glow ─────────────── */
 .border-2.border-\[\#dc2626\]\/60 {
-  border-color: rgba(232,0,61,0.65) !important;
-  box-shadow: 0 0 28px rgba(232,0,61,0.28) !important;
+  border-color: rgba(155,45,48,0.65) !important;
+  box-shadow: 0 0 20px rgba(155,45,48,0.18) !important;
 }
 .bg-gradient-to-r.from-\[\#7f1d1d\] {
-  background: linear-gradient(90deg, #E8003D, #B5002E) !important;
+  background: linear-gradient(90deg, #9B2D30, #7A1E1E) !important;
 }
 
 /* ── ug-keikoku-white ─── */
 [class*="rounded-2xl"].ug-keikoku-white {
-  background: rgba(255,255,255,0.08) !important;
-  color: #f5d0d5 !important;
+  background: #FBF7EE !important;
+  color: #1A1A1A !important;
+  border: 1px solid rgba(155,45,48,0.35) !important;
 }
 .ug-keikoku-white .bg-\[\#f2f4f2\] {
-  background: rgba(232,0,61,0.12) !important;
-  color: #f5d0d5 !important;
+  background: rgba(155,45,48,0.10) !important;
+  color: #7A1E1E !important;
 }
 .ug-keikoku-white .bg-\[\#eceeec\] {
-  background: rgba(255,255,255,0.10) !important;
-  color: #f5d0d5 !important;
+  background: rgba(201,169,97,0.14) !important;
+  color: #7A1E1E !important;
   border: none !important;
 }
 .ug-keikoku-white .bg-\[\#c4eab5\] {
-  background: rgba(232,0,61,0.15) !important;
-  color: #f5d0d5 !important;
+  background: rgba(31,77,46,0.12) !important;
+  color: #1F4D2E !important;
 }
-.ug-keikoku-white .text-\[\#707a6a\] { color: rgba(255,255,255,0.55) !important; }
-.ug-keikoku-white .font-bold { color: #f5d0d5 !important; }
+.ug-keikoku-white .text-\[\#707a6a\] { color: rgba(26,26,26,0.60) !important; }
+.ug-keikoku-white .font-bold { color: #1A1A1A !important; }
 
 /* ── ug-info-white ─── */
 [class*="rounded-2xl"].ug-info-white, .ug-info-white {
-  background: rgba(255,255,255,0.07) !important;
-  color: #f5d0d5 !important;
-  border-color: rgba(232,0,61,0.22) !important;
+  background: #FBF7EE !important;
+  color: #1A1A1A !important;
+  border-color: rgba(201,169,97,0.40) !important;
 }
-.ug-info-white .bg-\[\#004900\] { background: linear-gradient(135deg, #E8003D, #B5002E) !important; }
-.ug-info-white .text-\[\#191c1b\] { color: #f5d0d5 !important; }
-.ug-info-white .text-\[\#707a6a\] { color: rgba(255,255,255,0.70) !important; }
-.ug-info-white .text-\[\#004900\] { color: #ffffff !important; }
-.ug-info-white .font-black.text-\[\#004900\] { color: #ffffff !important; }
+.ug-info-white .bg-\[\#004900\] { background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important; }
+.ug-info-white .text-\[\#191c1b\] { color: #1A1A1A !important; }
+.ug-info-white .text-\[\#707a6a\] { color: rgba(26,26,26,0.65) !important; }
+.ug-info-white .text-\[\#004900\] { color: #FBF7EE !important; }
+.ug-info-white .font-black.text-\[\#004900\] { color: #FBF7EE !important; }
 
 /* ── ug-rank-white ─── */
 [class*="rounded-2xl"].ug-rank-white, .ug-rank-white {
-  background: rgba(255,255,255,0.07) !important;
-  color: #f5d0d5 !important;
-  border-color: rgba(232,0,61,0.22) !important;
+  background: #FBF7EE !important;
+  color: #1A1A1A !important;
+  border-color: rgba(201,169,97,0.40) !important;
 }
-.ug-rank-white .text-\[\#191c1b\] { color: #f5d0d5 !important; }
-.ug-rank-white .text-\[\#707a6a\] { color: rgba(255,255,255,0.50) !important; }
-.ug-rank-white h2, .ug-rank-white h3 { color: #ffffff !important; }
+.ug-rank-white .text-\[\#191c1b\] { color: #1A1A1A !important; }
+.ug-rank-white .text-\[\#707a6a\] { color: rgba(26,26,26,0.55) !important; }
+.ug-rank-white h2, .ug-rank-white h3 { color: #9B2D30 !important; }
 
-/* ── Grade badges ─────── */
-.grade-S   { background:#D97706!important; color:#fff!important; box-shadow:0 0 10px rgba(217,119,6,0.65)!important; }
-.grade-A   { background:#DB2777!important; color:#fff!important; }
-.grade-Bp  { background:#F43F5E!important; color:#fff!important; }
-.grade-B   { background:#EA580C!important; color:#fff!important; }
-.grade-C   { background:#2563EB!important; color:#fff!important; }
-.grade-D   { background:#6B7280!important; color:#fff!important; }
-.grade-E   { background:#dc2626!important; color:#fff!important; }
-.grade-none{ background:rgba(232,0,61,0.15)!important; color:#f5d0d5!important; border:1px solid rgba(232,0,61,0.30)!important; }
+/* ── Grade badges (keep functional colors) ─────── */
+.grade-S   { background:#C9A961!important; color:#1A1A1A!important; box-shadow:0 0 8px rgba(201,169,97,0.55)!important; }
+.grade-A   { background:#9B2D30!important; color:#FBF7EE!important; }
+.grade-Bp  { background:#B8424D!important; color:#FBF7EE!important; }
+.grade-B   { background:#C8633A!important; color:#FBF7EE!important; }
+.grade-C   { background:#2B5A9F!important; color:#FBF7EE!important; }
+.grade-D   { background:#6B7280!important; color:#FBF7EE!important; }
+.grade-E   { background:#7A1E1E!important; color:#FBF7EE!important; }
+.grade-none{ background:rgba(201,169,97,0.14)!important; color:#7A1E1E!important; border:1px solid rgba(201,169,97,0.35)!important; }
 
 /* ── Border left lines ────────── */
-.border-S  { border-left: 4px solid #D97706 !important; }
-.border-A  { border-left: 4px solid #DB2777 !important; }
-.border-Bp { border-left: 4px solid #F43F5E !important; }
-.border-B  { border-left: 4px solid #EA580C !important; }
-.border-C  { border-left: 4px solid #2563EB !important; }
+.border-S  { border-left: 4px solid #C9A961 !important; }
+.border-A  { border-left: 4px solid #9B2D30 !important; }
+.border-Bp { border-left: 4px solid #B8424D !important; }
+.border-B  { border-left: 4px solid #C8633A !important; }
+.border-C  { border-left: 4px solid #2B5A9F !important; }
 .border-D  { border-left: 4px solid #6B7280 !important; }
-.border-E  { border-left: 4px solid #dc2626 !important; }
+.border-E  { border-left: 4px solid #7A1E1E !important; }
 
 /* ── Race pills ─────────────── */
 a.race-pill {
-  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
-  border: 1px solid rgba(232,0,61,0.50) !important;
-  color: #ffffff !important;
-  box-shadow: 0 2px 12px rgba(232,0,61,0.35) !important;
+  background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important;
+  border: 1px solid rgba(155,45,48,0.50) !important;
+  color: #FBF7EE !important;
+  box-shadow: 0 2px 12px rgba(155,45,48,0.25) !important;
 }
 a.race-pill:hover {
-  background: rgba(232,0,61,0.18) !important;
-  color: #E8003D !important;
-  border: 1px solid #E8003D !important;
-  box-shadow: 0 0 18px rgba(232,0,61,0.50) !important;
+  background: rgba(155,45,48,0.14) !important;
+  color: #9B2D30 !important;
+  border: 1px solid #9B2D30 !important;
+  box-shadow: 0 0 14px rgba(155,45,48,0.30) !important;
 }
-a.race-pill span { color: rgba(255,255,255,0.80) !important; }
+a.race-pill span { color: rgba(251,247,238,0.85) !important; }
 
 
 /* ── インライン強調カラー ─────────────── */
-.text-\[\#790b4a\] { color: #ffb3c6 !important; }  /* 濃い赤紫 → ライトピンク */
-.text-\[\#6d28d9\] { color: #f0c040 !important; }  /* 紫 → ゴールド */
-.text-\[\#b45309\] { color: #f0c040 !important; }  /* アンバー → ゴールド */
+.text-\[\#790b4a\] { color: #9B2D30 !important; }
+.text-\[\#6d28d9\] { color: #C9A961 !important; }
+.text-\[\#b45309\] { color: #C9A961 !important; }
+
 /* ── Footer ─────────────── */
 footer {
-  background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important;
-  border-top: 1px solid rgba(232,0,61,0.35) !important;
+  background: rgba(250,250,250,0.92) !important;
+  border-top: 2px solid #9B2D30 !important;
+  box-shadow: 0 -2px 0 #C9A961 !important;
 }
-footer * { color: rgba(255,255,255,0.75) !important; }
-footer .hover\:bg-\[\#f2f4f2\]:hover { background: rgba(232,0,61,0.15) !important; }
+footer * { color: rgba(26,26,26,0.70) !important; }
+footer .hover\:bg-\[\#f2f4f2\]:hover { background: rgba(201,169,97,0.15) !important; }
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-24">
@@ -254,7 +258,7 @@ footer .hover\:bg-\[\#f2f4f2\]:hover { background: rgba(232,0,61,0.15) !importan
         <span class="material-symbols-outlined text-xl">arrow_back</span>
       </a>
       <div>
-        <a href="index.html" style="text-decoration:none;"><p class="text-[10px] uppercase tracking-widest text-[#707a6a] font-bold">UG強奪競馬新聞 / 全頭診断</p></a>
+        <a href="index.html" style="text-decoration:none;"><p class="text-[10px] uppercase tracking-widest text-[#707a6a] font-bold">UG競馬ワイド神宮 / 全頭診断</p></a>
         <h1 class="serif-headline text-lg font-bold text-[#004900] leading-tight">マーチステークス G3 全頭診断</h1>
         <p class="text-[10px] text-[#790b4a] font-bold">2026年3月29日 中山11R ダート1800m</p>
       </div>
@@ -263,7 +267,7 @@ footer .hover\:bg-\[\#f2f4f2\]:hover { background: rgba(232,0,61,0.15) !importan
 </header>
 
 <!-- 速報ティッカー -->
-<div class="ticker-wrap py-1.5 sticky top-[calc(var(--header-h,60px))] z-40" style="background:#B5002E;">
+<div class="ticker-wrap py-1.5 sticky top-[calc(var(--header-h,60px))] z-40" style="background:#9B2D30;">
   <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
     🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯 &nbsp;｜&nbsp; ✅「マーチS」全頭データ解析公開中 &nbsp;｜&nbsp; 8セクション×24頭 完全診断 &nbsp;｜&nbsp; 🎯 速報 &nbsp;｜&nbsp; 土曜日は３戦２勝！ファルコンS／若葉S 的中🎯 &nbsp;｜&nbsp; 日曜日は２戦１勝！🎯阪神大賞典BOX的中🎯
   </span>

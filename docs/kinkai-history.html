@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>金塊馬 戦績 | UG強奪競馬新聞</title>
+<title>金塊殿｜戦績帳 | UG競馬ワイド神宮</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <style>
@@ -14,45 +14,45 @@
   .ticker-text { display: inline-block; animation: ticker-scroll 30s linear infinite; padding-left: 100%; }
   @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-  :root { --ug-bg:#130003; --ug-pink:#E8003D; --ug-gold:#f0c040; }
-  html, body { background:#130003 !important; color:#f5d0d5 !important; min-height:100vh; }
-  header { background:linear-gradient(135deg,#1a0004 0%,#0b0002 100%) !important; border-bottom:1px solid rgba(232,0,61,0.40) !important; }
-  header h1 { color:#fff !important; text-shadow:0 0 24px rgba(232,0,61,0.55) !important; }
-  header p, header a { color:rgba(255,255,255,0.80) !important; }
-  footer { background:linear-gradient(135deg,#1a0004 0%,#0b0002 100%) !important; border-top:1px solid rgba(232,0,61,0.35) !important; }
-  footer * { color:rgba(255,255,255,0.60) !important; }
+  :root { --bg:#FAFAFA; --paper:#FBF7EE; --shu:#9B2D30; --shu-dk:#7A1E1E; --midori:#1F4D2E; --kin:#C9A961; --text:#1A1A1A; --muted:rgba(26,26,26,.6); --ug-pink:#9B2D30; --ug-gold:#C9A961; }
+  html, body { background:#FAFAFA !important; color:#1A1A1A !important; min-height:100vh; font-family:'Shippori Mincho','Noto Serif JP',serif !important; }
+  header { background:rgba(250,250,250,.92) !important; border-bottom:2px solid #9B2D30 !important; box-shadow:0 2px 0 #C9A961,0 6px 14px rgba(155,45,48,.08) !important; backdrop-filter:blur(8px) !important; }
+  header h1 { color:#9B2D30 !important; text-shadow:none !important; font-family:'Shippori Mincho','Noto Serif JP',serif !important; letter-spacing:.04em; }
+  header p, header a { color:#9B2D30 !important; }
+  footer { background:#FBF7EE !important; border-top:1px solid rgba(201,169,97,.35) !important; }
+  footer * { color:rgba(26,26,26,.6) !important; }
 
   /* ── スコアボード ── */
   .scoreboard {
-    background: linear-gradient(160deg,#1a0004 0%,#0b0002 60%,#1a000a 100%);
-    border: 1px solid rgba(240,192,64,0.35);
-    border-radius: 24px;
-    box-shadow: 0 0 60px rgba(232,0,61,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+    background: linear-gradient(160deg,#FBF7EE 0%,#F5EFDF 60%,#FBF7EE 100%);
+    border: 1px solid rgba(201,169,97,.4);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(155,45,48,.08), inset 0 1px 0 rgba(255,255,255,.6);
   }
   .score-col {
     flex: 1;
     text-align: center;
     padding: 18px 12px;
   }
-  .score-col + .score-col { border-left: 1px solid rgba(255,255,255,0.10); }
+  .score-col + .score-col { border-left: 1px solid rgba(201,169,97,.25); }
   .score-big { font-size: 32px; font-weight: 900; line-height: 1; }
   .score-unit { font-size: 11px; font-weight: 700; margin-top: 4px; }
-  .score-label { font-size: 10px; margin-top: 3px; color: rgba(255,255,255,0.45); }
-  .score-divider { border: none; border-top: 1px solid rgba(255,255,255,0.10); margin: 0 20px; }
+  .score-label { font-size: 10px; margin-top: 3px; color: rgba(26,26,26,.55); }
+  .score-divider { border: none; border-top: 1px solid rgba(201,169,97,.25); margin: 0 20px; }
 
-  .stat-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 999px; height: 5px; overflow:hidden; }
+  .stat-bar-wrap { background: rgba(26,26,26,.08); border-radius: 999px; height: 5px; overflow:hidden; }
   .stat-bar { height: 5px; border-radius: 999px; transition: width 1s ease; }
-  .stat-bar-tan  { background: linear-gradient(90deg,#E8003D,#ff6b8a); }
-  .stat-bar-fuku { background: linear-gradient(90deg,#f0c040,#ffd97d); }
+  .stat-bar-tan  { background: linear-gradient(90deg,#9B2D30,#C66C6E); }
+  .stat-bar-fuku { background: linear-gradient(90deg,#C9A961,#E6D5A0); }
 
   @keyframes scoreCount { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
   .score-animate { animation: scoreCount 0.6s ease forwards; }
 
   /* ── 週アコーディオン ── */
   .week-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(232,0,61,0.20);
-    border-radius: 18px;
+    background: #FBF7EE;
+    border: 1px solid rgba(201,169,97,.4);
+    border-radius: 10px;
     overflow: hidden;
   }
   .week-header {
@@ -61,47 +61,48 @@
     cursor: pointer; user-select: none;
     transition: background 0.18s;
   }
-  .week-header:hover { background: rgba(232,0,61,0.08); }
+  .week-header:hover { background: rgba(155,45,48,.06); }
   .week-body { display: none; padding: 0 16px 16px; }
   .week-body.open { display: block; }
-  .week-arrow { transition: transform 0.22s; color: rgba(255,255,255,0.45); }
+  .week-arrow { transition: transform 0.22s; color: rgba(26,26,26,.55); }
   .week-arrow.open { transform: rotate(180deg); }
 
   /* ── レースセクション ── */
   .race-block {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
+    background: rgba(251,247,238,.6);
+    border: 1px solid rgba(201,169,97,.3);
+    border-radius: 10px;
     margin-bottom: 10px;
     overflow: hidden;
   }
-  .race-head { padding: 12px 16px 8px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .race-head { padding: 12px 16px 8px; border-bottom: 1px solid rgba(201,169,97,.25); }
 
   /* ── 着順バッジ ── */
-  .rank-1  { background:linear-gradient(135deg,#f0c040,#d97706); color:#130003; }
+  .rank-1  { background:linear-gradient(135deg,#C9A961,#8B7530); color:#fff; }
   .rank-2  { background:linear-gradient(135deg,#9ca3af,#6b7280); color:#fff; }
   .rank-3  { background:linear-gradient(135deg,#d97706,#92400e); color:#fff; }
-  .rank-out{ background:rgba(255,255,255,0.10); color:rgba(255,255,255,0.50); }
-  .rank-pending { background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.35); border:1px dashed rgba(255,255,255,0.20); }
+  .rank-out{ background:rgba(26,26,26,.06); color:rgba(26,26,26,.55); }
+  .rank-pending { background:rgba(26,26,26,.04); color:rgba(26,26,26,.4); border:1px dashed rgba(26,26,26,.2); }
 
   /* ── 条件バッジ ── */
-  .badge-jockey         { background:linear-gradient(135deg,#E8003D,#B5002E); color:#fff; }
+  .badge-jockey         { background:linear-gradient(135deg,#9B2D30,#7A1E1E); color:#fff; }
   .badge-trainer        { background:linear-gradient(135deg,#7c3aed,#4c1d95); color:#fff; }
   .badge-sire           { background:linear-gradient(135deg,#d97706,#92400e); color:#fff; }
   .badge-surface-change  { background:linear-gradient(135deg,#0ea5e9,#0369a1); color:#fff; }
   .badge-jockey-change   { background:linear-gradient(135deg,#10b981,#065f46); color:#fff; }
   .badge-dist-short      { background:linear-gradient(135deg,#f97316,#c2410c); color:#fff; }
   .badge-dist-long       { background:linear-gradient(135deg,#8b5cf6,#4c1d95); color:#fff; }
-  .badge-prev-激走       { background:linear-gradient(135deg,#f0c040,#d97706); color:#130003; }
-  .badge-kinkai-line     { background:linear-gradient(135deg,#E8003D,#f0c040); color:#fff; box-shadow:0 0 10px rgba(240,192,64,0.50); }
+  .badge-prev-激走       { background:linear-gradient(135deg,#C9A961,#8B7530); color:#fff; }
+  .badge-kinkai-line     { background:linear-gradient(135deg,#9B2D30,#C9A961); color:#fff; box-shadow:0 2px 10px rgba(155,45,48,.25); }
 
   /* ── 週バッジ ── */
   .week-hit-badge {
     font-size: 10px; font-weight: 900;
-    padding: 2px 10px; border-radius: 999px;
-    background: rgba(240,192,64,0.15);
-    border: 1px solid rgba(240,192,64,0.40);
-    color: #f0c040;
+    padding: 2px 10px; border-radius: 4px;
+    background: rgba(201,169,97,.15);
+    border: 1px solid rgba(201,169,97,.4);
+    color: #9B2D30;
+    font-family:'Shippori Mincho','Noto Serif JP',serif;
   }
 
   /* ── 空ステート ── */
@@ -109,7 +110,7 @@
 
   /* ── ローディング ── */
   @keyframes spin { to { transform:rotate(360deg); } }
-  .loader { width:32px; height:32px; border:3px solid rgba(232,0,61,0.20); border-top-color:#E8003D; border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto; }
+  .loader { width:32px; height:32px; border:3px solid rgba(155,45,48,.15); border-top-color:#9B2D30; border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto; }
 </style>
 </head>
 <body class="pb-24">
@@ -119,35 +120,35 @@
   <div class="px-5 pt-4 pb-3">
     <div class="flex items-center gap-3">
       <a href="kinkai-display.html" class="flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/10 transition-colors">
-        <span class="material-symbols-outlined text-xl" style="color:rgba(255,255,255,0.80)">arrow_back</span>
+        <span class="material-symbols-outlined text-xl" style="color:#9B2D30">arrow_back</span>
       </a>
       <div>
-        <p class="text-[10px] uppercase tracking-widest font-bold" style="color:rgba(255,255,255,0.50)">UG強奪競馬新聞</p>
-        <h1 class="serif-headline text-lg font-bold leading-tight">金塊馬 戦績</h1>
-        <p class="text-[10px] font-bold" style="color:#E8003D">コース別穴条件合致馬の成績履歴</p>
+        <p class="text-[10px] uppercase tracking-widest font-bold" style="color:rgba(26,26,26,.6)">UG競馬ワイド神宮</p>
+        <h1 class="serif-headline text-lg font-bold leading-tight">金塊殿　戦績帳</h1>
+        <p class="text-[10px] font-bold" style="color:#9B2D30">コース別穴条件合致馬の成績履歴</p>
       </div>
     </div>
   </div>
 </header>
 
 <!-- ══════ TICKER ══════ -->
-<div class="ticker-wrap py-1.5 sticky z-40" style="top:60px;background:#B5002E;">
+<div class="ticker-wrap py-1.5 sticky z-40" style="top:60px;background:#9B2D30;">
   <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
-    📊 金塊馬 累計戦績 &nbsp;｜&nbsp; 穴騎手・穴厩舎・穴血統に合致した馬の単勝・複勝成績を追跡 &nbsp;｜&nbsp; 📊 金塊馬 累計戦績 &nbsp;｜&nbsp; 穴騎手・穴厩舎・穴血統に合致した馬の単勝・複勝成績を追跡
+    📊 金塊殿 累計戦績 &nbsp;｜&nbsp; 穴騎手・穴厩舎・穴血統に合致した馬の単勝・複勝成績を追跡 &nbsp;｜&nbsp; 📊 金塊殿 累計戦績 &nbsp;｜&nbsp; 穴騎手・穴厩舎・穴血統に合致した馬の単勝・複勝成績を追跡
   </span>
 </div>
 
 <!-- ══════ HERO ══════ -->
 <section class="px-4 pt-8 pb-4 text-center">
   <div class="text-4xl mb-2">📊</div>
-  <h2 class="serif-headline text-2xl font-bold mb-1" style="color:#f0c040;text-shadow:0 0 20px rgba(240,192,64,0.50)">金塊馬 戦績</h2>
-  <p class="text-xs" style="color:rgba(255,255,255,0.45)">単勝・複勝成績の累計トラッキング</p>
+  <h2 class="serif-headline text-2xl font-bold mb-1" style="color:#9B2D30;letter-spacing:.06em">金塊殿　戦績帳</h2>
+  <p class="text-xs" style="color:rgba(26,26,26,.55)">単勝・複勝成績の累計トラッキング</p>
 </section>
 
 <!-- ══════ LOADING ══════ -->
 <div id="loadingState" class="py-12">
   <div class="loader mb-4"></div>
-  <p class="text-center text-sm" style="color:rgba(255,255,255,0.40)">データを読み込み中...</p>
+  <p class="text-center text-sm" style="color:rgba(26,26,26,.5)">御神託を降ろしをります…</p>
 </div>
 
 <!-- ══════ MAIN ══════ -->
@@ -155,7 +156,7 @@
 
   <!-- ── 累計スコアボード ── -->
   <section class="mb-8">
-    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(255,255,255,0.40)">累計スコアボード</p>
+    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(26,26,26,.55)">累計スコアボード</p>
     <div class="scoreboard p-5">
 
       <!-- 集計行 -->
@@ -166,7 +167,7 @@
       <!-- 単勝バー -->
       <div class="mb-3">
         <div class="flex justify-between mb-1.5">
-          <span class="text-xs font-bold" style="color:#ffb3c6">単勝 &nbsp;<span id="tanHitFrac" class="font-black" style="color:#fff"></span></span>
+          <span class="text-xs font-bold" style="color:#ffb3c6">単勝 &nbsp;<span id="tanHitFrac" class="font-black" style="color:#1A1A1A"></span></span>
           <span class="text-xs font-bold" id="tanRateLabel" style="color:#ffb3c6"></span>
         </div>
         <div class="stat-bar-wrap">
@@ -177,8 +178,8 @@
       <!-- 複勝バー -->
       <div class="mb-4">
         <div class="flex justify-between mb-1.5">
-          <span class="text-xs font-bold" style="color:#f0c040">複勝 &nbsp;<span id="fukuHitFrac" class="font-black" style="color:#fff"></span></span>
-          <span class="text-xs font-bold" id="fukuRateLabel" style="color:#f0c040"></span>
+          <span class="text-xs font-bold" style="color:#9B2D30">複勝 &nbsp;<span id="fukuHitFrac" class="font-black" style="color:#1A1A1A"></span></span>
+          <span class="text-xs font-bold" id="fukuRateLabel" style="color:#9B2D30"></span>
         </div>
         <div class="stat-bar-wrap">
           <div class="stat-bar stat-bar-fuku" id="fukuBar" style="width:0%"></div>
@@ -186,24 +187,24 @@
       </div>
 
       <!-- 合計行 -->
-      <div class="flex justify-between items-center pt-3" style="border-top:1px solid rgba(255,255,255,0.10)">
-        <span class="text-xs" style="color:rgba(255,255,255,0.45)">総ピック数</span>
-        <span class="text-sm font-bold" id="totalPicks" style="color:#fff"></span>
+      <div class="flex justify-between items-center pt-3" style="border-top:1px solid rgba(201,169,97,.25)">
+        <span class="text-xs" style="color:rgba(26,26,26,.45)">総ピック数</span>
+        <span class="text-sm font-bold" id="totalPicks" style="color:#1A1A1A"></span>
       </div>
     </div>
   </section>
 
   <!-- ── 週別履歴 ── -->
   <section>
-    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(255,255,255,0.40)">週別履歴</p>
+    <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(26,26,26,.40)">週別履歴</p>
     <div id="weekList" class="space-y-3"></div>
   </section>
 
   <!-- ── 空ステート ── -->
   <div id="emptyState" class="hidden empty-state">
     <div class="text-5xl mb-4">📭</div>
-    <p class="font-bold text-sm" style="color:rgba(255,255,255,0.55)">戦績データを準備中です</p>
-    <p class="text-xs mt-2" style="color:rgba(255,255,255,0.30)">レース結果が確定次第<br>順次公開していきます</p>
+    <p class="font-bold text-sm" style="color:rgba(26,26,26,.55)">戦績データを準備中です</p>
+    <p class="text-xs mt-2" style="color:rgba(26,26,26,.30)">レース結果が確定次第<br>順次公開していきます</p>
   </div>
 
 </div>
@@ -211,8 +212,8 @@
 <!-- ══════ FOOTER ══════ -->
 <footer class="mt-16 px-5 py-8">
   <div class="max-w-2xl mx-auto text-center">
-    <p class="text-xs" style="color:rgba(255,255,255,0.35)">UG強奪競馬新聞 — 金塊馬 戦績</p>
-    <p class="text-xs mt-1" style="color:rgba(255,255,255,0.20)">※ 本情報は参考目的です。投票は自己責任でお願いします。</p>
+    <p class="text-xs" style="color:rgba(26,26,26,.35)">UG競馬ワイド神宮 — 金塊殿 戦績帳</p>
+    <p class="text-xs mt-1" style="color:rgba(26,26,26,.20)">※ 本情報は参考目的です。投票は自己責任でお願いします。</p>
   </div>
 </footer>
 
@@ -290,10 +291,10 @@ function renderScoreboard(total, tanH, fukuH, tanRet, fukuRet) {
 
   // 4列スコア
   const cols = [
-    { label:'単勝的中率', value: total>0 ? tanRate.toFixed(1)+'%'  : '-%',  color:'#ffb3c6' },
-    { label:'単勝回収率', value: total>0 ? tanKaichi+'%'            : '-%',  color:'#E8003D' },
-    { label:'複勝的中率', value: total>0 ? fukuRate.toFixed(1)+'%' : '-%',  color:'#f0c040' },
-    { label:'複勝回収率', value: total>0 ? fukuKaichi+'%'           : '-%',  color:'#d97706' },
+    { label:'単勝的中率', value: total>0 ? tanRate.toFixed(1)+'%'  : '-%',  color:'#B8424D' },
+    { label:'単勝回収率', value: total>0 ? tanKaichi+'%'            : '-%',  color:'#9B2D30' },
+    { label:'複勝的中率', value: total>0 ? fukuRate.toFixed(1)+'%' : '-%',  color:'#C9A961' },
+    { label:'複勝回収率', value: total>0 ? fukuKaichi+'%'           : '-%',  color:'#B8935C' },
   ];
   document.getElementById('scoreCols').innerHTML = cols.map(c => `
     <div class="score-col score-animate">
@@ -340,8 +341,8 @@ function renderWeeks(weeks) {
       <div class="week-header" onclick="toggleWeek(this)">
         <div class="flex items-center gap-3">
           <div>
-            <p class="font-bold text-sm" style="color:#fff">${escHtml(week.label || week.weekId)}</p>
-            <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45)">${week.races ? week.races.length+'レース' : '0レース'}</p>
+            <p class="font-bold text-sm" style="color:#1A1A1A">${escHtml(week.label || week.weekId)}</p>
+            <p class="text-xs mt-0.5" style="color:rgba(26,26,26,.45)">${week.races ? week.races.length+'レース' : '0レース'}</p>
           </div>
           ${wTotal > 0 ? `<span class="week-hit-badge">単${wTan}/${wTotal} 複${wFuku}/${wTotal}</span>` : ''}
         </div>
@@ -349,7 +350,7 @@ function renderWeeks(weeks) {
       </div>
       <div class="week-body ${idx===0?'open':''}">
         ${(week.races||[]).map(r => buildRaceBlock(r)).join('')}
-        ${(!week.races || week.races.length===0) ? '<p class="text-xs text-center py-4" style="color:rgba(255,255,255,0.30)">レースなし</p>' : ''}
+        ${(!week.races || week.races.length===0) ? '<p class="text-xs text-center py-4" style="color:rgba(26,26,26,.30)">レースなし</p>' : ''}
       </div>
     `;
     // 最初の週は展開
@@ -364,8 +365,8 @@ function buildRaceBlock(race) {
       <div class="race-head">
         <div class="flex items-center justify-between">
           <div>
-            <p class="font-bold text-sm" style="color:#fff">${escHtml(race.raceName)}</p>
-            <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.45)">${escHtml(race.course)} &nbsp;｜&nbsp; ${escHtml(race.date)}</p>
+            <p class="font-bold text-sm" style="color:#1A1A1A">${escHtml(race.raceName)}</p>
+            <p class="text-xs mt-0.5" style="color:rgba(26,26,26,.45)">${escHtml(race.course)} &nbsp;｜&nbsp; ${escHtml(race.date)}</p>
           </div>
           <span class="text-xs px-2 py-0.5 rounded-full font-bold" style="background:rgba(232,0,61,0.18);color:#ffb3c6">金塊馬 ${horses.length}頭</span>
         </div>
@@ -404,8 +405,8 @@ function buildHorseRow(h) {
   // オッズ表示
   let oddsHtml = '';
   if (rank != null) {
-    const tanOdds  = res.tanOdds  ? `<span class="text-xs" style="color:${rank===1?'#ffb3c6':'rgba(255,255,255,0.40)'}">単 <strong>${res.tanOdds}倍</strong></span>` : '';
-    const fukuOdds = res.fukuOdds ? `<span class="text-xs" style="color:${rank<=3?'#f0c040':'rgba(255,255,255,0.40)'}">複 <strong>${res.fukuOdds}倍</strong></span>` : '';
+    const tanOdds  = res.tanOdds  ? `<span class="text-xs" style="color:${rank===1?'#9B2D30':'rgba(26,26,26,.5)'}">単 <strong>${res.tanOdds}倍</strong></span>` : '';
+    const fukuOdds = res.fukuOdds ? `<span class="text-xs" style="color:${rank<=3?'#C9A961':'rgba(26,26,26,.5)'}">複 <strong>${res.fukuOdds}倍</strong></span>` : '';
     if (tanOdds || fukuOdds) {
       oddsHtml = `<div class="flex gap-3 mt-1">${tanOdds}${fukuOdds}</div>`;
     }
@@ -415,7 +416,7 @@ function buildHorseRow(h) {
     <div class="flex items-start justify-between gap-3">
       <div class="flex-1 min-w-0">
         <div class="flex items-center gap-2 flex-wrap">
-          <span class="font-bold text-sm" style="color:#f0c040">${escHtml(h.name)}</span>
+          <span class="font-bold text-sm" style="color:#9B2D30">${escHtml(h.name)}</span>
           ${condBadges}
         </div>
         ${oddsHtml}

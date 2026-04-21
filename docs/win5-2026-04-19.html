@@ -3,72 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🏆 WIN5 勝ち馬抽出 4/19 | UG競馬</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<title>WIN5拝殿｜4/19 御神託 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg1:#06080f;--bg2:#0d0820;--bg3:#06080f;
-  --gold:#f0c040;--gold-dk:#c8890a;--gold-lt:#fde68a;
-  --card:rgba(255,255,255,.06);--border:rgba(240,192,64,.18);
-  --text:#fff;--muted:rgba(255,240,200,.65);
+  --bg:#FAFAFA;--paper:#FBF7EE;
+  --shu:#9B2D30;--shu-dk:#7A1E1E;--midori:#1F4D2E;--kin:#C9A961;
+  --gold:#C9A961;--gold-dk:#8B7530;--gold-lt:#E6D5A0;
+  --card:#FBF7EE;--border:rgba(201,169,97,.4);
+  --text:#1A1A1A;--muted:rgba(26,26,26,.6);
 }
-html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);color:var(--text);font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;min-height:100vh;}
+html,body{background:#FAFAFA;color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;min-height:100vh;}
 
-/* ── WIN5ヘッダー ── */
+/* ── WIN5ヘッダー（鳥居風）── */
 .page-header{
-  background:linear-gradient(135deg,#0a0616,#1a0a30,#0a0616);
-  border-bottom:2px solid rgba(240,192,64,.4);
+  background:rgba(250,250,250,.92);
+  border-bottom:2px solid var(--shu);
+  box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);
   padding:12px 16px;display:flex;align-items:center;gap:12px;
   position:sticky;top:0;z-index:200;
-  box-shadow:0 2px 24px rgba(200,140,10,.3);
+  backdrop-filter:blur(8px);
 }
 .win5-badge{
-  font-size:12px;font-weight:900;padding:4px 10px;border-radius:6px;
-  background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a0800;
+  font-size:12px;font-weight:900;padding:4px 10px;border-radius:4px;
+  background:linear-gradient(135deg,#C9A961,#8B7530);color:#1A1A1A;
   letter-spacing:.12em;flex-shrink:0;
-  box-shadow:0 0 10px rgba(240,192,64,.4);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .back-btn{
   display:inline-flex;align-items:center;gap:4px;
-  font-size:12px;font-weight:700;color:#fff;
+  font-size:12px;font-weight:700;color:var(--shu);
   text-decoration:none;padding:5px 10px;border-radius:8px;
-  border:1px solid rgba(240,192,64,.4);white-space:nowrap;flex-shrink:0;
+  border:1px solid rgba(201,169,97,.4);
+  background:rgba(201,169,97,.12);
+  white-space:nowrap;flex-shrink:0;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.page-title{font-size:15px;font-weight:900;color:#f0c040;letter-spacing:.06em;}
-.page-sub{font-size:10px;color:rgba(255,230,140,.7);margin-top:1px;}
+.page-title{font-size:15px;font-weight:800;color:var(--shu);letter-spacing:.06em;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.page-sub{font-size:10px;color:var(--muted);margin-top:1px;}
 
-/* ── WIN5サマリーバー ── */
+/* ── WIN5サマリーバー（絵巻物風）── */
 .win5-summary-bar{
   padding:10px 12px;
-  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(180,100,10,.06));
-  border-bottom:1px solid rgba(240,192,64,.2);
+  background:rgba(251,247,238,.8);
+  border-bottom:1px solid rgba(201,169,97,.3);
   display:flex;align-items:center;gap:6px;flex-wrap:wrap;
 }
 .win5-sb-label{
   font-size:9px;font-weight:900;letter-spacing:.08em;
-  color:rgba(240,192,64,.6);white-space:nowrap;flex-shrink:0;
+  color:var(--kin);white-space:nowrap;flex-shrink:0;
   text-transform:uppercase;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .win5-chip{
   display:inline-flex;align-items:center;gap:5px;
-  padding:5px 9px;border-radius:20px;cursor:pointer;
-  border:1px solid rgba(240,192,64,.25);
-  background:rgba(240,192,64,.06);
+  padding:5px 9px;border-radius:6px;cursor:pointer;
+  border:1px solid rgba(201,169,97,.35);
+  background:rgba(251,247,238,.7);
   transition:all .15s;
   font-size:11px;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.win5-chip:active,.win5-chip:hover{background:rgba(240,192,64,.15);border-color:rgba(240,192,64,.5);}
-.win5-chip.active{background:rgba(240,192,64,.18);border-color:rgba(240,192,64,.7);box-shadow:0 0 8px rgba(240,192,64,.2);}
-.win5-chip-leg{font-size:8px;font-weight:900;color:rgba(240,192,64,.7);letter-spacing:.04em;flex-shrink:0;}
-.win5-chip-horse{font-weight:900;color:#fff;}
-.win5-chip-loading{font-size:9px;color:rgba(255,200,100,.4);font-style:italic;}
+.win5-chip:active,.win5-chip:hover{background:rgba(201,169,97,.15);border-color:rgba(201,169,97,.6);}
+.win5-chip.active{background:rgba(155,45,48,.08);border-color:var(--shu);box-shadow:0 0 0 2px rgba(155,45,48,.12);}
+.win5-chip-leg{font-size:8px;font-weight:900;color:var(--kin);letter-spacing:.04em;flex-shrink:0;}
+.win5-chip-horse{font-weight:900;color:var(--text);}
+.win5-chip-loading{font-size:9px;color:var(--muted);font-style:italic;}
 
 /* ── タブ ── */
 .tab-bar{
   display:flex;gap:0;
-  background:rgba(0,0,0,.35);
-  border-bottom:2px solid rgba(240,192,64,.15);
+  background:rgba(251,247,238,.8);
+  border-bottom:2px solid rgba(201,169,97,.3);
   position:sticky;top:57px;z-index:100;
   overflow-x:auto;
 }
@@ -79,17 +86,18 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   border-bottom:3px solid transparent;
   transition:all .18s;letter-spacing:.03em;
   text-align:center;white-space:nowrap;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .tab-btn.active{
-  color:#fff;
-  border-bottom:3px solid var(--gold);
-  background:rgba(240,192,64,.09);
+  color:var(--shu);
+  border-bottom:3px solid var(--shu);
+  background:rgba(155,45,48,.06);
 }
 .tab-btn .tab-leg{
   display:block;font-size:8px;font-weight:900;
-  color:rgba(240,192,64,.5);letter-spacing:.06em;margin-bottom:2px;
+  color:var(--kin);letter-spacing:.06em;margin-bottom:2px;
 }
-.tab-btn.active .tab-leg{color:rgba(240,192,64,.85);}
+.tab-btn.active .tab-leg{color:var(--shu);}
 .tab-btn .tab-grade{
   font-size:8px;font-weight:900;
   padding:1px 4px;border-radius:3px;margin-right:3px;
@@ -97,70 +105,72 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 }
 
 /* グレードバッジ */
-.grade-g1{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a1000;}
-.grade-g2{background:linear-gradient(135deg,#e0b0d0,#c080a0);color:#2a0a1a;}
-.grade-g3{background:linear-gradient(135deg,#80c090,#3a7050);color:#fff;}
-.grade-l{background:linear-gradient(135deg,#7ab8e0,#4a90c0);color:#fff;}
-.grade-3c{background:linear-gradient(135deg,#a0a0c0,#606080);color:#fff;}
+.grade-g1{background:linear-gradient(135deg,#C9A961,#8B7530);color:#1A1A1A;}
+.grade-g2{background:linear-gradient(135deg,#1F4D2E,#0f3319);color:#1A1A1A;}
+.grade-g3{background:linear-gradient(135deg,#2B5A9F,#1A3F70);color:#1A1A1A;}
+.grade-l{background:linear-gradient(135deg,#9B2D30,#7A1E1E);color:#1A1A1A;}
+.grade-3c{background:linear-gradient(135deg,#8a8a8a,#5a5a5a);color:#1A1A1A;}
 
-/* ── WIN5コレクション（上位3頭） ── */
+/* ── WIN5コレクション（上位3頭・絵巻物風）── */
 .win5-collection{
   margin:10px 12px 0;
   padding:12px 14px;
-  background:linear-gradient(135deg,rgba(240,192,64,.04),rgba(180,100,10,.04));
-  border:1px solid rgba(240,192,64,.18);
-  border-radius:12px;
+  background:linear-gradient(135deg,rgba(201,169,97,.08),rgba(155,45,48,.04));
+  border:1px solid rgba(201,169,97,.3);
+  border-radius:10px;
 }
 .win5-col-title{
   font-size:10px;font-weight:900;letter-spacing:.08em;
-  color:rgba(240,192,64,.7);text-transform:uppercase;
+  color:var(--kin);text-transform:uppercase;
   margin-bottom:8px;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .win5-col-horses{display:flex;gap:8px;flex-wrap:wrap;}
 .win5-col-horse{
   display:flex;align-items:center;gap:6px;
-  padding:6px 10px;border-radius:8px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(240,192,64,.15);
+  padding:6px 10px;border-radius:6px;
+  background:#FBF7EE;
+  border:1px solid rgba(201,169,97,.3);
   flex-shrink:0;
 }
 .win5-col-mark{
   font-size:15px;font-weight:900;flex-shrink:0;
 }
 .win5-col-name{
-  font-family:'Noto Serif JP',serif;
-  font-size:12px;font-weight:900;color:#fff;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:12px;font-weight:800;color:var(--text);
 }
 .win5-col-score{
   font-size:9px;font-weight:700;
-  color:rgba(240,192,64,.6);
+  color:var(--muted);
   white-space:nowrap;
 }
 
 /* ── レース情報 ── */
 .race-info{
   padding:10px 16px;
-  background:rgba(255,255,255,.03);
-  border-bottom:1px solid rgba(240,192,64,.12);
+  background:#FBF7EE;
+  border-bottom:1px solid rgba(201,169,97,.25);
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
 }
-.race-info-name{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#fff;}
+.race-info-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:16px;font-weight:800;color:var(--shu);letter-spacing:.04em;}
 .race-info-meta{font-size:10px;color:var(--muted);margin-top:2px;}
 .horse-count{
   margin-left:auto;font-size:10px;font-weight:700;
-  padding:3px 10px;border-radius:20px;
-  background:rgba(240,192,64,.1);color:rgba(240,192,64,.85);
-  border:1px solid rgba(240,192,64,.2);
+  padding:3px 10px;border-radius:4px;
+  background:rgba(201,169,97,.15);color:var(--shu);
+  border:1px solid rgba(201,169,97,.35);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 
 /* ── 馬カード ── */
 .horse-list{padding:12px 12px 80px;}
-.horse-card{background:#fff;border:1px solid rgba(200,30,80,.18);border-radius:16px;margin-bottom:10px;overflow:hidden;transition:border-color .15s;}
-.horse-card:active{border-color:rgba(255,140,185,.4);}
+.horse-card{background:#FBF7EE;border:1px solid rgba(201,169,97,.35);border-radius:10px;margin-bottom:10px;overflow:hidden;transition:border-color .15s;box-shadow:0 2px 8px rgba(26,26,26,.06);}
+.horse-card:active{border-color:rgba(155,45,48,.4);}
 .tokuchuu-banner{margin:6px 0 2px;padding:5px 10px;background:linear-gradient(90deg,#fff7e6,#fff3cd);border:1px solid #f59e0b;border-radius:8px;font-size:11px;font-weight:800;color:#92400e;letter-spacing:.03em;}
 
 /* カードヘッダー */
-.card-head{display:flex;flex-direction:column;gap:8px;padding:11px 14px 10px;background:linear-gradient(160deg,#fdf6f9 0%,#f9f0f5 100%);border-bottom:2px solid rgba(200,30,80,.1);}
+.card-head{display:flex;flex-direction:column;gap:8px;padding:11px 14px 10px;background:linear-gradient(160deg,#FBF7EE 0%,#F5EFDF 100%);border-bottom:2px solid rgba(201,169,97,.25);}
 .card-head-top{display:flex;align-items:center;gap:10px;}
 .horse-num{width:38px;height:38px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.1);}
 .horse-num-rank{font-size:15px;font-weight:900;line-height:1;}
@@ -176,24 +186,24 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
 /* 印バッジ */
 .mark-badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-size:16px;font-weight:900;flex-shrink:0;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.18);}
-.mark-honmei{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#fff;border:2px solid #d97706;}
-.mark-taikou{background:linear-gradient(135deg,#94a3b8,#64748b);color:#fff;border:2px solid #475569;}
-.mark-tantan{background:linear-gradient(135deg,#f87171,#ef4444);color:#fff;border:2px solid #dc2626;}
-.mark-hoshi{background:linear-gradient(135deg,#c084fc,#a855f7);color:#fff;border:2px solid #9333ea;}
-.mark-sankaku{background:linear-gradient(135deg,#6b7280,#4b5563);color:#fff;border:2px solid #374151;font-size:13px;}
+.mark-honmei{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1A1A1A;border:2px solid #d97706;}
+.mark-taikou{background:linear-gradient(135deg,#94a3b8,#64748b);color:#1A1A1A;border:2px solid #475569;}
+.mark-tantan{background:linear-gradient(135deg,#f87171,#ef4444);color:#1A1A1A;border:2px solid #dc2626;}
+.mark-hoshi{background:linear-gradient(135deg,#c084fc,#a855f7);color:#1A1A1A;border:2px solid #9333ea;}
+.mark-sankaku{background:linear-gradient(135deg,#6b7280,#4b5563);color:#1A1A1A;border:2px solid #374151;font-size:13px;}
 
 /* 枠番バッジ */
 .gate-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;width:30px;height:30px;border-radius:6px;flex-shrink:0;font-weight:900;box-shadow:0 1px 4px rgba(0,0,0,.2);}
 .gate-num-main{font-size:13px;line-height:1;}
 .gate-frame-sub{font-size:6.5px;line-height:1;opacity:.85;letter-spacing:.02em;}
 .gate-1{background:#f0f0f0;color:#333;border:1.5px solid #aaa;}
-.gate-2{background:#1a1a1a;color:#fff;border:1.5px solid #555;}
-.gate-3{background:#dc2626;color:#fff;border:1.5px solid #b91c1c;}
-.gate-4{background:#2563eb;color:#fff;border:1.5px solid #1e40af;}
+.gate-2{background:#1a1a1a;color:#1A1A1A;border:1.5px solid #555;}
+.gate-3{background:#dc2626;color:#1A1A1A;border:1.5px solid #b91c1c;}
+.gate-4{background:#2563eb;color:#1A1A1A;border:1.5px solid #1e40af;}
 .gate-5{background:#fbbf24;color:#333;border:1.5px solid #d97706;}
-.gate-6{background:#16a34a;color:#fff;border:1.5px solid #166534;}
-.gate-7{background:#ea580c;color:#fff;border:1.5px solid #c2410c;}
-.gate-8{background:#f472b6;color:#fff;border:1.5px solid #db2777;}
+.gate-6{background:#16a34a;color:#1A1A1A;border:1.5px solid #166534;}
+.gate-7{background:#ea580c;color:#1A1A1A;border:1.5px solid #c2410c;}
+.gate-8{background:#f472b6;color:#1A1A1A;border:1.5px solid #db2777;}
 .horse-num-uma{background:rgba(99,102,241,.15);color:#4338ca;border:1px solid rgba(99,102,241,.3);}
 .horse-num-mark-sort{background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(236,72,153,.15));color:#d97706;border:1px solid rgba(245,158,11,.4);}
 
@@ -281,12 +291,12 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 /* 買い目 */
 .bet-section{margin:10px 12px;padding:14px 16px;background:#fff;border:1.5px solid rgba(232,19,110,.35);border-radius:12px;}
 .bet-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;border-bottom:1px solid rgba(232,19,110,.2);padding-bottom:10px;}
-.bet-race-type{font-size:11px;font-weight:900;padding:4px 10px;border-radius:20px;color:#fff;letter-spacing:.5px;background:#E8136E;}
+.bet-race-type{font-size:11px;font-weight:900;padding:4px 10px;border-radius:20px;color:#1A1A1A;letter-spacing:.5px;background:#E8136E;}
 .bet-title{font-size:13px;font-weight:700;color:#E8136E;}
 .bet-total{margin-left:auto;font-size:11px;font-weight:700;color:rgba(180,0,80,.7);}
 .bet-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(232,19,110,.12);flex-wrap:wrap;}
 .bet-row:last-child{border-bottom:none;}
-.bet-type{font-size:12px;font-weight:900;padding:3px 10px;border-radius:20px;background:#E8136E;color:#fff;white-space:nowrap;min-width:44px;text-align:center;}
+.bet-type{font-size:12px;font-weight:900;padding:3px 10px;border-radius:20px;background:#E8136E;color:#1A1A1A;white-space:nowrap;min-width:44px;text-align:center;}
 .bet-horses{font-size:13px;font-weight:700;color:#222;flex:1;}
 .bet-points{font-size:11px;font-weight:900;color:rgba(180,0,80,.7);white-space:nowrap;}
 .bet-note{font-size:10px;color:rgba(180,0,80,.7);width:100%;padding-left:2px;}
@@ -305,14 +315,14 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .bet-horse-chip{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;background:rgba(232,19,110,.12);border:1px solid rgba(232,19,110,.5);color:#c01060;white-space:nowrap;}
 
 /* ソートバー */
-.sort-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(255,255,255,.025);border-bottom:1px solid rgba(240,192,64,.1);flex-wrap:wrap;}
-.sort-bar-label{font-size:9px;font-weight:700;color:rgba(240,192,64,.5);white-space:nowrap;}
-.sort-btn{font-size:10px;font-weight:700;padding:4px 10px;border-radius:8px;border:1px solid rgba(240,192,64,.2);background:rgba(255,255,255,.04);color:rgba(240,220,140,.5);cursor:pointer;white-space:nowrap;}
-.sort-btn.active{background:rgba(240,192,64,.18);border-color:rgba(240,192,64,.4);color:#fff;}
+.sort-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(255,255,255,.025);border-bottom:1px solid rgba(201,169,97,.1);flex-wrap:wrap;}
+.sort-bar-label{font-size:9px;font-weight:700;color:rgba(201,169,97,.5);white-space:nowrap;}
+.sort-btn{font-size:10px;font-weight:700;padding:4px 10px;border-radius:8px;border:1px solid rgba(201,169,97,.2);background:rgba(255,255,255,.04);color:rgba(240,220,140,.5);cursor:pointer;white-space:nowrap;}
+.sort-btn.active{background:rgba(155,45,48,.08);border-color:rgba(201,169,97,.4);color:#1A1A1A;}
 .sort-btn.ana-btn{border-color:rgba(167,139,250,.35);color:rgba(196,181,253,.7);}
 .sort-btn.ana-btn.active{background:rgba(109,40,217,.25);border-color:rgba(167,139,250,.6);color:#ddd6fe;}
-.sort-btn.sougou-btn{border-color:rgba(240,192,64,.4);color:rgba(240,192,64,.8);font-weight:800;}
-.sort-btn.sougou-btn.active{background:rgba(240,192,64,.15);border-color:rgba(240,192,64,.7);color:#fde68a;}
+.sort-btn.sougou-btn{border-color:rgba(201,169,97,.4);color:rgba(155,45,48,.8);font-weight:800;}
+.sort-btn.sougou-btn.active{background:rgba(201,169,97,.15);border-color:rgba(201,169,97,.7);color:#fde68a;}
 .sort-btn.uma-btn{border-color:rgba(99,102,241,.35);color:rgba(99,102,241,.8);}
 .sort-btn.uma-btn.active{background:rgba(99,102,241,.15);border-color:rgba(99,102,241,.6);color:#a5b4fc;font-weight:800;}
 .sort-btn.mark-btn{border-color:rgba(245,158,11,.5);color:rgba(245,158,11,.9);font-weight:800;}
@@ -377,10 +387,10 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .lap-inprogress-icon{font-size:20px;flex-shrink:0;}
 .lap-inprogress-title{font-size:12px;font-weight:900;color:#059669;letter-spacing:.08em;}
 .lap-inprogress-sub{font-size:10px;color:#6b7280;margin-top:2px;line-height:1.5;}
-.lap-inprogress-badge{margin-left:auto;flex-shrink:0;font-size:9px;font-weight:900;letter-spacing:.1em;padding:3px 8px;border-radius:20px;background:#059669;color:#fff;animation:livePulse 1.8s ease-in-out infinite;}
+.lap-inprogress-badge{margin-left:auto;flex-shrink:0;font-size:9px;font-weight:900;letter-spacing:.1em;padding:3px 8px;border-radius:20px;background:#059669;color:#1A1A1A;animation:livePulse 1.8s ease-in-out infinite;}
 .fw-inprogress-block{background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(234,179,8,.08));border-bottom:1px solid rgba(251,146,60,.18) !important;}
 .fw-inprogress-title{font-size:12px;font-weight:900;color:#d97706;letter-spacing:.08em;}
-.fw-inprogress-badge{margin-left:auto;flex-shrink:0;font-size:9px;font-weight:900;letter-spacing:.1em;padding:3px 8px;border-radius:20px;background:#d97706;color:#fff;animation:livePulse 1.8s ease-in-out infinite;}
+.fw-inprogress-badge{margin-left:auto;flex-shrink:0;font-size:9px;font-weight:900;letter-spacing:.1em;padding:3px 8px;border-radius:20px;background:#d97706;color:#1A1A1A;animation:livePulse 1.8s ease-in-out infinite;}
 @keyframes livePulse{0%,100%{opacity:1;}50%{opacity:.5;}}
 
 .rank-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
@@ -393,7 +403,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .rank-num.rn{background:rgba(255,255,255,.07);color:rgba(255,210,230,.5);border:1px solid rgba(255,255,255,.1);}
 .rank-num.rx{background:rgba(248,113,113,.1);color:rgba(248,113,113,.6);border:1px solid rgba(248,113,113,.2);font-size:10px;}
 .rank-info{flex:1;min-width:0;}
-.rank-horse{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#fff;margin-bottom:4px;}
+.rank-horse{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#1A1A1A;margin-bottom:4px;}
 .rank-horse-comment{font-size:11px;line-height:1.7;color:rgba(255,210,230,.7);}
 .loading{text-align:center;padding:48px 16px;color:var(--muted);font-size:13px;}
 </style>
@@ -401,101 +411,101 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 <body>
 
 <div class="page-header">
-  <a href="index.html" class="back-btn">‹ TOP</a>
+  <a href="index.html" class="back-btn">⛩ 鳥居</a>
   <span class="win5-badge">WIN5</span>
   <div>
-    <div class="page-title">🏆 WIN5 勝ち馬抽出</div>
-    <div class="page-sub">2026年4月19日（日）5レース解析</div>
+    <div class="page-title">WIN5拝殿</div>
+    <div class="page-sub">2026年4月19日（日）5鞍御神託</div>
   </div>
-  <a href="entries.html" class="back-btn" style="margin-left:auto;background:rgba(16,185,129,.15);border-color:rgba(16,185,129,.4);color:#6ee7b7;">📋 通常版</a>
+  <a href="entries.html" class="back-btn" style="margin-left:auto;">📜 拝殿</a>
 </div>
 
 <!-- ══ 最終結論バナー ══ -->
 <div id="finalBanner" style="
   margin:10px 12px 0;
-  background:linear-gradient(135deg,rgba(240,192,64,.07),rgba(180,100,10,.05));
-  border:1px solid rgba(240,192,64,.3);
+  background:linear-gradient(135deg,rgba(201,169,97,.07),rgba(155,45,48,.05));
+  border:1px solid rgba(201,169,97,.3);
   border-radius:14px;
   overflow:hidden;
 ">
   <!-- ヘッダー -->
   <div style="
-    background:linear-gradient(90deg,rgba(240,192,64,.15),rgba(180,100,10,.1));
-    border-bottom:1px solid rgba(240,192,64,.2);
+    background:linear-gradient(90deg,rgba(201,169,97,.15),rgba(155,45,48,.1));
+    border-bottom:1px solid rgba(201,169,97,.2);
     padding:10px 14px;
     display:flex;align-items:center;gap:10px;
   ">
-    <span style="font-size:11px;font-weight:900;letter-spacing:.1em;color:rgba(240,192,64,.6);text-transform:uppercase;">Final Decision</span>
-    <span style="font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#f0c040;">🔑 最終結論 — 36点</span>
-    <span style="margin-left:auto;font-size:10px;font-weight:900;padding:3px 10px;border-radius:20px;background:rgba(240,192,64,.15);color:#f0c040;border:1px solid rgba(240,192,64,.3);">2×1×3×2×3</span>
+    <span style="font-size:11px;font-weight:900;letter-spacing:.1em;color:rgba(201,169,97,.6);text-transform:uppercase;">Final Decision</span>
+    <span style="font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#9B2D30;">🔑 最終結論 — 36点</span>
+    <span style="margin-left:auto;font-size:10px;font-weight:900;padding:3px 10px;border-radius:20px;background:rgba(201,169,97,.15);color:#9B2D30;border:1px solid rgba(201,169,97,.3);">2×1×3×2×3</span>
   </div>
 
   <!-- ピック一覧 -->
   <div style="padding:10px 14px 4px;display:flex;flex-direction:column;gap:6px;">
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-      <span style="font-size:8px;font-weight:900;color:rgba(240,192,64,.55);letter-spacing:.08em;min-width:34px;">WIN1</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">③</span><span style="font-size:11px;font-weight:700;color:#fff;">ゼットエール</span><span style="font-size:9px;color:rgba(255,200,100,.5);">2.3倍</span>
-      <span style="font-size:10px;color:rgba(255,200,100,.3);">/</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">⑫</span><span style="font-size:11px;font-weight:700;color:#fff;">ボディブロー</span><span style="font-size:9px;color:rgba(255,200,100,.5);">11.1倍</span>
+      <span style="font-size:8px;font-weight:900;color:rgba(201,169,97,.6);letter-spacing:.08em;min-width:34px;">WIN1</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">③</span><span style="font-size:11px;font-weight:700;color:#1A1A1A;">ゼットエール</span><span style="font-size:9px;color:rgba(26,26,26,.55);">2.3倍</span>
+      <span style="font-size:10px;color:rgba(26,26,26,.35);">/</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">⑫</span><span style="font-size:11px;font-weight:700;color:#1A1A1A;">ボディブロー</span><span style="font-size:9px;color:rgba(26,26,26,.55);">11.1倍</span>
     </div>
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-      <span style="font-size:8px;font-weight:900;color:rgba(240,192,64,.55);letter-spacing:.08em;min-width:34px;">WIN2</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">⑪</span><span style="font-size:11px;font-weight:700;color:#f0c040;">モンドプリューム</span><span style="font-size:9px;color:rgba(255,200,100,.5);">6.6倍</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(240,192,64,.7);margin-left:2px;">★1点抜け</span>
+      <span style="font-size:8px;font-weight:900;color:rgba(201,169,97,.6);letter-spacing:.08em;min-width:34px;">WIN2</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">⑪</span><span style="font-size:11px;font-weight:700;color:#9B2D30;">モンドプリューム</span><span style="font-size:9px;color:rgba(26,26,26,.55);">6.6倍</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(201,169,97,.7);margin-left:2px;">★1点抜け</span>
     </div>
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-      <span style="font-size:8px;font-weight:900;color:rgba(240,192,64,.55);letter-spacing:.08em;min-width:34px;">WIN3</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">③</span><span style="font-size:11px;font-weight:700;color:#fff;">パラディレーヌ</span><span style="font-size:9px;color:rgba(255,200,100,.5);">2.1倍</span>
-      <span style="font-size:10px;color:rgba(255,200,100,.3);">/</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">⑭</span><span style="font-size:11px;font-weight:700;color:#fff;">ジョイフルニュース</span><span style="font-size:9px;color:rgba(255,200,100,.5);">5.3倍</span>
-      <span style="font-size:10px;color:rgba(255,200,100,.3);">/</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">⑯</span><span style="font-size:11px;font-weight:700;color:#f0c040;">カニキュル</span><span style="font-size:9px;color:rgba(255,200,100,.5);">☆</span>
+      <span style="font-size:8px;font-weight:900;color:rgba(201,169,97,.6);letter-spacing:.08em;min-width:34px;">WIN3</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">③</span><span style="font-size:11px;font-weight:700;color:#1A1A1A;">パラディレーヌ</span><span style="font-size:9px;color:rgba(26,26,26,.55);">2.1倍</span>
+      <span style="font-size:10px;color:rgba(26,26,26,.35);">/</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">⑭</span><span style="font-size:11px;font-weight:700;color:#1A1A1A;">ジョイフルニュース</span><span style="font-size:9px;color:rgba(26,26,26,.55);">5.3倍</span>
+      <span style="font-size:10px;color:rgba(26,26,26,.35);">/</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">⑯</span><span style="font-size:11px;font-weight:700;color:#9B2D30;">カニキュル</span><span style="font-size:9px;color:rgba(26,26,26,.55);">☆</span>
     </div>
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-      <span style="font-size:8px;font-weight:900;color:rgba(240,192,64,.55);letter-spacing:.08em;min-width:34px;">WIN4</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">②</span><span style="font-size:11px;font-weight:700;color:#fff;">ネーヴェフレスカ</span><span style="font-size:9px;color:rgba(255,200,100,.5);">8.2倍</span>
-      <span style="font-size:10px;color:rgba(255,200,100,.3);">/</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">①</span><span style="font-size:11px;font-weight:700;color:#fff;">ラーンザロープス</span><span style="font-size:9px;color:rgba(255,200,100,.5);">5.5倍</span>
+      <span style="font-size:8px;font-weight:900;color:rgba(201,169,97,.6);letter-spacing:.08em;min-width:34px;">WIN4</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">②</span><span style="font-size:11px;font-weight:700;color:#1A1A1A;">ネーヴェフレスカ</span><span style="font-size:9px;color:rgba(26,26,26,.55);">8.2倍</span>
+      <span style="font-size:10px;color:rgba(26,26,26,.35);">/</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">①</span><span style="font-size:11px;font-weight:700;color:#1A1A1A;">ラーンザロープス</span><span style="font-size:9px;color:rgba(26,26,26,.55);">5.5倍</span>
     </div>
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-      <span style="font-size:8px;font-weight:900;color:rgba(240,192,64,.55);letter-spacing:.08em;min-width:34px;">WIN5</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">⑮</span><span style="font-size:11px;font-weight:700;color:#fff;">リアライズシリウス</span><span style="font-size:9px;color:rgba(255,200,100,.5);">6.3倍</span>
-      <span style="font-size:10px;color:rgba(255,200,100,.3);">/</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">⑱</span><span style="font-size:11px;font-weight:700;color:#fff;">バステール</span><span style="font-size:9px;color:rgba(255,200,100,.5);">12.1倍</span>
-      <span style="font-size:10px;color:rgba(255,200,100,.3);">/</span>
-      <span style="font-size:9px;font-weight:900;color:rgba(255,200,100,.45);">③</span><span style="font-size:11px;font-weight:700;color:#f0c040;">サノノグレーター</span><span style="font-size:9px;color:rgba(255,200,100,.5);">☆</span>
+      <span style="font-size:8px;font-weight:900;color:rgba(201,169,97,.6);letter-spacing:.08em;min-width:34px;">WIN5</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">⑮</span><span style="font-size:11px;font-weight:700;color:#1A1A1A;">リアライズシリウス</span><span style="font-size:9px;color:rgba(26,26,26,.55);">6.3倍</span>
+      <span style="font-size:10px;color:rgba(26,26,26,.35);">/</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">⑱</span><span style="font-size:11px;font-weight:700;color:#1A1A1A;">バステール</span><span style="font-size:9px;color:rgba(26,26,26,.55);">12.1倍</span>
+      <span style="font-size:10px;color:rgba(26,26,26,.35);">/</span>
+      <span style="font-size:9px;font-weight:900;color:rgba(26,26,26,.6);">③</span><span style="font-size:11px;font-weight:700;color:#9B2D30;">サノノグレーター</span><span style="font-size:9px;color:rgba(26,26,26,.55);">☆</span>
     </div>
   </div>
 
   <!-- 仮想配当レンジ -->
-  <div style="margin:10px 14px 0;padding:12px 14px;background:linear-gradient(135deg,rgba(240,192,64,.08),rgba(180,100,10,.05));border-radius:12px;border:1px solid rgba(240,192,64,.3);box-shadow:0 0 18px rgba(240,192,64,.08),inset 0 1px 0 rgba(255,220,100,.1);">
+  <div style="margin:10px 14px 0;padding:12px 14px;background:linear-gradient(135deg,rgba(201,169,97,.08),rgba(155,45,48,.05));border-radius:12px;border:1px solid rgba(201,169,97,.3);box-shadow:0 0 18px rgba(201,169,97,.08),inset 0 1px 0 rgba(201,169,97,.1);">
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;">
       <span style="font-size:16px;">🎰</span>
-      <span style="font-size:11px;font-weight:900;color:#f0c040;letter-spacing:.08em;">仮想配当レンジ</span>
-      <span style="font-size:9px;font-weight:700;color:rgba(255,220,160,.5);margin-left:auto;">36点×100円＝3,600円投資</span>
+      <span style="font-size:11px;font-weight:900;color:#9B2D30;letter-spacing:.08em;">仮想配当レンジ</span>
+      <span style="font-size:9px;font-weight:700;color:rgba(26,26,26,.5);margin-left:auto;">36点×100円＝3,600円投資</span>
     </div>
     <!-- 本配当 -->
-    <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;background:rgba(240,192,64,.08);border-radius:8px;margin-bottom:5px;border-left:3px solid #f0c040;">
-      <span style="font-size:9px;font-weight:900;color:#f0c040;letter-spacing:.06em;min-width:54px;">仮想配当</span>
+    <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;background:rgba(201,169,97,.08);border-radius:8px;margin-bottom:5px;border-left:3px solid #9B2D30;">
+      <span style="font-size:9px;font-weight:900;color:#9B2D30;letter-spacing:.06em;min-width:54px;">仮想配当</span>
       <span style="font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:#fde68a;">44,017<span style="font-size:10px;margin-left:1px;">円</span></span>
-      <span style="font-size:10px;color:rgba(255,220,160,.5);margin:0 2px;">〜</span>
-      <span style="font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#fff;text-shadow:0 0 10px rgba(255,220,100,.4);">3億3,174<span style="font-size:10px;margin-left:1px;">万円</span></span>
+      <span style="font-size:10px;color:rgba(26,26,26,.5);margin:0 2px;">〜</span>
+      <span style="font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#1A1A1A;text-shadow:0 0 10px rgba(255,220,100,.4);">3億3,174<span style="font-size:10px;margin-left:1px;">万円</span></span>
     </div>
     <!-- 下限配当 -->
-    <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;background:rgba(180,100,10,.06);border-radius:8px;border-left:3px solid rgba(180,100,10,.55);">
-      <span style="font-size:9px;font-weight:900;color:rgba(240,192,64,.65);letter-spacing:.06em;min-width:54px;">下限配当</span>
+    <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;background:rgba(155,45,48,.06);border-radius:8px;border-left:3px solid rgba(180,100,10,.55);">
+      <span style="font-size:9px;font-weight:900;color:rgba(155,45,48,.65);letter-spacing:.06em;min-width:54px;">下限配当</span>
       <span style="font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:rgba(253,230,138,.75);">18,595<span style="font-size:10px;margin-left:1px;">円</span></span>
       <span style="font-size:10px;color:rgba(255,220,160,.35);margin:0 2px;">〜</span>
       <span style="font-family:'Noto Serif JP',serif;font-size:14px;font-weight:900;color:rgba(255,255,255,.82);">1億5,092<span style="font-size:10px;margin-left:1px;">万円</span></span>
     </div>
-    <div style="margin-top:7px;font-size:9px;color:rgba(255,220,160,.5);line-height:1.5;font-style:italic;">
+    <div style="margin-top:7px;font-size:9px;color:rgba(26,26,26,.5);line-height:1.5;font-style:italic;">
       ※ 仮想配当=現オッズからの推定／下限配当=JRA保証配当ベース。実配当はキャリーオーバー・支持率で大きく変動。
     </div>
   </div>
 
   <!-- カオステキスト -->
-  <div style="margin:8px 14px 0;padding:10px 12px;background:rgba(0,0,0,.2);border-radius:10px;border-left:3px solid rgba(240,192,64,.4);">
-    <div style="font-size:11px;font-weight:900;color:#f0c040;letter-spacing:.06em;margin-bottom:6px;">🌀 カオスの中の秩序 ── ギーニョ最終見解</div>
+  <div style="margin:8px 14px 0;padding:10px 12px;background:rgba(0,0,0,.2);border-radius:10px;border-left:3px solid rgba(201,169,97,.4);">
+    <div style="font-size:11px;font-weight:900;color:#9B2D30;letter-spacing:.06em;margin-bottom:6px;">🌀 カオスの中の秩序 ── ギーニョ最終見解</div>
     <p style="font-size:10px;line-height:1.75;color:rgba(255,230,160,.8);margin:0;">
       WIN2京葉Sはモンドプリューム1点抜け。ここは迷いなく1頭に絞る。<br>
       一方、WIN3福島牝馬Sに☆カニキュル、WIN5皐月賞に☆サノノグレーターを加えた。<br>
@@ -505,11 +515,11 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   </div>
 
   <!-- 名言 -->
-  <div style="margin:8px 14px 12px;padding:8px 12px;background:rgba(240,192,64,.04);border-radius:8px;border:1px solid rgba(240,192,64,.12);text-align:center;">
+  <div style="margin:8px 14px 12px;padding:8px 12px;background:rgba(201,169,97,.05);border-radius:8px;border:1px solid rgba(201,169,97,.15);text-align:center;">
     <p style="font-size:11px;font-style:italic;color:rgba(255,230,160,.75);margin:0 0 3px;">
       "混乱の中にこそ、最大の好機がある。"
     </p>
-    <p style="font-size:9px;font-weight:700;color:rgba(240,192,64,.5);letter-spacing:.06em;margin:0;">— 孫子（孫武）</p>
+    <p style="font-size:9px;font-weight:700;color:rgba(201,169,97,.5);letter-spacing:.06em;margin:0;">— 孫子（孫武）</p>
   </div>
 </div>
 
@@ -537,9 +547,9 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   <!-- 戦略の骨格 -->
   <div style="padding:12px 14px 4px;">
     <div style="font-size:10px;font-weight:900;color:rgba(255,180,210,.7);letter-spacing:.08em;margin-bottom:4px;">🎯 戦略の骨格</div>
-    <p style="font-size:12px;font-weight:900;color:#fff;margin:0 0 6px;">「軸は堅く、相手は広く、穴は単品で刺す」</p>
+    <p style="font-size:12px;font-weight:900;color:#1A1A1A;margin:0 0 6px;">「軸は堅く、相手は広く、穴は単品で刺す」</p>
     <p style="font-size:10px;line-height:1.7;color:rgba(255,220,230,.75);margin:0;">
-      混戦G1で一番やってはいけないのが<strong style="color:#ffb6d9;">単勝一点張り</strong>と<strong style="color:#ffb6d9;">3連単フル流し</strong>。前者は期待値マイナス、後者はトリガミ確定。混戦こそ、<strong style="color:#fff;">馬券種のレイヤーで勝負</strong>する。
+      混戦G1で一番やってはいけないのが<strong style="color:#ffb6d9;">単勝一点張り</strong>と<strong style="color:#ffb6d9;">3連単フル流し</strong>。前者は期待値マイナス、後者はトリガミ確定。混戦こそ、<strong style="color:#1A1A1A;">馬券種のレイヤーで勝負</strong>する。
     </p>
   </div>
 
@@ -548,8 +558,8 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
     <div style="font-size:10px;font-weight:900;color:rgba(255,180,210,.7);letter-spacing:.08em;margin-bottom:6px;">💴 実配分（予算 10,000円）</div>
     <div style="display:flex;flex-direction:column;gap:4px;">
 
-      <div style="display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:7px 10px;background:rgba(240,192,64,.08);border-radius:8px;border-left:3px solid #f0c040;">
-        <span style="font-size:10px;font-weight:900;color:#f0c040;min-width:70px;">🔑 WIN5</span>
+      <div style="display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:7px 10px;background:rgba(201,169,97,.08);border-radius:8px;border-left:3px solid #9B2D30;">
+        <span style="font-size:10px;font-weight:900;color:#9B2D30;min-width:70px;">🔑 WIN5</span>
         <span style="font-size:10px;color:rgba(255,230,160,.85);">既存36点</span>
         <span style="font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#fde68a;">3,600<span style="font-size:9px;">円</span></span>
       </div>
@@ -587,7 +597,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
       <!-- 合計 -->
       <div style="margin-top:6px;padding:9px 10px;background:linear-gradient(135deg,rgba(255,215,100,.12),rgba(255,120,180,.08));border-radius:8px;border:1px solid rgba(255,180,210,.35);display:flex;justify-content:space-between;align-items:center;">
         <span style="font-size:11px;font-weight:900;color:rgba(255,200,100,.85);letter-spacing:.08em;">TOTAL</span>
-        <span style="font-family:'Noto Serif JP',serif;font-size:17px;font-weight:900;color:#fff;text-shadow:0 0 10px rgba(255,180,210,.4);">10,000<span style="font-size:11px;margin-left:2px;">円</span></span>
+        <span style="font-family:'Noto Serif JP',serif;font-size:17px;font-weight:900;color:#1A1A1A;text-shadow:0 0 10px rgba(255,180,210,.4);">10,000<span style="font-size:11px;margin-left:2px;">円</span></span>
       </div>
     </div>
   </div>
@@ -597,19 +607,19 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
     <div style="font-size:10px;font-weight:900;color:rgba(255,180,210,.7);letter-spacing:.08em;margin-bottom:6px;">🧠 なぜこの形か</div>
     <div style="display:flex;flex-direction:column;gap:6px;">
       <p style="font-size:10px;line-height:1.65;color:rgba(255,220,230,.78);margin:0;padding:6px 10px;background:rgba(0,0,0,.25);border-radius:6px;">
-        <strong style="color:#ffb6d9;">①「軸を◎と☆に2本置く」のがカオスG1の鉄則。</strong>単勝1位の◎リアライズシリウスだけを軸にすると、ミドル〜ハイペースで捕まった時に全滅する。☆サノノグレーターを2軸目に置くと、<strong style="color:#fff;">「人気順通り」と「穴馬激走」両シナリオに足が残る。</strong>
+        <strong style="color:#ffb6d9;">①「軸を◎と☆に2本置く」のがカオスG1の鉄則。</strong>単勝1位の◎リアライズシリウスだけを軸にすると、ミドル〜ハイペースで捕まった時に全滅する。☆サノノグレーターを2軸目に置くと、<strong style="color:#1A1A1A;">「人気順通り」と「穴馬激走」両シナリオに足が残る。</strong>
       </p>
       <p style="font-size:10px;line-height:1.65;color:rgba(255,220,230,.78);margin:0;padding:6px 10px;background:rgba(0,0,0,.25);border-radius:6px;">
-        <strong style="color:#ffb6d9;">②「馬単マルチ18点 → 12点に絞る」。</strong>ニックの既存36点WIN5で◎○▲☆は選定済み。皐月賞単体では△2頭を捨てて <strong style="color:#fff;">12点にシャープ化</strong>。無駄な保険は削る。期待値勝負だ。
+        <strong style="color:#ffb6d9;">②「馬単マルチ18点 → 12点に絞る」。</strong>ニックの既存36点WIN5で◎○▲☆は選定済み。皐月賞単体では△2頭を捨てて <strong style="color:#1A1A1A;">12点にシャープ化</strong>。無駄な保険は削る。期待値勝負だ。
       </p>
       <p style="font-size:10px;line-height:1.65;color:rgba(255,220,230,.78);margin:0;padding:6px 10px;background:rgba(0,0,0,.25);border-radius:6px;">
-        <strong style="color:#ffb6d9;">③「3連複は本線の保証」。</strong>馬単マルチが外れても、3着が△で3連複だけ拾う。この <strong style="color:#fff;">「どれか1本は当たる」構造</strong> がトリガミを防ぐ。
+        <strong style="color:#ffb6d9;">③「3連複は本線の保証」。</strong>馬単マルチが外れても、3着が△で3連複だけ拾う。この <strong style="color:#1A1A1A;">「どれか1本は当たる」構造</strong> がトリガミを防ぐ。
       </p>
       <p style="font-size:10px;line-height:1.65;color:rgba(255,220,230,.78);margin:0;padding:6px 10px;background:rgba(0,0,0,.25);border-radius:6px;">
-        <strong style="color:#ffb6d9;">④「単勝1,000円」の意味。</strong>サノノグレーターが13〜15番人気想定。単勝50〜80倍で <strong style="color:#fff;">5〜8万円のリターン</strong>。葉牡丹賞の中山2000mレコードを疑う理由がない。狙い撃つ。
+        <strong style="color:#ffb6d9;">④「単勝1,000円」の意味。</strong>サノノグレーターが13〜15番人気想定。単勝50〜80倍で <strong style="color:#1A1A1A;">5〜8万円のリターン</strong>。葉牡丹賞の中山2000mレコードを疑う理由がない。狙い撃つ。
       </p>
       <p style="font-size:10px;line-height:1.65;color:rgba(255,220,230,.78);margin:0;padding:6px 10px;background:rgba(0,0,0,.25);border-radius:6px;">
-        <strong style="color:#ffb6d9;">⑤「複勝▲マテンロウゲイル」。</strong>ニック推し。差し脚確かで3着以内なら複勝3〜5倍の保険になる。<strong style="color:#fff;">馬券師は推しに敬意を払う。</strong>
+        <strong style="color:#ffb6d9;">⑤「複勝▲マテンロウゲイル」。</strong>ニック推し。差し脚確かで3着以内なら複勝3〜5倍の保険になる。<strong style="color:#1A1A1A;">馬券師は推しに敬意を払う。</strong>
       </p>
     </div>
   </div>
@@ -637,13 +647,13 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
     <p style="font-size:10px;line-height:1.65;color:rgba(255,230,180,.75);margin:0 0 8px;">
       これは裏メニュー。もし「1万円を全部1点に賭けろ」と言われたら：
     </p>
-    <div style="padding:10px 12px;background:rgba(0,0,0,.5);border-radius:8px;border-left:3px solid #f0c040;margin-bottom:8px;">
-      <div style="font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#fff;letter-spacing:.02em;line-height:1.6;">
-        3連単 <span style="color:#ff6b8b;">◎15リアライズシリウス</span> → <span style="color:#f0c040;">☆3サノノグレーター</span> → <span style="color:#82d3ff;">○18バステール</span>
+    <div style="padding:10px 12px;background:rgba(0,0,0,.5);border-radius:8px;border-left:3px solid #9B2D30;margin-bottom:8px;">
+      <div style="font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#1A1A1A;letter-spacing:.02em;line-height:1.6;">
+        3連単 <span style="color:#ff6b8b;">◎15リアライズシリウス</span> → <span style="color:#9B2D30;">☆3サノノグレーター</span> → <span style="color:#82d3ff;">○18バステール</span>
       </div>
     </div>
     <p style="font-size:10px;line-height:1.65;color:rgba(255,230,180,.75);margin:0;">
-      本命逃げ切り × レコードホルダー先行粘り × 差し穴の3着。<strong style="color:#fff;">想定配当15〜30万円</strong>。カオス皐月賞の<strong style="color:#fff;">最も美しい決着図</strong>だ。
+      本命逃げ切り × レコードホルダー先行粘り × 差し穴の3着。<strong style="color:#1A1A1A;">想定配当15〜30万円</strong>。カオス皐月賞の<strong style="color:#1A1A1A;">最も美しい決着図</strong>だ。
     </p>
     <p style="font-size:10px;line-height:1.65;color:rgba(255,200,200,.65);margin:8px 0 0;font-style:italic;">
       ──が、全力一点は小物のやり方だ。やっぱり分散で行こう。
@@ -652,7 +662,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 
   <!-- 締め -->
   <div style="margin:12px 14px 12px;padding:10px 14px;background:linear-gradient(135deg,rgba(255,120,180,.1),rgba(180,60,120,.05));border-radius:8px;text-align:center;border:1px solid rgba(255,120,180,.2);">
-    <p style="font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#fff;margin:0 0 3px;letter-spacing:.04em;">混戦を嘆くな。混戦を買え。</p>
+    <p style="font-family:'Noto Serif JP',serif;font-size:13px;font-weight:900;color:#1A1A1A;margin:0 0 3px;letter-spacing:.04em;">混戦を嘆くな。混戦を買え。</p>
     <p style="font-size:9px;font-weight:700;color:rgba(255,180,210,.6);letter-spacing:.08em;margin:0;">日曜16:30、中山の直線に全ての答えがある 🔥🐎</p>
   </div>
 </div>

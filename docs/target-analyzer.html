@@ -3,79 +3,79 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Target競馬 CSVアナライザー | UG強奪競馬新聞</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<title>Target競馬 CSV解析工房 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#130003;--bg-dk:#0b0002;--bg-md:#1a0004;
-  --pink:#E8003D;--pink-dk:#B5002E;--gold:#f0c040;
-  --text:#f5d0d5;--muted:rgba(255,255,255,0.50);
-  --card:rgba(255,255,255,0.07);--border:rgba(232,0,61,0.25);
+  --bg:#FAFAFA;--paper:#FBF7EE;
+  --shu:#9B2D30;--shu-dk:#7A1E1E;--kin:#C9A961;--midori:#1F4D2E;
+  --text:#1A1A1A;--muted:rgba(26,26,26,0.60);
+  --card:#FBF7EE;--border:rgba(201,169,97,0.40);
 }
-html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;min-height:100vh;}
 /* ── Header ── */
-.hdr{background:linear-gradient(135deg,#1a0004,#0b0002);border-bottom:1px solid rgba(232,0,61,.4);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.hdr-title{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:#fff;text-shadow:0 0 20px rgba(232,0,61,.5);}
-.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.hdr{background:rgba(250,250,250,.92);border-bottom:2px solid var(--shu);box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);backdrop-filter:blur(8px);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.hdr-title{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:16px;font-weight:800;color:var(--shu);letter-spacing:.05em;}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:2px;}
 /* ── Layout ── */
 .wrap{max-width:1100px;margin:0 auto;padding:20px 16px;display:flex;flex-direction:column;gap:20px;}
 /* ── Cards ── */
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
-.card-head{background:linear-gradient(135deg,var(--pink),var(--pink-dk));padding:11px 18px;display:flex;align-items:center;gap:8px;}
-.card-head h2{font-size:13px;font-weight:900;color:#fff;letter-spacing:.05em;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(26,26,26,.05);}
+.card-head{background:linear-gradient(135deg,var(--shu),var(--shu-dk));padding:11px 18px;display:flex;align-items:center;gap:8px;}
+.card-head h2{font-size:13px;font-weight:800;color:#FBF7EE;letter-spacing:.06em;}
 .card-body{padding:18px;}
 /* ── Drop Zone ── */
-.drop-zone{border:2px dashed rgba(240,192,64,.45);border-radius:14px;padding:32px 20px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(240,192,64,.06);}
-.drop-zone:hover,.drop-zone.drag-over{border-color:rgba(240,192,64,.8);background:rgba(240,192,64,.12);}
+.drop-zone{border:2px dashed rgba(201,169,97,.55);border-radius:10px;padding:32px 20px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(201,169,97,.07);}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--kin);background:rgba(201,169,97,.14);}
 .drop-zone input{display:none;}
 .drop-zone-icon{font-size:36px;margin-bottom:8px;}
-.drop-zone-text{font-size:13px;font-weight:700;color:var(--gold);}
+.drop-zone-text{font-size:13px;font-weight:700;color:var(--shu);}
 .drop-zone-sub{font-size:11px;color:var(--muted);margin-top:4px;}
 /* ── File Status ── */
 .file-list{display:flex;flex-direction:column;gap:6px;margin-top:14px;}
-.file-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:8px;padding:8px 12px;font-size:12px;}
-.file-item.ok{border-color:rgba(240,192,64,.40);}
+.file-item{display:flex;align-items:center;gap:10px;background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.30);border-radius:8px;padding:8px 12px;font-size:12px;}
+.file-item.ok{border-color:rgba(201,169,97,.55);}
 .file-item.skip{opacity:.5;}
-.file-tag{font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;background:rgba(240,192,64,.18);color:var(--gold);border:1px solid rgba(240,192,64,.35);white-space:nowrap;}
-.file-tag.unknown{background:rgba(255,255,255,.08);color:var(--muted);border-color:rgba(255,255,255,.15);}
+.file-tag{font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;background:rgba(201,169,97,.20);color:var(--shu-dk);border:1px solid rgba(201,169,97,.45);white-space:nowrap;}
+.file-tag.unknown{background:rgba(26,26,26,.05);color:var(--muted);border-color:rgba(26,26,26,.12);}
 /* ── Buttons ── */
-.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;font-family:'Public Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .18s;}
-.btn-primary{background:linear-gradient(135deg,var(--pink),var(--pink-dk));color:#fff;box-shadow:0 2px 12px rgba(232,0,61,.35);}
-.btn-primary:hover{box-shadow:0 4px 20px rgba(232,0,61,.55);transform:translateY(-1px);}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:10px;font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .18s;}
+.btn-primary{background:linear-gradient(135deg,var(--shu),var(--shu-dk));color:#FBF7EE;box-shadow:0 2px 12px rgba(155,45,48,.25);}
+.btn-primary:hover{box-shadow:0 4px 20px rgba(155,45,48,.40);transform:translateY(-1px);}
 .btn-primary:disabled{opacity:.45;cursor:not-allowed;transform:none;}
-.btn-gold{background:linear-gradient(135deg,#b45309,#92400e);color:#fff;box-shadow:0 2px 12px rgba(180,83,9,.40);}
-.btn-gold:hover{box-shadow:0 4px 22px rgba(180,83,9,.60);transform:translateY(-1px);}
-.btn-sec{background:rgba(255,255,255,.08);color:var(--text);border:1px solid rgba(255,255,255,.15);}
-.btn-sec:hover{background:rgba(255,255,255,.14);}
+.btn-gold{background:linear-gradient(135deg,#C9A961,#B8935C);color:#1A1A1A;box-shadow:0 2px 12px rgba(201,169,97,.30);}
+.btn-gold:hover{box-shadow:0 4px 20px rgba(201,169,97,.45);transform:translateY(-1px);}
+.btn-sec{background:rgba(26,26,26,.06);color:var(--text);border:1px solid rgba(26,26,26,.12);}
+.btn-sec:hover{background:rgba(26,26,26,.12);}
 /* ── Results Table ── */
 .result-meta{display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap;}
-.result-race{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:#fff;}
+.result-race{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:16px;font-weight:800;color:var(--shu);}
 .result-count{font-size:12px;color:var(--muted);}
 .tbl-wrap{overflow-x:auto;}
 table{width:100%;border-collapse:collapse;font-size:12px;}
-th{background:rgba(232,0,61,.18);color:rgba(255,255,255,.80);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;text-align:center;border-bottom:1px solid rgba(232,0,61,.30);white-space:nowrap;cursor:pointer;user-select:none;}
-th:hover{background:rgba(232,0,61,.28);}
+th{background:rgba(155,45,48,.12);color:var(--shu-dk);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;text-align:center;border-bottom:1px solid rgba(155,45,48,.30);white-space:nowrap;cursor:pointer;user-select:none;}
+th:hover{background:rgba(155,45,48,.20);}
 th.sort-asc::after{content:' ↑';}
 th.sort-desc::after{content:' ↓';}
-td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);text-align:center;color:var(--text);}
+td{padding:8px 10px;border-bottom:1px solid rgba(201,169,97,.22);text-align:center;color:var(--text);}
 td.name{text-align:left;font-weight:700;white-space:nowrap;}
-tr:hover td{background:rgba(255,255,255,.04);}
-tr.rank-1 td{background:rgba(240,192,64,.10);}
-tr.rank-2 td{background:rgba(232,0,61,.08);}
-tr.rank-3 td{background:rgba(232,0,61,.05);}
+tr:hover td{background:rgba(201,169,97,.08);}
+tr.rank-1 td{background:rgba(201,169,97,.14);}
+tr.rank-2 td{background:rgba(155,45,48,.07);}
+tr.rank-3 td{background:rgba(155,45,48,.04);}
 /* ── Grade Badges ── */
-.g{display:inline-block;font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;font-family:'Inter',sans-serif;white-space:nowrap;}
-.gS {background:#D97706;color:#fff;}
-.gA {background:#DB2777;color:#fff;}
-.gBp{background:#F43F5E;color:#fff;}
-.gB {background:#EA580C;color:#fff;}
-.gC {background:#2563EB;color:#fff;}
-.gD {background:#6B7280;color:#fff;}
-.gE {background:#dc2626;color:#fff;}
-.gn {background:rgba(255,255,255,.10);color:var(--muted);}
+.g{display:inline-block;font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;white-space:nowrap;}
+.gS {background:#C9A961;color:#1A1A1A;}
+.gA {background:#9B2D30;color:#FBF7EE;}
+.gBp{background:#B8424D;color:#FBF7EE;}
+.gB {background:#C8633A;color:#FBF7EE;}
+.gC {background:#2B5A9F;color:#FBF7EE;}
+.gD {background:#6B7280;color:#FBF7EE;}
+.gE {background:#7A1E1E;color:#FBF7EE;}
+.gn {background:rgba(26,26,26,.06);color:var(--muted);}
 /* ── Pt badge ── */
-.pt-badge{display:inline-block;font-size:11px;font-weight:900;padding:3px 9px;border-radius:7px;font-family:'Inter',sans-serif;}
+.pt-badge{display:inline-block;font-size:11px;font-weight:900;padding:3px 9px;border-radius:7px;}
 /* ── Export area ── */
 .export-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
 .export-note{font-size:11px;color:var(--muted);}
@@ -87,10 +87,10 @@ tr.rank-3 td{background:rgba(232,0,61,.05);}
 
 <header class="hdr">
   <div>
-    <div class="hdr-sub">UG強奪競馬新聞 / 管理ツール</div>
-    <div class="hdr-title">Target競馬 CSVアナライザー</div>
+    <div class="hdr-sub">UG競馬ワイド神宮 / 社務ツール</div>
+    <div class="hdr-title">Target競馬 CSV解析工房</div>
   </div>
-  <a href="final-tool.html" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:18px;background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;font-size:11px;font-weight:900;text-decoration:none;">🏆 最終予想へ</a>
+  <a href="final-tool.html" style="display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:18px;background:linear-gradient(135deg,#C9A961,#B8935C);color:#1A1A1A;font-size:11px;font-weight:900;text-decoration:none;font-family:'Shippori Mincho','Noto Serif JP',serif;">🏆 本殿工房へ</a>
 </header>
 
 <div class="wrap">
@@ -583,7 +583,7 @@ function renderResults(horses) {
 
   // Factor tags
   document.getElementById('factorTags').innerHTML = activeFactors.map(f =>
-    `<span style="font-size:10px;font-weight:900;padding:2px 8px;border-radius:10px;background:rgba(232,0,61,.18);border:1px solid rgba(232,0,61,.35);color:var(--pink);">${f}</span>`
+    `<span style="font-size:10px;font-weight:900;padding:2px 8px;border-radius:10px;background:rgba(155,45,48,.14);border:1px solid rgba(155,45,48,.35);color:var(--shu);">${f}</span>`
   ).join('');
 
   document.getElementById('resultCount').textContent = `${horses.length}頭 / ${activeFactors.length}ファクター`;
@@ -622,7 +622,7 @@ function renderTbody(horses, activeFactors) {
     }).join('');
     const ptCol = ptColor(h.totalPt);
     return `<tr class="${rankClass}">
-      <td style="font-weight:900;color:var(--gold);">${i+1}</td>
+      <td style="font-weight:900;color:var(--kin);">${i+1}</td>
       <td>${h.num}</td>
       <td class="name">${h.name}</td>
       <td>${h.sexage}</td>
@@ -632,7 +632,7 @@ function renderTbody(horses, activeFactors) {
       <td style="font-size:11px;color:var(--muted);">${h.gaiku || '-'}</td>
       <td style="font-size:11px;color:var(--muted);">${h.prevRank ? h.prevRank + ' ' + h.prevCourse : '-'}</td>
       ${factorCells}
-      <td><span class="pt-badge" style="background:${ptCol};color:#fff;">${h.totalPt}pt</span></td>
+      <td><span class="pt-badge" style="background:${ptCol};color:#FBF7EE;">${h.totalPt}pt</span></td>
     </tr>`;
   }).join('');
 }
@@ -688,7 +688,7 @@ function exportMarkdown() {
   const allFactors = ['血統','厩舎','騎手','年齢','馬体重','前走脚質','生産者'];
   const activeFactors = allFactors.filter(f => analyzedHorses.some(h => h.scores[f]));
 
-  let md = `# UG強奪スコア分析\n\n`;
+  let md = `# UG競馬ワイド神宮 スコア分析\n\n`;
   md += `分析日: ${new Date().toISOString().slice(0,10)}　頭数: ${analyzedHorses.length}頭　ファクター: ${activeFactors.join('・')}\n\n`;
 
   // Ranking table

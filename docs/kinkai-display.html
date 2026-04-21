@@ -3,33 +3,42 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>今週の金塊馬 | UG強奪競馬新聞</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+<title>金塊殿｜今週の金塊馬 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAFA;--paper:#FBF7EE;
+  --shu:#9B2D30;--shu-dk:#7A1E1E;--midori:#1F4D2E;--kin:#C9A961;
+  --text:#1A1A1A;--muted:rgba(26,26,26,0.6);
+}
 html,body{
-  background:#F2D9B0;
-  color:#1C2B4A;
-  font-family:'Public Sans',sans-serif;
+  background:#FAFAFA;
+  color:#1A1A1A;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
   min-height:100vh;
   display:flex;
   flex-direction:column;
 }
 .hdr{
-  background:linear-gradient(135deg,#EDD9A3,#E8C898 60%,#EDD9A3);
-  border-bottom:2px solid rgba(232,0,61,.5);
+  background:rgba(250,250,250,.92);
+  border-bottom:2px solid var(--shu);
+  box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);
+  backdrop-filter:blur(8px);
   padding:14px 18px;
   display:flex;align-items:center;gap:10px;
+  position:sticky;top:0;z-index:100;
 }
 .hdr-back{
   display:inline-flex;align-items:center;gap:4px;
   padding:6px 12px;border-radius:18px;
-  background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);
+  background:rgba(201,169,97,.12);color:var(--shu);
   font-size:11px;font-weight:700;text-decoration:none;
-  border:1px solid rgba(0,0,0,0.12);
+  border:1px solid rgba(201,169,97,0.35);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#1C2B4A;text-shadow:none;}
-.hdr-sub{font-size:10px;color:rgba(28,43,74,.6);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.hdr-logo{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:18px;font-weight:800;color:var(--shu);letter-spacing:.04em;}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
 
 .main{
   flex:1;display:flex;align-items:center;justify-content:center;
@@ -39,60 +48,64 @@ html,body{
   text-align:center;
   max-width:480px;
   padding:48px 36px;
-  background:linear-gradient(135deg,rgba(139,26,26,.06),rgba(242,217,176,.95));
-  border:1px solid rgba(240,192,64,.3);
-  border-radius:20px;
+  background:#FBF7EE;
+  border:1px solid rgba(201,169,97,.4);
+  border-radius:10px;
+  box-shadow:0 4px 16px rgba(26,26,26,.08);
   position:relative;overflow:hidden;
 }
 .card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,#8B1A1A,transparent);
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--shu),var(--kin),var(--shu),transparent);
 }
 .icon{font-size:56px;margin-bottom:20px;display:block;}
 .label{
   font-size:10px;font-weight:900;letter-spacing:.25em;text-transform:uppercase;
-  color:#8B1A1A;margin-bottom:14px;
+  color:var(--kin);margin-bottom:14px;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .title{
-  font-family:'Noto Serif JP',serif;
-  font-size:26px;font-weight:900;color:#1C2B4A;
-  margin-bottom:16px;line-height:1.4;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:26px;font-weight:800;color:var(--shu);
+  margin-bottom:16px;line-height:1.4;letter-spacing:.06em;
 }
 .desc{
-  font-size:13px;color:rgba(28,43,74,.6);
-  line-height:1.8;margin-bottom:28px;
+  font-size:13px;color:var(--muted);
+  line-height:1.9;margin-bottom:28px;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .back-btn{
   display:inline-flex;align-items:center;gap:6px;
-  padding:10px 24px;border-radius:24px;
-  background:rgba(232,0,61,.15);border:1px solid rgba(232,0,61,.4);
-  color:#1C2B4A;font-size:13px;font-weight:700;
+  padding:10px 24px;border-radius:8px;
+  background:rgba(155,45,48,.08);border:1px solid rgba(155,45,48,.4);
+  color:var(--shu);font-size:13px;font-weight:700;
   text-decoration:none;transition:background .15s;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.back-btn:hover{background:rgba(232,0,61,.25);}
+.back-btn:hover{background:rgba(155,45,48,.15);}
 </style>
 </head>
 <body>
 
 <header class="hdr">
-  <a href="index.html" class="hdr-back">← TOP</a>
+  <a href="index.html" class="hdr-back">⛩ 鳥居</a>
   <div style="flex:1;">
-    <div class="hdr-logo">UG強奪競馬新聞</div>
+    <div class="hdr-logo">金塊殿　KINKAIDEN</div>
     <div class="hdr-sub">今週の金塊馬</div>
   </div>
 </header>
 
 <main class="main">
   <div class="card">
-    <span class="icon">🏗️</span>
+    <span class="icon">⛩</span>
     <div class="label">Coming Soon</div>
-    <div class="title">準備中</div>
+    <div class="title">準備中でございます</div>
     <div class="desc">
-      このページは現在準備中です。<br>
-      近日公開予定です。<br>
-      今しばらくお待ちください。
+      此の殿堂は目下、神職一同にて準備中でございます。<br>
+      御神託の降りる日まで、<br>
+      今しばらく御待ち下さりませ。
     </div>
-    <a href="index.html" class="back-btn">← TOPへ戻る</a>
+    <a href="index.html" class="back-btn">⛩ 鳥居へ戻る</a>
   </div>
 </main>
 

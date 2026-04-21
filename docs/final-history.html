@@ -3,157 +3,160 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>最終予想 戦績 | UG強奪競馬新聞</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<title>社務日誌｜最終予想の戦績 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#F2D9B0;--bg-dk:#E8C898;--bg-md:#EDD9A3;
-  --pink:#E8003D;--pink-dk:#B5002E;--gold:#8B1A1A;
-  --text:#1C2B4A;--muted:rgba(28,43,74,0.55);
-  --border:rgba(232,0,61,0.22);
+  --bg:#FAFAFA;--bg-dk:#FBF7EE;--bg-md:#FBF7EE;
+  --pink:#9B2D30;--pink-dk:#7A1E1E;--gold:#C9A961;
+  --shu:#9B2D30;--shu-dk:#7A1E1E;--midori:#1F4D2E;--kin:#C9A961;
+  --text:#1A1A1A;--muted:rgba(26,26,26,0.55);
+  --border:rgba(155,45,48,0.22);
 }
-html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
-.serif{font-family:'Noto Serif JP',serif;}
+html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;min-height:100vh;}
+.serif{font-family:'Shippori Mincho','Noto Serif JP',serif;letter-spacing:.04em;}
 .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
 
-/* ── Header ── */
+/* ── Header（鳥居風）── */
 .hdr{
-  background:linear-gradient(135deg,#EDD9A3,#E8C898 60%,#EDD9A3);
-  border-bottom:2px solid rgba(232,0,61,.5);
+  background:rgba(250,250,250,.92);
+  border-bottom:2px solid var(--shu);
+  box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);
   padding:14px 18px;display:flex;align-items:center;gap:10px;
-  position:sticky;top:0;z-index:100;
-  box-shadow:0 4px 30px rgba(232,0,61,.15);
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);
 }
 .hdr-back{
   display:inline-flex;align-items:center;gap:4px;padding:6px 12px;
-  border-radius:18px;background:rgba(0,0,0,.06);color:var(--muted);
+  border-radius:18px;background:rgba(201,169,97,.12);color:var(--shu);
   font-size:11px;font-weight:700;text-decoration:none;
-  border:1px solid rgba(0,0,0,.12);
+  border:1px solid rgba(201,169,97,.35);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.hdr-back:hover{background:rgba(0,0,0,.10);}
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:var(--text);}
+.hdr-back:hover{background:rgba(201,169,97,.20);}
+.hdr-logo{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:18px;font-weight:800;color:var(--shu);letter-spacing:.04em;}
 .hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;margin-top:2px;}
 
 /* ── Ticker ── */
-.ticker-wrap{overflow:hidden;white-space:nowrap;background:var(--pink);padding:7px 0;}
+.ticker-wrap{overflow:hidden;white-space:nowrap;background:var(--shu);padding:7px 0;}
 .ticker-text{display:inline-block;animation:ticker-scroll 30s linear infinite;padding-left:100%;font-size:11px;font-weight:900;color:#fff;letter-spacing:.06em;}
 @keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
 
 /* ── Hero ── */
 .hero-label{
   font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:6px;
+  color:var(--kin);margin-bottom:6px;
 }
-.hero-title{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:900;color:var(--text);}
+.hero-title{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:26px;font-weight:800;color:var(--shu);letter-spacing:.06em;}
 .hero-desc{font-size:11px;color:var(--muted);margin-top:4px;}
 
-/* ── スコアボード ── */
+/* ── スコアボード（絵馬風）── */
 .scoreboard{
-  background:linear-gradient(160deg,rgba(232,208,162,.6),rgba(242,217,176,.95));
-  border:1px solid rgba(232,0,61,.30);
+  background:linear-gradient(160deg,rgba(251,247,238,.6),rgba(251,247,238,.95));
+  border:1px solid rgba(155,45,48,.30);
   border-radius:20px;
-  box-shadow:0 4px 24px rgba(232,0,61,.10),inset 0 1px 0 rgba(255,255,255,.6);
+  box-shadow:0 4px 24px rgba(155,45,48,.10),inset 0 1px 0 rgba(255,255,255,.6);
 }
 .score-col{flex:1;text-align:center;padding:16px 10px;}
-.score-col+.score-col{border-left:1px solid rgba(28,43,74,.10);}
-.score-big{font-size:28px;font-weight:900;line-height:1;}
-.score-label{font-size:10px;margin-top:3px;color:var(--muted);}
-.score-divider{border:none;border-top:1px solid rgba(28,43,74,.10);margin:0 16px;}
-.stat-bar-wrap{background:rgba(28,43,74,.10);border-radius:999px;height:5px;overflow:hidden;}
+.score-col+.score-col{border-left:1px solid rgba(201,169,97,.25);}
+.score-big{font-size:28px;font-weight:800;line-height:1;font-family:'Shippori Mincho','Noto Serif JP',serif;color:var(--shu);}
+.score-label{font-size:10px;margin-top:3px;color:var(--muted);letter-spacing:.04em;}
+.score-divider{border:none;border-top:1px solid rgba(201,169,97,.25);margin:0 16px;}
+.stat-bar-wrap{background:rgba(26,26,26,.08);border-radius:999px;height:5px;overflow:hidden;}
 .stat-bar{height:5px;border-radius:999px;transition:width 1s ease;}
-.stat-bar-tan {background:linear-gradient(90deg,var(--pink),rgba(232,0,61,.5));}
-.stat-bar-fuku{background:linear-gradient(90deg,var(--gold),rgba(139,26,26,.4));}
+.stat-bar-tan {background:linear-gradient(90deg,var(--shu),rgba(155,45,48,.5));}
+.stat-bar-fuku{background:linear-gradient(90deg,var(--kin),rgba(201,169,97,.4));}
 @keyframes scoreCount{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .score-animate{animation:scoreCount .6s ease forwards;}
 
-/* ── 週アコーディオン ── */
+/* ── 週アコーディオン（巻物風）── */
 .week-card{
-  background:linear-gradient(140deg,rgba(232,208,162,.45),rgba(242,217,176,.80));
-  border:1px solid rgba(232,0,61,.20);
-  border-radius:16px;overflow:hidden;
+  background:linear-gradient(140deg,rgba(251,247,238,.60),rgba(251,247,238,.92));
+  border:1px solid rgba(201,169,97,.4);
+  border-radius:10px;overflow:hidden;
 }
 .week-header{
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 18px;cursor:pointer;user-select:none;transition:background .18s;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.week-header:hover{background:rgba(232,0,61,.06);}
+.week-header:hover{background:rgba(155,45,48,.06);}
 .week-body{display:none;padding:0 14px 14px;}
 .week-body.open{display:block;}
 .week-arrow{transition:transform .22s;color:var(--muted);}
 .week-arrow.open{transform:rotate(180deg);}
 
-/* ── 週バッジ ── */
+/* ── 週バッジ（御札風）── */
 .week-hit-badge{
-  font-size:9px;font-weight:900;padding:2px 8px;border-radius:999px;
-  background:rgba(232,0,61,.12);border:1px solid rgba(232,0,61,.30);
-  color:var(--pink);
+  font-size:9px;font-weight:900;padding:2px 8px;border-radius:4px;
+  background:rgba(201,169,97,.15);border:1px solid rgba(201,169,97,.4);
+  color:var(--shu);font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 
 /* ── レースブロック ── */
 .race-block{
   background:rgba(255,255,255,.55);
-  border:1px solid rgba(28,43,74,.10);
-  border-radius:12px;margin-bottom:8px;overflow:hidden;
+  border:1px solid rgba(201,169,97,.3);
+  border-radius:10px;margin-bottom:8px;overflow:hidden;
 }
 .race-head{
   padding:10px 14px 8px;
-  border-bottom:1px solid rgba(28,43,74,.08);
-  background:rgba(232,208,162,.30);
+  border-bottom:1px solid rgba(201,169,97,.25);
+  background:rgba(251,247,238,.5);
 }
 
-/* ── 着順バッジ ── */
-.rank-1 {background:linear-gradient(135deg,#22c55e,#15803d);color:#fff;}
+/* ── 着順バッジ（金/銀/銅の御札）── */
+.rank-1 {background:linear-gradient(135deg,#C9A961,#8B7530);color:#fff;}
 .rank-2 {background:linear-gradient(135deg,#9ca3af,#6b7280);color:#fff;}
-.rank-3 {background:linear-gradient(135deg,#d97706,#92400e);color:#fff;}
-.rank-out{background:rgba(28,43,74,.08);color:var(--muted);}
-.rank-pending{background:rgba(28,43,74,.05);color:rgba(28,43,74,.35);border:1px dashed rgba(28,43,74,.20);}
+.rank-3 {background:linear-gradient(135deg,#b45309,#8a3d06);color:#fff;}
+.rank-out{background:rgba(26,26,26,.08);color:var(--muted);}
+.rank-pending{background:rgba(26,26,26,.05);color:rgba(26,26,26,.35);border:1px dashed rgba(26,26,26,.20);}
 
 /* ── 馬券種別バッジ ── */
-.bet-tan   {background:linear-gradient(135deg,#E8003D,#B5002E);color:#fff;}
-.bet-fuku  {background:linear-gradient(135deg,#8B1A1A,#5a0f0f);color:#fff;}
-.bet-umaren{background:linear-gradient(135deg,#06b6d4,#0e7490);color:#fff;}
-.bet-wide  {background:linear-gradient(135deg,#8b5cf6,#4c1d95);color:#fff;}
-.bet-sanren{background:linear-gradient(135deg,#d97706,#92400e);color:#fff;}
-.bet-other {background:rgba(28,43,74,.10);color:var(--muted);}
+.bet-tan   {background:linear-gradient(135deg,var(--shu),var(--shu-dk));color:#fff;}
+.bet-fuku  {background:linear-gradient(135deg,var(--midori),#0f3319);color:#fff;}
+.bet-umaren{background:linear-gradient(135deg,#2B5A9F,#1A3F70);color:#fff;}
+.bet-wide  {background:linear-gradient(135deg,var(--kin),#8B7530);color:#fff;}
+.bet-sanren{background:linear-gradient(135deg,#7A1E1E,#4a1010);color:#fff;}
+.bet-other {background:rgba(26,26,26,.10);color:var(--muted);}
 
 /* ── ローダー ── */
 @keyframes spin{to{transform:rotate(360deg)}}
-.loader{width:28px;height:28px;border:3px solid rgba(232,0,61,.15);border-top-color:var(--pink);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto;}
+.loader{width:28px;height:28px;border:3px solid rgba(155,45,48,.15);border-top-color:var(--shu);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto;}
 
 /* ── 空ステート ── */
 .empty-state{text-align:center;padding:60px 20px;}
 
 /* ── セクションラベル ── */
-.sec-label{font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.sec-label{font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--kin);margin-bottom:10px;}
 
 /* ── フッター ── */
-footer{margin-top:60px;padding:24px 20px;border-top:1px solid rgba(232,0,61,.18);text-align:center;}
+footer{margin-top:60px;padding:24px 20px;border-top:1px solid rgba(155,45,48,.18);text-align:center;}
 </style>
 </head>
 <body style="padding-bottom:80px;">
 
-<!-- ══ HEADER ══ -->
+<!-- ══ HEADER（鳥居風）══ -->
 <header class="hdr">
-  <a href="final-display.html" class="hdr-back">← 予想一覧</a>
+  <a href="final-display.html" class="hdr-back">⛩ 本殿へ</a>
   <div>
-    <div class="hdr-sub">UG強奪競馬新聞</div>
-    <div class="hdr-logo">📊 累計戦績</div>
+    <div class="hdr-sub">UG競馬ワイド神宮</div>
+    <div class="hdr-logo">社務日誌　SHAMU NISSHI</div>
   </div>
 </header>
 
 <!-- ══ TICKER ══ -->
 <div class="ticker-wrap">
   <span class="ticker-text">
-    🎯 最終予想 累計戦績 &nbsp;｜&nbsp; 強奪ニックの重賞最終結論・厳選買い目の成績を追跡 &nbsp;｜&nbsp; 🎯 最終予想 累計戦績 &nbsp;｜&nbsp; 強奪ニックの重賞最終結論・厳選買い目の成績を追跡
+    📜 社務日誌 累計戦績 &nbsp;｜&nbsp; 神宮の御神託・御札拝受の累計成績を記録 &nbsp;｜&nbsp; 📜 社務日誌 累計戦績 &nbsp;｜&nbsp; 神宮の御神託・御札拝受の累計成績を記録
   </span>
 </div>
 
 <!-- ══ HERO ══ -->
 <section style="padding:24px 18px 16px;">
-  <div class="hero-label">PERFORMANCE TRACKER</div>
-  <div class="hero-title serif">最終予想 戦績</div>
-  <div class="hero-desc">重賞最終結論・厳選買い目の累計トラッキング</div>
+  <div class="hero-label">SHAMU NISSHI</div>
+  <div class="hero-title serif">社務日誌　戦績帳</div>
+  <div class="hero-desc">重賞最終結論・厳選御札の累計記録</div>
 </section>
 
 <!-- ══ LOADING ══ -->
@@ -174,7 +177,7 @@ footer{margin-top:60px;padding:24px 20px;border-top:1px solid rgba(232,0,61,.18)
       <!-- 単勝バー -->
       <div style="margin-bottom:10px;">
         <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-          <span style="font-size:11px;font-weight:900;color:var(--pink);">単勝 &nbsp;<span id="tanHitFrac" style="color:var(--text);font-weight:900;"></span></span>
+          <span style="font-size:11px;font-weight:900;color:var(--shu);">単勝 &nbsp;<span id="tanHitFrac" style="color:var(--text);font-weight:900;"></span></span>
           <span style="font-size:11px;font-weight:700;color:var(--muted);" id="tanRateLabel"></span>
         </div>
         <div class="stat-bar-wrap"><div class="stat-bar stat-bar-tan" id="tanBar" style="width:0%"></div></div>
@@ -182,13 +185,13 @@ footer{margin-top:60px;padding:24px 20px;border-top:1px solid rgba(232,0,61,.18)
       <!-- 複勝バー -->
       <div style="margin-bottom:14px;">
         <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-          <span style="font-size:11px;font-weight:900;color:var(--gold);">複勝 &nbsp;<span id="fukuHitFrac" style="color:var(--text);font-weight:900;"></span></span>
+          <span style="font-size:11px;font-weight:900;color:var(--kin);">複勝 &nbsp;<span id="fukuHitFrac" style="color:var(--text);font-weight:900;"></span></span>
           <span style="font-size:11px;font-weight:700;color:var(--muted);" id="fukuRateLabel"></span>
         </div>
         <div class="stat-bar-wrap"><div class="stat-bar stat-bar-fuku" id="fukuBar" style="width:0%"></div></div>
       </div>
       <!-- 合計 -->
-      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid rgba(28,43,74,.10);">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid rgba(201,169,97,.25);">
         <span style="font-size:11px;color:var(--muted);">総ピック数</span>
         <span style="font-size:12px;font-weight:700;color:var(--text);" id="totalPicks"></span>
       </div>
@@ -216,8 +219,8 @@ footer{margin-top:60px;padding:24px 20px;border-top:1px solid rgba(232,0,61,.18)
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <p style="font-size:11px;color:var(--muted);">UG強奪競馬新聞 — 最終予想 戦績</p>
-  <p style="font-size:10px;margin-top:4px;color:rgba(28,43,74,.35);">※ 本情報は参考目的です。投票は自己責任でお願いします。</p>
+  <p style="font-size:11px;color:var(--muted);">UG競馬ワイド神宮 — 社務日誌・戦績帳</p>
+  <p style="font-size:10px;margin-top:4px;color:rgba(26,26,26,.35);">※ 本情報は参考目的です。投票は自己責任でお願いします。</p>
 </footer>
 
 <script>
@@ -298,10 +301,10 @@ function renderScoreboard(total, tanH, fukuH, tanRet, fukuRet, totalInv, totalRe
   const fukuRate = total>0 ? fukuH/total*100 : 0;
   const betKaichi = totalInv>0 ? Math.round(totalRet/totalInv*100) : 0;
   const cols = [
-    { label:'単勝的中率', value: total>0 ? tanRate.toFixed(1)+'%'  : '-%', color:'#E8003D' },
-    { label:'複勝的中率', value: total>0 ? fukuRate.toFixed(1)+'%'  : '-%', color:'#8B1A1A' },
-    { label:'総回収率',   value: totalInv>0 ? betKaichi+'%'          : '-%', color: betKaichi>=100 ? '#22c55e' : '#B5002E' },
-    { label:'回収額',     value: totalInv>0 ? '¥'+totalRet.toLocaleString() : '-', color:'#1C2B4A' },
+    { label:'単勝的中率', value: total>0 ? tanRate.toFixed(1)+'%'  : '-%', color:'#9B2D30' },
+    { label:'複勝的中率', value: total>0 ? fukuRate.toFixed(1)+'%'  : '-%', color:'#C9A961' },
+    { label:'総回収率',   value: totalInv>0 ? betKaichi+'%'          : '-%', color: betKaichi>=100 ? '#1F4D2E' : '#7A1E1E' },
+    { label:'回収額',     value: totalInv>0 ? '¥'+totalRet.toLocaleString() : '-', color:'#1A1A1A' },
   ];
   document.getElementById('scoreCols').innerHTML = cols.map(c => `
     <div class="score-col score-animate">
@@ -364,7 +367,7 @@ function buildRaceBlock(race) {
   // race.investment が設定されていればそれを優先、なければ自動計算
   const invTotal = race.investment ? race.investment : calcInvestment(picks).total;
   const pct = (hasResult && invTotal>0) ? Math.round(rtn/invTotal*100) : null;
-  const pctColor = pct!=null ? (pct>=100?'#22c55e':'#E8003D') : '';
+  const pctColor = pct!=null ? (pct>=100?'#1F4D2E':'#7A1E1E') : '';
   const pctHtml = pct!=null ? `<span style="font-size:14px;font-weight:900;color:${pctColor};margin-left:6px;">${pct}%</span>` : '';
   const invHtml = (hasResult && invTotal>0)
     ? `<p style="font-size:10px;margin-top:2px;color:var(--muted);">投資¥${invTotal.toLocaleString()} 回収¥${rtn.toLocaleString()}</p>` : '';
@@ -373,12 +376,12 @@ function buildRaceBlock(race) {
       <div class="race-head">
         <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">
           <div>
-            <p style="font-weight:900;font-size:13px;color:var(--text);font-family:'Noto Serif JP',serif;">${esc(race.raceName)}</p>
+            <p style="font-weight:800;font-size:13px;color:var(--shu);font-family:'Shippori Mincho','Noto Serif JP',serif;letter-spacing:.04em;">${esc(race.raceName)}</p>
             <p style="font-size:10px;margin-top:2px;color:var(--muted);">${esc(race.course||'')} &nbsp;｜&nbsp; ${esc(race.date||'')}</p>
             ${invHtml}
           </div>
           <div style="text-align:right;flex-shrink:0;">
-            <span style="font-size:10px;padding:2px 8px;border-radius:999px;font-weight:700;background:rgba(232,0,61,.12);color:var(--pink);border:1px solid rgba(232,0,61,.25);">厳選 ${picks.length}点</span>
+            <span style="font-size:10px;padding:2px 8px;border-radius:4px;font-weight:700;background:rgba(155,45,48,.12);color:var(--shu);border:1px solid rgba(201,169,97,.4);font-family:'Shippori Mincho','Noto Serif JP',serif;">厳選 ${picks.length}点</span>
             ${pctHtml}
           </div>
         </div>
@@ -404,8 +407,8 @@ function buildPickRow(h) {
 
   let oddsHtml = '';
   if (rank!=null) {
-    const t = res.tanOdds  ? `<span style="font-size:11px;color:${rank===1?'#E8003D':'var(--muted)'};">単 <strong>${res.tanOdds}倍</strong></span>` : '';
-    const f = res.fukuOdds ? `<span style="font-size:11px;color:${rank<=3?'#8B1A1A':'var(--muted)'};">複 <strong>${res.fukuOdds}倍</strong></span>` : '';
+    const t = res.tanOdds  ? `<span style="font-size:11px;color:${rank===1?'#9B2D30':'var(--muted)'};">単 <strong>${res.tanOdds}倍</strong></span>` : '';
+    const f = res.fukuOdds ? `<span style="font-size:11px;color:${rank<=3?'#C9A961':'var(--muted)'};">複 <strong>${res.fukuOdds}倍</strong></span>` : '';
     if (t||f) oddsHtml = `<div style="display:flex;gap:10px;margin-top:3px;">${t}${f}</div>`;
   }
 

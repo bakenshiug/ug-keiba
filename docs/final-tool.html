@@ -3,28 +3,31 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>最終予想 作成ツール | UG強奪競馬新聞</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>
+<title>本殿工房｜最終予想作成 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet"/>
 <style>
 /* ── Reset & Base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #130003;
-  --bg-dk: #0b0002;
-  --bg-md: #1a0004;
-  --pink: #E8003D;
-  --pink-dk: #B5002E;
-  --gold: #f0c040;
-  --text: #f5d0d5;
-  --text-muted: rgba(255,255,255,0.50);
-  --card-bg: rgba(255,255,255,0.07);
-  --card-border: rgba(232,0,61,0.25);
-  --input-bg: rgba(255,255,255,0.06);
-  --input-border: rgba(232,0,61,0.30);
+  --bg: #FAFAFA;
+  --paper: #FBF7EE;
+  --shu: #9B2D30;
+  --shu-dk: #7A1E1E;
+  --kin: #C9A961;
+  --midori: #1F4D2E;
+  --pink: #9B2D30;
+  --pink-dk: #7A1E1E;
+  --gold: #C9A961;
+  --text: #1A1A1A;
+  --text-muted: rgba(26,26,26,0.60);
+  --card-bg: #FBF7EE;
+  --card-border: rgba(201,169,97,0.40);
+  --input-bg: #FFFFFF;
+  --input-border: rgba(201,169,97,0.45);
 }
 html { background: var(--bg); }
 body {
-  font-family: 'Public Sans', sans-serif;
+  font-family: 'Shippori Mincho','Noto Serif JP',serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
@@ -33,8 +36,10 @@ body {
 
 /* ── Header ── */
 .tool-header {
-  background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%);
-  border-bottom: 1px solid rgba(232,0,61,0.40);
+  background: rgba(250,250,250,.92);
+  border-bottom: 2px solid #9B2D30;
+  box-shadow: 0 2px 0 #C9A961, 0 6px 14px rgba(155,45,48,.08);
+  backdrop-filter: blur(8px);
   padding: 14px 20px;
   position: sticky;
   top: 0;
@@ -45,15 +50,16 @@ body {
   gap: 12px;
 }
 .tool-header h1 {
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Shippori Mincho','Noto Serif JP',serif;
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 0 0 20px rgba(232,0,61,0.55);
+  color: #9B2D30;
+  text-shadow: none;
+  letter-spacing:.05em;
 }
 .tool-header .subtitle {
   font-size: 10px;
-  color: rgba(255,255,255,0.50);
+  color: rgba(26,26,26,0.50);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 2px;
@@ -62,8 +68,8 @@ body {
   font-size: 10px;
   font-weight: 700;
   color: var(--gold);
-  background: rgba(240,192,64,0.12);
-  border: 1px solid rgba(240,192,64,0.30);
+  background: rgba(201,169,97,0.12);
+  border: 1px solid rgba(201,169,97,0.30);
   padding: 4px 10px;
   border-radius: 20px;
   white-space: nowrap;
@@ -104,7 +110,7 @@ body {
   letter-spacing: 0.05em;
 }
 .section-header .step-badge {
-  background: rgba(255,255,255,0.25);
+  background: rgba(26,26,26,0.25);
   color: #fff;
   font-size: 10px;
   font-weight: 900;
@@ -141,7 +147,7 @@ body {
 label {
   font-size: 11px;
   font-weight: 700;
-  color: rgba(255,255,255,0.65);
+  color: rgba(26,26,26,0.65);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -154,7 +160,7 @@ textarea {
   border: 1px solid var(--input-border);
   border-radius: 8px;
   color: var(--text);
-  font-family: 'Public Sans', sans-serif;
+  font-family: 'Shippori Mincho','Noto Serif JP',serif;
   font-size: 13px;
   padding: 9px 12px;
   width: 100%;
@@ -167,13 +173,13 @@ input[type="date"]:focus,
 select:focus,
 textarea:focus {
   border-color: var(--pink);
-  box-shadow: 0 0 0 3px rgba(232,0,61,0.18);
+  box-shadow: 0 0 0 3px rgba(155,45,48,0.18);
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1) opacity(0.5);
+  filter: opacity(0.6);
   cursor: pointer;
 }
-select option { background: #1a0004; color: var(--text); }
+select option { background: #FBF7EE; color: var(--text); }
 textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
 textarea.tall { min-height: 110px; }
 
@@ -185,7 +191,7 @@ textarea.tall { min-height: 110px; }
   gap: 6px;
   padding: 9px 16px;
   border-radius: 10px;
-  font-family: 'Public Sans', sans-serif;
+  font-family: 'Shippori Mincho','Noto Serif JP',serif;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
@@ -194,32 +200,32 @@ textarea.tall { min-height: 110px; }
 }
 .btn-primary {
   background: linear-gradient(135deg, var(--pink), var(--pink-dk));
-  color: #fff;
-  box-shadow: 0 2px 12px rgba(232,0,61,0.35);
+  color: #FBF7EE;
+  box-shadow: 0 2px 12px rgba(155,45,48,0.25);
 }
-.btn-primary:hover { box-shadow: 0 4px 20px rgba(232,0,61,0.55); transform: translateY(-1px); }
+.btn-primary:hover { box-shadow: 0 4px 20px rgba(155,45,48,0.55); transform: translateY(-1px); }
 .btn-secondary {
-  background: rgba(255,255,255,0.08);
+  background: rgba(26,26,26,0.08);
   color: var(--text);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(26,26,26,0.15);
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.14); }
+.btn-secondary:hover { background: rgba(26,26,26,0.14); }
 .btn-danger {
-  background: rgba(220,38,38,0.12);
-  color: #fca5a5;
-  border: 1px solid rgba(220,38,38,0.28);
+  background: rgba(155,45,48,0.12);
+  color: #7A1E1E;
+  border: 1px solid rgba(155,45,48,0.28);
 }
-.btn-danger:hover { background: rgba(220,38,38,0.24); }
+.btn-danger:hover { background: rgba(155,45,48,0.24); }
 .btn-gold {
-  background: linear-gradient(135deg, #f0c040, #d97706);
-  color: #130003;
+  background: linear-gradient(135deg, #C9A961, #d97706);
+  color: #FAFAFA;
   font-size: 15px;
   font-weight: 900;
   padding: 14px 28px;
   border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(240,192,64,0.40);
+  box-shadow: 0 2px 16px rgba(201,169,97,0.40);
 }
-.btn-gold:hover { box-shadow: 0 4px 28px rgba(240,192,64,0.65); transform: translateY(-1px); }
+.btn-gold:hover { box-shadow: 0 4px 28px rgba(201,169,97,0.65); transform: translateY(-1px); }
 .btn-auto {
   background: linear-gradient(135deg, #0ea5e9, #0369a1);
   color: #fff;
@@ -234,20 +240,20 @@ textarea.tall { min-height: 110px; }
 
 /* ── Info Note ── */
 .info-note {
-  background: rgba(232,0,61,0.08);
-  border: 1px solid rgba(232,0,61,0.22);
+  background: rgba(155,45,48,0.08);
+  border: 1px solid rgba(155,45,48,0.22);
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 12px;
-  color: rgba(255,255,255,0.72);
+  color: rgba(26,26,26,0.72);
   line-height: 1.5;
 }
 .info-note span.icon { margin-right: 4px; }
 
 /* ── Horse Add Form ── */
 .horse-add-form {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(232,0,61,0.18);
+  background: rgba(26,26,26,0.04);
+  border: 1px solid rgba(155,45,48,0.18);
   border-radius: 10px;
   padding: 14px;
   display: flex;
@@ -275,8 +281,8 @@ textarea.tall { min-height: 110px; }
 
 /* ── CSV Upload (STEP 2) ── */
 .csv-upload-area {
-  background: linear-gradient(135deg, rgba(240,192,64,0.10) 0%, rgba(232,0,61,0.06) 100%);
-  border: 2px dashed rgba(240,192,64,0.38);
+  background: linear-gradient(135deg, rgba(201,169,97,0.10) 0%, rgba(155,45,48,0.06) 100%);
+  border: 2px dashed rgba(201,169,97,0.38);
   border-radius: 12px;
   padding: 18px 16px;
   display: flex;
@@ -285,7 +291,7 @@ textarea.tall { min-height: 110px; }
 }
 .csv-upload-area.loaded {
   border-style: solid;
-  border-color: rgba(240,192,64,0.55);
+  border-color: rgba(201,169,97,0.55);
 }
 .csv-upload-label {
   display: flex;
@@ -297,20 +303,20 @@ textarea.tall { min-height: 110px; }
   font-weight: 700;
   font-size: 13px;
   padding: 12px;
-  background: rgba(240,192,64,0.08);
-  border: 1px solid rgba(240,192,64,0.30);
+  background: rgba(201,169,97,0.08);
+  border: 1px solid rgba(201,169,97,0.30);
   border-radius: 8px;
   transition: all 0.18s;
 }
-.csv-upload-label:hover { background: rgba(240,192,64,0.16); }
+.csv-upload-label:hover { background: rgba(201,169,97,0.16); }
 .csv-race-btn {
   width: 100%;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(26,26,26,0.05);
+  border: 1px solid rgba(26,26,26,0.10);
   border-radius: 8px;
   padding: 10px 14px;
   color: var(--text);
-  font-family: 'Public Sans', sans-serif;
+  font-family: 'Shippori Mincho','Noto Serif JP',serif;
   font-size: 12px;
   font-weight: 700;
   text-align: left;
@@ -320,7 +326,7 @@ textarea.tall { min-height: 110px; }
   align-items: center;
   justify-content: space-between;
 }
-.csv-race-btn:hover { background: rgba(240,192,64,0.12); border-color: rgba(240,192,64,0.40); }
+.csv-race-btn:hover { background: rgba(201,169,97,0.12); border-color: rgba(201,169,97,0.40); }
 
 /* ── Subsection header ── */
 .subsec-header {
@@ -332,18 +338,18 @@ textarea.tall { min-height: 110px; }
 .subsec-title {
   font-size: 12px;
   font-weight: 900;
-  color: rgba(255,255,255,0.80);
+  color: rgba(26,26,26,0.80);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .count-badge {
-  background: rgba(232,0,61,0.25);
+  background: rgba(155,45,48,0.25);
   color: var(--pink);
   font-size: 10px;
   font-weight: 900;
   padding: 2px 8px;
   border-radius: 20px;
-  border: 1px solid rgba(232,0,61,0.40);
+  border: 1px solid rgba(155,45,48,0.40);
 }
 
 /* ── Horse Table ── */
@@ -351,7 +357,7 @@ textarea.tall { min-height: 110px; }
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 10px;
-  border: 1px solid rgba(232,0,61,0.20);
+  border: 1px solid rgba(155,45,48,0.20);
 }
 table.horse-table {
   width: 100%;
@@ -360,32 +366,32 @@ table.horse-table {
   min-width: 780px;
 }
 table.horse-table th {
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.60);
+  background: rgba(26,26,26,0.06);
+  color: rgba(26,26,26,0.60);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding: 8px 10px;
   text-align: center;
-  border-bottom: 1px solid rgba(232,0,61,0.20);
+  border-bottom: 1px solid rgba(155,45,48,0.20);
   white-space: nowrap;
 }
 table.horse-table td {
   padding: 8px 8px;
   text-align: center;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(26,26,26,0.05);
   vertical-align: middle;
 }
 table.horse-table tr:last-child td { border-bottom: none; }
-table.horse-table tr:hover td { background: rgba(255,255,255,0.03); }
+table.horse-table tr:hover td { background: rgba(26,26,26,0.03); }
 .horse-row td { }
 td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space: nowrap; }
 
 /* Score select compact */
 .score-cell select {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(232,0,61,0.22);
+  background: rgba(26,26,26,0.06);
+  border: 1px solid rgba(155,45,48,0.22);
   border-radius: 6px;
   color: var(--text);
   font-size: 11px;
@@ -396,7 +402,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
   transition: border-color 0.15s;
 }
 .score-cell select:focus { border-color: var(--pink); }
-.score-cell select option { background: #1a0004; }
+.score-cell select option { background: #FBF7EE; }
 
 /* Gate color dot */
 .gate-dot {
@@ -435,17 +441,17 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
   font-size: 11px;
   font-weight: 900;
   cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(26,26,26,0.15);
+  background: rgba(26,26,26,0.06);
+  color: rgba(26,26,26,0.55);
   transition: all 0.15s;
   padding: 0;
   line-height: 22px;
   text-align: center;
 }
-.mark-btn:hover { background: rgba(255,255,255,0.14); color: #fff; }
-.mark-btn.active-maru2  { background: #f0c040; color: #130003; border-color: #f0c040; box-shadow: 0 0 8px rgba(240,192,64,0.60); }
-.mark-btn.active-maru1  { background: #E8003D; color: #fff;    border-color: #E8003D; box-shadow: 0 0 8px rgba(232,0,61,0.60); }
+.mark-btn:hover { background: rgba(26,26,26,0.14); color: #fff; }
+.mark-btn.active-maru2  { background: #C9A961; color: #FAFAFA; border-color: #C9A961; box-shadow: 0 0 8px rgba(201,169,97,0.60); }
+.mark-btn.active-maru1  { background: #9B2D30; color: #fff;    border-color: #9B2D30; box-shadow: 0 0 8px rgba(155,45,48,0.60); }
 .mark-btn.active-sankaku{ background: #EA580C; color: #fff;    border-color: #EA580C; box-shadow: 0 0 8px rgba(234,88,12,0.55); }
 .mark-btn.active-sankaku2{background: #2563EB; color: #fff;    border-color: #2563EB; box-shadow: 0 0 8px rgba(37,99,235,0.55); }
 .mark-btn.active-batsu  { background: #6B7280; color: #fff;    border-color: #6B7280; }
@@ -475,8 +481,8 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
 
 /* ── Filename preview ── */
 .filename-preview {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(240,192,64,0.30);
+  background: rgba(26,26,26,0.06);
+  border: 1px solid rgba(201,169,97,0.30);
   border-radius: 8px;
   padding: 10px 14px;
   font-family: 'Inter', monospace;
@@ -493,7 +499,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
 }
 .toggle-label {
   font-size: 12px;
-  color: rgba(255,255,255,0.65);
+  color: rgba(26,26,26,0.65);
   font-weight: 700;
 }
 .toggle-switch {
@@ -507,7 +513,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(255,255,255,0.15);
+  background: rgba(26,26,26,0.15);
   border-radius: 26px;
   transition: 0.3s;
 }
@@ -527,7 +533,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
   font-weight: 700;
 }
 .toggle-status.pub  { color: var(--pink); }
-.toggle-status.priv { color: rgba(255,255,255,0.45); }
+.toggle-status.priv { color: rgba(26,26,26,0.45); }
 
 /* ── Step generate actions ── */
 .generate-actions {
@@ -541,16 +547,16 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
 .empty-state {
   text-align: center;
   padding: 24px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(26,26,26,0.35);
   font-size: 13px;
 }
 
 /* Gate colors */
-.g1 { background:#ffffff; color:#130003; }
+.g1 { background:#ffffff; color:#FAFAFA; }
 .g2 { background:#000000; color:#fff; }
 .g3 { background:#ff0000; color:#fff; }
 .g4 { background:#3b82f6; color:#fff; }
-.g5 { background:#f59e0b; color:#130003; }
+.g5 { background:#f59e0b; color:#FAFAFA; }
 .g6 { background:#22c55e; color:#fff; }
 .g7 { background:#f97316; color:#fff; }
 .g8 { background:#ec4899; color:#fff; }
@@ -562,7 +568,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
 <header class="tool-header">
   <div>
     <h1>最終予想 作成ツール</h1>
-    <div class="subtitle">UG強奪競馬新聞 — Admin Only</div>
+    <div class="subtitle">UG競馬ワイド神宮 — Admin Only</div>
   </div>
   <div class="save-indicator" id="saveIndicator">💾 自動保存しました</div>
 </header>
@@ -694,8 +700,8 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
           </div>
           <button onclick="loadShindanScores()" style="
             padding:5px 12px;border-radius:8px;border:none;cursor:pointer;
-            background:rgba(240,192,64,0.15);color:var(--gold);
-            font-size:11px;font-weight:700;border:1px solid rgba(240,192,64,0.35);
+            background:rgba(201,169,97,0.15);color:var(--gold);
+            font-size:11px;font-weight:700;border:1px solid rgba(201,169,97,0.35);
           ">🔄 読込</button>
         </div>
         <div id="shindanStatus" style="font-size:12px; color:var(--text-muted);">重賞展望ページで「📤 最終予想ツールへ転送」を押してから読込してください</div>
@@ -710,7 +716,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
           </div>
           <div style="display:flex; gap:6px; align-items:center;">
             <input type="date" id="souteiDate" style="
-              background:rgba(255,255,255,0.07);border:1px solid rgba(147,197,253,0.35);
+              background:rgba(26,26,26,0.07);border:1px solid rgba(147,197,253,0.35);
               border-radius:7px;color:var(--text);font-size:11px;padding:4px 8px;
             " onchange="clearSouteiRaces();">
             <button onclick="loadSouteiData()" style="
@@ -726,7 +732,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
 
       <!-- Horse add form -->
       <div class="horse-add-form" id="horseAddForm" style="display:none;">
-        <div style="font-size:11px; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:0.05em; text-transform:uppercase;">馬を追加</div>
+        <div style="font-size:11px; font-weight:700; color:rgba(26,26,26,0.55); letter-spacing:0.05em; text-transform:uppercase;">馬を追加</div>
         <div class="form-row">
           <div class="fi fi-num">
             <label>馬番</label>
@@ -761,22 +767,22 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
       </div>
 
       <!-- 一括スコア入力 -->
-      <div id="bulkScoreArea" style="margin:0 0 14px;background:rgba(240,192,64,0.06);border:1px solid rgba(240,192,64,0.30);border-radius:12px;overflow:hidden;">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:rgba(240,192,64,0.10);cursor:pointer;" onclick="toggleBulkInput()">
+      <div id="bulkScoreArea" style="margin:0 0 14px;background:rgba(201,169,97,0.06);border:1px solid rgba(201,169,97,0.30);border-radius:12px;overflow:hidden;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:rgba(201,169,97,0.10);cursor:pointer;" onclick="toggleBulkInput()">
           <span style="font-size:11px;font-weight:900;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">📋 調教・勝負気配・ニック 一括入力</span>
           <span id="bulkToggleIcon" style="font-size:12px;color:var(--gold);">▼</span>
         </div>
         <div id="bulkScoreBody" style="display:none;padding:12px 14px;">
           <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">
-            形式：<code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;color:var(--gold);">馬番,馬名,調教pt,勝負気配pt,ニックpt</code>
+            形式：<code style="background:rgba(26,26,26,0.08);padding:2px 6px;border-radius:4px;color:var(--gold);">馬番,馬名,調教pt,勝負気配pt,ニックpt</code>
             &nbsp;（馬番 or 馬名どちらか一方でもOK）
           </div>
           <textarea id="bulkScoreText" rows="8" placeholder="例：
 1,ディープインパクト,20,30,5
 2,レイデオロ,-2,0,0
-3,キタサンブラック,15,20,3" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(240,192,64,0.35);border-radius:8px;color:var(--text);font-size:12px;font-family:monospace;padding:10px;resize:vertical;line-height:1.6;"></textarea>
+3,キタサンブラック,15,20,3" style="width:100%;background:rgba(26,26,26,0.06);border:1px solid rgba(201,169,97,0.35);border-radius:8px;color:var(--text);font-size:12px;font-family:monospace;padding:10px;resize:vertical;line-height:1.6;"></textarea>
           <div style="display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap;">
-            <button class="btn btn-primary btn-sm" onclick="applyBulkScores();" style="background:linear-gradient(135deg,var(--gold),#d97706);color:#130003;">✅ 反映する</button>
+            <button class="btn btn-primary btn-sm" onclick="applyBulkScores();" style="background:linear-gradient(135deg,var(--gold),#d97706);color:#FAFAFA;">✅ 反映する</button>
             <button class="btn btn-secondary btn-sm" onclick="generateBulkTemplate();">📋 現在の馬リストをテンプレ出力</button>
             <span id="bulkScoreMsg" style="font-size:11px;color:#4ade80;display:none;"></span>
           </div>
@@ -843,7 +849,7 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
         </select>
       </div>
       <!-- パターン説明バッジ -->
-      <div id="betPatternDesc" style="display:none; font-size:11px; background:rgba(240,192,64,0.10); border:1px solid rgba(240,192,64,0.30); border-radius:8px; padding:10px 12px; color:var(--gold); line-height:1.7;"></div>
+      <div id="betPatternDesc" style="display:none; font-size:11px; background:rgba(201,169,97,0.10); border:1px solid rgba(201,169,97,0.30); border-radius:8px; padding:10px 12px; color:var(--gold); line-height:1.7;"></div>
       <!-- サブ選択UI（パターン別に動的生成） -->
       <div id="betSubOptions" style="display:none;"></div>
 
@@ -936,15 +942,15 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
   </div>
 
   <!-- ══════════════════════════════════════ 公開手順 ══════════════════════════════════════ -->
-  <div class="section-card" style="border-color:rgba(240,192,64,0.30);">
-    <div class="section-header" style="background:linear-gradient(135deg,rgba(240,192,64,0.25),rgba(180,83,9,0.25));">
-      <span class="step-badge" style="background:rgba(240,192,64,0.25);color:var(--gold);border:1px solid rgba(240,192,64,0.40);">📤</span>
+  <div class="section-card" style="border-color:rgba(201,169,97,0.30);">
+    <div class="section-header" style="background:linear-gradient(135deg,rgba(201,169,97,0.25),rgba(201,169,97,0.25));">
+      <span class="step-badge" style="background:rgba(201,169,97,0.25);color:var(--gold);border:1px solid rgba(201,169,97,0.40);">📤</span>
       <h2 style="color:var(--gold);">サイト公開手順</h2>
     </div>
     <div class="section-body">
       <div style="display:flex;flex-direction:column;gap:10px;">
 
-        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(26,26,26,0.04);border:1px solid rgba(26,26,26,0.08);">
           <span style="font-size:18px;flex-shrink:0;">①</span>
           <div>
             <div style="font-size:12px;font-weight:900;color:#fff;margin-bottom:2px;">JSONをダウンロード</div>
@@ -952,20 +958,20 @@ td.td-name { text-align: left; padding-left: 10px; font-weight: 700; white-space
           </div>
         </div>
 
-        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);">
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(26,26,26,0.04);border:1px solid rgba(26,26,26,0.08);">
           <span style="font-size:18px;flex-shrink:0;">②</span>
           <div>
             <div style="font-size:12px;font-weight:900;color:#fff;margin-bottom:2px;">docs/data/ に保存してpush</div>
-            <div style="font-size:11px;color:var(--text-muted);">ダウンロードしたJSONを <code style="color:var(--gold);background:rgba(240,192,64,0.12);padding:1px 5px;border-radius:3px;">ug-keiba/docs/data/</code> に置き、ターミナルでpush</div>
+            <div style="font-size:11px;color:var(--text-muted);">ダウンロードしたJSONを <code style="color:var(--gold);background:rgba(201,169,97,0.12);padding:1px 5px;border-radius:3px;">ug-keiba/docs/data/</code> に置き、ターミナルでpush</div>
           </div>
         </div>
 
-        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(240,192,64,0.07);border:1px solid rgba(240,192,64,0.25);">
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-radius:10px;background:rgba(201,169,97,0.07);border:1px solid rgba(201,169,97,0.25);">
           <span style="font-size:18px;flex-shrink:0;">③</span>
           <div>
             <div style="font-size:12px;font-weight:900;color:var(--gold);margin-bottom:4px;">final-list.json にファイル名を追加してpush</div>
             <div style="font-size:11px;color:rgba(255,240,180,0.75);margin-bottom:6px;"><code style="background:rgba(0,0,0,0.30);padding:1px 5px;border-radius:3px;">ug-keiba/docs/data/final-list.json</code> を開き、<code style="background:rgba(0,0,0,0.30);padding:1px 5px;border-radius:3px;">files</code> 配列にファイル名（拡張子なし）を追加</div>
-            <div style="font-size:11px;font-family:monospace;background:rgba(0,0,0,0.35);border:1px solid rgba(240,192,64,0.20);border-radius:6px;padding:8px 10px;color:#fde68a;line-height:1.6;">
+            <div style="font-size:11px;font-family:monospace;background:rgba(0,0,0,0.35);border:1px solid rgba(201,169,97,0.20);border-radius:6px;padding:8px 10px;color:#fde68a;line-height:1.6;">
               "files": [<br>
               &nbsp;&nbsp;"final-nikkeisho-2026-03-28"<span style="color:var(--gold);">,</span><br>
               &nbsp;&nbsp;<span style="color:var(--gold);">"★ここに追加★"</span><br>
@@ -1483,7 +1489,7 @@ function makeScoreSelect(horseIdx, factor) {
     numInput.type = 'number';
     numInput.min = -20; numInput.max = 30; numInput.step = 1;
     numInput.value = finalHorses[horseIdx].scores[factor] || 0;
-    numInput.style.cssText = 'width:58px;background:rgba(255,255,255,0.08);border:1px solid rgba(232,0,61,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:4px 6px;text-align:center;';
+    numInput.style.cssText = 'width:58px;background:rgba(26,26,26,0.08);border:1px solid rgba(155,45,48,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:4px 6px;text-align:center;';
 
     var badge = document.createElement('span');
     badge.id = 'rawBadge-' + horseIdx + '-' + factor;
@@ -1546,9 +1552,9 @@ function makeScoreSelect(horseIdx, factor) {
 // 変換スコアバッジの色分け
 function applyRawBadgeStyle(el, converted) {
   var bg, color;
-  if (converted >= 3)       { bg = 'rgba(240,192,64,0.25)';  color = '#f0c040'; }
-  else if (converted >= 1.5){ bg = 'rgba(232,0,61,0.20)';   color = '#ffb3c6'; }
-  else if (converted >= 0)  { bg = 'rgba(255,255,255,0.10)'; color = 'rgba(255,255,255,0.65)'; }
+  if (converted >= 3)       { bg = 'rgba(201,169,97,0.25)';  color = '#C9A961'; }
+  else if (converted >= 1.5){ bg = 'rgba(155,45,48,0.20)';   color = '#ffb3c6'; }
+  else if (converted >= 0)  { bg = 'rgba(26,26,26,0.10)'; color = 'rgba(26,26,26,0.65)'; }
   else if (converted >= -1.5){ bg = 'rgba(37,99,235,0.20)';  color = '#93c5fd'; }
   else                      { bg = 'rgba(107,114,128,0.20)'; color = '#9ca3af'; }
   el.style.background = bg;
@@ -1573,9 +1579,9 @@ function onScoreChange(horseIdx, factor, value) {
 function applyBadgeColor(badge, pt) {
   var bg, border, color;
   if (pt >= 30) {
-    bg = 'rgba(240,192,64,0.20)'; border = '#f0c040'; color = '#f0c040';
+    bg = 'rgba(201,169,97,0.20)'; border = '#C9A961'; color = '#C9A961';
   } else if (pt >= 25) {
-    bg = 'rgba(232,0,61,0.20)';  border = '#E8003D'; color = '#E8003D';
+    bg = 'rgba(155,45,48,0.20)';  border = '#9B2D30'; color = '#9B2D30';
   } else if (pt >= 20) {
     bg = 'rgba(234,88,12,0.18)'; border = '#EA580C'; color = '#EA580C';
   } else if (pt >= 15) {
@@ -1669,7 +1675,7 @@ function renderHorseTable() {
 
       // 騎手
       var tdJockey = document.createElement('td');
-      tdJockey.style.cssText = 'font-size:11px;color:rgba(255,255,255,0.65);white-space:nowrap;';
+      tdJockey.style.cssText = 'font-size:11px;color:rgba(26,26,26,0.65);white-space:nowrap;';
       tdJockey.textContent = h.jockey || '—';
       tr.appendChild(tdJockey);
 
@@ -1678,7 +1684,7 @@ function renderHorseTable() {
       var basePtInput = document.createElement('input');
       basePtInput.type = 'number';
       basePtInput.value = h.basePt || 0;
-      basePtInput.style.cssText = 'width:52px;background:rgba(255,255,255,0.07);border:1px solid rgba(232,0,61,0.25);border-radius:6px;color:var(--text);font-size:12px;padding:4px 6px;text-align:center;';
+      basePtInput.style.cssText = 'width:52px;background:rgba(26,26,26,0.07);border:1px solid rgba(155,45,48,0.25);border-radius:6px;color:var(--text);font-size:12px;padding:4px 6px;text-align:center;';
       basePtInput.onchange = (function(ii){ return function() {
         finalHorses[ii].basePt = parseInt(this.value,10) || 0;
         finalHorses[ii].totalPt = calcTotal(finalHorses[ii]);
@@ -1785,7 +1791,7 @@ function addCustomBet() {
   lbl.contentEditable = true;
   lbl.style.outline = 'none';
   lbl.style.cursor = 'text';
-  lbl.style.borderBottom = '1px dashed rgba(240,192,64,0.40)';
+  lbl.style.borderBottom = '1px dashed rgba(201,169,97,0.40)';
   lbl.textContent = label;
   lbl.oninput = function() { scheduleSave(); };
   row.appendChild(lbl);
@@ -2158,8 +2164,8 @@ function applyBetPattern(key) {
 }
 
 // ── サブ選択UI ─────────────────────────────────────
-var SUB_STYLE = 'display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:var(--text);transition:all 0.16s;';
-var SUB_ACTIVE = 'display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid rgba(240,192,64,0.55);background:rgba(240,192,64,0.18);color:var(--gold);transition:all 0.16s;';
+var SUB_STYLE = 'display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid rgba(26,26,26,0.15);background:rgba(26,26,26,0.06);color:var(--text);transition:all 0.16s;';
+var SUB_ACTIVE = 'display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid rgba(201,169,97,0.55);background:rgba(201,169,97,0.18);color:var(--gold);transition:all 0.16s;';
 
 function renderBetSubOptions(key, container) {
   container.innerHTML = '';
@@ -2167,19 +2173,19 @@ function renderBetSubOptions(key, container) {
 
   if (key === 'tanshu') {
     // 単勝馬・複勝馬を馬リストから選択
-    container.style.cssText = 'display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(232,0,61,0.18);border-radius:10px;padding:14px;';
+    container.style.cssText = 'display:flex;flex-direction:column;gap:10px;background:rgba(26,26,26,0.04);border:1px solid rgba(155,45,48,0.18);border-radius:10px;padding:14px;';
     container.innerHTML =
       '<div style="font-size:11px;font-weight:900;color:var(--gold);letter-spacing:0.06em;">馬を選択</div>' +
       '<div style="display:flex;gap:12px;flex-wrap:wrap;">' +
         '<div style="display:flex;flex-direction:column;gap:4px;">' +
           '<label style="font-size:10px;color:var(--text-muted);font-weight:700;">単勝 馬</label>' +
-          '<select id="subTanshoHorse" onchange="onTanshuSelect()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,0,61,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:6px 10px;">' +
+          '<select id="subTanshoHorse" onchange="onTanshuSelect()" style="background:rgba(26,26,26,0.08);border:1px solid rgba(155,45,48,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:6px 10px;">' +
             buildHorseOptions('◎') +
           '</select>' +
         '</div>' +
         '<div style="display:flex;flex-direction:column;gap:4px;">' +
           '<label style="font-size:10px;color:var(--text-muted);font-weight:700;">複勝 馬</label>' +
-          '<select id="subFukushoHorse" onchange="onTanshuSelect()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(232,0,61,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:6px 10px;">' +
+          '<select id="subFukushoHorse" onchange="onTanshuSelect()" style="background:rgba(26,26,26,0.08);border:1px solid rgba(155,45,48,0.30);border-radius:6px;color:var(--text);font-size:12px;padding:6px 10px;">' +
             buildHorseOptions('○') +
           '</select>' +
         '</div>' +
@@ -2189,7 +2195,7 @@ function renderBetSubOptions(key, container) {
 
   } else if (key === 'form2') {
     // 2連系: 馬連 / 馬単 / 両方
-    container.style.cssText = 'display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(232,0,61,0.18);border-radius:10px;padding:14px;';
+    container.style.cssText = 'display:flex;flex-direction:column;gap:8px;background:rgba(26,26,26,0.04);border:1px solid rgba(155,45,48,0.18);border-radius:10px;padding:14px;';
     container.innerHTML =
       '<div style="font-size:11px;font-weight:900;color:var(--gold);">買い目タイプを選択</div>' +
       '<div style="display:flex;gap:8px;flex-wrap:wrap;" id="form2TypeBtns">' +
@@ -2201,7 +2207,7 @@ function renderBetSubOptions(key, container) {
 
   } else if (key === 'form3') {
     // 3連系: 3連複 / 3連単 / 両方
-    container.style.cssText = 'display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(232,0,61,0.18);border-radius:10px;padding:14px;';
+    container.style.cssText = 'display:flex;flex-direction:column;gap:8px;background:rgba(26,26,26,0.04);border:1px solid rgba(155,45,48,0.18);border-radius:10px;padding:14px;';
     container.innerHTML =
       '<div style="font-size:11px;font-weight:900;color:var(--gold);">買い目タイプを選択</div>' +
       '<div style="display:flex;gap:8px;flex-wrap:wrap;" id="form3TypeBtns">' +
@@ -2383,20 +2389,20 @@ function renderKinkaiRaceList() {
   if (!races.length) {
     container.innerHTML = '<div style="display:flex;align-items:center;gap:10px;">'
       + '<span style="font-size:12px;color:var(--text-muted);">「今週の金塊馬」でレースを追加するとここに表示されます</span>'
-      + '<button onclick="renderKinkaiRaceList()" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);cursor:pointer;">🔄</button>'
+      + '<button onclick="renderKinkaiRaceList()" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(26,26,26,0.08);border:1px solid rgba(26,26,26,0.15);color:rgba(26,26,26,0.6);cursor:pointer;">🔄</button>'
       + '</div>';
     return;
   }
 
   var html = '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">'
-    + '<span style="font-size:11px;color:rgba(255,255,255,0.5);">' + races.length + 'レース登録済み</span>'
-    + '<button onclick="renderKinkaiRaceList()" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);cursor:pointer;">🔄 更新</button>'
+    + '<span style="font-size:11px;color:rgba(26,26,26,0.5);">' + races.length + 'レース登録済み</span>'
+    + '<button onclick="renderKinkaiRaceList()" style="font-size:10px;padding:3px 8px;border-radius:6px;background:rgba(26,26,26,0.08);border:1px solid rgba(26,26,26,0.15);color:rgba(26,26,26,0.6);cursor:pointer;">🔄 更新</button>'
     + '</div><div style="display:flex;flex-direction:column;gap:6px;">';
   races.forEach(function(race, i) {
     var horses = race.allHorses || race.horses || [];
-    html += '<button onclick="importKinkaiRace(' + i + ')" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(240,192,64,0.25);cursor:pointer;width:100%;text-align:left;transition:background 0.15s;">'
+    html += '<button onclick="importKinkaiRace(' + i + ')" style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;background:rgba(26,26,26,0.06);border:1px solid rgba(201,169,97,0.25);cursor:pointer;width:100%;text-align:left;transition:background 0.15s;">'
       + '<span style="font-size:13px;font-weight:700;color:#fff;">' + race.raceName + '</span>'
-      + '<span style="font-size:11px;color:rgba(255,255,255,0.5);">' + horses.length + '頭 ›</span>'
+      + '<span style="font-size:11px;color:rgba(26,26,26,0.5);">' + horses.length + '頭 ›</span>'
       + '</button>';
   });
   html += '</div>';
@@ -2462,7 +2468,7 @@ function importKinkaiRace(idx) {
 
   document.getElementById('kinkaiRaceList').innerHTML =
     '<div style="font-size:12px;font-weight:700;color:#4ade80;">✅ ' + race.raceName + '（' + sourceHorses.length + '頭）を取込みました</div>'
-    + '<button onclick="renderKinkaiRaceList()" style="margin-top:8px;font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);cursor:pointer;">← レース一覧に戻る</button>';
+    + '<button onclick="renderKinkaiRaceList()" style="margin-top:8px;font-size:11px;padding:4px 10px;border-radius:6px;background:rgba(26,26,26,0.08);border:1px solid rgba(26,26,26,0.15);color:rgba(26,26,26,0.6);cursor:pointer;">← レース一覧に戻る</button>';
 
   setTimeout(function(){
     var tbl = document.getElementById('horseTableBody');

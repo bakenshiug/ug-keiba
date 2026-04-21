@@ -3,124 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>出走予定馬 分析 | UG競馬</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<title>拝殿｜出走馬の御神託 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/jinja.css"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg1:#022c22;--bg2:#064e3b;--bg3:#022c22;
-  --pink:#10b981;--pink-dk:#059669;--pink-lt:#6ee7b7;
-  --gold:#fcd34d;
-  --card:rgba(255,255,255,.06);--border:rgba(100,210,160,.18);
-  --text:#fff;--muted:rgba(255,210,230,.65);
-  --zi-s:#fcd34d;--zi-a:#86efac;--zi-b:#93c5fd;--zi-c:#fda4af;--zi-d:rgba(255,150,160,.45);
+  --bg:#FAFAFA;--bg-dk:#FBF7EE;--bg-md:#F5F0E3;
+  --bg1:#FAFAFA;--bg2:#FBF7EE;--bg3:#FAFAFA;
+  --paper:#FBF7EE;
+  --sumi:#1A1A1A;--shu:#9B2D30;--shu-dk:#7A1E1E;
+  --midori:#1F4D2E;--kin:#C9A961;
+  --pink:#9B2D30;--pink-dk:#7A1E1E;--pink-lt:#B85558;
+  --gold:#C9A961;
+  --card:rgba(255,255,255,.9);--border:rgba(201,169,97,.3);
+  --text:#2A2A2A;--muted:rgba(42,42,42,.6);
+  --zi-s:#C9A961;--zi-a:#1F4D2E;--zi-b:#2B5A9F;--zi-c:#9B2D30;--zi-d:rgba(155,45,48,.45);
 }
-html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);color:var(--text);font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;min-height:100vh;}
+html,body{
+  background:var(--bg);
+  background-image:linear-gradient(160deg, rgba(251,247,238,.5) 0%, rgba(250,250,250,1) 50%, rgba(251,247,238,.5) 100%),radial-gradient(circle at 20% 30%, rgba(201,169,97,.04) 0%, transparent 60%),radial-gradient(circle at 80% 70%, rgba(155,45,48,.03) 0%, transparent 60%);
+  color:var(--text);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  min-height:100vh;
+}
 
-/* ── ヘッダー ── */
+/* ── ヘッダー（鳥居風）── */
 .page-header{
-  background:linear-gradient(135deg,#022c22,#065f46,#022c22);
-  border-bottom:2px solid rgba(100,210,160,.35);
+  background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+  border-bottom:2px solid var(--shu);
   padding:12px 16px;
   display:flex;align-items:center;gap:12px;
   position:sticky;top:0;z-index:200;
-  box-shadow:0 2px 24px rgba(5,150,105,.35);
+  box-shadow:0 2px 12px rgba(155,45,48,.08);
+  position:relative;
+}
+.page-header::before{
+  content:'⛩';
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-size:60px;color:var(--shu);opacity:.04;
+  pointer-events:none;
+}
+.page-header::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  opacity:.4;
 }
 .back-btn{
   display:inline-flex;align-items:center;gap:4px;
-  font-size:12px;font-weight:700;color:#fff;
-  text-decoration:none;padding:5px 10px;border-radius:8px;
-  border:1px solid rgba(255,200,220,.4);
+  font-size:12px;font-weight:700;color:var(--shu);
+  text-decoration:none;padding:6px 12px;border-radius:3px;
+  border:1px solid var(--shu);
+  background:var(--paper);
   white-space:nowrap;flex-shrink:0;
+  font-family:'Shippori Mincho',serif;
+  transition:all .18s;
 }
-.page-title{font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;}
-.page-sub{font-size:10px;color:rgba(180,240,210,.8);margin-top:1px;}
+.back-btn:hover{background:var(--shu);color:#fff;}
+.page-title{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:16px;font-weight:800;color:var(--shu);letter-spacing:.08em;}
+.page-sub{font-size:10px;color:var(--muted);margin-top:1px;letter-spacing:.08em;}
 
-/* ── バナー ── */
+/* ── バナー（案内札）── */
 .breadcrumb-banner{
   padding:10px 16px;
-  background:linear-gradient(135deg,rgba(2,44,34,.55),rgba(6,95,70,.4),rgba(2,44,34,.55));
-  border-bottom:1px solid rgba(100,210,160,.2);
+  background:var(--paper);
+  border-bottom:1px solid var(--border);
   display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  font-family:'Shippori Mincho',serif;
 }
-.bc-item{font-size:11px;font-weight:700;color:rgba(255,210,230,.7);}
-.bc-sep{font-size:13px;color:rgba(255,170,200,.6);font-weight:900;}
-.bc-current{font-size:11px;font-weight:900;color:#6ee7b7;}
+.bc-item{font-size:11px;font-weight:700;color:var(--muted);}
+.bc-sep{font-size:13px;color:var(--kin);font-weight:900;}
+.bc-current{font-size:11px;font-weight:900;color:var(--shu);}
 
-/* ── タブ ── */
+/* ── タブ（御札バー）── */
 .tab-bar{
   display:flex;gap:0;
-  background:rgba(0,0,0,.25);
-  border-bottom:2px solid rgba(100,210,160,.2);
+  background:var(--paper);
+  border-bottom:2px solid var(--border);
   position:sticky;top:57px;z-index:100;
+  font-family:'Shippori Mincho',serif;
 }
 .tab-btn{
   flex:1;padding:11px 8px;
   font-size:12px;font-weight:700;color:var(--muted);
   background:transparent;border:none;cursor:pointer;
   border-bottom:3px solid transparent;
-  transition:all .18s;letter-spacing:.03em;
+  transition:all .18s;letter-spacing:.08em;
   text-align:center;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .tab-btn.active{
-  color:#fff;
-  border-bottom:3px solid var(--pink);
-  background:rgba(16,185,129,.12);
+  color:var(--shu);
+  border-bottom:3px solid var(--shu);
+  background:rgba(155,45,48,.06);
+  font-weight:900;
 }
 .tab-btn .tab-grade{
   font-size:9px;font-weight:900;
   padding:1px 5px;border-radius:3px;margin-right:4px;
   vertical-align:middle;
 }
-.grade-g1{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a1000;}
-.grade-g2{background:linear-gradient(135deg,#e0b0d0,#c080a0);color:#2a0a1a;}
-.grade-l{background:linear-gradient(135deg,#7ab8e0,#4a90c0);color:#fff;}
-.grade-op{background:linear-gradient(135deg,#a0a0a0,#707070);color:#fff;}
+.grade-g1{background:linear-gradient(135deg,var(--shu),var(--shu-dk));color:#fff;}
+.grade-g2{background:linear-gradient(135deg,var(--kin),#a88c52);color:#fff;}
+.grade-l{background:linear-gradient(135deg,var(--midori),#163c24);color:#fff;}
+.grade-op{background:linear-gradient(135deg,#8a8a8a,#6a6a6a);color:#fff;}
 
-/* ── レース情報 ── */
+/* ── レース情報（本日の御神籤）── */
 .race-info{
   padding:12px 16px;
-  background:rgba(255,255,255,.04);
-  border-bottom:1px solid rgba(100,210,160,.2);
+  background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+  border-bottom:1px solid var(--border);
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  position:relative;
 }
-.race-info-name{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#fff;}
-.race-info-meta{font-size:10px;color:var(--muted);margin-top:2px;}
+.race-info::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  opacity:.5;
+}
+.race-info-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:17px;font-weight:800;color:var(--sumi);letter-spacing:.04em;}
+.race-info-meta{font-size:11px;color:var(--muted);margin-top:2px;font-family:'Shippori Mincho',serif;}
 .horse-count{
   margin-left:auto;font-size:10px;font-weight:700;
-  padding:3px 10px;border-radius:20px;
-  background:rgba(16,185,129,.12);color:rgba(110,231,183,.9);
-  border:1px solid rgba(16,185,129,.2);
+  padding:4px 12px;border-radius:3px;
+  background:rgba(155,45,48,.08);color:var(--shu);
+  border:1px solid var(--shu);
+  font-family:'Shippori Mincho',serif;
+  letter-spacing:.08em;
 }
 
-/* ── 馬カード ── */
+/* ── 馬カード（御神籤札）── */
 .horse-list{padding:12px 12px 80px;}
 .horse-card{
   background:#fff;
-  border:1px solid rgba(200,30,80,.18);
-  border-radius:16px;
+  border:1px solid var(--border);
+  border-radius:4px;
   margin-bottom:10px;
   overflow:hidden;
-  transition:border-color .15s;
+  transition:all .15s;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+  font-family:'Shippori Mincho',serif;
+  position:relative;
 }
-.horse-card:active{border-color:rgba(255,140,185,.4);}
+.horse-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  opacity:.25;
+  pointer-events:none;
+}
+.horse-card:active{border-color:var(--shu);}
 .tokuchuu-banner{
   margin:6px 0 2px;
-  padding:5px 10px;
-  background:linear-gradient(90deg,#fff7e6,#fff3cd);
-  border:1px solid #f59e0b;
-  border-radius:8px;
+  padding:6px 12px;
+  background:linear-gradient(90deg,rgba(201,169,97,.12),rgba(201,169,97,.04));
+  border:1px solid var(--kin);
+  border-left:3px solid var(--kin);
+  border-radius:0 4px 4px 0;
   font-size:11px;font-weight:800;
-  color:#92400e;
-  letter-spacing:.03em;
+  color:#7a5500;
+  letter-spacing:.08em;
+  font-family:'Shippori Mincho',serif;
 }
 
 /* カードヘッダー */
 .card-head{
   display:flex;flex-direction:column;gap:8px;
-  padding:11px 14px 10px;
-  background:linear-gradient(160deg,#fdf6f9 0%,#f9f0f5 100%);
-  border-bottom:2px solid rgba(200,30,80,.1);
+  padding:12px 14px 10px;
+  background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+  border-bottom:1px solid var(--border);
 }
 /* Z字レイアウト：左(馬番+馬名) ↔ 右(オッズ) */
 .card-head-top{display:flex;align-items:center;gap:10px;}
@@ -134,27 +185,28 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .horse-num-mode{font-size:7px;font-weight:700;line-height:1;letter-spacing:.03em;opacity:.85;}
 /* ランク#1 強調（強弱の法則） */
 .horse-num.rank1-highlight{
-  box-shadow:0 0 0 2.5px #f59e0b, 0 3px 10px rgba(245,158,11,.35);
+  box-shadow:0 0 0 2.5px var(--kin), 0 3px 10px rgba(201,169,97,.4);
 }
-.horse-num-zi     {background:rgba(232,48,110,.15);color:#c01860;}
-.horse-num-sougou {background:linear-gradient(135deg,rgba(252,211,77,.18),rgba(110,231,183,.18));color:#6d28d9;}
-.horse-num-tan    {background:rgba(252,211,77,.22);color:#b45309;}
-.horse-num-fuku   {background:rgba(110,231,183,.22);color:#047857;}
-.horse-num-ana    {background:rgba(167,139,250,.22);color:#6d28d9;}
-.horse-num-sf3    {background:rgba(251,146,60,.22);color:#c2410c;}
-.horse-num-keshi  {background:rgba(248,113,113,.12);color:rgba(248,113,113,.7);border:1px solid rgba(248,113,113,.25);}
-/* ── 印バッジ ── */
+.horse-num-zi     {background:rgba(155,45,48,.1);color:var(--shu);}
+.horse-num-sougou {background:linear-gradient(135deg,rgba(201,169,97,.15),rgba(31,77,46,.1));color:var(--shu-dk);}
+.horse-num-tan    {background:rgba(201,169,97,.18);color:#7a5500;}
+.horse-num-fuku   {background:rgba(31,77,46,.12);color:var(--midori);}
+.horse-num-ana    {background:rgba(155,45,48,.14);color:var(--shu-dk);}
+.horse-num-sf3    {background:rgba(201,169,97,.2);color:#7a5500;}
+.horse-num-keshi  {background:var(--paper);color:var(--muted);border:1px solid var(--border);}
+/* ── 印バッジ（神職の印章）── */
 .mark-badge{
   display:inline-flex;align-items:center;justify-content:center;
   width:30px;height:30px;border-radius:50%;
   font-size:16px;font-weight:900;flex-shrink:0;line-height:1;
-  box-shadow:0 2px 6px rgba(0,0,0,.18);
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+  font-family:'Shippori Mincho',serif;
 }
-.mark-honmei { background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#fff; border:2px solid #d97706; }  /* ◎ */
-.mark-taikou { background:linear-gradient(135deg,#94a3b8,#64748b); color:#fff; border:2px solid #475569; }  /* ○ */
-.mark-tantan { background:linear-gradient(135deg,#f87171,#ef4444); color:#fff; border:2px solid #dc2626; }  /* ▲ */
-.mark-hoshi  { background:linear-gradient(135deg,#c084fc,#a855f7); color:#fff; border:2px solid #9333ea; }  /* ⭐ */
-.mark-sankaku{ background:linear-gradient(135deg,#6b7280,#4b5563); color:#fff; border:2px solid #374151; font-size:13px; } /* △ */
+.mark-honmei { background:linear-gradient(135deg,var(--shu),var(--shu-dk)); color:#fff; border:2px solid var(--shu-dk); }  /* ◎ */
+.mark-taikou { background:linear-gradient(135deg,var(--midori),#163c24); color:#fff; border:2px solid #163c24; }  /* ○ */
+.mark-tantan { background:linear-gradient(135deg,var(--kin),#a88c52); color:#fff; border:2px solid #a88c52; }  /* ▲ */
+.mark-hoshi  { background:linear-gradient(135deg,#8b1a1a,#5a0e0e); color:#fff; border:2px solid #5a0e0e; }  /* ⭐ */
+.mark-sankaku{ background:linear-gradient(135deg,#8a8a8a,#6a6a6a); color:#fff; border:2px solid #6a6a6a; font-size:13px; } /* △ */
 /* ── 枠番バッジ（JRA公式8色） ── */
 .gate-badge{
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
@@ -171,15 +223,15 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .gate-6{background:#16a34a;color:#fff;border:1.5px solid #166534;}         /* 緑 */
 .gate-7{background:#ea580c;color:#fff;border:1.5px solid #c2410c;}         /* 橙 */
 .gate-8{background:#f472b6;color:#fff;border:1.5px solid #db2777;}         /* 桃 */
-.horse-num-uma{background:rgba(99,102,241,.15);color:#4338ca;border:1px solid rgba(99,102,241,.3);}
+.horse-num-uma{background:rgba(155,45,48,.1);color:var(--shu);border:1px solid var(--shu);}
 .horse-name{
-  font-family:'Noto Serif JP',serif;
-  font-size:16px;font-weight:900;color:#1a0a10;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:16px;font-weight:800;color:var(--sumi);
   flex:1;min-width:0;
-  letter-spacing:.02em;line-height:1.2;
+  letter-spacing:.04em;line-height:1.2;
 }
-/* 馬名ランク#1 強調 */
-.horse-name.rank1-name{ color:#92400e; font-size:17px; }
+/* 馬名ランク#1 強調（神託馬）*/
+.horse-name.rank1-name{ color:var(--shu); font-size:17px; font-weight:900; }
 /* ── バッジグループ ── */
 .badge-groups{display:flex;flex-direction:column;gap:5px;flex-shrink:0;}
 .badge-group{display:flex;align-items:flex-start;gap:4px;flex-wrap:wrap;}
@@ -199,68 +251,70 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .badge-group.badge-group-lap { background:linear-gradient(90deg,rgba(6,148,162,.08),rgba(6,148,162,.03)); border-left:2px solid rgba(6,148,162,.45); border-radius:6px; padding:3px 6px; }
 .badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
 
-/* 想定人気・オッズ（Z字 右端 = 視線のゴール） */
+/* 想定人気・オッズ（御札右端）*/
 .odds-tag{
   display:flex;flex-direction:column;align-items:flex-end;
   flex-shrink:0;gap:0px;
-  padding:4px 7px;border-radius:8px;
-  background:rgba(192,24,96,.06);
-  border:1px solid rgba(192,24,96,.12);
+  padding:4px 9px;border-radius:3px;
+  background:rgba(155,45,48,.06);
+  border:1px solid var(--border);
+  font-family:'Shippori Mincho',serif;
 }
 .odds-pop{
-  font-size:9px;font-weight:900;color:#c01860;letter-spacing:.03em;white-space:nowrap;
+  font-size:10px;font-weight:900;color:var(--shu);letter-spacing:.08em;white-space:nowrap;
 }
 .odds-val{
-  font-size:14px;font-weight:900;color:#1a0a10;letter-spacing:.01em;white-space:nowrap;
+  font-size:14px;font-weight:900;color:var(--sumi);letter-spacing:.02em;white-space:nowrap;
 }
-.odds-na{font-size:10px;color:#bbb;font-style:italic;}
+.odds-na{font-size:10px;color:var(--muted);font-style:italic;}
 
-/* ZI能力値バッジ */
+/* ZI能力値バッジ（品格カラー）*/
 .zi-badge{
-  font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;
+  font-size:10px;font-weight:900;padding:2px 7px;border-radius:3px;
   white-space:nowrap;letter-spacing:.04em;
+  font-family:'Shippori Mincho',serif;
 }
-.zi-s{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
-.zi-a{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
-.zi-b{background:#dbeafe;color:#1e40af;border:1px solid #60a5fa;}
-.zi-c{background:#ffe4e6;color:#9f1239;border:1px solid #fb7185;}
-.zi-d{background:#f3f4f6;color:#9ca3af;border:1px solid #d1d5db;}
+.zi-s{background:rgba(201,169,97,.15);color:#7a5500;border:1px solid var(--kin);}
+.zi-a{background:rgba(31,77,46,.08);color:var(--midori);border:1px solid var(--midori);}
+.zi-b{background:rgba(43,90,159,.08);color:#2B5A9F;border:1px solid rgba(43,90,159,.4);}
+.zi-c{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.3);}
+.zi-d{background:var(--paper);color:var(--muted);border:1px solid var(--border);}
 
 /* 外厩グレードバッジ */
 .ext-grade{
-  font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;
-  white-space:nowrap;
+  font-size:10px;font-weight:900;padding:2px 7px;border-radius:3px;
+  white-space:nowrap;font-family:'Shippori Mincho',serif;
 }
-.extg-s{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
-.extg-a{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
-.extg-b{background:#f3f4f6;color:#6b7280;border:1px solid #d1d5db;}
+.extg-s{background:rgba(201,169,97,.15);color:#7a5500;border:1px solid var(--kin);}
+.extg-a{background:rgba(31,77,46,.08);color:var(--midori);border:1px solid var(--midori);}
+.extg-b{background:var(--paper);color:var(--muted);border:1px solid var(--border);}
 
 /* 血統グレードバッジ */
 .blood-grade{
   font-size:9px;font-weight:900;padding:2px 6px;border-radius:5px;
   white-space:nowrap;letter-spacing:.03em;
 }
-/* S grades: 金・amber 3段階 */
-.bg-3s{background:#f59e0b;color:#1c0a00;border:1px solid #b45309;font-weight:900;}
-.bg-2s,.bg-s{background:#fef3c7;color:#92400e;border:1px solid #f59e0b;}
-.bg-1s{background:#fffbeb;color:#b45309;border:1px solid #fcd34d;}
-/* A grades: 緑・emerald 3段階 */
-.bg-3a{background:#10b981;color:#022c22;border:1px solid #059669;font-weight:900;}
-.bg-2a,.bg-a{background:#d1fae5;color:#065f46;border:1px solid #34d399;}
-.bg-1a{background:#ecfdf5;color:#166534;border:1px solid #86efac;}
-/* B grades: 青・blue 3段階 */
-.bg-3b{background:#60a5fa;color:#172554;border:1px solid #2563eb;font-weight:900;}
-.bg-2b,.bg-b{background:#dbeafe;color:#1e40af;border:1px solid #60a5fa;}
-.bg-1b{background:#eff6ff;color:#3b82f6;border:1px solid #bfdbfe;}
-/* C grades: 赤・rose 3段階 */
-.bg-3c{background:#fb7185;color:#4c0519;border:1px solid #e11d48;font-weight:900;}
-.bg-2c,.bg-c{background:#ffe4e6;color:#9f1239;border:1px solid #fb7185;}
-.bg-1c{background:#fff1f2;color:#be123c;border:1px solid #fda4af;}
+/* S grades: 金 3段階 */
+.bg-3s{background:var(--kin);color:#fff;border:1px solid #a88c52;font-weight:900;}
+.bg-2s,.bg-s{background:rgba(201,169,97,.18);color:#7a5500;border:1px solid var(--kin);}
+.bg-1s{background:rgba(201,169,97,.08);color:#7a5500;border:1px solid rgba(201,169,97,.5);}
+/* A grades: 深緑 3段階 */
+.bg-3a{background:var(--midori);color:#fff;border:1px solid #163c24;font-weight:900;}
+.bg-2a,.bg-a{background:rgba(31,77,46,.12);color:var(--midori);border:1px solid var(--midori);}
+.bg-1a{background:rgba(31,77,46,.05);color:var(--midori);border:1px solid rgba(31,77,46,.3);}
+/* B grades: 藍 3段階 */
+.bg-3b{background:#2B5A9F;color:#fff;border:1px solid #1e3f73;font-weight:900;}
+.bg-2b,.bg-b{background:rgba(43,90,159,.1);color:#2B5A9F;border:1px solid rgba(43,90,159,.5);}
+.bg-1b{background:rgba(43,90,159,.04);color:#2B5A9F;border:1px solid rgba(43,90,159,.3);}
+/* C grades: 朱 3段階 */
+.bg-3c{background:var(--shu);color:#fff;border:1px solid var(--shu-dk);font-weight:900;}
+.bg-2c,.bg-c{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.4);}
+.bg-1c{background:rgba(155,45,48,.04);color:var(--shu);border:1px solid rgba(155,45,48,.25);}
 /* D */
-.bg-d{background:#f3f4f6;color:#9ca3af;border:1px solid #d1d5db;}
-.bg-n{background:#f9fafb;color:#d1d5db;border:1px solid #e5e7eb;}
-.bg-analyzing{background:#f3f4f6;color:#9ca3af;border:1px solid #e5e7eb;font-style:italic;letter-spacing:.01em;}
-.bg-age-fixed{background:#e0f2fe;color:#0369a1;border:1px solid #7dd3fc;font-weight:700;}
+.bg-d{background:var(--paper);color:var(--muted);border:1px solid var(--border);}
+.bg-n{background:#fff;color:var(--muted);border:1px solid var(--border);}
+.bg-analyzing{background:var(--paper);color:var(--muted);border:1px solid var(--border);font-style:italic;letter-spacing:.04em;}
+.bg-age-fixed{background:rgba(43,90,159,.08);color:#2B5A9F;border:1px solid rgba(43,90,159,.4);font-weight:700;}
 
 /* ── デュアルバッジ (単/複 分割) ── */
 .dual-badge{
@@ -282,316 +336,342 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .dual-t::before{content:'単';font-size:7px;opacity:.6;font-weight:700;}
 .dual-f::before{content:'複';font-size:7px;opacity:.6;font-weight:700;}
 
-/* ── スコアバー（Z字の底辺・情報密度のゴール） ── */
+/* ── スコアバー（御神託の指標）── */
 .score-bars{
   display:flex;flex-direction:column;gap:4px;
-  padding:7px 12px;
-  background:#f5eff3;
-  border-radius:8px;
-  border:1px solid rgba(200,30,80,.13);
-  border-top:2px solid rgba(200,30,80,.15);
+  padding:8px 12px;
+  background:var(--paper);
+  border-radius:0 0 4px 4px;
+  border:1px solid var(--border);
+  border-top:2px solid var(--kin);
+  font-family:'Shippori Mincho',serif;
 }
 .score-row{display:flex;align-items:center;gap:6px;}
 .score-lbl{
-  font-size:9px;font-weight:900;width:14px;text-align:center;flex-shrink:0;
+  font-size:10px;font-weight:900;width:14px;text-align:center;flex-shrink:0;
+  font-family:'Shippori Mincho',serif;
 }
-.score-lbl.tan-lbl{color:#b45309;}
-.score-lbl.fuku-lbl{color:#047857;}
+.score-lbl.tan-lbl{color:var(--shu);}
+.score-lbl.fuku-lbl{color:var(--midori);}
 .score-track{
-  flex:1;height:5px;background:#e5e7eb;
+  flex:1;height:5px;background:rgba(201,169,97,.15);
   border-radius:3px;overflow:hidden;min-width:0;
 }
 .score-fill{height:100%;border-radius:3px;transition:width .3s;}
-.score-fill.tan-fill{background:linear-gradient(90deg,#d97706,#fcd34d);}
-.score-fill.fuku-fill{background:linear-gradient(90deg,#059669,#6ee7b7);}
-.score-fill.ana-fill{background:linear-gradient(90deg,#7c3aed,#c4b5fd);}
-.score-fill.sougo-fill{background:linear-gradient(90deg,#ea580c,#fb923c);}
+.score-fill.tan-fill{background:linear-gradient(90deg,var(--shu),var(--shu-dk));}
+.score-fill.fuku-fill{background:linear-gradient(90deg,var(--midori),#163c24);}
+.score-fill.ana-fill{background:linear-gradient(90deg,#5a3a7a,#40285a);}
+.score-fill.sougo-fill{background:linear-gradient(90deg,var(--kin),#a88c52);}
 .score-val{
-  font-size:9px;font-weight:900;width:36px;text-align:right;flex-shrink:0;
+  font-size:10px;font-weight:900;width:36px;text-align:right;flex-shrink:0;
+  font-family:'Shippori Mincho',serif;
 }
-.score-val.tan-val{color:#b45309;}
-.score-val.fuku-val{color:#047857;}
+.score-val.tan-val{color:var(--shu);}
+.score-val.fuku-val{color:var(--midori);}
 .score-rank{
   font-size:9px;font-weight:900;width:24px;text-align:center;flex-shrink:0;
-  color:#ccc;
+  color:var(--muted);font-family:'Shippori Mincho',serif;
 }
-/* 強弱: #1 = ゴールド強調、#2#3 = サブカラー */
+/* 強弱: #1 = 金色強調、#2#3 = サブカラー */
 .score-rank.rk1{
-  color:#92400e;background:#fef3c7;border-radius:4px;
-  padding:1px 3px;font-size:8px;
+  color:#fff;background:var(--kin);border-radius:3px;
+  padding:1px 4px;font-size:8px;
 }
-.score-rank.rk2{color:#6b7280;}
-.score-rank.rk3{color:#b45309;}
+.score-rank.rk2{color:var(--muted);}
+.score-rank.rk3{color:var(--shu);}
 
-/* ── 買い目提案 ── */
+/* ── 買い目提案（授与所）── */
 .bet-section{
   margin:10px 12px;padding:14px 16px;
   background:#fff;
-  border:1.5px solid rgba(232,19,110,.35);
-  border-radius:12px;
+  border:2px solid var(--kin);
+  border-radius:4px;
+  position:relative;
+  font-family:'Shippori Mincho',serif;
+}
+.bet-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  pointer-events:none;
 }
 .bet-header{
   display:flex;align-items:center;gap:10px;margin-bottom:12px;
-  border-bottom:1px solid rgba(232,19,110,.2);padding-bottom:10px;
+  border-bottom:1px solid var(--border);padding-bottom:10px;
 }
 .bet-race-type{
-  font-size:11px;font-weight:900;padding:4px 10px;border-radius:20px;
-  color:#fff;letter-spacing:.5px;background:#E8136E;
+  font-size:11px;font-weight:900;padding:4px 12px;border-radius:3px;
+  color:#fff;letter-spacing:.1em;background:var(--shu);
 }
-.bet-title{font-size:13px;font-weight:700;color:#E8136E;}
-.bet-total{margin-left:auto;font-size:11px;font-weight:700;color:rgba(180,0,80,.7);}
+.bet-title{font-size:14px;font-weight:800;color:var(--shu);letter-spacing:.08em;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.bet-total{margin-left:auto;font-size:11px;font-weight:700;color:var(--muted);}
 .bet-row{
   display:flex;align-items:center;gap:8px;
-  padding:8px 0;border-bottom:1px solid rgba(232,19,110,.12);
+  padding:9px 0;border-bottom:1px solid rgba(201,169,97,.15);
   flex-wrap:wrap;
 }
 .bet-row:last-child{border-bottom:none;}
 .bet-type{
-  font-size:12px;font-weight:900;padding:3px 10px;border-radius:20px;
-  background:#E8136E;color:#fff;white-space:nowrap;min-width:44px;text-align:center;
+  font-size:12px;font-weight:900;padding:3px 10px;border-radius:3px;
+  background:var(--shu);color:#fff;white-space:nowrap;min-width:44px;text-align:center;
+  letter-spacing:.06em;
 }
 .bet-horses{
-  font-size:13px;font-weight:700;color:#222;flex:1;
+  font-size:13px;font-weight:700;color:var(--sumi);flex:1;
+  font-family:'Shippori Mincho',serif;
 }
 .bet-points{
-  font-size:11px;font-weight:900;color:rgba(180,0,80,.7);white-space:nowrap;
+  font-size:11px;font-weight:900;color:var(--muted);white-space:nowrap;
 }
 .bet-note{
-  font-size:10px;color:rgba(180,0,80,.7);width:100%;padding-left:2px;
+  font-size:10px;color:var(--muted);width:100%;padding-left:2px;
 }
 .bet-optional-note{
-  font-size:11px;font-weight:600;color:#7c3aed;
-  width:100%;padding:4px 8px;margin-top:2px;
-  background:rgba(124,58,237,.07);
-  border-left:3px solid rgba(124,58,237,.4);
+  font-size:11px;font-weight:600;color:var(--shu-dk);
+  width:100%;padding:5px 10px;margin-top:2px;
+  background:rgba(155,45,48,.06);
+  border-left:3px solid var(--shu);
   border-radius:0 4px 4px 0;
 }
 .bet-row-detail{flex-direction:column;align-items:stretch;gap:6px;padding:10px 0;}
 .bet-row-top{display:flex;align-items:center;gap:8px;}
-.bet-note-inline{font-size:10px;color:rgba(180,0,80,.7);margin-left:auto;}
+.bet-note-inline{font-size:10px;color:var(--muted);margin-left:auto;}
 .bet-formation-rows{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
 .bet-formation-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .bet-chakuban{
-  font-size:11px;font-weight:900;color:#E8136E;
+  font-size:11px;font-weight:900;color:var(--shu);
   white-space:nowrap;min-width:40px;
 }
 .bet-horse-chips{display:flex;flex-wrap:wrap;gap:4px;}
 .bet-horses-detail{
   display:flex;align-items:center;gap:6px;flex-wrap:wrap;
-  padding:6px 10px;background:rgba(232,19,110,.08);border-radius:6px;
+  padding:7px 12px;background:rgba(201,169,97,.08);border-radius:4px;
+  border:1px solid var(--border);
 }
 .bet-jiku{
-  font-size:12px;font-weight:900;color:#E8136E;white-space:nowrap;
+  font-size:12px;font-weight:900;color:var(--shu);white-space:nowrap;
 }
-.bet-arrow{font-size:14px;color:rgba(232,19,110,.6);flex-shrink:0;}
+.bet-arrow{font-size:14px;color:var(--kin);flex-shrink:0;}
 .bet-aite-chips{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
 .bet-horse-chip{
   font-size:11px;font-weight:700;
-  padding:3px 9px;border-radius:20px;
-  background:rgba(232,19,110,.12);
-  border:1px solid rgba(232,19,110,.5);
-  color:#c01060;
+  padding:3px 10px;border-radius:3px;
+  background:rgba(155,45,48,.08);
+  border:1px solid var(--shu);
+  color:var(--shu-dk);
   white-space:nowrap;
+  font-family:'Shippori Mincho',serif;
 }
-/* ── ソートバー ── */
+/* ── ソートバー（御札振り分け）── */
 .sort-bar{
   display:flex;align-items:center;gap:6px;
   padding:8px 12px;
-  background:rgba(255,255,255,.025);
-  border-bottom:1px solid rgba(100,210,160,.1);
+  background:var(--paper);
+  border-bottom:1px solid var(--border);
+  font-family:'Shippori Mincho',serif;
 }
 .sort-bar-label{
-  font-size:9px;font-weight:700;
-  color:rgba(100,210,160,.5);white-space:nowrap;
+  font-size:10px;font-weight:800;
+  color:var(--shu);white-space:nowrap;letter-spacing:.08em;
 }
 .sort-btn{
   font-size:10px;font-weight:700;
-  padding:4px 10px;border-radius:8px;
-  border:1px solid rgba(100,210,160,.2);
-  background:rgba(255,255,255,.04);
-  color:rgba(110,231,183,.5);
+  padding:5px 12px;border-radius:3px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--muted);
   cursor:pointer;white-space:nowrap;
+  font-family:'Shippori Mincho',serif;
+  transition:all .18s;
 }
 .sort-btn.active{
-  background:rgba(16,185,129,.2);
-  border-color:rgba(16,185,129,.4);
-  color:#fff;
+  background:rgba(155,45,48,.08);
+  border-color:var(--shu);
+  color:var(--shu);
+  font-weight:900;
 }
 .sort-btn.ana-btn{
-  border-color:rgba(167,139,250,.35);
-  color:rgba(196,181,253,.7);
+  border-color:rgba(90,58,122,.35);
+  color:#5a3a7a;
 }
 .sort-btn.ana-btn.active{
-  background:rgba(109,40,217,.25);
-  border-color:rgba(167,139,250,.6);
-  color:#ddd6fe;
+  background:rgba(90,58,122,.1);
+  border-color:#5a3a7a;
+  color:#40285a;
 }
 .sort-btn.sf3-btn{
-  border-color:rgba(251,146,60,.35);
-  color:rgba(253,186,116,.7);
+  border-color:rgba(201,169,97,.5);
+  color:#7a5500;
 }
 .sort-btn.sf3-btn.active{
-  background:rgba(194,65,12,.25);
-  border-color:rgba(251,146,60,.6);
-  color:#fed7aa;
+  background:rgba(201,169,97,.15);
+  border-color:var(--kin);
+  color:#7a5500;
 }
 .sort-btn.sougou-btn{
-  border-color:rgba(109,40,217,.35);
-  color:rgba(167,139,250,.8);
+  border-color:rgba(155,45,48,.35);
+  color:var(--shu-dk);
   font-weight:800;
 }
 .sort-btn.sougou-btn.active{
-  background:linear-gradient(90deg,rgba(180,83,9,.2),rgba(4,120,87,.2));
-  border-color:rgba(167,139,250,.6);
-  color:#ddd6fe;
+  background:linear-gradient(90deg,rgba(201,169,97,.15),rgba(155,45,48,.12));
+  border-color:var(--shu);
+  color:var(--shu);
 }
 .sort-btn.uma-btn{
-  border-color:rgba(99,102,241,.35);
-  color:rgba(99,102,241,.8);
+  border-color:rgba(43,90,159,.35);
+  color:#2B5A9F;
 }
 .sort-btn.uma-btn.active{
-  background:rgba(99,102,241,.15);
-  border-color:rgba(99,102,241,.6);
-  color:#a5b4fc;
+  background:rgba(43,90,159,.08);
+  border-color:#2B5A9F;
+  color:#1e3f73;
   font-weight:800;
 }
 .sort-btn.mark-btn{
-  border-color:rgba(245,158,11,.5);
-  color:rgba(245,158,11,.9);
+  border-color:rgba(201,169,97,.5);
+  color:#7a5500;
   font-weight:800;
 }
 .sort-btn.mark-btn.active{
-  background:linear-gradient(90deg,rgba(245,158,11,.2),rgba(236,72,153,.15));
-  border-color:rgba(245,158,11,.7);
-  color:#fcd34d;
+  background:linear-gradient(90deg,rgba(201,169,97,.2),rgba(155,45,48,.12));
+  border-color:var(--kin);
+  color:#7a5500;
   font-weight:900;
 }
-.horse-num-mark-sort{background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(236,72,153,.15));color:#d97706;border:1px solid rgba(245,158,11,.4);}
+.horse-num-mark-sort{background:linear-gradient(135deg,rgba(201,169,97,.2),rgba(155,45,48,.12));color:#7a5500;border:1px solid var(--kin);}
 
 /* カード本体 */
-.card-body{padding:10px 14px;background:#fff;color:#222;}
+.card-body{padding:10px 14px;background:#fff;color:var(--text);font-family:'Shippori Mincho',serif;}
 .horse-meta-row{
   display:flex;gap:12px;flex-wrap:wrap;
-  font-size:11px;color:#555;margin-bottom:8px;
+  font-size:11px;color:var(--text);margin-bottom:8px;
 }
 .horse-meta-row span{display:flex;align-items:center;gap:3px;}
-.meta-label{font-size:9px;color:#999;font-weight:700;text-transform:uppercase;}
+.meta-label{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.12em;}
 
-/* 外厩フルバッジ */
-.ext-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;white-space:nowrap;margin-bottom:8px;}
-.ext-northern-tei{background:#fef9c3;color:#713f12;border:1px solid #eab308;}
-.ext-northern-shi{background:#dbeafe;color:#1e3a8a;border:1px solid #3b82f6;}
-.ext-champion    {background:#dcfce7;color:#14532d;border:1px solid #22c55e;}
-.ext-yamamoto    {background:#ffedd5;color:#7c2d12;border:1px solid #f97316;}
-.ext-canyon      {background:#f3e8ff;color:#581c87;border:1px solid #a855f7;}
-.ext-esutei      {background:#fce7f3;color:#831843;border:1px solid #ec4899;}
-.ext-other       {background:#fdf2f8;color:#701a75;border:1px solid #d946ef;}
-.ext-zaiku       {background:#f9fafb;color:#9ca3af;border:1px solid #e5e7eb;font-style:italic;}
+/* 外厩フルバッジ（御札）*/
+.ext-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:3px;white-space:nowrap;margin-bottom:8px;font-family:'Shippori Mincho',serif;}
+.ext-northern-tei{background:rgba(201,169,97,.15);color:#7a5500;border:1px solid var(--kin);}
+.ext-northern-shi{background:rgba(43,90,159,.1);color:#2B5A9F;border:1px solid rgba(43,90,159,.5);}
+.ext-champion    {background:rgba(31,77,46,.1);color:var(--midori);border:1px solid var(--midori);}
+.ext-yamamoto    {background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.4);}
+.ext-canyon      {background:rgba(90,58,122,.08);color:#5a3a7a;border:1px solid rgba(90,58,122,.4);}
+.ext-esutei      {background:rgba(155,45,48,.06);color:var(--shu-dk);border:1px solid rgba(155,45,48,.3);}
+.ext-other       {background:var(--paper);color:var(--text);border:1px solid var(--border);}
+.ext-zaiku       {background:#fff;color:var(--muted);border:1px solid var(--border);font-style:italic;}
 
-/* レース目標バッジ */
-.rt-badge{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:8px;white-space:nowrap;margin-bottom:8px;margin-left:5px;letter-spacing:0.02em;}
-.rt-derby  {background:#dbeafe;color:#1e3a8a;border:1px solid #3b82f6;}
-.rt-both   {background:#fef9c3;color:#713f12;border:1px solid #eab308;}
-.rt-satsuki{background:#fce7f3;color:#831843;border:1px solid #ec4899;}
+/* レース目標バッジ（御札）*/
+.rt-badge{display:inline-block;font-size:10px;font-weight:800;padding:2px 9px;border-radius:3px;white-space:nowrap;margin-bottom:8px;margin-left:5px;letter-spacing:.04em;font-family:'Shippori Mincho',serif;}
+.rt-derby  {background:rgba(43,90,159,.1);color:#2B5A9F;border:1px solid rgba(43,90,159,.5);}
+.rt-both   {background:rgba(201,169,97,.15);color:#7a5500;border:1px solid var(--kin);}
+.rt-satsuki{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.4);}
 
-/* ギーニョ分析 */
+/* ギーニョ神託（御神託箱）*/
 .ginyo-box{
-  background:#fff8fa;
-  border:1px solid rgba(232,48,110,.2);
-  border-left:3px solid rgba(232,48,110,.5);
-  border-radius:10px;
-  padding:10px 12px;
-  margin-top:4px;
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-left:3px solid var(--shu);
+  border-radius:0 4px 4px 0;
+  padding:11px 14px;
+  margin-top:6px;
+  font-family:'Shippori Mincho',serif;
 }
 .ginyo-header{
   display:flex;align-items:center;gap:6px;
-  margin-bottom:7px;
+  margin-bottom:8px;
 }
 .ginyo-label{
-  font-size:10px;font-weight:900;letter-spacing:.08em;
-  color:#c01860;text-transform:uppercase;
+  font-size:10px;font-weight:900;letter-spacing:.14em;
+  color:var(--shu);
 }
-.ginyo-section{margin-bottom:6px;}
+.ginyo-label::before{content:'◆ ';color:var(--kin);}
+.ginyo-section{margin-bottom:7px;}
 .ginyo-section-title{
-  font-size:9px;font-weight:900;color:#c01860;
-  letter-spacing:.08em;margin-bottom:3px;text-transform:uppercase;
+  font-size:10px;font-weight:900;color:var(--shu);
+  letter-spacing:.12em;margin-bottom:4px;
 }
-.sf3-comment-section .ginyo-section-title{color:#c2410c;}
+.sf3-comment-section .ginyo-section-title{color:#7a5500;}
 .sf3-comment-section .ginyo-text{
-  background:rgba(251,146,60,.07);
-  border-left:3px solid rgba(251,146,60,.5);
-  padding:4px 8px;border-radius:4px;
+  background:rgba(201,169,97,.08);
+  border-left:3px solid var(--kin);
+  padding:6px 10px;border-radius:0 4px 4px 0;
 }
-.condition-comment-section .ginyo-section-title{color:#0369a1;}
+.condition-comment-section .ginyo-section-title{color:#2B5A9F;}
 .condition-comment-section .ginyo-text{
-  background:rgba(14,165,233,.07);
-  border-left:3px solid rgba(14,165,233,.5);
-  padding:4px 8px;border-radius:4px;
+  background:rgba(43,90,159,.06);
+  border-left:3px solid #2B5A9F;
+  padding:6px 10px;border-radius:0 4px 4px 0;
 }
-.blood-judge-section .ginyo-section-title{color:#7c3aed;}
+.blood-judge-section .ginyo-section-title{color:var(--midori);}
 .blood-judge-section .ginyo-text{
-  background:rgba(139,92,246,.07);
-  border-left:3px solid rgba(139,92,246,.5);
-  padding:4px 8px;border-radius:4px;
+  background:rgba(31,77,46,.06);
+  border-left:3px solid var(--midori);
+  padding:6px 10px;border-radius:0 4px 4px 0;
 }
 .ginyo-text{
-  font-size:12px;line-height:1.7;color:#222;
+  font-size:12px;line-height:1.85;color:var(--text);
+  font-family:'Shippori Mincho',serif;
 }
 .no-comment{
-  font-size:11px;color:#bbb;
+  font-size:11px;color:var(--muted);
   font-style:italic;padding:4px 0;
 }
 .prev-finish{
   display:inline-flex;align-items:center;gap:4px;
   font-size:10px;font-weight:900;
-  padding:1px 7px;border-radius:4px;margin-bottom:6px;
-  background:#fef3c7;color:#92400e;
-  border:1px solid #f59e0b;
+  padding:2px 9px;border-radius:3px;margin-bottom:6px;
+  background:rgba(201,169,97,.15);color:#7a5500;
+  border:1px solid var(--kin);
+  font-family:'Shippori Mincho',serif;
 }
 .prev-race-name{
   font-size:9px;font-weight:700;
-  background:#92400e;color:#fef3c7;
-  padding:0px 5px;border-radius:3px;
-  letter-spacing:.02em;
+  background:var(--kin);color:#fff;
+  padding:1px 6px;border-radius:3px;
+  letter-spacing:.04em;
 }
 
 /* 前走なし */
-.no-race{font-size:11px;color:#bbb;font-style:italic;}
+.no-race{font-size:11px;color:var(--muted);font-style:italic;}
 
-/* ランク表示 */
+/* ランク表示（御札の序列）*/
 .rank-badge{
-  font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px;
-  background:rgba(232,48,110,.15);color:rgba(255,140,185,.8);
-  border:1px solid rgba(232,48,110,.25);margin-right:6px;
+  font-size:9px;font-weight:900;padding:2px 7px;border-radius:3px;
+  background:rgba(155,45,48,.1);color:var(--shu);
+  border:1px solid rgba(155,45,48,.3);margin-right:6px;
+  font-family:'Shippori Mincho',serif;
 }
 
-/* ── ギーニョ重賞データ解析セクション ── */
+/* ── ギーニョ重賞データ解析（御神託の解説）── */
 .analysis-section{
   margin:12px 12px 0;
-  border-radius:16px;
+  border-radius:4px;
   overflow:hidden;
-  border:1px solid rgba(200,30,80,.18);
+  border:1px solid var(--kin);
+  background:#fff;
+  font-family:'Shippori Mincho',serif;
+  box-shadow:0 1px 4px rgba(0,0,0,.04);
 }
 /* ── ラップ解析中バナー ── */
 .lap-inprogress-block{
-  background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(6,182,212,.08));
-  border-bottom:1px solid rgba(16,185,129,.18) !important;
+  background:linear-gradient(135deg,rgba(31,77,46,.06),rgba(201,169,97,.04));
+  border-bottom:1px solid var(--border) !important;
 }
 .lap-inprogress-head{
   display:flex;align-items:center;gap:10px;padding:10px 14px;
 }
 .lap-inprogress-icon{font-size:20px;flex-shrink:0;}
 .lap-inprogress-title{
-  font-size:12px;font-weight:900;color:#059669;letter-spacing:.08em;
+  font-size:12px;font-weight:900;color:var(--midori);letter-spacing:.12em;
 }
 .lap-inprogress-sub{
-  font-size:10px;color:#6b7280;margin-top:2px;line-height:1.5;
+  font-size:10px;color:var(--muted);margin-top:2px;line-height:1.6;
 }
 .lap-inprogress-badge{
   margin-left:auto;flex-shrink:0;
-  font-size:9px;font-weight:900;letter-spacing:.1em;
-  padding:3px 8px;border-radius:20px;
-  background:#059669;color:#fff;
+  font-size:9px;font-weight:900;letter-spacing:.12em;
+  padding:3px 10px;border-radius:3px;
+  background:var(--midori);color:#fff;
   animation:livePulse 1.8s ease-in-out infinite;
 }
 @keyframes livePulse{
@@ -599,151 +679,165 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 }
 /* ── 最終追い切り解析中バナー ── */
 .fw-inprogress-block{
-  background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(234,179,8,.08));
-  border-bottom:1px solid rgba(251,146,60,.18) !important;
+  background:linear-gradient(135deg,rgba(201,169,97,.08),rgba(201,169,97,.02));
+  border-bottom:1px solid var(--border) !important;
 }
 .fw-inprogress-title{
-  font-size:12px;font-weight:900;color:#d97706;letter-spacing:.08em;
+  font-size:12px;font-weight:900;color:#7a5500;letter-spacing:.12em;
 }
 .fw-inprogress-badge{
   margin-left:auto;flex-shrink:0;
-  font-size:9px;font-weight:900;letter-spacing:.1em;
-  padding:3px 8px;border-radius:20px;
-  background:#d97706;color:#fff;
+  font-size:9px;font-weight:900;letter-spacing:.12em;
+  padding:3px 10px;border-radius:3px;
+  background:var(--kin);color:#fff;
   animation:livePulse 1.8s ease-in-out infinite;
 }
 .analysis-block{
   background:#fff;
   padding:14px 16px;
-  border-bottom:1px solid rgba(200,30,80,.1);
+  border-bottom:1px solid rgba(201,169,97,.15);
 }
 .analysis-block:last-child{border-bottom:none;}
 .analysis-block-title{
   display:flex;align-items:center;gap:8px;
-  font-size:11px;font-weight:900;letter-spacing:.1em;
-  color:#c01860;text-transform:uppercase;
-  padding-bottom:6px;
-  border-bottom:1px solid rgba(200,30,80,.15);
+  font-size:11px;font-weight:900;letter-spacing:.18em;
+  color:var(--shu);
+  padding-bottom:7px;
+  border-bottom:1px solid var(--border);
+  font-family:'Shippori Mincho',serif;
 }
+.analysis-block-title::before{content:'◆';color:var(--kin);font-size:9px;}
 .analysis-block-title.analysis-toggle{
   cursor:pointer;user-select:none;
   margin-bottom:0;
   border-bottom:none;
   transition:background .15s;
-  border-radius:4px;
-  padding:6px 4px;
+  border-radius:3px;
+  padding:7px 6px;
 }
 .analysis-block-title.analysis-toggle:hover{
-  background:rgba(200,30,80,.06);
+  background:rgba(155,45,48,.05);
 }
 .analysis-toggle-icon{
-  margin-left:auto;font-size:11px;color:#c01860;
+  margin-left:auto;font-size:11px;color:var(--shu);
   transition:transform .2s;
 }
 .analysis-toggle-hint{
-  font-size:9px;font-weight:400;color:#aaa;letter-spacing:0;
+  font-size:9px;font-weight:400;color:var(--muted);letter-spacing:.04em;
   white-space:nowrap;
 }
 .analysis-body{
-  padding-top:10px;
-  border-top:1px solid rgba(200,30,80,.15);
+  padding-top:11px;
+  border-top:1px solid var(--border);
   margin-top:8px;
 }
-.analysis-icon{font-size:14px;}
+.analysis-icon{font-size:14px;color:var(--kin);}
 .analysis-comment{
-  font-size:12px;line-height:1.8;
-  color:#222;
+  font-size:12px;line-height:1.95;
+  color:var(--text);
   white-space:pre-wrap;
+  font-family:'Shippori Mincho',serif;
 }
-/* ── レース別タイトルヘッドライン ── */
+/* ── レース別タイトルヘッドライン（本殿の号札）── */
 .analysis-headline{
   text-align:center;
   padding:14px 12px 16px;
-  border-bottom:1px solid rgba(200,30,80,.12);
+  border-bottom:1px solid var(--border);
   margin-bottom:14px;
+  background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);
 }
 .rt-main{
   display:block;
-  font-size:22px;font-weight:900;
-  color:#b01050;
-  letter-spacing:.08em;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:22px;font-weight:800;
+  color:var(--shu);
+  letter-spacing:.12em;
   line-height:1.3;
   margin-bottom:4px;
 }
 .rt-sub{
   display:block;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
   font-size:16px;font-weight:700;
-  color:#1a1a1a;
-  letter-spacing:.04em;
+  color:var(--sumi);
+  letter-spacing:.06em;
   margin-bottom:6px;
 }
 .rt-desc{
   display:block;
   font-size:12px;
-  color:#666;
+  color:var(--muted);
   font-style:italic;
   margin-bottom:8px;
+  font-family:'Shippori Mincho',serif;
 }
 .rt-humor{
   display:block;
   font-size:11px;
-  color:#999;
+  color:var(--muted);
   font-style:italic;
-  line-height:1.6;
+  line-height:1.8;
+  font-family:'Shippori Mincho',serif;
 }
-/* ランキングリスト */
+/* ランキングリスト（番付）*/
 .rank-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
 .rank-item{
   display:flex;align-items:flex-start;gap:10px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,140,185,.1);
-  border-radius:10px;padding:10px 12px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:4px;padding:10px 12px;
+  font-family:'Shippori Mincho',serif;
 }
 .rank-item.rank-keshi{
-  opacity:.55;
-  border-color:rgba(248,113,113,.15);
-  background:rgba(248,113,113,.04);
+  opacity:.6;
+  border-color:rgba(155,45,48,.2);
+  background:rgba(155,45,48,.03);
 }
 .rank-num{
   flex-shrink:0;
-  width:28px;height:28px;border-radius:50%;
+  width:28px;height:28px;border-radius:3px;
   display:flex;align-items:center;justify-content:center;
   font-size:11px;font-weight:900;
+  font-family:'Shippori Mincho',serif;
 }
-.rank-num.r1{background:rgba(252,211,77,.2);color:#fcd34d;border:1px solid rgba(252,211,77,.4);}
-.rank-num.r2{background:rgba(209,213,219,.15);color:#d1d5db;border:1px solid rgba(209,213,219,.3);}
-.rank-num.r3{background:rgba(180,83,9,.2);color:#fdba74;border:1px solid rgba(180,83,9,.35);}
-.rank-num.rn{background:rgba(255,255,255,.07);color:rgba(255,210,230,.5);border:1px solid rgba(255,255,255,.1);}
-.rank-num.rx{background:rgba(248,113,113,.1);color:rgba(248,113,113,.6);border:1px solid rgba(248,113,113,.2);font-size:10px;}
+.rank-num.r1{background:var(--kin);color:#fff;border:1px solid #a88c52;}
+.rank-num.r2{background:#8a8a8a;color:#fff;border:1px solid #6a6a6a;}
+.rank-num.r3{background:#a66820;color:#fff;border:1px solid #7e4e18;}
+.rank-num.rn{background:var(--paper);color:var(--muted);border:1px solid var(--border);}
+.rank-num.rx{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.3);font-size:10px;}
 .rank-info{flex:1;min-width:0;}
 .rank-horse{
-  font-family:'Noto Serif JP',serif;
-  font-size:13px;font-weight:900;color:#fff;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:14px;font-weight:800;color:var(--sumi);
   margin-bottom:4px;
 }
 .rank-horse-comment{
-  font-size:11px;line-height:1.7;
-  color:rgba(255,210,230,.7);
+  font-size:11px;line-height:1.85;
+  color:var(--text);
+  font-family:'Shippori Mincho',serif;
 }
 
-.loading{text-align:center;padding:48px 16px;color:var(--muted);font-size:13px;}
+.loading{text-align:center;padding:48px 16px;color:var(--muted);font-size:13px;font-family:'Shippori Mincho',serif;}
 </style>
 </head>
 <body>
 
+<!-- 季節挨拶バー -->
+<div class="jinja-kisetsu" style="background:linear-gradient(90deg,var(--shu) 0%,var(--shu-dk) 100%);color:#fff;padding:6px 18px;font-size:11px;letter-spacing:.15em;text-align:center;font-weight:500;font-family:'Shippori Mincho',serif;">卯月廿一日　穀雨の候　拝殿にて御神託を承る</div>
+
 <div class="page-header">
-  <a href="index.html" class="back-btn">‹ TOP</a>
-  <div>
-    <div class="page-title">🏇 出走予定馬 解析</div>
-    <div class="page-sub">皐月賞</div>
+  <a href="index.html" class="back-btn">⛩ 鳥居</a>
+  <div style="flex:1;text-align:center;">
+    <div class="page-title">拝殿　HAIDEN</div>
+    <div class="page-sub">UG競馬ワイド神宮 ／ 出走馬の御神託</div>
   </div>
-  <a href="entries-archive.html" class="back-btn" style="margin-left:auto;background:rgba(245,158,11,.15);border-color:rgba(245,158,11,.4);color:#fcd34d;">📁 過去</a>
+  <a href="entries-archive.html" class="back-btn" style="margin-left:auto;">📜 記録</a>
 </div>
 
 <div class="breadcrumb-banner">
-  <span class="bc-item">🎯 NZT☆レザベーション6番人気1着 / 🎯 桜花賞△ジッピーチューン12番人気3着</span>
+  <span class="bc-item">御神託の実績：NZT☆レザベーション6番人気1着 ／ 桜花賞△ジッピーチューン12番人気3着</span>
   <span class="bc-sep">›</span>
-  <span class="bc-current">🏇 皐月賞 高精度解析中</span>
+  <span class="bc-current">皐月賞 神託解析中</span>
 </div>
 
 <!-- タブ -->
@@ -757,7 +851,7 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 </div>
 
 <!-- コンテンツ -->
-<div id="content"><p class="loading">データ読み込み中...</p></div>
+<div id="content"><p class="loading">⏳ 御神託を降ろしをります…</p></div>
 
 <script>
 const RACES = [
@@ -1079,13 +1173,13 @@ function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, a
     <div class="score-row">
       <span class="score-lbl" style="color:#a78bfa;" title="穴馬スコア：本気×激走×人気乖離">穴</span>
       <div class="score-track"><div class="score-fill ana-fill" style="width:${ap}%"></div></div>
-      <span class="score-val" style="color:#a78bfa;">${anaScore.toFixed(2)} <span style="opacity:.6;font-size:9px">${ap}%</span></span>
+      <span class="score-val" style="color:#5a3a7a;">${anaScore.toFixed(2)} <span style="opacity:.6;font-size:9px">${ap}%</span></span>
       <span class="score-rank ${rkCls(anaRank)}">#${anaRank}</span>
     </div>
     <div class="score-row">
-      <span class="score-lbl" style="color:#f97316;">総</span>
+      <span class="score-lbl" style="color:var(--kin);">総</span>
       <div class="score-track"><div class="score-fill sougo-fill" style="width:${sp}%"></div></div>
-      <span class="score-val" style="color:#f97316;">${sp}% </span>
+      <span class="score-val" style="color:#7a5500;">${sp}% </span>
       <span class="score-rank ${rkCls(sougouRank)}">#${sougouRank}</span>
     </div>
   </div>`;
@@ -1246,7 +1340,7 @@ function buildBetSection(withAna, headCount, d) {
   const customBets = d?.customBets;
   const { raceType, bets: autoBets } = generateBets(withAna, headCount);
   const bets = (customBets && customBets.length > 0) ? customBets : autoBets;
-  const typeColor = { '1強':'#d97706','2強':'#2563eb','3強':'#7c3aed','混戦':'#4b5563' };
+  const typeColor = { '1強':'#9B2D30','2強':'#2B5A9F','3強':'#5a3a7a','混戦':'#6a6a6a' };
   const color = typeColor[raceType] ?? '#4b5563';
   const totalPoints = bets.reduce((s, b) => s + b.points, 0);
   const numMap = {};

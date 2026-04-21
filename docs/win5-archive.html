@@ -3,170 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🏆 WIN5 過去戦績 | UG競馬</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<title>WIN5絵馬殿｜過去戦績 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg1:#06080f;--bg2:#0d0820;--bg3:#06080f;
-  --gold:#f0c040;--gold-dk:#c8890a;--gold-lt:#fde68a;
-  --card:rgba(255,255,255,.06);--border:rgba(240,192,64,.18);
-  --text:#fff;--muted:rgba(255,240,200,.65);
-  --hit:#22c55e;--miss:#ef4444;--upcoming:#a78bfa;
+  --bg:#FAFAFA;--paper:#FBF7EE;
+  --shu:#9B2D30;--shu-dk:#7A1E1E;--midori:#1F4D2E;--kin:#C9A961;--kin-dk:#8B7530;
+  --gold:#C9A961;--gold-dk:#8B7530;--gold-lt:#E6D5A0;
+  --card:#FBF7EE;--border:rgba(201,169,97,.4);
+  --text:#1A1A1A;--muted:rgba(26,26,26,.6);
+  --hit:#1F4D2E;--miss:#7A1E1E;--upcoming:#6a5e3a;
 }
 html,body{
-  background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);
+  background:#FAFAFA;
   color:var(--text);
-  font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
   min-height:100vh;
 }
 
-/* ─ ヘッダー ─ */
+/* ─ ヘッダー（鳥居風）─ */
 .page-header{
-  background:linear-gradient(135deg,#0a0616,#1a0a30,#0a0616);
-  border-bottom:2px solid rgba(240,192,64,.4);
+  background:rgba(250,250,250,.92);
+  border-bottom:2px solid var(--shu);
+  box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);
   padding:12px 16px;display:flex;align-items:center;gap:12px;
   position:sticky;top:0;z-index:200;
-  box-shadow:0 2px 24px rgba(200,140,10,.3);
+  backdrop-filter:blur(8px);
 }
 .back-btn{
   display:inline-flex;align-items:center;gap:4px;
-  font-size:12px;font-weight:700;color:#fff;
+  font-size:12px;font-weight:700;color:var(--shu);
   text-decoration:none;padding:5px 10px;border-radius:8px;
-  border:1px solid rgba(240,192,64,.4);white-space:nowrap;flex-shrink:0;
+  border:1px solid rgba(201,169,97,.4);
+  background:rgba(201,169,97,.12);
+  white-space:nowrap;flex-shrink:0;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.back-btn:hover{background:rgba(240,192,64,.1);}
+.back-btn:hover{background:rgba(201,169,97,.2);}
 .header-badge{
-  font-size:12px;font-weight:900;padding:4px 10px;border-radius:6px;
-  background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a0800;
+  font-size:12px;font-weight:900;padding:4px 10px;border-radius:4px;
+  background:linear-gradient(135deg,#C9A961,#8B7530);color:#fff;
   letter-spacing:.1em;flex-shrink:0;
-  box-shadow:0 0 10px rgba(240,192,64,.4);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.header-title{font-size:15px;font-weight:900;color:#f0c040;letter-spacing:.06em;}
-.header-sub{font-size:10px;color:rgba(255,230,140,.7);margin-top:1px;}
+.header-title{font-size:15px;font-weight:800;color:var(--shu);letter-spacing:.06em;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.header-sub{font-size:10px;color:var(--muted);margin-top:1px;}
 
 /* ─ コンテンツ ─ */
 .content{max-width:520px;margin:0 auto;padding:16px 12px 80px;}
 
-/* ─ サマリーバナー ─ */
+/* ─ サマリーバナー（絵巻物風）─ */
 .summary-banner{
-  background:linear-gradient(135deg,rgba(240,192,64,.06),rgba(180,100,10,.06));
-  border:1px solid rgba(240,192,64,.2);
-  border-radius:14px;padding:14px 16px;margin-bottom:20px;
+  background:linear-gradient(135deg,rgba(201,169,97,.08),rgba(155,45,48,.06));
+  border:1px solid rgba(201,169,97,.35);
+  border-radius:10px;padding:14px 16px;margin-bottom:20px;
   display:flex;align-items:center;gap:12px;flex-wrap:wrap;
 }
 .summary-stat{text-align:center;min-width:60px;}
-.summary-stat-val{font-size:24px;font-weight:900;color:var(--gold);line-height:1;}
-.summary-stat-label{font-size:9px;font-weight:700;color:rgba(255,230,140,.6);margin-top:3px;letter-spacing:.06em;}
-.summary-divider{width:1px;height:40px;background:rgba(240,192,64,.15);}
+.summary-stat-val{font-size:24px;font-weight:800;color:var(--shu);line-height:1;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.summary-stat-label{font-size:9px;font-weight:700;color:var(--muted);margin-top:3px;letter-spacing:.06em;}
+.summary-divider{width:1px;height:40px;background:rgba(201,169,97,.3);}
 
 /* ─ セクションヘッダー ─ */
 .section-header{
   font-size:9px;font-weight:900;letter-spacing:.1em;
-  color:rgba(240,192,64,.55);text-transform:uppercase;
+  color:var(--kin);text-transform:uppercase;
   padding:4px 0 10px;margin-top:8px;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 
-/* ─ アーカイブカード ─ */
+/* ─ アーカイブカード（絵馬風）─ */
 .archive-card{
-  background:rgba(255,255,255,.04);
+  background:#FBF7EE;
   border:1px solid var(--border);
-  border-radius:16px;overflow:hidden;
+  border-radius:10px;overflow:hidden;
   margin-bottom:16px;
   transition:border-color .15s,box-shadow .15s;
+  box-shadow:0 2px 8px rgba(26,26,26,.06);
 }
-.archive-card:hover{border-color:rgba(240,192,64,.45);box-shadow:0 4px 24px rgba(200,140,10,.15);}
+.archive-card:hover{border-color:var(--shu);box-shadow:0 4px 14px rgba(155,45,48,.12);}
 
 /* カードヘッダー */
 .card-head{
   padding:12px 14px;
   display:flex;align-items:center;justify-content:space-between;gap:8px;
-  background:linear-gradient(135deg,rgba(240,192,64,.07),rgba(180,100,10,.04));
-  border-bottom:1px solid rgba(240,192,64,.12);
+  background:linear-gradient(135deg,rgba(201,169,97,.08),rgba(155,45,48,.04));
+  border-bottom:1px solid rgba(201,169,97,.25);
 }
 .card-date{
-  font-family:'Noto Serif JP',serif;
-  font-size:13px;font-weight:900;color:#f0c040;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:13px;font-weight:800;color:var(--shu);letter-spacing:.04em;
 }
 .card-label{font-size:10px;color:var(--muted);margin-top:2px;}
 .card-status-badge{
-  font-size:10px;font-weight:900;padding:4px 10px;border-radius:20px;
+  font-size:10px;font-weight:900;padding:4px 10px;border-radius:4px;
   white-space:nowrap;flex-shrink:0;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.status-hit{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.35);}
-.status-miss{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.3);}
-.status-upcoming{background:rgba(167,139,250,.15);color:#c4b5fd;border:1px solid rgba(167,139,250,.3);}
+.status-hit{background:rgba(31,77,46,.12);color:var(--midori);border:1px solid rgba(31,77,46,.35);}
+.status-miss{background:rgba(122,30,30,.08);color:var(--shu-dk);border:1px solid rgba(122,30,30,.25);}
+.status-upcoming{background:rgba(201,169,97,.12);color:var(--kin-dk);border:1px solid rgba(201,169,97,.3);}
 
 /* 詳細ボタン */
 .card-link{
   display:flex;align-items:center;gap:6px;
-  font-size:11px;font-weight:700;color:rgba(240,192,64,.7);
+  font-size:11px;font-weight:700;color:var(--shu);
   text-decoration:none;padding:4px 8px;border-radius:8px;
-  border:1px solid rgba(240,192,64,.2);flex-shrink:0;
+  border:1px solid rgba(201,169,97,.3);flex-shrink:0;
   transition:all .15s;
 }
-.card-link:hover{color:#f0c040;border-color:rgba(240,192,64,.5);background:rgba(240,192,64,.08);}
+.card-link:hover{color:var(--shu-dk);border-color:var(--shu);background:rgba(155,45,48,.06);}
 
 /* ── 脚ロウ ── */
 .legs-list{padding:10px 12px;}
 .leg-row{
   display:flex;align-items:flex-start;gap:10px;
-  padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);
+  padding:7px 0;border-bottom:1px solid rgba(201,169,97,.15);
 }
 .leg-row:last-child{border-bottom:none;}
 .leg-badge{
   font-size:8px;font-weight:900;letter-spacing:.06em;
-  padding:3px 7px;border-radius:10px;
-  background:rgba(240,192,64,.1);color:rgba(240,192,64,.75);
-  border:1px solid rgba(240,192,64,.2);white-space:nowrap;flex-shrink:0;
+  padding:3px 7px;border-radius:4px;
+  background:rgba(201,169,97,.15);color:var(--shu);
+  border:1px solid rgba(201,169,97,.3);white-space:nowrap;flex-shrink:0;
   min-width:38px;text-align:center;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .leg-info{flex:1;min-width:0;}
-.leg-race{font-size:11px;font-weight:700;color:#fff;}
-.leg-meta{font-size:9px;color:rgba(255,255,255,.4);margin-top:1px;}
+.leg-race{font-size:11px;font-weight:700;color:var(--text);}
+.leg-meta{font-size:9px;color:var(--muted);margin-top:1px;}
 .leg-picks{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;}
 .leg-pick-chip{
   display:inline-flex;align-items:center;
   font-size:9px;font-weight:700;
   padding:2px 7px;border-radius:10px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.1);
-  color:rgba(255,255,255,.75);
+  background:rgba(26,26,26,.04);
+  border:1px solid rgba(26,26,26,.1);
+  color:var(--text);
   white-space:nowrap;
 }
 .leg-pick-chip.is-winner{
-  background:rgba(34,197,94,.15);
-  border-color:rgba(34,197,94,.4);
-  color:#4ade80;
+  background:rgba(31,77,46,.12);
+  border-color:rgba(31,77,46,.4);
+  color:var(--midori);
 }
 .leg-pick-chip.is-winner::before{content:'🎯 ';}
 .leg-result{flex-shrink:0;text-align:right;}
 .leg-hit-badge{
-  font-size:9px;font-weight:900;padding:3px 8px;border-radius:10px;white-space:nowrap;
+  font-size:9px;font-weight:900;padding:3px 8px;border-radius:4px;white-space:nowrap;
 }
-.leg-hit{background:rgba(34,197,94,.2);color:#4ade80;border:1px solid rgba(34,197,94,.3);}
-.leg-miss{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.25);}
-.leg-pending{background:rgba(167,139,250,.12);color:#c4b5fd;border:1px solid rgba(167,139,250,.2);}
+.leg-hit{background:rgba(31,77,46,.15);color:var(--midori);border:1px solid rgba(31,77,46,.3);}
+.leg-miss{background:rgba(122,30,30,.08);color:var(--shu-dk);border:1px solid rgba(122,30,30,.25);}
+.leg-pending{background:rgba(201,169,97,.1);color:var(--kin-dk);border:1px solid rgba(201,169,97,.25);}
 
 /* ── カードフッター ── */
 .card-foot{
   padding:9px 14px;
-  background:rgba(0,0,0,.2);
-  border-top:1px solid rgba(240,192,64,.08);
+  background:rgba(251,247,238,.6);
+  border-top:1px solid rgba(201,169,97,.2);
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;
 }
-.combo-info{font-size:9px;color:rgba(255,230,140,.5);}
+.combo-info{font-size:9px;color:var(--muted);}
 .win5-payout{
   font-size:12px;font-weight:900;
-  color:#f0c040;
+  color:var(--shu);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .win5-hit-banner{
   width:100%;
   text-align:center;padding:8px;
-  background:linear-gradient(90deg,rgba(34,197,94,.1),rgba(34,197,94,.2),rgba(34,197,94,.1));
-  border-top:1px solid rgba(34,197,94,.3);
-  font-size:12px;font-weight:900;color:#4ade80;
+  background:linear-gradient(90deg,rgba(201,169,97,.1),rgba(201,169,97,.25),rgba(201,169,97,.1));
+  border-top:1px solid rgba(201,169,97,.35);
+  font-size:12px;font-weight:900;color:var(--shu);
   letter-spacing:.06em;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 
 /* ─ グレードバッジ ─ */
@@ -174,16 +185,16 @@ html,body{
   display:inline-block;font-size:8px;font-weight:900;
   padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle;
 }
-.grade-g1{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a1000;}
-.grade-g2{background:linear-gradient(135deg,#e0b0d0,#c080a0);color:#2a0a1a;}
-.grade-g3{background:linear-gradient(135deg,#80c090,#3a7050);color:#fff;}
-.grade-l{background:linear-gradient(135deg,#7ab8e0,#4a90c0);color:#fff;}
-.grade-3c{background:linear-gradient(135deg,#a0a0c0,#606080);color:#fff;}
+.grade-g1{background:linear-gradient(135deg,#C9A961,#8B7530);color:#fff;}
+.grade-g2{background:linear-gradient(135deg,#1F4D2E,#0f3319);color:#fff;}
+.grade-g3{background:linear-gradient(135deg,#2B5A9F,#1A3F70);color:#fff;}
+.grade-l{background:linear-gradient(135deg,#9B2D30,#7A1E1E);color:#fff;}
+.grade-3c{background:linear-gradient(135deg,#8a8a8a,#5a5a5a);color:#fff;}
 
 /* ─ 空っぽ ─ */
 .empty-state{
   text-align:center;padding:60px 20px;
-  color:rgba(255,230,140,.3);
+  color:rgba(26,26,26,.3);
   font-size:13px;
 }
 .empty-icon{font-size:40px;display:block;margin-bottom:12px;}
@@ -191,19 +202,19 @@ html,body{
 /* ─ ローディング ─ */
 .loading-state{
   text-align:center;padding:60px 20px;
-  color:rgba(255,230,140,.5);font-size:12px;
+  color:var(--muted);font-size:12px;
 }
 </style>
 </head>
 <body>
 
-<!-- ヘッダー -->
+<!-- ヘッダー（鳥居風）-->
 <header class="page-header">
-  <a href="index.html" class="back-btn">← TOP</a>
+  <a href="index.html" class="back-btn">⛩ 鳥居</a>
   <span class="header-badge">WIN5</span>
   <div style="flex:1;min-width:0;">
-    <div class="header-title">WIN5 過去戦績</div>
-    <div class="header-sub">予想アーカイブ &amp; 的中履歴</div>
+    <div class="header-title">WIN5絵馬殿</div>
+    <div class="header-sub">過去御神託アーカイブ</div>
   </div>
 </header>
 
@@ -218,17 +229,17 @@ html,body{
     </div>
     <div class="summary-divider"></div>
     <div class="summary-stat">
-      <div class="summary-stat-val" id="statHit" style="color:#4ade80">—</div>
+      <div class="summary-stat-val" id="statHit" style="color:#1F4D2E">—</div>
       <div class="summary-stat-label">WIN5的中</div>
     </div>
     <div class="summary-divider"></div>
     <div class="summary-stat">
-      <div class="summary-stat-val" id="statLegHit" style="color:rgba(240,192,64,.9)">—</div>
+      <div class="summary-stat-val" id="statLegHit" style="color:#C9A961">—</div>
       <div class="summary-stat-label">脚的中率</div>
     </div>
     <div class="summary-divider"></div>
     <div class="summary-stat">
-      <div class="summary-stat-val" id="statPayout" style="color:#f0c040">—</div>
+      <div class="summary-stat-val" id="statPayout" style="color:#9B2D30">—</div>
       <div class="summary-stat-label">最大払戻</div>
     </div>
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>今週の金塊馬 | UG強奪競馬新聞</title>
+<title>金塊殿｜今週の金塊馬 | UG競馬ワイド神宮</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -22,111 +22,117 @@
   .ticker-text { display: inline-block; animation: ticker-scroll 30s linear infinite; padding-left: 100%; }
   @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-  /* ── UG DEEP CHERRY THEME ── */
+  /* ── UG JINJA THEME ── */
   :root {
-    --ug-bg: #130003; --ug-cherry-dk: #0b0002; --ug-cherry-md: #1a0004;
-    --ug-pink: #E8003D; --ug-pink-dk: #B5002E; --ug-gold: #f0c040;
-    --ug-text: #f5d0d5; --ug-muted: rgba(255,255,255,0.50);
-    --ug-card: rgba(255,255,255,0.07); --ug-border: rgba(232,0,61,0.25);
+    --bg: #FAFAFA; --paper: #FBF7EE;
+    --shu: #9B2D30; --shu-dk: #7A1E1E; --midori: #1F4D2E; --kin: #C9A961;
+    --text: #1A1A1A; --muted: rgba(26,26,26,.6);
+    --ug-bg: #FAFAFA; --ug-cherry-dk: #FBF7EE; --ug-cherry-md: #FBF7EE;
+    --ug-pink: #9B2D30; --ug-pink-dk: #7A1E1E; --ug-gold: #C9A961;
+    --ug-text: #1A1A1A; --ug-muted: rgba(26,26,26,.6);
+    --ug-card: #FBF7EE; --ug-border: rgba(201,169,97,.4);
   }
-  html, body { background: #130003 !important; color: #f5d0d5 !important; min-height: 100vh; }
+  html, body { background: #FAFAFA !important; color: #1A1A1A !important; min-height: 100vh; font-family: 'Shippori Mincho','Noto Serif JP',serif !important; }
 
   header {
-    background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important;
-    border-bottom: 1px solid rgba(232,0,61,0.40) !important;
+    background: rgba(250,250,250,.92) !important;
+    border-bottom: 2px solid #9B2D30 !important;
+    box-shadow: 0 2px 0 #C9A961, 0 6px 14px rgba(155,45,48,.08) !important;
+    backdrop-filter: blur(8px) !important;
   }
-  header h1 { color: #ffffff !important; text-shadow: 0 0 24px rgba(232,0,61,0.55) !important; }
-  header p, header span, header a { color: rgba(255,255,255,0.80) !important; }
+  header h1 { color: #9B2D30 !important; text-shadow: none !important; font-family: 'Shippori Mincho','Noto Serif JP',serif !important; letter-spacing: .04em; }
+  header p, header span, header a { color: #9B2D30 !important; }
 
   footer {
-    background: linear-gradient(135deg, #1a0004 0%, #0b0002 100%) !important;
-    border-top: 1px solid rgba(232,0,61,0.35) !important;
+    background: #FBF7EE !important;
+    border-top: 1px solid rgba(201,169,97,.35) !important;
   }
-  footer * { color: rgba(255,255,255,0.70) !important; }
+  footer * { color: rgba(26,26,26,.6) !important; }
 
   /* ── Cards ── */
   .ug-card {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(232,0,61,0.25);
-    border-radius: 16px;
+    background: #FBF7EE;
+    border: 1px solid rgba(201,169,97,.4);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(26,26,26,.06);
   }
   .ug-card-gold {
-    background: rgba(240,192,64,0.10);
-    border: 1px solid rgba(240,192,64,0.45);
-    border-radius: 16px;
+    background: linear-gradient(135deg,rgba(201,169,97,.12),rgba(201,169,97,.06));
+    border: 1px solid rgba(201,169,97,.5);
+    border-radius: 10px;
   }
   .ug-card-hit {
-    background: linear-gradient(135deg, rgba(232,0,61,0.18) 0%, rgba(240,192,64,0.10) 100%);
-    border: 1px solid rgba(240,192,64,0.60);
+    background: linear-gradient(135deg, rgba(155,45,48,0.18) 0%, rgba(201,169,97,0.10) 100%);
+    border: 1px solid rgba(201,169,97,0.60);
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(232,0,61,0.20), 0 0 0 1px rgba(240,192,64,0.20);
+    box-shadow: 0 4px 24px rgba(155,45,48,0.20), 0 0 0 1px rgba(201,169,97,0.20);
   }
 
   /* ── Badge ── */
-  .badge-jockey         { background: linear-gradient(135deg,#E8003D,#B5002E); color:#fff; }
-  .badge-trainer        { background: linear-gradient(135deg,#7c3aed,#4c1d95); color:#fff; }
-  .badge-sire           { background: linear-gradient(135deg,#d97706,#92400e); color:#fff; }
-  .badge-surface-change  { background: linear-gradient(135deg,#0ea5e9,#0369a1); color:#fff; }
-  .badge-jockey-change   { background: linear-gradient(135deg,#10b981,#065f46); color:#fff; }
-  .badge-dist-short      { background: linear-gradient(135deg,#f97316,#c2410c); color:#fff; }
-  .badge-dist-long       { background: linear-gradient(135deg,#8b5cf6,#4c1d95); color:#fff; }
-  .badge-prev-激走       { background: linear-gradient(135deg,#f0c040,#d97706); color:#130003; }
-  .badge-kinkai-line     { background: linear-gradient(135deg,#E8003D,#f0c040); color:#fff; box-shadow:0 0 10px rgba(240,192,64,0.50); }
-  .badge-jockey-keep     { background: linear-gradient(135deg,#06b6d4,#0e7490); color:#fff; }
-  .badge-prev-course     { background: linear-gradient(135deg,#84cc16,#365314); color:#fff; }
-  .badge-trend           { background: linear-gradient(135deg,#f59e0b,#b45309); color:#fff; }
+  .badge-jockey         { background: linear-gradient(135deg,#9B2D30,#7A1E1E); color:#1A1A1A; }
+  .badge-trainer        { background: linear-gradient(135deg,#7c3aed,#4c1d95); color:#1A1A1A; }
+  .badge-sire           { background: linear-gradient(135deg,#d97706,#92400e); color:#1A1A1A; }
+  .badge-surface-change  { background: linear-gradient(135deg,#0ea5e9,#0369a1); color:#1A1A1A; }
+  .badge-jockey-change   { background: linear-gradient(135deg,#10b981,#065f46); color:#1A1A1A; }
+  .badge-dist-short      { background: linear-gradient(135deg,#f97316,#c2410c); color:#1A1A1A; }
+  .badge-dist-long       { background: linear-gradient(135deg,#8b5cf6,#4c1d95); color:#1A1A1A; }
+  .badge-prev-激走       { background: linear-gradient(135deg,#C9A961,#d97706); color:#FAFAFA; }
+  .badge-kinkai-line     { background: linear-gradient(135deg,#9B2D30,#C9A961); color:#1A1A1A; box-shadow:0 0 10px rgba(201,169,97,0.50); }
+  .badge-jockey-keep     { background: linear-gradient(135deg,#06b6d4,#0e7490); color:#1A1A1A; }
+  .badge-prev-course     { background: linear-gradient(135deg,#84cc16,#365314); color:#1A1A1A; }
+  .badge-trend           { background: linear-gradient(135deg,#f59e0b,#b45309); color:#1A1A1A; }
 
   /* グレードタグ */
-  .grade-tag { display:inline-block; font-size:9px; font-weight:900; padding:0 4px; border-radius:3px; margin-right:3px; vertical-align:middle; background:rgba(255,255,255,0.25); letter-spacing:0.5px; }
+  .grade-tag { display:inline-block; font-size:9px; font-weight:900; padding:0 4px; border-radius:3px; margin-right:3px; vertical-align:middle; background:rgba(26,26,26,0.25); letter-spacing:0.5px; }
 
   /* ── Input / Select ── */
   .ug-input {
-    background: rgba(255,255,255,0.08) !important;
-    border: 1px solid rgba(232,0,61,0.35) !important;
+    background: rgba(251,247,238,0.7) !important;
+    border: 1px solid rgba(155,45,48,0.35) !important;
     color: #f5d0d5 !important;
     border-radius: 10px;
   }
-  .ug-input::placeholder { color: rgba(255,255,255,0.35) !important; }
-  .ug-input:focus { border-color: #E8003D !important; outline: none; box-shadow: 0 0 0 2px rgba(232,0,61,0.25) !important; }
-  .ug-input option { background: #1a0004; color: #f5d0d5; }
+  .ug-input::placeholder { color: rgba(26,26,26,.35) !important; }
+  .ug-input:focus { border-color: #9B2D30 !important; outline: none; box-shadow: 0 0 0 2px rgba(155,45,48,0.25) !important; }
+  .ug-input option { background: #FBF7EE; color: #f5d0d5; }
 
   /* ── Button ── */
   .btn-extract {
-    background: linear-gradient(135deg, #E8003D 0%, #B5002E 100%);
-    color: #fff; font-weight: 700; border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(232,0,61,0.45);
+    background: linear-gradient(135deg, #9B2D30 0%, #7A1E1E 100%);
+    color:#1A1A1A; font-weight: 700; border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(155,45,48,0.45);
     transition: all 0.2s;
     border: none; cursor: pointer;
   }
-  .btn-extract:hover { background: linear-gradient(135deg, #ff1a4f 0%, #E8003D 100%); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(232,0,61,0.60); }
+  .btn-extract:hover { background: linear-gradient(135deg, #ff1a4f 0%, #9B2D30 100%); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(155,45,48,0.60); }
   .btn-extract:active { transform: translateY(0); }
 
   .btn-clear {
-    background: rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.70); border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+    background: rgba(251,247,238,0.7);
+    color: rgba(26,26,26,.7); border-radius: 12px;
+    border: 1px solid rgba(201,169,97,0.25); cursor: pointer;
     transition: all 0.2s;
   }
-  .btn-clear:hover { background: rgba(255,255,255,0.14); color:#fff; }
+  .btn-clear:hover { background: rgba(201,169,97,0.12); color:#1A1A1A; }
 
   /* ── Stat pills ── */
   .stat-pill {
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(26,26,26,.08);
+    border: 1px solid rgba(201,169,97,0.25);
     border-radius: 999px;
     font-size: 11px; padding: 2px 8px;
-    color: rgba(255,255,255,0.80);
+    color: rgba(26,26,26,.8);
   }
-  .stat-pill-red { background: rgba(232,0,61,0.20); border-color: rgba(232,0,61,0.40); color: #ffb3c6; }
-  .stat-pill-gold { background: rgba(240,192,64,0.20); border-color: rgba(240,192,64,0.45); color: #f0c040; }
+  .stat-pill-red { background: rgba(155,45,48,0.20); border-color: rgba(155,45,48,0.40); color: #C66C6E; }
+  .stat-pill-gold { background: rgba(201,169,97,0.20); border-color: rgba(201,169,97,0.45); color: #C9A961; }
 
   /* ── No match ── */
-  .no-hit { color: rgba(255,255,255,0.40); text-align:center; padding: 40px 0; }
+  .no-hit { color: rgba(26,26,26,.4); text-align:center; padding: 40px 0; }
 
   /* ── Condition DB accordion ── */
-  .db-section { border-bottom: 1px solid rgba(232,0,61,0.20); }
+  .db-section { border-bottom: 1px solid rgba(155,45,48,0.20); }
   .db-header { cursor:pointer; user-select:none; }
-  .db-header:hover { background: rgba(232,0,61,0.08); border-radius: 8px; }
+  .db-header:hover { background: rgba(155,45,48,0.08); border-radius: 8px; }
   .db-body { display: none; }
   .db-body.open { display: block; }
   .db-arrow { transition: transform 0.2s; }
@@ -135,45 +141,45 @@
   /* ── CSV Upload ── */
   .csv-upload-label {
     display: flex; align-items: center; justify-content: center; gap: 10px;
-    background: linear-gradient(135deg,rgba(240,192,64,0.15) 0%,rgba(232,0,61,0.10) 100%);
-    border: 2px dashed rgba(240,192,64,0.45);
+    background: linear-gradient(135deg,rgba(201,169,97,0.15) 0%,rgba(155,45,48,0.10) 100%);
+    border: 2px dashed rgba(201,169,97,0.45);
     border-radius: 14px;
     padding: 20px;
     cursor: pointer;
     transition: all 0.2s;
-    color: #f0c040;
+    color: #C9A961;
     font-weight: 700;
     font-size: 14px;
   }
-  .csv-upload-label:hover { background: linear-gradient(135deg,rgba(240,192,64,0.22) 0%,rgba(232,0,61,0.15) 100%); border-color: rgba(240,192,64,0.70); }
-  .csv-upload-label.loaded { border-style: solid; border-color: rgba(240,192,64,0.70); background: linear-gradient(135deg,rgba(240,192,64,0.18) 0%,rgba(232,0,61,0.10) 100%); }
+  .csv-upload-label:hover { background: linear-gradient(135deg,rgba(201,169,97,0.22) 0%,rgba(155,45,48,0.15) 100%); border-color: rgba(201,169,97,0.70); }
+  .csv-upload-label.loaded { border-style: solid; border-color: rgba(201,169,97,0.70); background: linear-gradient(135deg,rgba(201,169,97,0.18) 0%,rgba(155,45,48,0.10) 100%); }
 
   .race-option-btn {
     display: flex; align-items: center; justify-content: space-between;
     width: 100%;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(251,247,238,0.7);
+    border: 1px solid rgba(201,169,97,0.25);
     border-radius: 12px;
     padding: 12px 16px;
     cursor: pointer; text-align: left;
     transition: all 0.18s;
     color: #f5d0d5;
   }
-  .race-option-btn:hover { background: rgba(240,192,64,0.12); border-color: rgba(240,192,64,0.45); }
-  .race-option-btn.has-db { border-color: rgba(240,192,64,0.40); }
+  .race-option-btn:hover { background: rgba(201,169,97,0.12); border-color: rgba(201,169,97,0.45); }
+  .race-option-btn.has-db { border-color: rgba(201,169,97,0.40); }
   .race-option-btn.no-db { opacity: 0.50; }
 
   /* ── Step number ── */
   .step-num {
     width: 28px; height: 28px; border-radius: 50%;
-    background: linear-gradient(135deg,#E8003D,#B5002E);
-    color: #fff; font-weight:700; font-size:13px;
+    background: linear-gradient(135deg,#9B2D30,#7A1E1E);
+    color:#1A1A1A; font-weight:700; font-size:13px;
     display:flex; align-items:center; justify-content:center;
     flex-shrink:0;
   }
 
   /* ── Gold glow animation ── */
-  @keyframes goldPulse { 0%,100% { box-shadow: 0 0 12px rgba(240,192,64,0.30); } 50% { box-shadow: 0 0 28px rgba(240,192,64,0.65); } }
+  @keyframes goldPulse { 0%,100% { box-shadow: 0 0 12px rgba(201,169,97,0.30); } 50% { box-shadow: 0 0 28px rgba(201,169,97,0.65); } }
   .hit-glow { animation: goldPulse 2.5s ease-in-out infinite; }
 </style>
 </head>
@@ -184,20 +190,20 @@
   <div class="px-5 pt-4 pb-3">
     <div class="flex items-center gap-3">
       <a href="index.html" class="flex items-center justify-center w-9 h-9 rounded-full hover:bg-white/10 transition-colors">
-        <span class="material-symbols-outlined text-xl" style="color:rgba(255,255,255,0.80)">arrow_back</span>
+        <span class="material-symbols-outlined text-xl" style="color:rgba(26,26,26,.8)">arrow_back</span>
       </a>
       <div>
-        <p class="text-[10px] uppercase tracking-widest font-bold" style="color:rgba(255,255,255,0.55)">UG強奪競馬新聞 / 金塊馬抽出ツール</p>
+        <p class="text-[10px] uppercase tracking-widest font-bold" style="color:rgba(26,26,26,.55)">UG競馬ワイド神宮 / 金塊馬抽出ツール</p>
         <h1 class="serif-headline text-lg font-bold leading-tight">今週の金塊馬</h1>
-        <p class="text-[10px] font-bold" style="color:#E8003D">コース別穴条件から自動抽出</p>
+        <p class="text-[10px] font-bold" style="color:#9B2D30">コース別穴条件から自動抽出</p>
       </div>
     </div>
   </div>
 </header>
 
 <!-- ══════ TICKER ══════ -->
-<div class="ticker-wrap py-1.5 sticky z-40" style="top:60px;background:#B5002E;">
-  <span class="ticker-text font-black tracking-wide" style="color:#fff;font-size:11px;">
+<div class="ticker-wrap py-1.5 sticky z-40" style="top:60px;background:#7A1E1E;">
+  <span class="ticker-text font-black tracking-wide" style="color:#1A1A1A;font-size:11px;">
     💰 金塊馬抽出ツール稼働中 &nbsp;｜&nbsp; コース別穴騎手・穴厩舎・穴血統データから合致馬を自動抽出 &nbsp;｜&nbsp; 出走馬CSVを貼り付けるだけで即座に抽出 &nbsp;｜&nbsp; 💰 金塊馬抽出ツール稼働中 &nbsp;｜&nbsp; コース別穴騎手・穴厩舎・穴血統データから合致馬を自動抽出 &nbsp;｜&nbsp; 出走馬CSVを貼り付けるだけで即座に抽出
   </span>
 </div>
@@ -205,21 +211,21 @@
 <!-- ══════ HERO ══════ -->
 <section class="px-4 pt-8 pb-6 text-center">
   <div class="text-5xl mb-3">💰</div>
-  <h2 class="serif-headline text-2xl font-bold mb-2" style="color:#f0c040;text-shadow:0 0 20px rgba(240,192,64,0.50)">今週の金塊馬</h2>
-  <p class="text-sm" style="color:rgba(255,255,255,0.65)">コース別の穴騎手・穴厩舎・穴血統データと<br>出走馬リストを照合して金塊馬を自動抽出します</p>
+  <h2 class="serif-headline text-2xl font-bold mb-2" style="color:#C9A961;text-shadow:0 0 20px rgba(201,169,97,0.50)">今週の金塊馬</h2>
+  <p class="text-sm" style="color:rgba(26,26,26,.65)">コース別の穴騎手・穴厩舎・穴血統データと<br>出走馬リストを照合して金塊馬を自動抽出します</p>
 </section>
 
 <!-- ══════ TABS ══════ -->
 <div class="px-4 max-w-2xl mx-auto mt-4 mb-1">
-  <div class="flex rounded-2xl overflow-hidden" style="border:1px solid rgba(232,0,61,0.30);background:rgba(255,255,255,0.04)">
+  <div class="flex rounded-2xl overflow-hidden" style="border:1px solid rgba(155,45,48,0.30);background:rgba(251,247,238,0.7)">
     <button id="tab-extract" onclick="switchTab('extract')"
       class="flex-1 py-3 text-sm font-bold flex items-center justify-center gap-2 transition-all"
-      style="background:linear-gradient(135deg,#E8003D,#B5002E);color:#fff;">
+      style="background:linear-gradient(135deg,#9B2D30,#7A1E1E);color:#FBF7EE;">
       💰 金塊馬抽出
     </button>
     <button id="tab-result" onclick="switchTab('result')"
       class="flex-1 py-3 text-sm font-bold flex items-center justify-center gap-2 transition-all"
-      style="color:rgba(255,255,255,0.55);">
+      style="color:rgba(26,26,26,.55);">
       📊 結果入力
     </button>
   </div>
@@ -231,10 +237,10 @@
   <!-- CSV読み込みカード -->
   <div class="ug-card p-5">
     <div class="flex items-center gap-3 mb-4">
-      <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">📂</div>
+      <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#C9A961,#d97706);color:#FAFAFA;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">📂</div>
       <div>
-        <p class="font-bold text-sm" style="color:#fff">JRA出馬表CSVを読み込む</p>
-        <p class="text-xs" style="color:rgba(255,255,255,0.50)">Shift-JIS形式に対応・コース＆出走馬を自動入力</p>
+        <p class="font-bold text-sm" style="color:#1A1A1A">JRA出馬表CSVを読み込む</p>
+        <p class="text-xs" style="color:rgba(26,26,26,.5)">Shift-JIS形式に対応・コース＆出走馬を自動入力</p>
       </div>
     </div>
 
@@ -242,7 +248,7 @@
     <div class="space-y-3">
       <!-- CSV1 -->
       <div>
-        <p class="text-xs font-bold mb-1.5" style="color:rgba(255,255,255,0.55)">📄 出馬表CSV（騎手・調教師・父）<span style="color:#E8003D"> *必須</span></p>
+        <p class="text-xs font-bold mb-1.5" style="color:rgba(26,26,26,.55)">📄 出馬表CSV（騎手・調教師・父）<span style="color:#9B2D30"> *必須</span></p>
         <input type="file" id="csvFileInput" accept=".csv" class="hidden" onchange="handleCSVUpload(this, 1)"/>
         <label for="csvFileInput" class="csv-upload-label" id="csvUploadLabel1">
           <span class="material-symbols-outlined text-xl">upload_file</span>
@@ -251,7 +257,7 @@
       </div>
       <!-- CSV2 -->
       <div>
-        <p class="text-xs font-bold mb-1.5" style="color:rgba(255,255,255,0.55)">📄 出馬表CSV②（前走・乗り替わり）<span style="color:rgba(255,255,255,0.30)"> 任意</span></p>
+        <p class="text-xs font-bold mb-1.5" style="color:rgba(26,26,26,.55)">📄 出馬表CSV②（前走・乗り替わり）<span style="color:rgba(26,26,26,.3)"> 任意</span></p>
         <input type="file" id="csvFileInput2" accept=".csv" class="hidden" onchange="handleCSVUpload(this, 2)"/>
         <label for="csvFileInput2" class="csv-upload-label" id="csvUploadLabel2">
           <span class="material-symbols-outlined text-xl">upload_file</span>
@@ -263,24 +269,24 @@
     <!-- 読み込み済みレース一覧 -->
     <div id="csvRaceList" class="hidden mt-4">
       <div class="flex items-center justify-between mb-3">
-        <p class="text-xs font-bold" style="color:rgba(255,255,255,0.60)">レースを選択してください</p>
-        <span id="csvRaceCount" class="text-xs" style="color:rgba(255,255,255,0.40)"></span>
+        <p class="text-xs font-bold" style="color:rgba(26,26,26,.6)">レースを選択してください</p>
+        <span id="csvRaceCount" class="text-xs" style="color:rgba(26,26,26,.4)"></span>
       </div>
       <!-- フィルター -->
       <div class="flex flex-wrap gap-2 mb-3">
         <button id="filterAll" onclick="filterCSVRaces('all')"
           class="text-xs px-3 py-1.5 rounded-full font-bold transition-all"
-          style="background:rgba(240,192,64,0.20);border:1px solid rgba(240,192,64,0.50);color:#f0c040;">
+          style="background:rgba(201,169,97,0.20);border:1px solid rgba(201,169,97,0.50);color:#C9A961;">
           すべて
         </button>
         <button id="filterDB" onclick="filterCSVRaces('db')"
           class="text-xs px-3 py-1.5 rounded-full font-bold transition-all"
-          style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);">
+          style="background:rgba(251,247,238,.7);border:1px solid rgba(201,169,97,0.25);color:rgba(26,26,26,.55);">
           💰 DB合致
         </button>
         <button id="filterExtra" onclick="filterCSVRaces('extra')"
           class="text-xs px-3 py-1.5 rounded-full font-bold transition-all"
-          style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);">
+          style="background:rgba(251,247,238,.7);border:1px solid rgba(201,169,97,0.25);color:rgba(26,26,26,.55);">
           🔄 乗替/芝ダ変更
         </button>
       </div>
@@ -293,8 +299,8 @@
     <div class="flex items-center gap-3 mb-4">
       <div class="step-num">1</div>
       <div>
-        <p class="font-bold text-sm" style="color:#fff">開催コースを選択</p>
-        <p class="text-xs" style="color:rgba(255,255,255,0.50)">DBに登録済みのコースが表示されます</p>
+        <p class="font-bold text-sm" style="color:#1A1A1A">開催コースを選択</p>
+        <p class="text-xs" style="color:rgba(26,26,26,.5)">DBに登録済みのコースが表示されます</p>
       </div>
     </div>
     <select id="courseSelect" class="ug-input w-full px-4 py-3 text-sm font-bold">
@@ -310,26 +316,26 @@
     <div class="flex items-center gap-3 mb-4">
       <div class="step-num">2</div>
       <div>
-        <p class="font-bold text-sm" style="color:#fff">出走馬リストを貼り付け</p>
-        <p class="text-xs" style="color:rgba(255,255,255,0.50)">CSVまたはタブ区切り形式で入力</p>
+        <p class="font-bold text-sm" style="color:#1A1A1A">出走馬リストを貼り付け</p>
+        <p class="text-xs" style="color:rgba(26,26,26,.5)">CSVまたはタブ区切り形式で入力</p>
       </div>
     </div>
 
     <!-- フォーマット説明 -->
-    <div class="rounded-xl p-3 mb-3" style="background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.25)">
-      <p class="text-xs font-bold mb-1" style="color:#f0c040">📋 入力フォーマット（1頭1行）</p>
-      <div class="font-mono text-xs" style="color:rgba(255,255,255,0.65)">
+    <div class="rounded-xl p-3 mb-3" style="background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.25)">
+      <p class="text-xs font-bold mb-1" style="color:#C9A961">📋 入力フォーマット（1頭1行）</p>
+      <div class="font-mono text-xs" style="color:rgba(26,26,26,.65)">
         <p>馬名,騎手名,調教師名,父（種牡馬）名</p>
-        <p class="mt-1" style="color:rgba(255,255,255,0.40)">例）タマモブラックタイ,坂井瑠星,矢作芳人,アルアイン</p>
+        <p class="mt-1" style="color:rgba(26,26,26,.4)">例）タマモブラックタイ,坂井瑠星,矢作芳人,アルアイン</p>
       </div>
-      <div class="mt-2 pt-2" style="border-top:1px solid rgba(255,255,255,0.10)">
-        <p class="text-xs" style="color:rgba(255,255,255,0.45)">※ 種牡馬列がなくてもOK（騎手・調教師のみで照合）</p>
-        <p class="text-xs" style="color:rgba(255,255,255,0.45)">※ カンマ・タブ・スペース区切りに対応</p>
+      <div class="mt-2 pt-2" style="border-top:1px solid rgba(26,26,26,.08)">
+        <p class="text-xs" style="color:rgba(26,26,26,.45)">※ 種牡馬列がなくてもOK（騎手・調教師のみで照合）</p>
+        <p class="text-xs" style="color:rgba(26,26,26,.45)">※ カンマ・タブ・スペース区切りに対応</p>
       </div>
     </div>
 
     <div class="mb-2 flex items-center justify-between">
-      <label class="text-xs font-bold" style="color:rgba(255,255,255,0.70)">レース名（任意）</label>
+      <label class="text-xs font-bold" style="color:rgba(26,26,26,.7)">レース名（任意）</label>
     </div>
     <input id="raceNameInput" type="text" class="ug-input w-full px-4 py-2.5 text-sm mb-3" placeholder="例）阪神11R 阪神牝馬ステークス">
 
@@ -348,12 +354,12 @@
   <div id="resultsSection" class="hidden">
 
     <!-- ヒット数サマリー -->
-    <div id="resultSummary" class="rounded-2xl p-4 mb-1" style="background:linear-gradient(135deg,rgba(232,0,61,0.20),rgba(240,192,64,0.12));border:1px solid rgba(240,192,64,0.45)">
+    <div id="resultSummary" class="rounded-2xl p-4 mb-1" style="background:linear-gradient(135deg,rgba(155,45,48,0.20),rgba(201,169,97,0.12));border:1px solid rgba(201,169,97,0.45)">
       <div class="flex items-center gap-3">
         <div class="text-3xl">🎯</div>
         <div>
-          <p class="font-bold" id="summaryTitle" style="color:#f0c040"></p>
-          <p class="text-xs" id="summaryDesc" style="color:rgba(255,255,255,0.65)"></p>
+          <p class="font-bold" id="summaryTitle" style="color:#C9A961"></p>
+          <p class="text-xs" id="summaryDesc" style="color:rgba(26,26,26,.65)"></p>
         </div>
       </div>
     </div>
@@ -364,19 +370,19 @@
     <!-- ノーヒット -->
     <div id="noHitMsg" class="hidden ug-card p-8 text-center">
       <div class="text-4xl mb-3">🔍</div>
-      <p class="font-bold" style="color:rgba(255,255,255,0.70)">条件合致馬なし</p>
-      <p class="text-xs mt-1" style="color:rgba(255,255,255,0.40)">選択コースの穴条件に合致する馬が見つかりませんでした</p>
+      <p class="font-bold" style="color:rgba(26,26,26,.7)">条件合致馬なし</p>
+      <p class="text-xs mt-1" style="color:rgba(26,26,26,.4)">選択コースの穴条件に合致する馬が見つかりませんでした</p>
     </div>
 
     <!-- 全頭リスト（照合済み） -->
     <div class="ug-card p-4 mt-4">
-      <p class="text-xs font-bold mb-3" style="color:rgba(255,255,255,0.50)">📋 照合結果（全頭）</p>
+      <p class="text-xs font-bold mb-3" style="color:rgba(26,26,26,.5)">📋 照合結果（全頭）</p>
       <div id="allHorsesList" class="space-y-1.5"></div>
     </div>
 
     <!-- このレースを追加 -->
     <button class="w-full py-3 mt-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-2"
-      style="background:rgba(240,192,64,0.15);border:1px solid rgba(240,192,64,0.50);color:#f0c040;"
+      style="background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.50);color:#C9A961;"
       onclick="addToSession()">
       ✅ このレースをサイト反映リストに追加
     </button>
@@ -387,20 +393,20 @@
     <div class="ug-card-gold p-5">
       <div class="flex items-center justify-between mb-4">
         <div>
-          <p class="font-bold text-sm" style="color:#f0c040">📤 反映待ちレース</p>
-          <p class="text-xs mt-0.5" id="sessionCount" style="color:rgba(255,255,255,0.55)"></p>
+          <p class="font-bold text-sm" style="color:#C9A961">📤 反映待ちレース</p>
+          <p class="text-xs mt-0.5" id="sessionCount" style="color:rgba(26,26,26,.55)"></p>
         </div>
-        <button onclick="clearSession()" class="text-xs px-3 py-1.5 rounded-lg" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15)">
+        <button onclick="clearSession()" class="text-xs px-3 py-1.5 rounded-lg" style="background:rgba(251,247,238,0.7);color:rgba(26,26,26,.55);border:1px solid rgba(201,169,97,0.25)">
           リセット
         </button>
       </div>
       <div id="sessionList" class="space-y-2 mb-5"></div>
       <button onclick="publishToSite()"
         class="w-full py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-2"
-        style="background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;box-shadow:0 4px 20px rgba(240,192,64,0.40);">
+        style="background:linear-gradient(135deg,#C9A961,#d97706);color:#FAFAFA;box-shadow:0 4px 20px rgba(201,169,97,0.40);">
         📥 kinkai-results.json をダウンロード
       </button>
-      <p class="text-center text-xs mt-2" style="color:rgba(255,255,255,0.40)">ダウンロード後 → docs/data/ に保存 → GitHubにpush</p>
+      <p class="text-center text-xs mt-2" style="color:rgba(26,26,26,.4)">ダウンロード後 → docs/data/ に保存 → GitHubにpush</p>
     </div>
   </div>
 
@@ -409,16 +415,16 @@
     <button class="db-header w-full flex items-center justify-between py-1" onclick="toggleDB()">
       <div class="flex items-center gap-2">
         <span class="text-lg">📊</span>
-        <p class="font-bold text-sm" style="color:#f0c040">穴条件データベース</p>
+        <p class="font-bold text-sm" style="color:#C9A961">穴条件データベース</p>
       </div>
-      <span class="material-symbols-outlined db-arrow text-sm" id="dbArrow" style="color:rgba(255,255,255,0.50)">expand_more</span>
+      <span class="material-symbols-outlined db-arrow text-sm" id="dbArrow" style="color:rgba(26,26,26,.5)">expand_more</span>
     </button>
     <div class="db-body" id="dbBody">
       <div id="dbContent" class="mt-4 space-y-6"></div>
-      <div class="mt-5 pt-4" style="border-top:1px solid rgba(255,255,255,0.10)">
-        <p class="text-xs" style="color:rgba(255,255,255,0.40)">
-          ※ データは <code style="color:#f0c040">db/index.json</code> で管理されています<br>
-          ※ コース追加は db/ にJSONを追加し、<code style="color:#f0c040">index.json</code> にエントリを追記してpushするだけでOK
+      <div class="mt-5 pt-4" style="border-top:1px solid rgba(26,26,26,.08)">
+        <p class="text-xs" style="color:rgba(26,26,26,.4)">
+          ※ データは <code style="color:#C9A961">db/index.json</code> で管理されています<br>
+          ※ コース追加は db/ にJSONを追加し、<code style="color:#C9A961">index.json</code> にエントリを追記してpushするだけでOK
         </p>
       </div>
     </div>
@@ -429,21 +435,21 @@
     <button class="db-header w-full flex items-center justify-between py-1" onclick="toggleDBBuilder()">
       <div class="flex items-center gap-2">
         <span class="text-lg">➕</span>
-        <p class="font-bold text-sm" style="color:#f0c040">コースDB追加ツール</p>
-        <span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(240,192,64,0.15);color:#f0c040;border:1px solid rgba(240,192,64,0.30)">CSV / TXT</span>
+        <p class="font-bold text-sm" style="color:#C9A961">コースDB追加ツール</p>
+        <span class="text-xs px-2 py-0.5 rounded-full" style="background:rgba(201,169,97,0.15);color:#C9A961;border:1px solid rgba(201,169,97,0.30)">CSV / TXT</span>
       </div>
-      <span class="material-symbols-outlined text-sm" id="dbBuilderArrow" style="color:rgba(255,255,255,0.50)">expand_more</span>
+      <span class="material-symbols-outlined text-sm" id="dbBuilderArrow" style="color:rgba(26,26,26,.5)">expand_more</span>
     </button>
     <div id="dbBuilderBody" class="hidden mt-4 space-y-4">
 
       <!-- コース情報 -->
       <div class="flex gap-3 flex-wrap">
         <div class="flex-1" style="min-width:150px">
-          <p class="text-xs mb-1" style="color:rgba(255,255,255,0.5)">コース名</p>
+          <p class="text-xs mb-1" style="color:rgba(26,26,26,0.5)">コース名</p>
           <input id="dbCourseName" type="text" class="ug-input w-full px-3 py-2 text-sm" placeholder="例：東京芝2000m">
         </div>
         <div>
-          <p class="text-xs mb-1" style="color:rgba(255,255,255,0.5)">カテゴリ</p>
+          <p class="text-xs mb-1" style="color:rgba(26,26,26,0.5)">カテゴリ</p>
           <select id="dbCategory" class="ug-input px-3 py-2 text-sm">
             <option value="騎手">騎手</option>
             <option value="調教師">調教師</option>
@@ -453,7 +459,7 @@
           </select>
         </div>
         <div class="flex-1" style="min-width:150px">
-          <p class="text-xs mb-1" style="color:rgba(255,255,255,0.5)">期間（任意）</p>
+          <p class="text-xs mb-1" style="color:rgba(26,26,26,0.5)">期間（任意）</p>
           <input id="dbPeriod" type="text" class="ug-input w-full px-3 py-2 text-sm" placeholder="例：2020.01.01〜2026.03.22">
         </div>
       </div>
@@ -462,24 +468,24 @@
       <label class="csv-upload-label" id="dbUploadLabel" style="cursor:pointer;">
         <input type="file" accept=".csv,.txt" style="display:none;" onchange="handleDBFileUpload(this)"/>
         <span>📂</span>
-        <span id="dbUploadText" style="font-size:13px;font-weight:700;color:#f0c040;">CSV / TXT をアップロード（騎手・調教師・種牡馬）</span>
+        <span id="dbUploadText" style="font-size:13px;font-weight:700;color:#C9A961;">CSV / TXT をアップロード（騎手・調教師・種牡馬）</span>
       </label>
 
       <!-- プレビュー -->
       <div id="dbPreview" class="hidden">
         <div class="flex items-center gap-2 mb-2">
-          <span class="text-xs font-bold" style="color:#f0c040">✅ パース完了</span>
-          <span class="text-xs" style="color:rgba(255,255,255,0.5)"><span id="dbPreviewCount">0</span>件 検出</span>
+          <span class="text-xs font-bold" style="color:#C9A961">✅ パース完了</span>
+          <span class="text-xs" style="color:rgba(26,26,26,0.5)"><span id="dbPreviewCount">0</span>件 検出</span>
         </div>
         <div style="overflow-x:auto;">
           <table style="width:100%;border-collapse:collapse;font-size:11px;" id="dbPreviewTable">
             <thead>
-              <tr style="background:rgba(232,0,61,0.18);">
-                <th style="padding:6px 8px;text-align:left;color:rgba(255,255,255,0.7);font-weight:900;">名前</th>
-                <th style="padding:6px 8px;color:rgba(255,255,255,0.7);font-weight:900;">着別度数</th>
-                <th style="padding:6px 8px;color:rgba(255,255,255,0.7);font-weight:900;">複勝率</th>
-                <th style="padding:6px 8px;color:rgba(255,255,255,0.7);font-weight:900;">単回値</th>
-                <th style="padding:6px 8px;color:rgba(255,255,255,0.7);font-weight:900;">複回値</th>
+              <tr style="background:rgba(155,45,48,0.18);">
+                <th style="padding:6px 8px;text-align:left;color:rgba(26,26,26,0.7);font-weight:900;">名前</th>
+                <th style="padding:6px 8px;color:rgba(26,26,26,0.7);font-weight:900;">着別度数</th>
+                <th style="padding:6px 8px;color:rgba(26,26,26,0.7);font-weight:900;">複勝率</th>
+                <th style="padding:6px 8px;color:rgba(26,26,26,0.7);font-weight:900;">単回値</th>
+                <th style="padding:6px 8px;color:rgba(26,26,26,0.7);font-weight:900;">複回値</th>
               </tr>
             </thead>
             <tbody id="dbPreviewBody"></tbody>
@@ -490,8 +496,8 @@
       <!-- ダウンロードボタン -->
       <div id="dbDownloadArea" class="hidden space-y-2">
         <button class="btn-extract w-full py-3 text-sm" onclick="downloadDBJson()">⬇️ JSONをダウンロード</button>
-        <div id="dbIndexHint" class="rounded-xl p-3 text-xs" style="background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.20);color:rgba(255,255,255,0.60);display:none;">
-          <p class="font-bold mb-1" style="color:#f0c040">📌 次のステップ</p>
+        <div id="dbIndexHint" class="rounded-xl p-3 text-xs" style="background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.20);color:rgba(26,26,26,.6);display:none;">
+          <p class="font-bold mb-1" style="color:#C9A961">📌 次のステップ</p>
           <p id="dbIndexHintText"></p>
         </div>
       </div>
@@ -509,13 +515,13 @@
     <div class="flex items-center gap-3 mb-4">
       <div class="step-num">A</div>
       <div>
-        <p class="font-bold text-sm" style="color:#fff">今週の結果JSONを貼り付け</p>
-        <p class="text-xs" style="color:rgba(255,255,255,0.50)">kinkai-results.json の内容をそのまま貼り付けてください</p>
+        <p class="font-bold text-sm" style="color:#1A1A1A">今週の結果JSONを貼り付け</p>
+        <p class="text-xs" style="color:rgba(26,26,26,.5)">kinkai-results.json の内容をそのまま貼り付けてください</p>
       </div>
     </div>
-    <div class="rounded-xl p-3 mb-3" style="background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.25)">
-      <p class="text-xs font-bold mb-1" style="color:#f0c040">📋 貼り付け方法</p>
-      <p class="text-xs" style="color:rgba(255,255,255,0.60)">docs/data/kinkai-results.json の内容を丸ごとコピー＆ペースト</p>
+    <div class="rounded-xl p-3 mb-3" style="background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.25)">
+      <p class="text-xs font-bold mb-1" style="color:#C9A961">📋 貼り付け方法</p>
+      <p class="text-xs" style="color:rgba(26,26,26,.6)">docs/data/kinkai-results.json の内容を丸ごとコピー＆ペースト</p>
     </div>
     <textarea id="resultsJsonInput" class="ug-input w-full px-4 py-3 text-xs font-mono" rows="6"
       placeholder='{"updated":"2026-03-29","races":[...]}' ></textarea>
@@ -533,8 +539,8 @@
     <div class="flex items-center gap-3 mb-4">
       <div class="step-num">B</div>
       <div>
-        <p class="font-bold text-sm" style="color:#fff">既存の戦績JSONを貼り付け（任意）</p>
-        <p class="text-xs" style="color:rgba(255,255,255,0.50)">空のままにすると新規作成。既存に追記する場合は貼り付け</p>
+        <p class="font-bold text-sm" style="color:#1A1A1A">既存の戦績JSONを貼り付け（任意）</p>
+        <p class="text-xs" style="color:rgba(26,26,26,.5)">空のままにすると新規作成。既存に追記する場合は貼り付け</p>
       </div>
     </div>
     <textarea id="historyJsonInput" class="ug-input w-full px-4 py-3 text-xs font-mono" rows="4"
@@ -542,16 +548,16 @@
     <div class="flex flex-col gap-3 mt-4">
       <button onclick="downloadUpdatedResults()"
         class="w-full py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-2"
-        style="background:linear-gradient(135deg,#E8003D,#B5002E);color:#fff;box-shadow:0 4px 20px rgba(232,0,61,0.40);">
+        style="background:linear-gradient(135deg,#9B2D30,#7A1E1E);color:#FBF7EE;box-shadow:0 4px 20px rgba(155,45,48,0.40);">
         📥 kinkai-results.json をダウンロード（結果反映版）
       </button>
       <button onclick="downloadHistory()"
         class="w-full py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-2"
-        style="background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;box-shadow:0 4px 20px rgba(240,192,64,0.40);">
+        style="background:linear-gradient(135deg,#C9A961,#d97706);color:#FAFAFA;box-shadow:0 4px 20px rgba(201,169,97,0.40);">
         📥 kinkai-history.json をダウンロード
       </button>
     </div>
-    <p class="text-center text-xs mt-2" style="color:rgba(255,255,255,0.40)">ダウンロード後 → docs/data/ に保存 → GitHubにpush</p>
+    <p class="text-center text-xs mt-2" style="color:rgba(26,26,26,.4)">ダウンロード後 → docs/data/ に保存 → GitHubにpush</p>
   </div>
 
 </div><!-- /pane-result -->
@@ -559,8 +565,8 @@
 <!-- ══════ FOOTER ══════ -->
 <footer class="mt-16 px-5 py-8">
   <div class="max-w-2xl mx-auto">
-    <p class="text-center text-xs" style="color:rgba(255,255,255,0.40)">UG強奪競馬新聞 — 金塊馬抽出ツール</p>
-    <p class="text-center text-xs mt-1" style="color:rgba(255,255,255,0.25)">※ 本ツールは参考情報の提供を目的としています。投票は自己責任でお願いします。</p>
+    <p class="text-center text-xs" style="color:rgba(26,26,26,.4)">UG競馬ワイド神宮 — 金塊馬抽出ツール</p>
+    <p class="text-center text-xs mt-1" style="color:rgba(26,26,26,0.25)">※ 本ツールは参考情報の提供を目的としています。投票は自己責任でお願いします。</p>
   </div>
 </footer>
 
@@ -790,8 +796,8 @@ function renderCSVRaceList(races) {
 
 function filterCSVRaces(mode) {
   csvFilterMode = mode;
-  const activeStyle   = 'font-size:12px;padding:6px 12px;border-radius:999px;font-weight:700;transition:all 0.2s;background:rgba(240,192,64,0.20);border:1px solid rgba(240,192,64,0.50);color:#f0c040;';
-  const inactiveStyle = 'font-size:12px;padding:6px 12px;border-radius:999px;font-weight:700;transition:all 0.2s;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.55);';
+  const activeStyle   = 'font-size:12px;padding:6px 12px;border-radius:999px;font-weight:700;transition:all 0.2s;background:rgba(201,169,97,0.20);border:1px solid rgba(201,169,97,0.50);color:#C9A961;';
+  const inactiveStyle = 'font-size:12px;padding:6px 12px;border-radius:999px;font-weight:700;transition:all 0.2s;background:rgba(251,247,238,.7);border:1px solid rgba(201,169,97,0.25);color:rgba(26,26,26,.55);';
   document.getElementById('filterAll').style.cssText   = (mode==='all'   ? activeStyle : inactiveStyle);
   document.getElementById('filterDB').style.cssText    = (mode==='db'    ? activeStyle : inactiveStyle);
   document.getElementById('filterExtra').style.cssText = (mode==='extra' ? activeStyle : inactiveStyle);
@@ -810,7 +816,7 @@ function renderCSVRaceOptions(races, mode) {
     const msg = mode === 'extra' && !csv2Loaded
       ? '出馬表CSV②を読み込むと乗り替わり・芝ダ変更が検出されます'
       : '表示できるレースがありません';
-    container.innerHTML = `<p class="text-xs text-center py-4" style="color:rgba(255,255,255,0.35)">${msg}</p>`;
+    container.innerHTML = `<p class="text-xs text-center py-4" style="color:rgba(26,26,26,.35)">${msg}</p>`;
     return;
   }
 
@@ -831,15 +837,15 @@ function renderCSVRaceOptions(races, mode) {
 
     btn.innerHTML = `
       <div class="flex-1 min-w-0">
-        <p class="font-bold text-sm mb-1.5" style="color:#fff">${escHtml(race.raceName)}</p>
+        <p class="font-bold text-sm mb-1.5" style="color:#1A1A1A">${escHtml(race.raceName)}</p>
         <div class="flex items-center flex-wrap gap-1.5">
           <span class="text-[10px] px-2 py-0.5 rounded-full"
-            style="background:rgba(255,255,255,0.10);color:rgba(255,255,255,0.55);">${escHtml(race.course)}</span>
-          <span class="text-[10px]" style="color:rgba(255,255,255,0.35)">${race.horses.length}頭</span>
+            style="background:rgba(26,26,26,.08);color:rgba(26,26,26,.55);">${escHtml(race.course)}</span>
+          <span class="text-[10px]" style="color:rgba(26,26,26,.35)">${race.horses.length}頭</span>
           ${badges.join('')}
         </div>
       </div>
-      <span class="material-symbols-outlined text-base flex-shrink-0" style="color:rgba(255,255,255,0.35)">chevron_right</span>
+      <span class="material-symbols-outlined text-base flex-shrink-0" style="color:rgba(26,26,26,.35)">chevron_right</span>
     `;
     container.appendChild(btn);
   });
@@ -872,12 +878,12 @@ function selectCSVRace(race, targetBtn) {
 
   // 選択ボタンの見た目を変更
   document.querySelectorAll('.race-option-btn').forEach(b => {
-    b.style.background = 'rgba(255,255,255,0.06)';
-    b.style.borderColor = b.classList.contains('has-db') ? 'rgba(240,192,64,0.40)' : 'rgba(255,255,255,0.12)';
+    b.style.background = 'rgba(26,26,26,0.06)';
+    b.style.borderColor = b.classList.contains('has-db') ? 'rgba(201,169,97,0.40)' : 'rgba(201,169,97,0.25)';
   });
   if (targetBtn) {
-    targetBtn.style.background = 'rgba(240,192,64,0.18)';
-    targetBtn.style.borderColor = 'rgba(240,192,64,0.80)';
+    targetBtn.style.background = 'rgba(201,169,97,0.18)';
+    targetBtn.style.borderColor = 'rgba(201,169,97,0.80)';
   }
 
   // 警告表示（DBなし） + 直接セッション追加ボタン
@@ -885,12 +891,12 @@ function selectCSVRace(race, targetBtn) {
     const courseM = (race.course||'').match(/^(.+?)(芝|ダート|ダ)(\d+)/);
     const warn = document.createElement('div');
     warn.className = 'rounded-xl p-3 mt-3 csv-warn';
-    warn.style.cssText = 'background:rgba(240,192,64,0.08);border:1px solid rgba(240,192,64,0.30);';
+    warn.style.cssText = 'background:rgba(201,169,97,0.08);border:1px solid rgba(201,169,97,0.30);';
     warn.innerHTML = `
-      <p class="text-xs font-bold mb-2" style="color:#f0c040;">⚠️ 「${escHtml(race.course)}」はDBに未登録 — 金塊馬チェックなしで全馬を取込めます</p>
+      <p class="text-xs font-bold mb-2" style="color:#C9A961;">⚠️ 「${escHtml(race.course)}」はDBに未登録 — 金塊馬チェックなしで全馬を取込めます</p>
       <button onclick="addCSVRaceDirectly(this)" style="
         display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;
-        background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;
+        background:linear-gradient(135deg,#C9A961,#d97706);color:#FAFAFA;
         font-size:12px;font-weight:900;border:none;cursor:pointer;
       ">📋 全馬をセッションに追加（${race.horses.length}頭）</button>
     `;
@@ -1243,7 +1249,7 @@ function renderResults(hits, raceName, course) {
     div.className = 'flex items-center justify-between py-1.5 px-2 rounded-lg ' + (h.matched.length > 0 ? 'bg-white/5' : '');
     const left = document.createElement('span');
     left.className = 'text-sm ' + (h.matched.length > 0 ? 'font-bold' : '');
-    left.style.color = h.matched.length > 0 ? '#f0c040' : 'rgba(255,255,255,0.45)';
+    left.style.color = h.matched.length > 0 ? '#C9A961' : 'rgba(26,26,26,.45)';
     left.textContent = (h.matched.length > 0 ? '💰 ' : '　 ') + h.horse.name;
 
     const right = document.createElement('div');
@@ -1277,10 +1283,10 @@ function buildHitCard(h) {
       <div>
         <div class="flex items-center gap-2 mb-1">
           ${multiHit ? '<span class="text-lg">🔥</span>' : '<span class="text-lg">💰</span>'}
-          <h3 class="serif-headline text-xl font-bold" style="color:#f0c040">${escHtml(h.horse.name)}</h3>
-          ${multiHit ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background:#E8003D;color:#fff">${hitCount}条件ヒット！</span>` : ''}
+          <h3 class="serif-headline text-xl font-bold" style="color:#C9A961">${escHtml(h.horse.name)}</h3>
+          ${multiHit ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background:#9B2D30;color:#1A1A1A">${hitCount}条件ヒット！</span>` : ''}
         </div>
-        <div class="flex gap-2 flex-wrap text-xs" style="color:rgba(255,255,255,0.60)">
+        <div class="flex gap-2 flex-wrap text-xs" style="color:rgba(26,26,26,.6)">
           ${h.horse.jockey  ? `<span>騎手：${escHtml(h.horse.jockey)}</span>` : ''}
           ${h.horse.trainer ? `<span>厩舎：${escHtml(h.horse.trainer)}</span>` : ''}
           ${h.horse.sire    ? `<span>父：${escHtml(h.horse.sire)}</span>` : ''}
@@ -1307,14 +1313,14 @@ function buildConditionBlock(m) {
   if (c.複回値)  statItems.push(`<span class="stat-pill-gold">複回値 <strong>${c.複回値}</strong></span>`);
 
   return `
-    <div class="rounded-xl p-3" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)">
+    <div class="rounded-xl p-3" style="background:rgba(251,247,238,0.7);border:1px solid rgba(201,169,97,0.25)">
       <div class="flex items-center gap-2 mb-2">
         <span class="badge-${typeClass} text-xs font-bold px-2.5 py-0.5 rounded-full">${typeLabel}</span>
-        <span class="text-sm font-bold" style="color:#fff">${escHtml(c.name)}</span>
-        ${c.厩舎 ? `<span class="text-xs" style="color:rgba(255,255,255,0.50)">(${escHtml(c.厩舎)})</span>` : ''}
+        <span class="text-sm font-bold" style="color:#1A1A1A">${escHtml(c.name)}</span>
+        ${c.厩舎 ? `<span class="text-xs" style="color:rgba(26,26,26,.5)">(${escHtml(c.厩舎)})</span>` : ''}
       </div>
       <div class="flex flex-wrap gap-1.5 mb-2">${statItems.join('')}</div>
-      ${c.memo ? `<p class="text-xs font-bold" style="color:#ffb3c6">💡 ${escHtml(c.memo)}</p>` : ''}
+      ${c.memo ? `<p class="text-xs font-bold" style="color:#C66C6E">💡 ${escHtml(c.memo)}</p>` : ''}
     </div>
   `;
 }
@@ -1347,7 +1353,7 @@ function buildDBView() {
   Object.entries(COURSES_DB).forEach(([course, data]) => {
     const section = document.createElement('div');
     section.innerHTML = `
-      <h3 class="serif-headline font-bold mb-3" style="color:#E8003D">${escHtml(course)}</h3>
+      <h3 class="serif-headline font-bold mb-3" style="color:#9B2D30">${escHtml(course)}</h3>
       ${buildDBCategory(data['騎手']  || [], 'A コース金塊騎手', 'jockey')}
       ${buildDBCategory(data['調教師']|| [], 'A コース金塊厩舎', 'trainer')}
       ${buildDBCategory([...(data['種牡馬']||[]), ...(data['血統']||[])], 'A コース金塊血統', 'sire')}
@@ -1356,7 +1362,7 @@ function buildDBView() {
       ${(data['生産者']||[]).length > 0 ? buildDBCategory(data['生産者'], 'A コース金塊生産者', 'sire') : ''}
       ${(data['騎手継続']||[]).length > 0 ? buildDBCategory(data['騎手継続'], 'A 継続騎乗注目', 'jockey-keep') : ''}
       ${(data['前走コース']||[]).length > 0 ? buildDBCourseCategory(data['前走コース']) : ''}
-      <div style="border-top:1px solid rgba(255,255,255,0.08)" class="mt-4"></div>
+      <div style="border-top:1px solid rgba(201,169,97,0.25)" class="mt-4"></div>
     `;
     container.appendChild(section);
   });
@@ -1372,9 +1378,9 @@ function buildDBView() {
     const section = document.createElement('div');
     const displayName = key.replace('ダ', 'ダート');
     section.innerHTML = `
-      <h3 class="font-bold mb-2 text-sm" style="color:rgba(255,255,255,0.70)">${escHtml(displayName)}</h3>
+      <h3 class="font-bold mb-2 text-sm" style="color:rgba(26,26,26,.7)">${escHtml(displayName)}</h3>
       ${buildDBCategory(data['好調騎手'] || [], 'B 好調騎手', 'trend')}
-      <div style="border-top:1px solid rgba(255,255,255,0.06)" class="mt-3 mb-3"></div>
+      <div style="border-top:1px solid rgba(201,169,97,0.25)" class="mt-3 mb-3"></div>
     `;
     container.appendChild(section);
   });
@@ -1383,10 +1389,10 @@ function buildDBView() {
 function buildDBCourseCategory(items) {
   if (!items || items.length === 0) return '';
   const rows = items.map(c => `
-    <div class="flex items-start gap-3 py-2" style="border-bottom:1px solid rgba(255,255,255,0.06)">
+    <div class="flex items-start gap-3 py-2" style="border-bottom:1px solid rgba(201,169,97,0.25)">
       <span class="badge-prev-course text-xs font-bold px-2 py-0.5 rounded-full mt-0.5 whitespace-nowrap">前走コース</span>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-bold" style="color:#fff">${c.prevSurface || ''}${c.prevDistance ? c.prevDistance+'m' : ''}</p>
+        <p class="text-sm font-bold" style="color:#1A1A1A">${c.prevSurface || ''}${c.prevDistance ? c.prevDistance+'m' : ''}</p>
         ${c.memo ? `<p class="text-xs mt-1" style="color:#a3e635">💡 ${escHtml(c.memo)}</p>` : ''}
       </div>
     </div>
@@ -1397,10 +1403,10 @@ function buildDBCourseCategory(items) {
 function buildDBCategory(items, label, cls) {
   if (items.length === 0) return '';
   const rows = items.map(c => `
-    <div class="flex items-start gap-3 py-2" style="border-bottom:1px solid rgba(255,255,255,0.06)">
+    <div class="flex items-start gap-3 py-2" style="border-bottom:1px solid rgba(201,169,97,0.25)">
       <span class="badge-${cls} text-xs font-bold px-2 py-0.5 rounded-full mt-0.5 whitespace-nowrap">${escHtml(label)}</span>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-bold" style="color:#fff">${escHtml(c.name)}${c.厩舎 ? ` <span style="color:rgba(255,255,255,0.45);font-size:11px">(${escHtml(c.厩舎)})</span>` : ''}</p>
+        <p class="text-sm font-bold" style="color:#1A1A1A">${escHtml(c.name)}${c.厩舎 ? ` <span style="color:rgba(26,26,26,.45);font-size:11px">(${escHtml(c.厩舎)})</span>` : ''}</p>
         <div class="flex flex-wrap gap-1 mt-1">
           ${c.stats ? `<span class="stat-pill">${escHtml(c.stats)}</span>` : ''}
           ${c.勝率  ? `<span class="stat-pill">勝率 ${escHtml(c.勝率)}</span>` : ''}
@@ -1408,7 +1414,7 @@ function buildDBCategory(items, label, cls) {
           ${c.単回値? `<span class="stat-pill-red">単回値 <strong>${c.単回値}</strong></span>` : ''}
           ${c.複回値? `<span class="stat-pill-gold">複回値 <strong>${c.複回値}</strong></span>` : ''}
         </div>
-        ${c.memo ? `<p class="text-xs mt-1" style="color:#ffb3c6">💡 ${escHtml(c.memo)}</p>` : ''}
+        ${c.memo ? `<p class="text-xs mt-1" style="color:#C66C6E">💡 ${escHtml(c.memo)}</p>` : ''}
       </div>
     </div>
   `).join('');
@@ -1438,9 +1444,9 @@ function addToSession() {
   btn.style.color = '#4ade80';
   setTimeout(() => {
     btn.innerHTML = '✅ このレースをサイト反映リストに追加';
-    btn.style.background = 'rgba(240,192,64,0.15)';
-    btn.style.borderColor = 'rgba(240,192,64,0.50)';
-    btn.style.color = '#f0c040';
+    btn.style.background = 'rgba(201,169,97,0.15)';
+    btn.style.borderColor = 'rgba(201,169,97,0.50)';
+    btn.style.color = '#C9A961';
   }, 1800);
 }
 
@@ -1455,37 +1461,37 @@ function renderSession() {
 
   sessionRaces.forEach((r, rIdx) => {
     const raceDiv = document.createElement('div');
-    raceDiv.style.cssText = 'background:rgba(255,255,255,0.06);border:1px solid rgba(240,192,64,0.25);border-radius:12px;margin-bottom:8px;overflow:hidden;';
+    raceDiv.style.cssText = 'background:rgba(251,247,238,0.7);border:1px solid rgba(201,169,97,0.25);border-radius:12px;margin-bottom:8px;overflow:hidden;';
 
     // レースヘッダー
     const header = document.createElement('div');
     header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 12px;';
     header.innerHTML = `
       <div>
-        <p style="font-size:13px;font-weight:700;color:#fff;">${escHtml(r.raceName || r.course)}</p>
-        <p style="font-size:11px;color:rgba(255,255,255,0.45);">${escHtml(r.course)} ／ 金塊馬 ${r.horses.length}頭</p>
+        <p style="font-size:13px;font-weight:700;color:#1A1A1A;">${escHtml(r.raceName || r.course)}</p>
+        <p style="font-size:11px;color:rgba(26,26,26,.45);">${escHtml(r.course)} ／ 金塊馬 ${r.horses.length}頭</p>
       </div>
-      <button onclick="removeFromSession(${rIdx})" style="font-size:11px;padding:3px 8px;border-radius:6px;background:rgba(232,0,61,0.18);color:#ffb3c6;border:1px solid rgba(232,0,61,0.30);">レース削除</button>
+      <button onclick="removeFromSession(${rIdx})" style="font-size:11px;padding:3px 8px;border-radius:6px;background:rgba(155,45,48,0.18);color:#C66C6E;border:1px solid rgba(155,45,48,0.30);">レース削除</button>
     `;
     raceDiv.appendChild(header);
 
     // 馬リスト
     if (r.horses.length > 0) {
       const horseList = document.createElement('div');
-      horseList.style.cssText = 'border-top:1px solid rgba(255,255,255,0.07);padding:6px 10px;display:flex;flex-direction:column;gap:4px;';
+      horseList.style.cssText = 'border-top:1px solid rgba(251,247,238,.7);padding:6px 10px;display:flex;flex-direction:column;gap:4px;';
       r.horses.forEach((h, hIdx) => {
         const condLabels = (h.conditions || []).map(c =>
-          `<span style="font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(232,0,61,0.25);color:#ffb3c6;">${escHtml(c.type.replace('コース金塊',''))}</span>`
+          `<span style="font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(155,45,48,0.25);color:#C66C6E;">${escHtml(c.type.replace('コース金塊',''))}</span>`
         ).join(' ');
         const hRow = document.createElement('div');
-        hRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:4px 6px;border-radius:8px;background:rgba(255,255,255,0.04);';
+        hRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:4px 6px;border-radius:8px;background:rgba(251,247,238,0.7);';
         hRow.innerHTML = `
           <div style="display:flex;align-items:center;gap:6px;flex:1;min-width:0;">
-            <span style="font-size:12px;font-weight:700;color:#f0c040;min-width:18px;">${h.num || ''}</span>
-            <span style="font-size:13px;font-weight:700;color:#fff;white-space:nowrap;">${escHtml(h.name)}</span>
+            <span style="font-size:12px;font-weight:700;color:#C9A961;min-width:18px;">${h.num || ''}</span>
+            <span style="font-size:13px;font-weight:700;color:#1A1A1A;white-space:nowrap;">${escHtml(h.name)}</span>
             <div style="display:flex;gap:3px;flex-wrap:wrap;">${condLabels}</div>
           </div>
-          <button onclick="removeHorseFromSession(${rIdx},${hIdx})" style="font-size:10px;padding:2px 7px;border-radius:5px;background:rgba(232,0,61,0.15);color:#ffb3c6;border:1px solid rgba(232,0,61,0.25);white-space:nowrap;margin-left:6px;">✕</button>
+          <button onclick="removeHorseFromSession(${rIdx},${hIdx})" style="font-size:10px;padding:2px 7px;border-radius:5px;background:rgba(155,45,48,0.15);color:#C66C6E;border:1px solid rgba(155,45,48,0.25);white-space:nowrap;margin-left:6px;">✕</button>
         `;
         horseList.appendChild(hRow);
       });
@@ -1554,11 +1560,11 @@ function switchTab(tab) {
   const btnE = document.getElementById('tab-extract');
   const btnR = document.getElementById('tab-result');
   if (isExtract) {
-    btnE.style.cssText = 'background:linear-gradient(135deg,#E8003D,#B5002E);color:#fff;flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;';
-    btnR.style.cssText = 'color:rgba(255,255,255,0.55);flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;background:transparent;';
+    btnE.style.cssText = 'background:linear-gradient(135deg,#9B2D30,#7A1E1E);color:#FBF7EE;flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;';
+    btnR.style.cssText = 'color:rgba(26,26,26,.55);flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;background:transparent;';
   } else {
-    btnR.style.cssText = 'background:linear-gradient(135deg,#f0c040,#d97706);color:#130003;flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;';
-    btnE.style.cssText = 'color:rgba(255,255,255,0.55);flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;background:transparent;';
+    btnR.style.cssText = 'background:linear-gradient(135deg,#C9A961,#d97706);color:#FAFAFA;flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;';
+    btnE.style.cssText = 'color:rgba(26,26,26,.55);flex:1;padding:12px 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;background:transparent;';
   }
 }
 
@@ -1592,9 +1598,9 @@ function renderResultForms(races) {
     raceDiv.className = 'ug-card p-5';
     raceDiv.innerHTML = `
       <div class="mb-4">
-        <p class="font-bold text-sm" style="color:#E8003D">${escHtml(race.course || '')}</p>
-        <p class="serif-headline font-bold text-base" style="color:#fff">${escHtml(race.raceName || '-')}</p>
-        <p class="text-xs mt-1" style="color:rgba(255,255,255,0.45)">${(race.horses||[]).length}頭の金塊馬</p>
+        <p class="font-bold text-sm" style="color:#9B2D30">${escHtml(race.course || '')}</p>
+        <p class="serif-headline font-bold text-base" style="color:#1A1A1A">${escHtml(race.raceName || '-')}</p>
+        <p class="text-xs mt-1" style="color:rgba(26,26,26,.45)">${(race.horses||[]).length}頭の金塊馬</p>
       </div>
       <div class="space-y-4">
         ${(race.horses||[]).map((h, hi) => buildResultInputRow(h, ri, hi)).join('')}
@@ -1615,28 +1621,28 @@ function buildResultInputRow(horse, ri, hi) {
   }).join('');
 
   return `
-    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;">
+    <div style="border-top:1px solid rgba(201,169,97,0.25);padding-top:14px;">
       <div class="flex items-start gap-2 mb-3">
         <span class="text-lg">💰</span>
         <div>
-          <p class="font-bold text-sm" style="color:#f0c040">${escHtml(horse.name)}</p>
+          <p class="font-bold text-sm" style="color:#C9A961">${escHtml(horse.name)}</p>
           <div class="flex flex-wrap gap-1 mt-1">${condBadges}</div>
         </div>
       </div>
       <div class="flex gap-2 flex-wrap">
         <div class="flex-1 min-w-[80px]">
-          <label class="text-xs font-bold block mb-1" style="color:rgba(255,255,255,0.60)">着順</label>
+          <label class="text-xs font-bold block mb-1" style="color:rgba(26,26,26,.6)">着順</label>
           <select id="${id}_rank" class="ug-input w-full px-3 py-2 text-sm font-bold">
             <option value="">未入力</option>
             ${[...Array(18)].map((_,i)=>`<option value="${i+1}">${i+1}着</option>`).join('')}
           </select>
         </div>
         <div class="flex-1 min-w-[80px]">
-          <label class="text-xs font-bold block mb-1" style="color:rgba(255,255,255,0.60)">単勝オッズ</label>
+          <label class="text-xs font-bold block mb-1" style="color:rgba(26,26,26,.6)">単勝オッズ</label>
           <input id="${id}_tan" type="number" step="0.1" min="1" class="ug-input w-full px-3 py-2 text-sm" placeholder="例 8.5"/>
         </div>
         <div class="flex-1 min-w-[80px]">
-          <label class="text-xs font-bold block mb-1" style="color:rgba(255,255,255,0.60)">複勝オッズ</label>
+          <label class="text-xs font-bold block mb-1" style="color:rgba(26,26,26,.6)">複勝オッズ</label>
           <input id="${id}_fuku" type="number" step="0.1" min="1" class="ug-input w-full px-3 py-2 text-sm" placeholder="例 2.3"/>
         </div>
       </div>
@@ -1908,13 +1914,13 @@ function parseDBFile(text, fileName) {
   tbody.innerHTML = '';
   dbBuilderEntries.forEach(e => {
     const tr = document.createElement('tr');
-    tr.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.06);';
+    tr.style.cssText = 'border-bottom:1px solid rgba(201,169,97,0.25);';
     tr.innerHTML = `
-      <td style="padding:5px 8px;color:#fff;font-weight:700;">${e.name}${e.stable ? '<span style="font-size:9px;color:rgba(255,255,255,0.4);margin-left:4px;">'+e.stable+'</span>' : ''}</td>
-      <td style="padding:5px 8px;text-align:center;color:rgba(255,255,255,0.7);">${e.wins}-${e.second}-${e.third}/${e.total}</td>
+      <td style="padding:5px 8px;color:#1A1A1A;font-weight:700;">${e.name}${e.stable ? '<span style="font-size:9px;color:rgba(26,26,26,0.4);margin-left:4px;">'+e.stable+'</span>' : ''}</td>
+      <td style="padding:5px 8px;text-align:center;color:rgba(26,26,26,0.7);">${e.wins}-${e.second}-${e.third}/${e.total}</td>
       <td style="padding:5px 8px;text-align:center;color:#4ade80;">${e.fukushoRate}</td>
-      <td style="padding:5px 8px;text-align:center;color:#f0c040;">${e.tanKaichi}</td>
-      <td style="padding:5px 8px;text-align:center;color:#f0c040;">${e.fukuKaichi}</td>
+      <td style="padding:5px 8px;text-align:center;color:#C9A961;">${e.tanKaichi}</td>
+      <td style="padding:5px 8px;text-align:center;color:#C9A961;">${e.fukuKaichi}</td>
     `;
     tbody.appendChild(tr);
   });
@@ -1993,21 +1999,21 @@ function parseDBFileTXT(text, fileName) {
 
   // カテゴリセレクタを非表示にしてTXTモード表示
   const catWrap = document.getElementById('dbCategory').closest('div');
-  catWrap.innerHTML = `<p class="text-xs mb-1" style="color:rgba(255,255,255,0.5)">カテゴリ</p>
-    <span style="font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;background:rgba(240,192,64,0.18);color:#f0c040;border:1px solid rgba(240,192,64,0.35);">✅ 全カテゴリ自動取込</span>`;
+  catWrap.innerHTML = `<p class="text-xs mb-1" style="color:rgba(26,26,26,0.5)">カテゴリ</p>
+    <span style="font-size:11px;font-weight:900;padding:4px 10px;border-radius:6px;background:rgba(201,169,97,0.18);color:#C9A961;border:1px solid rgba(201,169,97,0.35);">✅ 全カテゴリ自動取込</span>`;
 
   const tbody = document.getElementById('dbPreviewBody');
   tbody.innerHTML = '';
   allEntries.forEach(e => {
     const tr = document.createElement('tr');
-    tr.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.06);';
+    tr.style.cssText = 'border-bottom:1px solid rgba(201,169,97,0.25);';
     tr.innerHTML = `
-      <td style="padding:5px 8px;color:#fff;font-weight:700;">${e.name}
-        <span style="font-size:9px;color:rgba(255,255,255,0.4);margin-left:4px;">${e._cat}</span></td>
-      <td style="padding:5px 8px;text-align:center;color:rgba(255,255,255,0.7);">${e.wins}-${e.second}-${e.third}/${e.total}</td>
+      <td style="padding:5px 8px;color:#1A1A1A;font-weight:700;">${e.name}
+        <span style="font-size:9px;color:rgba(26,26,26,0.4);margin-left:4px;">${e._cat}</span></td>
+      <td style="padding:5px 8px;text-align:center;color:rgba(26,26,26,0.7);">${e.wins}-${e.second}-${e.third}/${e.total}</td>
       <td style="padding:5px 8px;text-align:center;color:#4ade80;">${e.fukushoRate}</td>
-      <td style="padding:5px 8px;text-align:center;color:#f0c040;">${e.tanKaichi}</td>
-      <td style="padding:5px 8px;text-align:center;color:#f0c040;">${e.fukuKaichi}</td>
+      <td style="padding:5px 8px;text-align:center;color:#C9A961;">${e.tanKaichi}</td>
+      <td style="padding:5px 8px;text-align:center;color:#C9A961;">${e.fukuKaichi}</td>
     `;
     tbody.appendChild(tr);
   });

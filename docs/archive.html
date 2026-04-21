@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>🤡強奪ニック🤡 過去の戦歴（アーカイブ） | UG強奪競馬新聞</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&family=Kaisei+Decol:wght@500&display=swap" rel="stylesheet"/>
+<title>絵馬殿｜過去の御神託記録 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/jinja.css"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
   tailwind.config = {
@@ -42,136 +43,210 @@
 </script>
 <style>
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  body { font-family: 'Public Sans', sans-serif; background-color: #f8faf8; color: #191c1b; }
-  .serif-headline { font-family: 'Noto Serif JP', serif; }
-  .label-data { font-family: 'Inter', sans-serif; }
+  body { font-family: 'Shippori Mincho','Noto Serif JP', serif; background-color: #FAFAFA; color: #2A2A2A; }
+  .serif-headline { font-family: 'Shippori Mincho','Noto Serif JP', serif; }
+  .label-data { font-family: 'Shippori Mincho',serif; }
   .card-hover { transition: transform 0.15s ease, box-shadow 0.15s ease; }
   .card-hover:active { transform: scale(0.98); }
 </style>
 
-<style id="ug-cherry-theme">
-/* ══ UG Light Theme ══════════════════════════════ */
+<style id="ug-jinja-theme">
+/* ══ UG 神宮 Theme（神社風）══════════════════════════════ */
 :root {
-  --ug-bg:         #F2D9B0;
-  --ug-cherry-dk:  #E8C898;
-  --ug-cherry-md:  #EDD9A3;
-  --ug-pink:       #E8003D;
-  --ug-pink-dk:    #B5002E;
-  --ug-gold:       #8B1A1A;
-  --ug-text:       #1C2B4A;
-  --ug-text-muted: rgba(28,43,74,0.60);
-  --ug-card-bg:    rgba(255,255,255,0.80);
-  --ug-card-border:rgba(232,0,61,0.20);
+  --ug-bg:         #FAFAFA;
+  --ug-cherry-dk:  #FBF7EE;
+  --ug-cherry-md:  #F5F0E3;
+  --ug-pink:       #9B2D30;
+  --ug-pink-dk:    #7A1E1E;
+  --ug-gold:       #C9A961;
+  --ug-midori:     #1F4D2E;
+  --ug-text:       #2A2A2A;
+  --ug-text-muted: rgba(42,42,42,0.60);
+  --ug-card-bg:    rgba(255,255,255,0.90);
+  --ug-card-border:rgba(201,169,97,0.30);
+  --shu:           #9B2D30;
+  --shu-dk:        #7A1E1E;
+  --kin:           #C9A961;
+  --midori:        #1F4D2E;
+  --paper:         #FBF7EE;
+  --sumi:          #1A1A1A;
 }
 
 /* ── Base ─── */
-html { background: #F2D9B0 !important; }
-body { background: #F2D9B0 !important; color: #1C2B4A !important; min-height: 100vh; }
+html { background: #FAFAFA !important; }
+body {
+  background: #FAFAFA !important;
+  background-image: linear-gradient(160deg, rgba(251,247,238,.5) 0%, rgba(250,250,250,1) 50%, rgba(251,247,238,.5) 100%) !important;
+  color: #2A2A2A !important; min-height: 100vh;
+  font-family: 'Shippori Mincho','Noto Serif JP', serif !important;
+}
 
 /* ── Surfaces ─── */
-html, body, .bg-surface, .bg-\[\#f8faf8\] { background: #F2D9B0 !important; }
-.bg-surface-container-low  { background: rgba(232,208,162,.35) !important; }
-.bg-surface-container      { background: rgba(255,255,255,.70) !important; }
-.bg-surface-container-high { background: rgba(255,255,255,.85) !important; }
-.bg-surface-bright         { background: rgba(255,255,255,.90) !important; }
-.bg-surface-container-highest { background: rgba(255,255,255,.85) !important; }
-.bg-surface-dim            { background: rgba(232,208,162,.30) !important; }
+html, body, .bg-surface, .bg-\[\#f8faf8\] { background: #FAFAFA !important; }
+.bg-surface-container-low  { background: rgba(251,247,238,.6) !important; }
+.bg-surface-container      { background: rgba(255,255,255,.9) !important; }
+.bg-surface-container-high { background: rgba(255,255,255,.95) !important; }
+.bg-surface-bright         { background: #fff !important; }
+.bg-surface-container-highest { background: rgba(255,255,255,.95) !important; }
+.bg-surface-dim            { background: rgba(251,247,238,.5) !important; }
 
-/* ── Header ─── */
+/* ── Header（鳥居風）─── */
 header {
-  background: linear-gradient(135deg, #EDD9A3 0%, #E8C898 100%) !important;
-  border-bottom: 1px solid rgba(232,0,61,0.40) !important;
+  background: linear-gradient(180deg, #fff 0%, #FBF7EE 100%) !important;
+  border-bottom: 2px solid #9B2D30 !important;
   backdrop-filter: none !important;
+  box-shadow: 0 2px 12px rgba(155,45,48,.08) !important;
+  position: relative;
 }
-header p, header span { color: rgba(28,43,74,0.80) !important; }
-header h1, header a h1 { color: #1C2B4A !important; text-shadow: none !important; }
-header .text-\[\#004900\], header .text-\[\#707a6a\] { color: rgba(28,43,74,0.70) !important; }
-header a, header button { color: rgba(28,43,74,0.80) !important; }
-header .bg-\[\#f2f4f2\] { background: rgba(0,0,0,.06) !important; }
-header .text-\[\#9ca3af\] { color: rgba(28,43,74,0.50) !important; }
-header .bg-\[\#eceeec\] { background: rgba(0,0,0,.06) !important; color: #1C2B4A !important; }
+header::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, #9B2D30 0%, #C9A961 50%, #9B2D30 100%);
+  opacity: .4;
+}
+header p, header span { color: rgba(42,42,42,0.80) !important; }
+header h1, header a h1 { color: #9B2D30 !important; text-shadow: none !important; font-family: 'Shippori Mincho','Noto Serif JP', serif !important; }
+header .text-\[\#004900\], header .text-\[\#707a6a\] { color: rgba(42,42,42,0.70) !important; }
+header a, header button { color: rgba(42,42,42,0.80) !important; }
+header .bg-\[\#f2f4f2\] { background: rgba(201,169,97,.12) !important; }
+header .text-\[\#9ca3af\] { color: rgba(42,42,42,0.50) !important; }
+header .bg-\[\#eceeec\] { background: rgba(201,169,97,.12) !important; color: #2A2A2A !important; }
 #list-view > header, #detail-view > header {
-  background: linear-gradient(135deg, #EDD9A3 0%, #E8C898 100%) !important;
-  border-bottom: 1px solid rgba(232,0,61,0.35) !important;
+  background: linear-gradient(180deg, #fff 0%, #FBF7EE 100%) !important;
+  border-bottom: 2px solid #9B2D30 !important;
 }
 #list-view > header p, #list-view > header span,
 #list-view > header h1, #list-view > header a,
-#list-view > header button { color: rgba(28,43,74,0.85) !important; }
-#list-view > header h1 { text-shadow: none !important; }
-#list-view > header .text-outline { color: rgba(28,43,74,0.55) !important; }
-#list-view > header .text-tertiary { color: #E8003D !important; }
-#detail-view > header * { color: rgba(28,43,74,0.85) !important; }
-#detail-view > header button:hover { background: rgba(0,0,0,.06) !important; }
+#list-view > header button { color: rgba(42,42,42,0.85) !important; }
+#list-view > header h1 { text-shadow: none !important; font-family: 'Shippori Mincho','Noto Serif JP', serif !important; color: #9B2D30 !important; }
+#list-view > header .text-outline { color: rgba(42,42,42,0.55) !important; }
+#list-view > header .text-tertiary { color: #9B2D30 !important; }
+#detail-view > header * { color: rgba(42,42,42,0.85) !important; }
+#detail-view > header button:hover { background: rgba(201,169,97,.1) !important; }
 
-/* ── Cards / boxes ─── */
+/* ── Cards / boxes（御札）─── */
 .bg-white, .card,
 [class*="rounded-2xl"].bg-white,
 [class*="rounded-2xl"].border {
-  background: rgba(255,255,255,.80) !important;
+  background: #fff !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  border-color: rgba(0,0,0,.10) !important;
-  color: #1C2B4A !important;
+  border-color: rgba(201,169,97,.3) !important;
+  border-radius: 4px !important;
+  color: #2A2A2A !important;
+  font-family: 'Shippori Mincho','Noto Serif JP', serif !important;
 }
 .bg-\[\#f2f4f2\] {
-  background: rgba(232,208,162,.40) !important;
-  border: 1px solid rgba(28,43,74,0.12) !important;
+  background: rgba(251,247,238,.7) !important;
+  border: 1px solid rgba(201,169,97,.3) !important;
 }
-[class*="rounded-2xl"].ug-keikoku-white { background: rgba(255,255,255,.80) !important; color: #1C2B4A !important; }
-.ug-keikoku-white .bg-\[\#f2f4f2\] { background: rgba(232,208,162,.35) !important; color: #1C2B4A !important; }
-.ug-keikoku-white .bg-\[\#eceeec\]  { background: rgba(0,0,0,.05) !important; color: #1C2B4A !important; border: none !important; }
-.ug-keikoku-white .bg-\[\#c4eab5\]  { background: rgba(34,197,94,.15) !important; color: #1C2B4A !important; }
-.ug-keikoku-white .text-\[\#707a6a\] { color: rgba(28,43,74,.60) !important; }
-.ug-keikoku-white .font-bold { color: #1C2B4A !important; }
+[class*="rounded-2xl"].ug-keikoku-white { background: #fff !important; color: #2A2A2A !important; }
+.ug-keikoku-white .bg-\[\#f2f4f2\] { background: rgba(251,247,238,.7) !important; color: #2A2A2A !important; }
+.ug-keikoku-white .bg-\[\#eceeec\]  { background: rgba(201,169,97,.1) !important; color: #2A2A2A !important; border: none !important; }
+.ug-keikoku-white .bg-\[\#c4eab5\]  { background: rgba(31,77,46,.12) !important; color: #2A2A2A !important; }
+.ug-keikoku-white .text-\[\#707a6a\] { color: rgba(42,42,42,.60) !important; }
+.ug-keikoku-white .font-bold { color: #2A2A2A !important; }
 
-/* ── Green section headers → keep crimson ─── */
+/* ── Section headers → 朱色（神職印）─── */
 .bg-\[\#006400\], .bg-\[\#004900\] {
-  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
+  background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important;
   border: none !important;
   color: #fff !important;
+  border-radius: 4px !important;
 }
 .bg-\[\#004900\].px-5.py-3 {
-  background: linear-gradient(135deg, #E8003D, #B5002E) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+  background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important;
+  border-bottom: 1px solid rgba(201,169,97,.4) !important;
 }
 
 /* ── Text ─── */
-.text-\[\#191c1b\], .text-\[\#374151\] { color: #1C2B4A !important; }
-.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(28,43,74,.60) !important; }
-.text-\[\#004900\], .text-\[\#2d5a27\]  { color: #8B1A1A !important; }
-.text-on-surface         { color: #1C2B4A !important; }
-.text-on-surface-variant { color: rgba(28,43,74,.65) !important; }
-.text-outline            { color: rgba(28,43,74,.45) !important; }
-.text-primary            { color: #E8003D !important; }
-.text-tertiary           { color: #E8003D !important; }
-.text-green-900          { color: #1C2B4A !important; }
+.text-\[\#191c1b\], .text-\[\#374151\] { color: #2A2A2A !important; }
+.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(42,42,42,.60) !important; }
+.text-\[\#004900\], .text-\[\#2d5a27\]  { color: #9B2D30 !important; }
+.text-on-surface         { color: #2A2A2A !important; }
+.text-on-surface-variant { color: rgba(42,42,42,.65) !important; }
+.text-outline            { color: rgba(42,42,42,.45) !important; }
+.text-primary            { color: #9B2D30 !important; }
+.text-tertiary           { color: #9B2D30 !important; }
+.text-green-900          { color: #2A2A2A !important; }
 .text-sm, .text-base, p, span, li, td { color: inherit; }
 
 /* ── Info pills ─── */
-.bg-\[\#eceeec\] { background: rgba(0,0,0,.06) !important; color: #1C2B4A !important; border: 1px solid rgba(28,43,74,.15) !important; }
-.bg-\[\#c4eab5\] { background: rgba(34,197,94,.18) !important; color: #1C2B4A !important; }
+.bg-\[\#eceeec\] { background: rgba(201,169,97,.1) !important; color: #2A2A2A !important; border: 1px solid rgba(201,169,97,.3) !important; }
+.bg-\[\#c4eab5\] { background: rgba(31,77,46,.12) !important; color: #1F4D2E !important; }
 
 /* ── Ticker / active ─── */
-.bg-\[\#006400\], .ticker-wrap { background: #E8003D !important; }
-.bg-primary { background: linear-gradient(135deg, #E8003D, #B5002E) !important; }
-.border-primary { border-color: #E8003D !important; }
+.bg-\[\#006400\], .ticker-wrap { background: #9B2D30 !important; }
+.bg-primary { background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important; }
+.border-primary { border-color: #9B2D30 !important; }
 
 /* ── Race info bar ─── */
-#race-info-bar { background: rgba(232,208,162,.40) !important; border-bottom: 1px solid rgba(232,0,61,.18) !important; }
+#race-info-bar { background: rgba(251,247,238,.7) !important; border-bottom: 1px solid rgba(201,169,97,.3) !important; }
 
 /* ── Dividers ─── */
-.border-outline\/10, .divide-outline\/10 > * { border-color: rgba(28,43,74,.12) !important; }
-.border-outline\/30 { border-color: rgba(28,43,74,.25) !important; }
-.horse-row:active { background: rgba(232,0,61,.08) !important; }
+.border-outline\/10, .divide-outline\/10 > * { border-color: rgba(201,169,97,.25) !important; }
+.border-outline\/30 { border-color: rgba(201,169,97,.4) !important; }
+.horse-row:active { background: rgba(155,45,48,.08) !important; }
 
-/* ── Gradients ─── */
-.cta-gradient   { background: linear-gradient(to bottom, #E8003D, #B5002E) !important; }
-.vigor-gradient { background: linear-gradient(to right, #E8003D, #B5002E) !important; }
-.pci-gradient   { background: linear-gradient(90deg, rgba(139,26,26,0.08) 0%, #8B1A1A 46.5%, rgba(139,26,26,0.08) 100%) !important; }
+/* ── Gradients（御神札グラデ）─── */
+.cta-gradient   { background: linear-gradient(to bottom, #9B2D30, #7A1E1E) !important; }
+.vigor-gradient { background: linear-gradient(to right, #9B2D30, #7A1E1E) !important; }
+.pci-gradient   { background: linear-gradient(90deg, rgba(201,169,97,0.08) 0%, #C9A961 46.5%, rgba(201,169,97,0.08) 100%) !important; }
 
-/* ── 激走警報 ─── */
-.border-2.border-\[\#dc2626\]\/60 { border-color: rgba(232,0,61,.65) !important; box-shadow: 0 0 20px rgba(232,0,61,.20) !important; }
-.bg-gradient-to-r.from-\[\#7f1d1d\] { background: linear-gradient(90deg, #E8003D, #B5002E) !important; }
+/* ── 激走警報（激走の御神託）─── */
+.border-2.border-\[\#dc2626\]\/60 { border-color: #9B2D30 !important; box-shadow: 0 2px 12px rgba(155,45,48,.2) !important; }
+.bg-gradient-to-r.from-\[\#7f1d1d\] { background: linear-gradient(90deg, #9B2D30, #7A1E1E) !important; }
+
+/* ── Amber/Gold tags → 金色統一 ─── */
+.bg-amber-400 { background: #C9A961 !important; color: #fff !important; }
+.text-amber-900 { color: #fff !important; }
+.text-amber-700 { color: #7a5500 !important; }
+.bg-amber-50 { background: rgba(201,169,97,.1) !important; }
+.border-amber-200 { border-color: rgba(201,169,97,.4) !important; }
+.bg-slate-50 { background: rgba(251,247,238,.7) !important; }
+.text-slate-500 { color: rgba(42,42,42,.6) !important; }
+.border-slate-200 { border-color: rgba(201,169,97,.3) !important; }
+
+/* ── Body / header base ─── */
+.bg-\[\#f8faf8\] { background: #FAFAFA !important; }
+.bg-\[\#f8faf8\]\/90 {
+  background: rgba(250,250,250,.92) !important;
+  border-bottom: 2px solid #9B2D30 !important;
+  box-shadow: 0 2px 0 #C9A961, 0 6px 14px rgba(155,45,48,.08) !important;
+}
+.border-\[\#bfcab7\]\/40 { border-color: transparent !important; }
+
+/* ── Cards / shadow ─── */
+.bg-white { background: #FBF7EE !important; }
+.border-\[\#bfcab7\]\/60 { border-color: rgba(201,169,97,.5) !important; }
+.shadow-sm { box-shadow: 0 2px 8px rgba(26,26,26,.06) !important; }
+
+/* ── 的中ラベル（金色御札）─── */
+.bg-amber-400.text-amber-900 {
+  background: linear-gradient(135deg, #C9A961, #B8923D) !important;
+  color: #fff !important;
+  border: 1px solid #B8923D !important;
+}
+.text-amber-700.bg-amber-50.border.border-amber-200 {
+  background: rgba(201,169,97,.12) !important;
+  color: #7A1E1E !important;
+  border-color: rgba(201,169,97,.5) !important;
+}
+.text-slate-500.bg-slate-50.border.border-slate-200 {
+  background: rgba(42,42,42,.05) !important;
+  color: rgba(42,42,42,.6) !important;
+  border-color: rgba(42,42,42,.15) !important;
+}
+
+/* ── Circle indicators ─── */
+.bg-\[\#004900\].w-2.h-2, .bg-\[\#707a6a\].w-2.h-2 { background: #9B2D30 !important; }
+
+/* ── Serif override ─── */
+.serif-headline {
+  font-family: 'Shippori Mincho','Noto Serif JP',serif !important;
+  letter-spacing: .04em !important;
+  color: #9B2D30 !important;
+}
 </style>
 </head>
 <body class="min-h-screen bg-[#f8faf8] text-[#191c1b] pb-16">
@@ -186,9 +261,9 @@ header .bg-\[\#eceeec\] { background: rgba(0,0,0,.06) !important; color: #1C2B4A
         <span class="material-symbols-outlined text-xl">arrow_back</span>
       </a>
       <div>
-        <a href="index.html" style="text-decoration:none;"><p class="text-[10px] uppercase tracking-widest text-[#707a6a] font-bold">UG強奪競馬新聞</p></a>
-        <a href="./final-display.html" class="no-underline"><h1 class="serif-headline text-lg font-bold text-[#004900] leading-tight">🤡強奪ニック🤡 過去の戦歴</h1></a>
-        <p class="text-[10px] text-[#790b4a] font-bold">アーカイブ一覧</p>
+        <a href="index.html" style="text-decoration:none;"><p class="text-[10px] uppercase tracking-widest text-[#707a6a] font-bold">UG競馬ワイド神宮</p></a>
+        <a href="./final-display.html" class="no-underline"><h1 class="serif-headline text-lg font-bold text-[#004900] leading-tight">絵馬殿　EMADEN</h1></a>
+        <p class="text-[10px] text-[#790b4a] font-bold" style="color:#9B2D30 !important;">過去の御神託記録</p>
       </div>
     </div>
   </div>
@@ -197,11 +272,11 @@ header .bg-\[\#eceeec\] { background: rgba(0,0,0,.06) !important; color: #1C2B4A
 <!-- ===== MAIN ===== -->
 <main class="px-4 py-5 max-w-lg mx-auto space-y-6">
 
-  <!-- リード文 -->
-  <div class="bg-[#006400] rounded-2xl px-5 py-4 text-white">
-    <p class="text-sm font-bold leading-relaxed">
-      🎯 過去の予想と結果をまとめたアーカイブです。<br>
-      各開催日のカードをタップして詳細を確認できます。
+  <!-- リード文（絵馬殿の御挨拶）-->
+  <div class="bg-[#006400] rounded-2xl px-5 py-4 text-white" style="background:linear-gradient(135deg,#9B2D30,#7A1E1E) !important;border:1px solid #C9A961 !important;">
+    <p class="text-sm font-bold leading-relaxed" style="font-family:'Shippori Mincho','Noto Serif JP',serif;">
+      📜 奉納された過去の御神託と結果を納めた絵馬殿でございます。<br>
+      各開催日の札をお選びいただき、記録を御覧下さいませ。
     </p>
   </div>
 

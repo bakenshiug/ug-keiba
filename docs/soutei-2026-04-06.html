@@ -3,31 +3,32 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>出走想定表 4/6(日) | UG強奪競馬新聞</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+<title>出走想定表 4/6(日) | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#F2D9B0;--bg-dk:#E8C898;
-  --accent:#7BBCB5;--gold:#8B1A1A;--green:#22c55e;
-  --text:#1C2B4A;--muted:#1C2B4A;
-  --card:rgba(0,0,0,0.04);
+  --bg:#FAFAFA;--bg-dk:#FBF7EE;
+  --accent:#C9A961;--gold:#9B2D30;--green:#1F4D2E;
+  --shu:#9B2D30;--shu-dk:#7A1E1E;--kin:#C9A961;--midori:#1F4D2E;
+  --text:#1A1A1A;--muted:rgba(26,26,26,0.60);
+  --card:#FBF7EE;
 }
-html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','Shippori Mincho','Noto Serif JP',serif;min-height:100vh;}
 
 /* Header */
-.hdr{background:linear-gradient(135deg,#E8C898,#F2D9B0 60%,#E8C898);border-bottom:2px solid rgba(123,188,181,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(123,188,181,.2);}
+.hdr{background:rgba(250,250,250,.92);border-bottom:2px solid #9B2D30;padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 0 #C9A961,0 6px 14px rgba(155,45,48,.08);backdrop-filter:blur(8px);}
 .hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(0,0,0,0.06);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(0,0,0,0.12);}
 .hdr-back:hover{background:rgba(0,0,0,0.1);}
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#1C2B4A;text-shadow:0 0 24px rgba(123,188,181,.8);letter-spacing:.05em;}
+.hdr-logo{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:18px;font-weight:800;color:#9B2D30;letter-spacing:.05em;}
 .hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
 
 /* Page */
 .page-wrap{max-width:780px;margin:0 auto;padding:16px 12px 60px;}
 
 /* Date header */
-.date-header{text-align:center;padding:20px 16px;margin-bottom:20px;background:linear-gradient(135deg,rgba(123,188,181,.12),rgba(242,217,176,.95));border:1px solid rgba(123,188,181,.3);border-radius:16px;}
-.date-header .date-main{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:#1C2B4A;}
+.date-header{text-align:center;padding:20px 16px;margin-bottom:20px;background:#FBF7EE;border:1px solid rgba(201,169,97,.40);border-radius:10px;}
+.date-header .date-main{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:22px;font-weight:800;color:#9B2D30;}
 .date-header .date-sub{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.1em;}
 
 /* Race tabs */
@@ -35,7 +36,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-tabs::-webkit-scrollbar{display:none;}
 .race-tab{flex-shrink:0;padding:7px 14px;border-radius:20px;background:rgba(0,0,0,0.05);border:1px solid rgba(0,0,0,0.12);color:var(--muted);font-size:11px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap;}
 .race-tab:hover{background:rgba(0,0,0,0.08);}
-.race-tab.active{background:rgba(123,188,181,.2);border-color:rgba(123,188,181,.7);color:#1C2B4A;}
+.race-tab.active{background:rgba(201,169,97,.20);border-color:var(--kin);color:#7A1E1E;}
 .race-tab.grade-tab{border-color:rgba(180,140,0,.5);color:#a16207;}
 .race-tab.grade-tab.active{background:rgba(180,140,0,.15);border-color:var(--gold);color:#7c5700;}
 .tab-grade{font-size:9px;display:inline-block;margin-left:3px;padding:1px 4px;border-radius:3px;background:rgba(180,140,0,.25);color:#7c5700;}
@@ -49,21 +50,21 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .race-panel.active{display:block;}
 
 /* Race header */
-.race-header{background:linear-gradient(135deg,rgba(232,208,162,.5),rgba(242,217,176,.7));border:1px solid rgba(123,188,181,.35);border-radius:14px;padding:16px 18px;margin-bottom:12px;}
+.race-header{background:#FBF7EE;border:1px solid rgba(201,169,97,.35);border-radius:14px;padding:16px 18px;margin-bottom:12px;}
 .race-grade-badge{display:inline-block;font-size:10px;font-weight:900;padding:3px 10px;border-radius:5px;margin-bottom:8px;letter-spacing:.08em;}
-.grade-G1{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
-.grade-G2{background:linear-gradient(90deg,#1a6b2a,#22c55e);color:#000;}
-.grade-G3{background:linear-gradient(90deg,#0d3b6e,#3b82f6);color:#fff;}
-.grade-OP{background:rgba(28,43,74,.1);color:var(--muted);}
-.race-name{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:900;color:#1C2B4A;margin-bottom:6px;}
+.grade-G1{background:linear-gradient(90deg,#C9A961,#D4B878);color:#1A1A1A;}
+.grade-G2{background:linear-gradient(90deg,#1F4D2E,#2F7A47);color:#FBF7EE;}
+.grade-G3{background:linear-gradient(90deg,#2B5A9F,#4B7BBF);color:#FBF7EE;}
+.grade-OP{background:rgba(26,26,26,.10);color:var(--muted);}
+.race-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:20px;font-weight:800;color:#9B2D30;margin-bottom:6px;}
 .race-meta{font-size:11px;color:var(--muted);}
 .race-meta span{margin-right:12px;}
 
 /* Outlook card (重賞展望) */
 .outlook-card{
   margin-bottom:14px;padding:18px;border-radius:14px;
-  background:linear-gradient(135deg,rgba(139,26,26,.08),rgba(242,217,176,.9));
-  border:1px solid rgba(139,26,26,.35);
+  background:#FBF7EE;
+  border:1px solid rgba(155,45,48,.30);
   position:relative;overflow:hidden;
 }
 .outlook-card::before{
@@ -71,24 +72,24 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
 .outlook-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.outlook-label::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.2);}
-.outlook-text{font-size:13px;color:#1C2B4A;line-height:1.8;}
+.outlook-label::after{content:'';flex:1;height:1px;background:rgba(155,45,48,.20);}
+.outlook-text{font-size:13px;color:#1A1A1A;line-height:1.8;}
 
 /* Ability grade row */
 .ability-row{display:flex;align-items:flex-start;gap:8px;margin-top:6px;flex-wrap:wrap;}
 .ability-badge{display:inline-flex;align-items:center;font-size:11px;font-weight:900;padding:2px 8px;border-radius:4px;letter-spacing:.04em;white-space:nowrap;}
-.ability-S{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
-.ability-A{background:rgba(123,188,181,.25);color:#0f766e;border:1px solid rgba(15,118,110,.5);}
+.ability-S{background:linear-gradient(90deg,#C9A961,#D4B878);color:#1A1A1A;}
+.ability-A{background:rgba(201,169,97,.25);color:#0f766e;border:1px solid rgba(15,118,110,.5);}
 .ability-B{background:rgba(59,130,246,.2);color:#1d4ed8;border:1px solid rgba(29,78,216,.4);}
 .ability-C{background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid rgba(107,114,128,.25);}
 
 /* Comments */
-.ability-comment{font-size:11px;color:#1C2B4A;line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(139,26,26,.07);border-left:3px solid rgba(139,26,26,.5);border-radius:0 6px 6px 0;}
-.judge-comment{font-size:11px;color:#1C2B4A;line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(123,188,181,.07);border-left:3px solid rgba(123,188,181,.45);border-radius:0 6px 6px 0;}
+.ability-comment{font-size:11px;color:#1A1A1A;line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(155,45,48,.07);border-left:3px solid rgba(155,45,48,.50);border-radius:0 6px 6px 0;}
+.judge-comment{font-size:11px;color:#1A1A1A;line-height:1.7;margin-top:4px;padding:6px 12px;background:rgba(201,169,97,.07);border-left:3px solid rgba(201,169,97,.45);border-radius:0 6px 6px 0;}
 .judge-badge{display:inline-flex;align-items:center;font-size:9px;font-weight:900;padding:1px 6px;border-radius:3px;letter-spacing:.04em;margin-left:4px;vertical-align:middle;}
-.judge-badge-A{background:rgba(123,188,181,.2);color:#0f766e;border:1px solid rgba(15,118,110,.4);}
+.judge-badge-A{background:rgba(201,169,97,.2);color:#0f766e;border:1px solid rgba(15,118,110,.4);}
 .judge-badge-B{background:rgba(59,130,246,.15);color:#1d4ed8;border:1px solid rgba(29,78,216,.3);}
-.judge-badge-S{background:linear-gradient(90deg,#b8860b,#ffd700);color:#000;}
+.judge-badge-S{background:linear-gradient(90deg,#C9A961,#D4B878);color:#1A1A1A;}
 .judge-badge-C{background:rgba(107,114,128,.15);color:#9ca3af;border:1px solid rgba(107,114,128,.2);}
 
 /* Speed index details */
@@ -97,68 +98,68 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .speed-up{color:#166534;font-size:10px;}
 .speed-dn{color:#f87171;font-size:10px;}
 .speed-st{color:var(--muted);font-size:10px;}
-.speed-hist span{font-size:10px;color:rgba(28,43,74,.5);}
+.speed-hist span{font-size:10px;color:rgba(26,26,26,.5);}
 
 /* Horse table */
 .horse-table{width:100%;border-collapse:collapse;font-size:12px;}
-.horse-table th{padding:7px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;border-bottom:1px solid rgba(123,188,181,.2);}
+.horse-table th{padding:7px 8px;text-align:left;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.08em;border-bottom:1px solid rgba(201,169,97,.2);}
 .horse-table td{padding:10px 8px;border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top;}
 .horse-table tr:hover td{background:rgba(0,0,0,.03);}
 .horse-table tr:last-child td{border-bottom:none;}
-.td-num{font-size:11px;color:rgba(28,43,74,.3);width:38px;text-align:center;padding-top:10px;}
+.td-num{font-size:11px;color:rgba(26,26,26,.3);width:38px;text-align:center;padding-top:10px;}
 .pop-badge{display:inline-block;font-size:13px;font-weight:900;line-height:1;padding:3px 5px;border-radius:6px;min-width:24px;text-align:center;}
-.pop-1,.pop-2,.pop-3{background:rgba(139,26,26,.12);color:#8B1A1A;border:1px solid rgba(139,26,26,.3);}
+.pop-1,.pop-2,.pop-3{background:rgba(155,45,48,.12);color:#9B2D30;border:1px solid rgba(155,45,48,.30);}
 .pop-4,.pop-5,.pop-6{background:rgba(15,118,110,.12);color:#0f766e;border:1px solid rgba(15,118,110,.3);}
-.pop-other{background:rgba(28,43,74,.07);color:rgba(28,43,74,.45);border:1px solid rgba(28,43,74,.12);}
-.pop-odds{font-size:9px;color:rgba(28,43,74,.4);margin-top:2px;letter-spacing:-.01em;}
+.pop-other{background:rgba(26,26,26,.07);color:rgba(26,26,26,.45);border:1px solid rgba(26,26,26,.12);}
+.pop-odds{font-size:9px;color:rgba(26,26,26,.4);margin-top:2px;letter-spacing:-.01em;}
 .pop-badge{display:inline-flex;flex-direction:column;align-items:center;}
 .pop-num{font-size:14px;font-weight:900;line-height:1.1;}
 .pop-ninki{font-size:8px;font-weight:700;line-height:1;opacity:.85;}
-.sabc-pick-pop{font-size:10px;color:rgba(28,43,74,.6);margin:2px 0 6px;line-height:1.5;}
+.sabc-pick-pop{font-size:10px;color:rgba(26,26,26,.6);margin:2px 0 6px;line-height:1.5;}
 .sabc-pick-pop strong{font-weight:900;color:var(--text);}
-.td-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#1C2B4A;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
-.sabc-name-tan{font-size:13px;font-weight:900;padding:2px 8px;border-radius:6px;background:linear-gradient(135deg,rgba(139,26,26,.18),rgba(139,26,26,.08));border:1px solid rgba(139,26,26,.35);color:#8B1A1A;letter-spacing:.02em;white-space:nowrap;}
+.td-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:14px;font-weight:700;color:#1A1A1A;display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
+.sabc-name-tan{font-size:13px;font-weight:900;padding:2px 8px;border-radius:6px;background:linear-gradient(135deg,rgba(155,45,48,.18),rgba(155,45,48,.08));border:1px solid rgba(155,45,48,.30);color:#9B2D30;letter-spacing:.02em;white-space:nowrap;}
 .sabc-name-fuku{font-size:11px;font-weight:900;padding:2px 7px;border-radius:6px;background:rgba(29,78,216,.15);border:1px solid rgba(29,78,216,.4);color:#1e3a8a;letter-spacing:.02em;white-space:nowrap;}
-.td-sire{font-size:10px;color:rgba(28,43,74,.5);margin-top:2px;}
+.td-sire{font-size:10px;color:rgba(26,26,26,.5);margin-top:2px;}
 /* ── 印バッジ ─────────────────────────────────────────── */
 .mark-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:15px;font-weight:900;flex-shrink:0;line-height:1;}
 .mark-honmei{background:rgba(180,20,20,.12);color:#b41414;border:2px solid rgba(180,20,20,.5);}
 .mark-taikou{background:rgba(200,40,40,.08);color:#c03030;border:1.5px solid rgba(200,40,40,.38);}
-.mark-saban{background:rgba(28,43,74,.09);color:#1C2B4A;border:1.5px solid rgba(28,43,74,.38);}
+.mark-saban{background:rgba(26,26,26,.09);color:#1A1A1A;border:1.5px solid rgba(26,26,26,.38);}
 .mark-hoshi{background:rgba(170,130,0,.1);color:#7a5e00;border:1.5px solid rgba(170,130,0,.42);}
-.mark-renge{background:rgba(28,43,74,.04);color:rgba(28,43,74,.42);border:1px solid rgba(28,43,74,.2);}
+.mark-renge{background:rgba(26,26,26,.04);color:rgba(26,26,26,.42);border:1px solid rgba(26,26,26,.2);}
 /* ── 買い目セクション ───────────────────────────────────── */
-.bet-section{margin:14px 0 6px;border-radius:12px;overflow:hidden;border:1px solid rgba(28,43,74,.12);background:rgba(255,255,255,.5);}
-.bet-section-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(28,43,74,.04);border-bottom:1px solid rgba(28,43,74,.08);}
-.bet-section-title{font-size:10px;font-weight:900;letter-spacing:.15em;color:rgba(28,43,74,.7);}
+.bet-section{margin:14px 0 6px;border-radius:12px;overflow:hidden;border:1px solid rgba(26,26,26,.12);background:rgba(255,255,255,.5);}
+.bet-section-header{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(26,26,26,.04);border-bottom:1px solid rgba(26,26,26,.08);}
+.bet-section-title{font-size:10px;font-weight:900;letter-spacing:.15em;color:rgba(26,26,26,.7);}
 .bet-pattern-badge{font-size:9px;font-weight:900;padding:2px 9px;border-radius:4px;letter-spacing:.05em;}
 .bet-note{font-size:9px;font-weight:700;padding:1px 7px;border-radius:4px;background:rgba(180,120,0,.12);color:#a06000;border:1px solid rgba(180,120,0,.35);letter-spacing:.03em;}
 .pat-a{background:rgba(180,20,20,.12);color:#b41414;border:1px solid rgba(180,20,20,.3);}
 .pat-b{background:rgba(29,78,216,.1);color:#1e3a8a;border:1px solid rgba(29,78,216,.28);}
 .pat-c{background:rgba(100,100,100,.1);color:#4a4a4a;border:1px solid rgba(100,100,100,.3);}
-.bet-threshold-note{font-size:8px;color:rgba(28,43,74,.3);margin-left:auto;}
-.bet-common{display:flex;gap:16px;padding:10px 14px;border-bottom:1px solid rgba(28,43,74,.06);flex-wrap:wrap;}
+.bet-threshold-note{font-size:8px;color:rgba(26,26,26,.3);margin-left:auto;}
+.bet-common{display:flex;gap:16px;padding:10px 14px;border-bottom:1px solid rgba(26,26,26,.06);flex-wrap:wrap;}
 .bet-row{display:flex;align-items:center;gap:6px;}
-.bet-type-tag{font-size:9px;font-weight:900;padding:1px 6px;border-radius:3px;background:rgba(28,43,74,.08);color:rgba(28,43,74,.7);letter-spacing:.05em;white-space:nowrap;}
-.bet-sub{font-size:10px;color:rgba(28,43,74,.55);font-family:'Noto Serif JP',serif;}
+.bet-type-tag{font-size:9px;font-weight:900;padding:1px 6px;border-radius:3px;background:rgba(26,26,26,.08);color:rgba(26,26,26,.7);letter-spacing:.05em;white-space:nowrap;}
+.bet-sub{font-size:10px;color:rgba(26,26,26,.55);font-family:'Shippori Mincho','Noto Serif JP',serif;}
 .bet-cards{display:flex;flex-direction:column;}
-.bet-card{padding:10px 14px;border-bottom:1px solid rgba(28,43,74,.06);}
+.bet-card{padding:10px 14px;border-bottom:1px solid rgba(26,26,26,.06);}
 .bet-card:last-child{border-bottom:none;}
 .bet-card-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-.bet-kind{font-size:10px;font-weight:900;color:rgba(28,43,74,.8);letter-spacing:.04em;}
-.bet-pts{font-size:10px;font-weight:900;padding:1px 7px;border-radius:4px;background:rgba(139,26,26,.08);color:#8B1A1A;border:1px solid rgba(139,26,26,.2);}
+.bet-kind{font-size:10px;font-weight:900;color:rgba(26,26,26,.8);letter-spacing:.04em;}
+.bet-pts{font-size:10px;font-weight:900;padding:1px 7px;border-radius:4px;background:rgba(155,45,48,.08);color:#9B2D30;border:1px solid rgba(155,45,48,.20);}
 .bet-formula{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
 .bet-formula-grid{display:flex;flex-direction:column;gap:5px;}
 .bet-formula-grid>div{display:flex;align-items:center;flex-wrap:wrap;gap:4px;}
-.bet-col-label{font-size:8px;font-weight:900;color:rgba(28,43,74,.4);min-width:34px;flex-shrink:0;}
-.bet-arrow{font-size:12px;font-weight:700;color:rgba(28,43,74,.4);margin:0 1px;}
-.bet-axis{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:900;color:rgba(28,43,74,.5);}
-.bet-uma{display:inline-flex;align-items:center;gap:2px;background:rgba(28,43,74,.07);border:1px solid rgba(28,43,74,.15);border-radius:5px;padding:2px 6px;font-size:11px;font-weight:900;color:#1C2B4A;}
-.bet-mark{font-size:9px;color:rgba(28,43,74,.45);}
-.td-jockey-row{font-size:11px;color:rgba(28,43,74,.7);margin-top:3px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.bet-col-label{font-size:8px;font-weight:900;color:rgba(26,26,26,.4);min-width:34px;flex-shrink:0;}
+.bet-arrow{font-size:12px;font-weight:700;color:rgba(26,26,26,.4);margin:0 1px;}
+.bet-axis{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:900;color:rgba(26,26,26,.5);}
+.bet-uma{display:inline-flex;align-items:center;gap:2px;background:rgba(26,26,26,.07);border:1px solid rgba(26,26,26,.15);border-radius:5px;padding:2px 6px;font-size:11px;font-weight:900;color:#1A1A1A;}
+.bet-mark{font-size:9px;color:rgba(26,26,26,.45);}
+.td-jockey-row{font-size:11px;color:rgba(26,26,26,.7);margin-top:3px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
 .td-jockey-name{font-weight:700;}
 .td-weight-val{font-weight:900;color:var(--gold);}
-.no-jockey{color:rgba(28,43,74,.4);font-style:italic;font-size:11px;}
+.no-jockey{color:rgba(26,26,26,.4);font-style:italic;font-size:11px;}
 .sex-badge{display:inline-block;font-size:9px;font-weight:900;padding:1px 5px;border-radius:3px;margin-right:3px;vertical-align:middle;}
 .sex-牡{background:rgba(29,78,216,.22);color:#1e3a8a;border:1px solid rgba(29,78,216,.3);}
 .sex-牝{background:rgba(219,39,119,.18);color:#9d174d;border:1px solid rgba(219,39,119,.3);}
@@ -175,24 +176,24 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .pdf-meta{font-size:10px;color:var(--muted);}
 
 /* Score & rank */
-.score-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;background:rgba(139,26,26,.15);color:var(--gold);border:1px solid rgba(139,26,26,.3);margin-left:4px;}
+.score-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px;background:rgba(155,45,48,.12);color:var(--gold);border:1px solid rgba(155,45,48,.30);margin-left:4px;}
 .rank-num{display:inline-flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:var(--gold);min-width:32px;line-height:1;margin-right:6px;letter-spacing:-.02em;}
 .ext-facility{font-size:10px;color:#166534;margin-top:3px;padding-left:2px;}
 
 /* Lap analysis card */
 .lap-card{
   margin-bottom:14px;padding:16px 18px;border-radius:14px;
-  background:linear-gradient(135deg,rgba(139,26,26,.06),rgba(242,217,176,.92));
-  border:1px solid rgba(139,26,26,.25);
+  background:#FBF7EE;
+  border:1px solid rgba(201,169,97,.40);
   position:relative;overflow:hidden;
 }
 .lap-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(139,26,26,.5),transparent);
+  background:linear-gradient(90deg,transparent,var(--shu),var(--kin),var(--shu),transparent);
 }
 .lap-card-label{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.lap-card-label::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.15);}
-.lap-card-text{font-size:11.5px;color:#1C2B4A;line-height:1.9;white-space:pre-line;}
+.lap-card-label::after{content:'';flex:1;height:1px;background:rgba(155,45,48,.12);}
+.lap-card-text{font-size:11.5px;color:#1A1A1A;line-height:1.9;white-space:pre-line;}
 
 /* ── 前走成績バー ── */
 .prevrace-bar{
@@ -205,52 +206,52 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 }
 .prevrace-label{
   font-size:8px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(28,43,74,.5);margin-right:2px;
+  color:rgba(26,26,26,.5);margin-right:2px;
 }
 .prevrace-rank{
   font-weight:900;padding:1px 6px;border-radius:4px;font-size:10px;
 }
-.prevrace-rank.rank-1{background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;}
-.prevrace-rank.rank-2{background:rgba(180,180,180,.25);color:#1C2B4A;border:1px solid rgba(28,43,74,.2);}
+.prevrace-rank.rank-1{background:linear-gradient(135deg,#C9A961,#D4B878);color:#1A1A1A;}
+.prevrace-rank.rank-2{background:rgba(180,180,180,.25);color:#1A1A1A;border:1px solid rgba(26,26,26,.2);}
 .prevrace-rank.rank-3{background:rgba(160,80,20,.15);color:#7a3e00;border:1px solid rgba(160,80,20,.45);}
-.prevrace-rank.rank-out{background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);}
-.prevrace-name{font-weight:700;color:#1C2B4A;white-space:nowrap;}
-.prevrace-sep{color:rgba(28,43,74,.3);}
-.prevrace-style{color:rgba(28,43,74,.65);}
+.prevrace-rank.rank-out{background:rgba(0,0,0,.06);color:rgba(26,26,26,.7);}
+.prevrace-name{font-weight:700;color:#1A1A1A;white-space:nowrap;}
+.prevrace-sep{color:rgba(26,26,26,.3);}
+.prevrace-style{color:rgba(26,26,26,.65);}
 .prevrace-3f{color:#166534;font-weight:700;}
 .prevrace-3f-rank{font-size:9px;color:rgba(22,101,52,.65);}
 .prevrace-pci{font-weight:700;}
-.prevrace-pci.above{color:#8B1A1A;}
-.prevrace-pci.below{color:rgba(28,43,74,.7);}
+.prevrace-pci.above{color:#9B2D30;}
+.prevrace-pci.below{color:rgba(26,26,26,.7);}
 .prevrace-margin.pos{color:#f87171;}
 .prevrace-margin.neg{color:#15803d;}
-.prevrace-margin.zero{color:rgba(28,43,74,.6);}
-.prevrace-weight{color:rgba(28,43,74,.55);}
-.prevrace-interval{font-size:9px;color:rgba(28,43,74,.5);}
+.prevrace-margin.zero{color:rgba(26,26,26,.6);}
+.prevrace-weight{color:rgba(26,26,26,.55);}
+.prevrace-interval{font-size:9px;color:rgba(26,26,26,.5);}
 
 /* ── SABC ─────────────────────────────────────────────────── */
 .sabc-bar{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-top:6px;padding:6px 10px;
-  background:rgba(139,26,26,.04);border:1px solid rgba(139,26,26,.12);border-radius:8px;font-size:10px;}
-.sabc-label{font-size:8px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(139,26,26,.5);margin-right:1px;}
-.sabc-sep{color:rgba(28,43,74,.2);margin:0 4px;}
+  background:rgba(139,26,26,.04);border:1px solid rgba(155,45,48,.12);border-radius:8px;font-size:10px;}
+.sabc-label{font-size:8px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(155,45,48,.50);margin-right:1px;}
+.sabc-sep{color:rgba(26,26,26,.2);margin:0 4px;}
 .sabc-badge{font-weight:900;padding:1px 5px;border-radius:4px;font-size:10px;min-width:18px;text-align:center;}
 .sabc-badge.g-S{background:linear-gradient(135deg,#b8860b,#ffd700);color:#000;}
 .sabc-badge.g-A{background:rgba(59,130,246,.35);color:#1d4ed8;border:1px solid rgba(29,78,216,.3);}
 .sabc-badge.g-B{background:rgba(34,197,94,.18);color:#166534;border:1px solid rgba(22,101,52,.3);}
-.sabc-badge.g-C{background:rgba(28,43,74,.1);color:rgba(28,43,74,.55);}
+.sabc-badge.g-C{background:rgba(26,26,26,.1);color:rgba(26,26,26,.55);}
 .sabc-badge.g-D{background:rgba(180,30,30,.1);color:rgba(160,20,20,.6);border:1px solid rgba(160,20,20,.2);}
-.sabc-total{font-weight:900;color:#8B1A1A;font-size:11px;margin-left:2px;}
-.sabc-factor-label{font-size:8px;color:rgba(28,43,74,.5);margin-right:1px;}
-.sabc-trainer-info{font-size:9px;color:rgba(28,43,74,.5);margin-left:4px;}
-.sabc-breakdown{font-size:9px;color:rgba(28,43,74,.55);margin-top:3px;margin-left:2px;display:flex;align-items:center;gap:4px;}
-.sabc-breakdown-base{color:rgba(28,43,74,.5);}
+.sabc-total{font-weight:900;color:#9B2D30;font-size:11px;margin-left:2px;}
+.sabc-factor-label{font-size:8px;color:rgba(26,26,26,.5);margin-right:1px;}
+.sabc-trainer-info{font-size:9px;color:rgba(26,26,26,.5);margin-left:4px;}
+.sabc-breakdown{font-size:9px;color:rgba(26,26,26,.55);margin-top:3px;margin-left:2px;display:flex;align-items:center;gap:4px;}
+.sabc-breakdown-base{color:rgba(26,26,26,.5);}
 .sabc-breakdown-plus{color:rgba(139,26,26,.55);font-weight:700;}
 .sabc-fire{font-size:12px;margin-left:2px;line-height:1;}
 /* ── SABC Pick Section ──────────────────────────────────── */
 .sabc-pick-section{display:flex;flex-direction:column;gap:8px;margin:14px 0 6px;}
 .sabc-pick-row{display:flex;align-items:stretch;gap:8px;}
 .sabc-pick-dim-label{writing-mode:vertical-rl;text-orientation:mixed;font-size:8px;font-weight:900;letter-spacing:.25em;padding:8px 6px;border-radius:8px;display:flex;align-items:center;justify-content:center;min-width:22px;flex-shrink:0;}
-.sabc-pick-dim-label.tan{background:linear-gradient(180deg,rgba(139,26,26,.2),rgba(139,26,26,.06));color:#8B1A1A;border:1px solid rgba(139,26,26,.3);}
+.sabc-pick-dim-label.tan{background:linear-gradient(180deg,rgba(155,45,48,.20),rgba(155,45,48,.06));color:#9B2D30;border:1px solid rgba(155,45,48,.30);}
 .sabc-pick-dim-label.fuku{background:linear-gradient(180deg,rgba(29,78,216,.2),rgba(29,78,216,.06));color:#1e3a8a;border:1px solid rgba(29,78,216,.3);}
 .sabc-pick-horses{display:flex;gap:8px;flex:1;flex-wrap:wrap;}
 .sabc-pick-card{position:relative;border-radius:12px;padding:12px 14px 10px;overflow:hidden;flex:1;min-width:140px;}
@@ -259,42 +260,42 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 .sabc-pick-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
 .sabc-pick-card.pick-tan::before{background:linear-gradient(90deg,#b8860b,#ffd700);}
 .sabc-pick-card.pick-fuku::before{background:linear-gradient(90deg,#1d4ed8,#60a5fa);}
-.sabc-pick-tied{font-size:8px;font-weight:900;letter-spacing:.1em;padding:1px 6px;border-radius:3px;background:rgba(0,0,0,.06);color:rgba(28,43,74,.6);margin-bottom:4px;display:inline-block;}
-.sabc-pick-umaban{font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);}
-.sabc-pick-name{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:700;color:#1C2B4A;line-height:1.3;margin:4px 0;}
+.sabc-pick-tied{font-size:8px;font-weight:900;letter-spacing:.1em;padding:1px 6px;border-radius:3px;background:rgba(0,0,0,.06);color:rgba(26,26,26,.6);margin-bottom:4px;display:inline-block;}
+.sabc-pick-umaban{font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;background:rgba(0,0,0,.06);color:rgba(26,26,26,.7);}
+.sabc-pick-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:17px;font-weight:700;color:#1A1A1A;line-height:1.3;margin:4px 0;}
 .sabc-pick-score{font-size:24px;font-weight:900;line-height:1;margin-bottom:8px;}
-.sabc-pick-card.pick-tan .sabc-pick-score{color:#8B1A1A;}
+.sabc-pick-card.pick-tan .sabc-pick-score{color:#9B2D30;}
 .sabc-pick-card.pick-fuku .sabc-pick-score{color:#1e3a8a;}
 .sabc-pick-score span{font-size:12px;font-weight:700;margin-left:2px;opacity:.7;}
 .sabc-pick-badges{display:flex;flex-wrap:wrap;gap:3px;align-items:center;}
-.sabc-pick-fl{font-size:8px;color:rgba(28,43,74,.5);margin-right:1px;}
+.sabc-pick-fl{font-size:8px;color:rgba(26,26,26,.5);margin-right:1px;}
 /* ── SABC Ranking (重賞) ────────────────────────────────── */
 .sabc-rank-wrap{display:flex;gap:12px;margin:14px 0 6px;flex-wrap:wrap;}
 .sabc-rank-block{flex:1;min-width:180px;}
 .sabc-rank-header{font-size:9px;font-weight:900;letter-spacing:.2em;padding:6px 12px;border-radius:8px 8px 0 0;text-align:center;}
-.sabc-rank-header.tan{background:linear-gradient(135deg,rgba(139,26,26,.2),rgba(139,26,26,.06));color:#8B1A1A;border:1px solid rgba(139,26,26,.3);border-bottom:none;}
+.sabc-rank-header.tan{background:linear-gradient(135deg,rgba(155,45,48,.20),rgba(155,45,48,.06));color:#9B2D30;border:1px solid rgba(155,45,48,.30);border-bottom:none;}
 .sabc-rank-header.fuku{background:linear-gradient(135deg,rgba(29,78,216,.2),rgba(29,78,216,.06));color:#1e3a8a;border:1px solid rgba(29,78,216,.3);border-bottom:none;}
-.sabc-rank-list{border:1px solid rgba(28,43,74,.1);border-radius:0 0 8px 8px;overflow:hidden;}
+.sabc-rank-list{border:1px solid rgba(26,26,26,.1);border-radius:0 0 8px 8px;overflow:hidden;}
 .sabc-rank-row{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,.6);}
-.sabc-rank-row+.sabc-rank-row{border-top:1px solid rgba(28,43,74,.06);}
+.sabc-rank-row+.sabc-rank-row{border-top:1px solid rgba(26,26,26,.06);}
 .sabc-rank-badge{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0;}
 .sabc-rank-badge.r1{background:linear-gradient(135deg,#ffd700,#f5a800);color:#5a3a00;box-shadow:0 1px 3px rgba(245,168,0,.4);}
 .sabc-rank-badge.r2{background:linear-gradient(135deg,#e0e0e0,#b0b0b0);color:#3a3a3a;box-shadow:0 1px 3px rgba(0,0,0,.2);}
 .sabc-rank-badge.r3{background:linear-gradient(135deg,#d4884a,#b8642a);color:#fff;box-shadow:0 1px 3px rgba(180,100,40,.3);}
 .sabc-rank-name-block{flex:1;min-width:0;}
-.sabc-rank-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:700;color:#1C2B4A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.sabc-rank-pop{font-size:9px;color:rgba(28,43,74,.5);margin-top:1px;}
+.sabc-rank-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:14px;font-weight:700;color:#1A1A1A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sabc-rank-pop{font-size:9px;color:rgba(26,26,26,.5);margin-top:1px;}
 .sabc-rank-score{font-size:20px;font-weight:900;line-height:1;white-space:nowrap;flex-shrink:0;}
-.sabc-rank-score.tan{color:#8B1A1A;}
+.sabc-rank-score.tan{color:#9B2D30;}
 .sabc-rank-score.fuku{color:#1e3a8a;}
 .sabc-rank-score span{font-size:10px;font-weight:700;margin-left:1px;opacity:.7;}
 
 /* ── 馬場予想 ─────────────────────────────────────────────── */
 .baba-row{display:flex;align-items:center;gap:12px;margin-top:10px;justify-content:center;flex-wrap:wrap;}
 .baba-venue-block{display:flex;align-items:center;gap:6px;}
-.baba-venue-label{font-size:10px;font-weight:900;letter-spacing:.08em;color:rgba(28,43,74,.5);border:1px solid rgba(28,43,74,.2);padding:2px 7px;border-radius:10px;}
-.baba-divider{color:rgba(28,43,74,.2);font-size:13px;}
-.weather-info{font-size:11px;color:rgba(28,43,74,.55);}
+.baba-venue-label{font-size:10px;font-weight:900;letter-spacing:.08em;color:rgba(26,26,26,.5);border:1px solid rgba(26,26,26,.2);padding:2px 7px;border-radius:10px;}
+.baba-divider{color:rgba(26,26,26,.2);font-size:13px;}
+.weather-info{font-size:11px;color:rgba(26,26,26,.55);}
 .baba-badge{font-size:11px;font-weight:900;padding:4px 12px;border-radius:20px;letter-spacing:.04em;display:inline-flex;align-items:center;gap:4px;}
 .baba-badge.turf{background:rgba(34,197,94,.18);color:#15803d;border:1px solid rgba(34,197,94,.4);}
 .baba-badge.dirt{background:rgba(180,120,60,.18);color:#92400e;border:1px solid rgba(180,120,60,.4);}
@@ -308,24 +309,24 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   color:var(--gold);scroll-margin-top:60px;
 }
 .section-head::before{content:'';width:3px;height:14px;border-radius:2px;background:var(--gold);flex-shrink:0;}
-.section-head::after{content:'';flex:1;height:1px;background:rgba(139,26,26,.15);}
+.section-head::after{content:'';flex:1;height:1px;background:rgba(155,45,48,.12);}
 
 /* ── INDEX / TOC ─────────────────────────────────────────── */
 .toc-nav{
   display:flex;flex-wrap:wrap;gap:6px;
   margin:10px 0 16px;padding:10px 12px;
-  background:rgba(28,43,74,.04);border:1px solid rgba(28,43,74,.1);border-radius:10px;
+  background:rgba(26,26,26,.04);border:1px solid rgba(26,26,26,.1);border-radius:10px;
 }
-.toc-label{font-size:8px;font-weight:900;letter-spacing:.2em;color:rgba(28,43,74,.4);margin-right:4px;align-self:center;}
+.toc-label{font-size:8px;font-weight:900;letter-spacing:.2em;color:rgba(26,26,26,.4);margin-right:4px;align-self:center;}
 .toc-link{
   display:inline-flex;align-items:center;gap:3px;
   font-size:10px;font-weight:700;
   padding:4px 10px;border-radius:14px;
-  background:rgba(255,255,255,.65);border:1px solid rgba(28,43,74,.12);
-  color:#1C2B4A;text-decoration:none;
+  background:rgba(255,255,255,.65);border:1px solid rgba(26,26,26,.12);
+  color:#1A1A1A;text-decoration:none;
   transition:background .15s,border-color .15s;
 }
-.toc-link:hover{background:rgba(123,188,181,.25);border-color:rgba(123,188,181,.55);}
+.toc-link:hover{background:rgba(201,169,97,.25);border-color:rgba(201,169,97,.55);}
 
 /* ── 重馬場特注激走メモ ──────────────────────────────────── */
 .wet-pick-section{
@@ -352,11 +353,11 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
   font-size:9px;font-weight:900;padding:2px 7px;border-radius:4px;
   background:rgba(16,185,129,.2);color:#065f46;border:1px solid rgba(16,185,129,.35);
 }
-.wet-pick-name{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;color:#1C2B4A;}
-.wet-pick-umaban{font-size:10px;font-weight:900;padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.06);color:rgba(28,43,74,.7);margin-right:3px;}
-.wet-pick-pop{font-size:9px;color:rgba(28,43,74,.5);}
+.wet-pick-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:13px;font-weight:700;color:#1A1A1A;}
+.wet-pick-umaban{font-size:10px;font-weight:900;padding:1px 5px;border-radius:4px;background:rgba(0,0,0,.06);color:rgba(26,26,26,.7);margin-right:3px;}
+.wet-pick-pop{font-size:9px;color:rgba(26,26,26,.5);}
 .wet-pick-comment{
-  font-size:11px;color:#1C2B4A;line-height:1.75;
+  font-size:11px;color:#1A1A1A;line-height:1.75;
   padding:5px 10px;margin-top:4px;
   background:rgba(29,78,216,.04);border-left:2px solid rgba(29,78,216,.3);border-radius:0 5px 5px 0;
 }
@@ -372,7 +373,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 <header class="hdr">
   <a href="index.html" class="hdr-back">← TOP</a>
   <div style="flex:1;">
-    <div class="hdr-logo">UG強奪競馬新聞</div>
+    <div class="hdr-logo">UG競馬ワイド神宮</div>
     <div class="hdr-sub">出走想定表</div>
   </div>
 </header>
@@ -493,8 +494,8 @@ function abilityHtml(n, rank) {
   // 内訳：分析ファクター + 単勝SABC + 複勝SABC
   if (score > 0) {
     let parts = `<span class="sabc-breakdown-base">分析 ${base}pt</span>`;
-    if (tan  > 0) parts += `<span style="color:rgba(28,43,74,.35);">+</span><span class="sabc-breakdown-plus">単 ${tan}pt</span>`;
-    if (fuku > 0) parts += `<span style="color:rgba(28,43,74,.35);">+</span><span style="color:#1e3a8a;font-weight:700;">複 ${fuku}pt</span>`;
+    if (tan  > 0) parts += `<span style="color:rgba(26,26,26,.35);">+</span><span class="sabc-breakdown-plus">単 ${tan}pt</span>`;
+    if (fuku > 0) parts += `<span style="color:rgba(26,26,26,.35);">+</span><span style="color:#1e3a8a;font-weight:700;">複 ${fuku}pt</span>`;
     html += `<div class="sabc-breakdown">${parts}</div>`;
   }
   if (n.extFacility) html += `<div class="ext-facility">▸ ${n.extFacility}</div>`;
@@ -891,7 +892,7 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     const trainer = hd ? hd.trainer : null;
     const belong  = hd ? hd.belong  : null;
     const pedigreeHtml = `父 ${sire}${bms ? ' / 母父 ' + bms : ''}`;
-    const trainerHtml  = trainer ? `<span style="margin-left:8px;color:rgba(28,43,74,.6);">${belong||''}${trainer}</span>` : '';
+    const trainerHtml  = trainer ? `<span style="margin-left:8px;color:rgba(26,26,26,.6);">${belong||''}${trainer}</span>` : '';
     const jockeyCell = h.jockey ? h.jockey : `<span class="no-jockey">想定なし</span>`;
     const weightCell = h.weight != null ? `${h.weight}` : '—';
     const pdata = prevraceMap ? (prevraceMap[h.num] || null) : null;
@@ -899,14 +900,14 @@ function buildPanel(race, idx, notes, horsesMap, prevraceMap) {
     const popCls = pop ? (pop<=3?`pop-${pop}`:pop<=6?'pop-4':'pop-other') : 'pop-other';
     const popCell = pop
       ? `<span class="pop-badge ${popCls}"><span class="pop-num">${pop}</span><span class="pop-ninki">人気</span></span><div class="pop-odds">${hn.odds||''}倍</div>`
-      : `<span style="color:rgba(28,43,74,.2);font-size:11px;">${h.num}</span>`;
+      : `<span style="color:rgba(26,26,26,.2);font-size:11px;">${h.num}</span>`;
     const markKey  = markMap[h.name];
     const markHtml = markKey ? `<span class="mark-badge mark-${markKey}">${MARK_LABEL[markKey]}</span>` : '';
     return `<tr>
       <td class="td-num">${popCell}</td>
       <td>
         <div class="td-name">${markHtml}${sexHtml(h.sex)}<span style="font-size:10px;color:var(--muted);">${h.age}歳</span>${h.name}${hn&&hn.sabc?`<span class="sabc-name-tan">単${hn.sabc.tan.total}pt</span><span class="sabc-name-fuku">複${hn.sabc.fuku.total}pt</span>`:''}</div>
-        <div class="td-jockey-row"><span class="td-jockey-name">${jockeyCell}</span><span style="color:rgba(28,43,74,.25);">／</span><span class="td-weight-val">${weightCell}kg</span></div>
+        <div class="td-jockey-row"><span class="td-jockey-name">${jockeyCell}</span><span style="color:rgba(26,26,26,.25);">／</span><span class="td-weight-val">${weightCell}kg</span></div>
         <div class="td-sire">${pedigreeHtml}${trainerHtml}</div>
         ${abilityHtml(hn, rank)}
         ${sabcHtml(hn)}

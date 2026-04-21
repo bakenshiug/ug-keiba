@@ -3,55 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>過去レース アーカイブ | UG競馬</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<title>記録殿｜過去御神託 アーカイブ | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg1:#1a1a2e;--bg2:#16213e;--bg3:#0f3460;
-  --pink:#f59e0b;--pink-dk:#d97706;--pink-lt:#fcd34d;
-  --gold:#fcd34d;
-  --card:rgba(255,255,255,.06);--border:rgba(100,210,160,.18);
-  --text:#fff;--muted:rgba(255,210,230,.65);
-  --zi-s:#fcd34d;--zi-a:#86efac;--zi-b:#93c5fd;--zi-c:#fda4af;--zi-d:rgba(255,150,160,.45);
+  --bg:#FAFAFA;--paper:#FBF7EE;
+  --sumi:#1A1A1A;
+  --shu:#9B2D30;--shu-dk:#7A1E1E;
+  --midori:#1F4D2E;--kin:#C9A961;
+  --pink:#9B2D30;--pink-dk:#7A1E1E;--pink-lt:#C9A961;
+  --gold:#C9A961;
+  --card:#FBF7EE;--border:rgba(201,169,97,.4);
+  --text:#1A1A1A;--muted:rgba(26,26,26,.60);
+  --zi-s:#C9A961;--zi-a:#1F4D2E;--zi-b:#2B5A9F;--zi-c:#7A1E1E;--zi-d:rgba(26,26,26,.35);
 }
-html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--bg3) 100%);color:var(--text);font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;min-height:100vh;}
+html,body{background:#FAFAFA;color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;min-height:100vh;}
 
-/* ── ヘッダー ── */
+/* ── ヘッダー（鳥居風）── */
 .page-header{
-  background:linear-gradient(135deg,#1a1a2e,#16213e,#1a1a2e);
-  border-bottom:2px solid rgba(245,158,11,.35);
+  background:rgba(250,250,250,.92);
+  border-bottom:2px solid var(--shu);
+  box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);
   padding:12px 16px;
   display:flex;align-items:center;gap:12px;
   position:sticky;top:0;z-index:200;
-  box-shadow:0 2px 24px rgba(245,158,11,.25);
+  backdrop-filter:blur(8px);
 }
 .back-btn{
   display:inline-flex;align-items:center;gap:4px;
-  font-size:12px;font-weight:700;color:#fff;
+  font-size:12px;font-weight:700;color:var(--shu);
   text-decoration:none;padding:5px 10px;border-radius:8px;
-  border:1px solid rgba(255,200,220,.4);
+  border:1px solid rgba(201,169,97,.4);
+  background:rgba(201,169,97,.12);
   white-space:nowrap;flex-shrink:0;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
-.page-title{font-size:15px;font-weight:900;color:#fff;letter-spacing:.06em;}
-.page-sub{font-size:10px;color:rgba(252,211,77,.8);margin-top:1px;}
+.page-title{font-size:15px;font-weight:800;color:var(--shu);letter-spacing:.06em;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.page-sub{font-size:10px;color:var(--muted);margin-top:1px;}
 
 /* ── バナー ── */
 .breadcrumb-banner{
   padding:10px 16px;
-  background:linear-gradient(135deg,rgba(26,26,46,.7),rgba(22,33,62,.5),rgba(26,26,46,.7));
-  border-bottom:1px solid rgba(245,158,11,.2);
+  background:rgba(251,247,238,.7);
+  border-bottom:1px solid rgba(201,169,97,.3);
   display:flex;align-items:center;gap:8px;flex-wrap:wrap;
 }
-.bc-item{font-size:11px;font-weight:700;color:rgba(255,210,230,.7);}
-.bc-sep{font-size:13px;color:rgba(255,170,200,.6);font-weight:900;}
-.bc-current{font-size:11px;font-weight:900;color:#fcd34d;}
+.bc-item{font-size:11px;font-weight:700;color:var(--muted);}
+.bc-sep{font-size:13px;color:rgba(201,169,97,.6);font-weight:900;}
+.bc-current{font-size:11px;font-weight:900;color:var(--shu);font-family:'Shippori Mincho','Noto Serif JP',serif;}
 
 /* ── タブ ── */
 .tab-bar{
   display:flex;gap:0;
-  background:rgba(0,0,0,.25);
-  border-bottom:2px solid rgba(245,158,11,.2);
+  background:rgba(251,247,238,.8);
+  border-bottom:2px solid rgba(201,169,97,.3);
   position:sticky;top:57px;z-index:100;
 }
 .tab-btn{
@@ -61,47 +67,50 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
   border-bottom:3px solid transparent;
   transition:all .18s;letter-spacing:.03em;
   text-align:center;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 .tab-btn.active{
-  color:#fff;
-  border-bottom:3px solid var(--pink);
-  background:rgba(245,158,11,.12);
+  color:var(--shu);
+  border-bottom:3px solid var(--shu);
+  background:rgba(155,45,48,.06);
 }
 .tab-btn .tab-grade{
   font-size:9px;font-weight:900;
   padding:1px 5px;border-radius:3px;margin-right:4px;
   vertical-align:middle;
 }
-.grade-g1{background:linear-gradient(135deg,#f0c040,#d4a010);color:#1a1000;}
-.grade-g2{background:linear-gradient(135deg,#e0b0d0,#c080a0);color:#2a0a1a;}
+.grade-g1{background:linear-gradient(135deg,#C9A961,#8B7530);color:#fff;}
+.grade-g2{background:linear-gradient(135deg,#1F4D2E,#0f3319);color:#fff;}
 
 /* ── レース情報 ── */
 .race-info{
   padding:12px 16px;
-  background:rgba(255,255,255,.04);
-  border-bottom:1px solid rgba(245,158,11,.2);
+  background:#FBF7EE;
+  border-bottom:1px solid rgba(201,169,97,.3);
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
 }
-.race-info-name{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:900;color:#fff;}
+.race-info-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:16px;font-weight:800;color:var(--shu);letter-spacing:.04em;}
 .race-info-meta{font-size:10px;color:var(--muted);margin-top:2px;}
 .horse-count{
   margin-left:auto;font-size:10px;font-weight:700;
-  padding:3px 10px;border-radius:20px;
-  background:rgba(245,158,11,.12);color:rgba(252,211,77,.9);
-  border:1px solid rgba(245,158,11,.2);
+  padding:3px 10px;border-radius:4px;
+  background:rgba(201,169,97,.15);color:var(--shu);
+  border:1px solid rgba(201,169,97,.4);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
 }
 
 /* ── 馬カード ── */
 .horse-list{padding:12px 12px 80px;}
 .horse-card{
-  background:#fff;
-  border:1px solid rgba(200,30,80,.18);
-  border-radius:16px;
+  background:#FBF7EE;
+  border:1px solid rgba(201,169,97,.35);
+  border-radius:10px;
   margin-bottom:10px;
   overflow:hidden;
   transition:border-color .15s;
+  box-shadow:0 2px 8px rgba(26,26,26,.06);
 }
-.horse-card:active{border-color:rgba(255,140,185,.4);}
+.horse-card:active{border-color:rgba(155,45,48,.4);}
 .tokuchuu-banner{
   margin:6px 0 2px;
   padding:5px 10px;
@@ -117,8 +126,8 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 .card-head{
   display:flex;flex-direction:column;gap:8px;
   padding:11px 14px 10px;
-  background:linear-gradient(160deg,#fdf6f9 0%,#f9f0f5 100%);
-  border-bottom:2px solid rgba(200,30,80,.1);
+  background:linear-gradient(160deg,#FBF7EE 0%,#F5EFDF 100%);
+  border-bottom:2px solid rgba(201,169,97,.25);
 }
 /* Z字レイアウト：左(馬番+馬名) ↔ 右(オッズ) */
 .card-head-top{display:flex;align-items:center;gap:10px;}
@@ -570,18 +579,18 @@ html,body{background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 50%,var(--b
 <body>
 
 <div class="page-header">
-  <a href="index.html" class="back-btn">‹ TOP</a>
+  <a href="index.html" class="back-btn">⛩ 鳥居</a>
   <div>
-    <div class="page-title">📁 過去レース アーカイブ</div>
-    <div class="page-sub">NZT / 阪神牝馬S / 桜花賞</div>
+    <div class="page-title">記録殿　KIROKUDEN</div>
+    <div class="page-sub">過去御神託アーカイブ</div>
   </div>
-  <a href="entries.html" class="back-btn" style="margin-left:auto;background:rgba(16,185,129,.2);border-color:rgba(16,185,129,.5);">🏇 皐月賞へ</a>
+  <a href="entries.html" class="back-btn" style="margin-left:auto;">📜 拝殿</a>
 </div>
 
 <div class="breadcrumb-banner">
-  <span class="bc-item">📁 過去3重賞の出走予定馬スコア解析アーカイブ</span>
+  <span class="bc-item">📜 過去重賞の出走予定馬御神託記録</span>
   <span class="bc-sep">›</span>
-  <span class="bc-current">🎯 NZT / 阪神牝馬S / 桜花賞</span>
+  <span class="bc-current">NZT ／ 阪神牝馬S ／ 桜花賞</span>
 </div>
 
 <!-- タブ -->

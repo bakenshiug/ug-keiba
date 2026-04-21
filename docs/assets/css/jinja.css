@@ -1,0 +1,469 @@
+/* ═══════════════════════════════════════════════════════
+   UG競馬ワイド神宮 共通テーマ CSS
+   Usage: <link rel="stylesheet" href="assets/css/jinja.css">
+   用途: 全ページ共通のカラーパレット・フォント・部品
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Google Fonts ─── */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;500;700;900&display=swap');
+
+/* ─── カラーパレット変数 ─── */
+:root {
+  --bg:         #FAFAFA;
+  --bg-soft:    #F5F2EB;
+  --paper:      #FBF7EE;
+  --paper-deep: #F0EADB;
+  --sumi:       #1A1A1A;
+  --sumi-soft:  #3A3A3A;
+  --sumi-muted: #5A5A5A;
+  --shu:        #9B2D30;
+  --shu-deep:   #6B1E22;
+  --shu-light:  #C54B4E;
+  --midori:     #1F4D2E;
+  --midori-light:#3D7551;
+  --kin:        #C9A961;
+  --kin-deep:   #A68A44;
+  --text:       #2A2A2A;
+  --muted:      #6B6B6B;
+  --border:     #E5DFD1;
+  --border-soft:#EFEBE0;
+}
+
+/* ─── ベース ─── */
+.jinja-base,
+body.jinja {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic UI','Meiryo',sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+  letter-spacing: .04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── 明朝体 ─── */
+.mincho,
+.jinja .mincho {
+  font-family: 'Shippori Mincho','Noto Serif JP','YuMincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  font-weight: 700;
+}
+
+/* ─── 麻の葉文様 背景 ─── */
+.asanoha-bg {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(30deg, rgba(155,45,48,.025) 12%, transparent 12.5%, transparent 87%, rgba(155,45,48,.025) 87.5%, rgba(155,45,48,.025)),
+    linear-gradient(150deg, rgba(155,45,48,.025) 12%, transparent 12.5%, transparent 87%, rgba(155,45,48,.025) 87.5%, rgba(155,45,48,.025));
+  background-size: 24px 42px;
+}
+
+/* ─── 季節の挨拶バー ─── */
+.jinja-kisetsu {
+  background: var(--sumi);
+  color: #E5DFD1;
+  text-align: center;
+  padding: 9px 16px;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 12px;
+  letter-spacing: .22em;
+}
+.jinja-kisetsu .sep { color: var(--kin); margin: 0 10px; }
+
+/* ─── ヘッダー ─── */
+.jinja-header {
+  background: rgba(250,250,250,.96);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.jinja-header-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--sumi);
+  text-decoration: none;
+  letter-spacing: .1em;
+}
+.jinja-header-logo .torii { color: var(--shu); margin-right: 6px; }
+.jinja-header-logo .wide  { color: var(--shu); }
+
+.jinja-header-nav { display: flex; gap: 32px; }
+.jinja-header-nav a {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sumi);
+  text-decoration: none;
+  letter-spacing: .2em;
+  padding: 6px 0;
+  border-bottom: 1.5px solid transparent;
+  transition: all .2s ease;
+}
+.jinja-header-nav a:hover,
+.jinja-header-nav a.active {
+  border-bottom-color: var(--shu);
+  color: var(--shu);
+}
+.jinja-header-nav a small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: .15em;
+  margin-top: 2px;
+}
+
+/* ─── ページヒーロー（サブページ用） ─── */
+.jinja-page-hero {
+  padding: 64px 24px 52px;
+  text-align: center;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(30deg, rgba(155,45,48,.025) 12%, transparent 12.5%, transparent 87%, rgba(155,45,48,.025) 87.5%, rgba(155,45,48,.025)),
+    linear-gradient(150deg, rgba(155,45,48,.025) 12%, transparent 12.5%, transparent 87%, rgba(155,45,48,.025) 87.5%, rgba(155,45,48,.025));
+  background-size: 24px 42px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.jinja-page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 3px;
+  background: var(--shu);
+}
+.jinja-page-hero-icon {
+  font-size: 48px;
+  color: var(--shu);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.jinja-page-hero-en {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 11px;
+  color: var(--shu);
+  letter-spacing: .32em;
+  margin-bottom: 10px;
+}
+.jinja-page-hero-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--sumi);
+  letter-spacing: .18em;
+  margin-bottom: 14px;
+}
+.jinja-page-hero-desc {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  color: var(--sumi-muted);
+  letter-spacing: .1em;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ─── パンくず ─── */
+.jinja-crumb {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .15em;
+  text-align: center;
+  padding: 16px 24px;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+.jinja-crumb a {
+  color: var(--sumi);
+  text-decoration: none;
+  margin: 0 4px;
+}
+.jinja-crumb a:hover { color: var(--shu); }
+.jinja-crumb .sep { color: var(--kin); margin: 0 6px; }
+.jinja-crumb .current { color: var(--shu); }
+
+/* ─── セクション共通 ─── */
+.jinja-section {
+  padding: 80px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.jinja-section.dark-bg {
+  background: var(--sumi);
+  max-width: none;
+  color: #F5F2EB;
+}
+.jinja-section.paper-bg {
+  background: var(--paper);
+  max-width: none;
+}
+.jinja-section-inner { max-width: 1100px; margin: 0 auto; }
+
+.jinja-section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--sumi);
+  text-align: center;
+  letter-spacing: .14em;
+  margin-bottom: 10px;
+}
+.jinja-section.dark-bg .jinja-section-title { color: #F5F2EB; }
+
+.jinja-section-subtitle {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 11px;
+  color: var(--shu);
+  text-align: center;
+  letter-spacing: .32em;
+  margin-bottom: 48px;
+  opacity: .85;
+}
+.jinja-section.dark-bg .jinja-section-subtitle { color: var(--kin); }
+
+/* ─── カード基盤 ─── */
+.jinja-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  transition: all .25s ease;
+  position: relative;
+}
+.jinja-card:hover {
+  border-color: var(--shu);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(155,45,48,.08);
+}
+.jinja-card.paper { background: var(--paper); }
+.jinja-card.sumi  { background: var(--sumi); color: #F5F2EB; }
+
+/* ─── 看板（注意書）ブロック ─── */
+.jinja-kanban {
+  background: var(--paper);
+  border-top: 3px solid var(--shu);
+  border-bottom: 3px solid var(--shu);
+  padding: 40px 48px;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+.jinja-kanban::before,
+.jinja-kanban::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--shu);
+}
+.jinja-kanban::before { top: -8px; left: -8px; }
+.jinja-kanban::after  { bottom: -8px; right: -8px; }
+
+.jinja-kanban-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  color: var(--sumi);
+  letter-spacing: .4em;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.jinja-kanban ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.jinja-kanban ol li {
+  padding-left: 32px;
+  position: relative;
+  margin-bottom: 12px;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--sumi);
+}
+.jinja-kanban ol li::before {
+  content: '一、';
+  position: absolute;
+  left: 0;
+  color: var(--shu);
+  font-weight: 700;
+}
+
+/* ─── G格バッジ ─── */
+.jinja-grade {
+  display: inline-block;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  letter-spacing: .18em;
+}
+.jinja-grade.g1 { background: linear-gradient(90deg, #C9A961, #E6C773); color: #1A1A1A; }
+.jinja-grade.g2 { background: var(--midori); color: #F5F2EB; }
+.jinja-grade.g3 { background: var(--shu); color: #F5F2EB; }
+.jinja-grade.op { background: var(--border); color: var(--sumi); }
+
+/* ─── 印バッジ（◎○▲☆△）─── */
+.jinja-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 700;
+  background: var(--paper);
+  border: 1.5px solid var(--border);
+  color: var(--sumi);
+}
+.jinja-mark.honmei    { background: #FFF8E1; border-color: var(--kin); color: var(--shu-deep); }
+.jinja-mark.taikou    { background: var(--paper); border-color: var(--shu); color: var(--shu); }
+.jinja-mark.tanana    { background: var(--paper); border-color: var(--midori); color: var(--midori); }
+.jinja-mark.renkou    { background: var(--paper); border-color: var(--border); color: var(--sumi-soft); }
+.jinja-mark.anauma    { background: #FDF6E0; border-color: var(--kin); color: var(--kin-deep); }
+
+/* ─── ボタン ─── */
+.jinja-btn {
+  display: inline-block;
+  background: var(--shu);
+  color: #fff;
+  padding: 14px 36px;
+  text-decoration: none;
+  font-family: 'Shippori Mincho', serif;
+  letter-spacing: .2em;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid var(--shu);
+  cursor: pointer;
+  transition: all .25s ease;
+  box-shadow: 0 4px 16px rgba(155,45,48,.2);
+}
+.jinja-btn:hover {
+  background: var(--shu-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(155,45,48,.35);
+}
+.jinja-btn.outline {
+  background: transparent;
+  color: var(--shu);
+}
+.jinja-btn.outline:hover {
+  background: var(--shu);
+  color: #fff;
+}
+.jinja-btn.sumi {
+  background: var(--sumi);
+  border-color: var(--sumi);
+}
+.jinja-btn.sumi:hover { background: var(--sumi-soft); }
+
+/* ─── 区切り飾り ─── */
+.jinja-ornament {
+  text-align: center;
+  padding: 36px 0;
+  font-size: 14px;
+  color: var(--kin);
+  letter-spacing: 2em;
+  opacity: .5;
+}
+
+/* ─── フッター ─── */
+.jinja-footer {
+  background: var(--sumi);
+  color: #C0BAA5;
+  padding: 56px 32px 36px;
+  text-align: center;
+}
+.jinja-footer-torii {
+  font-size: 42px;
+  color: var(--shu-light);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.jinja-footer-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #F5F2EB;
+  margin-bottom: 6px;
+  letter-spacing: .14em;
+}
+.jinja-footer-name .wide { color: var(--shu-light); }
+.jinja-footer-sub {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 12px;
+  color: var(--kin);
+  letter-spacing: .26em;
+  margin-bottom: 28px;
+}
+.jinja-footer-deity {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 12px;
+  color: rgba(245,242,235,.6);
+  letter-spacing: .15em;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+.jinja-footer-disclaim {
+  font-size: 10px;
+  color: rgba(245,242,235,.35);
+  letter-spacing: .1em;
+  padding-top: 18px;
+  border-top: 1px solid rgba(245,242,235,.1);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.jinja-footer a { color: var(--kin); text-decoration: none; }
+.jinja-footer a:hover { color: var(--shu-light); }
+
+/* ─── ユーティリティ ─── */
+.jinja-text-shu  { color: var(--shu); }
+.jinja-text-kin  { color: var(--kin); }
+.jinja-text-midori { color: var(--midori); }
+.jinja-text-sumi { color: var(--sumi); }
+.jinja-text-muted { color: var(--muted); }
+
+.jinja-bg-paper { background: var(--paper); }
+.jinja-bg-sumi  { background: var(--sumi); color: #F5F2EB; }
+.jinja-bg-kin   { background: var(--kin); color: var(--sumi); }
+
+.jinja-border-top    { border-top: 1px solid var(--border); }
+.jinja-border-bottom { border-bottom: 1px solid var(--border); }
+.jinja-border-shu-top { border-top: 3px solid var(--shu); }
+
+/* ─── レスポンシブ ─── */
+@media (max-width: 900px) {
+  .jinja-header      { padding: 14px 20px; }
+  .jinja-header-logo { font-size: 18px; }
+  .jinja-header-nav  { gap: 18px; }
+  .jinja-header-nav a { font-size: 12px; letter-spacing: .15em; }
+  .jinja-section     { padding: 56px 20px; }
+  .jinja-section-title    { font-size: 22px; letter-spacing: .1em; }
+  .jinja-section-subtitle { font-size: 10px; letter-spacing: .22em; margin-bottom: 32px; }
+  .jinja-page-hero        { padding: 48px 20px 40px; }
+  .jinja-page-hero-title  { font-size: 28px; letter-spacing: .1em; }
+  .jinja-page-hero-icon   { font-size: 40px; }
+  .jinja-kanban      { padding: 28px 24px; }
+  .jinja-kanban-title { font-size: 15px; letter-spacing: .3em; }
+  .jinja-kanban ol li { font-size: 13px; padding-left: 28px; }
+  .jinja-btn         { padding: 12px 28px; font-size: 13px; }
+  .jinja-footer      { padding: 44px 20px 28px; }
+  .jinja-footer-name { font-size: 18px; letter-spacing: .1em; }
+}
+
+@media (max-width: 500px) {
+  .jinja-header-nav { display: none; }
+}

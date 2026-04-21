@@ -3,69 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>回収率レポート | ug-keiba</title>
+<title>奉納帳｜回収率レポート | UG競馬ワイド神宮</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Public+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#F2D9B0; --bg-dk:#E8C898;
-  --pink:#E8003D; --pink-dk:#B5002E; --gold:#8B1A1A;
-  --green:#16a34a; --green-lt:rgba(22,163,74,.12);
-  --red:#dc2626; --red-lt:rgba(220,38,38,.1);
-  --text:#1C2B4A; --muted:rgba(28,43,74,.55);
-  --card:rgba(255,255,255,.85); --border:rgba(232,0,61,.2);
+  --bg:#FAFAFA; --paper:#FBF7EE;
+  --shu:#9B2D30; --shu-dk:#7A1E1E; --kin:#C9A961;
+  --midori:#1F4D2E; --midori-lt:rgba(31,77,46,.12);
+  --red:#7A1E1E; --red-lt:rgba(122,30,30,.10);
+  --text:#1A1A1A; --muted:rgba(26,26,26,.60);
+  --card:#FBF7EE; --border:rgba(201,169,97,.40);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-serif;min-height:100vh;}
+html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;min-height:100vh;}
 
 /* ── Header ── */
-.hdr{background:linear-gradient(135deg,#EDD9A3,#E8C898 60%,#EDD9A3);border-bottom:2px solid rgba(232,0,61,.5);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;box-shadow:0 4px 30px rgba(232,0,61,.2);}
-.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(0,0,0,.06);color:var(--muted);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(0,0,0,.12);}
-.hdr-back:hover{background:rgba(0,0,0,.1);}
-.hdr-logo{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:900;color:#1C2B4A;letter-spacing:.05em;}
-.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.hdr{background:rgba(250,250,250,.92);border-bottom:2px solid var(--shu);box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);backdrop-filter:blur(8px);padding:14px 18px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;}
+.hdr-back{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:18px;background:rgba(201,169,97,.14);color:var(--shu);font-size:11px;font-weight:700;text-decoration:none;border:1px solid rgba(201,169,97,.35);font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.hdr-back:hover{background:rgba(201,169,97,.25);}
+.hdr-logo{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:18px;font-weight:800;color:var(--shu);letter-spacing:.05em;}
+.hdr-sub{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:2px;}
 .hdr-info{margin-left:auto;text-align:right;}
 
 /* ── Layout ── */
 .container{max-width:680px;margin:0 auto;padding:20px 16px 72px;}
 
 /* ── Period badge ── */
-.period-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,0,61,.1);border:1px solid rgba(232,0,61,.3);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:var(--pink);letter-spacing:.08em;margin-bottom:16px;}
+.period-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(155,45,48,.08);border:1px solid rgba(155,45,48,.30);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:var(--shu);letter-spacing:.08em;margin-bottom:16px;}
 
 /* ── Section title ── */
-.sec-title{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px;padding-left:2px;}
+.sec-title{font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--shu);margin:22px 0 10px;padding-left:2px;}
 
 /* ── Hero grid ── */
 .hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:4px;}
 @media(min-width:480px){.hero-grid{grid-template-columns:repeat(4,1fr);}}
-.hero-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 12px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08);}
-.hero-label{font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
-.hero-value{font-size:26px;font-weight:900;color:var(--text);line-height:1;}
-.hero-value.green{color:var(--green);}
-.hero-value.red{color:var(--red);}
-.hero-value.accent{color:var(--pink);}
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-align:center;box-shadow:0 2px 10px rgba(26,26,26,.06);}
+.hero-label{font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.hero-value{font-size:26px;font-weight:800;color:var(--text);line-height:1;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.hero-value.green{color:var(--midori);}
+.hero-value.red{color:var(--shu);}
+.hero-value.accent{color:var(--kin);}
 .hero-sub{font-size:10px;color:var(--muted);margin-top:4px;}
 
 /* ── Cards ── */
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 16px;box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px 16px;box-shadow:0 2px 10px rgba(26,26,26,.05);}
 
 /* ── Bet type bar chart ── */
 .bet-row{margin-bottom:18px;}
 .bet-row:last-child{margin-bottom:0;}
 .bet-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
-.bet-name{font-size:14px;font-weight:800;}
+.bet-name{font-size:14px;font-weight:800;color:var(--shu-dk);}
 .bet-roi-wrap{display:flex;align-items:baseline;gap:6px;}
-.bet-roi{font-size:18px;font-weight:900;}
-.bet-roi.green{color:var(--green);}
-.bet-roi.red{color:var(--red);}
-.bet-roi.orange{color:#d97706;}
+.bet-roi{font-size:18px;font-weight:800;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.bet-roi.green{color:var(--midori);}
+.bet-roi.red{color:var(--shu);}
+.bet-roi.orange{color:#B8935C;}
 .bet-hitrate{font-size:10px;font-weight:700;color:var(--muted);}
-.bet-bar-track{position:relative;height:12px;background:rgba(28,43,74,.07);border-radius:8px;overflow:hidden;margin-bottom:5px;}
+.bet-bar-track{position:relative;height:12px;background:rgba(201,169,97,.14);border-radius:8px;overflow:hidden;margin-bottom:5px;}
 .bet-bar-fill{height:100%;border-radius:8px;transition:width .8s cubic-bezier(.4,0,.2,1);}
-.bet-bar-fill.green{background:linear-gradient(90deg,#15803d,#22c55e);}
-.bet-bar-fill.orange{background:linear-gradient(90deg,#b45309,#f59e0b);}
-.bet-bar-fill.red{background:#ef4444;width:2px!important;}
-.bet-ref-line{position:absolute;top:0;bottom:0;width:1px;background:rgba(28,43,74,.3);}
+.bet-bar-fill.green{background:linear-gradient(90deg,#1F4D2E,#2F7A47);}
+.bet-bar-fill.orange{background:linear-gradient(90deg,#B8935C,#C9A961);}
+.bet-bar-fill.red{background:#7A1E1E;width:2px!important;}
+.bet-ref-line{position:absolute;top:0;bottom:0;width:1px;background:rgba(26,26,26,.3);}
 .bet-amounts{display:flex;gap:10px;font-size:10px;color:var(--muted);}
 .bet-amounts span b{color:var(--text);font-weight:700;}
 
@@ -75,21 +75,21 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 
 /* ── Race record cards ── */
 .race-grid{display:grid;gap:10px;}
-.race-rec-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.race-rec-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:0 2px 10px rgba(26,26,26,.05);}
 .race-rec-top{display:flex;justify-content:space-between;align-items:flex-start;}
-.race-rec-name{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:900;color:var(--text);}
+.race-rec-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:15px;font-weight:800;color:var(--shu-dk);}
 .race-rec-date{font-size:10px;color:var(--muted);margin-top:2px;}
 .hit-badge{padding:4px 12px;border-radius:12px;font-size:10px;font-weight:800;letter-spacing:.06em;white-space:nowrap;}
-.hit-badge.hit{background:var(--green-lt);color:var(--green);border:1px solid rgba(22,163,74,.3);}
-.hit-badge.miss{background:var(--red-lt);color:var(--red);border:1px solid rgba(220,38,38,.2);}
+.hit-badge.hit{background:var(--midori-lt);color:var(--midori);border:1px solid rgba(31,77,46,.3);}
+.hit-badge.miss{background:var(--red-lt);color:var(--shu-dk);border:1px solid rgba(122,30,30,.25);}
 .race-rec-bets{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;}
 .bet-pill{font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;}
-.bet-pill.hit{background:var(--green-lt);color:var(--green);border:1px solid rgba(22,163,74,.3);}
-.bet-pill.miss{background:rgba(28,43,74,.06);color:var(--muted);border:1px solid rgba(28,43,74,.12);}
-.race-rec-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid rgba(28,43,74,.08);}
-.race-profit{font-size:13px;font-weight:900;}
-.race-profit.plus{color:var(--green);}
-.race-profit.minus{color:var(--red);}
+.bet-pill.hit{background:var(--midori-lt);color:var(--midori);border:1px solid rgba(31,77,46,.3);}
+.bet-pill.miss{background:rgba(26,26,26,.05);color:var(--muted);border:1px solid rgba(26,26,26,.12);}
+.race-rec-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid rgba(201,169,97,.30);}
+.race-profit{font-size:13px;font-weight:800;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.race-profit.plus{color:var(--midori);}
+.race-profit.minus{color:var(--shu);}
 .race-invest{font-size:11px;color:var(--muted);}
 
 /* ── Loading ── */
@@ -99,10 +99,10 @@ html,body{background:var(--bg);color:var(--text);font-family:'Public Sans',sans-
 <body>
 
 <header class="hdr">
-  <a class="hdr-back" href="final-display.html">← 予想</a>
+  <a class="hdr-back" href="final-display.html">⛩ 本殿へ</a>
   <div>
-    <div class="hdr-logo">ug‑keiba</div>
-    <div class="hdr-sub">Stats</div>
+    <div class="hdr-logo">奉納帳 HOUNOUCHO</div>
+    <div class="hdr-sub">回収率レポート</div>
   </div>
 </header>
 
