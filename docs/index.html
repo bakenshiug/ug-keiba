@@ -160,6 +160,12 @@ a{color:inherit;}
   margin-bottom:48px;
   opacity:.9;
 }
+.hero-cta-group{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
 .hero-cta{
   display:inline-block;
   background:var(--shu);
@@ -180,6 +186,27 @@ a{color:inherit;}
   box-shadow:0 8px 28px rgba(155,45,48,.4);
 }
 .hero-cta::before{content:'⛩ ';}
+.hero-cta-sub{
+  display:inline-block;
+  background:transparent;
+  color:var(--shu)!important;
+  padding:17px 52px;
+  text-decoration:none;
+  font-family:'Shippori Mincho',serif;
+  letter-spacing:.2em;
+  font-size:15px;
+  font-weight:700;
+  border:1px solid var(--shu);
+  transition:all .25s ease;
+  box-shadow:0 4px 16px rgba(155,45,48,.10);
+}
+.hero-cta-sub:hover{
+  background:var(--shu);
+  color:#fff!important;
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(155,45,48,.30);
+}
+.hero-cta-sub::before{content:'⛩ ';}
 
 /* ── セクション共通 ── */
 .section{
@@ -818,7 +845,10 @@ a{color:inherit;}
   <h1 class="hero-title mincho">UG競馬<span class="wide">ワイド</span>神宮</h1>
   <p class="hero-sub mincho">広く授くる的中の加護</p>
   <p class="hero-caption">「ラップは嘘つかない、言葉は嘘つく、我は両方読む」</p>
-  <a href="final-display.html" class="hero-cta">本殿にて御託宣を受くる</a>
+  <div class="hero-cta-group">
+    <a href="final-display.html" class="hero-cta">本殿にて御託宣を受くる</a>
+    <a href="entries.html" class="hero-cta-sub">拝殿にて各頭を覧る</a>
+  </div>
 </section>
 
 <!-- ══ 今週の本殿レース ══ -->
