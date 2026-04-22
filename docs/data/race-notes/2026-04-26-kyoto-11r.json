@@ -16,27 +16,545 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "preparationNote": "関係者コメントの言霊解析は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。安田記念トライアル。マテンロウスカイ・オフトレイル(58kg)ら実績組に注目。",
+  "preparationNote": "関係者コメントの言霊解析・外厩相性ファクター(個体別)は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。安田記念トライアル。マテンロウスカイ・オフトレイル(58kg)ら実績組に注目。",
   "logicVersion": "v2-rel-lap",
   "horses": [
-    { "listOrder": 1,  "num": null, "gate": null, "name": "アサヒ",               "jockey": "松本",    "trainer": "金成",    "weight": 57.0, "expectedOdds": 299.7, "sire": "カレンブラックヒル", "broodmareSire": "デインヒル",               "gaikyu": "在厩調整",             "relComment": { "keyword": "大敗続き余力なし", "grade": "D" }, "lapFactors": null },
-    { "listOrder": 2,  "num": null, "gate": null, "name": "アドマイヤズーム",     "jockey": "武豊",    "trainer": "友道",    "weight": 57.0, "expectedOdds": 4.2,   "sire": "モーリス",           "broodmareSire": "ハーツクライ",             "gaikyu": "山元トレーニング",     "relComment": { "keyword": "京都マイル◎素質馬", "grade": "S" }, "lapFactors": null },
-    { "listOrder": 3,  "num": null, "gate": null, "name": "ウォーターリヒト",     "jockey": "高杉",    "trainer": "石橋",    "weight": 57.0, "expectedOdds": 5.8,   "sire": "ドレフォン",         "broodmareSire": "ヴィクトワールピサ",       "gaikyu": "キャニオンファーム土山", "relComment": { "keyword": "上がり最速安定感", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 4,  "num": null, "gate": null, "name": "エルトンバローズ",     "jockey": "西村淳",  "trainer": "杉山晴",  "weight": 57.0, "expectedOdds": 18.1,  "sire": "ディープブリランテ", "broodmareSire": "ブライアンズタイム",       "gaikyu": "チャンピオンヒルズ",   "relComment": { "keyword": "決め手不足", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 5,  "num": null, "gate": null, "name": "オフトレイル",         "jockey": "岩田望",  "trainer": "吉村",    "weight": 58.0, "expectedOdds": 7.1,   "sire": "ファー",             "broodmareSire": "キングマンボ",             "gaikyu": "ダーレー・ジャパン岡山", "relComment": { "keyword": "京都瞬発力抜群", "grade": "S" }, "lapFactors": null },
-    { "listOrder": 6,  "num": null, "gate": null, "name": "キョウエイブリッサ",   "jockey": "田山",    "trainer": "武市",    "weight": 57.0, "expectedOdds": 84.6,  "sire": "グレーターロンドン", "broodmareSire": "ルーラーシップ",           "gaikyu": "在厩調整",             "relComment": { "keyword": "決め手不足", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 7,  "num": null, "gate": null, "name": "クルゼイロドスル",     "jockey": "太宰",    "trainer": "高橋忠",  "weight": 57.0, "expectedOdds": 100.6, "sire": "ファインニードル",   "broodmareSire": "アルカセット",             "gaikyu": "ダーレー・ジャパン岡山", "relComment": { "keyword": "詰め甘くジリ脚", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 8,  "num": null, "gate": null, "name": "シックスペンス",       "jockey": "戸崎圭",  "trainer": "田中博",  "weight": 57.0, "expectedOdds": 5.8,   "sire": "キズナ",             "broodmareSire": "トワーリングキャンディ",   "gaikyu": "ノーザンファーム天栄", "relComment": { "keyword": "芝復帰で本領", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 9,  "num": null, "gate": null, "name": "シャンパンカラー",     "jockey": "岩田康",  "trainer": "田中剛",  "weight": 58.0, "expectedOdds": 28.4,  "sire": "ドゥラメンテ",       "broodmareSire": "レックレスアバンダン",     "gaikyu": "在厩調整",             "relComment": { "keyword": "出遅れ癖致命的", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 10, "num": null, "gate": null, "name": "ショウナンアデイブ",   "jockey": "池添",    "trainer": "高野",    "weight": 57.0, "expectedOdds": 36.1,  "sire": "ディープインパクト", "broodmareSire": "マインシャフト",           "gaikyu": "ノーザンファームしがらき", "relComment": { "keyword": "距離短い疑問", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 11, "num": null, "gate": null, "name": "ドラゴンブースト",     "jockey": "丹内",    "trainer": "藤野",    "weight": 57.0, "expectedOdds": 23.6,  "sire": "スクリーンヒーロー", "broodmareSire": "エンパイアメーカー",       "gaikyu": "山岡トレセン",         "relComment": { "keyword": "充実期上昇一途", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 12, "num": null, "gate": null, "name": "ファインライン",       "jockey": "鮫島駿",  "trainer": "松永幹",  "weight": 57.0, "expectedOdds": 68.7,  "sire": "ファインニードル",   "broodmareSire": "ディープインパクト",       "gaikyu": "キャニオンファーム土山", "relComment": { "keyword": "クラス未知数", "grade": "B" }, "lapFactors": null },
-    { "listOrder": 13, "num": null, "gate": null, "name": "ファーヴェント",       "jockey": "坂井",    "trainer": "藤原",    "weight": 57.0, "expectedOdds": 11.6,  "sire": "ハーツクライ",       "broodmareSire": "ストリートクライ",         "gaikyu": "在厩調整",             "relComment": { "keyword": "仕上がり良好◎", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 14, "num": null, "gate": null, "name": "ブエナオンダ",         "jockey": "田口",    "trainer": "須貝",    "weight": 57.0, "expectedOdds": 30.2,  "sire": "リオンディーズ",     "broodmareSire": "ディープインパクト",       "gaikyu": "在厩調整",             "relComment": { "keyword": "京都金杯勝ち馬", "grade": "S" }, "lapFactors": null },
-    { "listOrder": 15, "num": null, "gate": null, "name": "ベラジオボンド",       "jockey": "北村友",  "trainer": "上村",    "weight": 57.0, "expectedOdds": 8.5,   "sire": "ロードカナロア",     "broodmareSire": "ドバイデスティネイション", "gaikyu": "在厩調整",             "relComment": { "keyword": "重賞初挑戦期待", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 16, "num": null, "gate": null, "name": "マテンロウスカイ",     "jockey": "横山典",  "trainer": "松永幹",  "weight": 57.0, "expectedOdds": 84.6,  "sire": "モーリス",           "broodmareSire": "スペシャルウィーク",       "gaikyu": "在厩調整",             "relComment": { "keyword": "ダート帰り不安", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 17, "num": null, "gate": null, "name": "ランスオブカオス",     "jockey": "吉村",    "trainer": "奥村豊",  "weight": 57.0, "expectedOdds": 15.9,  "sire": "シルバーステート",   "broodmareSire": "ローエングリン",           "gaikyu": "チャンピオンヒルズ",   "relComment": { "keyword": "前走大敗気掛り", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 18, "num": null, "gate": null, "name": "レディントン",         "jockey": null,      "trainer": "杉山晴",  "weight": 57.0, "expectedOdds": 424.0, "sire": "サトノアラジン",     "broodmareSire": "アフリート",               "gaikyu": "チャンピオンヒルズ",   "relComment": { "keyword": "ダート帰り格下", "grade": "D" }, "lapFactors": null },
-    { "listOrder": 19, "num": null, "gate": null, "name": "ロングラン",           "jockey": "団野",    "trainer": "和田勇",  "weight": 58.0, "expectedOdds": 94.4,  "sire": "ヴィクトワールピサ", "broodmareSire": "ケンダルジャン",           "gaikyu": "山元トレーニング",     "relComment": { "keyword": "昨年覇者連覇狙", "grade": "S" }, "lapFactors": null }
+    {
+      "listOrder": 1,
+      "num": null,
+      "gate": null,
+      "name": "アサヒ",
+      "jockey": "松本",
+      "trainer": "金成",
+      "weight": 57.0,
+      "expectedOdds": 299.7,
+      "sire": "カレンブラックヒル",
+      "broodmareSire": "デインヒル",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "大敗続き余力なし",
+        "grade": "D"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 2,
+      "num": null,
+      "gate": null,
+      "name": "アドマイヤズーム",
+      "jockey": "武豊",
+      "trainer": "友道",
+      "weight": 57.0,
+      "expectedOdds": 4.2,
+      "sire": "モーリス",
+      "broodmareSire": "ハーツクライ",
+      "gaikyu": "山元トレーニング",
+      "relComment": {
+        "keyword": "京都マイル◎素質馬",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "fallback",
+        "canonical": "山元TC",
+        "shutubaGaikyu": "山元トレーニング"
+      }
+    },
+    {
+      "listOrder": 3,
+      "num": null,
+      "gate": null,
+      "name": "ウォーターリヒト",
+      "jockey": "高杉",
+      "trainer": "石橋",
+      "weight": 57.0,
+      "expectedOdds": 5.8,
+      "sire": "ドレフォン",
+      "broodmareSire": "ヴィクトワールピサ",
+      "gaikyu": "キャニオンファーム土山",
+      "relComment": {
+        "keyword": "上がり最速安定感",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "キャニオンF土山",
+        "shutubaGaikyu": "キャニオンファーム土山",
+        "record": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "recordStr": "0-0-1-1",
+        "tries": 2,
+        "winPlaceShowRate": 0.5
+      }
+    },
+    {
+      "listOrder": 4,
+      "num": null,
+      "gate": null,
+      "name": "エルトンバローズ",
+      "jockey": "西村淳",
+      "trainer": "杉山晴",
+      "weight": 57.0,
+      "expectedOdds": 18.1,
+      "sire": "ディープブリランテ",
+      "broodmareSire": "ブライアンズタイム",
+      "gaikyu": "チャンピオンヒルズ",
+      "relComment": {
+        "keyword": "決め手不足",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "チャンピオンヒルズ",
+        "shutubaGaikyu": "チャンピオンヒルズ",
+        "record": [
+          2,
+          4,
+          2,
+          6
+        ],
+        "recordStr": "2-4-2-6",
+        "tries": 14,
+        "winPlaceShowRate": 0.571
+      }
+    },
+    {
+      "listOrder": 5,
+      "num": null,
+      "gate": null,
+      "name": "オフトレイル",
+      "jockey": "岩田望",
+      "trainer": "吉村",
+      "weight": 58.0,
+      "expectedOdds": 7.1,
+      "sire": "ファー",
+      "broodmareSire": "キングマンボ",
+      "gaikyu": "ダーレー・ジャパン岡山",
+      "relComment": {
+        "keyword": "京都瞬発力抜群",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "D",
+        "source": "individual",
+        "canonical": "ダーレー・ジャパン",
+        "shutubaGaikyu": "ダーレー・ジャパン岡山",
+        "record": [
+          0,
+          0,
+          0,
+          2
+        ],
+        "recordStr": "0-0-0-2",
+        "tries": 2,
+        "winPlaceShowRate": 0.0
+      }
+    },
+    {
+      "listOrder": 6,
+      "num": null,
+      "gate": null,
+      "name": "キョウエイブリッサ",
+      "jockey": "田山",
+      "trainer": "武市",
+      "weight": 57.0,
+      "expectedOdds": 84.6,
+      "sire": "グレーターロンドン",
+      "broodmareSire": "ルーラーシップ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "決め手不足",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 7,
+      "num": null,
+      "gate": null,
+      "name": "クルゼイロドスル",
+      "jockey": "太宰",
+      "trainer": "高橋忠",
+      "weight": 57.0,
+      "expectedOdds": 100.6,
+      "sire": "ファインニードル",
+      "broodmareSire": "アルカセット",
+      "gaikyu": "ダーレー・ジャパン岡山",
+      "relComment": {
+        "keyword": "詰め甘くジリ脚",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "ダーレー・ジャパン",
+        "shutubaGaikyu": "ダーレー・ジャパン岡山"
+      }
+    },
+    {
+      "listOrder": 8,
+      "num": null,
+      "gate": null,
+      "name": "シックスペンス",
+      "jockey": "戸崎圭",
+      "trainer": "田中博",
+      "weight": 57.0,
+      "expectedOdds": 5.8,
+      "sire": "キズナ",
+      "broodmareSire": "トワーリングキャンディ",
+      "gaikyu": "ノーザンファーム天栄",
+      "relComment": {
+        "keyword": "芝復帰で本領",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "ノーザンF天栄",
+        "shutubaGaikyu": "ノーザンファーム天栄",
+        "record": [
+          5,
+          0,
+          0,
+          5
+        ],
+        "recordStr": "5-0-0-5",
+        "tries": 10,
+        "winPlaceShowRate": 0.5
+      }
+    },
+    {
+      "listOrder": 9,
+      "num": null,
+      "gate": null,
+      "name": "シャンパンカラー",
+      "jockey": "岩田康",
+      "trainer": "田中剛",
+      "weight": 58.0,
+      "expectedOdds": 28.4,
+      "sire": "ドゥラメンテ",
+      "broodmareSire": "レックレスアバンダン",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "出遅れ癖致命的",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 10,
+      "num": null,
+      "gate": null,
+      "name": "ショウナンアデイブ",
+      "jockey": "池添",
+      "trainer": "高野",
+      "weight": 57.0,
+      "expectedOdds": 36.1,
+      "sire": "ディープインパクト",
+      "broodmareSire": "マインシャフト",
+      "gaikyu": "ノーザンファームしがらき",
+      "relComment": {
+        "keyword": "距離短い疑問",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "ノーザンFしがらき",
+        "shutubaGaikyu": "ノーザンファームしがらき",
+        "record": [
+          3,
+          4,
+          1,
+          8
+        ],
+        "recordStr": "3-4-1-8",
+        "tries": 16,
+        "winPlaceShowRate": 0.5
+      }
+    },
+    {
+      "listOrder": 11,
+      "num": null,
+      "gate": null,
+      "name": "ドラゴンブースト",
+      "jockey": "丹内",
+      "trainer": "藤野",
+      "weight": 57.0,
+      "expectedOdds": 23.6,
+      "sire": "スクリーンヒーロー",
+      "broodmareSire": "エンパイアメーカー",
+      "gaikyu": "山岡トレセン",
+      "relComment": {
+        "keyword": "充実期上昇一途",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "山岡トレセン",
+        "shutubaGaikyu": "山岡トレセン",
+        "record": [
+          1,
+          0,
+          0,
+          2
+        ],
+        "recordStr": "1-0-0-2",
+        "tries": 3,
+        "winPlaceShowRate": 0.333
+      }
+    },
+    {
+      "listOrder": 12,
+      "num": null,
+      "gate": null,
+      "name": "ファインライン",
+      "jockey": "鮫島駿",
+      "trainer": "松永幹",
+      "weight": 57.0,
+      "expectedOdds": 68.7,
+      "sire": "ファインニードル",
+      "broodmareSire": "ディープインパクト",
+      "gaikyu": "キャニオンファーム土山",
+      "relComment": {
+        "keyword": "クラス未知数",
+        "grade": "B"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "C",
+        "source": "individual",
+        "canonical": "キャニオンF土山",
+        "shutubaGaikyu": "キャニオンファーム土山",
+        "record": [
+          0,
+          1,
+          1,
+          5
+        ],
+        "recordStr": "0-1-1-5",
+        "tries": 7,
+        "winPlaceShowRate": 0.286
+      }
+    },
+    {
+      "listOrder": 13,
+      "num": null,
+      "gate": null,
+      "name": "ファーヴェント",
+      "jockey": "坂井",
+      "trainer": "藤原",
+      "weight": 57.0,
+      "expectedOdds": 11.6,
+      "sire": "ハーツクライ",
+      "broodmareSire": "ストリートクライ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "仕上がり良好◎",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 14,
+      "num": null,
+      "gate": null,
+      "name": "ブエナオンダ",
+      "jockey": "田口",
+      "trainer": "須貝",
+      "weight": 57.0,
+      "expectedOdds": 30.2,
+      "sire": "リオンディーズ",
+      "broodmareSire": "ディープインパクト",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "京都金杯勝ち馬",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 15,
+      "num": null,
+      "gate": null,
+      "name": "ベラジオボンド",
+      "jockey": "北村友",
+      "trainer": "上村",
+      "weight": 57.0,
+      "expectedOdds": 8.5,
+      "sire": "ロードカナロア",
+      "broodmareSire": "ドバイデスティネイション",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "重賞初挑戦期待",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 16,
+      "num": null,
+      "gate": null,
+      "name": "マテンロウスカイ",
+      "jockey": "横山典",
+      "trainer": "松永幹",
+      "weight": 57.0,
+      "expectedOdds": 84.6,
+      "sire": "モーリス",
+      "broodmareSire": "スペシャルウィーク",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "ダート帰り不安",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 17,
+      "num": null,
+      "gate": null,
+      "name": "ランスオブカオス",
+      "jockey": "吉村",
+      "trainer": "奥村豊",
+      "weight": 57.0,
+      "expectedOdds": 15.9,
+      "sire": "シルバーステート",
+      "broodmareSire": "ローエングリン",
+      "gaikyu": "チャンピオンヒルズ",
+      "relComment": {
+        "keyword": "前走大敗気掛り",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "チャンピオンヒルズ",
+        "shutubaGaikyu": "チャンピオンヒルズ",
+        "record": [
+          3,
+          0,
+          2,
+          2
+        ],
+        "recordStr": "3-0-2-2",
+        "tries": 7,
+        "winPlaceShowRate": 0.714
+      }
+    },
+    {
+      "listOrder": 18,
+      "num": null,
+      "gate": null,
+      "name": "レディントン",
+      "jockey": null,
+      "trainer": "杉山晴",
+      "weight": 57.0,
+      "expectedOdds": 424.0,
+      "sire": "サトノアラジン",
+      "broodmareSire": "アフリート",
+      "gaikyu": "チャンピオンヒルズ",
+      "relComment": {
+        "keyword": "ダート帰り格下",
+        "grade": "D"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "チャンピオンヒルズ",
+        "shutubaGaikyu": "チャンピオンヒルズ",
+        "record": [
+          3,
+          1,
+          2,
+          8
+        ],
+        "recordStr": "3-1-2-8",
+        "tries": 14,
+        "winPlaceShowRate": 0.429
+      }
+    },
+    {
+      "listOrder": 19,
+      "num": null,
+      "gate": null,
+      "name": "ロングラン",
+      "jockey": "団野",
+      "trainer": "和田勇",
+      "weight": 58.0,
+      "expectedOdds": 94.4,
+      "sire": "ヴィクトワールピサ",
+      "broodmareSire": "ケンダルジャン",
+      "gaikyu": "山元トレーニング",
+      "relComment": {
+        "keyword": "昨年覇者連覇狙",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "fallback",
+        "canonical": "山元TC",
+        "shutubaGaikyu": "山元トレーニング"
+      }
+    }
   ]
 }

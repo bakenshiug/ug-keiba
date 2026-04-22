@@ -16,33 +16,682 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "preparationNote": "関係者コメントの言霊解析は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。ダービートライアル・2着までに優先出走権。コントレイル産駒5頭（エーデル／カット／ゴーイン／サガル／テル）出走。",
+  "preparationNote": "関係者コメントの言霊解析・外厩相性ファクター(個体別)は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。ダービートライアル・2着までに優先出走権。コントレイル産駒5頭（エーデル／カット／ゴーイン／サガル／テル）出走。",
   "logicVersion": "v2-rel-lap",
   "horses": [
-    { "listOrder": 1,  "num": null, "gate": null, "name": "アッカン",           "jockey": "池添",     "trainer": "奥村武", "expectedOdds": 48.8,  "sire": "ホークビル",       "broodmareSire": "エイシンフラッシュ",   "gaikyu": "グランデファーム",          "relComment": { "keyword": "切れ負け懸念", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 2,  "num": null, "gate": null, "name": "アローメタル",       "jockey": "ルメール", "trainer": "木村",   "expectedOdds": 5.9,   "sire": "キズナ",           "broodmareSire": "メダグリアドーロ",     "gaikyu": "ノーザンファーム天栄",      "relComment": { "keyword": "東京2400好内容", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 3,  "num": null, "gate": null, "name": "ヴィサージュ",       "jockey": "横山典",   "trainer": "大久保", "expectedOdds": 19.2,  "sire": "エピファネイア",   "broodmareSire": "キングカメハメハ",     "gaikyu": "ノーザンファームしがらき",  "relComment": { "keyword": "久々キャリア不足", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 4,  "num": null, "gate": null, "name": "エーデルゼーレ",     "jockey": null,       "trainer": "堀",     "expectedOdds": 56.3,  "sire": "コントレイル",     "broodmareSire": "カーリン",             "gaikyu": "在厩調整",                  "relComment": { "keyword": "長距離適性有", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 5,  "num": null, "gate": null, "name": "オリオンブレード",   "jockey": null,       "trainer": "矢作",   "expectedOdds": 78.0,  "sire": "シルバーステート", "broodmareSire": "ゾファニー",           "gaikyu": "在厩調整",                  "relComment": { "keyword": "渋太い先行力", "grade": "B" }, "lapFactors": null },
-    { "listOrder": 6,  "num": null, "gate": null, "name": "オルフセン",         "jockey": "戸崎圭",   "trainer": "斎藤誠", "expectedOdds": 17.4,  "sire": "キズナ",           "broodmareSire": "シーザスターズ",       "gaikyu": "エスティファーム小見川",    "relComment": { "keyword": "瞬発力不足", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 7,  "num": null, "gate": null, "name": "カットソロ",         "jockey": "津村",     "trainer": "矢作",   "expectedOdds": 57.8,  "sire": "コントレイル",     "broodmareSire": "キングヘイロー",       "gaikyu": "在厩調整",                  "relComment": { "keyword": "2400経験豊富", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 8,  "num": null, "gate": null, "name": "ケントン",           "jockey": "木幡巧",   "trainer": "田島",   "expectedOdds": 116.1, "sire": "リアルスティール", "broodmareSire": "ディープスカイ",       "gaikyu": "在厩調整",                  "relComment": { "keyword": "距離延長歓迎", "grade": "B" }, "lapFactors": null },
-    { "listOrder": 9,  "num": null, "gate": null, "name": "コスモギガンティア", "jockey": "矢野貴",   "trainer": "河津裕", "expectedOdds": 104.2, "sire": "ダノンバラード",   "broodmareSire": "スターリングローズ",   "gaikyu": "在厩調整",                  "relComment": { "keyword": "重賞歯が立たず", "grade": "D" }, "lapFactors": null },
-    { "listOrder": 10, "num": null, "gate": null, "name": "ゴーイントゥスカイ", "jockey": "武豊",     "trainer": "上原佑", "expectedOdds": 13.1,  "sire": "コントレイル",     "broodmareSire": "タピット",             "gaikyu": "山元トレーニング",          "relComment": { "keyword": "重賞経験値", "grade": "B" }, "lapFactors": null },
-    { "listOrder": 11, "num": null, "gate": null, "name": "サガルマータ",       "jockey": "横山武",   "trainer": "福永",   "expectedOdds": 13.9,  "sire": "コントレイル",     "broodmareSire": "シティバンカー",       "gaikyu": "大山ヒルズ",                "relComment": { "keyword": "2400適性抜群", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 12, "num": null, "gate": null, "name": "シャドウマスター",   "jockey": "北村友",   "trainer": "杉山晴", "expectedOdds": 30.7,  "sire": "キタサンブラック", "broodmareSire": "ヴィクトワールピサ",   "gaikyu": "社台ファーム鈴鹿",          "relComment": { "keyword": "好位立ち回り◎", "grade": "S" }, "lapFactors": null },
-    { "listOrder": 13, "num": null, "gate": null, "name": "タイダルロック",     "jockey": "三浦",     "trainer": "武井",   "expectedOdds": 14.0,  "sire": "モーリス",         "broodmareSire": "マンハッタンカフェ",   "gaikyu": "在厩調整",                  "relComment": { "keyword": "重賞掲示板", "grade": "B" }, "lapFactors": null },
-    { "listOrder": 14, "num": null, "gate": null, "name": "テルヒコウ",         "jockey": "坂井",     "trainer": "矢作",   "expectedOdds": 23.2,  "sire": "コントレイル",     "broodmareSire": "ヴィクトワールピサ",   "gaikyu": "在厩調整",                  "relComment": { "keyword": "逃げ粘り脚質", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 15, "num": null, "gate": null, "name": "トゥーナスタディ",   "jockey": "菅原辰",   "trainer": "斎藤雄", "expectedOdds": 999.9, "sire": "ゴールドアクター", "broodmareSire": "ハーツクライ",         "gaikyu": "在厩調整",                  "relComment": { "keyword": "芝重賞力不足", "grade": "D" }, "lapFactors": null },
-    { "listOrder": 16, "num": null, "gate": null, "name": "ノチェセラーダ",     "jockey": "ディー",   "trainer": "杉山佳", "expectedOdds": 44.5,  "sire": "ドレフォン",       "broodmareSire": "ディープインパクト",   "gaikyu": "ノーザンファームしがらき",  "relComment": { "keyword": "差し脚魅力", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 17, "num": null, "gate": null, "name": "ノーブルサヴェージ", "jockey": "レーン",   "trainer": "森一",   "expectedOdds": 5.9,   "sire": "リオンディーズ",   "broodmareSire": "マンハッタンカフェ",   "gaikyu": "ノーザンファーム天栄",      "relComment": { "keyword": "無敗の先行力", "grade": "S" }, "lapFactors": null },
-    { "listOrder": 18, "num": null, "gate": null, "name": "パラディオン",       "jockey": "吉田豊",   "trainer": "高柳大", "expectedOdds": 125.9, "sire": "レイデオロ",       "broodmareSire": "スペシャルウィーク",   "gaikyu": "チャンピオンヒルズ",        "relComment": { "keyword": "G3大敗気掛り", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 19, "num": null, "gate": null, "name": "ヒシアムルーズ",     "jockey": "佐々木",   "trainer": "堀",     "expectedOdds": 297.4, "sire": "サートゥルナーリア", "broodmareSire": "サイトシーイング",   "gaikyu": "ノーザンファームしがらき",  "relComment": { "keyword": "休み明け不安", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 20, "num": null, "gate": null, "name": "ブラックオリンピア", "jockey": "川田",     "trainer": "友道",   "expectedOdds": 3.7,   "sire": "キタサンブラック", "broodmareSire": "ピエロ",               "gaikyu": "在厩調整",                  "relComment": { "keyword": "スタミナ距離◎", "grade": "S" }, "lapFactors": null },
-    { "listOrder": 21, "num": null, "gate": null, "name": "ベルウッドクレド",   "jockey": "大野",     "trainer": "辻",     "expectedOdds": 87.8,  "sire": "シルバーステート", "broodmareSire": "キャンディライド",     "gaikyu": "在厩調整",                  "relComment": { "keyword": "新馬一勝のみ", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 22, "num": null, "gate": null, "name": "ボンドマティーニ",   "jockey": null,       "trainer": "安田",   "expectedOdds": 55.9,  "sire": "レイデオロ",       "broodmareSire": "ダイワメジャー",       "gaikyu": "在厩調整",                  "relComment": { "keyword": "重賞実績不足", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 23, "num": null, "gate": null, "name": "ミッキーファルコン", "jockey": "田辺",     "trainer": "堀",     "expectedOdds": 26.7,  "sire": "エピファネイア",   "broodmareSire": "ディープインパクト",   "gaikyu": "ノーザンファームしがらき",  "relComment": { "keyword": "スタミナ勝負向", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 24, "num": null, "gate": null, "name": "ヨカオウ",           "jockey": "岩田康",   "trainer": "谷",     "expectedOdds": 131.9, "sire": "キズナ",           "broodmareSire": "スクワートルスクワート", "gaikyu": "在厩調整",                  "relComment": { "keyword": "山吹賞余力なし", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 25, "num": null, "gate": null, "name": "ラストスマイル",     "jockey": "杉原",     "trainer": "本間",   "expectedOdds": 24.0,  "sire": "ポエティックフレア", "broodmareSire": "ゼンノロブロイ",       "gaikyu": "在厩調整",                  "relComment": { "keyword": "立ち回り上手", "grade": "A" }, "lapFactors": null }
+    {
+      "listOrder": 1,
+      "num": null,
+      "gate": null,
+      "name": "アッカン",
+      "jockey": "池添",
+      "trainer": "奥村武",
+      "expectedOdds": 48.8,
+      "sire": "ホークビル",
+      "broodmareSire": "エイシンフラッシュ",
+      "gaikyu": "グランデファーム",
+      "relComment": {
+        "keyword": "切れ負け懸念",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "グランデF",
+        "shutubaGaikyu": "グランデファーム",
+        "record": [
+          1,
+          2,
+          0,
+          1
+        ],
+        "recordStr": "1-2-0-1",
+        "tries": 4,
+        "winPlaceShowRate": 0.75
+      }
+    },
+    {
+      "listOrder": 2,
+      "num": null,
+      "gate": null,
+      "name": "アローメタル",
+      "jockey": "ルメール",
+      "trainer": "木村",
+      "expectedOdds": 5.9,
+      "sire": "キズナ",
+      "broodmareSire": "メダグリアドーロ",
+      "gaikyu": "ノーザンファーム天栄",
+      "relComment": {
+        "keyword": "東京2400好内容",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "ノーザンF天栄",
+        "shutubaGaikyu": "ノーザンファーム天栄",
+        "record": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "recordStr": "1-1-0-0",
+        "tries": 2,
+        "winPlaceShowRate": 1.0
+      }
+    },
+    {
+      "listOrder": 3,
+      "num": null,
+      "gate": null,
+      "name": "ヴィサージュ",
+      "jockey": "横山典",
+      "trainer": "大久保",
+      "expectedOdds": 19.2,
+      "sire": "エピファネイア",
+      "broodmareSire": "キングカメハメハ",
+      "gaikyu": "ノーザンファームしがらき",
+      "relComment": {
+        "keyword": "久々キャリア不足",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "ノーザンFしがらき",
+        "shutubaGaikyu": "ノーザンファームしがらき",
+        "record": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "recordStr": "1-0-0-0",
+        "tries": 1,
+        "winPlaceShowRate": 1.0
+      }
+    },
+    {
+      "listOrder": 4,
+      "num": null,
+      "gate": null,
+      "name": "エーデルゼーレ",
+      "jockey": null,
+      "trainer": "堀",
+      "expectedOdds": 56.3,
+      "sire": "コントレイル",
+      "broodmareSire": "カーリン",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "長距離適性有",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 5,
+      "num": null,
+      "gate": null,
+      "name": "オリオンブレード",
+      "jockey": null,
+      "trainer": "矢作",
+      "expectedOdds": 78.0,
+      "sire": "シルバーステート",
+      "broodmareSire": "ゾファニー",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "渋太い先行力",
+        "grade": "B"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 6,
+      "num": null,
+      "gate": null,
+      "name": "オルフセン",
+      "jockey": "戸崎圭",
+      "trainer": "斎藤誠",
+      "expectedOdds": 17.4,
+      "sire": "キズナ",
+      "broodmareSire": "シーザスターズ",
+      "gaikyu": "エスティファーム小見川",
+      "relComment": {
+        "keyword": "瞬発力不足",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "エスティF",
+        "shutubaGaikyu": "エスティファーム小見川",
+        "record": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "recordStr": "0-0-1-0",
+        "tries": 1,
+        "winPlaceShowRate": 1.0
+      }
+    },
+    {
+      "listOrder": 7,
+      "num": null,
+      "gate": null,
+      "name": "カットソロ",
+      "jockey": "津村",
+      "trainer": "矢作",
+      "expectedOdds": 57.8,
+      "sire": "コントレイル",
+      "broodmareSire": "キングヘイロー",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "2400経験豊富",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 8,
+      "num": null,
+      "gate": null,
+      "name": "ケントン",
+      "jockey": "木幡巧",
+      "trainer": "田島",
+      "expectedOdds": 116.1,
+      "sire": "リアルスティール",
+      "broodmareSire": "ディープスカイ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "距離延長歓迎",
+        "grade": "B"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 9,
+      "num": null,
+      "gate": null,
+      "name": "コスモギガンティア",
+      "jockey": "矢野貴",
+      "trainer": "河津裕",
+      "expectedOdds": 104.2,
+      "sire": "ダノンバラード",
+      "broodmareSire": "スターリングローズ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "重賞歯が立たず",
+        "grade": "D"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 10,
+      "num": null,
+      "gate": null,
+      "name": "ゴーイントゥスカイ",
+      "jockey": "武豊",
+      "trainer": "上原佑",
+      "expectedOdds": 13.1,
+      "sire": "コントレイル",
+      "broodmareSire": "タピット",
+      "gaikyu": "山元トレーニング",
+      "relComment": {
+        "keyword": "重賞経験値",
+        "grade": "B"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "山元TC",
+        "shutubaGaikyu": "山元トレーニング",
+        "record": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "recordStr": "0-0-1-1",
+        "tries": 2,
+        "winPlaceShowRate": 0.5
+      }
+    },
+    {
+      "listOrder": 11,
+      "num": null,
+      "gate": null,
+      "name": "サガルマータ",
+      "jockey": "横山武",
+      "trainer": "福永",
+      "expectedOdds": 13.9,
+      "sire": "コントレイル",
+      "broodmareSire": "シティバンカー",
+      "gaikyu": "大山ヒルズ",
+      "relComment": {
+        "keyword": "2400適性抜群",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "大山ヒルズ",
+        "shutubaGaikyu": "大山ヒルズ",
+        "record": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "recordStr": "1-0-1-0",
+        "tries": 2,
+        "winPlaceShowRate": 1.0
+      }
+    },
+    {
+      "listOrder": 12,
+      "num": null,
+      "gate": null,
+      "name": "シャドウマスター",
+      "jockey": "北村友",
+      "trainer": "杉山晴",
+      "expectedOdds": 30.7,
+      "sire": "キタサンブラック",
+      "broodmareSire": "ヴィクトワールピサ",
+      "gaikyu": "社台ファーム鈴鹿",
+      "relComment": {
+        "keyword": "好位立ち回り◎",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "社台F",
+        "shutubaGaikyu": "社台ファーム鈴鹿",
+        "record": [
+          2,
+          0,
+          0,
+          1
+        ],
+        "recordStr": "2-0-0-1",
+        "tries": 3,
+        "winPlaceShowRate": 0.667
+      }
+    },
+    {
+      "listOrder": 13,
+      "num": null,
+      "gate": null,
+      "name": "タイダルロック",
+      "jockey": "三浦",
+      "trainer": "武井",
+      "expectedOdds": 14.0,
+      "sire": "モーリス",
+      "broodmareSire": "マンハッタンカフェ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "重賞掲示板",
+        "grade": "B"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 14,
+      "num": null,
+      "gate": null,
+      "name": "テルヒコウ",
+      "jockey": "坂井",
+      "trainer": "矢作",
+      "expectedOdds": 23.2,
+      "sire": "コントレイル",
+      "broodmareSire": "ヴィクトワールピサ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "逃げ粘り脚質",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 15,
+      "num": null,
+      "gate": null,
+      "name": "トゥーナスタディ",
+      "jockey": "菅原辰",
+      "trainer": "斎藤雄",
+      "expectedOdds": 999.9,
+      "sire": "ゴールドアクター",
+      "broodmareSire": "ハーツクライ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "芝重賞力不足",
+        "grade": "D"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 16,
+      "num": null,
+      "gate": null,
+      "name": "ノチェセラーダ",
+      "jockey": "ディー",
+      "trainer": "杉山佳",
+      "expectedOdds": 44.5,
+      "sire": "ドレフォン",
+      "broodmareSire": "ディープインパクト",
+      "gaikyu": "ノーザンファームしがらき",
+      "relComment": {
+        "keyword": "差し脚魅力",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "ノーザンFしがらき",
+        "shutubaGaikyu": "ノーザンファームしがらき",
+        "record": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "recordStr": "1-0-1-1",
+        "tries": 3,
+        "winPlaceShowRate": 0.667
+      }
+    },
+    {
+      "listOrder": 17,
+      "num": null,
+      "gate": null,
+      "name": "ノーブルサヴェージ",
+      "jockey": "レーン",
+      "trainer": "森一",
+      "expectedOdds": 5.9,
+      "sire": "リオンディーズ",
+      "broodmareSire": "マンハッタンカフェ",
+      "gaikyu": "ノーザンファーム天栄",
+      "relComment": {
+        "keyword": "無敗の先行力",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "ノーザンF天栄",
+        "shutubaGaikyu": "ノーザンファーム天栄",
+        "record": [
+          2,
+          0,
+          0,
+          0
+        ],
+        "recordStr": "2-0-0-0",
+        "tries": 2,
+        "winPlaceShowRate": 1.0
+      }
+    },
+    {
+      "listOrder": 18,
+      "num": null,
+      "gate": null,
+      "name": "パラディオン",
+      "jockey": "吉田豊",
+      "trainer": "高柳大",
+      "expectedOdds": 125.9,
+      "sire": "レイデオロ",
+      "broodmareSire": "スペシャルウィーク",
+      "gaikyu": "チャンピオンヒルズ",
+      "relComment": {
+        "keyword": "G3大敗気掛り",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "チャンピオンヒルズ",
+        "shutubaGaikyu": "チャンピオンヒルズ",
+        "record": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "recordStr": "1-0-0-1",
+        "tries": 2,
+        "winPlaceShowRate": 0.5
+      }
+    },
+    {
+      "listOrder": 19,
+      "num": null,
+      "gate": null,
+      "name": "ヒシアムルーズ",
+      "jockey": "佐々木",
+      "trainer": "堀",
+      "expectedOdds": 297.4,
+      "sire": "サートゥルナーリア",
+      "broodmareSire": "サイトシーイング",
+      "gaikyu": "ノーザンファームしがらき",
+      "relComment": {
+        "keyword": "休み明け不安",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "C",
+        "source": "individual",
+        "canonical": "ノーザンFしがらき",
+        "shutubaGaikyu": "ノーザンファームしがらき",
+        "record": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "recordStr": "0-0-0-1",
+        "tries": 1,
+        "winPlaceShowRate": 0.0
+      }
+    },
+    {
+      "listOrder": 20,
+      "num": null,
+      "gate": null,
+      "name": "ブラックオリンピア",
+      "jockey": "川田",
+      "trainer": "友道",
+      "expectedOdds": 3.7,
+      "sire": "キタサンブラック",
+      "broodmareSire": "ピエロ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "スタミナ距離◎",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 21,
+      "num": null,
+      "gate": null,
+      "name": "ベルウッドクレド",
+      "jockey": "大野",
+      "trainer": "辻",
+      "expectedOdds": 87.8,
+      "sire": "シルバーステート",
+      "broodmareSire": "キャンディライド",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "新馬一勝のみ",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 22,
+      "num": null,
+      "gate": null,
+      "name": "ボンドマティーニ",
+      "jockey": null,
+      "trainer": "安田",
+      "expectedOdds": 55.9,
+      "sire": "レイデオロ",
+      "broodmareSire": "ダイワメジャー",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "重賞実績不足",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 23,
+      "num": null,
+      "gate": null,
+      "name": "ミッキーファルコン",
+      "jockey": "田辺",
+      "trainer": "堀",
+      "expectedOdds": 26.7,
+      "sire": "エピファネイア",
+      "broodmareSire": "ディープインパクト",
+      "gaikyu": "ノーザンファームしがらき",
+      "relComment": {
+        "keyword": "スタミナ勝負向",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "fallback",
+        "canonical": "ノーザンFしがらき",
+        "shutubaGaikyu": "ノーザンファームしがらき"
+      }
+    },
+    {
+      "listOrder": 24,
+      "num": null,
+      "gate": null,
+      "name": "ヨカオウ",
+      "jockey": "岩田康",
+      "trainer": "谷",
+      "expectedOdds": 131.9,
+      "sire": "キズナ",
+      "broodmareSire": "スクワートルスクワート",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "山吹賞余力なし",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 25,
+      "num": null,
+      "gate": null,
+      "name": "ラストスマイル",
+      "jockey": "杉原",
+      "trainer": "本間",
+      "expectedOdds": 24.0,
+      "sire": "ポエティックフレア",
+      "broodmareSire": "ゼンノロブロイ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "立ち回り上手",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    }
   ]
 }

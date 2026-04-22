@@ -1724,11 +1724,19 @@ function renderPreparation(cfg, d) {
     let gaikyuLine = '';
     if (h.gaikyu) {
       const g = h.gaikyu;
-      const isNoazan = g.includes('ノーザンファーム');
-      const isZaikyu = g === '在厩調整';
-      const bg = isNoazan ? '#1f6b3a' : (isZaikyu ? '#8a8680' : '#b8870b');
-      const label = isNoazan ? g.replace('ノーザンファーム', 'NF') : g;
-      gaikyuLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${bg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">外厩 ${esc(label)}</span></div>`;
+      const label = g.includes('ノーザンファーム') ? g.replace('ノーザンファーム', 'NF') : g;
+      const gf = h.gaikyuFactor;
+      if (gf && gf.grade) {
+        const gr = gf.grade;
+        const gradeBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+        const recStr = gf.recordStr ? `<span style="opacity:.75;margin-left:4px;">(${gf.recordStr})</span>` : '';
+        gaikyuLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">外厩 <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(label)}${recStr}</span></div>`;
+      } else {
+        const isNoazan = g.includes('ノーザンファーム');
+        const isZaikyu = g === '在厩調整';
+        const bg = isNoazan ? '#1f6b3a' : (isZaikyu ? '#8a8680' : '#b8870b');
+        gaikyuLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${bg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">外厩 ${esc(label)}</span></div>`;
+      }
     }
     let relCommentLine = '';
     if (h.relComment && h.relComment.keyword && h.relComment.grade) {

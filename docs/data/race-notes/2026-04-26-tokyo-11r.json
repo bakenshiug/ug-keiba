@@ -16,24 +16,430 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "preparationNote": "関係者コメントの言霊解析は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。3歳牝馬オープン戦。",
+  "preparationNote": "関係者コメントの言霊解析・外厩相性ファクター(個体別)は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。3歳牝馬オープン戦。",
   "logicVersion": "v2-rel-lap",
   "horses": [
-    { "listOrder": 1,  "num": null, "gate": null, "name": "エイシンウィスパー",   "jockey": "松若",     "trainer": "今野",   "expectedOdds": 111.7, "sire": "ルーラーシップ",     "broodmareSire": "テイルオブエカティ",   "gaikyu": "信楽牧場",                "relComment": { "keyword": "捲り好走型", "grade": "B" }, "lapFactors": null },
-    { "listOrder": 2,  "num": null, "gate": null, "name": "エンネ",             "jockey": "ディー",   "trainer": "吉岡",   "expectedOdds": 5.8,   "sire": "キズナ",           "broodmareSire": "メダグリアドーロ",     "gaikyu": "チャンピオンヒルズ",      "relComment": { "keyword": "決め手開花", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 3,  "num": null, "gate": null, "name": "コウギョク",         "jockey": "横山和",   "trainer": "昆",     "expectedOdds": 104.9, "sire": "シルバーステート",   "broodmareSire": "ハーランズホリデイ",   "gaikyu": "在厩調整",                "relComment": { "keyword": "スタミナ疑問", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 4,  "num": null, "gate": null, "name": "ゴバド",             "jockey": "原",       "trainer": "加藤征", "expectedOdds": 83.9,  "sire": "トーセンラー",       "broodmareSire": "ノヴェリスト",         "gaikyu": "山元トレーニング",        "relComment": { "keyword": "距離不安", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 5,  "num": null, "gate": null, "name": "サムシングスイート", "jockey": "酒井",     "trainer": "伊藤大", "expectedOdds": 19.4,  "sire": "サートゥルナーリア", "broodmareSire": "ヴィクトワールピサ",   "gaikyu": "チャンピオンヒルズ",      "relComment": { "keyword": "距離延長◎", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 6,  "num": null, "gate": null, "name": "スタニングレディ",   "jockey": "三浦",     "trainer": "高木",   "expectedOdds": 42.8,  "sire": "ベンバトル",         "broodmareSire": "ディープインパクト",   "gaikyu": "在厩調整",                "relComment": { "keyword": "立ち直り距離○", "grade": "B" }, "lapFactors": null },
-    { "listOrder": 7,  "num": null, "gate": null, "name": "スピナーリート",     "jockey": null,       "trainer": "須貝",   "expectedOdds": 203.9, "sire": "キズナ",           "broodmareSire": "アルカノ",             "gaikyu": "グリーンウッド",          "relComment": { "keyword": "距離延長疑問", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 8,  "num": null, "gate": null, "name": "ファムクラジューズ", "jockey": "横山武",   "trainer": "黒岩",   "expectedOdds": 5.3,   "sire": "ベンバトル",         "broodmareSire": "ディープインパクト",   "gaikyu": "ビッグレッドファーム鉾田", "relComment": { "keyword": "東京2000完璧", "grade": "S" }, "lapFactors": null },
-    { "listOrder": 9,  "num": null, "gate": null, "name": "ペイシャシス",       "jockey": null,       "trainer": "加藤公", "expectedOdds": 121.9, "sire": "シスキン",         "broodmareSire": "スペシャルウィーク",   "gaikyu": "チャンピオンヒルズ",      "relComment": { "keyword": "距離延長未知", "grade": "C" }, "lapFactors": null },
-    { "listOrder": 10, "num": null, "gate": null, "name": "ペンダント",         "jockey": "佐々木",   "trainer": "池江",   "expectedOdds": 46.5,  "sire": "オルフェーヴル",     "broodmareSire": "シンボリクリスエス",   "gaikyu": "ノーザンファームしがらき","relComment": { "keyword": "芝実績乏しい", "grade": "D" }, "lapFactors": null },
-    { "listOrder": 11, "num": null, "gate": null, "name": "マツリダイコ",       "jockey": null,       "trainer": "黒岩",   "expectedOdds": 18.5,  "sire": "キタサンブラック",   "broodmareSire": "リフューズトゥベンド", "gaikyu": "在厩調整",                "relComment": { "keyword": "初出走好感触", "grade": "B" }, "lapFactors": null },
-    { "listOrder": 12, "num": null, "gate": null, "name": "ラフターラインズ",   "jockey": "レーン",   "trainer": "小笠",   "expectedOdds": 2.3,   "sire": "アルアイン",         "broodmareSire": "キングカメハメハ",     "gaikyu": "在厩調整",                "relComment": { "keyword": "重賞実績上位", "grade": "S" }, "lapFactors": null },
-    { "listOrder": 13, "num": null, "gate": null, "name": "ラベルセーヌ",       "jockey": "荻野極",   "trainer": "鹿戸",   "expectedOdds": 6.5,   "sire": "キズナ",           "broodmareSire": "パワー",               "gaikyu": "在厩調整",                "relComment": { "keyword": "スタミナ勝負◎", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 14, "num": null, "gate": null, "name": "リアライズルミナス", "jockey": "松山",     "trainer": "橋口",   "expectedOdds": 9.6,   "sire": "シルバーステート",   "broodmareSire": "ルーラーシップ",       "gaikyu": "チャンピオンヒルズ",      "relComment": { "keyword": "距離○先行力", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 15, "num": null, "gate": null, "name": "リスレジャンデール", "jockey": "津村",     "trainer": "栗田",   "expectedOdds": 23.6,  "sire": "エピファネイア",     "broodmareSire": "スタイルヴァンドーム", "gaikyu": "在厩調整",                "relComment": { "keyword": "東京1800無双", "grade": "A" }, "lapFactors": null },
-    { "listOrder": 16, "num": null, "gate": null, "name": "ロングトールサリー", "jockey": "福永",     "trainer": "福永",   "expectedOdds": 33.3,  "sire": "キタサンブラック",   "broodmareSire": "グローバルハンター",   "gaikyu": "在厩調整",                "relComment": { "keyword": "逃げ粘り強い", "grade": "A" }, "lapFactors": null }
+    {
+      "listOrder": 1,
+      "num": null,
+      "gate": null,
+      "name": "エイシンウィスパー",
+      "jockey": "松若",
+      "trainer": "今野",
+      "expectedOdds": 111.7,
+      "sire": "ルーラーシップ",
+      "broodmareSire": "テイルオブエカティ",
+      "gaikyu": "信楽牧場",
+      "relComment": {
+        "keyword": "捲り好走型",
+        "grade": "B"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "信楽牧場",
+        "shutubaGaikyu": "信楽牧場"
+      }
+    },
+    {
+      "listOrder": 2,
+      "num": null,
+      "gate": null,
+      "name": "エンネ",
+      "jockey": "ディー",
+      "trainer": "吉岡",
+      "expectedOdds": 5.8,
+      "sire": "キズナ",
+      "broodmareSire": "メダグリアドーロ",
+      "gaikyu": "チャンピオンヒルズ",
+      "relComment": {
+        "keyword": "決め手開花",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "チャンピオンヒルズ",
+        "shutubaGaikyu": "チャンピオンヒルズ",
+        "record": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "recordStr": "1-0-0-0",
+        "tries": 1,
+        "winPlaceShowRate": 1.0
+      }
+    },
+    {
+      "listOrder": 3,
+      "num": null,
+      "gate": null,
+      "name": "コウギョク",
+      "jockey": "横山和",
+      "trainer": "昆",
+      "expectedOdds": 104.9,
+      "sire": "シルバーステート",
+      "broodmareSire": "ハーランズホリデイ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "スタミナ疑問",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 4,
+      "num": null,
+      "gate": null,
+      "name": "ゴバド",
+      "jockey": "原",
+      "trainer": "加藤征",
+      "expectedOdds": 83.9,
+      "sire": "トーセンラー",
+      "broodmareSire": "ノヴェリスト",
+      "gaikyu": "山元トレーニング",
+      "relComment": {
+        "keyword": "距離不安",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "individual",
+        "canonical": "山元TC",
+        "shutubaGaikyu": "山元トレーニング",
+        "record": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "recordStr": "1-0-0-1",
+        "tries": 2,
+        "winPlaceShowRate": 0.5
+      }
+    },
+    {
+      "listOrder": 5,
+      "num": null,
+      "gate": null,
+      "name": "サムシングスイート",
+      "jockey": "酒井",
+      "trainer": "伊藤大",
+      "expectedOdds": 19.4,
+      "sire": "サートゥルナーリア",
+      "broodmareSire": "ヴィクトワールピサ",
+      "gaikyu": "チャンピオンヒルズ",
+      "relComment": {
+        "keyword": "距離延長◎",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "fallback",
+        "canonical": "チャンピオンヒルズ",
+        "shutubaGaikyu": "チャンピオンヒルズ"
+      }
+    },
+    {
+      "listOrder": 6,
+      "num": null,
+      "gate": null,
+      "name": "スタニングレディ",
+      "jockey": "三浦",
+      "trainer": "高木",
+      "expectedOdds": 42.8,
+      "sire": "ベンバトル",
+      "broodmareSire": "ディープインパクト",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "立ち直り距離○",
+        "grade": "B"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 7,
+      "num": null,
+      "gate": null,
+      "name": "スピナーリート",
+      "jockey": null,
+      "trainer": "須貝",
+      "expectedOdds": 203.9,
+      "sire": "キズナ",
+      "broodmareSire": "アルカノ",
+      "gaikyu": "グリーンウッド",
+      "relComment": {
+        "keyword": "距離延長疑問",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "グリーンウッド",
+        "shutubaGaikyu": "グリーンウッド"
+      }
+    },
+    {
+      "listOrder": 8,
+      "num": null,
+      "gate": null,
+      "name": "ファムクラジューズ",
+      "jockey": "横山武",
+      "trainer": "黒岩",
+      "expectedOdds": 5.3,
+      "sire": "ベンバトル",
+      "broodmareSire": "ディープインパクト",
+      "gaikyu": "ビッグレッドファーム鉾田",
+      "relComment": {
+        "keyword": "東京2000完璧",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "ビッグレッドF鉾田",
+        "shutubaGaikyu": "ビッグレッドファーム鉾田",
+        "record": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "recordStr": "1-0-0-0",
+        "tries": 1,
+        "winPlaceShowRate": 1.0
+      }
+    },
+    {
+      "listOrder": 9,
+      "num": null,
+      "gate": null,
+      "name": "ペイシャシス",
+      "jockey": null,
+      "trainer": "加藤公",
+      "expectedOdds": 121.9,
+      "sire": "シスキン",
+      "broodmareSire": "スペシャルウィーク",
+      "gaikyu": "チャンピオンヒルズ",
+      "relComment": {
+        "keyword": "距離延長未知",
+        "grade": "C"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "チャンピオンヒルズ",
+        "shutubaGaikyu": "チャンピオンヒルズ",
+        "record": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "recordStr": "1-0-0-0",
+        "tries": 1,
+        "winPlaceShowRate": 1.0
+      }
+    },
+    {
+      "listOrder": 10,
+      "num": null,
+      "gate": null,
+      "name": "ペンダント",
+      "jockey": "佐々木",
+      "trainer": "池江",
+      "expectedOdds": 46.5,
+      "sire": "オルフェーヴル",
+      "broodmareSire": "シンボリクリスエス",
+      "gaikyu": "ノーザンファームしがらき",
+      "relComment": {
+        "keyword": "芝実績乏しい",
+        "grade": "D"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "ノーザンFしがらき",
+        "shutubaGaikyu": "ノーザンファームしがらき",
+        "record": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "recordStr": "1-1-0-1",
+        "tries": 3,
+        "winPlaceShowRate": 0.667
+      }
+    },
+    {
+      "listOrder": 11,
+      "num": null,
+      "gate": null,
+      "name": "マツリダイコ",
+      "jockey": null,
+      "trainer": "黒岩",
+      "expectedOdds": 18.5,
+      "sire": "キタサンブラック",
+      "broodmareSire": "リフューズトゥベンド",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "初出走好感触",
+        "grade": "B"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 12,
+      "num": null,
+      "gate": null,
+      "name": "ラフターラインズ",
+      "jockey": "レーン",
+      "trainer": "小笠",
+      "expectedOdds": 2.3,
+      "sire": "アルアイン",
+      "broodmareSire": "キングカメハメハ",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "重賞実績上位",
+        "grade": "S"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 13,
+      "num": null,
+      "gate": null,
+      "name": "ラベルセーヌ",
+      "jockey": "荻野極",
+      "trainer": "鹿戸",
+      "expectedOdds": 6.5,
+      "sire": "キズナ",
+      "broodmareSire": "パワー",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "スタミナ勝負◎",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 14,
+      "num": null,
+      "gate": null,
+      "name": "リアライズルミナス",
+      "jockey": "松山",
+      "trainer": "橋口",
+      "expectedOdds": 9.6,
+      "sire": "シルバーステート",
+      "broodmareSire": "ルーラーシップ",
+      "gaikyu": "チャンピオンヒルズ",
+      "relComment": {
+        "keyword": "距離○先行力",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "A",
+        "source": "individual",
+        "canonical": "チャンピオンヒルズ",
+        "shutubaGaikyu": "チャンピオンヒルズ",
+        "record": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "recordStr": "1-1-0-1",
+        "tries": 3,
+        "winPlaceShowRate": 0.667
+      }
+    },
+    {
+      "listOrder": 15,
+      "num": null,
+      "gate": null,
+      "name": "リスレジャンデール",
+      "jockey": "津村",
+      "trainer": "栗田",
+      "expectedOdds": 23.6,
+      "sire": "エピファネイア",
+      "broodmareSire": "スタイルヴァンドーム",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "東京1800無双",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    },
+    {
+      "listOrder": 16,
+      "num": null,
+      "gate": null,
+      "name": "ロングトールサリー",
+      "jockey": "福永",
+      "trainer": "福永",
+      "expectedOdds": 33.3,
+      "sire": "キタサンブラック",
+      "broodmareSire": "グローバルハンター",
+      "gaikyu": "在厩調整",
+      "relComment": {
+        "keyword": "逃げ粘り強い",
+        "grade": "A"
+      },
+      "lapFactors": null,
+      "gaikyuFactor": {
+        "grade": "B",
+        "source": "fallback",
+        "canonical": "在厩調整",
+        "shutubaGaikyu": "在厩調整"
+      }
+    }
   ]
 }
