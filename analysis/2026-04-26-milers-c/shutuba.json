@@ -1,0 +1,67 @@
+{
+  "race": {
+    "name": "マイラーズC",
+    "grade": "G2",
+    "date": "2026-04-26",
+    "dayOfWeek": "日",
+    "venue": "京都",
+    "surface": "芝",
+    "distance": 1600,
+    "course": "右外C",
+    "startTime": "15:30",
+    "numHorses": 19,
+    "raceId": "202608030211",
+    "netkeibaUrl": "https://race.netkeiba.com/race/shutuba.html?race_id=202608030211",
+    "ageCondition": "4歳以上",
+    "classCondition": "オープン",
+    "international": true,
+    "prize": { "1st": 5900, "2nd": 2400, "3rd": 1500, "4th": 890, "5th": 590 }
+  },
+  "fetchMeta": {
+    "fetchedAt": "2026-04-22",
+    "fetchedBy": "Claude in Chrome MCP + JRDB",
+    "postPositionConfirmed": false,
+    "jockeyAllConfirmed": false,
+    "horseWeightAvailable": false,
+    "notes": "枠順は4/23(木)確定予定。JRDB時点でマテンロウスカイも横山典に確定・全19頭騎手確定。58kg斤量3頭（オフトレイル・シャンパンカラー・ロングラン）。"
+  },
+  "horses": [
+    { "listOrder": 1,  "name": "アサヒ",               "horseId": "2019105482", "jockey": "松本",    "trainer": "金成",    "weight": 57.0, "expectedOdds": 299.7, "sire": "カレンブラックヒル", "broodmareSire": "デインヒル",               "gaikyu": "在厩調整", "relComment": { "keyword": "大敗続き余力なし", "grade": "D" } },
+    { "listOrder": 2,  "name": "アドマイヤズーム",     "horseId": "2022105396", "jockey": "武豊",    "trainer": "友道",    "weight": 57.0, "expectedOdds": 4.2,   "sire": "モーリス",           "broodmareSire": "ハーツクライ",             "gaikyu": "山元トレーニング", "relComment": { "keyword": "京都マイル◎素質馬", "grade": "S" } },
+    { "listOrder": 3,  "name": "ウォーターリヒト",     "horseId": "2021100953", "jockey": "高杉",    "trainer": "石橋",    "weight": 57.0, "expectedOdds": 5.8,   "sire": "ドレフォン",         "broodmareSire": "ヴィクトワールピサ",       "gaikyu": "キャニオンファーム土山", "relComment": { "keyword": "上がり最速安定感", "grade": "A" } },
+    { "listOrder": 4,  "name": "エルトンバローズ",     "horseId": "2020100680", "jockey": "西村淳",  "trainer": "杉山晴",  "weight": 57.0, "expectedOdds": 18.1,  "sire": "ディープブリランテ", "broodmareSire": "ブライアンズタイム",       "gaikyu": "チャンピオンヒルズ", "relComment": { "keyword": "決め手不足", "grade": "C" } },
+    { "listOrder": 5,  "name": "オフトレイル",         "horseId": "2021110031", "jockey": "岩田望",  "trainer": "吉村",    "weight": 58.0, "expectedOdds": 7.1,   "sire": "ファー",             "broodmareSire": "キングマンボ",             "gaikyu": "ダーレー・ジャパン岡山", "relComment": { "keyword": "京都瞬発力抜群", "grade": "S" } },
+    { "listOrder": 6,  "name": "キョウエイブリッサ",   "horseId": "2020107001", "jockey": "田山",    "trainer": "武市",    "weight": 57.0, "expectedOdds": 84.6,  "sire": "グレーターロンドン", "broodmareSire": "ルーラーシップ",           "gaikyu": "在厩調整", "relComment": { "keyword": "決め手不足", "grade": "C" } },
+    { "listOrder": 7,  "name": "クルゼイロドスル",     "horseId": "2020101813", "jockey": "太宰",    "trainer": "高橋忠",  "weight": 57.0, "expectedOdds": 100.6, "sire": "ファインニードル",   "broodmareSire": "アルカセット",             "gaikyu": "ダーレー・ジャパン岡山", "relComment": { "keyword": "詰め甘くジリ脚", "grade": "C" } },
+    { "listOrder": 8,  "name": "シックスペンス",       "horseId": "2021105724", "jockey": "戸崎圭",  "trainer": "田中博",  "weight": 57.0, "expectedOdds": 5.8,   "sire": "キズナ",             "broodmareSire": "トワーリングキャンディ",   "gaikyu": "ノーザンファーム天栄", "relComment": { "keyword": "芝復帰で本領", "grade": "A" } },
+    { "listOrder": 9,  "name": "シャンパンカラー",     "horseId": "2020103075", "jockey": "岩田康",  "trainer": "田中剛",  "weight": 58.0, "expectedOdds": 28.4,  "sire": "ドゥラメンテ",       "broodmareSire": "レックレスアバンダン",     "gaikyu": "在厩調整", "relComment": { "keyword": "出遅れ癖致命的", "grade": "C" } },
+    { "listOrder": 10, "name": "ショウナンアデイブ",   "horseId": "2019105239", "jockey": "池添",    "trainer": "高野",    "weight": 57.0, "expectedOdds": 36.1,  "sire": "ディープインパクト", "broodmareSire": "マインシャフト",           "gaikyu": "ノーザンファームしがらき", "relComment": { "keyword": "距離短い疑問", "grade": "C" } },
+    { "listOrder": 11, "name": "ドラゴンブースト",     "horseId": "2022105891", "jockey": "丹内",    "trainer": "藤野",    "weight": 57.0, "expectedOdds": 23.6,  "sire": "スクリーンヒーロー", "broodmareSire": "エンパイアメーカー",       "gaikyu": "山岡トレセン", "relComment": { "keyword": "充実期上昇一途", "grade": "A" } },
+    { "listOrder": 12, "name": "ファインライン",       "horseId": "2021102419", "jockey": "鮫島駿",  "trainer": "松永幹",  "weight": 57.0, "expectedOdds": 68.7,  "sire": "ファインニードル",   "broodmareSire": "ディープインパクト",       "gaikyu": "キャニオンファーム土山", "relComment": { "keyword": "クラス未知数", "grade": "B" } },
+    { "listOrder": 13, "name": "ファーヴェント",       "horseId": "2021104893", "jockey": "坂井",    "trainer": "藤原",    "weight": 57.0, "expectedOdds": 11.6,  "sire": "ハーツクライ",       "broodmareSire": "ストリートクライ",         "gaikyu": "在厩調整", "relComment": { "keyword": "仕上がり良好◎", "grade": "A" } },
+    { "listOrder": 14, "name": "ブエナオンダ",         "horseId": "2021105454", "jockey": "田口",    "trainer": "須貝",    "weight": 57.0, "expectedOdds": 30.2,  "sire": "リオンディーズ",     "broodmareSire": "ディープインパクト",       "gaikyu": "在厩調整", "relComment": { "keyword": "京都金杯勝ち馬", "grade": "S" } },
+    { "listOrder": 15, "name": "ベラジオボンド",       "horseId": "2021105117", "jockey": "北村友",  "trainer": "上村",    "weight": 57.0, "expectedOdds": 8.5,   "sire": "ロードカナロア",     "broodmareSire": "ドバイデスティネイション", "gaikyu": "在厩調整", "relComment": { "keyword": "重賞初挑戦期待", "grade": "A" } },
+    { "listOrder": 16, "name": "マテンロウスカイ",     "horseId": "2019105546", "jockey": "横山典",  "trainer": "松永幹",  "weight": 57.0, "expectedOdds": 84.6,  "sire": "モーリス",           "broodmareSire": "スペシャルウィーク",       "gaikyu": "在厩調整", "relComment": { "keyword": "ダート帰り不安", "grade": "C" } },
+    { "listOrder": 17, "name": "ランスオブカオス",     "horseId": "2022104401", "jockey": "吉村",    "trainer": "奥村豊",  "weight": 57.0, "expectedOdds": 15.9,  "sire": "シルバーステート",   "broodmareSire": "ローエングリン",           "gaikyu": "チャンピオンヒルズ", "relComment": { "keyword": "前走大敗気掛り", "grade": "C" } },
+    { "listOrder": 18, "name": "レディントン",         "horseId": "2021105926", "jockey": null,      "trainer": "杉山晴",  "weight": 57.0, "expectedOdds": 424.0, "sire": "サトノアラジン",     "broodmareSire": "アフリート",               "gaikyu": "チャンピオンヒルズ", "relComment": { "keyword": "ダート帰り格下", "grade": "D" } },
+    { "listOrder": 19, "name": "ロングラン",           "horseId": "2018104708", "jockey": "団野",    "trainer": "和田勇",  "weight": 58.0, "expectedOdds": 94.4,  "sire": "ヴィクトワールピサ", "broodmareSire": "ケンダルジャン",           "gaikyu": "山元トレーニング", "relComment": { "keyword": "昨年覇者連覇狙", "grade": "S" } }
+  ],
+  "summary": {
+    "top5Popular": [
+      { "rank": 1, "name": "アドマイヤズーム",   "odds": 4.2, "combo": "武豊×友道" },
+      { "rank": 2, "name": "ウォーターリヒト",   "odds": 5.8, "combo": "高杉×石橋" },
+      { "rank": 2, "name": "シックスペンス",     "odds": 5.8, "combo": "戸崎圭×田中博" },
+      { "rank": 4, "name": "オフトレイル",       "odds": 7.1, "combo": "岩田望×吉村 / 斤量58kg" },
+      { "rank": 5, "name": "ベラジオボンド",     "odds": 8.5, "combo": "北村友×上村" }
+    ],
+    "jockeyUnconfirmed": [
+      "レディントン"
+    ],
+    "heavyWeight58kg": [
+      "オフトレイル", "シャンパンカラー", "ロングラン"
+    ],
+    "noazanFarmHorses": [
+      "シックスペンス（天栄）", "ショウナンアデイブ（しがらき）"
+    ]
+  }
+}

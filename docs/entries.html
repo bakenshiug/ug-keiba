@@ -823,7 +823,7 @@ html,body{
 <body>
 
 <!-- 季節挨拶バー -->
-<div class="jinja-kisetsu" style="background:linear-gradient(90deg,var(--shu) 0%,var(--shu-dk) 100%);color:#fff;padding:6px 18px;font-size:11px;letter-spacing:.15em;text-align:center;font-weight:500;font-family:'Shippori Mincho',serif;">卯月廿一日　穀雨の候　拝殿にて御神託を承る</div>
+<div class="jinja-kisetsu" style="background:linear-gradient(90deg,var(--shu) 0%,var(--shu-dk) 100%);color:#fff;padding:6px 18px;font-size:11px;letter-spacing:.15em;text-align:center;font-weight:500;font-family:'Shippori Mincho',serif;">卯月廿二日　穀雨の候　拝殿にて御神託を承る</div>
 
 <div class="page-header">
   <a href="index.html" class="back-btn">⛩ 鳥居</a>
@@ -837,15 +837,24 @@ html,body{
 <div class="breadcrumb-banner">
   <span class="bc-item">御神託の実績：NZT☆レザベーション6番人気1着 ／ 桜花賞△ジッピーチューン12番人気3着</span>
   <span class="bc-sep">›</span>
-  <span class="bc-current">皐月賞 神託解析中</span>
+  <span class="bc-current">青葉賞・フローラS・マイラーズC 神託準備中 ／ 枠順確定（4/23木）待ち</span>
 </div>
 
 <!-- タブ -->
 <div class="tab-bar" id="tabBar">
   <button class="tab-btn active" data-idx="0">
-    <span class="tab-grade grade-g1">G1</span>皐月賞
+    <span class="tab-grade grade-g2">G2</span>青葉賞
   </button>
   <button class="tab-btn" data-idx="1">
+    <span class="tab-grade grade-g2">G2</span>フローラS
+  </button>
+  <button class="tab-btn" data-idx="2">
+    <span class="tab-grade grade-g2">G2</span>マイラーズC
+  </button>
+  <button class="tab-btn" data-idx="3">
+    <span class="tab-grade grade-g1">G1</span>皐月賞
+  </button>
+  <button class="tab-btn" data-idx="4">
     <span class="tab-grade grade-g3">G3</span>福島牝馬S
   </button>
 </div>
@@ -855,6 +864,21 @@ html,body{
 
 <script>
 const RACES = [
+  {
+    file: 'data/race-notes/2026-04-25-tokyo-11r.json',
+    label: '青葉賞', gradeCls: 'grade-g2',
+    meta: '4月25日(土) 東京 芝2400m 25頭'
+  },
+  {
+    file: 'data/race-notes/2026-04-26-tokyo-11r.json',
+    label: 'フローラS', gradeCls: 'grade-g2',
+    meta: '4月26日(日) 東京 芝2000m 牝 16頭'
+  },
+  {
+    file: 'data/race-notes/2026-04-26-kyoto-11r.json',
+    label: 'マイラーズC', gradeCls: 'grade-g2',
+    meta: '4月26日(日) 京都 芝1600m外 19頭'
+  },
   {
     file: 'data/race-notes/2026-04-19-nakayama-11r.json',
     label: '皐月賞', gradeCls: 'grade-g1',
@@ -1703,12 +1727,82 @@ function buildMarkMap(sougouRankMap, anaRankMap, totalHorseCount) {
   return markMap;
 }
 
+// 新ロジック移行期：準備中レースの簡易表示
+function renderPreparation(cfg, d) {
+  const r = d.race || {};
+  const note = d.preparationNote || '枠順確定後に関係者コメント・ラップ解析を入力し、新ロジックで採点を行う予定。';
+  const byOdds = [...(d.horses || [])].sort((a,b) => (a.expectedOdds ?? 9999) - (b.expectedOdds ?? 9999));
+  const rows = byOdds.map((h, i) => {
+    const hasPed = h.sire || h.broodmareSire;
+    const pedLine = hasPed
+      ? `<div style="font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:2px;"><span style="color:var(--shu);">父</span>${esc(h.sire || '—')}　<span style="color:var(--shu);">母父</span>${esc(h.broodmareSire || '—')}</div>`
+      : '';
+    let gaikyuLine = '';
+    if (h.gaikyu) {
+      const g = h.gaikyu;
+      const isNoazan = g.includes('ノーザンファーム');
+      const isZaikyu = g === '在厩調整';
+      const bg = isNoazan ? '#1f6b3a' : (isZaikyu ? '#8a8680' : '#b8870b');
+      const label = isNoazan ? g.replace('ノーザンファーム', 'NF') : g;
+      gaikyuLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${bg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">外厩 ${esc(label)}</span></div>`;
+    }
+    let relCommentLine = '';
+    if (h.relComment && h.relComment.keyword && h.relComment.grade) {
+      const gr = h.relComment.grade;
+      const gradeBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+      relCommentLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">所見 <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(h.relComment.keyword)}</span></div>`;
+    }
+    return `
+    <tr>
+      <td style="text-align:right;color:var(--shu);font-weight:700;vertical-align:top;padding-top:10px;">${i + 1}</td>
+      <td>
+        <div style="font-weight:600;">${esc(h.name)}</div>
+        ${pedLine}
+        ${gaikyuLine}
+        ${relCommentLine}
+      </td>
+      <td style="vertical-align:top;padding-top:10px;">${esc(h.jockey ?? '未定')}</td>
+      <td style="color:var(--muted);vertical-align:top;padding-top:10px;">${esc(h.trainer ?? '')}</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums;vertical-align:top;padding-top:10px;">${h.expectedOdds != null ? h.expectedOdds.toFixed(1) : '-'}</td>
+    </tr>
+  `;}).join('');
+  document.getElementById('content').innerHTML = `
+    <div style="max-width:920px;margin:32px auto;padding:0 16px;font-family:'Shippori Mincho',serif;">
+      <div style="text-align:center;padding:28px 16px;background:var(--paper);border-top:3px solid var(--shu);border-bottom:3px solid var(--shu);margin-bottom:24px;">
+        <div style="font-size:12px;letter-spacing:.32em;color:var(--shu);margin-bottom:8px;">${esc(r.grade || '')} ／ ${esc(r.venue || '')} ${esc(r.surface || '')}${r.distance || ''}m</div>
+        <div style="font-size:26px;font-weight:800;letter-spacing:.18em;color:var(--sumi);margin-bottom:6px;">${esc(cfg.label)}</div>
+        <div style="font-size:11px;color:var(--muted);letter-spacing:.2em;">${esc(cfg.meta || '')} ／ ${esc(r.startTime || '')}発走</div>
+      </div>
+      <div style="background:var(--bg-soft);border-left:3px solid var(--kin);padding:14px 18px;margin-bottom:20px;font-size:13px;line-height:1.9;color:var(--sumi);">
+        <strong style="color:var(--shu);">準備中の御神託：</strong> ${esc(note)}
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--sumi);">
+            <th style="text-align:right;padding:8px 10px;width:40px;">人気</th>
+            <th style="text-align:left;padding:8px 10px;">馬名</th>
+            <th style="text-align:left;padding:8px 10px;">騎手</th>
+            <th style="text-align:left;padding:8px 10px;">厩舎</th>
+            <th style="text-align:right;padding:8px 10px;">想定OD</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <p style="text-align:center;margin:28px 0 8px;font-size:11px;color:var(--muted);letter-spacing:.2em;">─ 拝殿にて、御神託の降臨を待ち申す ─</p>
+    </div>`;
+}
+
 function renderRace(idx) {
   if (!allData[idx]) return;
   const {cfg, d} = allData[idx];
   if (!d) {
     document.getElementById('content').innerHTML =
       `<p class="loading" style="color:#f87171">${esc(cfg.label)}のデータを取得できませんでした。準備中です。</p>`;
+    return;
+  }
+  // 新ロジック移行期：dataStatus='preparation' なら出馬登録ベースの馬名一覧のみ表示
+  if (d.dataStatus === 'preparation' && Array.isArray(d.horses)) {
+    renderPreparation(cfg, d);
     return;
   }
   const horses = Object.entries(d.horses);

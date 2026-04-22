@@ -1,0 +1,60 @@
+{
+  "race": {
+    "name": "フローラS",
+    "grade": "G2",
+    "date": "2026-04-26",
+    "dayOfWeek": "日",
+    "venue": "東京",
+    "surface": "芝",
+    "distance": 2000,
+    "course": "左A",
+    "startTime": "15:45",
+    "numHorses": 16,
+    "raceId": "202605020211",
+    "netkeibaUrl": "https://race.netkeiba.com/race/shutuba.html?race_id=202605020211",
+    "ageCondition": "3歳",
+    "sexCondition": "牝",
+    "classCondition": "オープン",
+    "international": true,
+    "prize": { "1st": 5200, "2nd": 2100, "3rd": 1300, "4th": 780, "5th": 520 }
+  },
+  "fetchMeta": {
+    "fetchedAt": "2026-04-22",
+    "fetchedBy": "Claude in Chrome MCP",
+    "postPositionConfirmed": false,
+    "jockeyAllConfirmed": false,
+    "horseWeightAvailable": false,
+    "notes": "枠順は4/23(木)確定予定。騎手未定7頭・馬体重未表示。3歳牝馬オープン。"
+  },
+  "horses": [
+    { "listOrder": 1,  "name": "エイシンウィスパー",   "horseId": "2023105484", "jockey": "松若",     "trainer": "今野",   "expectedOdds": 111.7, "sire": "ルーラーシップ",     "broodmareSire": "テイルオブエカティ",   "gaikyu": "信楽牧場", "relComment": { "keyword": "捲り好走型", "grade": "B" } },
+    { "listOrder": 2,  "name": "エンネ",             "horseId": "2023102102", "jockey": "ディー",   "trainer": "吉岡",   "expectedOdds": 5.8,   "sire": "キズナ",           "broodmareSire": "メダグリアドーロ",     "gaikyu": "チャンピオンヒルズ", "relComment": { "keyword": "決め手開花", "grade": "A" } },
+    { "listOrder": 3,  "name": "コウギョク",         "horseId": "2023104678", "jockey": "横山和",   "trainer": "昆",     "expectedOdds": 104.9, "sire": "シルバーステート",   "broodmareSire": "ハーランズホリデイ",   "gaikyu": "在厩調整", "relComment": { "keyword": "スタミナ疑問", "grade": "C" } },
+    { "listOrder": 4,  "name": "ゴバド",             "horseId": "2023105239", "jockey": "原",       "trainer": "加藤征", "expectedOdds": 83.9,  "sire": "トーセンラー",       "broodmareSire": "ノヴェリスト",         "gaikyu": "山元トレーニング", "relComment": { "keyword": "距離不安", "grade": "C" } },
+    { "listOrder": 5,  "name": "サムシングスイート", "horseId": "2023106219", "jockey": "酒井",     "trainer": "伊藤大", "expectedOdds": 19.4,  "sire": "サートゥルナーリア", "broodmareSire": "ヴィクトワールピサ",   "gaikyu": "チャンピオンヒルズ", "relComment": { "keyword": "距離延長◎", "grade": "A" } },
+    { "listOrder": 6,  "name": "スタニングレディ",   "horseId": "2023106469", "jockey": "三浦",     "trainer": "高木",   "expectedOdds": 42.8,  "sire": "ベンバトル",         "broodmareSire": "ディープインパクト",   "gaikyu": "在厩調整", "relComment": { "keyword": "立ち直り距離○", "grade": "B" } },
+    { "listOrder": 7,  "name": "スピナーリート",     "horseId": "2023103456", "jockey": null,       "trainer": "須貝",   "expectedOdds": 203.9, "sire": "キズナ",           "broodmareSire": "アルカノ",             "gaikyu": "グリーンウッド", "relComment": { "keyword": "距離延長疑問", "grade": "C" } },
+    { "listOrder": 8,  "name": "ファムクラジューズ", "horseId": "2023106433", "jockey": "横山武",   "trainer": "黒岩",   "expectedOdds": 5.3,   "sire": "ベンバトル",         "broodmareSire": "ディープインパクト",   "gaikyu": "ビッグレッドファーム鉾田", "relComment": { "keyword": "東京2000完璧", "grade": "S" } },
+    { "listOrder": 9,  "name": "ペイシャシス",       "horseId": "2023102997", "jockey": null,       "trainer": "加藤公", "expectedOdds": 121.9, "sire": "シスキン",         "broodmareSire": "スペシャルウィーク",   "gaikyu": "チャンピオンヒルズ", "relComment": { "keyword": "距離延長未知", "grade": "C" } },
+    { "listOrder": 10, "name": "ペンダント",         "horseId": "2023105447", "jockey": "佐々木",   "trainer": "池江",   "expectedOdds": 46.5,  "sire": "オルフェーヴル",     "broodmareSire": "シンボリクリスエス",   "gaikyu": "ノーザンファームしがらき", "relComment": { "keyword": "芝実績乏しい", "grade": "D" } },
+    { "listOrder": 11, "name": "マツリダイコ",       "horseId": "2023103413", "jockey": null,       "trainer": "黒岩",   "expectedOdds": 18.5,  "sire": "キタサンブラック",   "broodmareSire": "リフューズトゥベンド", "gaikyu": "在厩調整", "relComment": { "keyword": "初出走好感触", "grade": "B" } },
+    { "listOrder": 12, "name": "ラフターラインズ",   "horseId": "2023107154", "jockey": "レーン",   "trainer": "小笠",   "expectedOdds": 2.3,   "sire": "アルアイン",         "broodmareSire": "キングカメハメハ",     "gaikyu": "在厩調整", "relComment": { "keyword": "重賞実績上位", "grade": "S" } },
+    { "listOrder": 13, "name": "ラベルセーヌ",       "horseId": "2023103818", "jockey": "荻野極",   "trainer": "鹿戸",   "expectedOdds": 6.5,   "sire": "キズナ",           "broodmareSire": "パワー",               "gaikyu": "在厩調整", "relComment": { "keyword": "スタミナ勝負◎", "grade": "A" } },
+    { "listOrder": 14, "name": "リアライズルミナス", "horseId": "2023104830", "jockey": "松山",     "trainer": "橋口",   "expectedOdds": 9.6,   "sire": "シルバーステート",   "broodmareSire": "ルーラーシップ",       "gaikyu": "チャンピオンヒルズ", "relComment": { "keyword": "距離○先行力", "grade": "A" } },
+    { "listOrder": 15, "name": "リスレジャンデール", "horseId": "2023107320", "jockey": "津村",     "trainer": "栗田",   "expectedOdds": 23.6,  "sire": "エピファネイア",     "broodmareSire": "スタイルヴァンドーム", "gaikyu": "在厩調整", "relComment": { "keyword": "東京1800無双", "grade": "A" } },
+    { "listOrder": 16, "name": "ロングトールサリー", "horseId": "2023106995", "jockey": "福永",     "trainer": "福永",   "expectedOdds": 33.3,  "sire": "キタサンブラック",   "broodmareSire": "グローバルハンター",   "gaikyu": "在厩調整", "relComment": { "keyword": "逃げ粘り強い", "grade": "A" } }
+  ],
+  "summary": {
+    "top5Popular": [
+      { "rank": 1, "name": "ラフターラインズ",   "odds": 2.3, "combo": "レーン×小笠" },
+      { "rank": 2, "name": "ファムクラジューズ", "odds": 5.3, "combo": "横山武×黒岩" },
+      { "rank": 3, "name": "エンネ",             "odds": 5.8, "combo": "ディー×吉岡" },
+      { "rank": 4, "name": "ラベルセーヌ",       "odds": 6.5, "combo": "騎手未定×鹿戸" },
+      { "rank": 5, "name": "リアライズルミナス", "odds": 9.6, "combo": "松山×橋口" }
+    ],
+    "jockeyUnconfirmed": [
+      "エイシンウィスパー", "コウギョク", "スピナーリート",
+      "ペイシャシス", "マツリダイコ", "ラベルセーヌ", "ロングトールサリー"
+    ]
+  }
+}
