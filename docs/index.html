@@ -350,6 +350,101 @@ a{color:inherit;}
 }
 .goshinsai-profile dd{color:var(--sumi);}
 
+/* ── 四神の御加護 ── */
+.shijin-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+  max-width:1100px;
+  margin:0 auto;
+}
+.shijin-card{
+  background:linear-gradient(180deg, var(--paper) 0%, #fff 100%);
+  border:1px solid var(--border);
+  padding:32px 20px 24px;
+  text-align:center;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.shijin-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;
+  height:4px;
+}
+.shijin-card.seiryu::before{background:var(--midori);}
+.shijin-card.suzaku::before{background:var(--shu);}
+.shijin-card.byakko::before{background:var(--kin);}
+.shijin-card.genbu::before{background:var(--sumi);}
+.shijin-kamon{
+  font-size:56px;line-height:1;
+  margin-bottom:12px;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.12));
+}
+.shijin-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:22px;font-weight:800;
+  letter-spacing:.22em;
+  margin-bottom:4px;
+}
+.shijin-card.seiryu .shijin-name{color:var(--midori);}
+.shijin-card.suzaku .shijin-name{color:var(--shu);}
+.shijin-card.byakko .shijin-name{color:var(--kin-deep);}
+.shijin-card.genbu  .shijin-name{color:var(--sumi);}
+.shijin-direction{
+  font-size:10px;color:var(--muted);
+  letter-spacing:.25em;
+  margin-bottom:14px;
+  font-family:'Shippori Mincho',serif;
+}
+.shijin-factor{
+  font-family:'Shippori Mincho',serif;
+  font-size:16px;font-weight:700;
+  color:var(--sumi);
+  letter-spacing:.12em;
+  margin-bottom:2px;
+}
+.shijin-factor-en{
+  font-size:10px;color:var(--muted);
+  letter-spacing:.12em;
+  margin-bottom:12px;
+}
+.shijin-weight{
+  display:inline-block;
+  background:var(--paper);
+  color:var(--sumi);
+  padding:4px 12px;
+  font-size:12px;
+  font-family:'Shippori Mincho',serif;
+  letter-spacing:.12em;
+  margin-bottom:16px;
+  border:1px solid var(--border);
+}
+.shijin-desc{
+  font-size:13px;line-height:1.85;
+  color:var(--text);
+  text-align:left;
+  margin-bottom:16px;
+  flex:1;
+}
+.shijin-goriyaku{
+  font-size:12px;color:var(--sumi);
+  font-family:'Shippori Mincho',serif;
+  letter-spacing:.12em;
+  padding-top:12px;
+  border-top:1px dashed var(--border);
+}
+.shijin-goriyaku::before{
+  content:'◯ ご利益  ';
+  color:var(--shu);font-weight:700;
+}
+@media(max-width:800px){
+  .shijin-grid{grid-template-columns:repeat(2, 1fr);}
+}
+@media(max-width:480px){
+  .shijin-grid{grid-template-columns:1fr;}
+}
+
 /* ── 御神籤 ── */
 .omikuji-box{
   background:var(--sumi);
@@ -911,6 +1006,54 @@ a{color:inherit;}
   </div>
 </section>
 
+<!-- ══ 四神の御加護 ══ -->
+<section class="section" id="shijin">
+  <h2 class="section-title mincho">四 神 の 御 加 護</h2>
+  <p class="section-subtitle">SHIJIN ─ 予想を司る四柱の神徳</p>
+  <div class="shijin-grid">
+    <div class="shijin-card seiryu">
+      <div class="shijin-kamon">🐉</div>
+      <div class="shijin-name mincho">青 龍</div>
+      <div class="shijin-direction">SEIRYU ─ 東 方 木</div>
+      <div class="shijin-factor">言 霊</div>
+      <div class="shijin-factor-en">KOTODAMA / 前走コメント解析</div>
+      <div class="shijin-weight">神徳 ×2.0</div>
+      <p class="shijin-desc">調教師・騎手が漏らす前走回顧の言葉に宿る本音を読み解く。レース前の美辞麗句に隠される真実は、レース後にのみ立ち上る。数値に現れぬ「本音レイヤー」から穴馬の種を見出す青の神。</p>
+      <div class="shijin-goriyaku">真実開示・穴馬発見</div>
+    </div>
+    <div class="shijin-card suzaku">
+      <div class="shijin-kamon">🐦</div>
+      <div class="shijin-name mincho">朱 雀</div>
+      <div class="shijin-direction">SUZAKU ─ 南 方 火</div>
+      <div class="shijin-factor">神 眼</div>
+      <div class="shijin-factor-en">SHINGAN / 全頭解説AI採点</div>
+      <div class="shijin-weight">神徳 ×1.5</div>
+      <p class="shijin-desc">相馬眼お化けと呼ばれし業師の全頭解説を、神主ギーニョが火の眼で自動採点化。数値に現れぬ馬体・仕上がり・パドック印象、そして人気との歪みを燃え盛る炎で透視する。</p>
+      <div class="shijin-goriyaku">人気馬消し・直感透視</div>
+    </div>
+    <div class="shijin-card byakko">
+      <div class="shijin-kamon">🐅</div>
+      <div class="shijin-name mincho">白 虎</div>
+      <div class="shijin-direction">BYAKKO ─ 西 方 金</div>
+      <div class="shijin-factor">ラ ッ プ</div>
+      <div class="shijin-factor-en">LAP / ペース・時計分析</div>
+      <div class="shijin-weight">神徳 ×1.0</div>
+      <p class="shijin-desc">コース毎のラップ型・ペース適性・上がり偏差値をStride指数で読み下す。金属質の冷徹さで時計を刻み、どの馬の脚が今回条件に噛み合うかを審（あきら）かにする。</p>
+      <div class="shijin-goriyaku">適性確信・ラップ読誦</div>
+    </div>
+    <div class="shijin-card genbu">
+      <div class="shijin-kamon">🐢</div>
+      <div class="shijin-name mincho">玄 武</div>
+      <div class="shijin-direction">GENBU ─ 北 方 水</div>
+      <div class="shijin-factor">外 厩</div>
+      <div class="shijin-factor-en">GAIKYU / 仕上げ情報</div>
+      <div class="shijin-weight">神徳 ×0.5</div>
+      <p class="shijin-desc">社台F・山元TC・ノーザンFなど名だたる牧場での仕上げ履歴を、水底の静けさで確かめる。休み明けの肩慣らしから鉄砲駆けまで、状態の地層を見通して馬券の土台を固める。</p>
+      <div class="shijin-goriyaku">状態安定・仕上げ読み</div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ 御神籤 ══ -->
 <section class="section" id="omikuji">
   <h2 class="section-title mincho">御 神 籤</h2>
@@ -1155,7 +1298,7 @@ a{color:inherit;}
         <li>馬券は投票所へ、お守りは授与所へ。</li>
         <li>お焚き上げ受付：外れ馬券は静かに投函のこと。</li>
         <li>御神木（払戻機）周辺での長時間滞在はお慎みください。</li>
-        <li>妻に内緒の御祈祷はご本人の責任にてお願い致します。</li>
+        <li>家族に内緒の御祈祷はご本人の責任にてお願い致します。</li>
       </ol>
       <div class="kanban-foot mincho">
         当神宮は的中を保証するものではありません（小声）

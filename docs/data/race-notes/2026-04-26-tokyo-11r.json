@@ -16,7 +16,7 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "preparationNote": "関係者コメントの言霊解析・外厩相性ファクター(個体別)は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。3歳牝馬オープン戦。",
+  "preparationNote": "関係者コメントの言霊解析・外厩相性ファクター(個体別)は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。注目3歳牝馬重賞。",
   "logicVersion": "v2-rel-lap",
   "horses": [
     {
@@ -443,10 +443,12 @@
     }
   ],
   "finalBets": {
-    "generatedAt": "2026-04-22T18:31:37",
-    "logicVersion": "v2-rel-lap-bets-1",
+    "generatedAt": "2026-04-22T20:34:18",
+    "logicVersion": "v2-shijin-bets-1",
     "readiness": "0/16",
     "readinessPct": 0.0,
+    "shinganCoverage": "0/16",
+    "shinganCoveragePct": 0.0,
     "config": {
       "gradePoints": {
         "S": 5,
@@ -456,7 +458,8 @@
         "D": -4
       },
       "weights": {
-        "relComment": 1.0,
+        "relComment": 2.0,
+        "shingan": 1.5,
         "lapFactors": 1.0,
         "gaikyuFactor": 0.5
       },
@@ -472,13 +475,19 @@
         "rank": 1,
         "num": null,
         "name": "ファムクラジューズ",
-        "score": 6.5,
+        "score": 11.5,
         "breakdown": {
           "relComment": {
             "grade": "S",
             "pt": 5,
-            "weight": 1.0,
-            "weighted": 5.0
+            "weight": 2.0,
+            "weighted": 10.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -499,13 +508,19 @@
         "rank": 2,
         "num": null,
         "name": "ラフターラインズ",
-        "score": 5.0,
+        "score": 10.0,
         "breakdown": {
           "relComment": {
             "grade": "S",
             "pt": 5,
-            "weight": 1.0,
-            "weighted": 5.0
+            "weight": 2.0,
+            "weighted": 10.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -526,13 +541,19 @@
         "rank": 3,
         "num": null,
         "name": "エンネ",
-        "score": 4.5,
+        "score": 7.5,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -553,13 +574,19 @@
         "rank": 4,
         "num": null,
         "name": "リアライズルミナス",
-        "score": 4.5,
+        "score": 7.5,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -580,13 +607,19 @@
         "rank": 5,
         "num": null,
         "name": "サムシングスイート",
-        "score": 4.5,
+        "score": 7.5,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -607,13 +640,19 @@
         "rank": 6,
         "num": null,
         "name": "ラベルセーヌ",
-        "score": 3.0,
+        "score": 6.0,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -634,13 +673,19 @@
         "rank": 7,
         "num": null,
         "name": "リスレジャンデール",
-        "score": 3.0,
+        "score": 6.0,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -661,13 +706,19 @@
         "rank": 8,
         "num": null,
         "name": "ロングトールサリー",
-        "score": 3.0,
+        "score": 6.0,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -693,7 +744,13 @@
           "relComment": {
             "grade": "B",
             "pt": 0,
-            "weight": 1.0,
+            "weight": 2.0,
+            "weighted": 0.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
             "weighted": 0.0
           },
           "lapFactors": {
@@ -720,7 +777,13 @@
           "relComment": {
             "grade": "B",
             "pt": 0,
-            "weight": 1.0,
+            "weight": 2.0,
+            "weighted": 0.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
             "weighted": 0.0
           },
           "lapFactors": {
@@ -747,7 +810,13 @@
           "relComment": {
             "grade": "B",
             "pt": 0,
-            "weight": 1.0,
+            "weight": 2.0,
+            "weighted": 0.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
             "weighted": 0.0
           },
           "lapFactors": {
@@ -769,13 +838,19 @@
         "rank": 12,
         "num": null,
         "name": "ペイシャシス",
-        "score": -0.5,
+        "score": -2.5,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -796,13 +871,19 @@
         "rank": 13,
         "num": null,
         "name": "ゴバド",
-        "score": -2.0,
+        "score": -4.0,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -823,13 +904,19 @@
         "rank": 14,
         "num": null,
         "name": "コウギョク",
-        "score": -2.0,
+        "score": -4.0,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -850,13 +937,19 @@
         "rank": 15,
         "num": null,
         "name": "スピナーリート",
-        "score": -2.0,
+        "score": -4.0,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -877,13 +970,19 @@
         "rank": 16,
         "num": null,
         "name": "ペンダント",
-        "score": -2.5,
+        "score": -6.5,
         "breakdown": {
           "relComment": {
             "grade": "D",
             "pt": -4,
-            "weight": 1.0,
-            "weighted": -4.0
+            "weight": 2.0,
+            "weighted": -8.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -919,7 +1018,7 @@
           "rank": 1,
           "num": null,
           "name": "ファムクラジューズ",
-          "score": 6.5,
+          "score": 11.5,
           "isAna": false,
           "tag": "ninki"
         },
@@ -927,7 +1026,7 @@
           "rank": 2,
           "num": null,
           "name": "ラフターラインズ",
-          "score": 5.0,
+          "score": 10.0,
           "isAna": false,
           "tag": "ninki"
         },
@@ -935,7 +1034,7 @@
           "rank": 5,
           "num": null,
           "name": "サムシングスイート",
-          "score": 4.5,
+          "score": 7.5,
           "isAna": true,
           "tag": "ana"
         },
@@ -943,7 +1042,7 @@
           "rank": 7,
           "num": null,
           "name": "リスレジャンデール",
-          "score": 3.0,
+          "score": 6.0,
           "isAna": true,
           "tag": "ana"
         }

@@ -1794,9 +1794,168 @@ function buildMarkMap(sougouRankMap, anaRankMap, totalHorseCount) {
 }
 
 // 新ロジック移行期：準備中レースの簡易表示
+function renderFinalBets(fb) {
+  if (!fb) return '';
+
+  // 穴/人気バッジ
+  const tag = (isAna) => isAna
+    ? `<span style="display:inline-block;font-size:10px;padding:2px 6px;border-radius:3px;background:rgba(155,45,48,.12);color:#9B2D30;font-weight:700;letter-spacing:.04em;">🔥 穴</span>`
+    : `<span style="display:inline-block;font-size:10px;padding:2px 6px;border-radius:3px;background:rgba(31,77,46,.12);color:#1F4D2E;font-weight:700;letter-spacing:.04em;">⭐ 人気</span>`;
+
+  // 構成ラベル
+  const compoLabel = {
+    '2ninki+2ana': '人気2＋穴2（理想）',
+    '3ninki+1ana': '人気3＋穴1（フォールバック）',
+    '4ninki+0ana': '人気4＋穴0（穴不在）',
+    'top4-raw':    'top4 素取り',
+    'short':       '馬不足',
+  }[fb.wide4box.composition] || fb.wide4box.composition;
+  const fbWarn = fb.wide4box.fallback
+    ? `<span style="color:#dc2626;margin-left:6px;font-size:10px;">⚠ フォールバック</span>` : '';
+
+  // ワイド4頭行
+  const wideRows = (fb.wide4box.horses || []).map(h => {
+    const ana = !!h.isAna;
+    const bg = ana ? 'rgba(155,45,48,.05)' : 'rgba(31,77,46,.05)';
+    const bar = ana ? '#9B2D30' : '#1F4D2E';
+    return `
+      <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:${bg};border-left:3px solid ${bar};border-radius:4px;">
+        <span style="font-family:'Inter',sans-serif;font-weight:800;color:var(--shu);min-width:28px;font-size:11px;">rank${h.rank}</span>
+        <span style="font-family:'Inter',sans-serif;font-weight:800;background:#1A1A1A;color:#C9A961;padding:3px 7px;border-radius:3px;font-size:12px;min-width:26px;text-align:center;">${h.num != null ? h.num : '?'}</span>
+        <span style="flex:1;font-weight:600;font-size:13px;">${esc(h.name || '')}</span>
+        ${tag(ana)}
+        <span style="font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);min-width:36px;text-align:right;">${Number(h.score).toFixed(2)}</span>
+      </div>`;
+  }).join('');
+
+  // 6通りコンボ
+  const combos = (fb.wide4box.combos || []).map(c =>
+    `<span style="display:inline-block;padding:3px 8px;margin:2px 3px 2px 0;background:var(--paper-deep,#F0EADB);border:1px solid var(--border,#E5DFD1);border-radius:3px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--sumi);">${c.pair[0]}-${c.pair[1]}</span>`
+  ).join('');
+
+  // scoreboard (全馬採点) - collapsible
+  const scoreRows = (fb.scoreboard || []).map(s => {
+    const bd = s.breakdown || {};
+    const cell = (k, lbl) => {
+      const gr = bd[k]?.grade || '—';
+      const gBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+      return `<td style="text-align:center;padding:4px 6px;"><span style="display:inline-block;font-size:10px;color:#fff;background:${gBg};padding:1px 6px;border-radius:2px;font-family:'Shippori Mincho',serif;font-weight:700;min-width:16px;">${gr}</span></td>`;
+    };
+    return `
+      <tr style="border-bottom:1px solid var(--border-soft);">
+        <td style="text-align:right;padding:4px 8px;font-family:'Inter',sans-serif;font-weight:700;color:var(--shu);">${s.rank}</td>
+        <td style="padding:4px 8px;font-family:'Inter',sans-serif;font-weight:700;background:#1A1A1A;color:#C9A961;text-align:center;border-radius:3px;">${s.num != null ? s.num : '?'}</td>
+        <td style="padding:4px 10px;font-weight:600;">${esc(s.name || '')}</td>
+        ${cell('relComment', '言')}
+        ${cell('lapFactors', 'ラ')}
+        ${cell('gaikyuFactor', '外')}
+        <td style="text-align:right;padding:4px 8px;font-family:'Inter',sans-serif;font-weight:800;color:var(--sumi);">${Number(s.score).toFixed(2)}</td>
+        <td style="text-align:right;padding:4px 8px;font-family:'Inter',sans-serif;color:var(--muted);font-size:11px;">${s.expectedOdds != null ? s.expectedOdds.toFixed(1) : '-'}</td>
+      </tr>`;
+  }).join('');
+
+  const topScore = (fb.scoreboard && fb.scoreboard[0]) ? Number(fb.scoreboard[0].score).toFixed(2) : '-';
+
+  return `
+    <div style="margin-bottom:24px;border:2px solid var(--shu);border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(155,45,48,.12);">
+      <!-- Header -->
+      <div style="background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+        <div>
+          <div style="font-size:10px;color:#C9A961;letter-spacing:.18em;font-weight:700;">⛩ FINAL ORACLE</div>
+          <div style="font-size:18px;font-weight:800;letter-spacing:.08em;margin-top:2px;">御神託降臨</div>
+        </div>
+        <div style="text-align:right;font-family:'Inter',sans-serif;">
+          <div style="font-size:10px;opacity:.85;letter-spacing:.04em;">揃い率 ${esc(fb.readiness || '')} (${fb.readinessPct ?? 0}%)</div>
+          <div style="font-size:20px;font-weight:900;color:#C9A961;margin-top:2px;letter-spacing:.02em;">¥${(fb.totalSpend || 0).toLocaleString()}</div>
+        </div>
+      </div>
+
+      <!-- 単勝 + 複勝 -->
+      <div style="padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:var(--paper);">
+        <div style="background:#fff;border:1px solid rgba(139,117,48,.4);border-radius:8px;padding:10px 12px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+            <div style="font-size:11px;font-weight:700;color:#8B7530;letter-spacing:.04em;">☀ 天の道 ／ 単勝</div>
+            <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:900;color:#8B7530;">¥${fb.tan?.amount ?? 0}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="font-family:'Inter',sans-serif;font-weight:800;background:#1A1A1A;color:#C9A961;padding:3px 7px;border-radius:3px;font-size:12px;min-width:26px;text-align:center;">${fb.tan?.num ?? '?'}</span>
+            <span style="font-weight:700;font-size:13px;">${esc(fb.tan?.name || '')}</span>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:4px;font-family:'Inter',sans-serif;letter-spacing:.04em;">rank${fb.tan?.rank ?? '?'} ／ score ${topScore}</div>
+        </div>
+
+        <div style="background:#fff;border:1px solid rgba(31,77,46,.4);border-radius:8px;padding:10px 12px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+            <div style="font-size:11px;font-weight:700;color:#1F4D2E;letter-spacing:.04em;">🌿 地の道 ／ 複勝</div>
+            <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:900;color:#1F4D2E;">¥${fb.fuku?.amount ?? 0}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="font-family:'Inter',sans-serif;font-weight:800;background:#1A1A1A;color:#C9A961;padding:3px 7px;border-radius:3px;font-size:12px;min-width:26px;text-align:center;">${fb.fuku?.num ?? '?'}</span>
+            <span style="font-weight:700;font-size:13px;">${esc(fb.fuku?.name || '')}</span>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:4px;font-family:'Inter',sans-serif;letter-spacing:.04em;">rank${fb.fuku?.rank ?? '?'} ／ score ${topScore}</div>
+        </div>
+      </div>
+
+      <!-- 人の道 ワイド4頭BOX -->
+      <div style="padding:14px;border-top:1px dashed rgba(155,45,48,.3);background:var(--paper);">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;gap:6px;">
+          <div style="font-size:12px;font-weight:800;color:var(--shu);letter-spacing:.04em;">
+            🤝 人の道 ／ ワイド4頭BOX
+            <span style="font-size:10px;font-weight:500;color:var(--muted);margin-left:6px;">${compoLabel}${fbWarn}</span>
+          </div>
+          <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:900;color:var(--shu);">¥${fb.wide4box?.amount ?? 0} <span style="font-size:10px;color:var(--muted);font-weight:500;">(${fb.wide4box?.comboCount ?? 0}点)</span></div>
+        </div>
+        <div style="display:grid;gap:4px;margin-bottom:10px;">${wideRows}</div>
+        <div style="padding-top:10px;border-top:1px solid var(--border-soft);">
+          <div style="font-size:10px;color:var(--muted);margin-bottom:5px;letter-spacing:.08em;">─ BOX 6通り組合せ ─</div>
+          <div>${combos}</div>
+        </div>
+      </div>
+
+      <!-- 採点詳細 (collapsible) -->
+      <details style="border-top:1px solid var(--border);background:var(--paper);">
+        <summary style="padding:10px 18px;cursor:pointer;font-size:12px;font-weight:700;color:var(--sumi);letter-spacing:.05em;">採点詳細（全馬スコアボード）</summary>
+        <div style="padding:4px 12px 14px;overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--sumi);">
+                <th style="text-align:right;padding:6px 8px;font-size:10px;">順</th>
+                <th style="text-align:center;padding:6px 8px;font-size:10px;">馬番</th>
+                <th style="text-align:left;padding:6px 10px;font-size:10px;">馬名</th>
+                <th style="text-align:center;padding:6px 6px;font-size:10px;">言霊</th>
+                <th style="text-align:center;padding:6px 6px;font-size:10px;">ラップ</th>
+                <th style="text-align:center;padding:6px 6px;font-size:10px;">外厩</th>
+                <th style="text-align:right;padding:6px 8px;font-size:10px;">総合</th>
+                <th style="text-align:right;padding:6px 8px;font-size:10px;">OD</th>
+              </tr>
+            </thead>
+            <tbody>${scoreRows}</tbody>
+          </table>
+          <div style="margin-top:8px;font-size:10px;color:var(--muted);letter-spacing:.04em;font-family:'Inter',sans-serif;">
+            重み: 言霊×${fb.config?.weights?.relComment ?? 1} ／ ラップ×${fb.config?.weights?.lapFactors ?? 1} ／ 外厩×${fb.config?.weights?.gaikyuFactor ?? 0.5}
+            ／ 点数: S=${fb.config?.gradePoints?.S ?? 5}, A=${fb.config?.gradePoints?.A ?? 3}, B=${fb.config?.gradePoints?.B ?? 0}, C=${fb.config?.gradePoints?.C ?? -2}, D=${fb.config?.gradePoints?.D ?? -4}
+          </div>
+        </div>
+      </details>
+
+      <!-- Footer -->
+      <div style="background:#1A1A1A;color:rgba(201,169,97,.7);padding:7px 18px;font-size:10px;font-family:'Inter',sans-serif;display:flex;justify-content:space-between;letter-spacing:.04em;">
+        <span>logic: ${esc(fb.logicVersion || '')}</span>
+        <span>生成: ${esc(fb.generatedAt || '')}</span>
+      </div>
+    </div>
+  `;
+}
+
 function renderPreparation(cfg, d) {
   const r = d.race || {};
   const note = d.preparationNote || '枠順確定後に関係者コメント・ラップ解析を入力し、新ロジックで採点を行う予定。';
+  const finalBetsBlock = renderFinalBets(d.finalBets);
+  const noteBlock = d.finalBets ? '' : `
+      <div style="background:var(--bg-soft);border-left:3px solid var(--kin);padding:14px 18px;margin-bottom:20px;font-size:13px;line-height:1.9;color:var(--sumi);">
+        <strong style="color:var(--shu);">準備中の御神託：</strong> ${esc(note)}
+      </div>`;
   const byOdds = [...(d.horses || [])].sort((a,b) => (a.expectedOdds ?? 9999) - (b.expectedOdds ?? 9999));
   const rows = byOdds.map((h, i) => {
     const hasPed = h.sire || h.broodmareSire;

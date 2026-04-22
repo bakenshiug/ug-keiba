@@ -558,10 +558,12 @@
     }
   ],
   "finalBets": {
-    "generatedAt": "2026-04-22T18:31:37",
-    "logicVersion": "v2-rel-lap-bets-1",
+    "generatedAt": "2026-04-22T20:34:18",
+    "logicVersion": "v2-shijin-bets-1",
     "readiness": "0/19",
     "readinessPct": 0.0,
+    "shinganCoverage": "0/19",
+    "shinganCoveragePct": 0.0,
     "config": {
       "gradePoints": {
         "S": 5,
@@ -571,7 +573,8 @@
         "D": -4
       },
       "weights": {
-        "relComment": 1.0,
+        "relComment": 2.0,
+        "shingan": 1.5,
         "lapFactors": 1.0,
         "gaikyuFactor": 0.5
       },
@@ -587,13 +590,19 @@
         "rank": 1,
         "num": null,
         "name": "アドマイヤズーム",
-        "score": 6.5,
+        "score": 11.5,
         "breakdown": {
           "relComment": {
             "grade": "S",
             "pt": 5,
-            "weight": 1.0,
-            "weighted": 5.0
+            "weight": 2.0,
+            "weighted": 10.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -614,13 +623,19 @@
         "rank": 2,
         "num": null,
         "name": "ロングラン",
-        "score": 6.5,
+        "score": 11.5,
         "breakdown": {
           "relComment": {
             "grade": "S",
             "pt": 5,
-            "weight": 1.0,
-            "weighted": 5.0
+            "weight": 2.0,
+            "weighted": 10.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -641,13 +656,19 @@
         "rank": 3,
         "num": null,
         "name": "ブエナオンダ",
-        "score": 5.0,
+        "score": 10.0,
         "breakdown": {
           "relComment": {
             "grade": "S",
             "pt": 5,
-            "weight": 1.0,
-            "weighted": 5.0
+            "weight": 2.0,
+            "weighted": 10.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -668,13 +689,19 @@
         "rank": 4,
         "num": null,
         "name": "オフトレイル",
-        "score": 3.0,
+        "score": 8.0,
         "breakdown": {
           "relComment": {
             "grade": "S",
             "pt": 5,
-            "weight": 1.0,
-            "weighted": 5.0
+            "weight": 2.0,
+            "weighted": 10.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -695,13 +722,19 @@
         "rank": 5,
         "num": null,
         "name": "ウォーターリヒト",
-        "score": 3.0,
+        "score": 6.0,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -722,13 +755,19 @@
         "rank": 6,
         "num": null,
         "name": "シックスペンス",
-        "score": 3.0,
+        "score": 6.0,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -749,13 +788,19 @@
         "rank": 7,
         "num": null,
         "name": "ベラジオボンド",
-        "score": 3.0,
+        "score": 6.0,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -776,13 +821,19 @@
         "rank": 8,
         "num": null,
         "name": "ファーヴェント",
-        "score": 3.0,
+        "score": 6.0,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -803,13 +854,19 @@
         "rank": 9,
         "num": null,
         "name": "ドラゴンブースト",
-        "score": 3.0,
+        "score": 6.0,
         "breakdown": {
           "relComment": {
             "grade": "A",
             "pt": 3,
-            "weight": 1.0,
-            "weighted": 3.0
+            "weight": 2.0,
+            "weighted": 6.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -829,40 +886,19 @@
       {
         "rank": 10,
         "num": null,
-        "name": "ランスオブカオス",
-        "score": -0.5,
-        "breakdown": {
-          "relComment": {
-            "grade": "C",
-            "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
-          },
-          "lapFactors": {
-            "grade": null,
-            "pt": 0,
-            "weight": 1.0,
-            "weighted": 0.0
-          },
-          "gaikyuFactor": {
-            "grade": "A",
-            "pt": 3,
-            "weight": 0.5,
-            "weighted": 1.5
-          }
-        },
-        "expectedOdds": 15.9
-      },
-      {
-        "rank": 11,
-        "num": null,
         "name": "ファインライン",
         "score": -1.0,
         "breakdown": {
           "relComment": {
             "grade": "B",
             "pt": 0,
-            "weight": 1.0,
+            "weight": 2.0,
+            "weighted": 0.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
             "weighted": 0.0
           },
           "lapFactors": {
@@ -881,16 +917,55 @@
         "expectedOdds": 68.7
       },
       {
-        "rank": 12,
+        "rank": 11,
         "num": null,
-        "name": "エルトンバローズ",
-        "score": -2.0,
+        "name": "ランスオブカオス",
+        "score": -2.5,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
             "weight": 1.0,
-            "weighted": -2.0
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 15.9
+      },
+      {
+        "rank": 12,
+        "num": null,
+        "name": "エルトンバローズ",
+        "score": -4.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -911,13 +986,19 @@
         "rank": 13,
         "num": null,
         "name": "シャンパンカラー",
-        "score": -2.0,
+        "score": -4.0,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -938,13 +1019,19 @@
         "rank": 14,
         "num": null,
         "name": "ショウナンアデイブ",
-        "score": -2.0,
+        "score": -4.0,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -965,13 +1052,19 @@
         "rank": 15,
         "num": null,
         "name": "キョウエイブリッサ",
-        "score": -2.0,
+        "score": -4.0,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -992,13 +1085,19 @@
         "rank": 16,
         "num": null,
         "name": "マテンロウスカイ",
-        "score": -2.0,
+        "score": -4.0,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -1019,13 +1118,19 @@
         "rank": 17,
         "num": null,
         "name": "クルゼイロドスル",
-        "score": -2.0,
+        "score": -4.0,
         "breakdown": {
           "relComment": {
             "grade": "C",
             "pt": -2,
-            "weight": 1.0,
-            "weighted": -2.0
+            "weight": 2.0,
+            "weighted": -4.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -1046,13 +1151,19 @@
         "rank": 18,
         "num": null,
         "name": "アサヒ",
-        "score": -4.0,
+        "score": -8.0,
         "breakdown": {
           "relComment": {
             "grade": "D",
             "pt": -4,
-            "weight": 1.0,
-            "weighted": -4.0
+            "weight": 2.0,
+            "weighted": -8.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -1073,13 +1184,19 @@
         "rank": 19,
         "num": null,
         "name": "レディントン",
-        "score": -4.0,
+        "score": -8.0,
         "breakdown": {
           "relComment": {
             "grade": "D",
             "pt": -4,
-            "weight": 1.0,
-            "weighted": -4.0
+            "weight": 2.0,
+            "weighted": -8.0
+          },
+          "shingan": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.5,
+            "weighted": 0.0
           },
           "lapFactors": {
             "grade": null,
@@ -1115,7 +1232,7 @@
           "rank": 1,
           "num": null,
           "name": "アドマイヤズーム",
-          "score": 6.5,
+          "score": 11.5,
           "isAna": false,
           "tag": "ninki"
         },
@@ -1123,7 +1240,7 @@
           "rank": 2,
           "num": null,
           "name": "ロングラン",
-          "score": 6.5,
+          "score": 11.5,
           "isAna": true,
           "tag": "ana"
         },
@@ -1131,7 +1248,7 @@
           "rank": 3,
           "num": null,
           "name": "ブエナオンダ",
-          "score": 5.0,
+          "score": 10.0,
           "isAna": true,
           "tag": "ana"
         },
@@ -1139,7 +1256,7 @@
           "rank": 4,
           "num": null,
           "name": "オフトレイル",
-          "score": 3.0,
+          "score": 8.0,
           "isAna": false,
           "tag": "ninki"
         }
