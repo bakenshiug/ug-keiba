@@ -1750,7 +1750,7 @@ function renderPreparation(cfg, d) {
     if (h.relComment && h.relComment.keyword && h.relComment.grade) {
       const gr = h.relComment.grade;
       const gradeBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
-      relCommentLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">所見 <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(h.relComment.keyword)}</span></div>`;
+      relCommentLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">言霊 <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(h.relComment.keyword)}</span></div>`;
     }
     return `
     <tr>
