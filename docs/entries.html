@@ -76,6 +76,63 @@ html,body{
 .bc-sep{font-size:13px;color:var(--kin);font-weight:900;}
 .bc-current{font-size:11px;font-weight:900;color:var(--shu);}
 
+/* ── 過去10年の神託マトリクス（今週の3重賞）── */
+.oracle-matrix{
+  background:linear-gradient(180deg,var(--paper) 0%,#fff 100%);
+  padding:14px 16px 14px;
+  border-bottom:1px solid var(--border);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+}
+.oracle-head{text-align:center;padding:2px 0 8px;position:relative;}
+.oracle-head::before,.oracle-head::after{
+  content:'';position:absolute;top:50%;width:30%;max-width:120px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--kin),transparent);
+}
+.oracle-head::before{left:4%;}
+.oracle-head::after{right:4%;}
+.oracle-title{
+  font-size:13px;font-weight:800;color:var(--shu);
+  letter-spacing:.18em;display:inline-block;padding:0 10px;
+}
+.oracle-sub{
+  display:block;font-size:10px;color:var(--muted);
+  letter-spacing:.12em;margin-top:3px;font-weight:600;
+}
+.oracle-body{
+  max-width:580px;margin:0 auto;
+  display:flex;flex-direction:column;gap:4px;
+  padding:4px 0 0;
+}
+.oracle-row{
+  display:grid;
+  grid-template-columns:96px 96px 1fr;
+  align-items:center;gap:10px;
+  font-size:12px;padding:4px 6px;
+  border-radius:3px;
+  background:rgba(255,255,255,.5);
+  border:1px solid rgba(201,169,97,.18);
+}
+.oracle-race{
+  font-weight:800;color:var(--sumi);letter-spacing:.04em;
+  border-left:3px solid var(--shu);padding-left:8px;
+}
+.oracle-rough{
+  font-weight:700;letter-spacing:.02em;font-size:11px;
+  text-align:center;padding:2px 4px;border-radius:3px;
+}
+.rough-1{color:var(--midori);background:rgba(31,77,46,.08);}
+.rough-2{color:#8a6e2a;background:rgba(201,169,97,.15);}
+.rough-3{color:var(--shu);background:rgba(155,45,48,.1);}
+.oracle-keyword{
+  color:var(--sumi);font-weight:700;
+  letter-spacing:.06em;font-size:11.5px;
+}
+@media (max-width:520px){
+  .oracle-row{grid-template-columns:78px 82px 1fr;font-size:11px;gap:6px;padding:3px 5px;}
+  .oracle-rough{font-size:10px;}
+  .oracle-keyword{font-size:10.5px;}
+}
+
 /* ── タブ（御札バー）── */
 .tab-bar{
   display:flex;gap:0;
@@ -838,6 +895,31 @@ html,body{
   <span class="bc-item">御神託の実績：NZT☆レザベーション6番人気1着 ／ 桜花賞△ジッピーチューン12番人気3着</span>
   <span class="bc-sep">›</span>
   <span class="bc-current">青葉賞・フローラS・マイラーズC 神託準備中 ／ 枠順確定（4/23木）待ち</span>
+</div>
+
+<!-- 過去10年の神託マトリクス -->
+<div class="oracle-matrix">
+  <div class="oracle-head">
+    <span class="oracle-title">⛩ 過去10年の神託 ⛩</span>
+    <span class="oracle-sub">今週の3重賞 ／ 2026-04-25・26</span>
+  </div>
+  <div class="oracle-body">
+    <div class="oracle-row">
+      <span class="oracle-race">青葉賞</span>
+      <span class="oracle-rough rough-2">荒れ度 ★★</span>
+      <span class="oracle-keyword">距離延長組警戒</span>
+    </div>
+    <div class="oracle-row">
+      <span class="oracle-race">フローラS</span>
+      <span class="oracle-rough rough-3">荒れ度 ★★★</span>
+      <span class="oracle-keyword">開幕週・前残り穴</span>
+    </div>
+    <div class="oracle-row">
+      <span class="oracle-race">マイラーズC</span>
+      <span class="oracle-rough rough-1">荒れ度 ★</span>
+      <span class="oracle-keyword">先行粘り込み有利</span>
+    </div>
+  </div>
 </div>
 
 <!-- タブ -->
