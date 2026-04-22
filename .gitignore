@@ -1,1 +1,8 @@
 local/
+
+# データキャッシュ（再生成可能なため git 管理外）
+scripts/stride_cache/
+scripts/yt_cache/
+
+# macOS
+.DS_Store

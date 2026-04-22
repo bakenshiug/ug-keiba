@@ -52,7 +52,9 @@ PAT_BMS = re.compile(r'母父\s*([^\d]+?)\s*(\d{4})')
 PAT_TRAINER = re.compile(r'厩舎\s*(\S+?)\s+データ更新日')
 
 # 近走特記
-PAT_TRAITS = re.compile(r'近走特\s*記\s*(.+?)(?=最終「外厩」|テン３F順位)', re.DOTALL)
+# PDF extraction can break "近走特記" across multiple lines (e.g. "近走\n特記\n").
+# Allow whitespace between each character.
+PAT_TRAITS = re.compile(r'近\s*走\s*特\s*記\s*(.+?)(?=最終「外厩」|テン３F順位)', re.DOTALL)
 
 
 def clean_name(s):
@@ -182,7 +184,10 @@ def parse_traits(text):
     if not m:
         return []
     raw = m.group(1).strip()
-    # Split by full-width space + trim
+    # Line-break artifacts: traits like "後ろから行く○" can get split as
+    # "後ろから行く\n○". Remove newlines so orphan ○/× re-attach to prior token.
+    raw = raw.replace('\n', '')
+    # Split by all Unicode whitespace incl. U+00A0 NBSP (JRDB PDF uses NBSP as separator)
     items = [t.strip() for t in re.split(r'[　\s]+', raw) if t.strip()]
     return items
 

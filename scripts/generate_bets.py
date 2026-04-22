@@ -1,19 +1,27 @@
 #!/usr/bin/env python3
 """
-最終予想（買い目）生成スクリプト
+最終予想（買い目）生成スクリプト — 四神揃い版 (v2-shijin)
 =====================================
 使用: python3 scripts/generate_bets.py [--force]
 
 入力:
   scripts/bet_config.json           - 点数/重み/タイブレーカー設定
-  docs/data/race-notes/{race}.json  - 3ファクター (relComment/lapFactors/gaikyuFactor)
+  docs/data/race-notes/{race}.json  - 必須3ファクター + 任意神眼
+
+  必須 (準備率チェック):
+    🐉 relComment   (言霊・青龍)
+    🐅 lapFactors   (ラップ・白虎)
+    🐢 gaikyuFactor (外厩・玄武)
+  任意 (スコア加点のみ、揃い率には非算入):
+    🐦 shingan      (神眼・朱雀)
 
 出力:
   docs/data/race-notes/{race}.json の race.finalBets に一括書き込み。
 
 アルゴリズム:
-  1) 総合スコア = 言霊×1.0 + ラップ×1.0 + 外厩×0.5  (Grade=S+5/A+3/B0/C-2/D-4)
-  2) タイブレーカー: 言霊→ラップ→外厩 の重み付き得点、最後に想定OD低い方
+  1) 総合スコア = 言霊×2.0 + 神眼×1.5 + ラップ×1.0 + 外厩×0.5
+     Grade=S+5/A+3/B0/C-2/D-4 (shinganだけgrade無しでも他3つで動く)
+  2) タイブレーカー: 言霊→神眼→ラップ→外厩 の重み付き得点、最後に想定OD低い方
   3) 単勝1点 (100円) = 総合1位
   4) 複勝1点 (100円) = 総合1位 (信頼補強)
   5) ワイド4頭BOX (600円=100円×6点) = 人気馬2頭 + 穴馬2頭 (理想バランス)
@@ -21,7 +29,7 @@
      - 穴プール:   想定OD≥10 & score≥3 → 総合スコア順で上位2頭
      - 穴不足時は 3人気+1穴 / 4人気+0穴 にフォールバック
      - 人気不足 (稀) 時も自動で縮退
-  6) 3ファクター揃い率 ≥ 90% で実行 (--force で強制)
+  6) 必須3ファクター揃い率 ≥ 90% で実行 (--force で強制)
 """
 import json
 import sys
@@ -38,7 +46,10 @@ RACE_MAP = [
     ('2026-04-26-milers-c', '2026-04-26-kyoto-11r'),
 ]
 
-FACTOR_KEYS = ['relComment', 'lapFactors', 'gaikyuFactor']
+# 必須ファクター (揃い率計算用)
+FACTOR_KEYS_REQUIRED = ['relComment', 'lapFactors', 'gaikyuFactor']
+# 全ファクター (スコア計算用) — shinganは動画なし重賞もあるため optional
+FACTOR_KEYS_ALL = ['relComment', 'shingan', 'lapFactors', 'gaikyuFactor']
 
 
 def load_config():
@@ -55,12 +66,23 @@ def save_notes(rn, data):
     )
 
 
-def has_all_factors(h):
-    for k in FACTOR_KEYS:
+def has_all_required_factors(h):
+    """必須3ファクター(言霊/ラップ/外厩)が揃っているか"""
+    for k in FACTOR_KEYS_REQUIRED:
         v = h.get(k)
         if not v or not v.get('grade'):
             return False
     return True
+
+
+def shingan_coverage(horses):
+    """shingan factor を持つ頭数"""
+    n = 0
+    for h in horses:
+        v = h.get('shingan') or {}
+        if v.get('grade'):
+            n += 1
+    return n
 
 
 def score_horse(h, cfg):
@@ -68,7 +90,7 @@ def score_horse(h, cfg):
     w = cfg['weights']
     total = 0.0
     bd = {}
-    for k in FACTOR_KEYS:
+    for k in FACTOR_KEYS_ALL:
         data = h.get(k) or {}
         grade = data.get('grade')
         pt = gp.get(grade, 0) if grade else 0
@@ -89,12 +111,13 @@ def rank_horses(horses, cfg):
     for h in horses:
         total, bd = score_horse(h, cfg)
         scored.append({'h': h, 'score': total, 'breakdown': bd})
-    tb = cfg.get('tiebreakerOrder', FACTOR_KEYS)
+    tb = cfg.get('tiebreakerOrder', FACTOR_KEYS_ALL)
     scored.sort(key=lambda x: (
         -x['score'],
-        -x['breakdown'][tb[0]]['weighted'] if len(tb) > 0 else 0,
-        -x['breakdown'][tb[1]]['weighted'] if len(tb) > 1 else 0,
-        -x['breakdown'][tb[2]]['weighted'] if len(tb) > 2 else 0,
+        -x['breakdown'][tb[0]]['weighted'] if len(tb) > 0 and tb[0] in x['breakdown'] else 0,
+        -x['breakdown'][tb[1]]['weighted'] if len(tb) > 1 and tb[1] in x['breakdown'] else 0,
+        -x['breakdown'][tb[2]]['weighted'] if len(tb) > 2 and tb[2] in x['breakdown'] else 0,
+        -x['breakdown'][tb[3]]['weighted'] if len(tb) > 3 and tb[3] in x['breakdown'] else 0,
         x['h'].get('expectedOdds') if x['h'].get('expectedOdds') is not None else 9999,
     ))
     for i, s in enumerate(scored, 1):
@@ -206,10 +229,15 @@ def generate_for_race(rd_name, rn_name, cfg, force=False):
     if not horses:
         print(f'{rn_name}: no horses, skip')
         return
-    ready = sum(1 for h in horses if has_all_factors(h))
+    if not isinstance(horses, list):
+        print(f'{rn_name}: 旧SABCスキーマ(dict)のため skip')
+        return
+    ready = sum(1 for h in horses if has_all_required_factors(h))
     total = len(horses)
     readiness = ready / total
-    print(f'\n=== {rd_name} ({total}頭) === 3ファクター揃い率: {ready}/{total} ({readiness*100:.0f}%)')
+    shingan_n = shingan_coverage(horses)
+    shingan_pct = (shingan_n / total * 100) if total else 0
+    print(f'\n=== {rd_name} ({total}頭) === 必須3ファクター揃い率: {ready}/{total} ({readiness*100:.0f}%)  神眼: {shingan_n}/{total} ({shingan_pct:.0f}%)')
     threshold = cfg.get('readinessThreshold', 0.9)
     if readiness < threshold and not force:
         print(f'  → skip (readiness < {threshold*100:.0f}%)。--force で強制実行可')
@@ -226,9 +254,11 @@ def generate_for_race(rd_name, rn_name, cfg, force=False):
 
     final_bets = {
         'generatedAt':  datetime.now().isoformat(timespec='seconds'),
-        'logicVersion': 'v2-rel-lap-bets-1',
+        'logicVersion': 'v2-shijin-bets-1',
         'readiness':    f'{ready}/{total}',
         'readinessPct': round(readiness * 100, 1),
+        'shinganCoverage': f'{shingan_n}/{total}',
+        'shinganCoveragePct': round(shingan_pct, 1),
         'config': {
             'gradePoints': cfg['gradePoints'],
             'weights':     cfg['weights'],
