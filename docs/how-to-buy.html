@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>授与所｜御札の拝受手順 | UG競馬ワイド神宮</title>
+<title>通ずる道｜三券種の神託 | UG競馬ワイド神宮</title>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&family=Noto+Serif+JP:wght@400;700;900&family=Public+Sans:wght@400;700&family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <style>
@@ -11,150 +11,181 @@
   body { font-family: 'Shippori Mincho','Noto Serif JP',serif; background-color: #FAFAFA; color: #1A1A1A; }
   .serif-headline { font-family: 'Shippori Mincho','Noto Serif JP',serif; letter-spacing:.04em; }
   .label-data { font-family: 'Inter', sans-serif; }
-  .mark-hon  { color:#9B2D30; font-weight:900; }
-  .mark-tai  { color:#2B5A9F; font-weight:900; }
-  .mark-tan  { color:#7A1E1E; font-weight:900; }
-  .mark-yoshi{ color:#C9A961; font-weight:900; }
-  .mark-delta{ color:#6a6a6a; font-weight:700; }
-</style>
 
-<style id="ug-jinja-theme">
-/* ══ UG Jinja Theme（神社風）══════════════════════════════ */
-:root {
-  --bg:         #FAFAFA;
-  --paper:      #FBF7EE;
-  --sumi:       #1A1A1A;
-  --shu:        #9B2D30;
-  --shu-dk:     #7A1E1E;
-  --midori:     #1F4D2E;
-  --kin:        #C9A961;
-  --muted:      rgba(26,26,26,0.60);
-}
+  :root {
+    --bg:         #FAFAFA;
+    --paper:      #FBF7EE;
+    --sumi:       #1A1A1A;
+    --shu:        #9B2D30;
+    --shu-dk:     #7A1E1E;
+    --midori:     #1F4D2E;
+    --kin:        #C9A961;
+    --kin-dk:     #8B7530;
+  }
 
-/* ── Base ─── */
-html { background: #FAFAFA !important; }
-body { background: #FAFAFA !important; color: #1A1A1A !important; min-height: 100vh; font-family:'Shippori Mincho','Noto Serif JP',serif !important; }
+  html, body { background:#FAFAFA !important; color:#1A1A1A !important; min-height:100vh; font-family:'Shippori Mincho','Noto Serif JP',serif !important; }
 
-/* ── Surfaces ─── */
-html, body, .bg-surface, .bg-\[\#f8faf8\] { background: #FAFAFA !important; }
-.bg-surface-container-low  { background: rgba(251,247,238,.55) !important; }
-.bg-surface-container      { background: #FBF7EE !important; }
-.bg-surface-container-high { background: #FBF7EE !important; }
-.bg-surface-bright         { background: #FBF7EE !important; }
-.bg-surface-container-highest { background: #FBF7EE !important; }
-.bg-surface-dim            { background: rgba(251,247,238,.35) !important; }
+  header {
+    background: rgba(250,250,250,.92) !important;
+    border-bottom: 2px solid #9B2D30 !important;
+    box-shadow: 0 2px 0 #C9A961, 0 6px 14px rgba(155,45,48,.08) !important;
+    backdrop-filter: blur(8px) !important;
+  }
 
-/* ── Header（鳥居風）─── */
-header {
-  background: rgba(250,250,250,.92) !important;
-  border-bottom: 2px solid #9B2D30 !important;
-  box-shadow: 0 2px 0 #C9A961, 0 6px 14px rgba(155,45,48,.08) !important;
-  backdrop-filter: blur(8px) !important;
-}
-header p, header span { color: rgba(26,26,26,0.75) !important; }
-header h1, header a h1 { color: #9B2D30 !important; text-shadow: none !important; font-family:'Shippori Mincho','Noto Serif JP',serif !important; letter-spacing:.04em; }
-header .text-\[\#004900\], header .text-\[\#707a6a\] { color: rgba(26,26,26,0.70) !important; }
-header a, header button { color: #9B2D30 !important; }
-header .bg-\[\#f2f4f2\] { background: rgba(201,169,97,.12) !important; }
-header .text-\[\#9ca3af\] { color: rgba(26,26,26,0.50) !important; }
-header .bg-\[\#eceeec\] { background: rgba(201,169,97,.12) !important; color: #9B2D30 !important; }
+  /* ── 神託テーブル ─── */
+  .oracle-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+  }
+  .oracle-table th, .oracle-table td {
+    padding: 8px 6px;
+    text-align: center;
+    font-size: 11px;
+    border-bottom: 1px solid rgba(201,169,97,.25);
+  }
+  .oracle-table th {
+    background: rgba(201,169,97,.12);
+    font-weight: 700;
+    color: #1A1A1A;
+    font-size: 10px;
+    letter-spacing: .02em;
+  }
+  .oracle-table td.name {
+    text-align: left;
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding-left: 8px;
+  }
+  .oracle-table .tsuuzu  { background: rgba(31,77,46,.05); }
+  .oracle-table .mamono  { background: rgba(155,45,48,.05); }
+  .oracle-table .hit { font-weight: 900; color: #1F4D2E; }
+  .oracle-table .bad { font-weight: 900; color: #7A1E1E; }
+  .oracle-table tr:last-child td { border-bottom: none; }
 
-/* ── Cards / boxes（和紙風）─── */
-.bg-white, .card,
-[class*="rounded-2xl"].bg-white,
-[class*="rounded-2xl"].border {
-  background: #FBF7EE !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-color: rgba(201,169,97,.4) !important;
-  color: #1A1A1A !important;
-}
-.bg-\[\#f2f4f2\] {
-  background: rgba(201,169,97,.08) !important;
-  border: 1px solid rgba(201,169,97,0.3) !important;
-}
+  /* ── 道カード ─── */
+  .michi-card {
+    background: #FBF7EE;
+    border: 1px solid rgba(201,169,97,.45);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(155,45,48,.05);
+  }
+  .michi-head {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(201,169,97,.35);
+    color: #fff;
+  }
+  .michi-ten    { background: linear-gradient(135deg, #C9A961, #8B7530); }
+  .michi-chi    { background: linear-gradient(135deg, #1F4D2E, #0F3A1E); }
+  .michi-jin    { background: linear-gradient(135deg, #9B2D30, #7A1E1E); }
+  .michi-mamono { background: linear-gradient(135deg, #1A1A1A, #3A3A3A); }
 
-/* ── 御札ヘッダー（朱色統一）─── */
-.bg-\[\#006400\], .bg-\[\#004900\] {
-  background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important;
-  border: none !important;
-  color: #fff !important;
-}
-.bg-\[\#004900\].px-5.py-3 {
-  background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important;
-  border-bottom: 1px solid rgba(201,169,97,.35) !important;
-}
+  .michi-title { font-family:'Shippori Mincho',serif; font-size: 17px; font-weight: 900; letter-spacing: .05em; line-height: 1.2; }
+  .michi-sub   { font-family:'Inter',sans-serif; font-size: 10px; opacity: .85; font-weight: 600; margin-top: 3px; letter-spacing:.08em; }
+  .michi-body  { padding: 16px 18px; }
 
-/* ── Text ─── */
-.text-\[\#191c1b\], .text-\[\#374151\] { color: #1A1A1A !important; }
-.text-\[\#707a6a\], .text-\[\#6b7280\] { color: rgba(26,26,26,.60) !important; }
-.text-\[\#004900\], .text-\[\#2d5a27\]  { color: #9B2D30 !important; }
-.text-\[\#790b4a\] { color: #9B2D30 !important; }
-.text-on-surface         { color: #1A1A1A !important; }
-.text-on-surface-variant { color: rgba(26,26,26,.65) !important; }
-.text-outline            { color: rgba(26,26,26,.45) !important; }
-.text-primary            { color: #9B2D30 !important; }
-.text-tertiary           { color: #9B2D30 !important; }
-.text-green-900          { color: #1A1A1A !important; }
-.text-\[\#82db6f\]       { color: #C9A961 !important; }
-.text-\[\#d4a000\]       { color: #C9A961 !important; }
-.text-yellow-200         { color: #F0E2B8 !important; }
-.text-sm, .text-base, p, span, li, td { color: inherit; }
+  .rate-big {
+    font-family: 'Inter', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .rate-big.kin    { color: #8B7530; }
+  .rate-big.midori { color: #1F4D2E; }
+  .rate-big.shu    { color: #9B2D30; }
+  .rate-big.sumi   { color: #1A1A1A; }
+  .rate-pct { font-size: 20px; font-weight: 700; }
+  .rate-label { font-size: 9px; color: rgba(26,26,26,.6); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 
-/* ── Info pills ─── */
-.bg-\[\#eceeec\] { background: rgba(201,169,97,.12) !important; color: #1A1A1A !important; border: 1px solid rgba(201,169,97,.3) !important; }
-.bg-\[\#c4eab5\] { background: rgba(31,77,46,.15) !important; color: #1F4D2E !important; }
+  /* ── 神殿の算盤 ─── */
+  .soroban {
+    background: linear-gradient(135deg, #FBF7EE, #F4EDD5);
+    border: 2px solid #C9A961;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 3px 10px rgba(201,169,97,.15);
+  }
 
-/* ── Ticker / active ─── */
-.ticker-wrap { background: #9B2D30 !important; }
-.bg-primary { background: linear-gradient(135deg, #9B2D30, #7A1E1E) !important; }
-.border-primary { border-color: #9B2D30 !important; }
+  /* ── 魔物の警句カード ─── */
+  .warning-box {
+    background: linear-gradient(135deg, rgba(122,30,30,.06), rgba(155,45,48,.06));
+    border: 1px dashed rgba(122,30,30,.35);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
 
-/* ── Dividers ─── */
-.border-outline\/10, .divide-outline\/10 > * { border-color: rgba(201,169,97,.25) !important; }
-.border-outline\/30 { border-color: rgba(201,169,97,.4) !important; }
-.horse-row:active { background: rgba(155,45,48,.08) !important; }
+  /* ── 結び（黒地金文字）─── */
+  .musubi {
+    background: #1A1A1A;
+    color: #FBF7EE;
+    border: 2px solid #C9A961;
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: 0 4px 14px rgba(155,45,48,.12);
+  }
+  .musubi .kotoba {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #C9A961;
+    letter-spacing: .06em;
+    line-height: 1.7;
+    text-shadow: 0 0 8px rgba(201,169,97,.2);
+  }
 
-/* ── Gradients ─── */
-.cta-gradient   { background: linear-gradient(to bottom, #9B2D30, #7A1E1E) !important; }
-.vigor-gradient { background: linear-gradient(to right, #9B2D30, #7A1E1E) !important; }
-.pci-gradient   { background: linear-gradient(90deg, rgba(201,169,97,0.08) 0%, #C9A961 46.5%, rgba(201,169,97,0.08) 100%) !important; }
+  /* ── 鳥居区切り ─── */
+  .torii-sep {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 4px;
+  }
+  .torii-sep::before, .torii-sep::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,169,97,.5), transparent);
+  }
+  .torii-mark {
+    font-family:'Shippori Mincho',serif;
+    color: #9B2D30;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: .2em;
+  }
 
-/* ── 激走警報 ─── */
-.border-2.border-\[\#dc2626\]\/60 { border-color: #9B2D30 !important; box-shadow: 0 2px 12px rgba(155,45,48,.2) !important; }
-.bg-gradient-to-r.from-\[\#7f1d1d\] { background: linear-gradient(90deg, #9B2D30, #7A1E1E) !important; }
-
-/* ── Brown / yellow header overrides ─── */
-[style*="linear-gradient(135deg,#b45309,#92400e)"] { background: linear-gradient(135deg,#C9A961,#8B7530) !important; }
-.text-yellow-200 { color: #FBF7EE !important; }
-
-/* ── Border overrides ─── */
-.border-\[\#bfcab7\]\/60 { border-color: rgba(201,169,97,.4) !important; }
-
-/* ── Mark badge safety ─── */
-.mark-hon { color:#9B2D30 !important; }
-.mark-tai { color:#2B5A9F !important; }
-.mark-tan { color:#7A1E1E !important; }
-.mark-yoshi { color:#C9A961 !important; }
-.mark-delta { color:#6a6a6a !important; }
+  /* ── 神訓（box内）─── */
+  .shinkun {
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #1A1A1A;
+  }
+  .shinkun.kin   { background:rgba(201,169,97,.1);  border:1px solid rgba(201,169,97,.3); }
+  .shinkun.midori{ background:rgba(31,77,46,.08);   border:1px solid rgba(31,77,46,.28); }
+  .shinkun.shu   { background:rgba(155,45,48,.08);  border:1px solid rgba(155,45,48,.28); }
+  .shinkun b.lead { font-family:'Shippori Mincho',serif; font-weight:900; letter-spacing:.04em; }
 </style>
 </head>
 <body class="min-h-screen pb-24" style="background:#FAFAFA;color:#1A1A1A;">
 
 <!-- Header -->
-<header class="sticky top-0 z-50 backdrop-blur-md" style="background:rgba(250,250,250,0.92);border-bottom:2px solid #9B2D30;box-shadow:0 2px 0 #C9A961,0 6px 14px rgba(155,45,48,.08);"">
+<header class="sticky top-0 z-50">
   <div class="px-5 pt-4 pb-3">
     <div class="flex items-center gap-3">
-      <a href="./2026-03-21-ug-free-7x9z2p/index.html"
-         class="flex items-center justify-center w-9 h-9 rounded-full bg-[#eceeec] text-[#004900] hover:bg-[#c4eab5] transition-colors">
+      <a href="index.html"
+         class="flex items-center justify-center w-9 h-9 rounded-full transition-colors"
+         style="background:rgba(201,169,97,.14); color:#9B2D30;">
         <span class="material-symbols-outlined text-xl">arrow_back</span>
       </a>
       <div>
-        <a href="index.html" style="text-decoration:none;"><p class="text-[10px] uppercase tracking-widest text-[#707a6a] font-bold">UG競馬ワイド神宮</p></a>
-        <a href="./2026-03-21-ug-free-7x9z2p/index.html" class="no-underline">
-          <h1 class="serif-headline text-lg font-bold text-[#004900] leading-tight">授与所　JUYOSHO</h1>
-        </a>
-        <p class="text-[10px] text-[#790b4a] font-bold">御札の拝受手順</p>
+        <p class="text-[10px] uppercase tracking-widest font-bold" style="color:rgba(26,26,26,.6);">UG競馬ワイド神宮</p>
+        <h1 class="serif-headline text-lg font-bold leading-tight" style="color:#9B2D30;">通ずる道　TSUUZURU-MICHI</h1>
+        <p class="text-[10px] font-bold" style="color:#1F4D2E;">三券種の神託 — 御札拝受の作法</p>
       </div>
     </div>
   </div>
@@ -162,290 +193,493 @@ header .bg-\[\#eceeec\] { background: rgba(201,169,97,.12) !important; color: #9
 
 <main class="px-4 py-5 max-w-lg mx-auto space-y-5">
 
-  <!-- リード（授与所の御挨拶）-->
-  <div class="bg-[#006400] rounded-2xl px-5 py-4 text-white" style="background:linear-gradient(135deg,#9B2D30,#7A1E1E) !important;border:1px solid #C9A961 !important;">
-    <p class="text-[10px] font-black uppercase tracking-widest mb-1.5" style="color:#C9A961;">⛩ 授与所の心得</p>
-    <p class="text-xs leading-relaxed" style="font-family:'Shippori Mincho','Noto Serif JP',serif;">「馬券は授かり方で決まる」。ただ買い揃えては、御利益は巡りきたらず。アーミー諸氏は此の御札拝受の作法を身につけ、御神託に沿うて的確に攻め給え。印の意味を心得、最上の御利益を求められよ。</p>
-    <div class="mt-3 flex flex-wrap gap-2 text-xs font-black">
-      <span style="color:#C9A961;"><span class="mark-hon">◎</span> 本命</span>
-      <span class="text-white/40">／</span>
-      <span style="color:#C9A961;"><span class="mark-tai">○</span> 対抗</span>
-      <span class="text-white/40">／</span>
-      <span style="color:#C9A961;"><span class="mark-tan">▲</span> 単穴</span>
-      <span class="text-white/40">／</span>
-      <span style="color:#C9A961;"><span class="mark-yoshi">☆</span> 穴</span>
-      <span class="text-white/40">／</span>
-      <span style="color:#C9A961;"><span class="mark-delta">△</span> 連下</span>
+  <!-- 1. 神託リード -->
+  <div class="rounded-2xl px-5 py-5 text-white" style="background:linear-gradient(135deg,#9B2D30,#7A1E1E); border:1px solid #C9A961; box-shadow:0 4px 16px rgba(155,45,48,.18);">
+    <p class="text-[10px] font-black uppercase tracking-widest mb-2" style="color:#C9A961;">⛩ 神託</p>
+    <p class="serif-headline text-base leading-relaxed font-bold mb-3">馬券には「通ずる道」と「魔物の道」がある。</p>
+    <p class="text-xs leading-relaxed" style="font-family:'Shippori Mincho','Noto Serif JP',serif; opacity:.95;">
+      神曰く 「十八頭の中から <b style="color:#C9A961;">一頭</b> を選べ」<span style="opacity:.7;">── 単勝</span><br>
+      神曰く 「十八頭の中から <b style="color:#C9A961;">三頭の輪</b> に乗れ」<span style="opacity:.7;">── 複勝</span><br>
+      神曰く 「<b style="color:#C9A961;">四頭を選び、二頭の共鳴</b> を得よ」<span style="opacity:.7;">── ワイド4頭BOX</span>
+    </p>
+    <p class="text-xs leading-relaxed mt-3 pt-3 border-t border-white/15" style="font-family:'Shippori Mincho','Noto Serif JP',serif; opacity:.95;">
+      然るに3連単BOXは 十頭選べば <b style="color:#C9A961;">七百二十点</b> を要求す。<br>
+      ¥72,000の奉納にて、的中率わずか <b style="color:#C9A961;">14.7%</b>。<br>
+      神、その算盤を閉ざす。
+    </p>
+  </div>
+
+  <!-- 2. 神託の算盤（全券種比較表）-->
+  <div class="michi-card">
+    <div class="michi-head michi-ten">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-lg" style="font-variation-settings:'FILL' 1">calculate</span>
+        <div>
+          <p class="michi-title">神託の算盤</p>
+          <p class="michi-sum">十八頭立て｜一点あたりの的中率</p>
+        </div>
+      </div>
+    </div>
+    <div class="p-3">
+      <table class="oracle-table">
+        <thead>
+          <tr>
+            <th style="text-align:left; padding-left:8px;">券種</th>
+            <th>全通り</th>
+            <th>1点的中率</th>
+            <th>全網羅</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tsuuzu">
+            <td class="name"><span style="color:#8B7530;">☀</span> 単勝</td>
+            <td>18</td>
+            <td class="hit">5.56%</td>
+            <td>¥1,800</td>
+          </tr>
+          <tr class="tsuuzu">
+            <td class="name"><span style="color:#1F4D2E;">🌿</span> 複勝</td>
+            <td>18</td>
+            <td class="hit">16.67%</td>
+            <td>¥1,800</td>
+          </tr>
+          <tr class="tsuuzu">
+            <td class="name"><span style="color:#9B2D30;">🤝</span> ワイド</td>
+            <td>153</td>
+            <td class="hit">1.96%</td>
+            <td>¥15,300</td>
+          </tr>
+          <tr>
+            <td class="name" style="opacity:.7;">🔸 馬連</td>
+            <td>153</td>
+            <td>0.65%</td>
+            <td>¥15,300</td>
+          </tr>
+          <tr>
+            <td class="name" style="opacity:.7;">🔸 馬単</td>
+            <td>306</td>
+            <td>0.33%</td>
+            <td>¥30,600</td>
+          </tr>
+          <tr class="mamono">
+            <td class="name"><span style="color:#7A1E1E;">👹</span> 3連複</td>
+            <td>816</td>
+            <td class="bad">0.12%</td>
+            <td class="bad">¥81,600</td>
+          </tr>
+          <tr class="mamono">
+            <td class="name"><span style="color:#7A1E1E;">👹</span> 3連単</td>
+            <td>4,896</td>
+            <td class="bad">0.02%</td>
+            <td class="bad">¥489,600</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-[10px] mt-3 px-2" style="color:rgba(26,26,26,.55); line-height:1.6;">
+        ※ 1点的中率は「無作為に選んだ場合」の平均値。選び方次第で化ける。<br>
+        ※ 複勝とワイドは「3着以内」が対象。馬連以下は順序や2着制約あり。<br>
+        <b style="color:#7A1E1E;">3連単の全網羅は約50万円。</b> これは魔物の道。
+      </p>
     </div>
   </div>
 
-  <!-- ⓪ 単複王道 -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden">
-    <div class="px-5 py-3 flex items-center gap-2" style="background:linear-gradient(135deg,#b45309,#92400e);">
-      <span class="material-symbols-outlined text-yellow-200 text-lg" style="font-variation-settings:'FILL' 1">stars</span>
+  <!-- 3. セクション見出し：通ずる道 -->
+  <div class="torii-sep">
+    <span class="torii-mark">⛩ 通ずる道 ⛩</span>
+  </div>
+  <div class="px-2">
+    <h2 class="serif-headline text-xl font-black" style="color:#9B2D30;">三位一体 — 天・地・人</h2>
+    <p class="text-xs mt-1" style="color:rgba(26,26,26,.65);">一レース合計 <b style="color:#1A1A1A;">800円</b>。月4週 × 重賞3R ≒ <b style="color:#1A1A1A;">9,600円</b>。</p>
+  </div>
+
+  <!-- ☀ 天の道 / 単勝 -->
+  <div class="michi-card">
+    <div class="michi-head michi-ten">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="michi-title">☀ 天の道</p>
+          <p class="michi-sub">TAN-SHŌ ／ 単勝1点</p>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="text-[10px] font-bold opacity-80">奉納</p>
+          <p class="label-data text-2xl font-black">¥100</p>
+        </div>
+      </div>
+    </div>
+    <div class="michi-body">
+      <div class="grid grid-cols-2 gap-4 mb-3">
+        <div>
+          <p class="rate-label mb-1">的中率</p>
+          <p class="rate-big kin">5.56<span class="rate-pct">%</span></p>
+          <p class="text-[10px] mt-1" style="color:rgba(26,26,26,.55);">= 1 / 18</p>
+        </div>
+        <div>
+          <p class="rate-label mb-1">神意</p>
+          <p class="serif-headline text-sm font-black leading-tight" style="color:#1A1A1A;">一頭を射貫く<br>ただ一頭</p>
+          <p class="text-[10px] mt-1" style="color:rgba(26,26,26,.6); line-height:1.5;">勝ち馬を一頭だけ選ぶ道。低確率だが配当は正直。</p>
+        </div>
+      </div>
+      <div class="shinkun kin">
+        <b class="lead" style="color:#8B7530;">◉ 神訓：</b>
+        本命◎の腕を信じる者のみ授かる御札。平均配当7〜8倍、大穴なら神の贈り物。<b>総合スコア1位</b>に奉る。
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌿 地の道 / 複勝 -->
+  <div class="michi-card">
+    <div class="michi-head michi-chi">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="michi-title">🌿 地の道</p>
+          <p class="michi-sub">FUKU-SHŌ ／ 複勝1点</p>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="text-[10px] font-bold opacity-80">奉納</p>
+          <p class="label-data text-2xl font-black">¥100</p>
+        </div>
+      </div>
+    </div>
+    <div class="michi-body">
+      <div class="grid grid-cols-2 gap-4 mb-3">
+        <div>
+          <p class="rate-label mb-1">的中率</p>
+          <p class="rate-big midori">16.67<span class="rate-pct">%</span></p>
+          <p class="text-[10px] mt-1" style="color:rgba(26,26,26,.55);">= 3 / 18 （単勝の3倍）</p>
+        </div>
+        <div>
+          <p class="rate-label mb-1">神意</p>
+          <p class="serif-headline text-sm font-black leading-tight" style="color:#1A1A1A;">三頭の輪に<br>滑り込む</p>
+          <p class="text-[10px] mt-1" style="color:rgba(26,26,26,.6); line-height:1.5;">3着以内に一頭を選ぶ。6回に1回は授かる堅実の道。</p>
+        </div>
+      </div>
+      <div class="shinkun midori">
+        <b class="lead" style="color:#1F4D2E;">◉ 神訓：</b>
+        配当は2〜4倍と低いが「足場の御札」。単勝の保険ではなく、<b>独立した信仰の対象</b>。総合スコア1位への二重奉納で信頼を示す。
+      </div>
+    </div>
+  </div>
+
+  <!-- 🤝 人の道 / ワイド4頭BOX -->
+  <div class="michi-card" style="border-width:2px; border-color:#9B2D30; box-shadow:0 3px 14px rgba(155,45,48,.12);">
+    <div class="michi-head michi-jin">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="michi-title">🤝 人の道</p>
+          <p class="michi-sub">WIDE 4-TŌ BOX ／ 6点</p>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="text-[10px] font-bold opacity-80">奉納</p>
+          <p class="label-data text-2xl font-black">¥600</p>
+        </div>
+      </div>
+    </div>
+    <div class="michi-body">
+      <div class="grid grid-cols-2 gap-4 mb-3">
+        <div>
+          <p class="rate-label mb-1">少なくとも1点的中</p>
+          <p class="rate-big shu">10.78<span class="rate-pct">%</span></p>
+          <p class="text-[10px] mt-1" style="color:rgba(26,26,26,.55);">※ 無作為4頭選択時</p>
+        </div>
+        <div>
+          <p class="rate-label mb-1">神意</p>
+          <p class="serif-headline text-sm font-black leading-tight" style="color:#1A1A1A;">四頭を選び<br>二頭の縁を結ぶ</p>
+          <p class="text-[10px] mt-1" style="color:rgba(26,26,26,.6); line-height:1.5;">選んだ4頭のうち、3着以内の2頭が共鳴すれば的中。</p>
+        </div>
+      </div>
+
+      <!-- 4頭BOX 内訳 -->
+      <div class="rounded-xl p-3 mb-3" style="background:rgba(155,45,48,.05); border:1px solid rgba(155,45,48,.25);">
+        <p class="text-[10px] font-black mb-2" style="color:#7A1E1E; letter-spacing:.05em;">⚖ 4頭BOX × 6点 の内訳</p>
+        <div class="grid grid-cols-3 gap-2 text-center">
+          <div>
+            <p class="text-[9px] font-bold" style="color:rgba(26,26,26,.55);">3頭的中</p>
+            <p class="label-data font-black text-xl" style="color:#9B2D30;">3<span class="text-xs">点</span></p>
+            <p class="text-[9px]" style="color:rgba(26,26,26,.45);">確率 0.49%</p>
+          </div>
+          <div>
+            <p class="text-[9px] font-bold" style="color:rgba(26,26,26,.55);">2頭的中</p>
+            <p class="label-data font-black text-xl" style="color:#9B2D30;">1<span class="text-xs">点</span></p>
+            <p class="text-[9px]" style="color:rgba(26,26,26,.45);">確率 10.29%</p>
+          </div>
+          <div>
+            <p class="text-[9px] font-bold" style="color:rgba(26,26,26,.55);">それ以下</p>
+            <p class="label-data font-black text-xl" style="color:rgba(26,26,26,.4);">0<span class="text-xs">点</span></p>
+            <p class="text-[9px]" style="color:rgba(26,26,26,.45);">確率 89.22%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="shinkun shu">
+        <b class="lead" style="color:#9B2D30;">◉ 神訓：</b>
+        当神宮の極意は <b>人気馬2頭＋穴馬2頭</b>で編み上げること。3着以内に2頭食い込めば最低1点、3頭食い込めば3点的中。低倍率の人気馬と高倍率の穴馬を「共鳴させる」術で、単複では取り逃す<b>中配当</b>を拾う。
+      </div>
+    </div>
+  </div>
+
+  <!-- 🎯 神託の實例 — 2005年菊花賞 -->
+  <div class="michi-card" style="border:2px solid #8B7530; box-shadow:0 3px 14px rgba(139,117,48,.18);">
+    <div class="michi-head" style="background:linear-gradient(135deg,#8B7530,#5A4D1F); color:#FBF7EE;">
+      <div class="flex items-center gap-2">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:2px solid #FBF7EE;color:#FBF7EE;font-family:'Shippori Mincho',serif;font-weight:900;font-size:13px;border-radius:4px;background:rgba(122,30,30,.35);">證</span>
+        <div>
+          <p class="michi-title">神託の實例</p>
+          <p class="michi-sub">2005年 菊花賞 ／ 人の道の證（あかし）</p>
+        </div>
+      </div>
+    </div>
+    <div class="michi-body">
+      <p class="text-xs leading-relaxed mb-4" style="color:rgba(26,26,26,.8); font-family:'Shippori Mincho',serif;">
+        三冠を懸けたディープインパクト、単勝 <b style="color:#7A1E1E;">1.0倍</b> の鉄板。此の「祝福無き単勝」の裏で、神は<b style="color:#9B2D30;">ワイドに仕掛け</b>を置いた。
+      </p>
+
+      <!-- Result table -->
+      <div class="rounded-xl overflow-hidden mb-4" style="border:1px solid rgba(201,169,97,.4);">
+        <table class="oracle-table" style="margin:0;">
+          <thead>
+            <tr>
+              <th style="text-align:left; padding-left:10px;">着順</th>
+              <th>馬番</th>
+              <th style="text-align:left;">馬名</th>
+              <th>単勝</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:rgba(201,169,97,.16);">
+              <td class="name" style="font-size:14px; color:#7A1E1E;">1着</td>
+              <td class="label-data font-black">7</td>
+              <td class="name" style="padding-left:4px;">ディープインパクト</td>
+              <td class="label-data font-black" style="color:#7A1E1E;">1.0</td>
+            </tr>
+            <tr class="tsuuzu">
+              <td class="name" style="font-size:13px;">2着</td>
+              <td class="label-data font-black">6</td>
+              <td class="name" style="padding-left:4px;">アドマイヤジャパン</td>
+              <td class="label-data font-black" style="color:#1F4D2E;">50.3</td>
+            </tr>
+            <tr class="tsuuzu">
+              <td class="name" style="font-size:13px;">3着</td>
+              <td class="label-data font-black">4</td>
+              <td class="name" style="padding-left:4px;">ローゼンクロイツ</td>
+              <td class="label-data font-black" style="color:#1F4D2E;">25.3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Wide payout comparison -->
+      <p class="text-[10px] font-black mb-2 px-1" style="color:#7A1E1E; letter-spacing:.06em;">⚖ ワイド3通り の配当</p>
+      <div class="space-y-1.5 mb-4">
+        <div class="flex items-center justify-between rounded-lg px-3 py-2" style="background:rgba(26,26,26,.04);">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-bold" style="color:rgba(26,26,26,.55);">1-2着</span>
+            <span class="label-data font-black text-sm" style="color:#1A1A1A;">7 - 6</span>
+            <span class="text-[9px]" style="color:rgba(26,26,26,.5);">（ディープ絡み）</span>
+          </div>
+          <span class="label-data font-black text-base" style="color:rgba(26,26,26,.7);">¥620</span>
+        </div>
+        <div class="flex items-center justify-between rounded-lg px-3 py-2" style="background:rgba(26,26,26,.04);">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-bold" style="color:rgba(26,26,26,.55);">1-3着</span>
+            <span class="label-data font-black text-sm" style="color:#1A1A1A;">7 - 4</span>
+            <span class="text-[9px]" style="color:rgba(26,26,26,.5);">（ディープ絡み）</span>
+          </div>
+          <span class="label-data font-black text-base" style="color:rgba(26,26,26,.7);">¥230</span>
+        </div>
+        <div class="flex items-center justify-between rounded-lg px-3 py-2" style="background:rgba(201,169,97,.22); border:1.5px solid #9B2D30; box-shadow:0 2px 6px rgba(155,45,48,.15);">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-black" style="color:#9B2D30;">🔥 2-3着</span>
+            <span class="label-data font-black text-sm" style="color:#1A1A1A;">6 - 4</span>
+            <span class="text-[9px] font-bold" style="color:#7A1E1E;">（ディープ抜き）</span>
+          </div>
+          <span class="label-data font-black text-xl" style="color:#9B2D30;">¥1,720</span>
+        </div>
+      </div>
+
+      <!-- Simulation box -->
+      <div class="rounded-xl p-4" style="background:linear-gradient(135deg,#FBF7EE,#F4EDD5); border:2px solid #9B2D30; box-shadow:0 2px 10px rgba(155,45,48,.15);">
+        <p class="text-[10px] font-black mb-2" style="color:#7A1E1E; letter-spacing:.06em;">🤝 もし「人の道」4頭BOXで奉納していたら</p>
+        <p class="text-[11px] leading-relaxed mb-3" style="color:#1A1A1A; font-family:'Shippori Mincho',serif;">
+          人気: <b>ディープ(7)</b>＋<b>もう1頭</b> ／ 穴: <b>アドマイヤジャパン(6)</b>＋<b>ローゼンクロイツ(4)</b>
+        </p>
+        <div class="grid grid-cols-3 gap-2 text-center mb-3">
+          <div class="rounded-lg py-2" style="background:rgba(26,26,26,.08);">
+            <p class="text-[9px] font-bold" style="color:rgba(26,26,26,.55);">奉納</p>
+            <p class="label-data font-black text-base mt-0.5" style="color:#1A1A1A;">¥600</p>
+          </div>
+          <div class="rounded-lg py-2" style="background:rgba(155,45,48,.15);">
+            <p class="text-[9px] font-bold" style="color:rgba(26,26,26,.55);">3点的中</p>
+            <p class="label-data font-black text-base mt-0.5" style="color:#9B2D30;">¥2,570</p>
+          </div>
+          <div class="rounded-lg py-2" style="background:linear-gradient(135deg,#9B2D30,#7A1E1E);">
+            <p class="text-[9px] font-bold text-white/80">回収率</p>
+            <p class="label-data font-black text-base mt-0.5" style="color:#C9A961;">428%</p>
+          </div>
+        </div>
+        <p class="text-[10px] leading-relaxed" style="color:rgba(26,26,26,.7);">
+          620 + 230 + 1,720 = <b style="color:#1A1A1A;">¥2,570</b>。<br>
+          単勝の祝福を失っても、<b style="color:#9B2D30;">ワイドで4倍超の御利益</b>を得る。これぞ人の道。
+        </p>
+      </div>
+
+      <!-- Closing 神訓 -->
+      <div class="shinkun shu mt-3">
+        <b class="lead" style="color:#9B2D30;">◉ 神訓：</b>
+        <b>単勝鉄板レースでこそ、ワイド4頭BOX（人気2＋穴2）の神意は顕れる。</b> 1.0倍の祝福無き道を避け、2-3着の共鳴に賭けよ。
+      </div>
+    </div>
+  </div>
+
+  <!-- 神殿の算盤（3券種合計）-->
+  <div class="soroban">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="material-symbols-outlined text-xl" style="color:#8B7530; font-variation-settings:'FILL' 1;">auto_awesome</span>
+      <p class="font-black text-sm serif-headline" style="color:#1A1A1A; letter-spacing:.06em;">神殿の算盤 — 一レース合計</p>
+    </div>
+    <div class="grid grid-cols-4 gap-2 text-center mb-3">
+      <div class="rounded-lg py-3" style="background:rgba(139,117,48,.18);">
+        <p class="text-[9px] font-bold" style="color:rgba(26,26,26,.65);">☀ 天</p>
+        <p class="label-data font-black text-base mt-0.5" style="color:#8B7530;">¥100</p>
+      </div>
+      <div class="rounded-lg py-3" style="background:rgba(31,77,46,.18);">
+        <p class="text-[9px] font-bold" style="color:rgba(26,26,26,.65);">🌿 地</p>
+        <p class="label-data font-black text-base mt-0.5" style="color:#1F4D2E;">¥100</p>
+      </div>
+      <div class="rounded-lg py-3" style="background:rgba(155,45,48,.18);">
+        <p class="text-[9px] font-bold" style="color:rgba(26,26,26,.65);">🤝 人</p>
+        <p class="label-data font-black text-base mt-0.5" style="color:#9B2D30;">¥600</p>
+      </div>
+      <div class="rounded-lg py-3" style="background:#1A1A1A;">
+        <p class="text-[9px] font-bold text-white/70">合計</p>
+        <p class="label-data font-black text-base mt-0.5" style="color:#C9A961;">¥800</p>
+      </div>
+    </div>
+    <p class="text-[11px] leading-relaxed" style="color:rgba(26,26,26,.72);">
+      月4週 × G1/G2 3R ≒ <b>¥9,600 / 月</b>。<br>
+      これは3連単7頭BOX（¥21,000）の <b style="color:#9B2D30;">半額以下</b>。神は倹約を尊ぶ。
+    </p>
+  </div>
+
+  <!-- 4. セクション見出し：魔物の道 -->
+  <div class="torii-sep" style="margin-top:8px;">
+    <span class="torii-mark" style="color:#7A1E1E;">👹 魔物の道 👹</span>
+  </div>
+  <div class="px-2">
+    <h2 class="serif-headline text-xl font-black" style="color:#1A1A1A;">算盤の地獄 — 3連系の真実</h2>
+    <p class="text-xs mt-1" style="color:rgba(26,26,26,.65);">「何点買えば当たるか」── 神が嘆く数字を見よ。</p>
+  </div>
+
+  <!-- 3連複 BOX 表 -->
+  <div class="michi-card">
+    <div class="michi-head michi-mamono">
       <div>
-        <p class="text-white font-black text-sm">【単複王道】◎単勝 ＋ ○複勝</p>
-        <p class="text-yellow-200 text-[10px] font-bold">シンプル最強。本命を信じるなら単複が最高効率</p>
+        <p class="michi-title">🩸 3連複 BOX</p>
+        <p class="michi-sub">全816通り ／ N頭BOX と的中率</p>
       </div>
     </div>
-    <div class="px-5 py-4 space-y-2">
-      <div class="grid grid-cols-2 gap-2">
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">単勝</span>
-            <p class="text-[9px] text-[#707a6a]">◎（または自由に選択）</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">1点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">複勝</span>
-            <p class="text-[9px] text-[#707a6a]">○（または自由に選択）</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">1点</span>
-        </div>
+    <div class="p-3">
+      <table class="oracle-table">
+        <thead>
+          <tr>
+            <th style="text-align:left; padding-left:8px;">N頭BOX</th>
+            <th>点数</th>
+            <th>代金</th>
+            <th>的中率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">3頭</td><td>1</td><td>¥100</td><td>0.12%</td></tr>
+          <tr><td class="name">4頭</td><td>4</td><td>¥400</td><td>0.49%</td></tr>
+          <tr><td class="name">5頭</td><td>10</td><td>¥1,000</td><td>1.23%</td></tr>
+          <tr><td class="name">6頭</td><td>20</td><td>¥2,000</td><td>2.45%</td></tr>
+          <tr><td class="name">7頭</td><td>35</td><td>¥3,500</td><td>4.29%</td></tr>
+          <tr><td class="name">8頭</td><td>56</td><td>¥5,600</td><td>6.86%</td></tr>
+          <tr class="mamono"><td class="name">10頭</td><td>120</td><td class="bad">¥12,000</td><td class="bad">14.71%</td></tr>
+        </tbody>
+      </table>
+      <div class="warning-box mt-3 mx-1">
+        <p class="text-[11px] leading-relaxed" style="color:#1A1A1A;">
+          ⚠ <b style="color:#7A1E1E;">10頭BOX 14.71%</b> は<br>
+          ワイド4頭BOXの <b style="color:#9B2D30;">10.78%</b>（1点以上的中）と<b>ほぼ同じ</b>。<br>
+          <span style="font-size:10px; color:rgba(26,26,26,.6);">然るに代金は <b style="color:#7A1E1E;">20倍</b>（¥12,000 vs ¥600）。これが魔物の算盤。</span>
+        </p>
       </div>
-      <p class="text-[10px] text-[#707a6a] leading-relaxed pt-1">単勝と複勝のシンプル2点買い。配当が低い本命レースでも回収率を最大化できるアーミーの基本型。◎と○を同一馬にすることも可能。</p>
     </div>
   </div>
 
-  <!-- ① 精鋭BOX -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden">
-    <div class="bg-[#004900] px-5 py-3 flex items-center gap-2">
-      <span class="material-symbols-outlined text-[#82db6f] text-lg" style="font-variation-settings:'FILL' 1">military_tech</span>
+  <!-- 3連単 BOX 表 -->
+  <div class="michi-card">
+    <div class="michi-head michi-mamono">
       <div>
-        <p class="text-white font-black text-sm">【精鋭】◎◯▲☆ 4頭BOX</p>
-        <p class="text-[#82db6f] text-[10px] font-bold">上位4頭を均等に信頼する全網羅戦術</p>
+        <p class="michi-title">☠ 3連単 BOX</p>
+        <p class="michi-sub">全4,896通り ／ 順序まで当てる至難の道</p>
       </div>
     </div>
-    <div class="px-5 py-4 space-y-2">
-      <div class="grid grid-cols-2 gap-2">
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <span class="text-sm font-bold text-[#191c1b]">馬連 BOX</span>
-          <span class="label-data text-lg font-black text-[#004900]">6点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <span class="text-sm font-bold text-[#191c1b]">馬単 BOX</span>
-          <span class="label-data text-lg font-black text-[#004900]">12点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <span class="text-sm font-bold text-[#191c1b]">3連複 BOX</span>
-          <span class="label-data text-lg font-black text-[#004900]">4点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <span class="text-sm font-bold text-[#191c1b]">3連単 BOX</span>
-          <span class="label-data text-lg font-black text-[#004900]">24点</span>
-        </div>
+    <div class="p-3">
+      <table class="oracle-table">
+        <thead>
+          <tr>
+            <th style="text-align:left; padding-left:8px;">N頭BOX</th>
+            <th>点数</th>
+            <th>代金</th>
+            <th>的中率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">3頭</td><td>6</td><td>¥600</td><td>0.12%</td></tr>
+          <tr><td class="name">4頭</td><td>24</td><td>¥2,400</td><td>0.49%</td></tr>
+          <tr><td class="name">5頭</td><td>60</td><td>¥6,000</td><td>1.23%</td></tr>
+          <tr><td class="name">6頭</td><td>120</td><td>¥12,000</td><td>2.45%</td></tr>
+          <tr><td class="name">7頭</td><td>210</td><td>¥21,000</td><td>4.29%</td></tr>
+          <tr><td class="name">8頭</td><td>336</td><td>¥33,600</td><td>6.86%</td></tr>
+          <tr class="mamono"><td class="name">10頭</td><td>720</td><td class="bad">¥72,000</td><td class="bad">14.71%</td></tr>
+        </tbody>
+      </table>
+      <div class="warning-box mt-3 mx-1">
+        <p class="text-[11px] leading-relaxed" style="color:#1A1A1A;">
+          ☠ <b style="color:#7A1E1E;">10頭BOX ¥72,000。</b><br>
+          人の道（ワイド4頭BOX ¥600）と<b>的中率ほぼ同じ</b>にも関わらず、<br>
+          <span style="color:#7A1E1E;"><b>代金120倍</b></span>の献上が求められる道。<br>
+          <span style="font-size:10px; color:rgba(26,26,26,.6); font-style:italic;">神曰く「順序を当てよ」などと命ぜられた記憶はない。</span>
+        </p>
       </div>
-      <p class="text-[10px] text-[#707a6a] leading-relaxed pt-1">◎◯▲☆ の4頭が信頼できるときに使う全方位網羅型だ。3連複4点は低コスト高回収の黄金配合。</p>
     </div>
   </div>
 
-  <!-- ② ニックの魂 1頭軸 -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden">
-    <div class="bg-[#790b4a] px-5 py-3 flex items-center gap-2">
-      <span class="material-symbols-outlined text-[#ffb0ce] text-lg" style="font-variation-settings:'FILL' 1">favorite</span>
-      <div>
-        <p class="text-white font-black text-sm">【ニックの魂】◎ 1頭軸流し</p>
-        <p class="text-[#ffb0ce] text-[10px] font-bold">相手：◯▲☆△△△ ← 6頭まで広げられる</p>
-      </div>
-    </div>
-    <div class="px-5 py-4 space-y-2">
-      <div class="grid grid-cols-2 gap-2">
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">馬連流し</span>
-            <p class="text-[9px] text-[#707a6a]">◎→◯▲☆△△△</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">6点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">馬単マルチ</span>
-            <p class="text-[9px] text-[#707a6a]">◎↔◯▲☆△△△</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">12点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">3連複1頭軸</span>
-            <p class="text-[9px] text-[#707a6a]">◎軸→6頭相手</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">15点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">3連単1着固定</span>
-            <p class="text-[9px] text-[#707a6a]">◎1着→残り流し</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">30点</span>
-        </div>
-      </div>
-      <p class="text-[10px] text-[#707a6a] leading-relaxed pt-1">本命◎が鉄板なら迷わずこれだ。3連複15点が核心。コストと期待値のバランスが一番いい。</p>
-    </div>
-  </div>
-
-  <!-- ③ 鉄壁の布陣 2頭軸 -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden">
-    <div class="bg-[#1a5fd4] px-5 py-3 flex items-center gap-2">
-      <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'FILL' 1">shield</span>
-      <div>
-        <p class="text-white font-black text-sm">【鉄壁の布陣】◎◯ 2頭軸</p>
-        <p class="text-white/70 text-[10px] font-bold">相手：▲☆△△△ ← 5頭</p>
-      </div>
-    </div>
-    <div class="px-5 py-4 space-y-2">
-      <div class="grid grid-cols-2 gap-2">
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">馬連1点</span>
-            <p class="text-[9px] text-[#707a6a]">◎○の組み合わせ</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">1点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">馬単2点</span>
-            <p class="text-[9px] text-[#707a6a]">◎→○ ＋ ○→◎</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">2点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">3連複 2頭軸</span>
-            <p class="text-[9px] text-[#707a6a]">◎○軸→5頭相手</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">5点</span>
-        </div>
-        <div class="bg-[#f2f4f2] rounded-xl p-3 flex items-center justify-between">
-          <div>
-            <span class="text-sm font-bold text-[#191c1b]">3連単 2頭軸マルチ</span>
-            <p class="text-[9px] text-[#707a6a]">◎○2頭軸マルチ</p>
-          </div>
-          <span class="label-data text-lg font-black text-[#004900]">30点</span>
-        </div>
-      </div>
-      <p class="text-[10px] text-[#707a6a] leading-relaxed pt-1">◎◯の2頭が鉄板なら3連複5点で高配当を狙う。最も効率がいいパターンだ。</p>
-    </div>
-  </div>
-
-  <!-- ④ 2連系フォーメーション -->
-  <div class="bg-white rounded-2xl border border-[#bfcab7]/60 shadow-sm overflow-hidden">
-    <div class="bg-[#374151] px-5 py-3">
-      <p class="text-white font-black text-sm">✅ 2連系推奨フォーメーション</p>
-    </div>
-    <div class="px-5 py-4">
-      <div class="bg-[#f2f4f2] rounded-xl p-4 space-y-3">
-        <div class="flex items-start gap-3">
-          <div class="text-center shrink-0 w-16">
-            <p class="text-[9px] text-[#707a6a] font-bold uppercase tracking-wider">1列目</p>
-            <p class="text-base font-black mt-0.5">
-              <span class="mark-hon">◎</span><span class="mark-tai">○</span>
-            </p>
-          </div>
-          <div class="flex-1 border-l border-[#bfcab7] pl-3">
-            <p class="text-[9px] text-[#707a6a] font-bold uppercase tracking-wider">2列目</p>
-            <p class="text-sm font-black mt-0.5">
-              <span class="mark-hon">◎</span><span class="mark-tai">○</span><span class="mark-tan">▲</span><span class="mark-yoshi text-[#006400]">☆</span><span class="mark-delta">△△△</span>
-            </p>
-          </div>
-        </div>
-        <div class="border-t border-[#e5e7eb] pt-3 grid grid-cols-2 gap-2">
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-bold">馬連</span>
-            <span class="label-data text-lg font-black text-[#004900]">11点</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-bold">馬単</span>
-            <span class="label-data text-lg font-black text-[#004900]">12点</span>
-          </div>
-        </div>
-      </div>
-      <p class="text-[10px] text-[#707a6a] leading-relaxed mt-3">◎○どちらが1着でも来る前提で全相手をカバー。馬連11点は実戦的な点数だ。</p>
-    </div>
-  </div>
-
-  <!-- ⑤ 3連系フォーメーション -->
-  <div class="bg-white rounded-2xl border-2 border-[#dc2626]/40 shadow-md overflow-hidden">
-    <div class="bg-gradient-to-r from-[#7f1d1d] to-[#991b1b] px-5 py-3 flex items-center gap-2">
-      <span class="text-xl">🔥</span>
-      <div>
-        <p class="text-white font-black text-sm">🔥 3連系推奨フォーメーション（万馬券強奪用）</p>
-        <p class="text-white/70 text-[10px] font-bold">アーミー必須の強奪フォーメーション</p>
-      </div>
-    </div>
-    <div class="px-5 py-4">
-      <div class="bg-[#f2f4f2] rounded-xl p-4 space-y-3">
-        <div class="space-y-2">
-          <div class="flex items-start gap-3">
-            <div class="text-center shrink-0 w-16">
-              <p class="text-[9px] text-[#707a6a] font-bold uppercase tracking-wider">1列目</p>
-              <p class="text-base font-black mt-0.5"><span class="mark-hon">◎</span><span class="mark-tai">○</span></p>
-            </div>
-            <div class="flex-1 border-l border-[#bfcab7] pl-3">
-              <p class="text-[9px] text-[#707a6a] font-bold uppercase tracking-wider">2列目</p>
-              <p class="text-sm font-black mt-0.5"><span class="mark-hon">◎</span><span class="mark-tai">○</span><span class="mark-tan">▲</span><span class="mark-yoshi text-[#006400]">☆</span></p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <div class="text-center shrink-0 w-16">
-              <p class="text-[9px] text-[#707a6a] font-bold uppercase tracking-wider">3列目</p>
-            </div>
-            <div class="flex-1 border-l border-[#bfcab7] pl-3">
-              <p class="text-sm font-black mt-0.5"><span class="mark-hon">◎</span><span class="mark-tai">○</span><span class="mark-tan">▲</span><span class="mark-yoshi text-[#006400]">☆</span><span class="mark-delta">△△△</span></p>
-            </div>
-          </div>
-        </div>
-        <div class="border-t border-[#e5e7eb] pt-3 grid grid-cols-2 gap-2">
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-bold">3連複</span>
-            <span class="label-data text-xl font-black text-[#dc2626]">21点</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-bold">3連単</span>
-            <span class="label-data text-xl font-black text-[#dc2626]">30点</span>
-          </div>
-        </div>
-      </div>
-      <p class="text-[10px] text-[#707a6a] leading-relaxed mt-3">3連複21点が万馬券強奪の基本形だ。3連単30点は大物狙い。ここに金を集中させろ。配当が跳ねたとき初めてアーミーは「強奪」を体感できるぞ。</p>
-    </div>
-  </div>
-
-  <!-- まとめ -->
-  <div class="bg-[#191c1b] rounded-2xl px-5 py-4 text-white">
-    <p class="text-[#82db6f] font-black text-sm mb-2">🤡 強奪ニック流 使い分けルール</p>
-    <div class="space-y-2 text-xs leading-relaxed">
+  <!-- 結び -->
+  <div class="musubi">
+    <p class="text-[10px] font-black uppercase tracking-widest mb-3" style="color:#C9A961;">⛩ 結びの神託</p>
+    <p class="kotoba mb-4">少額にて確率と向き合え。<br>配当は神の気まぐれ、<br>的中率は自らの選択。</p>
+    <div class="space-y-2 text-xs leading-relaxed" style="color:rgba(251,247,238,.88);">
       <div class="flex gap-2">
-        <span class="shrink-0 text-[#82db6f] font-black">◎が鉄板</span>
-        <span class="text-white/70">→ 1頭軸流し（3連複15点）が最高効率</span>
+        <span class="shrink-0 font-black" style="color:#C9A961; min-width:48px;">☀ 天</span>
+        <span>単勝一点 — 最上の本命を射貫く信仰。</span>
       </div>
       <div class="flex gap-2">
-        <span class="shrink-0 text-[#82db6f] font-black">◎◯が鉄板</span>
-        <span class="text-white/70">→ 2頭軸3連複（5点）でコスト最小化</span>
+        <span class="shrink-0 font-black" style="color:#C9A961; min-width:48px;">🌿 地</span>
+        <span>複勝一点 — 3着の輪を味方にする堅実。</span>
       </div>
       <div class="flex gap-2">
-        <span class="shrink-0 text-[#82db6f] font-black">混戦レース</span>
-        <span class="text-white/70">→ 精鋭4頭BOX or 万馬券フォーメーション</span>
-      </div>
-      <div class="flex gap-2">
-        <span class="shrink-0 text-[#82db6f] font-black">穴馬激推し</span>
-        <span class="text-white/70">→ 3連複21点フォーメーションで一発狙え</span>
+        <span class="shrink-0 font-black" style="color:#C9A961; min-width:48px;">🤝 人</span>
+        <span>ワイド4頭BOX — 人気2＋穴2で中配当を縒る。</span>
       </div>
     </div>
-    <p class="text-[10px] text-white/40 mt-3">本サイトの予想はエンターテインメント目的です。馬券購入は自己責任でお願いします。</p>
+    <p class="text-[10px] mt-5 pt-3 border-t border-white/15" style="color:rgba(251,247,238,.45); line-height:1.6;">
+      本サイトの予想はエンターテインメント目的です。<br>馬券購入は自己責任でお願いします。
+    </p>
   </div>
 
   <div class="h-4"></div>
 </main>
 
 <!-- Footer -->
-<footer class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-[#bfcab7]/40 px-6 py-3">
+<footer class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t px-6 py-3" style="border-color:rgba(201,169,97,.4);">
   <div class="flex items-center justify-center gap-6 max-w-lg mx-auto">
-    <a href="./archive.html" class="flex items-center gap-1.5 text-[#707a6a] font-bold text-sm hover:text-[#004900] transition-colors">
+    <a href="./archive.html" class="flex items-center gap-1.5 font-bold text-sm transition-colors" style="color:rgba(26,26,26,.65);">
       <span class="material-symbols-outlined text-base">folder_open</span>
       アーカイブ
     </a>
-    <a href="./2026-03-21-ug-free-7x9z2p/index.html" class="flex items-center gap-1.5 text-[#004900] font-bold text-sm hover:underline">
+    <a href="index.html" class="flex items-center gap-1.5 font-bold text-sm hover:underline" style="color:#9B2D30;">
       <span class="material-symbols-outlined text-base">home</span>
       最新予想に戻る
     </a>

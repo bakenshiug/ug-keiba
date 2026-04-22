@@ -693,5 +693,833 @@
         "shutubaGaikyu": "在厩調整"
       }
     }
-  ]
+  ],
+  "finalBets": {
+    "generatedAt": "2026-04-22T18:31:37",
+    "logicVersion": "v2-rel-lap-bets-1",
+    "readiness": "0/25",
+    "readinessPct": 0.0,
+    "config": {
+      "gradePoints": {
+        "S": 5,
+        "A": 3,
+        "B": 0,
+        "C": -2,
+        "D": -4
+      },
+      "weights": {
+        "relComment": 1.0,
+        "lapFactors": 1.0,
+        "gaikyuFactor": 0.5
+      },
+      "anaSlot": {
+        "enabled": true,
+        "minOdds": 10.0,
+        "minScore": 3.0,
+        "targetSlot": 4
+      }
+    },
+    "scoreboard": [
+      {
+        "rank": 1,
+        "num": null,
+        "name": "ノーブルサヴェージ",
+        "score": 6.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "S",
+            "pt": 5,
+            "weight": 1.0,
+            "weighted": 5.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 5.9
+      },
+      {
+        "rank": 2,
+        "num": null,
+        "name": "シャドウマスター",
+        "score": 6.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "S",
+            "pt": 5,
+            "weight": 1.0,
+            "weighted": 5.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 30.7
+      },
+      {
+        "rank": 3,
+        "num": null,
+        "name": "ブラックオリンピア",
+        "score": 5.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "S",
+            "pt": 5,
+            "weight": 1.0,
+            "weighted": 5.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 3.7
+      },
+      {
+        "rank": 4,
+        "num": null,
+        "name": "アローメタル",
+        "score": 4.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 5.9
+      },
+      {
+        "rank": 5,
+        "num": null,
+        "name": "サガルマータ",
+        "score": 4.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 13.9
+      },
+      {
+        "rank": 6,
+        "num": null,
+        "name": "ミッキーファルコン",
+        "score": 4.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 26.7
+      },
+      {
+        "rank": 7,
+        "num": null,
+        "name": "ノチェセラーダ",
+        "score": 4.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 44.5
+      },
+      {
+        "rank": 8,
+        "num": null,
+        "name": "テルヒコウ",
+        "score": 3.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 23.2
+      },
+      {
+        "rank": 9,
+        "num": null,
+        "name": "ラストスマイル",
+        "score": 3.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 24.0
+      },
+      {
+        "rank": 10,
+        "num": null,
+        "name": "エーデルゼーレ",
+        "score": 3.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 56.3
+      },
+      {
+        "rank": 11,
+        "num": null,
+        "name": "カットソロ",
+        "score": 3.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 57.8
+      },
+      {
+        "rank": 12,
+        "num": null,
+        "name": "ゴーイントゥスカイ",
+        "score": 0.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 13.1
+      },
+      {
+        "rank": 13,
+        "num": null,
+        "name": "タイダルロック",
+        "score": 0.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 14.0
+      },
+      {
+        "rank": 14,
+        "num": null,
+        "name": "オリオンブレード",
+        "score": 0.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 78.0
+      },
+      {
+        "rank": 15,
+        "num": null,
+        "name": "ケントン",
+        "score": 0.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 116.1
+      },
+      {
+        "rank": 16,
+        "num": null,
+        "name": "オルフセン",
+        "score": -0.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 17.4
+      },
+      {
+        "rank": 17,
+        "num": null,
+        "name": "ヴィサージュ",
+        "score": -0.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 19.2
+      },
+      {
+        "rank": 18,
+        "num": null,
+        "name": "アッカン",
+        "score": -0.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 48.8
+      },
+      {
+        "rank": 19,
+        "num": null,
+        "name": "ボンドマティーニ",
+        "score": -2.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 55.9
+      },
+      {
+        "rank": 20,
+        "num": null,
+        "name": "ベルウッドクレド",
+        "score": -2.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 87.8
+      },
+      {
+        "rank": 21,
+        "num": null,
+        "name": "パラディオン",
+        "score": -2.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 125.9
+      },
+      {
+        "rank": 22,
+        "num": null,
+        "name": "ヨカオウ",
+        "score": -2.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 131.9
+      },
+      {
+        "rank": 23,
+        "num": null,
+        "name": "ヒシアムルーズ",
+        "score": -3.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 0.5,
+            "weighted": -1.0
+          }
+        },
+        "expectedOdds": 297.4
+      },
+      {
+        "rank": 24,
+        "num": null,
+        "name": "コスモギガンティア",
+        "score": -4.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "D",
+            "pt": -4,
+            "weight": 1.0,
+            "weighted": -4.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 104.2
+      },
+      {
+        "rank": 25,
+        "num": null,
+        "name": "トゥーナスタディ",
+        "score": -4.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "D",
+            "pt": -4,
+            "weight": 1.0,
+            "weighted": -4.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 999.9
+      }
+    ],
+    "tan": {
+      "rank": 1,
+      "num": null,
+      "name": "ノーブルサヴェージ",
+      "amount": 100
+    },
+    "fuku": {
+      "rank": 1,
+      "num": null,
+      "name": "ノーブルサヴェージ",
+      "amount": 100
+    },
+    "wide4box": {
+      "horses": [
+        {
+          "rank": 1,
+          "num": null,
+          "name": "ノーブルサヴェージ",
+          "score": 6.5,
+          "isAna": false,
+          "tag": "ninki"
+        },
+        {
+          "rank": 2,
+          "num": null,
+          "name": "シャドウマスター",
+          "score": 6.5,
+          "isAna": true,
+          "tag": "ana"
+        },
+        {
+          "rank": 3,
+          "num": null,
+          "name": "ブラックオリンピア",
+          "score": 5.0,
+          "isAna": false,
+          "tag": "ninki"
+        },
+        {
+          "rank": 5,
+          "num": null,
+          "name": "サガルマータ",
+          "score": 4.5,
+          "isAna": true,
+          "tag": "ana"
+        }
+      ],
+      "combos": [
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ノーブルサヴェージ",
+            "シャドウマスター"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ノーブルサヴェージ",
+            "ブラックオリンピア"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ノーブルサヴェージ",
+            "サガルマータ"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "シャドウマスター",
+            "ブラックオリンピア"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "シャドウマスター",
+            "サガルマータ"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ブラックオリンピア",
+            "サガルマータ"
+          ]
+        }
+      ],
+      "comboCount": 6,
+      "amount": 600,
+      "composition": "2ninki+2ana",
+      "fallback": false,
+      "meta": {
+        "composition": "2ninki+2ana",
+        "ninkiCount": 2,
+        "anaCount": 2,
+        "fallback": false,
+        "ninkiPoolSize": 3,
+        "anaPoolSize": 8,
+        "minOdds": 10.0,
+        "minScore": 3.0
+      }
+    },
+    "totalSpend": 800
+  }
 }

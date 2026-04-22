@@ -441,5 +441,590 @@
         "shutubaGaikyu": "在厩調整"
       }
     }
-  ]
+  ],
+  "finalBets": {
+    "generatedAt": "2026-04-22T18:31:37",
+    "logicVersion": "v2-rel-lap-bets-1",
+    "readiness": "0/16",
+    "readinessPct": 0.0,
+    "config": {
+      "gradePoints": {
+        "S": 5,
+        "A": 3,
+        "B": 0,
+        "C": -2,
+        "D": -4
+      },
+      "weights": {
+        "relComment": 1.0,
+        "lapFactors": 1.0,
+        "gaikyuFactor": 0.5
+      },
+      "anaSlot": {
+        "enabled": true,
+        "minOdds": 10.0,
+        "minScore": 3.0,
+        "targetSlot": 4
+      }
+    },
+    "scoreboard": [
+      {
+        "rank": 1,
+        "num": null,
+        "name": "ファムクラジューズ",
+        "score": 6.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "S",
+            "pt": 5,
+            "weight": 1.0,
+            "weighted": 5.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 5.3
+      },
+      {
+        "rank": 2,
+        "num": null,
+        "name": "ラフターラインズ",
+        "score": 5.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "S",
+            "pt": 5,
+            "weight": 1.0,
+            "weighted": 5.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 2.3
+      },
+      {
+        "rank": 3,
+        "num": null,
+        "name": "エンネ",
+        "score": 4.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 5.8
+      },
+      {
+        "rank": 4,
+        "num": null,
+        "name": "リアライズルミナス",
+        "score": 4.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 9.6
+      },
+      {
+        "rank": 5,
+        "num": null,
+        "name": "サムシングスイート",
+        "score": 4.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 19.4
+      },
+      {
+        "rank": 6,
+        "num": null,
+        "name": "ラベルセーヌ",
+        "score": 3.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 6.5
+      },
+      {
+        "rank": 7,
+        "num": null,
+        "name": "リスレジャンデール",
+        "score": 3.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 23.6
+      },
+      {
+        "rank": 8,
+        "num": null,
+        "name": "ロングトールサリー",
+        "score": 3.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 1.0,
+            "weighted": 3.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 33.3
+      },
+      {
+        "rank": 9,
+        "num": null,
+        "name": "マツリダイコ",
+        "score": 0.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 18.5
+      },
+      {
+        "rank": 10,
+        "num": null,
+        "name": "スタニングレディ",
+        "score": 0.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 42.8
+      },
+      {
+        "rank": 11,
+        "num": null,
+        "name": "エイシンウィスパー",
+        "score": 0.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 111.7
+      },
+      {
+        "rank": 12,
+        "num": null,
+        "name": "ペイシャシス",
+        "score": -0.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 121.9
+      },
+      {
+        "rank": 13,
+        "num": null,
+        "name": "ゴバド",
+        "score": -2.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 83.9
+      },
+      {
+        "rank": 14,
+        "num": null,
+        "name": "コウギョク",
+        "score": -2.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 104.9
+      },
+      {
+        "rank": 15,
+        "num": null,
+        "name": "スピナーリート",
+        "score": -2.0,
+        "breakdown": {
+          "relComment": {
+            "grade": "C",
+            "pt": -2,
+            "weight": 1.0,
+            "weighted": -2.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "B",
+            "pt": 0,
+            "weight": 0.5,
+            "weighted": 0.0
+          }
+        },
+        "expectedOdds": 203.9
+      },
+      {
+        "rank": 16,
+        "num": null,
+        "name": "ペンダント",
+        "score": -2.5,
+        "breakdown": {
+          "relComment": {
+            "grade": "D",
+            "pt": -4,
+            "weight": 1.0,
+            "weighted": -4.0
+          },
+          "lapFactors": {
+            "grade": null,
+            "pt": 0,
+            "weight": 1.0,
+            "weighted": 0.0
+          },
+          "gaikyuFactor": {
+            "grade": "A",
+            "pt": 3,
+            "weight": 0.5,
+            "weighted": 1.5
+          }
+        },
+        "expectedOdds": 46.5
+      }
+    ],
+    "tan": {
+      "rank": 1,
+      "num": null,
+      "name": "ファムクラジューズ",
+      "amount": 100
+    },
+    "fuku": {
+      "rank": 1,
+      "num": null,
+      "name": "ファムクラジューズ",
+      "amount": 100
+    },
+    "wide4box": {
+      "horses": [
+        {
+          "rank": 1,
+          "num": null,
+          "name": "ファムクラジューズ",
+          "score": 6.5,
+          "isAna": false,
+          "tag": "ninki"
+        },
+        {
+          "rank": 2,
+          "num": null,
+          "name": "ラフターラインズ",
+          "score": 5.0,
+          "isAna": false,
+          "tag": "ninki"
+        },
+        {
+          "rank": 5,
+          "num": null,
+          "name": "サムシングスイート",
+          "score": 4.5,
+          "isAna": true,
+          "tag": "ana"
+        },
+        {
+          "rank": 7,
+          "num": null,
+          "name": "リスレジャンデール",
+          "score": 3.0,
+          "isAna": true,
+          "tag": "ana"
+        }
+      ],
+      "combos": [
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ファムクラジューズ",
+            "ラフターラインズ"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ファムクラジューズ",
+            "サムシングスイート"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ファムクラジューズ",
+            "リスレジャンデール"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ラフターラインズ",
+            "サムシングスイート"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ラフターラインズ",
+            "リスレジャンデール"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "サムシングスイート",
+            "リスレジャンデール"
+          ]
+        }
+      ],
+      "comboCount": 6,
+      "amount": 600,
+      "composition": "2ninki+2ana",
+      "fallback": false,
+      "meta": {
+        "composition": "2ninki+2ana",
+        "ninkiCount": 2,
+        "anaCount": 2,
+        "fallback": false,
+        "ninkiPoolSize": 5,
+        "anaPoolSize": 3,
+        "minOdds": 10.0,
+        "minScore": 3.0
+      }
+    },
+    "totalSpend": 800
+  }
 }

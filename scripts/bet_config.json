@@ -1,0 +1,22 @@
+{
+  "_comment": "最終予想（買い目）生成設定。800円/R固定、3券種構成。\n\n点数: S=+5/A=+3/B=0/C=-2/D=-4\n重み: 言霊×1.0 / ラップ×1.0 / 外厩×0.5\nタイブレーカー: 言霊→ラップ→外厩の重み付き得点で比較、最後は想定OD低い方優先\n穴強制枠: top4に想定OD≥10の馬がいないとき、rank4を最も得点高い穴馬(OD≥10 & score≥3)に差し替え\n\n運用中に実績ベースで微調整可能。",
+  "gradePoints": { "S": 5, "A": 3, "B": 0, "C": -2, "D": -4 },
+  "weights": {
+    "relComment":   1.0,
+    "lapFactors":   1.0,
+    "gaikyuFactor": 0.5
+  },
+  "tiebreakerOrder": ["relComment", "lapFactors", "gaikyuFactor"],
+  "anaSlot": {
+    "enabled":    true,
+    "minOdds":    10.0,
+    "minScore":   3.0,
+    "targetSlot": 4
+  },
+  "budget": {
+    "tan":             100,
+    "fuku":            100,
+    "wideBoxPerCombo": 100
+  },
+  "readinessThreshold": 0.9
+}
