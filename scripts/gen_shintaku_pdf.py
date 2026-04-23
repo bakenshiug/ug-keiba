@@ -11,14 +11,18 @@
 出力:
   docs/img/pdf/{race}-shintaku.pdf (A4横)
 
-構成 (A4横 297×210mm, 全7ページ):
-  1枚目: 表紙 + 4頭サマリ(1×4横並び) + 買い目
-  2-5枚目: 各馬詳細 (四神レーダーチャート + 見解 + 推し理由/リスク)
-  6枚目: 全馬スコアボード
-  7枚目: 落選の儀
+構成 (A4横 297×210mm, 全10ページ):
+  1枚目: 大看板 (レース名+日付+神託風格言)
+  2枚目: 四つの御守 (神社風お札2×2 - レース核心4軸)
+  3枚目: ギーニョ大神より、参拝者へ (好奇心煽りメッセージ)
+  4枚目: 四騎の御神託 (4頭サマリ1×4 + 買い目)
+  5-8枚目: 各馬詳細 (四神レーダーチャート + 見解 + 推し理由/リスク)
+  9枚目: 全馬スコアボード
+  10枚目: 落選の儀
 
 デザイン:
-  本格95% + ちゃっかり5% のギーニョ節でフッター/見出しに小ネタを散りばめる。
+  本格90% + ブラックユーモア・お笑い10% のギーニョ節。
+  各ページ1分尺の配信トーク想定で文字情報を詰めすぎない。
 """
 import json
 import math
@@ -110,8 +114,104 @@ HUMOR_FOOTERS = [
     '※外れたら、また境内でお会いしましょう。',
 ]
 
+# ─── 新P1 大看板ページ: 神託風格言 (ブラックユーモア込) ───
+HUMOR_APHORISMS = [
+    {
+        'main':  '馬券は、心の処方箋。',
+        'sub':   '当たれば歓喜、外れれば修行。どちらも明日への糧である。',
+        'punch': '※効き目には個人差があります。服用後の敗北感は自己責任にて。',
+    },
+    {
+        'main':  '予想は無料、悔しさは有料。',
+        'sub':   '我々は本日も、希望と授業料を等価交換する。',
+        'punch': '※領収書は発行されません。あしからず。',
+    },
+    {
+        'main':  '信じる者は救われる。',
+        'sub':   '「救われる」とは書いたが、「当たる」とは書いていない。',
+        'punch': '――古来よりの伝承より、抜粋。',
+    },
+    {
+        'main':  '御神託、万能にあらず。',
+        'sub':   '万能であったならば、宮司はとっくに豪邸を構えている。',
+        'punch': '※現在、宮司は境内で副業を検討中。',
+    },
+    {
+        'main':  '馬は走る。人は祈る。神は笑う。',
+        'sub':   'それが、競馬場という名の劇場である。',
+        'punch': '※本日の主演、18頭。脇役、あなた。',
+    },
+]
+
+# ─── 新P2 四つの御守 (神社風お札・レース横断の共通枠組) ───
+OMAMORI_DEFAULT = [
+    {
+        'title':    '血統守',
+        'subtitle': 'PEDIGREE',
+        'body':     '父と母父が語るは、距離適性と末脚の性質。\n血は嘘をつかぬ。ただし、例外はある。',
+    },
+    {
+        'title':    '脚質守',
+        'subtitle': 'PACE & POSITION',
+        'body':     '先行利か、差し一気か。\n展開ひとつで、英雄と敗者は入れ替わる。',
+    },
+    {
+        'title':    '鞍上守',
+        'subtitle': 'JOCKEY',
+        'body':     'コース巧者、乗り替わり、連続騎乗――\n神は、鞍上をも計り給う。',
+    },
+    {
+        'title':    '仕上守',
+        'subtitle': 'CONDITION',
+        'body':     '坂路の時計、CW併せ、気配の上昇度。\n馬体は嘘を吐かぬ。……たぶん。',
+    },
+]
+
+# ─── 新P3 ギーニョ大神メッセージ (レース固有の掴み) ───
+RACE_HOOKS = {
+    '青葉賞': {
+        'lead':  '参拝者よ、耳を澄ませ。',
+        'hook':  'セントポーリア賞の覇者か、ゆきやなぎ賞の覇者か。',
+        'body':  [
+            '舞台は、東京芝2400m。ダービーと同じ距離、同じ府中。',
+            '春のトライアルを制した二頭が、本日ここで激突する。',
+            '――が、歴史が告げるは別の真実。',
+            '青葉賞勝ち馬のダービー勝率は、長らく低迷を続ける。',
+            '「青葉賞馬はダービーで勝てない」という、業界の都市伝説。',
+            'それでも挑む。勝ちに行く。走らせる。――馬は、祈りを背負う。',
+        ],
+        'close': '答えは明日、東京11R。さて、祈りは誰に届く。',
+    },
+    'フローラS': {
+        'lead':  '参拝者よ、花を愛でよ。',
+        'hook':  'オークスへの最後の扉を、誰が開ける。',
+        'body':  [
+            '舞台は、東京芝2000m。牝馬たちの、最後のトライアル。',
+            '桜花賞組はここに来ず、素質馬たちが静かに叩き合う。',
+            '派手さはない。スター馬もおらぬ。――だが、ここで泣いた馬が、',
+            'オークスで笑う。それが、府中の法則である。',
+            '過去10年、ここから2頭がオークスで掲示板。決して多くはない。',
+            'しかし、そのうち1頭は、誰も本命視していなかった。',
+        ],
+        'close': '答えは明日、東京11R。今年の「化ける一頭」は、いったい誰か。',
+    },
+    'マイラーズC': {
+        'lead':  '参拝者よ、速さを見よ。',
+        'hook':  '安田記念への最初の試金石。誰が、王の器を示すか。',
+        'body':  [
+            '舞台は、京都芝1600m外回り。マイル王への、登竜門。',
+            'ドバイ帰り組、高松宮からの延長組、そしてマイル生粋の職人たち。',
+            '異なる背景の強豪が、京都の長い直線で交差する。',
+            '近年は、前に行ける馬が粘り込むケースが目立つ。',
+            '――が、後方一気で差し切る馬も、たまに出る。',
+            '「たまに」というのが、競馬の、残酷で愛しい所以である。',
+        ],
+        'close': '答えは明日、京都11R。春のマイル戦線、号砲が鳴る。',
+    },
+}
+
 RNG = random.Random(42)  # 再現性のため固定seed(フッター用)
-_RACE_COUNTER = {'i': 0}  # サブタイトル巡回用
+_RACE_COUNTER = {'i': 0}  # サブタイトル/格言巡回用
 
 
 def _sanitize_deep(obj):
@@ -418,6 +518,321 @@ def draw_footer(c, W, race_name, page_idx, page_total, footer_quip, url):
     c.setFont(F_KAK, 7)
     tw = sw(c, url, F_KAK, 7)
     c.drawString(W - 15*mm - tw, 8*mm, url)
+
+
+# ══════════════════════════════════════════════════════════════════
+# 新P1: 大看板ページ (レース名+格言)
+# ══════════════════════════════════════════════════════════════════
+def draw_grand_banner_page(c, W, H, race_name, race_meta, date_label, aphorism):
+    # 上部 朱帯 + 金線
+    c.setFillColor(C_SHU)
+    c.rect(0, H - 14*mm, W, 14*mm, stroke=0, fill=1)
+    c.setFillColor(C_KIN)
+    c.setFont(F_KAK, 9)
+    t = 'FINAL ORACLE  ／  四神の御神託'
+    tw = sw(c, t, F_KAK, 9)
+    c.drawString((W - tw) / 2, H - 9*mm, t)
+
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.6)
+    c.line(15*mm, H - 15.5*mm, W - 15*mm, H - 15.5*mm)
+    c.line(15*mm, H - 17*mm, W - 15*mm, H - 17*mm)
+
+    # 御神託降臨 (上部サブタイトル)
+    c.setFillColor(C_SHU_D)
+    c.setFont(F_MIN, 14)
+    t = '御神託降臨'
+    tw = sw(c, t, F_MIN, 14)
+    c.drawString((W - tw) / 2, H - 32*mm, t)
+
+    # レース名 (ドデカ)
+    c.setFillColor(C_SUMI)
+    c.setFont(F_MIN, 62)
+    tw = sw(c, race_name, F_MIN, 62)
+    c.drawString((W - tw) / 2, H - 68*mm, race_name)
+
+    # G2 東京芝2400m / 2026/04/25 土
+    c.setFillColor(C_MUTED)
+    c.setFont(F_KAK, 15)
+    meta_text = f'{race_meta}　／　{date_label}'
+    tw = sw(c, meta_text, F_KAK, 15)
+    c.drawString((W - tw) / 2, H - 80*mm, meta_text)
+
+    # 金の分割線
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.6)
+    c.line(W/2 - 60*mm, H - 88*mm, W/2 + 60*mm, H - 88*mm)
+    # 中央飾り ◆
+    c.setFillColor(C_KIN)
+    c.setFont(F_MIN, 9)
+    t = '◆'
+    tw = sw(c, t, F_MIN, 9)
+    c.setFillColor(C_PAPER)
+    c.rect(W/2 - 4*mm, H - 91*mm, 8*mm, 4*mm, stroke=0, fill=1)
+    c.setFillColor(C_KIN_D)
+    c.drawString(W/2 - tw/2, H - 90*mm, t)
+
+    # 格言ボックス
+    box_x = 40*mm
+    box_y = 25*mm
+    box_w = W - 80*mm
+    box_h = 72*mm
+    c.setFillColor(HexColor('#FBF6E6'))
+    c.setStrokeColor(C_SHU)
+    c.setLineWidth(1.2)
+    c.roundRect(box_x, box_y, box_w, box_h, 3*mm, stroke=1, fill=1)
+    # 二重内枠
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.4)
+    c.roundRect(box_x + 2*mm, box_y + 2*mm, box_w - 4*mm, box_h - 4*mm, 2*mm, stroke=1, fill=0)
+
+    # 格言メイン
+    c.setFillColor(C_SHU_D)
+    c.setFont(F_MIN, 28)
+    main_t = aphorism['main']
+    main_lines = wrap_jp(c, main_t, F_MIN, 28, box_w - 20*mm)
+    cy = box_y + box_h - 18*mm
+    for ln in main_lines[:1]:
+        tw = sw(c, ln, F_MIN, 28)
+        c.drawString((W - tw)/2, cy, ln)
+        cy -= 12*mm
+
+    # サブ
+    c.setFillColor(C_SUMI)
+    c.setFont(F_MIN, 15)
+    sub_t = aphorism['sub']
+    sub_lines = wrap_jp(c, sub_t, F_MIN, 15, box_w - 18*mm)
+    cy = box_y + box_h - 40*mm
+    for ln in sub_lines[:2]:
+        tw = sw(c, ln, F_MIN, 15)
+        c.drawString((W - tw)/2, cy, ln)
+        cy -= 8*mm
+
+    # パンチライン (金)
+    c.setFillColor(C_KIN_D)
+    c.setFont(F_KAK, 10.5)
+    punch_t = aphorism['punch']
+    punch_lines = wrap_jp(c, punch_t, F_KAK, 10.5, box_w - 14*mm)
+    cy = box_y + 11*mm
+    for ln in punch_lines[:2]:
+        tw = sw(c, ln, F_KAK, 10.5)
+        c.drawString((W - tw)/2, cy, ln)
+        cy -= 5.5*mm
+
+
+# ══════════════════════════════════════════════════════════════════
+# 新P2: 四つの御守ページ (神社風お札2×2)
+# ══════════════════════════════════════════════════════════════════
+def draw_omamori_card(c, x, y, w, h, om):
+    """お札風カード: 上部朱帯に『御守』、下部に tituloとbody"""
+    # 本体 (薄黄)
+    c.setFillColor(HexColor('#FBF6E6'))
+    c.setStrokeColor(C_SHU)
+    c.setLineWidth(1.4)
+    c.roundRect(x, y, w, h, 3*mm, stroke=1, fill=1)
+
+    # 上部朱帯
+    band_h = 9*mm
+    c.setFillColor(C_SHU)
+    c.rect(x + 0.5*mm, y + h - band_h - 0.5*mm, w - 1*mm, band_h, stroke=0, fill=1)
+    c.setFillColor(C_KIN)
+    c.setFont(F_MIN, 11)
+    t = '御　守'
+    tw = sw(c, t, F_MIN, 11)
+    c.drawString(x + (w - tw)/2, y + h - 6.5*mm, t)
+
+    # 金の二重装飾線
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.4)
+    c.line(x + 4*mm, y + h - band_h - 2*mm, x + w - 4*mm, y + h - band_h - 2*mm)
+    c.line(x + 4*mm, y + h - band_h - 3.5*mm, x + w - 4*mm, y + h - band_h - 3.5*mm)
+
+    # タイトル (ドデカ)
+    c.setFillColor(C_SHU_D)
+    c.setFont(F_MIN, 30)
+    title = om.get('title', '')
+    tw = sw(c, title, F_MIN, 30)
+    c.drawString(x + (w - tw)/2, y + h - band_h - 17*mm, title)
+
+    # 英語サブタイトル
+    c.setFillColor(C_MUTED)
+    c.setFont(F_KAK, 9)
+    subt = om.get('subtitle', '')
+    tw = sw(c, subt, F_KAK, 9)
+    c.drawString(x + (w - tw)/2, y + h - band_h - 23*mm, subt)
+
+    # 内枠仕切り
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.35)
+    c.line(x + 10*mm, y + h - band_h - 27*mm, x + w - 10*mm, y + h - band_h - 27*mm)
+
+    # 本文
+    body = om.get('body', '')
+    c.setFillColor(C_SUMI)
+    c.setFont(F_MIN, 11.5)
+    body_y = y + h - band_h - 33*mm
+    for para in body.split('\n'):
+        lines = wrap_jp(c, para, F_MIN, 11.5, w - 14*mm)
+        for ln in lines[:3]:
+            tw = sw(c, ln, F_MIN, 11.5)
+            c.drawString(x + (w - tw)/2, body_y, ln)
+            body_y -= 6*mm
+
+    # 下部印 (赤朱色の○)
+    seal_r = 4.5*mm
+    seal_cx = x + w - 10*mm
+    seal_cy = y + 9*mm
+    c.setFillColor(C_SHU)
+    c.setStrokeColor(C_SHU_D)
+    c.setLineWidth(0.6)
+    c.circle(seal_cx, seal_cy, seal_r, stroke=1, fill=1)
+    c.setFillColor(HexColor('#F5EDD6'))
+    c.setFont(F_MIN, 7)
+    t = '神印'
+    tw = sw(c, t, F_MIN, 7)
+    c.drawString(seal_cx - tw/2, seal_cy - 1.2*mm, t)
+
+
+def draw_omamori_page(c, W, H, race_name, omamori_list):
+    # 上部帯
+    c.setFillColor(C_SHU)
+    c.rect(0, H - 18*mm, W, 18*mm, stroke=0, fill=1)
+    c.setFillColor(C_WHITE)
+    c.setFont(F_MIN, 18)
+    c.drawString(15*mm, H - 12*mm, 'レースの核心  ／  四つの御守')
+    c.setFillColor(HexColor('#F5EDD6'))
+    c.setFont(F_KAK, 9)
+    tw = sw(c, race_name, F_KAK, 9)
+    c.drawString(W - 15*mm - tw, H - 12*mm, race_name)
+
+    # 金線
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.4)
+    c.line(15*mm, H - 19.5*mm, W - 15*mm, H - 19.5*mm)
+
+    # サブ
+    c.setFillColor(C_SHU_D)
+    c.setFont(F_MIN, 12)
+    sub = '神が授けし、本日の一戦を読み解く四つの鍵。'
+    tw = sw(c, sub, F_MIN, 12)
+    c.drawString((W - tw)/2, H - 26*mm, sub)
+
+    # 2×2 グリッド
+    margin_lr = 35*mm
+    top_y = H - 33*mm
+    bottom_y = 22*mm
+    gap = 6*mm
+
+    total_w = W - 2*margin_lr
+    total_h = top_y - bottom_y
+    card_w = (total_w - gap) / 2
+    card_h = (total_h - gap) / 2
+
+    positions = [
+        (0, 0), (1, 0),   # 上段 左右
+        (0, 1), (1, 1),   # 下段 左右
+    ]
+    for om, (col, row) in zip(omamori_list[:4], positions):
+        x = margin_lr + col * (card_w + gap)
+        y = top_y - (row + 1) * card_h - row * gap
+        draw_omamori_card(c, x, y, card_w, card_h, om)
+
+
+# ══════════════════════════════════════════════════════════════════
+# 新P3: ギーニョ大神より、参拝者へ
+# ══════════════════════════════════════════════════════════════════
+def draw_ginyo_message_page(c, W, H, race_name, hook_data):
+    # 上部帯
+    c.setFillColor(C_SHU)
+    c.rect(0, H - 18*mm, W, 18*mm, stroke=0, fill=1)
+    c.setFillColor(C_WHITE)
+    c.setFont(F_MIN, 18)
+    c.drawString(15*mm, H - 12*mm, 'ギーニョ大神より、参拝者へ')
+    c.setFillColor(HexColor('#F5EDD6'))
+    c.setFont(F_KAK, 9)
+    tw = sw(c, race_name, F_KAK, 9)
+    c.drawString(W - 15*mm - tw, H - 12*mm, race_name)
+
+    # 金線
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.4)
+    c.line(15*mm, H - 19.5*mm, W - 15*mm, H - 19.5*mm)
+
+    # 書簡枠 (薄クリーム)
+    box_x = 25*mm
+    box_y = 22*mm
+    box_w = W - 50*mm
+    box_h = H - 43*mm
+    c.setFillColor(HexColor('#FBF6E6'))
+    c.setStrokeColor(C_KIN_D)
+    c.setLineWidth(0.8)
+    c.roundRect(box_x, box_y, box_w, box_h, 2.5*mm, stroke=1, fill=1)
+    # 内二重線
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.35)
+    c.roundRect(box_x + 2*mm, box_y + 2*mm, box_w - 4*mm, box_h - 4*mm, 2*mm, stroke=1, fill=0)
+
+    # リード (右寄せで書簡らしく)
+    cy = box_y + box_h - 12*mm
+    c.setFillColor(C_SHU_D)
+    c.setFont(F_MIN, 13)
+    lead = hook_data.get('lead', '参拝者よ。')
+    c.drawString(box_x + 15*mm, cy, lead)
+
+    # フック (どデカ)
+    cy -= 16*mm
+    c.setFillColor(C_SUMI)
+    c.setFont(F_MIN, 20)
+    hook = hook_data.get('hook', '――')
+    lines_hook = wrap_jp(c, hook, F_MIN, 20, box_w - 24*mm)
+    for ln in lines_hook[:2]:
+        tw = sw(c, ln, F_MIN, 20)
+        c.drawString((W - tw)/2, cy, ln)
+        cy -= 10*mm
+    cy -= 2*mm
+
+    # 装飾分割線
+    c.setStrokeColor(C_KIN)
+    c.setLineWidth(0.5)
+    c.line(W/2 - 40*mm, cy, W/2 + 40*mm, cy)
+    # 中央飾り
+    c.setFillColor(C_PAPER)
+    c.rect(W/2 - 4*mm, cy - 2*mm, 8*mm, 4*mm, stroke=0, fill=1)
+    c.setFillColor(C_KIN_D)
+    c.setFont(F_MIN, 9)
+    t = '◆'
+    tw = sw(c, t, F_MIN, 9)
+    c.drawString(W/2 - tw/2, cy - 1*mm, t)
+    cy -= 9*mm
+
+    # 本文 (中央揃え、散文)
+    c.setFillColor(C_SUMI)
+    c.setFont(F_MIN, 12.5)
+    for line in hook_data.get('body', []):
+        wrapped = wrap_jp(c, line, F_MIN, 12.5, box_w - 30*mm)
+        for w_ln in wrapped:
+            tw = sw(c, w_ln, F_MIN, 12.5)
+            c.drawString((W - tw)/2, cy, w_ln)
+            cy -= 6.5*mm
+        cy -= 0.5*mm
+
+    # 締め (朱)
+    cy -= 4*mm
+    c.setFillColor(C_SHU_D)
+    c.setFont(F_MIN, 14)
+    close_t = hook_data.get('close', '境内で、再び。')
+    close_lines = wrap_jp(c, close_t, F_MIN, 14, box_w - 24*mm)
+    for ln in close_lines[:2]:
+        tw = sw(c, ln, F_MIN, 14)
+        c.drawString((W - tw)/2, cy, ln)
+        cy -= 7.5*mm
+
+    # 署名 (右下)
+    c.setFillColor(C_MUTED)
+    c.setFont(F_MIN, 10)
+    sig = '― ギーニョ大神 ―'
+    tw = sw(c, sig, F_MIN, 10)
+    c.drawString(box_x + box_w - tw - 10*mm, box_y + 7*mm, sig)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -928,15 +1343,46 @@ def generate_pdf(label, rn, race_name, race_meta, date_label):
     W, H = page_size
     c = canvas.Canvas(str(out), pagesize=page_size)
 
-    # サブタイトルはレース毎に順次巡回(3レースで3通り見える)
-    subtitle = HUMOR_SUBTITLES[_RACE_COUNTER['i'] % len(HUMOR_SUBTITLES)]
+    # サブタイトル・格言はレース毎に順次巡回(3レースで3通り見える)
+    subtitle  = HUMOR_SUBTITLES[_RACE_COUNTER['i'] % len(HUMOR_SUBTITLES)]
+    aphorism  = HUMOR_APHORISMS[_RACE_COUNTER['i'] % len(HUMOR_APHORISMS)]
     _RACE_COUNTER['i'] += 1
-    # フッターは 7ページ分で 3通り (0,1,2,0,1,2,0) 循環
-    footer_quips = [HUMOR_FOOTERS[i % len(HUMOR_FOOTERS)] for i in range(7)]
+    # フッターは 10ページ分で 3通り循環
+    total_pages = 10
+    footer_quips = [HUMOR_FOOTERS[i % len(HUMOR_FOOTERS)] for i in range(total_pages)]
     url = 'bakenshiug.github.io/ug-keiba'
-    total_pages = 7
 
-    # ─── ページ1: 表紙 + 4頭サマリ(1×4) + 買い目 ───
+    # レース固有のギーニョメッセージ & 御守 (未定義なら汎用)
+    hook_data = RACE_HOOKS.get(race_name, {
+        'lead':  '参拝者よ。',
+        'hook':  f'{race_name}――運命の時、いま到来す。',
+        'body':  ['本日の御神託、境内にて執り行う。', '馬は走り、人は祈る。神は、笑う。'],
+        'close': '答えは、ゴール板で。',
+    })
+    omamori = hook_data.get('omamori') or OMAMORI_DEFAULT
+
+    # ─── ページ1: 大看板 (レース名+日付+格言) ───
+    c.setFillColor(C_PAPER)
+    c.rect(0, 0, W, H, stroke=0, fill=1)
+    draw_grand_banner_page(c, W, H, race_name, race_meta, date_label, aphorism)
+    draw_footer(c, W, race_name, 1, total_pages, footer_quips[0], url)
+
+    # ─── ページ2: 四つの御守 ───
+    c.showPage()
+    c.setFillColor(C_PAPER)
+    c.rect(0, 0, W, H, stroke=0, fill=1)
+    draw_omamori_page(c, W, H, race_name, omamori)
+    draw_footer(c, W, race_name, 2, total_pages, footer_quips[1], url)
+
+    # ─── ページ3: ギーニョ大神より ───
+    c.showPage()
+    c.setFillColor(C_PAPER)
+    c.rect(0, 0, W, H, stroke=0, fill=1)
+    draw_ginyo_message_page(c, W, H, race_name, hook_data)
+    draw_footer(c, W, race_name, 3, total_pages, footer_quips[2], url)
+
+    # ─── ページ4: 四騎の御神託 (4頭サマリ + 買い目) ───
+    c.showPage()
     c.setFillColor(C_PAPER)
     c.rect(0, 0, W, H, stroke=0, fill=1)
 
@@ -958,28 +1404,28 @@ def generate_pdf(label, rn, race_name, race_meta, date_label):
     buy_h = 30*mm
     draw_buy_bar(c, margin, by_top - buy_h, W - 2*margin, buy_h, fb)
 
-    draw_footer(c, W, race_name, 1, total_pages, footer_quips[0], url)
+    draw_footer(c, W, race_name, 4, total_pages, footer_quips[3], url)
 
-    # ─── ページ2-5: 各馬詳細 ───
+    # ─── ページ5-8: 各馬詳細 ───
     for i, ph in enumerate(horses[:4]):
         c.showPage()
         c.setFillColor(C_PAPER)
         c.rect(0, 0, W, H, stroke=0, fill=1)
-        draw_detail_page(c, W, H, ph, i, race_name, i + 2, total_pages, footer_quips[i + 1], url)
+        draw_detail_page(c, W, H, ph, i, race_name, i + 5, total_pages, footer_quips[i + 4], url)
 
-    # ─── ページ6: スコアボード ───
+    # ─── ページ9: スコアボード ───
     c.showPage()
     c.setFillColor(C_PAPER)
     c.rect(0, 0, W, H, stroke=0, fill=1)
     draw_scoreboard_page(c, W, H, fb, race_name)
-    draw_footer(c, W, race_name, 6, total_pages, footer_quips[5], url)
+    draw_footer(c, W, race_name, 9, total_pages, footer_quips[8], url)
 
-    # ─── ページ7: 落選の儀 ───
+    # ─── ページ10: 落選の儀 ───
     c.showPage()
     c.setFillColor(C_PAPER)
     c.rect(0, 0, W, H, stroke=0, fill=1)
     draw_dropped_page(c, W, H, pres, race_name)
-    draw_footer(c, W, race_name, 7, total_pages, footer_quips[6], url)
+    draw_footer(c, W, race_name, 10, total_pages, footer_quips[9], url)
 
     c.save()
     return out
