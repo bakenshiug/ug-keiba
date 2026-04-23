@@ -1338,6 +1338,276 @@
         "minScore": 3.0
       }
     },
-    "totalSpend": 800
+    "totalSpend": 800,
+    "presentation": {
+      "generatedAt": "2026-04-23T11:43:16",
+      "style": "shijin-oracle-v1",
+      "horses": [
+        {
+          "rank": 1,
+          "pickOrder": 1,
+          "num": null,
+          "name": "アドマイヤズーム",
+          "role": "本命",
+          "roleTag": "main",
+          "buyRole": "単勝軸・複勝軸・ワイド核",
+          "popularity": "popular",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "A"
+          },
+          "score": 11.5,
+          "expectedOdds": 4.2,
+          "jockey": "武豊",
+          "trainer": "友道",
+          "sire": "モーリス",
+          "broodmareSire": "ハーツクライ",
+          "gaikyuLabel": "山元TC",
+          "relKeyword": "京都マイル◎素質馬",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「京都マイル◎素質馬」と絶賛の声。今回の最大の武器になる。外厩山元TCで調整。人気になるのは当然の存在感。素直に軸で勝負。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「京都マイル◎素質馬」",
+            "🐢 外厩 A：山元TC",
+            "血統：父モーリス / 母父ハーツクライ"
+          ],
+          "risks": [
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        },
+        {
+          "rank": 2,
+          "pickOrder": 2,
+          "num": null,
+          "name": "ロングラン",
+          "role": "対抗",
+          "roleTag": "counter",
+          "buyRole": "ワイド核の相手",
+          "popularity": "hole",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "A"
+          },
+          "score": 11.5,
+          "expectedOdds": 94.4,
+          "jockey": "団野",
+          "trainer": "和田勇",
+          "sire": "ヴィクトワールピサ",
+          "broodmareSire": "ケンダルジャン",
+          "gaikyuLabel": "山元TC",
+          "relKeyword": "昨年覇者連覇狙",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「昨年覇者連覇狙」と絶賛の声。今回の最大の武器になる。外厩山元TCで調整。対抗として固く抑える。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「昨年覇者連覇狙」",
+            "🐢 外厩 A：山元TC",
+            "血統：父ヴィクトワールピサ / 母父ケンダルジャン"
+          ],
+          "risks": [
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        },
+        {
+          "rank": 3,
+          "pickOrder": 3,
+          "num": null,
+          "name": "ブエナオンダ",
+          "role": "単穴",
+          "roleTag": "hole",
+          "buyRole": "ワイド穴枠",
+          "popularity": "hole",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "B"
+          },
+          "score": 10.0,
+          "expectedOdds": 30.2,
+          "jockey": "田口",
+          "trainer": "須貝",
+          "sire": "リオンディーズ",
+          "broodmareSire": "ディープインパクト",
+          "gaikyuLabel": "在厩調整",
+          "relKeyword": "京都金杯勝ち馬",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「京都金杯勝ち馬」と絶賛の声。今回の最大の武器になる。在厩仕上げ。変わらずの調整で今回に臨む。想定OD30.2倍の穴枠として味わい深い一頭。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「京都金杯勝ち馬」",
+            "血統：父リオンディーズ / 母父ディープインパクト",
+            "騎手：田口"
+          ],
+          "risks": [
+            "大穴水準、実績より勢い依存で資金分配に要注意",
+            "外厩データ無、在厩仕上げの上振れ不安作る"
+          ]
+        },
+        {
+          "rank": 4,
+          "pickOrder": 4,
+          "num": null,
+          "name": "オフトレイル",
+          "role": "計算内",
+          "roleTag": "support",
+          "buyRole": "ワイド近い所",
+          "popularity": "popular",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "D"
+          },
+          "score": 8.0,
+          "expectedOdds": 7.1,
+          "jockey": "岩田望",
+          "trainer": "吉村",
+          "sire": "ファー",
+          "broodmareSire": "キングマンボ",
+          "gaikyuLabel": "ダーレー・ジャパン",
+          "relKeyword": "京都瞬発力抜群",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「京都瞬発力抜群」と絶賛の声。今回の最大の武器になる。外厩ダーレー・ジャパンで調整。ワイドの計算内。連に付けたい一頭。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「京都瞬発力抜群」",
+            "🐢 外厩 D：ダーレー・ジャパン (0-0-0-2)",
+            "血統：父ファー / 母父キングマンボ"
+          ],
+          "risks": [
+            "四神揃い率低、スコアは暗値推定",
+            "4ファクター内にD判定あり、一部に意見不一致"
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "name": "ウォーターリヒト",
+          "num": null,
+          "rank": 5,
+          "score": 6.0,
+          "expectedOdds": 5.8,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "シックスペンス",
+          "num": null,
+          "rank": 6,
+          "score": 6.0,
+          "expectedOdds": 5.8,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ベラジオボンド",
+          "num": null,
+          "rank": 7,
+          "score": 6.0,
+          "expectedOdds": 8.5,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ファーヴェント",
+          "num": null,
+          "rank": 8,
+          "score": 6.0,
+          "expectedOdds": 11.6,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ドラゴンブースト",
+          "num": null,
+          "rank": 9,
+          "score": 6.0,
+          "expectedOdds": 23.6,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ファインライン",
+          "num": null,
+          "rank": 10,
+          "score": -1.0,
+          "expectedOdds": 68.7,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ランスオブカオス",
+          "num": null,
+          "rank": 11,
+          "score": -2.5,
+          "expectedOdds": 15.9,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "エルトンバローズ",
+          "num": null,
+          "rank": 12,
+          "score": -4.0,
+          "expectedOdds": 18.1,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "シャンパンカラー",
+          "num": null,
+          "rank": 13,
+          "score": -4.0,
+          "expectedOdds": 28.4,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ショウナンアデイブ",
+          "num": null,
+          "rank": 14,
+          "score": -4.0,
+          "expectedOdds": 36.1,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "キョウエイブリッサ",
+          "num": null,
+          "rank": 15,
+          "score": -4.0,
+          "expectedOdds": 84.6,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "マテンロウスカイ",
+          "num": null,
+          "rank": 16,
+          "score": -4.0,
+          "expectedOdds": 84.6,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "クルゼイロドスル",
+          "num": null,
+          "rank": 17,
+          "score": -4.0,
+          "expectedOdds": 100.6,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "アサヒ",
+          "num": null,
+          "rank": 18,
+          "score": -8.0,
+          "expectedOdds": 299.7,
+          "note": "関係者コメントが首を横に、消し。"
+        },
+        {
+          "name": "レディントン",
+          "num": null,
+          "rank": 19,
+          "score": -8.0,
+          "expectedOdds": 424.0,
+          "note": "関係者コメントが首を横に、消し。"
+        }
+      ]
+    }
   }
 }

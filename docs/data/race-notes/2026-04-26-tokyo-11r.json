@@ -1124,6 +1124,252 @@
         "minScore": 3.0
       }
     },
-    "totalSpend": 800
+    "totalSpend": 800,
+    "presentation": {
+      "generatedAt": "2026-04-23T11:43:16",
+      "style": "shijin-oracle-v1",
+      "horses": [
+        {
+          "rank": 1,
+          "pickOrder": 1,
+          "num": null,
+          "name": "ファムクラジューズ",
+          "role": "本命",
+          "roleTag": "main",
+          "buyRole": "単勝軸・複勝軸・ワイド核",
+          "popularity": "popular",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "A"
+          },
+          "score": 11.5,
+          "expectedOdds": 5.3,
+          "jockey": "横山武",
+          "trainer": "黒岩",
+          "sire": "ベンバトル",
+          "broodmareSire": "ディープインパクト",
+          "gaikyuLabel": "ビッグレッドF鉾田",
+          "relKeyword": "東京2000完璧",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「東京2000完璧」と絶賛の声。今回の最大の武器になる。外厩はビッグレッドF鉾田で実績1-0-0-0と相性◎、今回も状態は信頼できる。軸として勝負できる一頭。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「東京2000完璧」",
+            "🐢 外厩 A：ビッグレッドF鉾田 (1-0-0-0)",
+            "血統：父ベンバトル / 母父ディープインパクト"
+          ],
+          "risks": [
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        },
+        {
+          "rank": 2,
+          "pickOrder": 2,
+          "num": null,
+          "name": "ラフターラインズ",
+          "role": "対抗",
+          "roleTag": "counter",
+          "buyRole": "ワイド核の相手",
+          "popularity": "popular",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "B"
+          },
+          "score": 10.0,
+          "expectedOdds": 2.3,
+          "jockey": "レーン",
+          "trainer": "小笠",
+          "sire": "アルアイン",
+          "broodmareSire": "キングカメハメハ",
+          "gaikyuLabel": "在厩調整",
+          "relKeyword": "重賞実績上位",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「重賞実績上位」と絶賛の声。今回の最大の武器になる。在厩仕上げ。変わらずの調整で今回に臨む。対抗として固く抑える。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「重賞実績上位」",
+            "血統：父アルアイン / 母父キングカメハメハ",
+            "騎手：レーン"
+          ],
+          "risks": [
+            "外厩データ無、在厩仕上げの上振れ不安作る",
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        },
+        {
+          "rank": 5,
+          "pickOrder": 3,
+          "num": null,
+          "name": "サムシングスイート",
+          "role": "単穴",
+          "roleTag": "hole",
+          "buyRole": "ワイド穴枠",
+          "popularity": "hole",
+          "shijinGrades": {
+            "seiryu": "A",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "A"
+          },
+          "score": 7.5,
+          "expectedOdds": 19.4,
+          "jockey": "酒井",
+          "trainer": "伊藤大",
+          "sire": "サートゥルナーリア",
+          "broodmareSire": "ヴィクトワールピサ",
+          "gaikyuLabel": "チャンピオンヒルズ",
+          "relKeyword": "距離延長◎",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者コメントは「距離延長◎」。今回も十分に期待できる資質。外厩チャンピオンヒルズで調整。想定OD19.4倍の穴枠として味わい深い一頭。",
+          "reasons": [
+            "🐉 言霊 A：関係者証言「距離延長◎」",
+            "🐢 外厩 A：チャンピオンヒルズ",
+            "血統：父サートゥルナーリア / 母父ヴィクトワールピサ"
+          ],
+          "risks": [
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        },
+        {
+          "rank": 7,
+          "pickOrder": 4,
+          "num": null,
+          "name": "リスレジャンデール",
+          "role": "穴枠",
+          "roleTag": "hole",
+          "buyRole": "ワイド穴枠",
+          "popularity": "hole",
+          "shijinGrades": {
+            "seiryu": "A",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "B"
+          },
+          "score": 6.0,
+          "expectedOdds": 23.6,
+          "jockey": "津村",
+          "trainer": "栗田",
+          "sire": "エピファネイア",
+          "broodmareSire": "スタイルヴァンドーム",
+          "gaikyuLabel": "在厩調整",
+          "relKeyword": "東京1800無双",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者コメントは「東京1800無双」。今回も十分に期待できる資質。在厩仕上げ。変わらずの調整で今回に臨む。想定OD23.6倍の穴枠として味わい深い一頭。",
+          "reasons": [
+            "🐉 言霊 A：関係者証言「東京1800無双」",
+            "血統：父エピファネイア / 母父スタイルヴァンドーム",
+            "騎手：津村"
+          ],
+          "risks": [
+            "外厩データ無、在厩仕上げの上振れ不安作る",
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "name": "エンネ",
+          "num": null,
+          "rank": 3,
+          "score": 7.5,
+          "expectedOdds": 5.8,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "リアライズルミナス",
+          "num": null,
+          "rank": 4,
+          "score": 7.5,
+          "expectedOdds": 9.6,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ラベルセーヌ",
+          "num": null,
+          "rank": 6,
+          "score": 6.0,
+          "expectedOdds": 6.5,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ロングトールサリー",
+          "num": null,
+          "rank": 8,
+          "score": 6.0,
+          "expectedOdds": 33.3,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "マツリダイコ",
+          "num": null,
+          "rank": 9,
+          "score": 0.0,
+          "expectedOdds": 18.5,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "スタニングレディ",
+          "num": null,
+          "rank": 10,
+          "score": 0.0,
+          "expectedOdds": 42.8,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "エイシンウィスパー",
+          "num": null,
+          "rank": 11,
+          "score": 0.0,
+          "expectedOdds": 111.7,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ペイシャシス",
+          "num": null,
+          "rank": 12,
+          "score": -2.5,
+          "expectedOdds": 121.9,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ゴバド",
+          "num": null,
+          "rank": 13,
+          "score": -4.0,
+          "expectedOdds": 83.9,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "コウギョク",
+          "num": null,
+          "rank": 14,
+          "score": -4.0,
+          "expectedOdds": 104.9,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "スピナーリート",
+          "num": null,
+          "rank": 15,
+          "score": -4.0,
+          "expectedOdds": 203.9,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ペンダント",
+          "num": null,
+          "rank": 16,
+          "score": -6.5,
+          "expectedOdds": 46.5,
+          "note": "関係者コメントが首を横に、消し。"
+        }
+      ]
+    }
   }
 }

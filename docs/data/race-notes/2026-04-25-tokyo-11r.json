@@ -1673,6 +1673,323 @@
         "minScore": 3.0
       }
     },
-    "totalSpend": 800
+    "totalSpend": 800,
+    "presentation": {
+      "generatedAt": "2026-04-23T11:43:16",
+      "style": "shijin-oracle-v1",
+      "horses": [
+        {
+          "rank": 1,
+          "pickOrder": 1,
+          "num": null,
+          "name": "ノーブルサヴェージ",
+          "role": "本命",
+          "roleTag": "main",
+          "buyRole": "単勝軸・複勝軸・ワイド核",
+          "popularity": "popular",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "A"
+          },
+          "score": 11.5,
+          "expectedOdds": 5.9,
+          "jockey": "レーン",
+          "trainer": "森一",
+          "sire": "リオンディーズ",
+          "broodmareSire": "マンハッタンカフェ",
+          "gaikyuLabel": "ノーザンF天栄",
+          "relKeyword": "無敗の先行力",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「無敗の先行力」の声が上がり、スタート形の良さと自ペースで込める構えはこの馬の最大の武器。外厩はノーザンF天栄で実績2-0-0-0と相性◎、今回も状態は信頼できる。軸として勝負できる一頭。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「無敗の先行力」",
+            "🐢 外厩 A：ノーザンF天栄 (2-0-0-0)",
+            "血統：父リオンディーズ / 母父マンハッタンカフェ"
+          ],
+          "risks": [
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        },
+        {
+          "rank": 2,
+          "pickOrder": 2,
+          "num": null,
+          "name": "シャドウマスター",
+          "role": "対抗",
+          "roleTag": "counter",
+          "buyRole": "ワイド核の相手",
+          "popularity": "hole",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "A"
+          },
+          "score": 11.5,
+          "expectedOdds": 30.7,
+          "jockey": "北村友",
+          "trainer": "杉山晴",
+          "sire": "キタサンブラック",
+          "broodmareSire": "ヴィクトワールピサ",
+          "gaikyuLabel": "社台F",
+          "relKeyword": "好位立ち回り◎",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「好位立ち回り◎」の声が上がり、機敏に勝ちに行ける立ち回りはこの馬の最大の武器。外厩は社台Fで実績2-0-0-1と相性◎、今回も状態は信頼できる。対抗として固く抑える。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「好位立ち回り◎」",
+            "🐢 外厩 A：社台F (2-0-0-1)",
+            "血統：父キタサンブラック / 母父ヴィクトワールピサ"
+          ],
+          "risks": [
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        },
+        {
+          "rank": 3,
+          "pickOrder": 3,
+          "num": null,
+          "name": "ブラックオリンピア",
+          "role": "押さえ",
+          "roleTag": "support",
+          "buyRole": "ワイド計算内",
+          "popularity": "popular",
+          "shijinGrades": {
+            "seiryu": "S",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "B"
+          },
+          "score": 10.0,
+          "expectedOdds": 3.7,
+          "jockey": "川田",
+          "trainer": "友道",
+          "sire": "キタサンブラック",
+          "broodmareSire": "ピエロ",
+          "gaikyuLabel": "在厩調整",
+          "relKeyword": "スタミナ距離◎",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者からは「スタミナ距離◎」の声が上がり、長けるぐらいを望む能力はこの馬の最大の武器。在厩仕上げ。変わらずの調整で今回に臨む。ワイドの計算内。連に付けたい一頭。",
+          "reasons": [
+            "🐉 言霊 S：関係者証言「スタミナ距離◎」",
+            "血統：父キタサンブラック / 母父ピエロ",
+            "騎手：川田"
+          ],
+          "risks": [
+            "外厩データ無、在厩仕上げの上振れ不安作る",
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        },
+        {
+          "rank": 5,
+          "pickOrder": 4,
+          "num": null,
+          "name": "サガルマータ",
+          "role": "穴枠",
+          "roleTag": "hole",
+          "buyRole": "ワイド穴枠",
+          "popularity": "hole",
+          "shijinGrades": {
+            "seiryu": "A",
+            "suzaku": null,
+            "byakko": null,
+            "genbu": "A"
+          },
+          "score": 7.5,
+          "expectedOdds": 13.9,
+          "jockey": "横山武",
+          "trainer": "福永",
+          "sire": "コントレイル",
+          "broodmareSire": "シティバンカー",
+          "gaikyuLabel": "大山ヒルズ",
+          "relKeyword": "2400適性抜群",
+          "shinganKeyword": null,
+          "lapChar": null,
+          "comment": "関係者コメントは「2400適性抜群」。馬身の混乱しない長距離適性は今回も期待できる資質。外厩は大山ヒルズで実績1-0-1-0と相性◎、今回も状態は信頼できる。人気と穴の縝目、遊びゞころに秀出た資質。",
+          "reasons": [
+            "🐉 言霊 A：関係者証言「2400適性抜群」",
+            "🐢 外厩 A：大山ヒルズ (1-0-1-0)",
+            "血統：父コントレイル / 母父シティバンカー"
+          ],
+          "risks": [
+            "四神揃い率低、スコアは暗値推定"
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "name": "アローメタル",
+          "num": null,
+          "rank": 4,
+          "score": 7.5,
+          "expectedOdds": 5.9,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ミッキーファルコン",
+          "num": null,
+          "rank": 6,
+          "score": 7.5,
+          "expectedOdds": 26.7,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ノチェセラーダ",
+          "num": null,
+          "rank": 7,
+          "score": 7.5,
+          "expectedOdds": 44.5,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "テルヒコウ",
+          "num": null,
+          "rank": 8,
+          "score": 6.0,
+          "expectedOdds": 23.2,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ラストスマイル",
+          "num": null,
+          "rank": 9,
+          "score": 6.0,
+          "expectedOdds": 24.0,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "エーデルゼーレ",
+          "num": null,
+          "rank": 10,
+          "score": 6.0,
+          "expectedOdds": 56.3,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "カットソロ",
+          "num": null,
+          "rank": 11,
+          "score": 6.0,
+          "expectedOdds": 57.8,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ゴーイントゥスカイ",
+          "num": null,
+          "rank": 12,
+          "score": 0.0,
+          "expectedOdds": 13.1,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "タイダルロック",
+          "num": null,
+          "rank": 13,
+          "score": 0.0,
+          "expectedOdds": 14.0,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "オリオンブレード",
+          "num": null,
+          "rank": 14,
+          "score": 0.0,
+          "expectedOdds": 78.0,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "ケントン",
+          "num": null,
+          "rank": 15,
+          "score": 0.0,
+          "expectedOdds": 116.1,
+          "note": "目立った評価なく、今回はパス。"
+        },
+        {
+          "name": "オルフセン",
+          "num": null,
+          "rank": 16,
+          "score": -2.5,
+          "expectedOdds": 17.4,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ヴィサージュ",
+          "num": null,
+          "rank": 17,
+          "score": -2.5,
+          "expectedOdds": 19.2,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "アッカン",
+          "num": null,
+          "rank": 18,
+          "score": -2.5,
+          "expectedOdds": 48.8,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ボンドマティーニ",
+          "num": null,
+          "rank": 19,
+          "score": -4.0,
+          "expectedOdds": 55.9,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ベルウッドクレド",
+          "num": null,
+          "rank": 20,
+          "score": -4.0,
+          "expectedOdds": 87.8,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "パラディオン",
+          "num": null,
+          "rank": 21,
+          "score": -4.0,
+          "expectedOdds": 125.9,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ヨカオウ",
+          "num": null,
+          "rank": 22,
+          "score": -4.0,
+          "expectedOdds": 131.9,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "ヒシアムルーズ",
+          "num": null,
+          "rank": 23,
+          "score": -5.0,
+          "expectedOdds": 297.4,
+          "note": "C判定多く積算伸びず、スキップ。"
+        },
+        {
+          "name": "コスモギガンティア",
+          "num": null,
+          "rank": 24,
+          "score": -8.0,
+          "expectedOdds": 104.2,
+          "note": "関係者コメントが首を横に、消し。"
+        },
+        {
+          "name": "トゥーナスタディ",
+          "num": null,
+          "rank": 25,
+          "score": -8.0,
+          "expectedOdds": 999.9,
+          "note": "関係者コメントが首を横に、消し。"
+        }
+      ]
+    }
   }
 }
