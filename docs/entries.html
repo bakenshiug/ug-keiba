@@ -2510,9 +2510,13 @@ function renderFinalBets(fb) {
 
 // 暫定スコア算出：利用可能な四神grade だけで重み付き合計。
 // 白虎/朱雀が後日埋まれば自動的に加味される設計。
+// 玄武は source="individual"(JRDB実データ) と "fallback"(在厩調整等の推定) で重みを分岐：
+//   individual=×1.0 ／ fallback=×0.3 → バッジ表示(色/透明度)とも連動。
 function computeProvisionalScore(h) {
   const gradeMap = { S: 4, A: 3, B: 2, C: 1, D: 0 };
-  const W = { seiryu: 2.0, suzaku: 1.5, byakko: 1.0, genbu: 0.5 };
+  const gfSource = h.gaikyuFactor?.source;
+  const genbuWeight = gfSource === 'individual' ? 1.0 : 0.3;
+  const W = { seiryu: 2.0, suzaku: 1.5, byakko: 1.0, genbu: genbuWeight };
   const grades = {
     seiryu: h.relComment?.grade,
     suzaku: h.shingan?.grade,
@@ -2567,9 +2571,15 @@ function renderPreparation(cfg, d) {
       const gf = h.gaikyuFactor;
       if (gf && gf.grade) {
         const gr = gf.grade;
-        const gradeBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+        const isFallback = gf.source === 'fallback';
+        // individual: 従来カラー（緑/金/紺系）／ fallback: 彩度を落とした沈んだ石色
+        const gradeBg = isFallback
+          ? { S:'#6e5a30', A:'#34473b', B:'#334356', C:'#6a544a', D:'#3a3734' }[gr] || '#4f4c48'
+          : { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+        const badgeOpacity = isFallback ? '0.72' : '1';
+        const tooltip = isFallback ? '在厩調整' : `外厩: ${g}`;
         const recStr = gf.recordStr ? `<span style="opacity:.75;margin-left:4px;">(${gf.recordStr})</span>` : '';
-        gaikyuLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">外厩 <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(label)}${recStr}</span></div>`;
+        gaikyuLine = `<div style="margin-top:4px;"><span title="${esc(tooltip)}" style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;opacity:${badgeOpacity};">外厩 <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(label)}${recStr}</span></div>`;
       } else {
         const isNoazan = g.includes('ノーザンファーム');
         const isZaikyu = g === '在厩調整';
@@ -2661,7 +2671,7 @@ function renderPreparation(cfg, d) {
       ${fireNames.size > 0 ? `
         <div style="margin:8px 0 12px;padding:8px 14px;background:rgba(155,45,48,.06);border-left:3px solid var(--shu);font-size:11px;color:var(--sumi);line-height:1.7;letter-spacing:.04em;">
           <span style="font-weight:700;color:var(--shu);">🔥 現時点のトップ圏</span>
-          ／ 判明している神獣gradeだけで暫定算出（青龍×2.0 ／ 朱雀×1.5 ／ 白虎×1.0 ／ 玄武×0.5）。同点なら複数頭に付く。四神揃い次第自動で更新。
+          ／ 判明している神獣gradeだけで暫定算出（青龍×2.0 ／ 朱雀×1.5 ／ 白虎×1.0 ／ 玄武 実データ×1.0・在厩調整×0.3）。同点なら複数頭に付く。四神揃い次第自動で更新。
         </div>
       ` : ''}
       <table style="width:100%;border-collapse:collapse;font-size:13px;">
