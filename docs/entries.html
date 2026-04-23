@@ -2690,12 +2690,45 @@ function renderPreparation(cfg, d) {
     </div>`;
 }
 
+// 月〜水用「過去10年傾向のみ」モード（trend-only）
+// 出馬表確定前なので登録馬リスト・四神・🔥は一切出さず、レースの骨格（データ傾向）だけを御神託する。
+// 既存の buildAnalysisSection を流用して raceAnalysis/bloodAnalysis を描画する。
+function renderTrendOnly(cfg, d) {
+  const r = d.race || {};
+  const confirmLabel = d.entryConfirmDate || '出馬表確定';
+  const noteFallback = `${confirmLabel}の後に四神を降ろし、個別馬の精査へと入る所存。それまではレースの骨格のみ御神託仕る。`;
+  const note = d.preparationNote || noteFallback;
+
+  document.getElementById('content').innerHTML = `
+    <div style="max-width:920px;margin:32px auto;padding:0 16px;font-family:'Shippori Mincho',serif;">
+      <div style="text-align:center;padding:28px 16px;background:var(--paper);border-top:3px solid var(--shu);border-bottom:3px solid var(--shu);margin-bottom:24px;">
+        <div style="font-size:12px;letter-spacing:.32em;color:var(--shu);margin-bottom:8px;">${esc(r.grade || '')} ／ ${esc(r.venue || '')} ${esc(r.surface || '')}${r.distance || ''}m</div>
+        <div style="font-size:26px;font-weight:800;letter-spacing:.18em;color:var(--sumi);margin-bottom:6px;">${esc(cfg.label)}</div>
+        <div style="font-size:11px;color:var(--muted);letter-spacing:.2em;">${esc(cfg.meta || '')} ／ ${esc(r.startTime || '')}発走</div>
+      </div>
+
+      <div style="margin:24px auto;padding:16px 20px;background:rgba(155,45,48,.04);border-left:3px solid var(--shu);color:var(--sumi);line-height:1.9;letter-spacing:.05em;font-size:13px;">
+        <div style="color:var(--shu);font-weight:700;font-size:11px;letter-spacing:.28em;margin-bottom:6px;">⛩ 前哨戦リサーチ</div>
+        ${esc(note)}
+      </div>
+
+      ${buildAnalysisSection(d)}
+
+      <p style="text-align:center;margin:36px 0 8px;font-size:11px;color:var(--muted);letter-spacing:.2em;">─ レースの性格を読み解きて、確定馬の降臨を待ち申す ─</p>
+    </div>`;
+}
+
 function renderRace(idx) {
   if (!allData[idx]) return;
   const {cfg, d} = allData[idx];
   if (!d) {
     document.getElementById('content').innerHTML =
       `<p class="loading" style="color:#f87171">${esc(cfg.label)}のデータを取得できませんでした。準備中です。</p>`;
+    return;
+  }
+  // 月〜水：出馬表確定前の「傾向のみ」モード
+  if (d.dataStatus === 'trend-only') {
+    renderTrendOnly(cfg, d);
     return;
   }
   // 新ロジック移行期：dataStatus='preparation' なら出馬登録ベースの馬名一覧のみ表示
