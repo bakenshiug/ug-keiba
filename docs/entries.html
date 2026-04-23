@@ -2508,11 +2508,52 @@ function renderFinalBets(fb) {
   `;
 }
 
+// 暫定スコア算出：利用可能な四神grade だけで重み付き合計。
+// 白虎/朱雀が後日埋まれば自動的に加味される設計。
+function computeProvisionalScore(h) {
+  const gradeMap = { S: 4, A: 3, B: 2, C: 1, D: 0 };
+  const W = { seiryu: 2.0, suzaku: 1.5, byakko: 1.0, genbu: 0.5 };
+  const grades = {
+    seiryu: h.relComment?.grade,
+    suzaku: h.shingan?.grade,
+    byakko: h.lapFactors?.grade,
+    genbu:  h.gaikyuFactor?.grade,
+  };
+  let score = 0, count = 0, parts = [];
+  for (const [k, g] of Object.entries(grades)) {
+    if (g && gradeMap[g] !== undefined) {
+      const p = gradeMap[g] * W[k];
+      score += p;
+      count++;
+      parts.push(`${k}:${g}`);
+    }
+  }
+  return { score, count, parts };
+}
+
+// 現時点ランキング上位4頭（同点なら5頭以上もあり）のname Set を返す
+function computeFireHorses(horses) {
+  const scored = (horses || []).map(h => ({
+    name: h.name,
+    ...computeProvisionalScore(h),
+  })).filter(s => s.count > 0);
+  scored.sort((a, b) => b.score - a.score);
+  if (scored.length === 0) return { names: new Set(), scoredMap: new Map() };
+  const scoredMap = new Map(scored.map(s => [s.name, s]));
+  if (scored.length <= 4) return { names: new Set(scored.map(s => s.name)), scoredMap };
+  const fourthScore = scored[3].score;
+  return {
+    names: new Set(scored.filter(s => s.score >= fourthScore).map(s => s.name)),
+    scoredMap,
+  };
+}
+
 function renderPreparation(cfg, d) {
   const r = d.race || {};
   const note = d.preparationNote || '枠順確定後に関係者コメント・ラップ解析を入力し、新ロジックで採点を行う予定。';
   const finalBetsBlock = renderFinalBets(d.finalBets);
   const noteBlock = d.finalBets ? '' : renderOracleBlock(note, '準備中の御神託');
+  const { names: fireNames, scoredMap } = computeFireHorses(d.horses || []);
   const byOdds = [...(d.horses || [])].sort((a,b) => (a.expectedOdds ?? 9999) - (b.expectedOdds ?? 9999));
   const rows = byOdds.map((h, i) => {
     const hasPed = h.sire || h.broodmareSire;
@@ -2584,11 +2625,19 @@ function renderPreparation(cfg, d) {
     if (jwParts.length) {
       jockeyWeightLine = `<div class="jw-line">${jwParts.join('')}</div>`;
     }
+    // 🔥 暫定トップ圏マーク（tooltipに暫定スコア・内訳を表示）
+    const fireMark = (() => {
+      if (!fireNames.has(h.name)) return '';
+      const s = scoredMap.get(h.name);
+      const scoreStr = s ? s.score.toFixed(1) : '';
+      const partsStr = s ? s.parts.join(' / ') : '';
+      return ` <span title="暫定トップ圏 ${scoreStr}pt（${partsStr}）" style="font-size:14px;cursor:help;">🔥</span>`;
+    })();
     return `
     <tr>
       <td style="text-align:right;color:var(--shu);font-weight:700;vertical-align:top;padding-top:10px;">${i + 1}</td>
       <td>
-        <div style="font-weight:600;">${esc(h.name)}</div>
+        <div style="font-weight:600;">${esc(h.name)}${fireMark}</div>
         ${pedLine}
         ${jockeyWeightLine}
         ${prevRaceLine}
@@ -2609,6 +2658,12 @@ function renderPreparation(cfg, d) {
         <div style="font-size:11px;color:var(--muted);letter-spacing:.2em;">${esc(cfg.meta || '')} ／ ${esc(r.startTime || '')}発走</div>
       </div>
       ${renderOracleBlock(note, '準備中の御神託')}
+      ${fireNames.size > 0 ? `
+        <div style="margin:8px 0 12px;padding:8px 14px;background:rgba(155,45,48,.06);border-left:3px solid var(--shu);font-size:11px;color:var(--sumi);line-height:1.7;letter-spacing:.04em;">
+          <span style="font-weight:700;color:var(--shu);">🔥 現時点のトップ圏</span>
+          ／ 判明している神獣gradeだけで暫定算出（青龍×2.0 ／ 朱雀×1.5 ／ 白虎×1.0 ／ 玄武×0.5）。同点なら複数頭に付く。四神揃い次第自動で更新。
+        </div>
+      ` : ''}
       <table style="width:100%;border-collapse:collapse;font-size:13px;">
         <thead>
           <tr style="border-bottom:2px solid var(--sumi);">
