@@ -981,6 +981,102 @@ html,body{
 }
 
 .loading{text-align:center;padding:48px 16px;color:var(--muted);font-size:13px;font-family:'Shippori Mincho',serif;}
+
+/* ═══════════════════════════════════════════════════════
+   🎬 配信モード（URL末尾 ?broadcast=1）
+   YouTube配信でそのままOBSのブラウザソースに流す用
+═══════════════════════════════════════════════════════ */
+body.broadcast-mode{background:#fafaf7;}
+body.broadcast-mode .jinja-kisetsu,
+body.broadcast-mode .page-header,
+body.broadcast-mode .breadcrumb-banner,
+body.broadcast-mode .ginyo-hero,
+body.broadcast-mode .oracle-matrix,
+body.broadcast-mode .jinja-footer,
+body.broadcast-mode .tab-bar,
+body.broadcast-mode .race-tabs,
+body.broadcast-mode .sort-tabs,
+body.broadcast-mode .disclaimer{display:none !important;}
+
+/* コンテンツ全体を拡大表示 */
+body.broadcast-mode #content{
+  zoom:1.75;
+  max-width:1100px;
+  margin:28px auto !important;
+}
+
+/* 準備中テーブルを配信向けに整える */
+body.broadcast-mode #content table{border-collapse:separate !important;border-spacing:0 !important;}
+body.broadcast-mode #content table thead th{
+  padding:14px 12px !important;
+  font-size:14px !important;
+  background:var(--paper);
+  border-bottom:3px solid var(--sumi) !important;
+}
+body.broadcast-mode #content table tbody tr{
+  border-bottom:1px solid var(--border) !important;
+}
+body.broadcast-mode #content table tbody tr:nth-child(even){
+  background:rgba(201,169,97,.04);
+}
+body.broadcast-mode #content table tbody tr td{
+  padding:16px 12px !important;
+  vertical-align:top !important;
+  line-height:1.7 !important;
+}
+
+/* 現在の配信中マーカー */
+body.broadcast-mode .bc-focus{
+  background:rgba(201,169,97,.18) !important;
+  outline:3px solid var(--shu);
+  outline-offset:-3px;
+}
+
+/* 前走レース表示（全画面で大きく） */
+.prev-race-line{
+  display:inline-block;
+  margin-top:6px;
+  font-size:11px;
+  padding:3px 10px;
+  background:linear-gradient(90deg,rgba(201,169,97,.18),rgba(201,169,97,.06));
+  border:1px solid var(--kin);
+  border-radius:3px;
+  color:#7a5500;
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+.prev-race-line .prev-label{
+  color:var(--shu);
+  margin-right:6px;
+  font-weight:800;
+}
+.prev-race-line .prev-name{
+  background:var(--kin);
+  color:#fff;
+  padding:1px 7px;
+  border-radius:2px;
+  margin-right:6px;
+  font-size:10px;
+  letter-spacing:.05em;
+}
+.prev-race-line .prev-result{
+  color:#9B2D30;
+  font-weight:900;
+}
+
+/* 配信モード用：矢印キーヒント */
+.bc-hint{
+  position:fixed;right:18px;bottom:16px;
+  font-size:10px;color:#888;
+  background:rgba(255,255,255,.85);
+  padding:6px 12px;border-radius:4px;
+  border:1px solid var(--border);
+  font-family:'Inter',sans-serif;
+  letter-spacing:.06em;z-index:9999;
+  pointer-events:none;
+}
+body:not(.broadcast-mode) .bc-hint{display:none;}
 </style>
 </head>
 <body>
@@ -2222,12 +2318,20 @@ function renderPreparation(cfg, d) {
       const paceTag = lf.paceForecast ? `<span style="opacity:.7;margin-left:4px;">×${esc(lf.paceForecast)}</span>` : '';
       lapFactorLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">ラップ <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(lf.lapChar)}${paceTag}</span></div>`;
     }
+    // 🏁 前走レース・着順表示（配信モード＆通常モード共通）
+    let prevRaceLine = '';
+    if (h.prevRaceName || h.prevFinish) {
+      const nameHtml   = h.prevRaceName ? `<span class="prev-name">${esc(h.prevRaceName)}</span>` : '';
+      const resultHtml = h.prevFinish   ? `<span class="prev-result">${esc(h.prevFinish)}</span>` : '';
+      prevRaceLine = `<div style="margin-top:4px;"><span class="prev-race-line"><span class="prev-label">前走</span>${nameHtml}${resultHtml}</span></div>`;
+    }
     return `
     <tr>
       <td style="text-align:right;color:var(--shu);font-weight:700;vertical-align:top;padding-top:10px;">${i + 1}</td>
       <td>
         <div style="font-weight:600;">${esc(h.name)}</div>
         ${pedLine}
+        ${prevRaceLine}
         ${gaikyuLine}
         ${relCommentLine}
         ${lapFactorLine}
@@ -2405,6 +2509,71 @@ document.getElementById('tabBar').addEventListener('click', e => {
   renderRace(idx);
 });
 
+// ═══════════════════════════════════════════════════════
+// 🎬 配信モード（?broadcast=1）初期化
+// YouTube配信でOBSブラウザソースに流す用。
+//   ・ 拡大表示 (zoom 1.75)
+//   ・ 不要なヘッダ・ナビ類を非表示
+//   ・ J/↓ で次の行、K/↑ で前の行へスムーズスクロール
+//   ・ ESC で通常表示に戻る
+// ═══════════════════════════════════════════════════════
+(function initBroadcastMode(){
+  const params = new URLSearchParams(location.search);
+  if (params.get('broadcast') !== '1') return;
+
+  document.body.classList.add('broadcast-mode');
+
+  // 操作ヒント（画面右下に常時表示、動画に映っても控えめ）
+  const hint = document.createElement('div');
+  hint.className = 'bc-hint';
+  hint.textContent = '▶ J / ↓ 次へ　K / ↑ 前へ　ESC 終了';
+  document.body.appendChild(hint);
+
+  // キーボードナビ
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
+      e.preventDefault(); scrollBroadcastNext();
+    } else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
+      e.preventDefault(); scrollBroadcastPrev();
+    } else if (e.key === 'Escape') {
+      document.body.classList.remove('broadcast-mode');
+      const h = document.querySelector('.bc-hint');
+      if (h) h.remove();
+    }
+  });
+})();
+
+function getBroadcastRows(){
+  // 馬カード / テーブル行 / シジンカードのいずれかを候補に
+  const candidates = document.querySelectorAll(
+    '#content tbody tr, #content .horse-card, #content > div > div[style*="border:2px solid"]'
+  );
+  return Array.from(candidates).filter(el => el.offsetHeight > 40);
+}
+
+function scrollBroadcastNext(){
+  const rows = getBroadcastRows();
+  if (!rows.length) { window.scrollBy({top: window.innerHeight * 0.5, behavior:'smooth'}); return; }
+  const mid = window.innerHeight / 2;
+  for (const r of rows) {
+    const rect = r.getBoundingClientRect();
+    if (rect.top > mid + 20) { r.scrollIntoView({block:'center', behavior:'smooth'}); return; }
+  }
+  window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
+}
+
+function scrollBroadcastPrev(){
+  const rows = getBroadcastRows();
+  if (!rows.length) { window.scrollBy({top: -window.innerHeight * 0.5, behavior:'smooth'}); return; }
+  const mid = window.innerHeight / 2;
+  const reversed = [...rows].reverse();
+  for (const r of reversed) {
+    const rect = r.getBoundingClientRect();
+    if (rect.top < mid - 20) { r.scrollIntoView({block:'center', behavior:'smooth'}); return; }
+  }
+  window.scrollTo({top: 0, behavior:'smooth'});
+}
+
 async function main() {
   const results = await Promise.allSettled(
     RACES.map(cfg => fetch(cfg.file + '?v=' + Date.now())
@@ -2414,7 +2583,20 @@ async function main() {
   allData = results.map((res, i) =>
     res.status === 'fulfilled' ? res.value : {cfg: RACES[i], d: null}
   );
-  renderRace(0);
+
+  // ?race= URLパラメータで特定レースを初期選択（配信モード向け）
+  const params = new URLSearchParams(location.search);
+  const raceParam = params.get('race');
+  let initialIdx = 0;
+  if (raceParam) {
+    const hit = RACES.findIndex(r =>
+      (r.id && r.id === raceParam) ||
+      (r.label && r.label === raceParam) ||
+      (r.file && r.file.includes(raceParam))
+    );
+    if (hit >= 0) initialIdx = hit;
+  }
+  renderRace(initialIdx);
 }
 main();
 </script>
