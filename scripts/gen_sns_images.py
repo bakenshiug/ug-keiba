@@ -26,6 +26,45 @@ BASE = Path('/Users/buntawakase/Desktop/ug-keiba')
 OUT_DIR = BASE / 'docs/img/sns'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+# ギーニョ大神 御本尊画像 (縦長 1616x2176, アスペクト比 0.743)
+GIINYO_IMG_PATH = BASE / 'docs/img/giinyo-daijin.png'
+GIINYO_IMG = Image.open(GIINYO_IMG_PATH).convert('RGBA') if GIINYO_IMG_PATH.exists() else None
+
+# ニック Vtuber アバター (正方形クロップ版優先)
+_NICK_PATHS = [BASE / 'docs/img/nick-vtuber-square.png',
+               BASE / 'docs/img/nick-vtuber.png',
+               BASE / 'docs/img/nick.png']
+NICK_IMG = None
+for _p in _NICK_PATHS:
+    if _p.exists():
+        NICK_IMG = Image.open(_p).convert('RGBA')
+        break
+
+
+def paste_circular(base_img, src_img, cx, cy, radius, halo=True):
+    """base_img の (cx, cy) を中心に半径 radius の円形で src_img を貼る
+    halo=True なら外側に金色の二重後光を描画"""
+    draw = ImageDraw.Draw(base_img)
+    # 後光
+    if halo:
+        r1 = radius + 18
+        draw.ellipse([(cx - r1, cy - r1), (cx + r1, cy + r1)],
+                     fill=(249, 233, 183), outline=C_KIN, width=2)
+        r2 = radius + 10
+        draw.ellipse([(cx - r2, cy - r2), (cx + r2, cy + r2)],
+                     outline=C_KIN_D, width=1)
+    # 画像を正方形にリサイズ
+    size = radius * 2
+    resized = src_img.resize((size, size), Image.LANCZOS).convert('RGBA')
+    # 円形マスク
+    mask = Image.new('L', (size, size), 0)
+    ImageDraw.Draw(mask).ellipse([(0, 0), (size, size)], fill=255)
+    # 貼り付け
+    base_img.paste(resized, (cx - radius, cy - radius), mask)
+    # 金縁
+    draw.ellipse([(cx - radius, cy - radius), (cx + radius, cy + radius)],
+                 outline=C_KIN_D, width=3)
+
 RACE_MAP = [
     ('2026-04-25-aobasho',  '2026-04-25-tokyo-11r', '青葉賞',    'G2 東京芝2400m',  '2026/04/25 土'),
     ('2026-04-26-floras',   '2026-04-26-tokyo-11r', 'フローラS', 'G2 東京芝2000m',  '2026/04/26 日'),
@@ -540,11 +579,155 @@ def gen_tiktok(label, rn, race_name, race_meta, date_label):
     print(f'  [tiktok]  {out}')
 
 
+def gen_youtube(label, rn, race_name, race_meta, date_label):
+    """YouTube配信サムネ用 1920x1080 横長 (ギーニョ大神メインビジュアル)"""
+    W, H = 1920, 1080
+    img = Image.new('RGB', (W, H), C_PAPER)
+    draw = ImageDraw.Draw(img)
+
+    data, fb, pres = load_presentation(rn)
+    horses = pres.get('horses') or []
+
+    # 上部: 朱帯 (細め)
+    band_h = 90
+    draw.rectangle([(0, 0), (W, band_h)], fill=C_SHU)
+    # 金の二重線
+    draw.line([(60, band_h + 6), (W - 60, band_h + 6)], fill=C_KIN, width=2)
+    draw.line([(60, band_h + 12), (W - 60, band_h + 12)], fill=C_KIN, width=1)
+
+    # FINAL ORACLE / 四神の御神託
+    f_eng = font(FONT_KAKU_W3, 26)
+    s = 'FINAL  ORACLE   ／   四神の御神託'
+    draw.text((W // 2 - text_w(draw, s, f_eng) // 2, 30), s, fill=C_KIN, font=f_eng)
+
+    # 下部: 薄金帯 (ベース)
+    footer_h = 70
+    draw.rectangle([(0, H - footer_h), (W, H)], fill=(236, 224, 192))
+    # URL + キャッチ
+    f_ft = font(FONT_KAKU_W3, 22)
+    url = 'bakenshiug.github.io/ug-keiba'
+    tag = '— AI×競馬 UG神社 —'
+    draw.text((60, H - 48), tag, fill=C_KIN_D, font=f_ft)
+    draw.text((W - 60 - text_w(draw, url, f_ft), H - 48), url, fill=C_MUTED, font=f_ft)
+
+    # 左: ギーニョ大神 御本尊 (後光付き)
+    if GIINYO_IMG:
+        img_h = 820
+        img_w = int(img_h * 0.743)
+        img_x = 80
+        img_y = (H - img_h) // 2
+
+        # 後光 (金の薄い円) - 2段
+        halo_r1 = img_w // 2 + 40
+        halo_r2 = img_w // 2 + 20
+        halo_cx = img_x + img_w // 2
+        halo_cy = img_y + img_h // 2
+
+        # 後光外側 (極薄)
+        draw.ellipse([(halo_cx - halo_r1, halo_cy - halo_r1),
+                      (halo_cx + halo_r1, halo_cy + halo_r1)],
+                     fill=(249, 233, 183), outline=C_KIN, width=2)
+        draw.ellipse([(halo_cx - halo_r2, halo_cy - halo_r2),
+                      (halo_cx + halo_r2, halo_cy + halo_r2)],
+                     outline=C_KIN_D, width=1)
+
+        # 御本尊画像
+        resized = GIINYO_IMG.resize((img_w, img_h), Image.LANCZOS)
+        img.paste(resized, (img_x, img_y), resized)
+
+        # 御神名 (画像下) — ギーニョ大神の正式御神名
+        f_tagline = font(FONT_MINCHO, 38)
+        t = 'ギーニョ・思金神'
+        tw_ = text_w(draw, t, f_tagline)
+        draw.text((img_x + (img_w - tw_) // 2, img_y + img_h + 8), t, fill=C_SHU_D, font=f_tagline)
+        f_eng_tag = font(FONT_KAKU_W3, 15)
+        t2 = 'GIINYO OMOIKANE-NO-KAMI'
+        tw2 = text_w(draw, t2, f_eng_tag)
+        draw.text((img_x + (img_w - tw2) // 2, img_y + img_h + 56), t2, fill=C_KIN_D, font=f_eng_tag)
+
+    # 右: レース情報 (でかでか) - 角ゴシック太め統一
+    right_x = 820
+    right_w = W - right_x - 80
+
+    # 御神託降臨 (W8)
+    f_title = font(FONT_KAKU_W8, 72)
+    t = '御神託降臨'
+    draw.text((right_x, 170), t, fill=C_SHU_D, font=f_title)
+    # 金アンダーライン
+    tw_ = text_w(draw, t, f_title)
+    draw.line([(right_x, 262), (right_x + tw_, 262)], fill=C_KIN, width=3)
+
+    # レース名 (超ドデカ・W9)
+    f_race = font(FONT_KAKU_W9, 150)
+    draw.text((right_x, 290), race_name, fill=C_SUMI, font=f_race)
+
+    # メタ情報
+    f_meta = font(FONT_KAKU_W3, 34)
+    draw.text((right_x, 490), race_meta, fill=C_SUMI, font=f_meta)
+    f_date = font(FONT_KAKU_W8, 44)
+    draw.text((right_x, 540), date_label, fill=C_SHU, font=f_date)
+
+    # 金の分割線
+    draw.line([(right_x, 620), (right_x + 500, 620)], fill=C_KIN, width=2)
+
+    # 本命馬 or キャッチコピー
+    f_main_label = font(FONT_KAKU_W3, 22)
+    draw.text((right_x, 640), '今宵、神託を授ける一頭', fill=C_MUTED, font=f_main_label)
+
+    # 本命馬名 (W8 太)
+    main_horse = next((h for h in horses if h.get('roleTag') == 'main'), None)
+    if main_horse:
+        f_horse = font(FONT_KAKU_W8, 60)
+        horse_name = main_horse.get('name', '')
+        draw.text((right_x, 680), f'本命： {horse_name}', fill=C_SHU_D, font=f_horse)
+        # スコア & OD
+        f_stat = font(FONT_KAKU_W3, 26)
+        score = main_horse.get('score')
+        od = main_horse.get('expectedOdds')
+        stat = f'採点 {score:.1f}pt　　想定OD {od:.1f}倍' if score is not None and od is not None else ''
+        if stat:
+            draw.text((right_x, 760), stat, fill=C_MUTED, font=f_stat)
+
+    # ── ニック Vtuber アバター (案内人) + CTA 横並び ──
+    cta_y_center = 880
+    nick_r = 68
+    nick_cx = right_x + nick_r + 8
+    nick_cy = cta_y_center
+    if NICK_IMG:
+        paste_circular(img, NICK_IMG, nick_cx, nick_cy, nick_r, halo=True)
+        # ラベル「案内人 / ニック」 (アバター直下)
+        f_role = font(FONT_KAKU_W3, 18)
+        role_t = '案内人'
+        rw = text_w(draw, role_t, f_role)
+        draw.text((nick_cx - rw // 2, nick_cy + nick_r + 28), role_t, fill=C_MUTED, font=f_role)
+        f_role_name = font(FONT_KAKU_W8, 22)
+        name_t = 'ニック'
+        nw = text_w(draw, name_t, f_role_name)
+        draw.text((nick_cx - nw // 2, nick_cy + nick_r + 54), name_t, fill=C_SHU_D, font=f_role_name)
+
+    # CTA テキスト (ニックの右側) - ▶ は自前描画で文字化け回避
+    cta_x = nick_cx + nick_r + 32 if NICK_IMG else right_x
+    f_cta = font(FONT_KAKU_W9, 32)
+    # 朱の三角矢印を描画 (高さ28, 幅24)
+    tri_y = cta_y_center - 22
+    draw.polygon([(cta_x, tri_y), (cta_x + 24, tri_y + 14), (cta_x, tri_y + 28)], fill=C_SHU)
+    cta_line1 = '全12ページの御神託書'
+    draw.text((cta_x + 36, cta_y_center - 34), cta_line1, fill=C_SHU, font=f_cta)
+    f_cta_sub = font(FONT_KAKU_W3, 22)
+    cta_line2 = '本編はこちら（PDF／YouTube配信）'
+    draw.text((cta_x + 36, cta_y_center + 8), cta_line2, fill=C_KIN_D, font=f_cta_sub)
+
+    out = OUT_DIR / f'{label}-youtube.png'
+    img.save(out, 'PNG', optimize=True)
+    print(f'  [youtube] {out}')
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--only', help='特定レースのみ (2026-04-25-aobasho など)')
     ap.add_argument('--skip-twitter', action='store_true')
     ap.add_argument('--skip-tiktok', action='store_true')
+    ap.add_argument('--skip-youtube', action='store_true')
     args = ap.parse_args()
 
     targets = [r for r in RACE_MAP if not args.only or r[0] == args.only]
@@ -557,6 +740,8 @@ def main():
                 gen_twitter(label, rn, race_name, race_meta, date_label)
             if not args.skip_tiktok:
                 gen_tiktok(label, rn, race_name, race_meta, date_label)
+            if not args.skip_youtube:
+                gen_youtube(label, rn, race_name, race_meta, date_label)
         except Exception as e:
             import traceback
             print(f'  [ERROR] {e}')

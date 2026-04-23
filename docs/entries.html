@@ -76,6 +76,112 @@ html,body{
 .bc-sep{font-size:13px;color:var(--kin);font-weight:900;}
 .bc-current{font-size:11px;font-weight:900;color:var(--shu);}
 
+/* ── ギーニョ大神 御神体ヒーロー ── */
+.ginyo-hero{
+  position:relative;
+  padding:22px 32px 20px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(249,233,183,.35) 0%, transparent 55%),
+    linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  gap:22px;flex-wrap:wrap;
+  overflow:hidden;
+}
+.ginyo-hero::before,.ginyo-hero::after{
+  content:'';position:absolute;top:0;bottom:0;width:6px;
+  background:linear-gradient(180deg,var(--shu) 0%,var(--shu-dk) 50%,var(--shu) 100%);
+  opacity:.9;
+}
+.ginyo-hero::before{left:0;}
+.ginyo-hero::after{right:0;}
+.gh-avatar-wrap{
+  position:relative;
+  width:120px;height:120px;
+  flex-shrink:0;
+}
+.gh-halo-outer{
+  position:absolute;inset:-12px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(249,233,183,.9) 0%, rgba(201,169,97,.25) 60%, transparent 95%);
+  z-index:0;
+}
+.gh-halo-ring{
+  position:absolute;inset:-4px;
+  border-radius:50%;
+  border:1px solid var(--kin);
+  z-index:1;
+}
+.gh-avatar{
+  position:relative;z-index:2;
+  width:120px;height:120px;border-radius:50%;
+  border:3px solid var(--kin);
+  box-shadow:0 4px 18px rgba(155,45,48,.25), inset 0 0 0 1px rgba(255,255,255,.6);
+  object-fit:cover;
+  object-position:center 28%;
+  background:var(--paper);
+}
+.gh-text{
+  text-align:center;
+  max-width:440px;
+  flex:1 1 260px;min-width:240px;
+}
+.gh-label{
+  font-family:'Shippori Mincho',serif;
+  font-size:9.5px;font-weight:700;color:var(--kin);
+  letter-spacing:.32em;margin-bottom:6px;
+}
+.gh-title{
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:24px;font-weight:800;color:var(--shu);
+  letter-spacing:.22em;line-height:1;
+  margin-bottom:10px;
+  position:relative;display:inline-block;padding:0 18px;
+}
+.gh-title::before,.gh-title::after{
+  content:'';position:absolute;top:50%;width:12px;height:1px;
+  background:var(--kin);
+}
+.gh-title::before{left:0;}
+.gh-title::after{right:0;}
+.gh-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:16px;font-weight:700;color:var(--sumi);
+  letter-spacing:.14em;margin-bottom:4px;
+}
+.gh-sub{
+  font-family:'Shippori Mincho',serif;
+  font-size:11px;color:var(--muted);
+  letter-spacing:.1em;margin-bottom:12px;
+}
+.gh-divider{
+  width:64%;max-width:200px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--kin),transparent);
+  margin:0 auto 10px;
+}
+.gh-msg{
+  font-family:'Shippori Mincho',serif;
+  font-size:12.5px;color:var(--sumi);
+  letter-spacing:.08em;line-height:1.75;font-weight:500;
+}
+.gh-msg em{
+  font-style:normal;color:var(--shu);font-weight:700;
+  border-bottom:1px dotted var(--kin);padding-bottom:1px;
+}
+@media (max-width:640px){
+  .ginyo-hero{gap:12px;padding:16px 18px 14px;flex-direction:column;}
+  .ginyo-hero::before,.ginyo-hero::after{width:4px;}
+  .gh-avatar-wrap,.gh-avatar{width:92px;height:92px;}
+  .gh-halo-outer{inset:-8px;}
+  .gh-text{min-width:0;flex:1 1 auto;width:100%;}
+  .gh-label{font-size:8.5px;letter-spacing:.28em;margin-bottom:4px;}
+  .gh-title{font-size:19px;letter-spacing:.18em;margin-bottom:8px;}
+  .gh-name{font-size:14px;margin-bottom:3px;}
+  .gh-sub{font-size:10.5px;margin-bottom:9px;}
+  .gh-divider{margin-bottom:8px;}
+  .gh-msg{font-size:11.5px;line-height:1.7;}
+}
+
 /* ── 過去10年の神託マトリクス（今週の3重賞）── */
 .oracle-matrix{
   background:linear-gradient(180deg,var(--paper) 0%,#fff 100%);
@@ -895,6 +1001,23 @@ html,body{
   <span class="bc-item">御神託の実績：NZT☆レザベーション6番人気1着 ／ 桜花賞△ジッピーチューン12番人気3着</span>
   <span class="bc-sep">›</span>
   <span class="bc-current">青葉賞・フローラS・マイラーズC 神託準備中 ／ 枠順確定（4/23木）待ち</span>
+</div>
+
+<!-- ギーニョ大神 御神体ヒーロー -->
+<div class="ginyo-hero">
+  <div class="gh-avatar-wrap">
+    <div class="gh-halo-outer"></div>
+    <div class="gh-halo-ring"></div>
+    <img src="img/giinyo-daijin.png" alt="ギーニョ大神 御本尊" class="gh-avatar">
+  </div>
+  <div class="gh-text">
+    <div class="gh-label">GIINYO OMOIKANE-NO-KAMI</div>
+    <div class="gh-title">御神託降臨</div>
+    <div class="gh-name">ギーニョ・思金神</div>
+    <div class="gh-sub">― 知恵と的中の神、4頭BOXの開祖 ―</div>
+    <div class="gh-divider"></div>
+    <div class="gh-msg">拝殿にて、<em>四神の神託</em>を授く。<br>問われるは、馬券に宿す一手の真意。</div>
+  </div>
 </div>
 
 <!-- 過去10年の神託マトリクス -->
