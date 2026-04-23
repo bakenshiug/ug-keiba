@@ -1158,6 +1158,105 @@ body.broadcast-mode #content table tbody td:nth-child(4){
   pointer-events:none;
 }
 body:not(.broadcast-mode) .bc-hint{display:none;}
+
+/* ===== 御神託ブロック（神々しいレイアウト） ===== */
+.oracle-block{
+  position:relative;
+  background:
+    linear-gradient(180deg, rgba(255,253,248,.96) 0%, rgba(252,246,232,.92) 100%),
+    repeating-linear-gradient(45deg, transparent 0, transparent 8px, rgba(201,169,97,.03) 8px, rgba(201,169,97,.03) 9px);
+  border:1px solid var(--kin);
+  border-left:4px solid var(--shu);
+  border-right:4px solid var(--shu);
+  padding:26px 24px 22px;
+  margin-bottom:24px;
+  font-family:"Yu Mincho","游明朝","Hiragino Mincho ProN",serif;
+  box-shadow:0 2px 8px rgba(92,62,47,.08), inset 0 0 0 1px rgba(255,255,255,.6);
+}
+.oracle-block::before{
+  content:"⛩";
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:22px;
+  background:var(--paper, #fcf6e8);
+  color:var(--shu);
+  padding:0 12px;
+  letter-spacing:.2em;
+}
+.oracle-block::after{
+  content:"";
+  position:absolute;
+  top:6px;left:6px;right:6px;bottom:6px;
+  border:1px dashed rgba(201,169,97,.35);
+  pointer-events:none;
+}
+.oracle-label{
+  display:inline-block;
+  font-size:10px;
+  font-weight:700;
+  color:var(--kin);
+  background:var(--sumi);
+  padding:3px 12px;
+  border-radius:1px;
+  letter-spacing:.32em;
+  margin-bottom:14px;
+}
+.oracle-heading{
+  font-size:15px;
+  font-weight:700;
+  color:var(--shu);
+  margin:16px 0 10px;
+  padding:4px 0 6px 10px;
+  border-left:3px double var(--kin);
+  letter-spacing:.08em;
+  line-height:1.5;
+}
+.oracle-heading:first-child{margin-top:0;}
+.oracle-list{
+  margin:6px 0 14px;
+  padding-left:4px;
+  list-style:none;
+}
+.oracle-list li{
+  position:relative;
+  padding:5px 0 5px 22px;
+  line-height:1.85;
+  font-size:13.5px;
+  color:var(--sumi);
+  border-bottom:1px dotted rgba(201,169,97,.25);
+}
+.oracle-list li:last-child{border-bottom:none;}
+.oracle-list li::before{
+  content:"◆";
+  color:var(--kin);
+  position:absolute;
+  left:2px;top:7px;
+  font-size:10px;
+}
+.oracle-para{
+  margin:8px 0;
+  font-size:13.5px;
+  line-height:1.95;
+  color:var(--sumi);
+  text-indent:1em;
+}
+.oracle-note{
+  margin-top:14px;
+  padding-top:10px;
+  border-top:1px solid rgba(201,169,97,.3);
+  font-size:11.5px;
+  color:var(--muted);
+  letter-spacing:.04em;
+  font-family:'Inter','Hiragino Sans',sans-serif;
+}
+.oracle-emph{
+  color:var(--shu);
+  font-weight:700;
+  background:linear-gradient(transparent 65%, rgba(201,169,97,.25) 65%);
+  padding:0 2px;
+}
 </style>
 </head>
 <body>
@@ -2195,6 +2294,61 @@ function renderShijinHorseCard(ph, idx) {
   `;
 }
 
+/* 御神託テキスト(Markdown風)をHTMLへ変換
+   対応記法:
+     ## 見出し → .oracle-heading
+     - 項目  → .oracle-list > li
+     > 注記  → .oracle-note
+     **強調** → .oracle-emph
+     空行  → 段落区切り
+     その他 → .oracle-para
+*/
+function renderOracle(text) {
+  if (!text) return '';
+  if (typeof text !== 'string') return '';
+  const lines = text.split('\n');
+  let html = '';
+  let inList = false;
+  const closeList = () => { if (inList) { html += '</ul>'; inList = false; } };
+  const escInline = (s) => {
+    // まずHTMLエスケープ
+    s = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    // **強調** を span に
+    s = s.replace(/\*\*([^*]+)\*\*/g, '<span class="oracle-emph">$1</span>');
+    return s;
+  };
+  for (const raw of lines) {
+    const ln = raw.trimEnd();
+    const trim = ln.trim();
+    if (trim === '') { closeList(); continue; }
+    if (trim.startsWith('## ')) {
+      closeList();
+      html += `<h4 class="oracle-heading">${escInline(trim.slice(3))}</h4>`;
+    } else if (trim.startsWith('- ')) {
+      if (!inList) { html += '<ul class="oracle-list">'; inList = true; }
+      html += `<li>${escInline(trim.slice(2))}</li>`;
+    } else if (trim.startsWith('> ')) {
+      closeList();
+      html += `<div class="oracle-note">${escInline(trim.slice(2))}</div>`;
+    } else {
+      closeList();
+      html += `<p class="oracle-para">${escInline(trim)}</p>`;
+    }
+  }
+  closeList();
+  return html;
+}
+
+function renderOracleBlock(note, label='準備中の御神託') {
+  if (!note) return '';
+  const inner = renderOracle(note);
+  return `
+    <div class="oracle-block">
+      <span class="oracle-label">${label}</span>
+      ${inner}
+    </div>`;
+}
+
 function renderFinalBets(fb) {
   if (!fb) return '';
 
@@ -2358,10 +2512,7 @@ function renderPreparation(cfg, d) {
   const r = d.race || {};
   const note = d.preparationNote || '枠順確定後に関係者コメント・ラップ解析を入力し、新ロジックで採点を行う予定。';
   const finalBetsBlock = renderFinalBets(d.finalBets);
-  const noteBlock = d.finalBets ? '' : `
-      <div style="background:var(--bg-soft);border-left:3px solid var(--kin);padding:14px 18px;margin-bottom:20px;font-size:13px;line-height:1.9;color:var(--sumi);">
-        <strong style="color:var(--shu);">準備中の御神託：</strong> ${esc(note)}
-      </div>`;
+  const noteBlock = d.finalBets ? '' : renderOracleBlock(note, '準備中の御神託');
   const byOdds = [...(d.horses || [])].sort((a,b) => (a.expectedOdds ?? 9999) - (b.expectedOdds ?? 9999));
   const rows = byOdds.map((h, i) => {
     const hasPed = h.sire || h.broodmareSire;
@@ -2457,9 +2608,7 @@ function renderPreparation(cfg, d) {
         <div style="font-size:26px;font-weight:800;letter-spacing:.18em;color:var(--sumi);margin-bottom:6px;">${esc(cfg.label)}</div>
         <div style="font-size:11px;color:var(--muted);letter-spacing:.2em;">${esc(cfg.meta || '')} ／ ${esc(r.startTime || '')}発走</div>
       </div>
-      <div style="background:var(--bg-soft);border-left:3px solid var(--kin);padding:14px 18px;margin-bottom:20px;font-size:13px;line-height:1.9;color:var(--sumi);">
-        <strong style="color:var(--shu);">準備中の御神託：</strong> ${esc(note)}
-      </div>
+      ${renderOracleBlock(note, '準備中の御神託')}
       <table style="width:100%;border-collapse:collapse;font-size:13px;">
         <thead>
           <tr style="border-bottom:2px solid var(--sumi);">

@@ -8,7 +8,8 @@
     "distance": 2400,
     "course": "左A",
     "startTime": "15:45",
-    "numHorses": 25
+    "numHorses": 25,
+    "headCount": 18
   },
   "raceTitle": {
     "main": "青葉賞",
@@ -16,7 +17,7 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "preparationNote": "関係者コメントの言霊解析・外厩相性ファクター(個体別)は済み。枠順確定（4/23木曜予定）後にラップ解析を加え、最終採点を行う。ダービートライアル・2着までに優先出走権。コントレイル産駒5頭（エーデル／カット／ゴーイン／サガル／テル）出走。",
+  "preparationNote": "## 🌳 青葉賞 2026 ギーニョの見立て\n- ダービートライアル、2着までに優先出走権\n- コントレイル産駒4頭出走（カットソロ／ゴーイントゥスカイ／サガルマータ／テルヒコウ）\n- **ミッキーファルコン 420kg** ← 唯一の小柄穴②ヒット\n- 25頭登録→18頭抽選確定。除外7頭（アローメタル／ヴィサージュ／エーデルゼーレ／オリオンブレード／オルフセン／ベルウッドクレド／ボンドマティーニ）\n\n## 📊 主役候補\n- 1番人気想定：**ブラックオリンピア 2.2倍**（川田・栗東友道）\n- 対抗：**ノーブルサヴェージ 4.8倍**（レーン騎乗）\n- 中穴：ゴーイントゥスカイ8.6倍（武豊）、サガルマータ10.3倍、タイダルロック10.6倍\n\n## 🎯 ギーニョの構え\n- 小柄420kg以下はミッキーファルコン1頭のみ → 穴枠ここから狙うか\n- 上位4頭が10倍以内に固まる堅さ、ワイドBOXでカバー\n\n> 関係者コメント言霊解析・外厩相性ファクターは済み。ラップ解析は金曜夜に加算、最終採点。\n> トゥーナスタディ(地方)はデータ取得不可のため参考表示のみ・非購入対象。",
   "logicVersion": "v2-rel-lap",
   "horses": [
     {
@@ -26,7 +27,7 @@
       "name": "アッカン",
       "jockey": "池添",
       "trainer": "奥村武",
-      "expectedOdds": 48.8,
+      "expectedOdds": 30.7,
       "sire": "ホークビル",
       "broodmareSire": "エイシンフラッシュ",
       "gaikyu": "グランデファーム",
@@ -65,214 +66,19 @@
           "weight": 454,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "美浦奥村武"
     },
     {
       "listOrder": 2,
       "num": null,
       "gate": null,
-      "name": "アローメタル",
-      "jockey": "ルメール",
-      "trainer": "木村",
-      "expectedOdds": 5.9,
-      "sire": "キズナ",
-      "broodmareSire": "メダグリアドーロ",
-      "gaikyu": "ノーザンファーム天栄",
-      "relComment": {
-        "keyword": "東京2400好内容",
-        "grade": "A"
-      },
-      "lapFactors": null,
-      "gaikyuFactor": {
-        "grade": "A",
-        "source": "individual",
-        "canonical": "ノーザンF天栄",
-        "shutubaGaikyu": "ノーザンファーム天栄",
-        "record": [
-          1,
-          1,
-          0,
-          0
-        ],
-        "recordStr": "1-1-0-0",
-        "tries": 2,
-        "winPlaceShowRate": 1.0
-      },
-      "prevHorseWeight": 508,
-      "prevHorseWeightDelta": null,
-      "prevHorseWeightHistory": [
-        {
-          "weight": 508,
-          "delta": null
-        }
-      ]
-    },
-    {
-      "listOrder": 3,
-      "num": null,
-      "gate": null,
-      "name": "ヴィサージュ",
-      "jockey": "横山典",
-      "trainer": "大久保",
-      "expectedOdds": 19.2,
-      "sire": "エピファネイア",
-      "broodmareSire": "キングカメハメハ",
-      "gaikyu": "ノーザンファームしがらき",
-      "relComment": {
-        "keyword": "久々キャリア不足",
-        "grade": "C"
-      },
-      "lapFactors": null,
-      "gaikyuFactor": {
-        "grade": "A",
-        "source": "individual",
-        "canonical": "ノーザンFしがらき",
-        "shutubaGaikyu": "ノーザンファームしがらき",
-        "record": [
-          1,
-          0,
-          0,
-          0
-        ],
-        "recordStr": "1-0-0-0",
-        "tries": 1,
-        "winPlaceShowRate": 1.0
-      },
-      "prevHorseWeight": 498,
-      "prevHorseWeightDelta": null,
-      "prevHorseWeightHistory": [
-        {
-          "weight": 498,
-          "delta": null
-        }
-      ]
-    },
-    {
-      "listOrder": 4,
-      "num": null,
-      "gate": null,
-      "name": "エーデルゼーレ",
-      "jockey": null,
-      "trainer": "堀",
-      "expectedOdds": 56.3,
-      "sire": "コントレイル",
-      "broodmareSire": "カーリン",
-      "gaikyu": "在厩調整",
-      "relComment": {
-        "keyword": "長距離適性有",
-        "grade": "A"
-      },
-      "lapFactors": null,
-      "gaikyuFactor": {
-        "grade": "B",
-        "source": "fallback",
-        "canonical": "在厩調整",
-        "shutubaGaikyu": "在厩調整"
-      },
-      "prevHorseWeight": 462,
-      "prevHorseWeightDelta": -4,
-      "prevHorseWeightHistory": [
-        {
-          "weight": 462,
-          "delta": -4
-        },
-        {
-          "weight": 466,
-          "delta": null
-        }
-      ]
-    },
-    {
-      "listOrder": 5,
-      "num": null,
-      "gate": null,
-      "name": "オリオンブレード",
-      "jockey": null,
-      "trainer": "矢作",
-      "expectedOdds": 78.0,
-      "sire": "シルバーステート",
-      "broodmareSire": "ゾファニー",
-      "gaikyu": "在厩調整",
-      "relComment": {
-        "keyword": "渋太い先行力",
-        "grade": "B"
-      },
-      "lapFactors": null,
-      "gaikyuFactor": {
-        "grade": "B",
-        "source": "fallback",
-        "canonical": "在厩調整",
-        "shutubaGaikyu": "在厩調整"
-      },
-      "prevHorseWeight": 510,
-      "prevHorseWeightDelta": -8,
-      "prevHorseWeightHistory": [
-        {
-          "weight": 510,
-          "delta": -8
-        },
-        {
-          "weight": 514,
-          "delta": null
-        }
-      ]
-    },
-    {
-      "listOrder": 6,
-      "num": null,
-      "gate": null,
-      "name": "オルフセン",
-      "jockey": "戸崎圭",
-      "trainer": "斎藤誠",
-      "expectedOdds": 17.4,
-      "sire": "キズナ",
-      "broodmareSire": "シーザスターズ",
-      "gaikyu": "エスティファーム小見川",
-      "relComment": {
-        "keyword": "瞬発力不足",
-        "grade": "C"
-      },
-      "lapFactors": null,
-      "gaikyuFactor": {
-        "grade": "A",
-        "source": "individual",
-        "canonical": "エスティF",
-        "shutubaGaikyu": "エスティファーム小見川",
-        "record": [
-          0,
-          0,
-          1,
-          0
-        ],
-        "recordStr": "0-0-1-0",
-        "tries": 1,
-        "winPlaceShowRate": 1.0
-      },
-      "prevHorseWeight": 484,
-      "prevHorseWeightDelta": 0,
-      "prevHorseWeightHistory": [
-        {
-          "weight": 484,
-          "delta": 0
-        },
-        {
-          "weight": 484,
-          "delta": -2
-        },
-        {
-          "weight": 486,
-          "delta": null
-        }
-      ]
-    },
-    {
-      "listOrder": 7,
-      "num": null,
-      "gate": null,
       "name": "カットソロ",
       "jockey": "津村",
       "trainer": "矢作",
-      "expectedOdds": 57.8,
+      "expectedOdds": 33.5,
       "sire": "コントレイル",
       "broodmareSire": "キングヘイロー",
       "gaikyu": "在厩調整",
@@ -302,16 +108,19 @@
           "weight": 520,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "栗東矢作"
     },
     {
-      "listOrder": 8,
+      "listOrder": 3,
       "num": null,
       "gate": null,
       "name": "ケントン",
       "jockey": "木幡巧",
       "trainer": "田島",
-      "expectedOdds": 116.1,
+      "expectedOdds": 83.2,
       "sire": "リアルスティール",
       "broodmareSire": "ディープスカイ",
       "gaikyu": "在厩調整",
@@ -341,16 +150,19 @@
           "weight": 482,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "美浦田島"
     },
     {
-      "listOrder": 9,
+      "listOrder": 4,
       "num": null,
       "gate": null,
       "name": "コスモギガンティア",
       "jockey": "矢野貴",
       "trainer": "河津裕",
-      "expectedOdds": 104.2,
+      "expectedOdds": 114.9,
       "sire": "ダノンバラード",
       "broodmareSire": "スターリングローズ",
       "gaikyu": "在厩調整",
@@ -376,16 +188,19 @@
           "weight": 476,
           "delta": -1
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "地方河津裕"
     },
     {
-      "listOrder": 10,
+      "listOrder": 5,
       "num": null,
       "gate": null,
       "name": "ゴーイントゥスカイ",
       "jockey": "武豊",
       "trainer": "上原佑",
-      "expectedOdds": 13.1,
+      "expectedOdds": 8.6,
       "sire": "コントレイル",
       "broodmareSire": "タピット",
       "gaikyu": "山元トレーニング",
@@ -416,16 +231,19 @@
           "weight": 488,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "美浦上原佑"
     },
     {
-      "listOrder": 11,
+      "listOrder": 6,
       "num": null,
       "gate": null,
       "name": "サガルマータ",
       "jockey": "横山武",
       "trainer": "福永",
-      "expectedOdds": 13.9,
+      "expectedOdds": 10.3,
       "sire": "コントレイル",
       "broodmareSire": "シティバンカー",
       "gaikyu": "大山ヒルズ",
@@ -460,16 +278,19 @@
           "weight": 462,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "栗東福永"
     },
     {
-      "listOrder": 12,
+      "listOrder": 7,
       "num": null,
       "gate": null,
       "name": "シャドウマスター",
       "jockey": "北村友",
       "trainer": "杉山晴",
-      "expectedOdds": 30.7,
+      "expectedOdds": 26.9,
       "sire": "キタサンブラック",
       "broodmareSire": "ヴィクトワールピサ",
       "gaikyu": "社台ファーム鈴鹿",
@@ -504,16 +325,19 @@
           "weight": 488,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "栗東杉山晴"
     },
     {
-      "listOrder": 13,
+      "listOrder": 8,
       "num": null,
       "gate": null,
       "name": "タイダルロック",
       "jockey": "三浦",
       "trainer": "武井",
-      "expectedOdds": 14.0,
+      "expectedOdds": 10.6,
       "sire": "モーリス",
       "broodmareSire": "マンハッタンカフェ",
       "gaikyu": "在厩調整",
@@ -539,16 +363,19 @@
           "weight": 502,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "美浦武井"
     },
     {
-      "listOrder": 14,
+      "listOrder": 9,
       "num": null,
       "gate": null,
       "name": "テルヒコウ",
       "jockey": "坂井",
       "trainer": "矢作",
-      "expectedOdds": 23.2,
+      "expectedOdds": 14.4,
       "sire": "コントレイル",
       "broodmareSire": "ヴィクトワールピサ",
       "gaikyu": "在厩調整",
@@ -582,10 +409,13 @@
           "weight": 486,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "栗東矢作"
     },
     {
-      "listOrder": 35,
+      "listOrder": 10,
       "num": null,
       "gate": null,
       "name": "トゥーナスタディ",
@@ -608,16 +438,19 @@
       },
       "buyRole": null,
       "tag": "data-missing",
-      "note": "地方馬・JRDB/競馬ブック等のデータ取得不可のため参考扱い"
+      "note": "地方馬・JRDB/競馬ブック等のデータ取得不可のため参考扱い",
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "地方斎藤雄"
     },
     {
-      "listOrder": 16,
+      "listOrder": 11,
       "num": null,
       "gate": null,
       "name": "ノチェセラーダ",
       "jockey": "ディー",
       "trainer": "杉山佳",
-      "expectedOdds": 44.5,
+      "expectedOdds": 31.9,
       "sire": "ドレフォン",
       "broodmareSire": "ディープインパクト",
       "gaikyu": "ノーザンファームしがらき",
@@ -656,16 +489,19 @@
           "weight": 464,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "栗東杉山佳"
     },
     {
-      "listOrder": 17,
+      "listOrder": 12,
       "num": null,
       "gate": null,
       "name": "ノーブルサヴェージ",
       "jockey": "レーン",
       "trainer": "森一",
-      "expectedOdds": 5.9,
+      "expectedOdds": 4.8,
       "sire": "リオンディーズ",
       "broodmareSire": "マンハッタンカフェ",
       "gaikyu": "ノーザンファーム天栄",
@@ -696,16 +532,19 @@
           "weight": 548,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "美浦森一"
     },
     {
-      "listOrder": 18,
+      "listOrder": 13,
       "num": null,
       "gate": null,
       "name": "パラディオン",
       "jockey": "吉田豊",
       "trainer": "高柳大",
-      "expectedOdds": 125.9,
+      "expectedOdds": 55.2,
       "sire": "レイデオロ",
       "broodmareSire": "スペシャルウィーク",
       "gaikyu": "チャンピオンヒルズ",
@@ -736,16 +575,19 @@
           "weight": 446,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "栗東高柳大"
     },
     {
-      "listOrder": 19,
+      "listOrder": 14,
       "num": null,
       "gate": null,
       "name": "ヒシアムルーズ",
       "jockey": "佐々木",
       "trainer": "堀",
-      "expectedOdds": 297.4,
+      "expectedOdds": 142.6,
       "sire": "サートゥルナーリア",
       "broodmareSire": "サイトシーイング",
       "gaikyu": "ノーザンファームしがらき",
@@ -780,16 +622,19 @@
           "weight": 472,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "美浦堀"
     },
     {
-      "listOrder": 20,
+      "listOrder": 15,
       "num": null,
       "gate": null,
       "name": "ブラックオリンピア",
       "jockey": "川田",
       "trainer": "友道",
-      "expectedOdds": 3.7,
+      "expectedOdds": 2.2,
       "sire": "キタサンブラック",
       "broodmareSire": "ピエロ",
       "gaikyu": "在厩調整",
@@ -815,82 +660,19 @@
           "weight": 524,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "栗東友道"
     },
     {
-      "listOrder": 21,
-      "num": null,
-      "gate": null,
-      "name": "ベルウッドクレド",
-      "jockey": "大野",
-      "trainer": "辻",
-      "expectedOdds": 87.8,
-      "sire": "シルバーステート",
-      "broodmareSire": "キャンディライド",
-      "gaikyu": "在厩調整",
-      "relComment": {
-        "keyword": "新馬一勝のみ",
-        "grade": "C"
-      },
-      "lapFactors": null,
-      "gaikyuFactor": {
-        "grade": "B",
-        "source": "fallback",
-        "canonical": "在厩調整",
-        "shutubaGaikyu": "在厩調整"
-      },
-      "prevHorseWeight": 454,
-      "prevHorseWeightDelta": null,
-      "prevHorseWeightHistory": [
-        {
-          "weight": 454,
-          "delta": null
-        }
-      ]
-    },
-    {
-      "listOrder": 22,
-      "num": null,
-      "gate": null,
-      "name": "ボンドマティーニ",
-      "jockey": null,
-      "trainer": "安田",
-      "expectedOdds": 55.9,
-      "sire": "レイデオロ",
-      "broodmareSire": "ダイワメジャー",
-      "gaikyu": "在厩調整",
-      "relComment": {
-        "keyword": "重賞実績不足",
-        "grade": "C"
-      },
-      "lapFactors": null,
-      "gaikyuFactor": {
-        "grade": "B",
-        "source": "fallback",
-        "canonical": "在厩調整",
-        "shutubaGaikyu": "在厩調整"
-      },
-      "prevHorseWeight": 466,
-      "prevHorseWeightDelta": -8,
-      "prevHorseWeightHistory": [
-        {
-          "weight": 466,
-          "delta": -8
-        },
-        {
-          "weight": 474,
-          "delta": null
-        }
-      ]
-    },
-    {
-      "listOrder": 23,
+      "listOrder": 16,
       "num": null,
       "gate": null,
       "name": "ミッキーファルコン",
       "jockey": "田辺",
       "trainer": "堀",
-      "expectedOdds": 26.7,
+      "expectedOdds": 20.2,
       "sire": "エピファネイア",
       "broodmareSire": "ディープインパクト",
       "gaikyu": "ノーザンファームしがらき",
@@ -916,16 +698,19 @@
           "weight": 426,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "美浦堀"
     },
     {
-      "listOrder": 24,
+      "listOrder": 17,
       "num": null,
       "gate": null,
       "name": "ヨカオウ",
       "jockey": "岩田康",
       "trainer": "谷",
-      "expectedOdds": 131.9,
+      "expectedOdds": 85.0,
       "sire": "キズナ",
       "broodmareSire": "スクワートルスクワート",
       "gaikyu": "在厩調整",
@@ -955,16 +740,19 @@
           "weight": 472,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "栗東谷"
     },
     {
-      "listOrder": 25,
+      "listOrder": 18,
       "num": null,
       "gate": null,
       "name": "ラストスマイル",
       "jockey": "杉原",
       "trainer": "本間",
-      "expectedOdds": 24.0,
+      "expectedOdds": 15.9,
       "sire": "ポエティックフレア",
       "broodmareSire": "ゼンノロブロイ",
       "gaikyu": "在厩調整",
@@ -994,7 +782,10 @@
           "weight": 502,
           "delta": null
         }
-      ]
+      ],
+      "sexAge": "牡3",
+      "kinryo": 57.0,
+      "stable": "美浦本間"
     }
   ],
   "finalBets": {
