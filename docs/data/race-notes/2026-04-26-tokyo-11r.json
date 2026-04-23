@@ -17,6 +17,8 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
+  "preparationPdf": "img/pdf/2026-04-26-floras-shintaku.pdf",
+  "preparationPdfMeta": "全12頁",
   "preparationNote": "## 🎯 フローラS 穴ポイント3カ条（ニック仕込み）\n- ① **前走未勝利勝ちでも全然来る**\n- ② **小柄馬（420kg以下）は穴** ※ペイシャシス398kg／ファムクラジューズ410kg 該当\n- ③ **府中は出遅れ巻き返し可**（敗因が出遅れ\"だけ\"の場合）\n\n## 📊 ギーニョの見立て\n- 16頭登録→13頭出走確定。除外3頭（スピナーリート／マツリダイコ／ロングトールサリー）\n- 1番人気想定：**ラフターラインズ 2.3倍**（レーン・言霊S重賞実績）\n- 本命候補：**ファムクラジューズ 5.1倍**（言霊S＋外厩A＋410kg小柄のトリプルヒット）\n- 穴枠狙い：ペイシャシス105倍(398kg)／サムシングスイート10倍(言霊A延長◎)\n\n## 🎯 ギーニョの構え\n- 穴②ヒット2頭の内、どちらが\"前走出遅れだけの敗戦\"か要精査\n- 3歳牝馬重賞はトライアル色濃く、実績より勢い優先でも穴拾える\n\n> 関係者コメント言霊解析・外厩相性ファクターは済み。ラップ解析は金曜夜に加算、最終採点。",
   "logicVersion": "v2-rel-lap",
   "horses": [
@@ -32,8 +34,8 @@
       "broodmareSire": "テイルオブエカティ",
       "gaikyu": "信楽牧場",
       "relComment": {
-        "keyword": "捲り好走型",
-        "grade": "B"
+        "keyword": "上のクラスでやれる",
+        "grade": "A"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -74,8 +76,8 @@
       "broodmareSire": "メダグリアドーロ",
       "gaikyu": "チャンピオンヒルズ",
       "relComment": {
-        "keyword": "決め手開花",
-        "grade": "A"
+        "keyword": "器大きい・血統36%・3軸一致",
+        "grade": "S"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -117,7 +119,7 @@
       "broodmareSire": "ハーランズホリデイ",
       "gaikyu": "在厩調整",
       "relComment": {
-        "keyword": "スタミナ疑問",
+        "keyword": "キャリア/距離不足",
         "grade": "C"
       },
       "lapFactors": null,
@@ -155,8 +157,8 @@
       "broodmareSire": "ノヴェリスト",
       "gaikyu": "山元トレーニング",
       "relComment": {
-        "keyword": "距離不安",
-        "grade": "C"
+        "keyword": "これからのレース希望",
+        "grade": "D"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -206,8 +208,8 @@
       "broodmareSire": "ヴィクトワールピサ",
       "gaikyu": "チャンピオンヒルズ",
       "relComment": {
-        "keyword": "距離延長◎",
-        "grade": "A"
+        "keyword": "位置取り奏功",
+        "grade": "B"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -244,7 +246,7 @@
       "broodmareSire": "ディープインパクト",
       "gaikyu": "在厩調整",
       "relComment": {
-        "keyword": "立ち直り距離○",
+        "keyword": "渋太く粘って",
         "grade": "B"
       },
       "lapFactors": null,
@@ -286,8 +288,8 @@
       "broodmareSire": "ディープインパクト",
       "gaikyu": "ビッグレッドファーム鉾田",
       "relComment": {
-        "keyword": "東京2000完璧",
-        "grade": "S"
+        "keyword": "タフでファイト心",
+        "grade": "A"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -341,8 +343,8 @@
       "broodmareSire": "スペシャルウィーク",
       "gaikyu": "チャンピオンヒルズ",
       "relComment": {
-        "keyword": "距離延長未知",
-        "grade": "C"
+        "keyword": "センス有・差し切る",
+        "grade": "A"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -388,8 +390,8 @@
       "broodmareSire": "シンボリクリスエス",
       "gaikyu": "ノーザンファームしがらき",
       "relComment": {
-        "keyword": "芝実績乏しい",
-        "grade": "D"
+        "keyword": "昇級戦で結果",
+        "grade": "B"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -443,8 +445,8 @@
       "broodmareSire": "キングカメハメハ",
       "gaikyu": "在厩調整",
       "relComment": {
-        "keyword": "重賞実績上位",
-        "grade": "S"
+        "keyword": "能力高もコース血統0%慎重",
+        "grade": "A"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -485,8 +487,8 @@
       "broodmareSire": "パワー",
       "gaikyu": "在厩調整",
       "relComment": {
-        "keyword": "スタミナ勝負◎",
-        "grade": "A"
+        "keyword": "記者もマイラー印象・距離疑問",
+        "grade": "C"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -519,8 +521,8 @@
       "broodmareSire": "ルーラーシップ",
       "gaikyu": "チャンピオンヒルズ",
       "relComment": {
-        "keyword": "距離○先行力",
-        "grade": "A"
+        "keyword": "僅かに競り勝つ",
+        "grade": "B"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -570,8 +572,8 @@
       "broodmareSire": "スタイルヴァンドーム",
       "gaikyu": "在厩調整",
       "relComment": {
-        "keyword": "東京1800無双",
-        "grade": "A"
+        "keyword": "切れる脚使えず",
+        "grade": "D"
       },
       "lapFactors": null,
       "gaikyuFactor": {
