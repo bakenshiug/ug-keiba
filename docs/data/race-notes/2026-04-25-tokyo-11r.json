@@ -585,7 +585,7 @@
       ]
     },
     {
-      "listOrder": 15,
+      "listOrder": 35,
       "num": null,
       "gate": null,
       "name": "トゥーナスタディ",
@@ -605,7 +605,10 @@
         "source": "fallback",
         "canonical": "在厩調整",
         "shutubaGaikyu": "在厩調整"
-      }
+      },
+      "buyRole": null,
+      "tag": "data-missing",
+      "note": "地方馬・JRDB/競馬ブック等のデータ取得不可のため参考扱い"
     },
     {
       "listOrder": 16,
