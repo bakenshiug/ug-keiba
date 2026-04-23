@@ -1065,6 +1065,72 @@ body.broadcast-mode .bc-focus{
   font-weight:900;
 }
 
+/* 🏇 鞍上・馬体重ライン（配信モード特化） */
+.jw-line{
+  font-size:11px;
+  line-height:1.4;
+  letter-spacing:.04em;
+  margin-top:4px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.jw-line .jw-jockey{
+  color:var(--sumi);
+  font-weight:700;
+}
+.jw-line .jw-icon{font-size:10px;margin-right:3px;opacity:.7;}
+.jw-line .jw-weight{
+  color:#7a5500;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+}
+.jw-line .jw-weight.jw-small{color:#9B2D30;}  /* 420kg以下は穴候補の朱 */
+.jw-line .jw-delta{
+  margin-left:2px;
+  font-weight:800;
+  font-size:10px;
+}
+
+/* 配信モード：鞍上・馬体重を大きく目立たせる */
+body.broadcast-mode .jw-line{
+  font-size:13px !important;
+  margin-top:6px !important;
+  padding:5px 0;
+  gap:12px;
+}
+body.broadcast-mode .jw-line .jw-jockey{
+  display:inline-block;
+  background:linear-gradient(90deg,rgba(155,45,48,.12),rgba(155,45,48,.02));
+  padding:3px 12px;
+  border-left:3px solid var(--shu);
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+body.broadcast-mode .jw-line .jw-weight{
+  display:inline-block;
+  background:rgba(201,169,97,.15);
+  padding:3px 12px;
+  border-radius:3px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+body.broadcast-mode .jw-line .jw-weight.jw-small{
+  background:rgba(155,45,48,.15);
+  color:#9B2D30;
+}
+
+/* 配信モード：馬名セルに鞍上・馬体重を入れるので、
+   別カラムの鞍上(3)・厩舎(4)は視覚的に冗長。非表示にしてシンプルに */
+body.broadcast-mode #content table thead th:nth-child(3),
+body.broadcast-mode #content table thead th:nth-child(4),
+body.broadcast-mode #content table tbody td:nth-child(3),
+body.broadcast-mode #content table tbody td:nth-child(4){
+  display:none !important;
+}
+
 /* 配信モード用：矢印キーヒント */
 .bc-hint{
   position:fixed;right:18px;bottom:16px;
@@ -2325,12 +2391,35 @@ function renderPreparation(cfg, d) {
       const resultHtml = h.prevFinish   ? `<span class="prev-result">${esc(h.prevFinish)}</span>` : '';
       prevRaceLine = `<div style="margin-top:4px;"><span class="prev-race-line"><span class="prev-label">前走</span>${nameHtml}${resultHtml}</span></div>`;
     }
+    // 🏇 鞍上・馬体重（馬名セル内に統合、配信モードで大きく表示）
+    let jockeyWeightLine = '';
+    const jwParts = [];
+    if (h.jockey) {
+      jwParts.push(`<span class="jw-jockey"><span class="jw-icon">🏇</span>${esc(h.jockey)}</span>`);
+    }
+    if (h.horseWeight) {
+      const wNum = Number(h.horseWeight);
+      const isSmall = wNum > 0 && wNum <= 420;  // 420kg以下は穴候補の朱
+      const wClass = isSmall ? 'jw-weight jw-small' : 'jw-weight';
+      let deltaHtml = '';
+      if (h.horseWeightDelta != null && h.horseWeightDelta !== '') {
+        const d = Number(h.horseWeightDelta);
+        const dColor = d > 0 ? '#d64545' : d < 0 ? '#1f6b3a' : 'var(--muted)';
+        const dSign = d > 0 ? '+' : '';
+        deltaHtml = `<span class="jw-delta" style="color:${dColor};">(${dSign}${d})</span>`;
+      }
+      jwParts.push(`<span class="${wClass}">${esc(String(h.horseWeight))}kg${deltaHtml}</span>`);
+    }
+    if (jwParts.length) {
+      jockeyWeightLine = `<div class="jw-line">${jwParts.join('')}</div>`;
+    }
     return `
     <tr>
       <td style="text-align:right;color:var(--shu);font-weight:700;vertical-align:top;padding-top:10px;">${i + 1}</td>
       <td>
         <div style="font-weight:600;">${esc(h.name)}</div>
         ${pedLine}
+        ${jockeyWeightLine}
         ${prevRaceLine}
         ${gaikyuLine}
         ${relCommentLine}
