@@ -191,13 +191,14 @@ a{color:var(--kin);text-decoration:none;}
   margin-bottom:6px;
 }
 .omamori-meta .waku{
-  display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;
-  border-radius:3px;background:var(--wood);color:var(--kin);font-weight:900;
-  font-size:12px;margin-right:6px;
+  display:inline-block;padding:1px 6px 1px 7px;text-align:center;
+  border-radius:3px 0 0 3px;background:var(--wood);color:var(--kin);font-weight:900;
+  font-size:11.5px;margin-right:0;letter-spacing:.05em;
 }
 .omamori-meta .uma{
-  display:inline-block;padding:1px 7px;background:var(--wood);color:var(--sand);
-  border-radius:2px;font-size:11px;font-weight:700;margin-right:8px;
+  display:inline-block;padding:1px 7px 1px 6px;background:var(--wood);color:var(--sand);
+  border-radius:0 3px 3px 0;font-size:11.5px;font-weight:700;margin-right:8px;
+  border-left:1px solid rgba(201,169,97,.25);letter-spacing:.05em;
 }
 .omamori-meta .ninki{color:var(--kin);font-size:11px;font-weight:700;}
 .omamori-meta .ninki .odds{
@@ -292,6 +293,12 @@ a{color:var(--kin);text-decoration:none;}
 .offering-type{flex-shrink:0;width:86px;color:var(--kin);font-weight:700;letter-spacing:.12em;font-family:'Shippori Mincho',serif;}
 .offering-content{flex:1;color:var(--sand);font-size:12.5px;line-height:1.5;padding:0 8px;}
 .offering-horse{display:inline-block;color:var(--sand);font-weight:700;margin-right:6px;}
+.offering-num{
+  display:inline-block;min-width:22px;padding:1px 6px;margin-right:4px;
+  background:var(--wood);color:var(--kin);font-weight:900;font-size:11px;
+  border-radius:2px;text-align:center;letter-spacing:.03em;
+  border:1px solid rgba(201,169,97,.3);
+}
 .offering-amount{flex-shrink:0;color:rgba(244,233,201,.7);font-size:11.5px;white-space:nowrap;}
 .offering-total{margin-top:12px;padding-top:10px;border-top:1px solid rgba(201,169,97,.4);display:flex;justify-content:space-between;align-items:center;font-size:13px;}
 .offering-total .lbl{color:var(--kin);letter-spacing:.24em;font-weight:700;}
@@ -415,17 +422,19 @@ const RACES = [
     meta:'京都11R ／ ダ1200m ／ 12頭',
     startTime:'15:35',
     picks:[
-      {mark:'◎',markLabel:'本命',name:'ゲッティヴィラ',gate:'—',num:'10',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'大山ヒルズ',prevName:'前走',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'suzaku',g:'B',label:'朱雀'},{t:'byakko',g:'A',label:'白虎'},{t:'genbu',g:'A',label:'玄武'}],comment:'1点突破確定（単勝100円）。敗因具体（スタート・冬ダート重）／京都相性いい／軽いダートなら。白虎A×玄武Aの舞台完全合致。'},
+      {mark:'◎',markLabel:'本命',name:'ゲッティヴィラ',gate:'—',num:'10',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'大山ヒルズ',prevName:'前走',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'suzaku',g:'B',label:'朱雀'},{t:'byakko',g:'A',label:'白虎'},{t:'genbu',g:'A',label:'玄武'}],comment:'敗因具体（スタート・冬ダート重）／京都相性いい／軽いダートなら。白虎A×玄武Aの舞台完全合致で単勝軸。'},
       {mark:'○',markLabel:'対抗',name:'ジョーローリット',gate:'6',num:'7',ninki:'5',odds:'7.2',sire:'ダノンレジェンド',bms:'ジョーカプチーノ',jockey:'角田和',trainer:'栗東・中竹',gaikyu:'大山ヒルズ',prevName:'令月S（阪神）',prevFinish:'6着',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'suzaku',g:'S',label:'朱雀'},{t:'byakko',g:'D',label:'白虎'},{t:'genbu',g:'A',label:'玄武'}],comment:'外部評価1位(6人気)・仕上81・大穴候補。敗因具体（ブリンカー効き過ぎ）→外す対策。スピード上位。'},
       {mark:'▲',markLabel:'単穴',name:'ヒルノドゴール',gate:'—',num:'6',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'キャニオンファーム土山',prevName:'前走',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'suzaku',g:'B',label:'朱雀'},{t:'byakko',g:'S',label:'白虎'},{t:'genbu',g:'B',label:'玄武'}],comment:'白虎S級（究極1位）・仕上82最強。敗因具体（調教本数少）／乗り込み十分／クラス2走目で前進。'},
       {mark:'△',markLabel:'連下',name:'ドンアミティエ',gate:'8',num:'11',ninki:'1',odds:'3.1',sire:'アジアエクスプレス',bms:'キングヘイロー',jockey:'松山',trainer:'栗東・今野',gaikyu:'宇治田原優駿S',prevName:'リヤドダートS（海外GⅡ）',prevFinish:'7着',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'suzaku',g:'S',label:'朱雀'},{t:'byakko',g:'A',label:'白虎'},{t:'genbu',g:'S',label:'玄武'}],comment:'玄武S級（コース適性）。検疫で緩さ残るが攻め動く・斤量負けしない・力は上位巻き返し。'},
     ],
     bets:{
-      strategy:'1horse-tan',
+      strategy:'4horse-box',
       tan:{name:'ゲッティヴィラ',amount:100},
-      totalSpend:100
+      fuku:{name:'ジョーローリット',amount:100},
+      wide:{horses:['ゲッティヴィラ','ジョーローリット','ヒルノドゴール','ドンアミティエ'],perPoint:100},
+      totalSpend:800
     },
-    note:'外部総合指標で指数抜け1頭判定 → 1点突破確定（単勝100円）。白虎A×玄武A＋「軽いダートなら」の舞台合致でゲッティヴィラ1点勝負。ファムエレガンテ「自分のリズム」致命排除。'
+    note:'4頭ワイドBOX標準（800円）。◎ゲッティヴィラ白虎A×玄武A舞台合致／○ジョーローリット外部評価1位(6人気)大穴／▲ヒルノドゴール白虎S級究極1位／△ドンアミティエ玄武S級で4神統合ボックス。ファムエレガンテ「自分のリズム」致命排除。'
   },
   {
     key:'2026-04-25-tokyo-11r',
@@ -435,17 +444,19 @@ const RACES = [
     meta:'東京11R ／ 芝2400m ／ 18頭',
     startTime:'15:45',
     picks:[
-      {mark:'◎',markLabel:'本命',name:'ブラックオリンピア',gate:'2',num:'4',ninki:'1',odds:'2.2',sire:'キタサンブラック',bms:'Pierro',jockey:'川田',trainer:'栗東・友道',gaikyu:'在厩調整',prevName:'アザレア賞1勝（阪神・芝2400）',prevFinish:'1着',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'suzaku',g:'A',label:'朱雀'},{t:'byakko',g:'D',label:'白虎'},{t:'genbu',g:'S',label:'玄武'}],comment:'1点突破確定（単勝100円）。青龍S×玄武1位×SAV90の3冠整合・1番人気鉄板。アザレア賞勝ち馬、長距離向き成長・川田＋友道厩舎の本格派ルート。'},
+      {mark:'◎',markLabel:'本命',name:'ブラックオリンピア',gate:'2',num:'4',ninki:'1',odds:'2.2',sire:'キタサンブラック',bms:'Pierro',jockey:'川田',trainer:'栗東・友道',gaikyu:'在厩調整',prevName:'アザレア賞1勝（阪神・芝2400）',prevFinish:'1着',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'suzaku',g:'A',label:'朱雀'},{t:'byakko',g:'D',label:'白虎'},{t:'genbu',g:'S',label:'玄武'}],comment:'青龍A×玄武S×朱雀peak90の3冠整合・1番人気鉄板。アザレア賞勝ち馬、長距離向き成長・川田＋友道厩舎の本格派ルートで単勝軸。'},
       {mark:'○',markLabel:'対抗',name:'ラストスマイル',gate:'—',num:'—',ninki:'—',odds:'15.9',sire:'ポエティックフレア',bms:'ゼンノロブロイ',jockey:'杉原',trainer:'本間',gaikyu:'在厩調整',prevName:'前走',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'suzaku',g:'S',label:'朱雀'},{t:'byakko',g:'D',label:'白虎'},{t:'genbu',g:'C',label:'玄武'}],comment:'外部評価1位(10人気)・妙味S・朱雀1位(peak90.4)。ここ目標／血統的に距離／トビ大きく東京／良馬場で走らせたい。'},
       {mark:'▲',markLabel:'単穴',name:'ゴーイントゥスカイ',gate:'8',num:'16',ninki:'5',odds:'9.4',sire:'コントレイル',bms:'Tapit',jockey:'武豊',trainer:'美浦・上原佑',gaikyu:'山元トレーニング',prevName:'きさらぎ賞GIII（京都・芝1800）',prevFinish:'6着',badges:[{t:'seiryu',g:'S',label:'青龍'},{t:'suzaku',g:'S',label:'朱雀'},{t:'byakko',g:'S',label:'白虎'},{t:'genbu',g:'B',label:'玄武'}],comment:'きさらぎ賞6着も白虎S級（究極1位）・走法プロファイルが1着理想値と一致。距離延長で武豊＋コントレイル産駒、2400は条件好転。'},
-      {mark:'△',markLabel:'連下',name:'タイダルロック',gate:'—',num:'—',ninki:'—',odds:'10.6',sire:'モーリス',bms:'マンハッタンカフェ',jockey:'三浦',trainer:'武井',gaikyu:'ノーザンファーム天栄',prevName:'前走',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'byakko',g:'D',label:'白虎'},{t:'genbu',g:'C',label:'玄武'}],comment:'NF天栄＋三浦＋モーリス産駒。「使ってみたかった条件／結果が欲しい」で青龍D寄り注視だが、血統で連下有力。'},
+      {mark:'△',markLabel:'連下',name:'タイダルロック',gate:'—',num:'—',ninki:'—',odds:'10.6',sire:'モーリス',bms:'マンハッタンカフェ',jockey:'三浦',trainer:'武井',gaikyu:'ノーザンファーム天栄',prevName:'前走',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'suzaku',g:'S',label:'朱雀'},{t:'byakko',g:'D',label:'白虎'},{t:'genbu',g:'C',label:'玄武'}],comment:'NF天栄＋三浦＋モーリス産駒。朱雀S級の数値パフォーマンスで連下抑え。'},
     ],
     bets:{
-      strategy:'1horse-tan',
+      strategy:'4horse-box',
       tan:{name:'ブラックオリンピア',amount:100},
-      totalSpend:100
+      fuku:{name:'ラストスマイル',amount:100},
+      wide:{horses:['ブラックオリンピア','ラストスマイル','ゴーイントゥスカイ','タイダルロック'],perPoint:100},
+      totalSpend:800
     },
-    note:'外部総合指標で指数抜け1頭判定 → 1点突破確定（単勝100円）。青龍A×玄武S×朱雀peak90の3冠整合で1番人気鉄板のブラックオリンピア1点勝負。サガルマータ(仕上40/border59未達)・ノチェセラーダ(仕上44)は致命排除。'
+    note:'4頭ワイドBOX標準（800円）。◎ブラックオリンピア1番人気3冠整合／○ラストスマイル外部評価1位(10人気)妙味S／▲ゴーイントゥスカイ白虎S級究極1位／△タイダルロック朱雀S連下。サガルマータ(仕上40)・ノチェセラーダ(仕上44)は致命排除。'
   },
 ];
 
@@ -530,7 +541,7 @@ function omamoriHtml(p){
     </div>
     <div class="omamori-body">
       <div class="omamori-meta">
-        <span><span class="waku">${p.gate}</span><span class="uma">${p.num}</span></span>
+        <span><span class="waku">${p.gate}枠</span><span class="uma">${p.num}番</span></span>
         <span class="ninki">${p.ninki}人気 <em class="odds">${p.odds}倍</em></span>
       </div>
       <div class="omamori-name mincho">${p.name}</div>
@@ -554,6 +565,13 @@ function omamoriHtml(p){
 function hondenHtml(r){
   const strategy = (r.bets && r.bets.strategy) || '4horse-box';
 
+  // 馬名→馬番 lookup（picksから取得、なければ '—'）
+  const numOf = (name) => {
+    const p = (r.picks||[]).find(x => x.name === name);
+    return p && p.num ? p.num : '—';
+  };
+  const horseCell = (name) => `<span class="offering-num">${numOf(name)}</span><span class="offering-horse">${name}</span>`;
+
   let offeringRows = '';
   let offeringDesc = '';
   let grandTotal = 0;
@@ -566,18 +584,18 @@ function hondenHtml(r){
     offeringRows = `
       <div class="offering-row">
         <div class="offering-type mincho">単　勝</div>
-        <div class="offering-content"><span class="offering-horse">${r.bets.tan.name}</span></div>
+        <div class="offering-content">${horseCell(r.bets.tan.name)}</div>
         <div class="offering-amount">¥${r.bets.tan.amount}（1点）</div>
       </div>
       <div class="offering-row">
         <div class="offering-type mincho">複　勝</div>
-        <div class="offering-content"><span class="offering-horse">${r.bets.fuku.name}</span></div>
+        <div class="offering-content">${horseCell(r.bets.fuku.name)}</div>
         <div class="offering-amount">¥${r.bets.fuku.amount}（1点）</div>
       </div>
       <div class="offering-row">
         <div class="offering-type mincho">ワイド</div>
         <div class="offering-content">
-          ${r.bets.wide.horses.map(h => `<span class="offering-horse">${h}</span>`).join('／')}
+          ${r.bets.wide.horses.map(h => horseCell(h)).join('　')}
           <div style="margin-top:4px;color:rgba(244,233,201,.55);font-size:11px;">4頭BOX = ${wideCombos.length}点</div>
         </div>
         <div class="offering-amount">¥${wideTotal}（${wideCombos.length}点×¥${r.bets.wide.perPoint}）</div>
@@ -588,12 +606,12 @@ function hondenHtml(r){
     offeringRows = `
       <div class="offering-row">
         <div class="offering-type mincho">単　勝①</div>
-        <div class="offering-content"><span class="offering-horse">${r.bets.tan.name}</span></div>
+        <div class="offering-content">${horseCell(r.bets.tan.name)}</div>
         <div class="offering-amount">¥${r.bets.tan.amount}（1点）</div>
       </div>
       <div class="offering-row">
         <div class="offering-type mincho">単　勝②</div>
-        <div class="offering-content"><span class="offering-horse">${r.bets.tan2.name}</span></div>
+        <div class="offering-content">${horseCell(r.bets.tan2.name)}</div>
         <div class="offering-amount">¥${r.bets.tan2.amount}（1点）</div>
       </div>`;
   } else if(strategy === '1horse-tan'){
@@ -602,7 +620,7 @@ function hondenHtml(r){
     offeringRows = `
       <div class="offering-row">
         <div class="offering-type mincho">単　勝</div>
-        <div class="offering-content"><span class="offering-horse">${r.bets.tan.name}</span></div>
+        <div class="offering-content">${horseCell(r.bets.tan.name)}</div>
         <div class="offering-amount">¥${r.bets.tan.amount}（1点）</div>
       </div>`;
   }

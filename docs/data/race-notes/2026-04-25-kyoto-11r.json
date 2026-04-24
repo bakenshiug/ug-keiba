@@ -778,22 +778,42 @@
   ],
   "finalBets": {
     "generatedAt": "2026-04-24T20:00:53",
-    "logicVersion": "v4-final-variable-strategy-2026-04-25",
+    "logicVersion": "v4-final-4horse-box-2026-04-25",
     "tan": {
       "rank": 1,
       "num": 10,
       "name": "ゲッティヴィラ",
       "amount": 100,
-      "reason": "1点突破確定・高妙味高確度"
+      "reason": "白虎A×玄武A舞台合致"
     },
-    "totalSpend": 100,
-    "readiness": "1/1",
+    "fuku": {
+      "rank": 2,
+      "num": 7,
+      "name": "ジョーローリット",
+      "amount": 100,
+      "reason": "外部評価1位(6人気)大穴候補"
+    },
+    "wide": {
+      "horses": [
+        "ゲッティヴィラ",
+        "ジョーローリット",
+        "ヒルノドゴール",
+        "ドンアミティエ"
+      ],
+      "perPoint": 100,
+      "points": 6,
+      "amount": 600
+    },
+    "totalSpend": 800,
+    "readiness": "4/4",
     "readinessPct": 100.0,
     "presentation": {
-      "headline": "WIN4 天王山S 1点突破確定",
-      "tanLine": "単勝 100円: ゲッティヴィラ（1点突破確定・高妙味高確度）",
-      "note": "外部総合指標で指数抜け1頭判定 → 1点突破確定。ゲッティヴィラ単勝勝負。"
+      "headline": "WIN4 天王山S 4頭ワイドBOX標準",
+      "tanLine": "単勝 100円: ゲッティヴィラ（白虎A×玄武A舞台合致）",
+      "fukuLine": "複勝 100円: ジョーローリット（外部評価1位・大穴候補）",
+      "wideLine": "ワイドBOX 6点×100円=600円: ゲッティヴィラ/ジョーローリット/ヒルノドゴール/ドンアミティエ",
+      "note": "4頭ワイドBOX標準フォーマット（800円）。"
     },
-    "strategy": "1horse-tan"
+    "strategy": "4horse-box"
   }
 }
