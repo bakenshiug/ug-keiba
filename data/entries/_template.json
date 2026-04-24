@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "raceKey": "YYYY-MM-DD-place-Nr",
+    "date": "YYYY-MM-DD",
+    "dayOfWeek": "sat",
+    "course": "",
+    "raceNo": 0,
+    "raceName": "",
+    "grade": "",
+    "surface": "",
+    "distance": 0,
+    "direction": "",
+    "headcount": 0,
+    "startTime": "HH:MM",
+    "win5Leg": null,
+    "confirmedAt": ""
+  },
+  "horses": [
+    {
+      "gate": 1,
+      "num": 1,
+      "name": "",
+      "sex": "",
+      "age": 0,
+      "weight": 0,
+      "jockey": "",
+      "trainer": "",
+      "sire": "",
+      "bms": "",
+      "prevRace": {
+        "date": "",
+        "course": "",
+        "distance": "",
+        "raceName": "",
+        "finish": null,
+        "horseWeight": 0,
+        "weightDiff": 0
+      },
+      "notes": ""
+    }
+  ],
+  "source": {
+    "url": "",
+    "fetchedBy": "manual"
+  }
+}
