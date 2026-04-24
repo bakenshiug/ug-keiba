@@ -18,7 +18,12 @@
   --wood:#2c1d10;
   --bg:#0f0b08;
   --card:#1a120a;
+  --paper:#1e1409;
   --border:rgba(201,169,97,.25);
+  --honmei:#E8B86A;
+  --taikou:#B8B8B8;
+  --tana:#C48E48;
+  --renka:#7BA06A;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{
@@ -73,325 +78,230 @@ a{color:var(--kin);text-decoration:none;}
 
 /* ── 日タブ ── */
 .day-tabs{
-  display:flex;
-  justify-content:center;
-  gap:2px;
-  margin:28px auto 0;
-  max-width:520px;
-  padding:0 16px;
+  display:flex;justify-content:center;gap:2px;
+  margin:28px auto 0;max-width:520px;padding:0 16px;
 }
 .day-tab{
-  flex:1;
-  padding:12px 8px;
-  text-align:center;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-bottom:none;
-  color:rgba(244,233,201,.6);
-  font-size:12px;
-  letter-spacing:.22em;
-  cursor:pointer;
-  transition:all .2s;
-  font-family:'Shippori Mincho',serif;
+  flex:1;padding:12px 8px;text-align:center;
+  background:var(--card);border:1px solid var(--border);border-bottom:none;
+  color:rgba(244,233,201,.6);font-size:12px;letter-spacing:.22em;cursor:pointer;
+  transition:all .2s;font-family:'Shippori Mincho',serif;
 }
-.day-tab.active{
-  background:var(--wood);
-  color:var(--kin);
-  border-color:var(--kin);
-  font-weight:700;
-}
+.day-tab.active{background:var(--wood);color:var(--kin);border-color:var(--kin);font-weight:700;}
 .day-tab:hover:not(.active){color:var(--sand);background:rgba(44,29,16,.6);}
 
 /* ── レースセレクタ ── */
 .race-selector{
-  max-width:960px;
-  margin:0 auto;
-  padding:16px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:8px;
+  max-width:960px;margin:0 auto;padding:16px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;
 }
 .race-btn{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:4px 4px 2px 2px;
-  padding:10px 12px;
-  cursor:pointer;
-  text-align:left;
-  color:var(--sand);
-  transition:all .18s ease;
-  font-family:'Shippori Mincho',serif;
-  position:relative;
-  overflow:hidden;
+  background:var(--card);border:1px solid var(--border);border-radius:4px 4px 2px 2px;
+  padding:10px 12px;cursor:pointer;text-align:left;color:var(--sand);
+  transition:all .18s ease;font-family:'Shippori Mincho',serif;position:relative;overflow:hidden;
 }
 .race-btn::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
-  opacity:.4;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);opacity:.4;
 }
 .race-btn:hover{border-color:var(--kin);}
-.race-btn.active{
-  background:var(--wood);
-  border-color:var(--kin);
-  box-shadow:0 0 0 1px var(--kin) inset;
-}
+.race-btn.active{background:var(--wood);border-color:var(--kin);box-shadow:0 0 0 1px var(--kin) inset;}
 .race-btn.active::before{opacity:1;height:3px;}
-.race-btn .btn-win5{
-  display:inline-block;
-  font-size:9px;font-weight:900;
-  padding:1px 6px;border-radius:2px;
-  background:var(--shu);color:var(--sand);
-  letter-spacing:.1em;margin-bottom:4px;
-}
-.race-btn .btn-grade{
-  display:inline-block;
-  font-size:9px;font-weight:900;
-  padding:1px 6px;border-radius:2px;
-  background:rgba(201,169,97,.2);color:var(--kin);
-  letter-spacing:.1em;margin-bottom:4px;margin-left:4px;
-}
-.race-btn .btn-name{
-  font-size:14px;font-weight:700;color:var(--kin);margin-bottom:2px;line-height:1.25;
-}
-.race-btn .btn-meta{
-  font-size:10px;color:rgba(244,233,201,.6);line-height:1.4;
-}
+.race-btn .btn-win5{display:inline-block;font-size:9px;font-weight:900;padding:1px 6px;border-radius:2px;background:var(--shu);color:var(--sand);letter-spacing:.1em;margin-bottom:4px;}
+.race-btn .btn-grade{display:inline-block;font-size:9px;font-weight:900;padding:1px 6px;border-radius:2px;background:rgba(201,169,97,.2);color:var(--kin);letter-spacing:.1em;margin-bottom:4px;margin-left:4px;}
+.race-btn .btn-name{font-size:14px;font-weight:700;color:var(--kin);margin-bottom:2px;line-height:1.25;}
+.race-btn .btn-meta{font-size:10px;color:rgba(244,233,201,.6);line-height:1.4;}
 
 /* ── 本殿パネル ── */
-.shrine-wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px;}
+.shrine-wrap{max-width:1040px;margin:0 auto;padding:20px 16px 60px;}
 
 .honden{
   background:linear-gradient(180deg,#1e1509 0%,#140c06 100%);
-  border:1px solid var(--kin);
-  border-radius:4px;
-  margin-bottom:28px;
-  position:relative;
+  border:1px solid var(--kin);border-radius:4px;margin-bottom:28px;position:relative;
   box-shadow:0 0 40px rgba(0,0,0,.5),0 0 0 1px rgba(201,169,97,.1);
 }
 .honden::before{
   content:'';position:absolute;top:-8px;left:0;right:0;height:8px;
-  background:linear-gradient(180deg,var(--shu) 0%,var(--shu-light) 100%);
-  border-radius:2px 2px 0 0;
+  background:linear-gradient(180deg,var(--shu) 0%,var(--shu-light) 100%);border-radius:2px 2px 0 0;
 }
 .honden-head{
-  padding:26px 20px 18px;
-  text-align:center;
-  border-bottom:1px solid var(--border);
-  background:
-    radial-gradient(ellipse at center top, rgba(201,169,97,.1), transparent 70%);
+  padding:26px 20px 18px;text-align:center;border-bottom:1px solid var(--border);
+  background:radial-gradient(ellipse at center top, rgba(201,169,97,.1), transparent 70%);
 }
-.honden-race-meta{
-  font-size:11px;color:rgba(244,233,201,.6);
-  letter-spacing:.22em;margin-bottom:6px;
-}
+.honden-race-meta{font-size:11px;color:rgba(244,233,201,.6);letter-spacing:.22em;margin-bottom:6px;}
 .honden-race-name{
-  font-size:clamp(22px,4vw,32px);
-  color:var(--kin);
-  font-weight:900;
-  letter-spacing:.2em;
+  font-size:clamp(22px,4vw,32px);color:var(--kin);font-weight:900;letter-spacing:.2em;
   text-shadow:0 0 20px rgba(201,169,97,.4);
 }
-.honden-race-sub{
-  margin-top:6px;
-  font-size:12px;
-  color:rgba(244,233,201,.65);
-  letter-spacing:.1em;
+.honden-race-info{margin-top:12px;font-size:11px;color:rgba(244,233,201,.7);}
+.honden-race-info span{display:inline-block;padding:2px 10px;margin:0 2px;border:1px solid rgba(201,169,97,.3);border-radius:2px;}
+
+.section-title{
+  text-align:center;margin:22px 0 12px;font-size:11px;
+  color:rgba(201,169,97,.7);letter-spacing:.5em;position:relative;
 }
-.honden-race-info{
-  margin-top:12px;
-  font-size:11px;
-  color:rgba(244,233,201,.7);
-}
-.honden-race-info span{
-  display:inline-block;
-  padding:2px 10px;
-  margin:0 2px;
-  border:1px solid rgba(201,169,97,.3);
-  border-radius:2px;
+.section-title::before,.section-title::after{
+  content:'';display:inline-block;width:40px;height:1px;vertical-align:middle;
+  background:rgba(201,169,97,.3);margin:0 12px;
 }
 
-/* ── 御神木（◎）と脇侍 ── */
-.gods-wrap{padding:24px 16px 8px;}
+/* ── 御守カード 2×2 ── */
+.omamori-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:8px 16px 4px;
+}
+.omamori{
+  position:relative;background:var(--paper);
+  border:1px solid rgba(201,169,97,.35);border-radius:4px;
+  padding:0;overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
+  display:flex;flex-direction:column;
+}
+/* マーク別の朱色濃淡 */
+.omamori.m-honmei{border-color:var(--honmei);box-shadow:0 2px 20px rgba(232,184,106,.15),0 0 0 1px rgba(232,184,106,.2);}
+.omamori.m-taikou{border-color:var(--taikou);}
+.omamori.m-tana{border-color:var(--tana);}
+.omamori.m-renka{border-color:var(--renka);}
 
-.gods-main{
-  text-align:center;
-  padding:20px 16px 24px;
-  background:
-    radial-gradient(ellipse at center, rgba(201,169,97,.08), transparent 70%);
-  border:1px solid rgba(201,169,97,.2);
-  border-radius:4px;
-  margin-bottom:16px;
+.omamori-bar{
+  background:linear-gradient(180deg,var(--shu) 0%,#6a1f1f 100%);
+  color:var(--sand);text-align:center;
+  padding:8px 12px;font-size:11px;letter-spacing:.4em;
+  font-family:'Shippori Mincho',serif;font-weight:700;
+  border-bottom:1px solid rgba(201,169,97,.35);
   position:relative;
 }
-.gods-main::before{
-  content:'御神木';position:absolute;top:8px;left:50%;
-  transform:translateX(-50%);
-  font-size:10px;color:var(--kin);letter-spacing:.3em;
-  font-family:'Shippori Mincho',serif;
-  opacity:.7;
-}
-.gods-main .mark{
-  font-size:46px;color:var(--shu-light);display:block;
-  text-shadow:0 0 20px rgba(192,57,43,.5);
-  margin:14px 0 8px;line-height:1;
-}
-.gods-main .name{
-  font-size:clamp(22px,4vw,30px);
+.omamori-bar .mark-inline{
+  display:inline-block;font-size:14px;margin-right:8px;
   color:var(--kin);font-weight:900;
-  letter-spacing:.08em;
-  text-shadow:0 0 16px rgba(201,169,97,.4);
 }
-.gods-main .meta{
-  margin-top:8px;
-  font-size:11px;
-  color:rgba(244,233,201,.6);
-  letter-spacing:.1em;
-}
-.gods-main .factors{
-  margin-top:12px;
-  display:inline-flex;gap:6px;flex-wrap:wrap;justify-content:center;
-  font-size:11px;
-}
-.gods-main .factor-chip{
-  padding:3px 10px;
-  border:1px solid var(--border);
-  border-radius:2px;
-  background:rgba(44,29,16,.6);
-  color:var(--sand);
+.omamori-bar::after{
+  content:'';position:absolute;left:10%;right:10%;bottom:-3px;height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--kin) 50%,transparent 100%);
 }
 
-/* 脇侍：○▲△☆ 2×2 */
-.gods-attendants{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  margin-bottom:8px;
+.omamori-body{
+  padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;
+  background:
+    linear-gradient(180deg,rgba(201,169,97,.03) 0%,transparent 60%),
+    var(--paper);
 }
-.attendant{
-  padding:14px 12px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:4px;
-  display:flex;align-items:center;gap:10px;
+.omamori-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:10.5px;color:rgba(244,233,201,.65);letter-spacing:.1em;
+  margin-bottom:6px;
 }
-.attendant .mark{
-  font-size:26px;line-height:1;flex-shrink:0;
-  font-weight:900;
+.omamori-meta .waku{
+  display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;
+  border-radius:3px;background:var(--wood);color:var(--kin);font-weight:900;
+  font-size:12px;margin-right:6px;
 }
-.attendant.mark-o .mark{color:#E8B86A;}
-.attendant.mark-s .mark{color:#B8B8B8;}
-.attendant.mark-d .mark{color:#C48E48;}
-.attendant.mark-h .mark{color:#7BA06A;}
-.attendant .body{flex:1;min-width:0;}
-.attendant .name{font-size:15px;font-weight:700;color:var(--sand);letter-spacing:.04em;}
-.attendant .factor{font-size:10.5px;color:rgba(244,233,201,.55);margin-top:2px;line-height:1.4;}
+.omamori-meta .uma{
+  display:inline-block;padding:1px 7px;background:var(--wood);color:var(--sand);
+  border-radius:2px;font-size:11px;font-weight:700;margin-right:8px;
+}
+.omamori-meta .ninki{color:var(--kin);font-size:11px;font-weight:700;}
+
+.omamori-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(22px,3vw,30px);font-weight:900;
+  color:var(--sand);text-align:center;
+  padding:6px 0 4px;
+  letter-spacing:.06em;line-height:1.25;
+  text-shadow:0 0 12px rgba(201,169,97,.15);
+}
+.omamori-name-en{
+  text-align:center;color:rgba(201,169,97,.5);
+  font-size:10px;letter-spacing:.2em;margin-bottom:8px;
+}
+
+.omamori-divider{
+  height:1px;margin:4px 0 10px;
+  background:linear-gradient(90deg,transparent 0%,var(--kin) 50%,transparent 100%);
+  opacity:.4;
+}
+
+.omamori-info{
+  display:grid;grid-template-columns:auto 1fr;gap:4px 10px;
+  font-size:11.5px;line-height:1.5;
+  margin-bottom:10px;
+}
+.omamori-info dt{color:var(--kin);letter-spacing:.1em;font-weight:700;white-space:nowrap;}
+.omamori-info dd{color:var(--sand);}
+.omamori-info .prev-race{color:rgba(244,233,201,.85);}
+.omamori-info .prev-finish{
+  display:inline-block;padding:0 6px;margin-left:4px;border-radius:2px;
+  font-weight:900;font-size:11px;
+}
+.omamori-info .fin-win{background:var(--kin);color:var(--sumi);}
+.omamori-info .fin-place{background:rgba(201,169,97,.25);color:var(--kin);}
+.omamori-info .fin-lose{background:rgba(244,233,201,.12);color:rgba(244,233,201,.7);}
+
+.omamori-badges{
+  display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;
+}
+.omamori-badges .badge{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:2px;letter-spacing:.08em;
+  font-family:'Shippori Mincho',serif;
+  border:1px solid rgba(201,169,97,.25);
+}
+.badge.b-seiryu{background:rgba(74,133,158,.25);color:#8CC0DE;border-color:rgba(140,192,222,.35);}
+.badge.b-byakko{background:rgba(232,208,130,.2);color:#E8D082;border-color:rgba(232,208,130,.35);}
+.badge.b-genbu{background:rgba(85,104,72,.3);color:#9CB68D;border-color:rgba(156,182,141,.35);}
+.badge.b-suzaku{background:rgba(180,70,60,.25);color:#E08C7D;border-color:rgba(224,140,125,.35);}
+.badge.b-soho{background:rgba(201,169,97,.15);color:var(--kin);border-color:rgba(201,169,97,.35);}
+
+.omamori-comment{
+  font-size:11.5px;color:rgba(244,233,201,.75);
+  line-height:1.6;margin-top:auto;padding-top:10px;
+  border-top:1px dashed rgba(201,169,97,.2);
+}
+
+.omamori-seal{
+  position:absolute;bottom:10px;right:10px;
+  width:28px;height:28px;border-radius:50%;
+  background:var(--shu);color:var(--kin);
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;letter-spacing:.1em;font-family:'Shippori Mincho',serif;
+  font-weight:900;box-shadow:0 0 0 1px rgba(201,169,97,.4);
+  transform:rotate(-6deg);
+}
 
 /* ── 奉納目録（買い目）── */
 .offering{
   margin:22px 16px 16px;
   background:linear-gradient(180deg,#2a1d10 0%,#1a1108 100%);
-  border:1px solid var(--kin);
-  border-radius:4px;
-  padding:18px 16px 14px;
-  position:relative;
+  border:1px solid var(--kin);border-radius:4px;
+  padding:18px 16px 14px;position:relative;
 }
 .offering::before{
-  content:'奉 納 目 録';position:absolute;top:-10px;left:50%;
-  transform:translateX(-50%);
+  content:'奉 納 目 録';position:absolute;top:-10px;left:50%;transform:translateX(-50%);
   font-size:10px;color:var(--kin);letter-spacing:.4em;
-  background:var(--bg);padding:0 12px;
-  font-family:'Shippori Mincho',serif;
+  background:var(--bg);padding:0 12px;font-family:'Shippori Mincho',serif;
 }
-.offering-desc{
-  text-align:center;
-  font-size:11px;
-  color:rgba(244,233,201,.55);
-  letter-spacing:.1em;
-  margin-bottom:12px;
-}
-.offering-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 4px;
-  border-bottom:1px dashed rgba(201,169,97,.15);
-  font-size:13px;
-}
+.offering-desc{text-align:center;font-size:11px;color:rgba(244,233,201,.55);letter-spacing:.1em;margin-bottom:12px;}
+.offering-row{display:flex;align-items:center;justify-content:space-between;padding:10px 4px;border-bottom:1px dashed rgba(201,169,97,.15);font-size:13px;}
 .offering-row:last-child{border-bottom:none;padding-bottom:4px;}
-.offering-type{
-  flex-shrink:0;width:86px;
-  color:var(--kin);
-  font-weight:700;
-  letter-spacing:.12em;
-  font-family:'Shippori Mincho',serif;
-}
-.offering-content{
-  flex:1;
-  color:var(--sand);
-  font-size:12.5px;
-  line-height:1.5;
-  padding:0 8px;
-}
-.offering-horse{
-  display:inline-block;
-  color:var(--sand);
-  font-weight:700;
-  margin-right:6px;
-}
-.offering-amount{
-  flex-shrink:0;
-  color:rgba(244,233,201,.7);
-  font-size:11.5px;
-  white-space:nowrap;
-}
-.offering-total{
-  margin-top:12px;
-  padding-top:10px;
-  border-top:1px solid rgba(201,169,97,.4);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:13px;
-}
-.offering-total .lbl{
-  color:var(--kin);letter-spacing:.24em;font-weight:700;
-}
-.offering-total .amt{
-  color:var(--kin);font-size:16px;font-weight:900;letter-spacing:.08em;
-}
+.offering-type{flex-shrink:0;width:86px;color:var(--kin);font-weight:700;letter-spacing:.12em;font-family:'Shippori Mincho',serif;}
+.offering-content{flex:1;color:var(--sand);font-size:12.5px;line-height:1.5;padding:0 8px;}
+.offering-horse{display:inline-block;color:var(--sand);font-weight:700;margin-right:6px;}
+.offering-amount{flex-shrink:0;color:rgba(244,233,201,.7);font-size:11.5px;white-space:nowrap;}
+.offering-total{margin-top:12px;padding-top:10px;border-top:1px solid rgba(201,169,97,.4);display:flex;justify-content:space-between;align-items:center;font-size:13px;}
+.offering-total .lbl{color:var(--kin);letter-spacing:.24em;font-weight:700;}
+.offering-total .amt{color:var(--kin);font-size:16px;font-weight:900;letter-spacing:.08em;}
 
 /* ── ロジック内訳 ── */
-.logic-note{
-  padding:16px 18px 18px;
-  border-top:1px solid var(--border);
-  font-size:11.5px;
-  color:rgba(244,233,201,.6);
-  line-height:1.8;
-  letter-spacing:.04em;
-}
+.logic-note{padding:16px 18px 18px;border-top:1px solid var(--border);font-size:11.5px;color:rgba(244,233,201,.6);line-height:1.8;letter-spacing:.04em;}
 .logic-note strong{color:var(--kin);font-weight:700;}
 
 /* ── placeholder ── */
-.empty-state{
-  text-align:center;
-  padding:80px 20px;
-  color:rgba(244,233,201,.4);
-  font-size:13px;
-  letter-spacing:.15em;
-}
+.empty-state{text-align:center;padding:80px 20px;color:rgba(244,233,201,.4);font-size:13px;letter-spacing:.15em;}
 
 /* ── Footer ── */
-.footer{
-  text-align:center;
-  padding:40px 20px 28px;
-  color:rgba(201,169,97,.4);
-  font-size:10px;
-  letter-spacing:.2em;
-  border-top:1px solid rgba(201,169,97,.1);
-}
+.footer{text-align:center;padding:40px 20px 28px;color:rgba(201,169,97,.4);font-size:10px;letter-spacing:.2em;border-top:1px solid rgba(201,169,97,.1);}
 
-@media (max-width:520px){
-  .gods-attendants{grid-template-columns:1fr;}
+@media (max-width:720px){
+  .omamori-grid{grid-template-columns:1fr;}
   .offering-row{flex-wrap:wrap;}
   .offering-type{width:auto;margin-right:8px;}
   .offering-amount{width:100%;text-align:right;margin-top:2px;}
@@ -407,13 +317,9 @@ a{color:var(--kin);text-decoration:none;}
   <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
 </header>
 
-<!-- 日タブ -->
 <div class="day-tabs" id="dayTabs"></div>
-
-<!-- レースセレクタ -->
 <div class="race-selector" id="raceSelector"></div>
 
-<!-- 本殿 -->
 <div class="shrine-wrap" id="shrineWrap">
   <div class="empty-state mincho">御神託を降ろす準備中 ……</div>
 </div>
@@ -423,115 +329,110 @@ a{color:var(--kin);text-decoration:none;}
 <script>
 // ───────────────────────────────────────
 //  本殿データ — 週次メンテ：土日レース一覧
-//  picks 順 = ◎ ○ ▲ △ ☆
-//  bets: 単勝1点・複勝1点・ワイド4頭BOX(6点)
+//  picks = 4頭（◎○▲△）
+//  bets  = 単勝1点・複勝1点・ワイド4頭BOX(6点)
 // ───────────────────────────────────────
 const RACES = [
-  // ── 2026-04-25 土曜 ──
+  // ================= 2026-04-25 土曜 =================
   {
     key:'2026-04-25-kyoto-10r',
     date:'2026-04-25', day:'sat', label:'土',
     win5:'WIN1', grade:'3勝',
-    name:'観月橋S',
+    name:'観月橋S', nameEn:'KANGETSUBASHI STAKES',
     meta:'京都10R ／ ダ1800m ／ 11頭',
     startTime:'14:50',
     picks:[
-      {mark:'◎',name:'パシアンジャン',factors:'白虎S × 意志A'},
-      {mark:'○',name:'タガノマカシヤ',factors:'白虎S × 意志B'},
-      {mark:'▲',name:'ペンナヴェローチェ',factors:'白虎A × 意志A'},
-      {mark:'△',name:'マイノワール',factors:'白虎A × 意志B'},
-      {mark:'☆',name:'デルアヴァー',factors:'白虎B × 意志A（道悪注文不発）'},
+      {mark:'◎',markLabel:'本命',name:'パシアンジャン',gate:'?',num:'10',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'S',label:'白虎'}],comment:'京都1800好相性・実戦型・気で走るの具体性。白虎S×意志A一致で軸。'},
+      {mark:'○',markLabel:'対抗',name:'タガノマカシヤ',gate:'?',num:'9',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'byakko',g:'S',label:'白虎'}],comment:'白虎S軸を素直に評価。ゴチャつかなければの注文あり。'},
+      {mark:'▲',markLabel:'単穴',name:'ペンナヴェローチェ',gate:'?',num:'3',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'A',label:'白虎'}],comment:'大崩れなく上位争いの本音強気。A×A素直評価。'},
+      {mark:'△',markLabel:'連下',name:'マイノワール',gate:'?',num:'2',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'byakko',g:'A',label:'白虎'}],comment:'ダート堅実・2回目の継続騎乗で安定ソース。'},
     ],
     bets:{
       tan:{name:'パシアンジャン',amount:100},
       fuku:{name:'パシアンジャン',amount:100},
       wide:{horses:['パシアンジャン','タガノマカシヤ','ペンナヴェローチェ','マイノワール'],perPoint:100}
     },
-    note:'白虎S×意志A＝一致のパシアンジャン軸。京都1800好相性・実戦型・気で走る具体性が決め手。ワイドBOXは白虎S/Aで堅めに4頭。'
+    note:'白虎S×意志A＝一致のパシアンジャン軸。デルアヴァーは「週中の雨残れば」の道悪注文が良馬場予報で不発前提となり排除。'
   },
   {
     key:'2026-04-25-tokyo-10r',
     date:'2026-04-25', day:'sat', label:'土',
     win5:'WIN2', grade:'3勝',
-    name:'鎌倉S',
+    name:'鎌倉S', nameEn:'KAMAKURA STAKES',
     meta:'東京10R ／ ダ1400m ／ 15頭',
     startTime:'15:00',
     picks:[
-      {mark:'◎',name:'メイショウハチロー',factors:'白虎S × 意志B'},
-      {mark:'○',name:'トクシーカイザー',factors:'白虎A × 意志S（陣営本気）'},
-      {mark:'▲',name:'ペイシャケイプ',factors:'白虎B × 意志A'},
-      {mark:'△',name:'ワンダラー',factors:'白虎B × 意志A'},
-      {mark:'☆',name:'スプランドゥール',factors:'白虎B × 意志A（追切絶賛）'},
+      {mark:'◎',markLabel:'本命',name:'メイショウハチロー',gate:'?',num:'4',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'byakko',g:'S',label:'白虎'}],comment:'前後のつながり悪いがひと絞りで態勢。直線長いコース合う。'},
+      {mark:'○',markLabel:'対抗',name:'トクシーカイザー',gate:'?',num:'6',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'S',label:'青龍'},{t:'byakko',g:'A',label:'白虎'}],comment:'自厩舎◎印・思い通りの調整・外枠尚いいの具体性。S級本気度。'},
+      {mark:'▲',markLabel:'単穴',name:'ペイシャケイプ',gate:'?',num:'15',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'B',label:'白虎'}],comment:'敗因具体（4角行きたがった）、東京1400勝ち実績。'},
+      {mark:'△',markLabel:'連下',name:'ワンダラー',gate:'?',num:'14',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'B',label:'白虎'}],comment:'しっかり加速・状態維持・以前と状態違う。十分対応。'},
     ],
     bets:{
       tan:{name:'メイショウハチロー',amount:100},
       fuku:{name:'メイショウハチロー',amount:100},
       wide:{horses:['メイショウハチロー','トクシーカイザー','ペイシャケイプ','ワンダラー'],perPoint:100}
     },
-    note:'白虎S軸メイショウハチロー。トクシーカイザーは陣営「思い通りの調整」「外枠尚いい」の具体注文でS級本気度。致命2頭（レーウィン・イノセントキャット）は完全排除。'
+    note:'白虎S軸メイショウハチロー。致命2頭（レーウィン「試走宣言」・イノセントキャット「△印＋衰え」）は完全排除。'
   },
   {
     key:'2026-04-25-fukushima-11r',
     date:'2026-04-25', day:'sat', label:'土',
     win5:'WIN3', grade:'3勝',
-    name:'福島中央テレビ杯',
+    name:'福島中央テレビ杯', nameEn:'FUKUSHIMA CHUO TV CUP',
     meta:'福島11R ／ ダ1150m ／ 12頭',
     startTime:'15:15',
     picks:[
-      {mark:'◎',name:'ビルカール',factors:'白虎A × 意志A'},
-      {mark:'○',name:'ルージュアズライト',factors:'白虎C × 意志S（ピンポイント照準）'},
-      {mark:'▲',name:'カウスリップ',factors:'白虎C × 意志A'},
-      {mark:'△',name:'プレゼンティーア',factors:'白虎B × 意志B'},
-      {mark:'☆',name:'スノーサイレンス',factors:'白虎D × 意志A（通用の力）'},
+      {mark:'◎',markLabel:'本命',name:'ビルカール',gate:'?',num:'5',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'A',label:'白虎'}],comment:'好調子キープ・1150ちょうどいい。A×A素直評価。'},
+      {mark:'○',markLabel:'対抗',name:'ルージュアズライト',gate:'?',num:'11',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'S',label:'青龍'},{t:'byakko',g:'C',label:'白虎'}],comment:'自厩舎◎印・昨秋この舞台で勝った時から逆算のピンポイント照準。'},
+      {mark:'▲',markLabel:'単穴',name:'カウスリップ',gate:'?',num:'12',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'C',label:'白虎'}],comment:'敗因具体（力んだ）、スピード上位、1150いい条件。'},
+      {mark:'△',markLabel:'連下',name:'プレゼンティーア',gate:'?',num:'8',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'byakko',g:'B',label:'白虎'}],comment:'いい勝ち方・中1週勝ってる条件。力は出せる。'},
     ],
     bets:{
       tan:{name:'ビルカール',amount:100},
       fuku:{name:'ビルカール',amount:100},
       wide:{horses:['ビルカール','ルージュアズライト','カウスリップ','プレゼンティーア'],perPoint:100}
     },
-    note:'ビルカール鉄板◎。ルージュアズライトは陣営「昨秋この舞台で勝った時からこのレース逆算」のピンポイント照準でC→浮上。ゴールドハンマー「いずれチャンス」は先送り扱いで排除。'
+    note:'ビルカール鉄板◎。ルージュアズライトはピンポイント照準でC→浮上。ゴールドハンマー「いずれチャンス」先送り致命で排除。'
   },
   {
     key:'2026-04-25-kyoto-11r',
     date:'2026-04-25', day:'sat', label:'土',
     win5:'WIN4', grade:'L',
-    name:'天王山S',
+    name:'天王山S', nameEn:'TENNOZAN STAKES',
     meta:'京都11R ／ ダ1200m ／ 12頭',
     startTime:'15:35',
     picks:[
-      {mark:'◎',name:'ジョーローリット',factors:'白虎S × 意志A'},
-      {mark:'○',name:'ペプチドヤマト',factors:'白虎S × 意志B'},
-      {mark:'▲',name:'オーブルクール',factors:'白虎B × 意志S（陣営本気）'},
-      {mark:'△',name:'ドンアミティエ',factors:'白虎S × 意志B'},
-      {mark:'☆',name:'ヒルノドゴール',factors:'白虎B × 意志A'},
+      {mark:'◎',markLabel:'本命',name:'ジョーローリット',gate:'?',num:'7',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'S',label:'白虎'}],comment:'敗因具体（ブリンカー効き過ぎ）→外す対策。スピード上位。'},
+      {mark:'○',markLabel:'対抗',name:'ペプチドヤマト',gate:'?',num:'3',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'byakko',g:'S',label:'白虎'}],comment:'いつも通り・京都1200実績・内めで脚ため注文。'},
+      {mark:'▲',markLabel:'単穴',name:'オーブルクール',gate:'?',num:'4',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'S',label:'青龍'},{t:'byakko',g:'B',label:'白虎'}],comment:'自厩舎◎印・前走参考外・思い通りの調整・動き抜群・上積み大。'},
+      {mark:'△',markLabel:'連下',name:'ドンアミティエ',gate:'?',num:'11',ninki:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'前走未取得',prevFinish:'—',badges:[{t:'seiryu',g:'B',label:'青龍'},{t:'byakko',g:'S',label:'白虎'}],comment:'検疫で緩さ残るが攻め動く・斤量負けしない・力は上位巻き返し。'},
     ],
     bets:{
       tan:{name:'ジョーローリット',amount:100},
       fuku:{name:'ジョーローリット',amount:100},
       wide:{horses:['ジョーローリット','ペプチドヤマト','オーブルクール','ドンアミティエ'],perPoint:100}
     },
-    note:'ブリンカー外し対策＋スピード上位の陣営強気でジョーローリット◎。オーブルクール（白虎B×意志S）は陣営「思い通りの調整」「上積み大」で浮上。ファムエレガンテ「自分のリズム」致命は排除。'
+    note:'ジョーローリット◎。ファムエレガンテ「自分のリズム・敗因不明」致命で完全排除。'
   },
   {
     key:'2026-04-25-tokyo-11r',
     date:'2026-04-25', day:'sat', label:'土',
     win5:'WIN5', grade:'G2',
-    name:'青葉賞',
+    name:'青葉賞', nameEn:'AOBA SHO',
     meta:'東京11R ／ 芝2400m ／ 18頭',
     startTime:'15:45',
     picks:[
-      {mark:'◎',name:'サガルマータ',factors:'青龍S × 玄武A × 白虎C'},
-      {mark:'○',name:'ノーブルサヴェージ',factors:'青龍A × 玄武A × 白虎B'},
-      {mark:'▲',name:'ゴーイントゥスカイ',factors:'青龍A × 白虎S × 走法適合S'},
-      {mark:'△',name:'ブラックオリンピア',factors:'青龍A × 白虎B'},
-      {mark:'☆',name:'ラストスマイル',factors:'青龍B × 白虎S'},
+      {mark:'◎',markLabel:'本命',name:'サガルマータ',gate:'6',num:'12',ninki:'—',sire:'コントレイル',bms:'City Banker',jockey:'横山武',trainer:'栗東・福永',gaikyu:'大山ヒルズ',prevName:'3歳未勝利（阪神・芝2400）',prevFinish:'1着',badges:[{t:'seiryu',g:'S',label:'青龍'},{t:'byakko',g:'C',label:'白虎'},{t:'genbu',g:'A',label:'玄武'}],comment:'立て直し奏功・距離適性示した・実戦型。前走2/21圧勝の未勝利馬が相手強化に挑むが、青龍v2統合で単独S昇格、コントレイル産駒×City Banker母父の距離延長血統。'},
+      {mark:'○',markLabel:'対抗',name:'ノーブルサヴェージ',gate:'7',num:'15',ninki:'—',sire:'リオンディーズ',bms:'マンハッタンカフェ',jockey:'レーン',trainer:'美浦・森一',gaikyu:'ノーザンファーム天栄',prevName:'水仙賞1勝（中山・芝2200）',prevFinish:'1着',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'B',label:'白虎'},{t:'genbu',g:'A',label:'玄武'}],comment:'水仙賞勝ち馬、距離コース合う・一段階上の仕上がり。NF天栄＋レーン＋リオンディーズ×マンハッタンカフェで距離延長にも対応。'},
+      {mark:'▲',markLabel:'単穴',name:'ゴーイントゥスカイ',gate:'8',num:'16',ninki:'—',sire:'コントレイル',bms:'Tapit',jockey:'武豊',trainer:'美浦・上原佑',gaikyu:'山元トレーニング',prevName:'きさらぎ賞GIII（京都・芝1800）',prevFinish:'6着',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'S',label:'白虎'},{t:'soho',g:'S',label:'走法'}],comment:'きさらぎ賞6着も走法プロファイル（HC5.0・GP0.905・前後72.2）が1着理想値と一致。距離延長で武豊＋コントレイル産駒、2400は条件好転。'},
+      {mark:'△',markLabel:'連下',name:'ブラックオリンピア',gate:'2',num:'4',ninki:'—',sire:'キタサンブラック',bms:'Pierro',jockey:'川田',trainer:'栗東・友道',gaikyu:'在厩調整',prevName:'アザレア賞1勝（阪神・芝2400）',prevFinish:'1着',badges:[{t:'seiryu',g:'A',label:'青龍'},{t:'byakko',g:'B',label:'白虎'}],comment:'アザレア賞勝ち馬、長距離向き成長・川田＋友道厩舎の本格派ルート。中2週ローテは在厩調整でカバー、距離・コース無難にこなす。'},
     ],
     bets:{
       tan:{name:'サガルマータ',amount:100},
       fuku:{name:'サガルマータ',amount:100},
       wide:{horses:['サガルマータ','ノーブルサヴェージ','ゴーイントゥスカイ','ブラックオリンピア'],perPoint:100}
     },
-    note:'青龍v2「真実×意志」統合でサガルマータ単独S昇格→◎。ゴーイントゥスカイは走法プロファイル（HC5.0・GP0.905・前後72.2）が1着理想値とほぼ一致で▲補強。致命馬ミッキーファルコン・コスモギガンティア等はB強制で排除。'
+    note:'青龍v2「真実×意志」統合でサガルマータ単独S昇格→◎。ゴーイントゥスカイは走法プロファイルが1着理想値と一致で▲補強。致命馬ミッキーファルコン・コスモギガンティア等はB強制で排除。'
   },
 ];
 
@@ -553,24 +454,19 @@ let currentKey  = null;
 
 function setDate(d){
   currentDate = d;
-  // 一番早い発走のレースをデフォルト表示
   const list = RACES.filter(r => r.date === d);
   currentKey = list[0] ? list[0].key : null;
   render();
 }
-
 function setKey(k){ currentKey = k; render(); }
 
 function render(){
-  // 日タブ
   const days = uniqueDays();
   daysEl.innerHTML = days.map(d => {
     const cls = d.date === currentDate ? 'day-tab active' : 'day-tab';
-    const labelJp = formatDayHeader(d.date, d.label);
-    return `<button class="${cls}" onclick="setDate('${d.date}')">${labelJp}</button>`;
+    return `<button class="${cls}" onclick="setDate('${d.date}')">${formatDayHeader(d.date, d.label)}</button>`;
   }).join('');
 
-  // レースセレクタ
   const races = RACES.filter(r => r.date === currentDate);
   selEl.innerHTML = races.map(r => {
     const cls = r.key === currentKey ? 'race-btn active' : 'race-btn';
@@ -583,7 +479,6 @@ function render(){
     </button>`;
   }).join('');
 
-  // 本殿本体
   const race = RACES.find(r => r.key === currentKey);
   if(!race){
     shrine.innerHTML = `<div class="empty-state mincho">この日のレースはまだ降ろされていません</div>`;
@@ -598,11 +493,52 @@ function formatDayHeader(d, label){
   return `${+m[2]}/${+m[3]}（${label}）`;
 }
 
-function hondenHtml(r){
-  const honmei = r.picks[0];
-  const attendants = r.picks.slice(1, 5);
-  const atClasses = ['mark-o','mark-s','mark-d','mark-h'];
+function markClass(mark){
+  return ({'◎':'m-honmei','○':'m-taikou','▲':'m-tana','△':'m-renka'})[mark] || '';
+}
 
+function finishClass(f){
+  if(!f || f === '—') return 'fin-lose';
+  const n = parseInt(f);
+  if(n === 1) return 'fin-win';
+  if(n === 2 || n === 3) return 'fin-place';
+  return 'fin-lose';
+}
+
+function omamoriHtml(p){
+  const badges = (p.badges||[]).map(b =>
+    `<span class="badge b-${b.t}">${b.label}${b.g}</span>`
+  ).join('');
+  const finClass = finishClass(p.prevFinish);
+  return `
+  <div class="omamori ${markClass(p.mark)}">
+    <div class="omamori-bar">
+      <span class="mark-inline">${p.mark}</span>御 守（${p.markLabel}）
+    </div>
+    <div class="omamori-body">
+      <div class="omamori-meta">
+        <span><span class="waku">${p.gate}</span><span class="uma">${p.num}</span></span>
+        <span class="ninki">想定 ${p.ninki}人気</span>
+      </div>
+      <div class="omamori-name mincho">${p.name}</div>
+      <div class="omamori-name-en">${(p.name||'').toUpperCase()}</div>
+      <div class="omamori-divider"></div>
+      <dl class="omamori-info">
+        <dt>父</dt><dd>${p.sire}</dd>
+        <dt>母父</dt><dd>${p.bms}</dd>
+        <dt>騎手</dt><dd>${p.jockey}</dd>
+        <dt>厩舎</dt><dd>${p.trainer}</dd>
+        <dt>外厩</dt><dd>${p.gaikyu}</dd>
+        <dt>前走</dt><dd class="prev-race">${p.prevName}<span class="prev-finish ${finClass}">${p.prevFinish}</span></dd>
+      </dl>
+      <div class="omamori-badges">${badges}</div>
+      <div class="omamori-comment">${p.comment}</div>
+      <div class="omamori-seal">神印</div>
+    </div>
+  </div>`;
+}
+
+function hondenHtml(r){
   const wideCombos = makeCombos(r.bets.wide.horses);
   const wideTotal  = wideCombos.length * r.bets.wide.perPoint;
   const grandTotal = r.bets.tan.amount + r.bets.fuku.amount + wideTotal;
@@ -615,50 +551,24 @@ function hondenHtml(r){
     <div class="honden-head">
       <div class="honden-race-meta mincho">${r.meta}　／　発走 ${r.startTime}</div>
       <div class="honden-race-name mincho">${r.name}</div>
-      <div class="honden-race-info">
-        ${win5Html}${gradeHtml}
-      </div>
+      <div class="honden-race-info">${win5Html}${gradeHtml}</div>
     </div>
 
-    <div class="gods-wrap">
-      <div class="gods-main">
-        <span class="mark mincho">${honmei.mark}</span>
-        <div class="name mincho">${honmei.name}</div>
-        <div class="meta mincho">本　命　馬</div>
-        <div class="factors">
-          ${honmei.factors.split(/[×\s]+/).filter(Boolean).map(f =>
-            `<span class="factor-chip mincho">${f}</span>`
-          ).join('')}
-        </div>
-      </div>
-
-      <div class="gods-attendants">
-        ${attendants.map((p,i) => `
-          <div class="attendant ${atClasses[i]||''}">
-            <span class="mark mincho">${p.mark}</span>
-            <div class="body">
-              <div class="name mincho">${p.name}</div>
-              <div class="factor">${p.factors}</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
+    <div class="section-title mincho">選 ば れ し 四 頭</div>
+    <div class="omamori-grid">
+      ${r.picks.slice(0,4).map(omamoriHtml).join('')}
     </div>
 
     <div class="offering">
       <div class="offering-desc mincho">単勝 ／ 複勝 ／ ワイド４頭ＢＯＸ</div>
       <div class="offering-row">
         <div class="offering-type mincho">単　勝</div>
-        <div class="offering-content">
-          <span class="offering-horse">${r.bets.tan.name}</span>
-        </div>
+        <div class="offering-content"><span class="offering-horse">${r.bets.tan.name}</span></div>
         <div class="offering-amount">¥${r.bets.tan.amount}（1点）</div>
       </div>
       <div class="offering-row">
         <div class="offering-type mincho">複　勝</div>
-        <div class="offering-content">
-          <span class="offering-horse">${r.bets.fuku.name}</span>
-        </div>
+        <div class="offering-content"><span class="offering-horse">${r.bets.fuku.name}</span></div>
         <div class="offering-amount">¥${r.bets.fuku.amount}（1点）</div>
       </div>
       <div class="offering-row">
@@ -675,9 +585,7 @@ function hondenHtml(r){
       </div>
     </div>
 
-    <div class="logic-note">
-      <strong>御託宣</strong>　${r.note}
-    </div>
+    <div class="logic-note"><strong>御託宣</strong>　${r.note}</div>
   </div>`;
 }
 
@@ -692,12 +600,11 @@ function makeCombos(arr){
 }
 
 // ───────────────────────────────────────
-//  初期化：最直近の日を自動選択
+//  初期化
 // ───────────────────────────────────────
 (function init(){
   const today = new Date().toISOString().slice(0,10);
   const days = uniqueDays().map(d => d.date);
-  // 今日以降の最初の日、なければ最後の日
   const target = days.find(d => d >= today) || days[days.length-1] || days[0];
   setDate(target);
 })();
