@@ -329,6 +329,155 @@ html,body{
   .floor-header{flex-direction:column;align-items:flex-start;gap:2px;}
   .floor-race{font-size:15px;}
 }
+
+/* ── WIN5 最終組み合わせ ── */
+.win5-combo{
+  max-width:760px;
+  margin:34px auto 24px;
+  padding:28px 28px 22px;
+  background:
+    radial-gradient(600px 300px at 50% -10%, rgba(201,169,97,.12), transparent 70%),
+    linear-gradient(180deg, rgba(138,45,45,.08) 0%, rgba(26,17,8,.7) 100%);
+  border:1px solid var(--kin);
+  border-radius:3px;
+  box-shadow:0 0 32px rgba(201,169,97,.15), 0 0 0 1px rgba(201,169,97,.15) inset;
+}
+.win5-combo-title{
+  text-align:center;
+  font-size:15px;
+  color:var(--kin);
+  letter-spacing:.42em;
+  padding-bottom:4px;
+  font-weight:700;
+  padding-left:.42em;
+}
+.win5-combo-subtitle{
+  text-align:center;
+  font-size:11px;
+  color:rgba(201,169,97,.65);
+  letter-spacing:.28em;
+  margin-bottom:22px;
+  padding:4px 0 14px;
+  border-bottom:1px dashed rgba(201,169,97,.28);
+  padding-left:.28em;
+}
+.combo-race{
+  padding:11px 2px 10px;
+  border-bottom:1px dotted rgba(201,169,97,.12);
+}
+.combo-race:last-of-type{border-bottom:0;}
+.combo-race-label{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-size:11px;
+  color:var(--kin);
+  letter-spacing:.18em;
+  margin-bottom:8px;
+  font-weight:700;
+}
+.combo-race-count{
+  color:rgba(255,240,200,.45);
+  font-size:10px;
+  letter-spacing:.18em;
+  font-style:italic;
+  font-weight:400;
+}
+.combo-race-count.single{
+  color:var(--shu-light);
+  font-style:normal;
+  font-weight:700;
+  letter-spacing:.32em;
+}
+.combo-horses{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 10px;
+}
+.combo-horse{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:13px;
+  color:var(--sand);
+  padding:4px 12px 4px 4px;
+  background:rgba(201,169,97,.05);
+  border:1px solid rgba(201,169,97,.24);
+  border-radius:20px;
+  font-weight:500;
+}
+.combo-horse.single{
+  background:linear-gradient(90deg, var(--shu) 0%, var(--shu-light) 100%);
+  border-color:var(--kin);
+  color:var(--sand);
+  font-weight:700;
+  padding:5px 16px 5px 5px;
+  box-shadow:0 0 14px rgba(138,45,45,.35), 0 0 0 1px rgba(201,169,97,.5) inset;
+}
+.combo-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:24px;
+  height:24px;
+  padding:0 5px;
+  background:var(--kin);
+  color:var(--sumi);
+  font-weight:900;
+  font-size:11px;
+  border-radius:12px;
+  font-family:'Shippori Mincho',serif;
+  letter-spacing:0;
+}
+.combo-horse.single .combo-num{
+  background:var(--sand);
+  color:var(--shu);
+}
+.combo-formula-row{
+  margin-top:22px;
+  padding:14px 0 12px;
+  border-top:1px solid rgba(201,169,97,.3);
+  text-align:center;
+  font-size:13px;
+  color:rgba(201,169,97,.75);
+  letter-spacing:.22em;
+}
+.combo-formula-row strong{
+  color:var(--kin);
+  font-weight:900;
+  font-size:20px;
+  letter-spacing:.08em;
+  margin:0 6px;
+  text-shadow:0 0 10px rgba(201,169,97,.4);
+}
+.combo-total-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:8px 4px 2px;
+  font-size:14px;
+  font-weight:700;
+}
+.combo-total-row span:first-child{
+  color:var(--sand);
+  letter-spacing:.36em;
+  padding-left:.36em;
+}
+.combo-total-amt{
+  color:var(--kin);
+  font-size:20px;
+  letter-spacing:.04em;
+  text-shadow:0 0 12px rgba(201,169,97,.5);
+}
+@media (max-width:640px){
+  .win5-combo{padding:22px 16px 16px;}
+  .win5-combo-title{font-size:13px;letter-spacing:.32em;}
+  .combo-horse{font-size:12px;}
+  .combo-horses{gap:6px 8px;}
+  .combo-formula-row{font-size:12px;}
+  .combo-formula-row strong{font-size:18px;}
+  .combo-total-amt{font-size:18px;}
+}
 </style>
 </head>
 <body>
@@ -455,13 +604,57 @@ html,body{
     <div class="foundation-label mincho">礎 石</div>
   </div>
 
-  <div class="sum-panel">
-    <h3 class="mincho">奉 納 目 録</h3>
-    <div class="sum-line"><span>WIN1　観月橋S</span><span class="sum-state">神のお告げを待ち賜う</span></div>
-    <div class="sum-line"><span>WIN2　鎌倉S</span><span class="sum-state">神のお告げを待ち賜う</span></div>
-    <div class="sum-line"><span>WIN3　福島中央テレビ杯</span><span class="sum-state">神のお告げを待ち賜う</span></div>
-    <div class="sum-line"><span>WIN4　天王山S</span><span class="sum-state">神のお告げを待ち賜う</span></div>
-    <div class="sum-line"><span>WIN5　青葉賞</span><span class="sum-state">神のお告げを待ち賜う</span></div>
+  <div class="win5-combo">
+    <div class="win5-combo-title mincho">奉　納　目　録</div>
+    <div class="win5-combo-subtitle mincho">W I N 5 　 最 　終 　御 　託 　宣</div>
+
+    <div class="combo-race">
+      <div class="combo-race-label mincho"><span>一層　WIN1　観月橋S（京都10R）</span><span class="combo-race-count">2 頭</span></div>
+      <div class="combo-horses">
+        <span class="combo-horse"><span class="combo-num">1</span>デルアヴァー</span>
+        <span class="combo-horse"><span class="combo-num">10</span>パシアンジャン</span>
+      </div>
+    </div>
+
+    <div class="combo-race">
+      <div class="combo-race-label mincho"><span>二層　WIN2　鎌倉S（東京10R）</span><span class="combo-race-count">4 頭</span></div>
+      <div class="combo-horses">
+        <span class="combo-horse"><span class="combo-num">2</span>クインズデネブ</span>
+        <span class="combo-horse"><span class="combo-num">4</span>メイショウハチロー</span>
+        <span class="combo-horse"><span class="combo-num">14</span>ワンダラー</span>
+        <span class="combo-horse"><span class="combo-num">15</span>ペイシャケイプ</span>
+      </div>
+    </div>
+
+    <div class="combo-race">
+      <div class="combo-race-label mincho"><span>三層　WIN3　福島中央テレビ杯（福島11R）</span><span class="combo-race-count">4 頭</span></div>
+      <div class="combo-horses">
+        <span class="combo-horse"><span class="combo-num">3</span>キタノソワレ</span>
+        <span class="combo-horse"><span class="combo-num">4</span>スノーサイレンス</span>
+        <span class="combo-horse"><span class="combo-num">5</span>ビルカール</span>
+        <span class="combo-horse"><span class="combo-num">11</span>ルージュアズライト</span>
+      </div>
+    </div>
+
+    <div class="combo-race">
+      <div class="combo-race-label mincho"><span>四層　WIN4　天王山S（京都11R）</span><span class="combo-race-count single">1 点 突 破</span></div>
+      <div class="combo-horses">
+        <span class="combo-horse single"><span class="combo-num">10</span>ゲッティヴィラ</span>
+      </div>
+    </div>
+
+    <div class="combo-race">
+      <div class="combo-race-label mincho"><span>五層　WIN5　青葉賞（東京11R）</span><span class="combo-race-count single">1 点 突 破</span></div>
+      <div class="combo-horses">
+        <span class="combo-horse single"><span class="combo-num">4</span>ブラックオリンピア</span>
+      </div>
+    </div>
+
+    <div class="combo-formula-row mincho">2 　×　 4 　×　 4 　×　 1 　×　 1 　＝<strong>32</strong>点</div>
+    <div class="combo-total-row">
+      <span class="mincho">奉　納　総　額</span>
+      <span class="combo-total-amt">¥ 3,200</span>
+    </div>
   </div>
 </div>
 
