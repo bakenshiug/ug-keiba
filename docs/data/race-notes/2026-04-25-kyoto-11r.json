@@ -16,7 +16,7 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "logicVersion": "v2-rel-lap-danwa",
+  "logicVersion": "v4-genbu-v2-poc",
   "horses": [
     {
       "listOrder": 1,
@@ -39,6 +39,18 @@
         "grade": "C",
         "reason": "オープンでも通じる／長欠明けの分がどうか（曖昧撤退）",
         "fatal": false
+      },
+      "gaikyu": "チャンピオンヒルズ",
+      "gaikyuWeeks": 65,
+      "genbuGrade": {
+        "grade": "C",
+        "score": -1,
+        "reason": "🔥非社台×CH(+2) / 超長欠65週(-3)",
+        "gaikyu": "チャンピオンヒルズ",
+        "weeks": 65,
+        "producer": "佐竹学",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -62,6 +74,18 @@
         "grade": "C",
         "reason": "ハミを噛む／折り合いにまだ課題／連闘元気／どこまで",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 0,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 0,
+        "producer": "芳住鉄兵",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -85,6 +109,18 @@
         "grade": "B",
         "reason": "いつも通り／京都1200実績／内めで脚ためて（注文）",
         "fatal": false
+      },
+      "gaikyu": "チャンピオンヒルズ",
+      "gaikyuWeeks": 10,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 1,
+        "reason": "🔥非社台×CH(+2) / 7歳(-1)",
+        "gaikyu": "チャンピオンヒルズ",
+        "weeks": 10,
+        "producer": "杵臼牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -108,6 +144,18 @@
         "grade": "S",
         "reason": "自厩舎◎印／前走参考外／思い通りの調整／動き抜群／上積み大／スムーズ運べれば楽しみ",
         "fatal": false
+      },
+      "gaikyu": "松風馬事センター",
+      "gaikyuWeeks": 13,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 1,
+        "reason": "自厩舎◎×外厩(+1)",
+        "gaikyu": "松風馬事センター",
+        "weeks": 13,
+        "producer": "中島牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -131,6 +179,18 @@
         "grade": "B",
         "reason": "敗因具体（砂被る・関東輸送）／直線平坦の京都いい／どれだけ踏ん張れるか",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 4,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 4,
+        "producer": "グランド牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -154,6 +214,18 @@
         "grade": "A",
         "reason": "敗因具体（調教本数少）／乗り込み十分／動き毛ヅヤ良く状態いい／クラス2走目で前進",
         "fatal": false
+      },
+      "gaikyu": "キャニオンファーム土山",
+      "gaikyuWeeks": 5,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "キャニオンファーム土山",
+        "weeks": 5,
+        "producer": "サカイF",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -177,6 +249,18 @@
         "grade": "A",
         "reason": "敗因具体（ブリンカー効き過ぎ）→外す対策／スピード上位／リズム良く運べれば",
         "fatal": false
+      },
+      "gaikyu": "大山ヒルズ",
+      "gaikyuWeeks": 8,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "大山ヒルズ",
+        "weeks": 8,
+        "producer": "斉藤政志",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -200,6 +284,18 @@
         "grade": "B",
         "reason": "1200は忙しい／ラスト脚使う／ペース慣れ見込みたい",
         "fatal": false
+      },
+      "gaikyu": "吉澤S-WEST",
+      "gaikyuWeeks": 8,
+      "genbuGrade": {
+        "grade": "C",
+        "score": -1,
+        "reason": "8歳(-1)",
+        "gaikyu": "吉澤S-WEST",
+        "weeks": 8,
+        "producer": "隆栄牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -223,6 +319,18 @@
         "grade": "A",
         "reason": "敗因具体（ハイペース）／ダメージなさそう／力的に差ない／ためて前進",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 0,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 1,
+        "reason": "NF×連闘(+1)",
+        "gaikyu": "—",
+        "weeks": 0,
+        "producer": "ノーザンF",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -246,6 +354,18 @@
         "grade": "B",
         "reason": "敗因具体（スタート・冬ダート重）／京都相性いい／軽いダートなら",
         "fatal": false
+      },
+      "gaikyu": "大山ヒルズ",
+      "gaikyuWeeks": 8,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "大山ヒルズ",
+        "weeks": 8,
+        "producer": "Zachary Walker",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -269,6 +389,18 @@
         "grade": "B",
         "reason": "検疫で緩さ残る／攻め動く／斤量負けしない／力は上位巻き返し",
         "fatal": false
+      },
+      "gaikyu": "宇治田原優駿S",
+      "gaikyuWeeks": 9,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "宇治田原優駿S",
+        "weeks": 9,
+        "producer": "村田牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -293,6 +425,18 @@
         "reason": "体減少心配／敗因はっきりしない／自分のリズムで巻き返してほしい（🔴致命）",
         "fatal": true,
         "fatalTag": "自分のリズム・敗因不明"
+      },
+      "gaikyu": "宇治田原優駿S",
+      "gaikyuWeeks": 10,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "宇治田原優駿S",
+        "weeks": 10,
+        "producer": "W.S.Farish",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     }
   ]

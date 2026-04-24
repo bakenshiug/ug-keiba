@@ -16,7 +16,7 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "logicVersion": "v2-rel-lap-danwa",
+  "logicVersion": "v4-genbu-v2-poc",
   "horses": [
     {
       "listOrder": 1,
@@ -39,6 +39,18 @@
         "grade": "S",
         "reason": "自厩舎◎印／勝ち負けできる／使った上積み／週中の雨残れば（道悪注文）",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 2,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 2,
+        "producer": "North Hills Co.",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -62,6 +74,18 @@
         "grade": "B",
         "reason": "ダート堅実／2回目の継続騎乗",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 3,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 3,
+        "producer": "フジワラファーム",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -85,6 +109,18 @@
         "grade": "A",
         "reason": "大崩れなく／元気で好調キープ／上位争いを（本音強気）",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 1,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 1,
+        "producer": "千代田牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -108,6 +144,18 @@
         "grade": "C",
         "reason": "1400は忙しい／1800試してみる（試走宣言）／どう出るか分からない",
         "fatal": false
+      },
+      "gaikyu": "キャニオンファーム土山",
+      "gaikyuWeeks": 4,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "キャニオンファーム土山",
+        "weeks": 4,
+        "producer": "高昭牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -131,6 +179,18 @@
         "grade": "C",
         "reason": "リフレッシュ／昇級緒戦でどうか（曖昧撤退）",
         "fatal": false
+      },
+      "gaikyu": "宇治田原優駿S",
+      "gaikyuWeeks": 12,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "宇治田原優駿S",
+        "weeks": 12,
+        "producer": "モリナガF",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -154,6 +214,18 @@
         "grade": "C",
         "reason": "体が動くように／戦法は鞍上任せ／昇級でどこまで（曖昧撤退）",
         "fatal": false
+      },
+      "gaikyu": "チャンピオンヒルズ",
+      "gaikyuWeeks": 5,
+      "genbuGrade": {
+        "grade": "A",
+        "score": 2,
+        "reason": "🔥非社台×CH(+2)",
+        "gaikyu": "チャンピオンヒルズ",
+        "weeks": 5,
+        "producer": "佐竹学",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -177,6 +249,18 @@
         "grade": "B",
         "reason": "中間の感じいい／相手なり／格好はつけられる",
         "fatal": false
+      },
+      "gaikyu": "シンボリ牧場",
+      "gaikyuWeeks": 12,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "シンボリ牧場",
+        "weeks": 12,
+        "producer": "信田牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -200,6 +284,18 @@
         "grade": "C",
         "reason": "やめるところが出てきた／距離延長試す（試走）／追走スムーズなら",
         "fatal": false
+      },
+      "gaikyu": "宇治田原優駿S",
+      "gaikyuWeeks": 17,
+      "genbuGrade": {
+        "grade": "C",
+        "score": -1,
+        "reason": "休養17週(-1)",
+        "gaikyu": "宇治田原優駿S",
+        "weeks": 17,
+        "producer": "富田牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -223,6 +319,18 @@
         "grade": "B",
         "reason": "スムーズなら力出せる／ゴチャつかなければ（展開頼み）",
         "fatal": false
+      },
+      "gaikyu": "宇治田原優駿S",
+      "gaikyuWeeks": 7,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "宇治田原優駿S",
+        "weeks": 7,
+        "producer": "八木牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -246,6 +354,18 @@
         "grade": "A",
         "reason": "実戦型／京都1800好相性／気で走るので久々でも心配ない",
         "fatal": false
+      },
+      "gaikyu": "山岡トレセン",
+      "gaikyuWeeks": 14,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "山岡トレセン",
+        "weeks": 14,
+        "producer": "前谷武志",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -269,6 +389,18 @@
         "grade": "C",
         "reason": "好不調が分からない／追い切り詰まらず／ゴチャつかずスムーズなら",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 3,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 3,
+        "producer": "トラストスリーF",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     }
   ]

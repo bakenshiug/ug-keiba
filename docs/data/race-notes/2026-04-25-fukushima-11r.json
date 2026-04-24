@@ -16,7 +16,7 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "logicVersion": "v2-rel-lap-danwa",
+  "logicVersion": "v4-genbu-v2-poc",
   "horses": [
     {
       "listOrder": 1,
@@ -39,6 +39,18 @@
         "grade": "B",
         "reason": "スピード生かす／小回り福島ぴったり／自分の競馬どこまで粘れるか",
         "fatal": false
+      },
+      "gaikyu": "フォレストヒル",
+      "gaikyuWeeks": 7,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "フォレストヒル",
+        "weeks": 7,
+        "producer": "Hill 'N' Dale",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -62,6 +74,18 @@
         "grade": "B",
         "reason": "前走狙い通り福島合った／ジョッキーうまく乗った／同じ舞台なら",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 1,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 1,
+        "reason": "NF×連闘(+1)",
+        "gaikyu": "—",
+        "weeks": 1,
+        "producer": "ノーザンF",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -85,6 +109,18 @@
         "grade": "C",
         "reason": "中団理想／流れに乗れるか鍵（展開頼み）／うまく展開向けば",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 1,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 1,
+        "producer": "対馬正",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -108,6 +144,18 @@
         "grade": "A",
         "reason": "外枠でも最後まで頑張った／距離合う／芝スタートいい／通用の力",
         "fatal": false
+      },
+      "gaikyu": "ダーレー・ジャパン岡山",
+      "gaikyuWeeks": 11,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "ダーレー・ジャパン岡山",
+        "weeks": 11,
+        "producer": "ダーレージャパンF",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -131,6 +179,18 @@
         "grade": "A",
         "reason": "好調子キープ／1150ちょうどいい／流れ噛み合えば",
         "fatal": false
+      },
+      "gaikyu": "KSトレーニングC",
+      "gaikyuWeeks": 6,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "KSトレーニングC",
+        "weeks": 6,
+        "producer": "サンローゼン",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -154,6 +214,18 @@
         "grade": "B",
         "reason": "張られて接触の消化不良／スムーズに捌ければ",
         "fatal": false
+      },
+      "gaikyu": "チャンピオンヒルズ",
+      "gaikyuWeeks": 16,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 1,
+        "reason": "🔥非社台×CH(+2) / 休養16週(-1)",
+        "gaikyu": "チャンピオンヒルズ",
+        "weeks": 16,
+        "producer": "雅牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -178,6 +250,18 @@
         "reason": "1150対応できるが昇級戦どうか／いずれチャンスはある（先送り）",
         "fatal": true,
         "fatalTag": "いずれチャンス（今回は捨て）"
+      },
+      "gaikyu": "高橋トレーニングC",
+      "gaikyuWeeks": 13,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "高橋トレーニングC",
+        "weeks": 13,
+        "producer": "グランド牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -201,6 +285,18 @@
         "grade": "B",
         "reason": "いい勝ち方／中1週勝っている条件／力は出せる／昇級戦どこまで",
         "fatal": false
+      },
+      "gaikyu": "島上牧場",
+      "gaikyuWeeks": 1,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "島上牧場",
+        "weeks": 1,
+        "producer": "モリナガF",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -224,6 +320,18 @@
         "grade": "C",
         "reason": "追いかける形だと良さ出ない／ズブさが出てきた（衰え）／馬具工夫",
         "fatal": false
+      },
+      "gaikyu": "KSトレーニングC",
+      "gaikyuWeeks": 7,
+      "genbuGrade": {
+        "grade": "C",
+        "score": -1,
+        "reason": "7歳(-1)",
+        "gaikyu": "KSトレーニングC",
+        "weeks": 7,
+        "producer": "日西牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -247,6 +355,18 @@
         "grade": "C",
         "reason": "苦しいレース続く／力はある／大型馬仕上がり悪くない／外めで揉まれない（注文）",
         "fatal": false
+      },
+      "gaikyu": "チャンピオンヒルズ",
+      "gaikyuWeeks": 10,
+      "genbuGrade": {
+        "grade": "A",
+        "score": 2,
+        "reason": "🔥非社台×CH(+2)",
+        "gaikyu": "チャンピオンヒルズ",
+        "weeks": 10,
+        "producer": "木村牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -270,6 +390,18 @@
         "grade": "S",
         "reason": "自厩舎◎印／昨秋この舞台で勝った時からこのレース逆算（ピンポイント照準）／苦手中山は気にしない／ブリンカー対策",
         "fatal": false
+      },
+      "gaikyu": "エスティF小見川",
+      "gaikyuWeeks": 7,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 1,
+        "reason": "自厩舎◎×外厩(+1)",
+        "gaikyu": "エスティF小見川",
+        "weeks": 7,
+        "producer": "下河辺牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -293,6 +425,18 @@
         "grade": "A",
         "reason": "敗因具体（力んだ）／スピード上位／1150いい条件／仕上がり悪くない",
         "fatal": false
+      },
+      "gaikyu": "シンボリ牧場",
+      "gaikyuWeeks": 16,
+      "genbuGrade": {
+        "grade": "C",
+        "score": -1,
+        "reason": "休養16週(-1)",
+        "gaikyu": "シンボリ牧場",
+        "weeks": 16,
+        "producer": "ケイアイF",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     }
   ]

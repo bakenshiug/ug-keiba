@@ -16,7 +16,7 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "logicVersion": "v2-rel-lap-danwa",
+  "logicVersion": "v4-genbu-v2-poc",
   "horses": [
     {
       "listOrder": 1,
@@ -39,6 +39,18 @@
         "grade": "A",
         "reason": "メドの立つ内容／舞台実績／集中して走れれば上位争えそう",
         "fatal": false
+      },
+      "gaikyu": "山元トレセン",
+      "gaikyuWeeks": 7,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 1,
+        "reason": "社台F外厩(+1)",
+        "gaikyu": "山元トレセン",
+        "weeks": 7,
+        "producer": "社台F",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -62,6 +74,18 @@
         "grade": "A",
         "reason": "気配間違いなく上向き／得意の東京1400なら面白そう",
         "fatal": false
+      },
+      "gaikyu": "阿見トレセン",
+      "gaikyuWeeks": 4,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "阿見トレセン",
+        "weeks": 4,
+        "producer": "隆栄牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -85,6 +109,18 @@
         "grade": "A",
         "reason": "好枠ロスなし／初距離でも折り合い問題ない／デキもいいので楽しみ",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 3,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 3,
+        "producer": "藤春修二",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -108,6 +144,18 @@
         "grade": "B",
         "reason": "前後のつながり悪い／ひと絞りあれば理想／態勢は整う／直線長いコース合う",
         "fatal": false
+      },
+      "gaikyu": "キャニオンファーム土山",
+      "gaikyuWeeks": 9,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "キャニオンファーム土山",
+        "weeks": 9,
+        "producer": "三嶋牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     },
     {
@@ -131,6 +179,18 @@
         "grade": "C",
         "reason": "挫跖で延び／揉まれると良くない（注文）／自分の競馬できれば",
         "fatal": false
+      },
+      "gaikyu": "ミッドウェイF",
+      "gaikyuWeeks": 9,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "ミッドウェイF",
+        "weeks": 9,
+        "producer": "ダーレージャパンF",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -154,6 +214,18 @@
         "grade": "S",
         "reason": "自厩舎◎印／足元すっきり／思い通りの調整／雰囲気いい／馬場は乾いてほしい／外枠尚いい",
         "fatal": false
+      },
+      "gaikyu": "阿見トレセン",
+      "gaikyuWeeks": 9,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 1,
+        "reason": "自厩舎◎×外厩(+1)",
+        "gaikyu": "阿見トレセン",
+        "weeks": 9,
+        "producer": "前田F",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -177,6 +249,18 @@
         "grade": "A",
         "reason": "1400へ条件いい／攻めは相変わらず素晴らしい動き／展開ひとつでチャンス",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 1,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 1,
+        "producer": "荻伏服部牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -200,6 +284,18 @@
         "grade": "B",
         "reason": "クラス上がっての力関係鍵／崩れていない／もう一段階上がった印象",
         "fatal": false
+      },
+      "gaikyu": "KSトレーニングC",
+      "gaikyuWeeks": 4,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "KSトレーニングC",
+        "weeks": 4,
+        "producer": "斉藤英牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -223,6 +319,18 @@
         "grade": "C",
         "reason": "爪の不安で休養／時間かけて乗り込み／前進があれば（曖昧撤退）",
         "fatal": false
+      },
+      "gaikyu": "阿見トレセン",
+      "gaikyuWeeks": 37,
+      "genbuGrade": {
+        "grade": "D",
+        "score": -2,
+        "reason": "長欠37週(-2)",
+        "gaikyu": "阿見トレセン",
+        "weeks": 37,
+        "producer": "土居牧場",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -246,6 +354,18 @@
         "grade": "B",
         "reason": "放牧明け／しっかり乗り込み／条件合う／相手関係がどうか",
         "fatal": false
+      },
+      "gaikyu": "山元トレセン",
+      "gaikyuWeeks": 20,
+      "genbuGrade": {
+        "grade": "C",
+        "score": -1,
+        "reason": "休養20週(-1)",
+        "gaikyu": "山元トレセン",
+        "weeks": 20,
+        "producer": "追分F",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -270,6 +390,18 @@
         "reason": "転厩緒戦／稽古地味／距離詰めてどんな走りをするか試す（試走宣言強）",
         "fatal": true,
         "fatalTag": "試走宣言・どんな走りをするか試す"
+      },
+      "gaikyu": "チャンピオンヒルズ",
+      "gaikyuWeeks": 9,
+      "genbuGrade": {
+        "grade": "S",
+        "score": 3,
+        "reason": "🔥非社台×CH(+2) / 🔥地方×CH(+1)",
+        "gaikyu": "チャンピオンヒルズ",
+        "weeks": 9,
+        "producer": "高昭牧場",
+        "align": "大井",
+        "v": "v2-poc"
       }
     },
     {
@@ -293,6 +425,18 @@
         "grade": "B",
         "reason": "心身バランス崩れていた／リフレッシュ／出し切ればやれるはず",
         "fatal": false
+      },
+      "gaikyu": "ミッドウェイF",
+      "gaikyuWeeks": 12,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "ミッドウェイF",
+        "weeks": 12,
+        "producer": "ダーレージャパンF",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -317,6 +461,18 @@
         "reason": "自厩舎△印／内容物足りない／ハミを取る感じなくなっている（衰え）／何とかメドを",
         "fatal": true,
         "fatalTag": "△印・衰え自認・何とかメドを"
+      },
+      "gaikyu": "山元トレセン",
+      "gaikyuWeeks": 26,
+      "genbuGrade": {
+        "grade": "D",
+        "score": -2,
+        "reason": "長欠26週(-2)",
+        "gaikyu": "山元トレセン",
+        "weeks": 26,
+        "producer": "追分F",
+        "align": "美浦",
+        "v": "v2-poc"
       }
     },
     {
@@ -340,6 +496,18 @@
         "grade": "A",
         "reason": "しっかり加速／状態維持／以前と状態違う／十分対応できるはず",
         "fatal": false
+      },
+      "gaikyu": "—",
+      "gaikyuWeeks": 1,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "—",
+        "weeks": 1,
+        "producer": "大島牧場",
+        "align": "豪州",
+        "v": "v2-poc"
       }
     },
     {
@@ -363,6 +531,18 @@
         "grade": "A",
         "reason": "敗因具体（4角行きたがった）／東京1400勝っているコース／左回りの方が掛かる面マシ",
         "fatal": false
+      },
+      "gaikyu": "ドラゴンファーム",
+      "gaikyuWeeks": 8,
+      "genbuGrade": {
+        "grade": "B",
+        "score": 0,
+        "reason": "標準",
+        "gaikyu": "ドラゴンファーム",
+        "weeks": 8,
+        "producer": "友田牧場",
+        "align": "栗東",
+        "v": "v2-poc"
       }
     }
   ]
