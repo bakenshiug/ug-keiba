@@ -16,7 +16,7 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "logicVersion": "v2-rel-lap",
+  "logicVersion": "v2-rel-lap-danwa",
   "horses": [
     {
       "listOrder": 1,
@@ -34,6 +34,11 @@
           82.6
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "S",
+        "reason": "自厩舎◎印／勝ち負けできる／使った上積み／週中の雨残れば（道悪注文）",
+        "fatal": false
       }
     },
     {
@@ -52,6 +57,11 @@
           85.1
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "B",
+        "reason": "ダート堅実／2回目の継続騎乗",
+        "fatal": false
       }
     },
     {
@@ -70,6 +80,11 @@
           84.2
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "A",
+        "reason": "大崩れなく／元気で好調キープ／上位争いを（本音強気）",
+        "fatal": false
       }
     },
     {
@@ -88,6 +103,11 @@
           78.9
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "C",
+        "reason": "1400は忙しい／1800試してみる（試走宣言）／どう出るか分からない",
+        "fatal": false
       }
     },
     {
@@ -106,6 +126,11 @@
           77.6
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "C",
+        "reason": "リフレッシュ／昇級緒戦でどうか（曖昧撤退）",
+        "fatal": false
       }
     },
     {
@@ -124,6 +149,11 @@
           81.5
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "C",
+        "reason": "体が動くように／戦法は鞍上任せ／昇級でどこまで（曖昧撤退）",
+        "fatal": false
       }
     },
     {
@@ -142,6 +172,11 @@
           73.7
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "B",
+        "reason": "中間の感じいい／相手なり／格好はつけられる",
+        "fatal": false
       }
     },
     {
@@ -160,6 +195,11 @@
           77.0
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "C",
+        "reason": "やめるところが出てきた／距離延長試す（試走）／追走スムーズなら",
+        "fatal": false
       }
     },
     {
@@ -178,6 +218,11 @@
           85.3
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "B",
+        "reason": "スムーズなら力出せる／ゴチャつかなければ（展開頼み）",
+        "fatal": false
       }
     },
     {
@@ -196,6 +241,11 @@
           85.7
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "A",
+        "reason": "実戦型／京都1800好相性／気で走るので久々でも心配ない",
+        "fatal": false
       }
     },
     {
@@ -214,6 +264,11 @@
           83.8
         ],
         "source": "byakko_v1_sp"
+      },
+      "danwaGrade": {
+        "grade": "C",
+        "reason": "好不調が分からない／追い切り詰まらず／ゴチャつかずスムーズなら",
+        "fatal": false
       }
     }
   ]
