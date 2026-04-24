@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本殿｜御神託 | UG競馬ワイド神宮</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --shu:#8A2D2D;
+  --shu-light:#C0392B;
+  --kin:#C9A961;
+  --kin-deep:#A07B28;
+  --sumi:#1a1108;
+  --sand:#F4E9C9;
+  --wood:#2c1d10;
+  --bg:#0f0b08;
+  --card:#1a120a;
+  --border:rgba(201,169,97,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  color:var(--sand);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201,169,97,.15), transparent 60%),
+    var(--bg);
+  min-height:100vh;
+  line-height:1.7;
+}
+.mincho{font-family:'Shippori Mincho','Noto Serif JP',serif;}
+a{color:var(--kin);text-decoration:none;}
+
+/* ── ヘッダ ── */
+.page-header{
+  padding:36px 24px 24px;
+  text-align:center;
+  border-bottom:1px solid rgba(201,169,97,.2);
+}
+.page-title{
+  font-size:clamp(26px,5vw,44px);
+  font-weight:900;
+  color:var(--kin);
+  letter-spacing:.24em;
+  text-shadow:0 0 24px rgba(201,169,97,.3);
+}
+.page-subtitle{
+  margin-top:8px;
+  font-size:12px;
+  color:rgba(201,169,97,.7);
+  letter-spacing:.3em;
+}
+.page-lead{
+  margin-top:18px;
+  font-size:13px;
+  color:rgba(255,240,200,.7);
+}
+.home-link{
+  display:inline-block;
+  margin-top:14px;
+  font-size:12px;
+  color:var(--kin);
+  text-decoration:none;
+  border:1px solid var(--kin);
+  padding:6px 18px;
+  border-radius:2px;
+  letter-spacing:.12em;
+  transition:all .2s;
+}
+.home-link:hover{background:var(--kin);color:var(--sumi);}
+
+/* ── 日タブ ── */
+.day-tabs{
+  display:flex;
+  justify-content:center;
+  gap:2px;
+  margin:28px auto 0;
+  max-width:520px;
+  padding:0 16px;
+}
+.day-tab{
+  flex:1;
+  padding:12px 8px;
+  text-align:center;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-bottom:none;
+  color:rgba(244,233,201,.6);
+  font-size:12px;
+  letter-spacing:.22em;
+  cursor:pointer;
+  transition:all .2s;
+  font-family:'Shippori Mincho',serif;
+}
+.day-tab.active{
+  background:var(--wood);
+  color:var(--kin);
+  border-color:var(--kin);
+  font-weight:700;
+}
+.day-tab:hover:not(.active){color:var(--sand);background:rgba(44,29,16,.6);}
+
+/* ── レースセレクタ ── */
+.race-selector{
+  max-width:960px;
+  margin:0 auto;
+  padding:16px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:8px;
+}
+.race-btn{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:4px 4px 2px 2px;
+  padding:10px 12px;
+  cursor:pointer;
+  text-align:left;
+  color:var(--sand);
+  transition:all .18s ease;
+  font-family:'Shippori Mincho',serif;
+  position:relative;
+  overflow:hidden;
+}
+.race-btn::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  opacity:.4;
+}
+.race-btn:hover{border-color:var(--kin);}
+.race-btn.active{
+  background:var(--wood);
+  border-color:var(--kin);
+  box-shadow:0 0 0 1px var(--kin) inset;
+}
+.race-btn.active::before{opacity:1;height:3px;}
+.race-btn .btn-win5{
+  display:inline-block;
+  font-size:9px;font-weight:900;
+  padding:1px 6px;border-radius:2px;
+  background:var(--shu);color:var(--sand);
+  letter-spacing:.1em;margin-bottom:4px;
+}
+.race-btn .btn-grade{
+  display:inline-block;
+  font-size:9px;font-weight:900;
+  padding:1px 6px;border-radius:2px;
+  background:rgba(201,169,97,.2);color:var(--kin);
+  letter-spacing:.1em;margin-bottom:4px;margin-left:4px;
+}
+.race-btn .btn-name{
+  font-size:14px;font-weight:700;color:var(--kin);margin-bottom:2px;line-height:1.25;
+}
+.race-btn .btn-meta{
+  font-size:10px;color:rgba(244,233,201,.6);line-height:1.4;
+}
+
+/* ── 本殿パネル ── */
+.shrine-wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px;}
+
+.honden{
+  background:linear-gradient(180deg,#1e1509 0%,#140c06 100%);
+  border:1px solid var(--kin);
+  border-radius:4px;
+  margin-bottom:28px;
+  position:relative;
+  box-shadow:0 0 40px rgba(0,0,0,.5),0 0 0 1px rgba(201,169,97,.1);
+}
+.honden::before{
+  content:'';position:absolute;top:-8px;left:0;right:0;height:8px;
+  background:linear-gradient(180deg,var(--shu) 0%,var(--shu-light) 100%);
+  border-radius:2px 2px 0 0;
+}
+.honden-head{
+  padding:26px 20px 18px;
+  text-align:center;
+  border-bottom:1px solid var(--border);
+  background:
+    radial-gradient(ellipse at center top, rgba(201,169,97,.1), transparent 70%);
+}
+.honden-race-meta{
+  font-size:11px;color:rgba(244,233,201,.6);
+  letter-spacing:.22em;margin-bottom:6px;
+}
+.honden-race-name{
+  font-size:clamp(22px,4vw,32px);
+  color:var(--kin);
+  font-weight:900;
+  letter-spacing:.2em;
+  text-shadow:0 0 20px rgba(201,169,97,.4);
+}
+.honden-race-sub{
+  margin-top:6px;
+  font-size:12px;
+  color:rgba(244,233,201,.65);
+  letter-spacing:.1em;
+}
+.honden-race-info{
+  margin-top:12px;
+  font-size:11px;
+  color:rgba(244,233,201,.7);
+}
+.honden-race-info span{
+  display:inline-block;
+  padding:2px 10px;
+  margin:0 2px;
+  border:1px solid rgba(201,169,97,.3);
+  border-radius:2px;
+}
+
+/* ── 御神木（◎）と脇侍 ── */
+.gods-wrap{padding:24px 16px 8px;}
+
+.gods-main{
+  text-align:center;
+  padding:20px 16px 24px;
+  background:
+    radial-gradient(ellipse at center, rgba(201,169,97,.08), transparent 70%);
+  border:1px solid rgba(201,169,97,.2);
+  border-radius:4px;
+  margin-bottom:16px;
+  position:relative;
+}
+.gods-main::before{
+  content:'御神木';position:absolute;top:8px;left:50%;
+  transform:translateX(-50%);
+  font-size:10px;color:var(--kin);letter-spacing:.3em;
+  font-family:'Shippori Mincho',serif;
+  opacity:.7;
+}
+.gods-main .mark{
+  font-size:46px;color:var(--shu-light);display:block;
+  text-shadow:0 0 20px rgba(192,57,43,.5);
+  margin:14px 0 8px;line-height:1;
+}
+.gods-main .name{
+  font-size:clamp(22px,4vw,30px);
+  color:var(--kin);font-weight:900;
+  letter-spacing:.08em;
+  text-shadow:0 0 16px rgba(201,169,97,.4);
+}
+.gods-main .meta{
+  margin-top:8px;
+  font-size:11px;
+  color:rgba(244,233,201,.6);
+  letter-spacing:.1em;
+}
+.gods-main .factors{
+  margin-top:12px;
+  display:inline-flex;gap:6px;flex-wrap:wrap;justify-content:center;
+  font-size:11px;
+}
+.gods-main .factor-chip{
+  padding:3px 10px;
+  border:1px solid var(--border);
+  border-radius:2px;
+  background:rgba(44,29,16,.6);
+  color:var(--sand);
+}
+
+/* 脇侍：○▲△☆ 2×2 */
+.gods-attendants{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:8px;
+}
+.attendant{
+  padding:14px 12px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:4px;
+  display:flex;align-items:center;gap:10px;
+}
+.attendant .mark{
+  font-size:26px;line-height:1;flex-shrink:0;
+  font-weight:900;
+}
+.attendant.mark-o .mark{color:#E8B86A;}
+.attendant.mark-s .mark{color:#B8B8B8;}
+.attendant.mark-d .mark{color:#C48E48;}
+.attendant.mark-h .mark{color:#7BA06A;}
+.attendant .body{flex:1;min-width:0;}
+.attendant .name{font-size:15px;font-weight:700;color:var(--sand);letter-spacing:.04em;}
+.attendant .factor{font-size:10.5px;color:rgba(244,233,201,.55);margin-top:2px;line-height:1.4;}
+
+/* ── 奉納目録（買い目）── */
+.offering{
+  margin:22px 16px 16px;
+  background:linear-gradient(180deg,#2a1d10 0%,#1a1108 100%);
+  border:1px solid var(--kin);
+  border-radius:4px;
+  padding:18px 16px 14px;
+  position:relative;
+}
+.offering::before{
+  content:'奉 納 目 録';position:absolute;top:-10px;left:50%;
+  transform:translateX(-50%);
+  font-size:10px;color:var(--kin);letter-spacing:.4em;
+  background:var(--bg);padding:0 12px;
+  font-family:'Shippori Mincho',serif;
+}
+.offering-desc{
+  text-align:center;
+  font-size:11px;
+  color:rgba(244,233,201,.55);
+  letter-spacing:.1em;
+  margin-bottom:12px;
+}
+.offering-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 4px;
+  border-bottom:1px dashed rgba(201,169,97,.15);
+  font-size:13px;
+}
+.offering-row:last-child{border-bottom:none;padding-bottom:4px;}
+.offering-type{
+  flex-shrink:0;width:86px;
+  color:var(--kin);
+  font-weight:700;
+  letter-spacing:.12em;
+  font-family:'Shippori Mincho',serif;
+}
+.offering-content{
+  flex:1;
+  color:var(--sand);
+  font-size:12.5px;
+  line-height:1.5;
+  padding:0 8px;
+}
+.offering-horse{
+  display:inline-block;
+  color:var(--sand);
+  font-weight:700;
+  margin-right:6px;
+}
+.offering-amount{
+  flex-shrink:0;
+  color:rgba(244,233,201,.7);
+  font-size:11.5px;
+  white-space:nowrap;
+}
+.offering-total{
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px solid rgba(201,169,97,.4);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+}
+.offering-total .lbl{
+  color:var(--kin);letter-spacing:.24em;font-weight:700;
+}
+.offering-total .amt{
+  color:var(--kin);font-size:16px;font-weight:900;letter-spacing:.08em;
+}
+
+/* ── ロジック内訳 ── */
+.logic-note{
+  padding:16px 18px 18px;
+  border-top:1px solid var(--border);
+  font-size:11.5px;
+  color:rgba(244,233,201,.6);
+  line-height:1.8;
+  letter-spacing:.04em;
+}
+.logic-note strong{color:var(--kin);font-weight:700;}
+
+/* ── placeholder ── */
+.empty-state{
+  text-align:center;
+  padding:80px 20px;
+  color:rgba(244,233,201,.4);
+  font-size:13px;
+  letter-spacing:.15em;
+}
+
+/* ── Footer ── */
+.footer{
+  text-align:center;
+  padding:40px 20px 28px;
+  color:rgba(201,169,97,.4);
+  font-size:10px;
+  letter-spacing:.2em;
+  border-top:1px solid rgba(201,169,97,.1);
+}
+
+@media (max-width:520px){
+  .gods-attendants{grid-template-columns:1fr;}
+  .offering-row{flex-wrap:wrap;}
+  .offering-type{width:auto;margin-right:8px;}
+  .offering-amount{width:100%;text-align:right;margin-top:2px;}
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="page-title mincho">本　殿</div>
+  <div class="page-subtitle mincho">御 神 託 の 間</div>
+  <div class="page-lead mincho">選ばれし四頭に、単勝・複勝・ワイドを奉納する。</div>
+  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+</header>
+
+<!-- 日タブ -->
+<div class="day-tabs" id="dayTabs"></div>
+
+<!-- レースセレクタ -->
+<div class="race-selector" id="raceSelector"></div>
+
+<!-- 本殿 -->
+<div class="shrine-wrap" id="shrineWrap">
+  <div class="empty-state mincho">御神託を降ろす準備中 ……</div>
+</div>
+
+<div class="footer mincho">⛩ UG 競馬ワイド神宮　本殿 ／ 四神統合御託宣 ⛩</div>
+
+<script>
+// ───────────────────────────────────────
+//  本殿データ — 週次メンテ：土日レース一覧
+//  picks 順 = ◎ ○ ▲ △ ☆
+//  bets: 単勝1点・複勝1点・ワイド4頭BOX(6点)
+// ───────────────────────────────────────
+const RACES = [
+  // ── 2026-04-25 土曜 ──
+  {
+    key:'2026-04-25-kyoto-10r',
+    date:'2026-04-25', day:'sat', label:'土',
+    win5:'WIN1', grade:'3勝',
+    name:'観月橋S',
+    meta:'京都10R ／ ダ1800m ／ 11頭',
+    startTime:'14:50',
+    picks:[
+      {mark:'◎',name:'パシアンジャン',factors:'白虎S × 意志A'},
+      {mark:'○',name:'タガノマカシヤ',factors:'白虎S × 意志B'},
+      {mark:'▲',name:'ペンナヴェローチェ',factors:'白虎A × 意志A'},
+      {mark:'△',name:'マイノワール',factors:'白虎A × 意志B'},
+      {mark:'☆',name:'デルアヴァー',factors:'白虎B × 意志A（道悪注文不発）'},
+    ],
+    bets:{
+      tan:{name:'パシアンジャン',amount:100},
+      fuku:{name:'パシアンジャン',amount:100},
+      wide:{horses:['パシアンジャン','タガノマカシヤ','ペンナヴェローチェ','マイノワール'],perPoint:100}
+    },
+    note:'白虎S×意志A＝一致のパシアンジャン軸。京都1800好相性・実戦型・気で走る具体性が決め手。ワイドBOXは白虎S/Aで堅めに4頭。'
+  },
+  {
+    key:'2026-04-25-tokyo-10r',
+    date:'2026-04-25', day:'sat', label:'土',
+    win5:'WIN2', grade:'3勝',
+    name:'鎌倉S',
+    meta:'東京10R ／ ダ1400m ／ 15頭',
+    startTime:'15:00',
+    picks:[
+      {mark:'◎',name:'メイショウハチロー',factors:'白虎S × 意志B'},
+      {mark:'○',name:'トクシーカイザー',factors:'白虎A × 意志S（陣営本気）'},
+      {mark:'▲',name:'ペイシャケイプ',factors:'白虎B × 意志A'},
+      {mark:'△',name:'ワンダラー',factors:'白虎B × 意志A'},
+      {mark:'☆',name:'スプランドゥール',factors:'白虎B × 意志A（追切絶賛）'},
+    ],
+    bets:{
+      tan:{name:'メイショウハチロー',amount:100},
+      fuku:{name:'メイショウハチロー',amount:100},
+      wide:{horses:['メイショウハチロー','トクシーカイザー','ペイシャケイプ','ワンダラー'],perPoint:100}
+    },
+    note:'白虎S軸メイショウハチロー。トクシーカイザーは陣営「思い通りの調整」「外枠尚いい」の具体注文でS級本気度。致命2頭（レーウィン・イノセントキャット）は完全排除。'
+  },
+  {
+    key:'2026-04-25-fukushima-11r',
+    date:'2026-04-25', day:'sat', label:'土',
+    win5:'WIN3', grade:'3勝',
+    name:'福島中央テレビ杯',
+    meta:'福島11R ／ ダ1150m ／ 12頭',
+    startTime:'15:15',
+    picks:[
+      {mark:'◎',name:'ビルカール',factors:'白虎A × 意志A'},
+      {mark:'○',name:'ルージュアズライト',factors:'白虎C × 意志S（ピンポイント照準）'},
+      {mark:'▲',name:'カウスリップ',factors:'白虎C × 意志A'},
+      {mark:'△',name:'プレゼンティーア',factors:'白虎B × 意志B'},
+      {mark:'☆',name:'スノーサイレンス',factors:'白虎D × 意志A（通用の力）'},
+    ],
+    bets:{
+      tan:{name:'ビルカール',amount:100},
+      fuku:{name:'ビルカール',amount:100},
+      wide:{horses:['ビルカール','ルージュアズライト','カウスリップ','プレゼンティーア'],perPoint:100}
+    },
+    note:'ビルカール鉄板◎。ルージュアズライトは陣営「昨秋この舞台で勝った時からこのレース逆算」のピンポイント照準でC→浮上。ゴールドハンマー「いずれチャンス」は先送り扱いで排除。'
+  },
+  {
+    key:'2026-04-25-kyoto-11r',
+    date:'2026-04-25', day:'sat', label:'土',
+    win5:'WIN4', grade:'L',
+    name:'天王山S',
+    meta:'京都11R ／ ダ1200m ／ 12頭',
+    startTime:'15:35',
+    picks:[
+      {mark:'◎',name:'ジョーローリット',factors:'白虎S × 意志A'},
+      {mark:'○',name:'ペプチドヤマト',factors:'白虎S × 意志B'},
+      {mark:'▲',name:'オーブルクール',factors:'白虎B × 意志S（陣営本気）'},
+      {mark:'△',name:'ドンアミティエ',factors:'白虎S × 意志B'},
+      {mark:'☆',name:'ヒルノドゴール',factors:'白虎B × 意志A'},
+    ],
+    bets:{
+      tan:{name:'ジョーローリット',amount:100},
+      fuku:{name:'ジョーローリット',amount:100},
+      wide:{horses:['ジョーローリット','ペプチドヤマト','オーブルクール','ドンアミティエ'],perPoint:100}
+    },
+    note:'ブリンカー外し対策＋スピード上位の陣営強気でジョーローリット◎。オーブルクール（白虎B×意志S）は陣営「思い通りの調整」「上積み大」で浮上。ファムエレガンテ「自分のリズム」致命は排除。'
+  },
+  {
+    key:'2026-04-25-tokyo-11r',
+    date:'2026-04-25', day:'sat', label:'土',
+    win5:'WIN5', grade:'G2',
+    name:'青葉賞',
+    meta:'東京11R ／ 芝2400m ／ 18頭',
+    startTime:'15:45',
+    picks:[
+      {mark:'◎',name:'サガルマータ',factors:'青龍S × 玄武A × 白虎C'},
+      {mark:'○',name:'ノーブルサヴェージ',factors:'青龍A × 玄武A × 白虎B'},
+      {mark:'▲',name:'ゴーイントゥスカイ',factors:'青龍A × 白虎S × 走法適合S'},
+      {mark:'△',name:'ブラックオリンピア',factors:'青龍A × 白虎B'},
+      {mark:'☆',name:'ラストスマイル',factors:'青龍B × 白虎S'},
+    ],
+    bets:{
+      tan:{name:'サガルマータ',amount:100},
+      fuku:{name:'サガルマータ',amount:100},
+      wide:{horses:['サガルマータ','ノーブルサヴェージ','ゴーイントゥスカイ','ブラックオリンピア'],perPoint:100}
+    },
+    note:'青龍v2「真実×意志」統合でサガルマータ単独S昇格→◎。ゴーイントゥスカイは走法プロファイル（HC5.0・GP0.905・前後72.2）が1着理想値とほぼ一致で▲補強。致命馬ミッキーファルコン・コスモギガンティア等はB強制で排除。'
+  },
+];
+
+// ───────────────────────────────────────
+//  レンダリング
+// ───────────────────────────────────────
+const shrine = document.getElementById('shrineWrap');
+const daysEl = document.getElementById('dayTabs');
+const selEl  = document.getElementById('raceSelector');
+
+function uniqueDays(){
+  const seen = new Set(); const out = [];
+  RACES.forEach(r => { if(!seen.has(r.date)){ seen.add(r.date); out.push(r); } });
+  return out;
+}
+
+let currentDate = null;
+let currentKey  = null;
+
+function setDate(d){
+  currentDate = d;
+  // 一番早い発走のレースをデフォルト表示
+  const list = RACES.filter(r => r.date === d);
+  currentKey = list[0] ? list[0].key : null;
+  render();
+}
+
+function setKey(k){ currentKey = k; render(); }
+
+function render(){
+  // 日タブ
+  const days = uniqueDays();
+  daysEl.innerHTML = days.map(d => {
+    const cls = d.date === currentDate ? 'day-tab active' : 'day-tab';
+    const labelJp = formatDayHeader(d.date, d.label);
+    return `<button class="${cls}" onclick="setDate('${d.date}')">${labelJp}</button>`;
+  }).join('');
+
+  // レースセレクタ
+  const races = RACES.filter(r => r.date === currentDate);
+  selEl.innerHTML = races.map(r => {
+    const cls = r.key === currentKey ? 'race-btn active' : 'race-btn';
+    const win5Tag = r.win5 ? `<span class="btn-win5">${r.win5}</span>` : '';
+    const gradeTag = r.grade ? `<span class="btn-grade">${r.grade}</span>` : '';
+    return `<button class="${cls}" onclick="setKey('${r.key}')">
+      ${win5Tag}${gradeTag}
+      <div class="btn-name mincho">${r.name}</div>
+      <div class="btn-meta">${r.meta}</div>
+    </button>`;
+  }).join('');
+
+  // 本殿本体
+  const race = RACES.find(r => r.key === currentKey);
+  if(!race){
+    shrine.innerHTML = `<div class="empty-state mincho">この日のレースはまだ降ろされていません</div>`;
+    return;
+  }
+  shrine.innerHTML = hondenHtml(race);
+}
+
+function formatDayHeader(d, label){
+  const m = d.match(/(\d{4})-(\d{2})-(\d{2})/);
+  if(!m) return d;
+  return `${+m[2]}/${+m[3]}（${label}）`;
+}
+
+function hondenHtml(r){
+  const honmei = r.picks[0];
+  const attendants = r.picks.slice(1, 5);
+  const atClasses = ['mark-o','mark-s','mark-d','mark-h'];
+
+  const wideCombos = makeCombos(r.bets.wide.horses);
+  const wideTotal  = wideCombos.length * r.bets.wide.perPoint;
+  const grandTotal = r.bets.tan.amount + r.bets.fuku.amount + wideTotal;
+
+  const win5Html = r.win5 ? `<span>${r.win5} 対象</span>` : '';
+  const gradeHtml = `<span>${r.grade}</span>`;
+
+  return `
+  <div class="honden">
+    <div class="honden-head">
+      <div class="honden-race-meta mincho">${r.meta}　／　発走 ${r.startTime}</div>
+      <div class="honden-race-name mincho">${r.name}</div>
+      <div class="honden-race-info">
+        ${win5Html}${gradeHtml}
+      </div>
+    </div>
+
+    <div class="gods-wrap">
+      <div class="gods-main">
+        <span class="mark mincho">${honmei.mark}</span>
+        <div class="name mincho">${honmei.name}</div>
+        <div class="meta mincho">本　命　馬</div>
+        <div class="factors">
+          ${honmei.factors.split(/[×\s]+/).filter(Boolean).map(f =>
+            `<span class="factor-chip mincho">${f}</span>`
+          ).join('')}
+        </div>
+      </div>
+
+      <div class="gods-attendants">
+        ${attendants.map((p,i) => `
+          <div class="attendant ${atClasses[i]||''}">
+            <span class="mark mincho">${p.mark}</span>
+            <div class="body">
+              <div class="name mincho">${p.name}</div>
+              <div class="factor">${p.factors}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <div class="offering">
+      <div class="offering-desc mincho">単勝 ／ 複勝 ／ ワイド４頭ＢＯＸ</div>
+      <div class="offering-row">
+        <div class="offering-type mincho">単　勝</div>
+        <div class="offering-content">
+          <span class="offering-horse">${r.bets.tan.name}</span>
+        </div>
+        <div class="offering-amount">¥${r.bets.tan.amount}（1点）</div>
+      </div>
+      <div class="offering-row">
+        <div class="offering-type mincho">複　勝</div>
+        <div class="offering-content">
+          <span class="offering-horse">${r.bets.fuku.name}</span>
+        </div>
+        <div class="offering-amount">¥${r.bets.fuku.amount}（1点）</div>
+      </div>
+      <div class="offering-row">
+        <div class="offering-type mincho">ワイド</div>
+        <div class="offering-content">
+          ${r.bets.wide.horses.map(h => `<span class="offering-horse">${h}</span>`).join('／')}
+          <div style="margin-top:4px;color:rgba(244,233,201,.55);font-size:11px;">4頭BOX = ${wideCombos.length}点</div>
+        </div>
+        <div class="offering-amount">¥${wideTotal}（${wideCombos.length}点×¥${r.bets.wide.perPoint}）</div>
+      </div>
+      <div class="offering-total">
+        <div class="lbl mincho">奉 納 合 計</div>
+        <div class="amt mincho">¥${grandTotal}</div>
+      </div>
+    </div>
+
+    <div class="logic-note">
+      <strong>御託宣</strong>　${r.note}
+    </div>
+  </div>`;
+}
+
+function makeCombos(arr){
+  const out = [];
+  for(let i=0; i<arr.length; i++){
+    for(let j=i+1; j<arr.length; j++){
+      out.push([arr[i], arr[j]]);
+    }
+  }
+  return out;
+}
+
+// ───────────────────────────────────────
+//  初期化：最直近の日を自動選択
+// ───────────────────────────────────────
+(function init(){
+  const today = new Date().toISOString().slice(0,10);
+  const days = uniqueDays().map(d => d.date);
+  // 今日以降の最初の日、なければ最後の日
+  const target = days.find(d => d >= today) || days[days.length-1] || days[0];
+  setDate(target);
+})();
+</script>
+</body>
+</html>
