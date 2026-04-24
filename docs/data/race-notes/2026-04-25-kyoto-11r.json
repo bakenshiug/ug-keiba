@@ -777,138 +777,23 @@
     }
   ],
   "finalBets": {
-    "generatedAt": "2026-04-24T19:46:16",
-    "logicVersion": "v3-shijin-external-cross-2026-04-25",
+    "generatedAt": "2026-04-24T20:00:53",
+    "logicVersion": "v4-final-variable-strategy-2026-04-25",
     "tan": {
       "rank": 1,
-      "num": 6,
-      "name": "ヒルノドゴール",
+      "num": 10,
+      "name": "ゲッティヴィラ",
       "amount": 100,
-      "reason": "白虎1位×仕上82最強×外部評価2位"
+      "reason": "1点突破確定・高妙味高確度"
     },
-    "fuku": {
-      "rank": 1,
-      "num": 7,
-      "name": "ジョーローリット",
-      "amount": 100,
-      "reason": "外部評価1位(6人気)・仕上81・大穴"
-    },
-    "wide4box": {
-      "horses": [
-        {
-          "rank": 1,
-          "num": 7,
-          "name": "ジョーローリット",
-          "score": null,
-          "isAna": true,
-          "tag": "ana"
-        },
-        {
-          "rank": 2,
-          "num": 6,
-          "name": "ヒルノドゴール",
-          "score": null,
-          "isAna": false,
-          "tag": "ninki"
-        },
-        {
-          "rank": 3,
-          "num": 11,
-          "name": "ドンアミティエ",
-          "score": null,
-          "isAna": false,
-          "tag": "ninki"
-        },
-        {
-          "rank": 4,
-          "num": 10,
-          "name": "ゲッティヴィラ",
-          "score": null,
-          "isAna": false,
-          "tag": "ninki"
-        }
-      ],
-      "combos": [
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "ジョーローリット",
-            "ヒルノドゴール"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "ジョーローリット",
-            "ドンアミティエ"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "ジョーローリット",
-            "ゲッティヴィラ"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "ヒルノドゴール",
-            "ドンアミティエ"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "ヒルノドゴール",
-            "ゲッティヴィラ"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "ドンアミティエ",
-            "ゲッティヴィラ"
-          ]
-        }
-      ],
-      "comboCount": 6,
-      "amount": 600,
-      "composition": "4shijin-external",
-      "fallback": false,
-      "meta": {
-        "composition": "4shijin-external-cross",
-        "ninkiCount": 3,
-        "anaCount": 1,
-        "note": "4神(青龍/朱雀/白虎/玄武)整合+外部総合指標クロスチェック済み"
-      }
-    },
-    "totalSpend": 800,
-    "readiness": "4/4",
+    "totalSpend": 100,
+    "readiness": "1/1",
     "readinessPct": 100.0,
     "presentation": {
-      "headline": "WIN4 天王山S 4頭ワイドBOX確定",
-      "tanLine": "単勝 100円: ヒルノドゴール（白虎1位×仕上82最強×外部評価2位）",
-      "fukuLine": "複勝 100円: ジョーローリット（外部評価1位(6人気)・仕上81・大穴）",
-      "wideLine": "ワイドBOX 100円×6点: ジョーローリット / ヒルノドゴール / ドンアミティエ / ゲッティヴィラ"
-    }
+      "headline": "WIN4 天王山S 1点突破確定",
+      "tanLine": "単勝 100円: ゲッティヴィラ（1点突破確定・高妙味高確度）",
+      "note": "外部総合指標で指数抜け1頭判定 → 1点突破確定。ゲッティヴィラ単勝勝負。"
+    },
+    "strategy": "1horse-tan"
   }
 }

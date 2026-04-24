@@ -777,8 +777,8 @@
     }
   ],
   "finalBets": {
-    "generatedAt": "2026-04-24T19:46:16",
-    "logicVersion": "v3-shijin-external-cross-2026-04-25",
+    "generatedAt": "2026-04-24T20:00:53",
+    "logicVersion": "v4-final-variable-strategy-2026-04-25",
     "tan": {
       "rank": 1,
       "num": 3,
@@ -909,6 +909,7 @@
       "tanLine": "単勝 100円: キタノソワレ（外部評価1位・仕上66・妙味A）",
       "fukuLine": "複勝 100円: ビルカール（外部評価2位(7人気)・SAV69）",
       "wideLine": "ワイドBOX 100円×6点: キタノソワレ / ビルカール / ルージュアズライト / スノーサイレンス"
-    }
+    },
+    "strategy": "4horse-box"
   }
 }

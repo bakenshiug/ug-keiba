@@ -713,8 +713,8 @@
     }
   ],
   "finalBets": {
-    "generatedAt": "2026-04-24T19:46:16",
-    "logicVersion": "v3-shijin-external-cross-2026-04-25",
+    "generatedAt": "2026-04-24T20:00:53",
+    "logicVersion": "v4-final-variable-strategy-2026-04-25",
     "tan": {
       "rank": 1,
       "num": 10,
@@ -722,129 +722,23 @@
       "amount": 100,
       "reason": "玄武1位×レース適性合致×妙味S"
     },
-    "fuku": {
-      "rank": 1,
-      "num": 2,
-      "name": "マイノワール",
-      "amount": 100,
-      "reason": "総合評価1位(5人気)・仕上69最強"
-    },
-    "wide4box": {
-      "horses": [
-        {
-          "rank": 1,
-          "num": 10,
-          "name": "パシアンジャン",
-          "score": null,
-          "isAna": false,
-          "tag": "ninki"
-        },
-        {
-          "rank": 2,
-          "num": 2,
-          "name": "マイノワール",
-          "score": null,
-          "isAna": true,
-          "tag": "ana"
-        },
-        {
-          "rank": 3,
-          "num": 9,
-          "name": "タガノマカシヤ",
-          "score": null,
-          "isAna": false,
-          "tag": "ninki"
-        },
-        {
-          "rank": 4,
-          "num": 1,
-          "name": "デルアヴァー",
-          "score": null,
-          "isAna": false,
-          "tag": "ninki"
-        }
-      ],
-      "combos": [
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "パシアンジャン",
-            "マイノワール"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "パシアンジャン",
-            "タガノマカシヤ"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "パシアンジャン",
-            "デルアヴァー"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "マイノワール",
-            "タガノマカシヤ"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "マイノワール",
-            "デルアヴァー"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "タガノマカシヤ",
-            "デルアヴァー"
-          ]
-        }
-      ],
-      "comboCount": 6,
-      "amount": 600,
-      "composition": "4shijin-external",
-      "fallback": false,
-      "meta": {
-        "composition": "4shijin-external-cross",
-        "ninkiCount": 3,
-        "anaCount": 1,
-        "note": "4神(青龍/朱雀/白虎/玄武)整合+外部総合指標クロスチェック済み"
-      }
-    },
-    "totalSpend": 800,
-    "readiness": "4/4",
+    "totalSpend": 200,
+    "readiness": "2/2",
     "readinessPct": 100.0,
     "presentation": {
-      "headline": "WIN1 観月橋S 4頭ワイドBOX確定",
+      "headline": "WIN1 観月橋S 2頭単勝勝負",
       "tanLine": "単勝 100円: パシアンジャン（玄武1位×レース適性合致×妙味S）",
-      "fukuLine": "複勝 100円: マイノワール（総合評価1位(5人気)・仕上69最強）",
-      "wideLine": "ワイドBOX 100円×6点: パシアンジャン / マイノワール / タガノマカシヤ / デルアヴァー"
+      "tan2Line": "単勝 100円: デルアヴァー（道悪注文＋陣営◎印・使った上積み）",
+      "note": "外部総合指標で指数抜け2頭判定 → 2頭単勝勝負。弥永ch未公開のため朱雀v2統合せず確定。"
+    },
+    "strategy": "2horse-tan",
+    "tan2": {
+      "rank": 2,
+      "num": 1,
+      "name": "デルアヴァー",
+      "amount": 100,
+      "reason": "道悪注文＋陣営◎印・使った上積み",
+      "type": "tan"
     }
   }
 }
