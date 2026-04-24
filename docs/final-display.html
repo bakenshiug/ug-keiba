@@ -165,7 +165,7 @@ a{color:var(--kin);text-decoration:none;}
 .omamori-bar{
   background:linear-gradient(180deg,var(--shu) 0%,#6a1f1f 100%);
   color:var(--sand);text-align:center;
-  padding:8px 12px;font-size:11px;letter-spacing:.4em;
+  padding:10px 48px 10px 12px;font-size:11px;letter-spacing:.4em;
   font-family:'Shippori Mincho',serif;font-weight:700;
   border-bottom:1px solid rgba(201,169,97,.35);
   position:relative;
@@ -258,13 +258,16 @@ a{color:var(--kin);text-decoration:none;}
 }
 
 .omamori-seal{
-  position:absolute;bottom:10px;right:10px;
-  width:28px;height:28px;border-radius:50%;
-  background:var(--shu);color:var(--kin);
+  position:absolute;top:4px;right:8px;
+  width:30px;height:30px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #B03838 0%, var(--shu) 55%, #5a1a1a 100%);
+  color:var(--kin);
   display:flex;align-items:center;justify-content:center;
-  font-size:9px;letter-spacing:.1em;font-family:'Shippori Mincho',serif;
-  font-weight:900;box-shadow:0 0 0 1px rgba(201,169,97,.4);
-  transform:rotate(-6deg);
+  font-size:9px;letter-spacing:.08em;font-family:'Shippori Mincho',serif;
+  font-weight:900;
+  box-shadow:0 0 0 1.5px var(--kin),0 2px 6px rgba(0,0,0,.4);
+  transform:rotate(-8deg);
+  z-index:2;
 }
 
 /* ── 奉納目録（買い目）── */
