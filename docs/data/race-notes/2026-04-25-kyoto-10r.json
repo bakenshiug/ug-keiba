@@ -716,18 +716,18 @@
     "generatedAt": "2026-04-24T20:00:53",
     "logicVersion": "v4-final-4horse-box-2026-04-25",
     "tan": {
-      "rank": 1,
-      "num": 10,
-      "name": "パシアンジャン",
+      "rank": 3,
+      "num": 9,
+      "name": "タガノマカシヤ",
       "amount": 100,
-      "reason": "玄武1位×レース適性合致×妙味S"
+      "reason": "朱雀S×白虎Sの2S持ち＝両輪強く妙味狙い（12倍）"
     },
     "fuku": {
       "rank": 2,
       "num": 1,
       "name": "デルアヴァー",
       "amount": 100,
-      "reason": "青龍S級「使った上積み」・道悪注文"
+      "reason": "青龍S「使った上積み」陣営本気度Max・崩れず絡む信頼"
     },
     "wide": {
       "horses": ["パシアンジャン", "デルアヴァー", "タガノマカシヤ", "マイノワール"],
@@ -735,15 +735,21 @@
       "points": 6,
       "amount": 600
     },
+    "win5Combo": {
+      "layer": 1,
+      "nums": [1, 9, 10],
+      "names": ["デルアヴァー", "タガノマカシヤ", "パシアンジャン"],
+      "count": 3
+    },
     "totalSpend": 800,
     "readiness": "4/4",
     "readinessPct": 100.0,
     "presentation": {
       "headline": "WIN1 観月橋S 4頭ワイドBOX標準",
-      "tanLine": "単勝 100円: パシアンジャン（玄武1位×レース適性合致×妙味S）",
-      "fukuLine": "複勝 100円: デルアヴァー（青龍S級・使った上積み）",
+      "tanLine": "単勝 100円: タガノマカシヤ（朱雀S×白虎Sの2S持ち・妙味12倍）",
+      "fukuLine": "複勝 100円: デルアヴァー（青龍S・陣営本気度Max）",
       "wideLine": "ワイドBOX 6点×100円=600円: パシアンジャン/デルアヴァー/タガノマカシヤ/マイノワール",
-      "note": "4頭ワイドBOX標準フォーマット（800円）。"
+      "note": "UG哲学適用：青龍S=複勝軸／2S持ち=単勝妙味。WIN5一層は3頭。"
     },
     "strategy": "4horse-box"
   }
