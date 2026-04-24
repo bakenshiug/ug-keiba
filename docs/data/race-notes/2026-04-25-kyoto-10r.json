@@ -1,0 +1,220 @@
+{
+  "race": {
+    "name": "観月橋S",
+    "grade": "3勝",
+    "date": "2026-04-25",
+    "venue": "京都",
+    "surface": "ダ",
+    "distance": 1800,
+    "course": "右",
+    "startTime": "14:50",
+    "headCount": 11
+  },
+  "raceTitle": {
+    "main": "観月橋S",
+    "sub": "WIN5対象・白虎ドラフト",
+    "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
+  },
+  "dataStatus": "preparation",
+  "logicVersion": "v2-rel-lap",
+  "horses": [
+    {
+      "listOrder": 1,
+      "num": 1,
+      "gate": null,
+      "name": "デルアヴァー",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak84.3",
+        "sp": [
+          77.9,
+          78.5,
+          83.3,
+          84.3,
+          82.6
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 2,
+      "num": 2,
+      "gate": null,
+      "name": "マイノワール",
+      "lapFactors": {
+        "grade": "A",
+        "reason": "peak87.5",
+        "sp": [
+          73.5,
+          81.4,
+          87.5,
+          82.2,
+          85.1
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 3,
+      "num": 3,
+      "gate": null,
+      "name": "ペンナヴェローチェ",
+      "lapFactors": {
+        "grade": "A",
+        "reason": "peak88.8",
+        "sp": [
+          84.0,
+          85.7,
+          88.8,
+          81.8,
+          84.2
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 4,
+      "num": 4,
+      "gate": null,
+      "name": "ピエマンソン",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak85.5",
+        "sp": [
+          83.1,
+          82.6,
+          85.5,
+          79.9,
+          78.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 5,
+      "num": 5,
+      "gate": null,
+      "name": "ショウサンジョージ",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak78.7",
+        "sp": [
+          74.9,
+          78.7,
+          76.3,
+          73.5,
+          77.6
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 6,
+      "num": 6,
+      "gate": null,
+      "name": "ケイアイメキラ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "前81.5",
+        "sp": [
+          69.2,
+          75.3,
+          75.6,
+          76.2,
+          81.5
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 7,
+      "num": 7,
+      "gate": null,
+      "name": "プルナチャンドラ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak83.3",
+        "sp": [
+          80.8,
+          78.8,
+          80.9,
+          83.3,
+          73.7
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 8,
+      "num": 8,
+      "gate": null,
+      "name": "プロミシングスター",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak83.5",
+        "sp": [
+          81.0,
+          73.4,
+          83.5,
+          82.0,
+          77.0
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 9,
+      "num": 9,
+      "gate": null,
+      "name": "タガノマカシヤ",
+      "lapFactors": {
+        "grade": "S",
+        "reason": "前85.3avg85.1/前走ピーク+1",
+        "sp": [
+          83.5,
+          81.7,
+          84.9,
+          85.0,
+          85.3
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 10,
+      "num": 10,
+      "gate": null,
+      "name": "パシアンジャン",
+      "lapFactors": {
+        "grade": "S",
+        "reason": "前85.7avg83.8/前走ピーク+1",
+        "sp": [
+          84.9,
+          79.6,
+          80.9,
+          84.9,
+          85.7
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 11,
+      "num": 11,
+      "gate": null,
+      "name": "アラレタバシル",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak84.5",
+        "sp": [
+          80.4,
+          79.7,
+          84.5,
+          84.5,
+          83.8
+        ],
+        "source": "byakko_v1_sp"
+      }
+    }
+  ]
+}

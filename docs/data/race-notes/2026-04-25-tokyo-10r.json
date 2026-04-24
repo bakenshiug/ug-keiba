@@ -1,0 +1,292 @@
+{
+  "race": {
+    "name": "鎌倉S",
+    "grade": "3勝",
+    "date": "2026-04-25",
+    "venue": "東京",
+    "surface": "ダ",
+    "distance": 1400,
+    "course": "左",
+    "startTime": "15:00",
+    "headCount": 15
+  },
+  "raceTitle": {
+    "main": "鎌倉S",
+    "sub": "WIN5対象・白虎ドラフト",
+    "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
+  },
+  "dataStatus": "preparation",
+  "logicVersion": "v2-rel-lap",
+  "horses": [
+    {
+      "listOrder": 1,
+      "num": 1,
+      "gate": null,
+      "name": "ピックアップライン",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak78.8",
+        "sp": [
+          64.4,
+          77.2,
+          77.5,
+          77.0,
+          78.8
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 2,
+      "num": 2,
+      "gate": null,
+      "name": "クインズデネブ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "前81.6",
+        "sp": [
+          71.7,
+          78.9,
+          78.8,
+          79.2,
+          81.6
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 3,
+      "num": 3,
+      "gate": null,
+      "name": "ラストシャリナ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak83.0",
+        "sp": [
+          46.4,
+          73.2,
+          70.3,
+          83.0,
+          73.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 4,
+      "num": 4,
+      "gate": null,
+      "name": "メイショウハチロー",
+      "lapFactors": {
+        "grade": "S",
+        "reason": "前86.2avg82.4/前走ピーク+1",
+        "sp": [
+          82.6,
+          73.8,
+          79.4,
+          81.7,
+          86.2
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 5,
+      "num": 5,
+      "gate": null,
+      "name": "ベンヌ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak86.2",
+        "sp": [
+          85.9,
+          86.2,
+          82.6,
+          82.7,
+          73.0
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 6,
+      "num": 6,
+      "gate": null,
+      "name": "トクシーカイザー",
+      "lapFactors": {
+        "grade": "A",
+        "reason": "peak84.4/前走ピーク+1",
+        "sp": [
+          81.4,
+          74.5,
+          78.2,
+          76.4,
+          84.4
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 7,
+      "num": 7,
+      "gate": null,
+      "name": "スプランドゥール",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak84.0",
+        "sp": [
+          73.8,
+          73.1,
+          84.0,
+          72.9,
+          74.2
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 8,
+      "num": 8,
+      "gate": null,
+      "name": "カネショウレジェン",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "前80.9",
+        "sp": [
+          77.9,
+          73.6,
+          75.2,
+          76.4,
+          80.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 9,
+      "num": 9,
+      "gate": null,
+      "name": "エンセリオ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "前81.0",
+        "sp": [
+          77.2,
+          67.9,
+          66.8,
+          77.8,
+          81.0
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 10,
+      "num": 10,
+      "gate": null,
+      "name": "シャパリュ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "前81.4",
+        "sp": [
+          73.1,
+          52.6,
+          74.4,
+          79.7,
+          81.4
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 11,
+      "num": 11,
+      "gate": null,
+      "name": "レーウィン",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak84.9",
+        "sp": [
+          79.8,
+          75.4,
+          84.9,
+          84.2,
+          76.0
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 12,
+      "num": 12,
+      "gate": null,
+      "name": "フウセツ",
+      "lapFactors": {
+        "grade": "D",
+        "reason": "peak81.6/前走落ち-1",
+        "sp": [
+          81.6,
+          77.9,
+          79.5,
+          77.0,
+          69.4
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 13,
+      "num": 13,
+      "gate": null,
+      "name": "イノセントキャット",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak81.2",
+        "sp": [
+          78.9,
+          78.5,
+          81.2,
+          71.1,
+          77.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 14,
+      "num": 14,
+      "gate": null,
+      "name": "ワンダラー",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak85.4",
+        "sp": [
+          77.7,
+          80.1,
+          85.4,
+          77.6,
+          84.4
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 15,
+      "num": 15,
+      "gate": null,
+      "name": "ペイシャケイプ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "前82.2",
+        "sp": [
+          80.5,
+          68.4,
+          82.1,
+          81.7,
+          82.2
+        ],
+        "source": "byakko_v1_sp"
+      }
+    }
+  ]
+}

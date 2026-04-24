@@ -1,0 +1,238 @@
+{
+  "race": {
+    "name": "天王山S",
+    "grade": "L",
+    "date": "2026-04-25",
+    "venue": "京都",
+    "surface": "ダ",
+    "distance": 1200,
+    "course": "右",
+    "startTime": "15:35",
+    "headCount": 12
+  },
+  "raceTitle": {
+    "main": "天王山S",
+    "sub": "WIN5対象・白虎ドラフト",
+    "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
+  },
+  "dataStatus": "preparation",
+  "logicVersion": "v2-rel-lap",
+  "horses": [
+    {
+      "listOrder": 1,
+      "num": 1,
+      "gate": null,
+      "name": "ケイアイアニラ",
+      "lapFactors": {
+        "grade": "A",
+        "reason": "peak89.7",
+        "sp": [
+          77.9,
+          70.6,
+          78.8,
+          89.7,
+          85.5
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 2,
+      "num": 2,
+      "gate": null,
+      "name": "ジュンウィンダム",
+      "lapFactors": {
+        "grade": "A",
+        "reason": "peak87.3",
+        "sp": [
+          87.3,
+          82.5,
+          81.5,
+          78.5,
+          80.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 3,
+      "num": 3,
+      "gate": null,
+      "name": "ペプチドヤマト",
+      "lapFactors": {
+        "grade": "S",
+        "reason": "peak91.8",
+        "sp": [
+          83.1,
+          91.8,
+          86.6,
+          82.9,
+          86.4
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 4,
+      "num": 4,
+      "gate": null,
+      "name": "オーブルクール",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak87.7/前走落ち-1",
+        "sp": [
+          79.7,
+          83.1,
+          83.1,
+          87.7,
+          67.3
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 5,
+      "num": 5,
+      "gate": null,
+      "name": "メイショウホウレン",
+      "lapFactors": {
+        "grade": "A",
+        "reason": "peak92.9/前走落ち-1",
+        "sp": [
+          82.3,
+          89.6,
+          90.7,
+          92.9,
+          74.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 6,
+      "num": 6,
+      "gate": null,
+      "name": "ヒルノドゴール",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak86.6",
+        "sp": [
+          82.9,
+          82.6,
+          81.8,
+          86.6,
+          80.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 7,
+      "num": 7,
+      "gate": null,
+      "name": "ジョーローリット",
+      "lapFactors": {
+        "grade": "S",
+        "reason": "peak91.9",
+        "sp": [
+          87.1,
+          85.4,
+          91.9,
+          89.1,
+          82.7
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 8,
+      "num": 8,
+      "gate": null,
+      "name": "ケイアイシェルビー",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak85.3",
+        "sp": [
+          83.2,
+          81.8,
+          null,
+          85.3,
+          77.1
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 9,
+      "num": 9,
+      "gate": null,
+      "name": "カズゴルティス",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak88.1/前走落ち-1",
+        "sp": [
+          7.5,
+          84.8,
+          85.4,
+          88.1,
+          71.7
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 10,
+      "num": 10,
+      "gate": null,
+      "name": "ゲッティヴィラ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak86.3",
+        "sp": [
+          81.9,
+          75.0,
+          84.7,
+          86.3,
+          81.6
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 11,
+      "num": 11,
+      "gate": null,
+      "name": "ドンアミティエ",
+      "lapFactors": {
+        "grade": "S",
+        "reason": "peak92.1",
+        "sp": [
+          92.1,
+          89.0,
+          null,
+          72.5,
+          null
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 12,
+      "num": 12,
+      "gate": null,
+      "name": "ファムエレガンテ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak89.0/前走落ち-1",
+        "sp": [
+          80.1,
+          82.0,
+          78.6,
+          89.0,
+          66.5
+        ],
+        "source": "byakko_v1_sp"
+      }
+    }
+  ]
+}

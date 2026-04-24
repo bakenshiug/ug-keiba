@@ -1,0 +1,238 @@
+{
+  "race": {
+    "name": "福島中央テレビ杯",
+    "grade": "3勝",
+    "date": "2026-04-25",
+    "venue": "福島",
+    "surface": "ダ",
+    "distance": 1150,
+    "course": "右",
+    "startTime": "15:15",
+    "headCount": 12
+  },
+  "raceTitle": {
+    "main": "福島中央テレビ杯",
+    "sub": "WIN5対象・白虎ドラフト",
+    "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
+  },
+  "dataStatus": "preparation",
+  "logicVersion": "v2-rel-lap",
+  "horses": [
+    {
+      "listOrder": 1,
+      "num": 1,
+      "gate": null,
+      "name": "ジェネラーレ",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak83.4/前走落ち-1",
+        "sp": [
+          62.4,
+          81.1,
+          83.4,
+          58.4,
+          72.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 2,
+      "num": 2,
+      "gate": null,
+      "name": "イマージョン",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak78.5",
+        "sp": [
+          75.3,
+          72.3,
+          70.0,
+          74.0,
+          78.5
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 3,
+      "num": 3,
+      "gate": null,
+      "name": "キタノソワレ",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak84.1",
+        "sp": [
+          78.1,
+          78.0,
+          84.1,
+          81.9,
+          83.3
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 4,
+      "num": 4,
+      "gate": null,
+      "name": "スノーサイレンス",
+      "lapFactors": {
+        "grade": "D",
+        "reason": "peak80.7/前走落ち-1",
+        "sp": [
+          76.0,
+          80.7,
+          79.7,
+          73.9,
+          69.6
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 5,
+      "num": 5,
+      "gate": null,
+      "name": "ビルカール",
+      "lapFactors": {
+        "grade": "A",
+        "reason": "peak84.2/前走ピーク+1",
+        "sp": [
+          75.6,
+          73.9,
+          78.9,
+          76.5,
+          84.2
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 6,
+      "num": 6,
+      "gate": null,
+      "name": "ワークソング",
+      "lapFactors": {
+        "grade": "D",
+        "reason": "peak79.9/前走落ち-1",
+        "sp": [
+          73.1,
+          77.3,
+          79.9,
+          76.8,
+          62.3
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 7,
+      "num": 7,
+      "gate": null,
+      "name": "ゴールドハンマー",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak80.4",
+        "sp": [
+          80.4,
+          76.2,
+          71.5,
+          76.1,
+          78.5
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 8,
+      "num": 8,
+      "gate": null,
+      "name": "プレゼンティーア",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "前81.0",
+        "sp": [
+          72.3,
+          65.2,
+          73.8,
+          76.4,
+          81.0
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 9,
+      "num": 9,
+      "gate": null,
+      "name": "サザンエルフ",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak82.2",
+        "sp": [
+          75.5,
+          60.3,
+          82.2,
+          79.2,
+          77.6
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 10,
+      "num": 10,
+      "gate": null,
+      "name": "シャカシャカシー",
+      "lapFactors": {
+        "grade": "B",
+        "reason": "peak85.7",
+        "sp": [
+          85.7,
+          69.4,
+          68.7,
+          74.4,
+          65.0
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 11,
+      "num": 11,
+      "gate": null,
+      "name": "ルージュアズライト",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak79.2",
+        "sp": [
+          79.2,
+          75.1,
+          78.7,
+          78.6,
+          70.6
+        ],
+        "source": "byakko_v1_sp"
+      }
+    },
+    {
+      "listOrder": 12,
+      "num": 12,
+      "gate": null,
+      "name": "カウスリップ",
+      "lapFactors": {
+        "grade": "C",
+        "reason": "peak80.1",
+        "sp": [
+          78.1,
+          77.9,
+          79.2,
+          80.1,
+          72.9
+        ],
+        "source": "byakko_v1_sp"
+      }
+    }
+  ]
+}
