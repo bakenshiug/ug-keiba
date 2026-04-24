@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五重塔｜WIN5最終御託宣 | UG競馬ワイド神宮</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --shu:#8A2D2D;
+  --shu-light:#C0392B;
+  --kin:#C9A961;
+  --kin-deep:#A07B28;
+  --sumi:#1a1108;
+  --sand:#F4E9C9;
+  --wood:#2c1d10;
+  --bg:#0f0b08;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  color:var(--sand);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201,169,97,.15), transparent 60%),
+    var(--bg);
+  min-height:100vh;
+  line-height:1.7;
+}
+.mincho{font-family:'Shippori Mincho','Noto Serif JP',serif;}
+
+/* ── ヘッダ ── */
+.page-header{
+  padding:36px 24px 24px;
+  text-align:center;
+  border-bottom:1px solid rgba(201,169,97,.2);
+}
+.page-title{
+  font-size:clamp(26px,5vw,44px);
+  font-weight:900;
+  color:var(--kin);
+  letter-spacing:.24em;
+  text-shadow:0 0 24px rgba(201,169,97,.3);
+}
+.page-subtitle{
+  margin-top:8px;
+  font-size:12px;
+  color:rgba(201,169,97,.7);
+  letter-spacing:.3em;
+}
+.page-lead{
+  margin-top:18px;
+  font-size:13px;
+  color:rgba(255,240,200,.7);
+}
+.home-link{
+  display:inline-block;
+  margin-top:14px;
+  font-size:12px;
+  color:var(--kin);
+  text-decoration:none;
+  border:1px solid var(--kin);
+  padding:6px 18px;
+  border-radius:2px;
+  letter-spacing:.12em;
+  transition:all .2s;
+}
+.home-link:hover{background:var(--kin);color:var(--sumi);}
+
+/* ── タブ ── */
+.day-tabs{
+  display:flex;
+  justify-content:center;
+  gap:2px;
+  margin:32px auto 0;
+  max-width:520px;
+  padding:0 16px;
+}
+.day-tab{
+  flex:1;
+  background:rgba(26,17,8,.6);
+  color:rgba(201,169,97,.55);
+  border:1px solid rgba(201,169,97,.25);
+  padding:14px 14px 12px;
+  font-family:inherit;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.15em;
+  cursor:pointer;
+  transition:all .2s;
+}
+.day-tab:hover{color:var(--kin);background:rgba(201,169,97,.08);}
+.day-tab.active{
+  background:linear-gradient(180deg, var(--shu) 0%, var(--shu-light) 100%);
+  color:var(--sand);
+  border-color:var(--kin);
+  box-shadow:0 0 0 1px var(--kin) inset, 0 4px 14px rgba(138,45,45,.4);
+}
+.day-tab .day-kanji{font-size:19px;display:block;margin-bottom:3px;}
+.day-tab .day-date{font-size:11px;opacity:.85;letter-spacing:.12em;}
+
+/* ── 五重塔 ── */
+.tower-wrap{
+  max-width:860px;
+  margin:28px auto 32px;
+  padding:0 16px;
+}
+.tower-wrap[hidden]{display:none;}
+.tower{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0;
+}
+.tower-finial{
+  font-size:34px;
+  color:var(--kin);
+  text-shadow:0 0 20px rgba(201,169,97,.6);
+  line-height:1;
+  margin-bottom:-2px;
+  user-select:none;
+}
+.floor{
+  width:100%;
+  position:relative;
+  margin-top:6px;
+}
+.floor-5{max-width:55%;}
+.floor-4{max-width:65%;}
+.floor-3{max-width:75%;}
+.floor-2{max-width:85%;}
+.floor-1{max-width:95%;}
+
+.roof{
+  height:22px;
+  background:linear-gradient(180deg, var(--shu-light) 0%, var(--shu) 100%);
+  clip-path:polygon(8% 100%, 0% 100%, 50% 0%, 100% 100%, 92% 100%);
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+.floor-body{
+  background:linear-gradient(180deg, var(--wood) 0%, #1a1108 100%);
+  border:1px solid rgba(201,169,97,.3);
+  border-top:0;
+  padding:16px 20px 18px;
+  position:relative;
+}
+.floor-body::before{
+  content:'';
+  position:absolute;
+  top:0; left:5%; right:5%;
+  height:2px;
+  background:var(--kin-deep);
+  opacity:.6;
+}
+.floor-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  margin-bottom:8px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(201,169,97,.18);
+  flex-wrap:wrap;
+}
+.floor-label{
+  font-size:12px;
+  color:var(--kin);
+  letter-spacing:.22em;
+  font-weight:700;
+  white-space:nowrap;
+}
+.floor-race{
+  font-size:16px;
+  color:var(--sand);
+  font-weight:700;
+  letter-spacing:.04em;
+}
+.floor-meta{
+  font-size:11px;
+  color:rgba(255,240,200,.55);
+  margin-bottom:10px;
+  letter-spacing:.04em;
+}
+.floor-pick{
+  font-size:13px;
+  color:rgba(255,240,200,.88);
+  letter-spacing:.04em;
+}
+.floor-pick .mark{
+  color:var(--shu-light);
+  font-weight:900;
+  margin-right:4px;
+}
+.floor-pending{
+  font-size:11px;
+  color:rgba(201,169,97,.45);
+  font-style:italic;
+  letter-spacing:.08em;
+}
+/* 御託宣 picks */
+.floor-picks{
+  margin-top:4px;
+}
+.pick-row{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  padding:4px 0;
+  font-size:13px;
+  border-bottom:1px dotted rgba(201,169,97,.1);
+}
+.pick-row:last-child{border-bottom:0;}
+.pick-mark{
+  font-size:17px;
+  font-weight:900;
+  width:24px;
+  flex-shrink:0;
+  text-align:center;
+  line-height:1;
+}
+.pick-mark.honmei{color:var(--kin);text-shadow:0 0 8px rgba(201,169,97,.5);}
+.pick-mark.taikou{color:var(--shu-light);}
+.pick-mark.tana{color:rgba(255,240,200,.85);}
+.pick-mark.renka{color:rgba(255,240,200,.6);}
+.pick-mark.hoshi{color:rgba(201,169,97,.7);}
+.pick-name{
+  color:var(--sand);
+  font-weight:700;
+  letter-spacing:.04em;
+}
+.pick-note{
+  color:rgba(255,240,200,.45);
+  font-size:10px;
+  margin-left:auto;
+  letter-spacing:.04em;
+  padding-left:6px;
+  white-space:nowrap;
+}
+.floor-summary{
+  margin-top:10px;
+  padding-top:8px;
+  border-top:1px dashed rgba(201,169,97,.15);
+  font-size:10.5px;
+  color:rgba(255,240,200,.5);
+  font-style:italic;
+  letter-spacing:.06em;
+  line-height:1.5;
+}
+@media (max-width:640px){
+  .pick-note{display:none;}
+  .pick-row{font-size:12.5px;}
+}
+
+/* 礎石 */
+.foundation{
+  margin-top:8px;
+  height:10px;
+  width:100%;
+  max-width:98%;
+  background:linear-gradient(180deg, #3a2e1e 0%, #1a1108 100%);
+  border:1px solid rgba(201,169,97,.2);
+}
+.foundation-label{
+  margin-top:8px;
+  text-align:center;
+  font-size:10px;
+  color:rgba(201,169,97,.35);
+  letter-spacing:.5em;
+  padding-left:.5em;
+}
+
+/* ── 下部パネル ── */
+.sum-panel{
+  max-width:640px;
+  margin:32px auto 24px;
+  padding:22px 26px;
+  background:rgba(201,169,97,.04);
+  border:1px solid rgba(201,169,97,.2);
+  border-radius:3px;
+}
+.sum-panel h3{
+  font-size:13px;
+  color:var(--kin);
+  letter-spacing:.28em;
+  margin-bottom:14px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(201,169,97,.15);
+  font-weight:700;
+}
+.sum-line{
+  display:flex;
+  justify-content:space-between;
+  padding:5px 0;
+  font-size:13px;
+  color:rgba(255,240,200,.8);
+}
+.sum-line span:last-child{color:var(--kin);font-weight:700;}
+.sum-total{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px dashed rgba(201,169,97,.25);
+  font-size:15px;
+  font-weight:700;
+}
+.sum-total span:first-child{color:var(--sand);}
+
+.footer{
+  text-align:center;
+  padding:30px 20px 40px;
+  font-size:11px;
+  color:rgba(201,169,97,.4);
+  letter-spacing:.18em;
+}
+
+@media (max-width:640px){
+  .floor-5{max-width:72%;}
+  .floor-4{max-width:80%;}
+  .floor-3{max-width:88%;}
+  .floor-2{max-width:96%;}
+  .floor-1{max-width:100%;}
+  .floor-header{flex-direction:column;align-items:flex-start;gap:2px;}
+  .floor-race{font-size:15px;}
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="page-title mincho">五 重 塔</div>
+  <div class="page-subtitle mincho">GOJŪNOTO ｜ WIN5 最 終 御 託 宣</div>
+  <p class="page-lead mincho">WIN5対象5鞈を貫き、塔を登るごとに御託宣を積み上ぐ。</p>
+  <a href="index.html" class="home-link mincho">⛩ 境内へ戻る</a>
+</header>
+
+<nav class="day-tabs" role="tablist" aria-label="開催日切替">
+  <button class="day-tab active" data-day="sat" role="tab" aria-selected="true">
+    <span class="day-kanji mincho">土曜</span>
+    <span class="day-date">4 / 25</span>
+  </button>
+  <button class="day-tab" data-day="sun" role="tab" aria-selected="false">
+    <span class="day-kanji mincho">日曜</span>
+    <span class="day-date">4 / 26</span>
+  </button>
+</nav>
+
+<!-- ═════ 土曜の塔 ═════ -->
+<div class="tower-wrap" id="tower-sat" role="tabpanel">
+  <div class="tower">
+    <div class="tower-finial" aria-hidden="true">◇</div>
+
+    <div class="floor floor-5">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">五層 ／ WIN5</span>
+          <span class="floor-race mincho">青葉賞（G3）</span>
+        </div>
+        <div class="floor-meta">東京11R 15:45 ／ 芝2400m ／ 3歳OP（馬齢）／ 18頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark honmei">◎</span><span class="pick-name">サガルマータ</span><span class="pick-note">青龍A × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark taikou">○</span><span class="pick-name">シャドウマスター</span><span class="pick-note">青龍A × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark tana">▲</span><span class="pick-name">ノチェセラーダ</span><span class="pick-note">青龍B × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark renka">△</span><span class="pick-name">ノーブルサヴェージ</span><span class="pick-note">青龍B × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">☆</span><span class="pick-name">ミッキーファルコン</span><span class="pick-note">青龍A × 在厩調整</span></div>
+        </div>
+        <div class="floor-summary">青龍A×玄武A並立の首位2頭、サガルマータ・シャドウマスターが日本ダービー切符を争う主役。20時以降の白虎・玄武v2で最終決着へ。</div>
+      </div>
+    </div>
+
+    <div class="floor floor-4">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">四層 ／ WIN4</span>
+          <span class="floor-race mincho">天王山S</span>
+        </div>
+        <div class="floor-meta">京都11R ／ OP別定 ／ 12頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">青龍（前走コメ）取得済</span><span class="pick-note">12頭分</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">玄武v1（外厩）取得済</span><span class="pick-note">B=6 / C=6</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">白虎・朱雀・玄武v2</span><span class="pick-note">20時以降仕込み</span></div>
+        </div>
+        <div class="floor-summary">京都ダ1200mOP別定。B・C級並立の横一線、ラップ×神眼で決着へ。</div>
+      </div>
+    </div>
+
+    <div class="floor floor-3">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">三層 ／ WIN3</span>
+          <span class="floor-race mincho">福島中央テレビ杯</span>
+        </div>
+        <div class="floor-meta">福島11R ／ 3勝クラス ／ 12頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">青龍（前走コメ）取得済</span><span class="pick-note">12頭分</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">玄武v1（外厩）取得済</span><span class="pick-note">B=7 / C=5</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">白虎・朱雀・玄武v2</span><span class="pick-note">20時以降仕込み</span></div>
+        </div>
+        <div class="floor-summary">福島芝1800mの3勝クラス。崩れコピペ経由で外厩情報を先行取得、本仕上げ組を炙り出し中。</div>
+      </div>
+    </div>
+
+    <div class="floor floor-2">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">二層 ／ WIN2</span>
+          <span class="floor-race mincho">鎌倉S</span>
+        </div>
+        <div class="floor-meta">東京10R ／ 芝1600m ／ 3勝クラス ／ 15頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">青龍（前走コメ）取得済</span><span class="pick-note">15頭分</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">玄武v1（外厩）取得済</span><span class="pick-note">15頭分</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">白虎・朱雀・玄武v2</span><span class="pick-note">20時以降仕込み</span></div>
+        </div>
+        <div class="floor-summary">東京芝1600m・15頭立ての3勝クラス。ラップ適性と神眼評価で最終決定。</div>
+      </div>
+    </div>
+
+    <div class="floor floor-1">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">一層 ／ WIN1</span>
+          <span class="floor-race mincho">観月橋S</span>
+        </div>
+        <div class="floor-meta">京都 ／ 3勝クラス ／ 11頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">青龍（前走コメ）取得済</span><span class="pick-note">11頭分</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">玄武v1（外厩）取得済</span><span class="pick-note">11頭分</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">•</span><span class="pick-name">白虎・朱雀・玄武v2</span><span class="pick-note">20時以降仕込み</span></div>
+        </div>
+        <div class="floor-summary">京都芝1400m・11頭の3勝クラス。WIN1の礎、外厩精査で本仕上げ組を選別。</div>
+      </div>
+    </div>
+
+    <div class="foundation"></div>
+    <div class="foundation-label mincho">礎 石</div>
+  </div>
+
+  <div class="sum-panel">
+    <h3 class="mincho">奉 納 目 録</h3>
+    <div class="sum-line"><span>WIN1　観月橋S</span><span>¥800</span></div>
+    <div class="sum-line"><span>WIN2　鎌倉S</span><span>¥800</span></div>
+    <div class="sum-line"><span>WIN3　福島中央テレビ杯</span><span>¥800</span></div>
+    <div class="sum-line"><span>WIN4　天王山S</span><span>¥800</span></div>
+    <div class="sum-line"><span>WIN5　青葉賞</span><span>¥800</span></div>
+    <div class="sum-total sum-line"><span>合 計 奉 納 金</span><span>¥4,000</span></div>
+  </div>
+</div>
+
+<!-- ═════ 日曜の塔 ═════ -->
+<div class="tower-wrap" id="tower-sun" role="tabpanel" hidden>
+  <div class="tower">
+    <div class="tower-finial" aria-hidden="true">◇</div>
+
+    <div class="floor floor-5">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">五層 ／ WIN5</span>
+          <span class="floor-race mincho">フローラS（G2）</span>
+        </div>
+        <div class="floor-meta">東京11R 15:45 ／ 芝2000m ／ 3歳OP（牝・馬齢）／ 13頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark honmei">◎</span><span class="pick-name">エンネ</span><span class="pick-note">青龍S × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark taikou">○</span><span class="pick-name">ファムクラジューズ</span><span class="pick-note">青龍A × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark tana">▲</span><span class="pick-name">ラフターラインズ</span><span class="pick-note">青龍A × 天栄A</span></div>
+          <div class="pick-row"><span class="pick-mark renka">△</span><span class="pick-name">ラベルセーヌ</span><span class="pick-note">青龍A × 天栄A</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">☆</span><span class="pick-name">ペイシャシス</span><span class="pick-note">青龍A × 玄武A</span></div>
+        </div>
+        <div class="floor-summary">ダブル最高格エンネが牽引。上位拮抗も牝馬クラシックロードの登竜門、展開の綾あり。</div>
+      </div>
+    </div>
+
+    <div class="floor floor-4">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">四層 ／ WIN4</span>
+          <span class="floor-race mincho">マイラーズC（G2）</span>
+        </div>
+        <div class="floor-meta">京都11R 15:30 ／ 芝1600m ／ OP別定 ／ 18頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark honmei">◎</span><span class="pick-name">ドラゴンブースト</span><span class="pick-note">青龍A × 玄武B</span></div>
+          <div class="pick-row"><span class="pick-mark taikou">○</span><span class="pick-name">ベラジオボンド</span><span class="pick-note">青龍S（最高格）</span></div>
+          <div class="pick-row"><span class="pick-mark tana">▲</span><span class="pick-name">ウォーターリヒト</span><span class="pick-note">青龍B × 玄武B</span></div>
+          <div class="pick-row"><span class="pick-mark renka">△</span><span class="pick-name">ショウナンアデイブ</span><span class="pick-note">青龍B × 玄武B</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">☆</span><span class="pick-name">ファインライン</span><span class="pick-note">青龍A × 玄武C</span></div>
+        </div>
+        <div class="floor-summary">総合score首位はドラゴンブースト。青龍S格ベラジオボンドの評価も捨てがたく、天皇賞・春の前哨戦として粒揃い。</div>
+      </div>
+    </div>
+
+    <div class="floor floor-3">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">三層 ／ WIN3</span>
+          <span class="floor-race mincho">モルガナイトS</span>
+        </div>
+        <div class="floor-meta">福島11R 15:15 ／ 芝1200m ／ OPハンデ ／ 16頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark honmei">◎</span><span class="pick-name">イツモニコニコ</span><span class="pick-note">青龍A × 玄武B</span></div>
+          <div class="pick-row"><span class="pick-mark taikou">○</span><span class="pick-name">サウンドモリアーナ</span><span class="pick-note">青龍A × 在厩調整</span></div>
+          <div class="pick-row"><span class="pick-mark tana">▲</span><span class="pick-name">ナムラローズマリー</span><span class="pick-note">青龍A × 在厩調整</span></div>
+          <div class="pick-row"><span class="pick-mark renka">△</span><span class="pick-name">モズナナスター</span><span class="pick-note">青龍A × 軽ハンデ</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">☆</span><span class="pick-name">クファシル</span><span class="pick-note">青龍D × 玄武A（巻返）</span></div>
+        </div>
+        <div class="floor-summary">S級・双方A級一致馬が不在の混戦。青龍Aの本命馬は外厩弱め、玄武Aの3頭は前走凡走と評価分岐。ハンデ戦の妙味が凝縮。</div>
+      </div>
+    </div>
+
+    <div class="floor floor-2">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">二層 ／ WIN2</span>
+          <span class="floor-race mincho">オアシスS</span>
+        </div>
+        <div class="floor-meta">東京10R 15:00 ／ ダ1600m ／ OPハンデ ／ 16頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark honmei">◎</span><span class="pick-name">ドンインザムード</span><span class="pick-note">青龍S（距離適性◎）</span></div>
+          <div class="pick-row"><span class="pick-mark taikou">○</span><span class="pick-name">アドマイヤデイトナ</span><span class="pick-note">天栄S × 22週仕上げ</span></div>
+          <div class="pick-row"><span class="pick-mark tana">▲</span><span class="pick-name">ヴィヴァン</span><span class="pick-note">青龍A × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark renka">△</span><span class="pick-name">オウギノカナメ</span><span class="pick-note">青龍A × 玄武B</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">☆</span><span class="pick-name">アッチャゴーラ</span><span class="pick-note">青龍B × 山元A</span></div>
+        </div>
+        <div class="floor-summary">青龍Sのドンインザムードが主軸も、外厩S級アドマイヤデイトナの逆転パターン要注意。ハンデ戦特有の波乱含み。</div>
+      </div>
+    </div>
+
+    <div class="floor floor-1">
+      <div class="roof"></div>
+      <div class="floor-body">
+        <div class="floor-header">
+          <span class="floor-label mincho">一層 ／ WIN1</span>
+          <span class="floor-race mincho">センテニアル・PS</span>
+        </div>
+        <div class="floor-meta">京都10R 14:50 ／ 芝1800m ／ 3勝クラス（ハンデ）／ 18頭</div>
+        <div class="floor-picks">
+          <div class="pick-row"><span class="pick-mark honmei">◎</span><span class="pick-name">レイニング</span><span class="pick-note">青龍S × 天栄S（W-S級）</span></div>
+          <div class="pick-row"><span class="pick-mark taikou">○</span><span class="pick-name">ネブラディスク</span><span class="pick-note">青龍S × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark tana">▲</span><span class="pick-name">チェルノボーグ</span><span class="pick-note">青龍A × 山元A</span></div>
+          <div class="pick-row"><span class="pick-mark renka">△</span><span class="pick-name">アラベラ</span><span class="pick-note">青龍A × 玄武A</span></div>
+          <div class="pick-row"><span class="pick-mark hoshi">☆</span><span class="pick-name">マトラコーニッシュ</span><span class="pick-note">青龍A × 玄武B</span></div>
+        </div>
+        <div class="floor-summary">青龍S×玄武S＝ダブル最高格レイニングが単勝軸。「3勝クラス卒業時間の問題」評価は決定的。</div>
+      </div>
+    </div>
+
+    <div class="foundation"></div>
+    <div class="foundation-label mincho">礎 石</div>
+  </div>
+
+  <div class="sum-panel">
+    <h3 class="mincho">奉 納 目 録</h3>
+    <div class="sum-line"><span>WIN1　センテニアル・PS</span><span>¥800</span></div>
+    <div class="sum-line"><span>WIN2　オアシスS</span><span>¥800</span></div>
+    <div class="sum-line"><span>WIN3　モルガナイトS</span><span>¥800</span></div>
+    <div class="sum-line"><span>WIN4　マイラーズC</span><span>¥800</span></div>
+    <div class="sum-line"><span>WIN5　フローラS</span><span>¥800</span></div>
+    <div class="sum-total sum-line"><span>合 計 奉 納 金</span><span>¥4,000</span></div>
+  </div>
+</div>
+
+<footer class="footer mincho">
+  UG 競 馬 ワ イ ド 神 宮 ｜ 御 託 宣 は 斎 行 前 に 更 新 さ れ ま す
+</footer>
+
+<script>
+document.querySelectorAll('.day-tab').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var day = btn.dataset.day;
+    document.querySelectorAll('.day-tab').forEach(function(b){
+      var active = b.dataset.day === day;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    document.querySelectorAll('.tower-wrap').forEach(function(w){
+      w.hidden = (w.id !== 'tower-' + day);
+    });
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+});
+</script>
+
+</body>
+</html>
