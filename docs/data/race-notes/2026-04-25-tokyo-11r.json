@@ -20,7 +20,7 @@
   "preparationPdf": "img/pdf/2026-04-25-aobasho-shintaku.pdf",
   "preparationPdfMeta": "全12頁",
   "preparationNote": "## 🎯 青葉賞 2026 ニックの穴指南\n- 前走重賞・OP勝利組 < **前走1勝クラス・未勝利勝ち馬の激走** を射抜け\n- ダービートライアルの\"勢い\"と\"意欲\"は、格上より格下の方が濃い\n- **射抜く武器は言霊分析** — 関係者コメントの本気度・距離適性・仕上がり感を読み切る\n\n## 📊 現状スナップ\n- 25頭登録→18頭確定（除外7頭：アローメタル／ヴィサージュ／エーデルゼーレ／オリオンブレード／オルフセン／ベルウッドクレド／ボンドマティーニ）\n- 1番人気想定：**ブラックオリンピア 2.2倍**（川田・栗東友道）\n- 対抗：**ノーブルサヴェージ 4.8倍**（レーン騎乗）\n- コントレイル産駒4頭（カットソロ／ゴーイントゥスカイ／サガルマータ／テルヒコウ）\n\n## 🎯 ギーニョの構え\n- 前走クラス別に馬を分類 → **1勝クラス・未勝利勝ち組の関係者コメント**を最優先精査\n- 上位人気の重賞組はワイドBOXの軸、穴は**昇格組から射抜く**\n- 言霊Sランク＋ラップ適合馬が見つかれば単勝軸候補へ\n- 2着までにダービー優先出走権 → 陣営の\"勝ち切りたい意欲\"が言霊に滲む馬を拾え\n\n> 関係者コメント言霊解析・外厩相性ファクターは済み。ラップ解析は金曜夜に加算、最終採点。\n> トゥーナスタディ(地方)はデータ取得不可のため参考表示のみ・非購入対象。",
-  "logicVersion": "v2-rel-lap",
+  "logicVersion": "v3-seiryu-v2",
   "horses": [
     {
       "listOrder": 1,
@@ -82,7 +82,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "美浦奥村武"
+      "stable": "美浦奥村武",
+      "danwaGrade": {
+        "grade": "A",
+        "reason": "ハミ換え／左回り対応／距離延長心配なし／態勢整った",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "B",
+        "v": 2,
+        "reason": "陣営意志+1",
+        "prev": "C",
+        "danwa": "A"
+      }
     },
     {
       "listOrder": 2,
@@ -135,7 +147,20 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "栗東矢作"
+      "stable": "栗東矢作",
+      "danwaGrade": {
+        "grade": "D",
+        "reason": "トモに力がない今はともかく／将来性／先々につながる",
+        "fatal": true,
+        "fatalTag": "今はともかく・将来性・先々"
+      },
+      "seiryu": {
+        "grade": "C",
+        "v": 2,
+        "reason": "致命ワード天井強制",
+        "prev": "B",
+        "danwa": "D"
+      }
     },
     {
       "listOrder": 3,
@@ -188,7 +213,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "美浦田島"
+      "stable": "美浦田島",
+      "danwaGrade": {
+        "grade": "B",
+        "reason": "短期放牧で対応／疲れダメージなし／時計対応が鍵",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "B",
+        "v": 2,
+        "reason": "陣営意志-1",
+        "prev": "A",
+        "danwa": "B"
+      }
     },
     {
       "listOrder": 4,
@@ -237,7 +274,20 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "地方河津裕"
+      "stable": "地方河津裕",
+      "danwaGrade": {
+        "grade": "A",
+        "reason": "これまでにない負荷／比べものにならない動き",
+        "fatal": true,
+        "fatalTag": "権利狙い"
+      },
+      "seiryu": {
+        "grade": "B",
+        "v": 2,
+        "reason": "致命ワード天井強制",
+        "prev": "B",
+        "danwa": "A"
+      }
     },
     {
       "listOrder": 5,
@@ -291,7 +341,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "美浦上原佑"
+      "stable": "美浦上原佑",
+      "danwaGrade": {
+        "grade": "S",
+        "reason": "1週前負荷で良化／動きスムーズ／東京適性高い",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "A",
+        "v": 2,
+        "reason": "陣営意志+1",
+        "prev": "B",
+        "danwa": "S"
+      }
     },
     {
       "listOrder": 6,
@@ -349,7 +411,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "栗東福永"
+      "stable": "栗東福永",
+      "danwaGrade": {
+        "grade": "S",
+        "reason": "動き反映／距離適性示した／帰厩毎に良化／身のこなし向上／実戦型",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "S",
+        "v": 2,
+        "reason": "陣営意志+1",
+        "prev": "A",
+        "danwa": "S"
+      }
     },
     {
       "listOrder": 7,
@@ -407,7 +481,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "栗東杉山晴"
+      "stable": "栗東杉山晴",
+      "danwaGrade": {
+        "grade": "B",
+        "reason": "順調／折り合い問題なし／まだ緩さ／どこまで",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "B",
+        "v": 2,
+        "reason": "陣営意志-1",
+        "prev": "A",
+        "danwa": "B"
+      }
     },
     {
       "listOrder": 8,
@@ -456,7 +542,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "美浦武井"
+      "stable": "美浦武井",
+      "danwaGrade": {
+        "grade": "B",
+        "reason": "大幅な上積みこそない／使ってみたかった条件／結果が欲しい（中身なし）",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "D",
+        "v": 2,
+        "reason": "D実力は陣営意志で覆せず",
+        "prev": "D",
+        "danwa": "B"
+      }
     },
     {
       "listOrder": 9,
@@ -513,7 +611,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "栗東矢作"
+      "stable": "栗東矢作",
+      "danwaGrade": {
+        "grade": "B",
+        "reason": "メニュー消化／走り方向上／現状の力は出せる仕上がり",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "B",
+        "v": 2,
+        "reason": "陣営意志-1",
+        "prev": "A",
+        "danwa": "B"
+      }
     },
     {
       "listOrder": 10,
@@ -553,7 +663,20 @@
       "note": "地方馬・JRDB/競馬ブック等のデータ取得不可のため参考扱い",
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "地方斎藤雄"
+      "stable": "地方斎藤雄",
+      "danwaGrade": {
+        "grade": "D",
+        "reason": "ダートは得意ではなさそう／頑張ってくれる",
+        "fatal": true,
+        "fatalTag": "得意ではなさそう"
+      },
+      "seiryu": {
+        "grade": "D",
+        "v": 2,
+        "reason": "致命ワード天井強制",
+        "prev": "D",
+        "danwa": "D"
+      }
     },
     {
       "listOrder": 11,
@@ -615,7 +738,20 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "栗東杉山佳"
+      "stable": "栗東杉山佳",
+      "danwaGrade": {
+        "grade": "B",
+        "reason": "状態良さそう／舞台設定いい",
+        "fatal": true,
+        "fatalTag": "権利狙い"
+      },
+      "seiryu": {
+        "grade": "B",
+        "v": 2,
+        "reason": "致命ワード天井強制",
+        "prev": "B",
+        "danwa": "B"
+      }
     },
     {
       "listOrder": 12,
@@ -669,7 +805,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "美浦森一"
+      "stable": "美浦森一",
+      "danwaGrade": {
+        "grade": "S",
+        "reason": "一段階上の仕上がり／距離コース合う／好勝負に",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "A",
+        "v": 2,
+        "reason": "陣営意志+1",
+        "prev": "B",
+        "danwa": "S"
+      }
     },
     {
       "listOrder": 13,
@@ -723,7 +871,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "栗東高柳大"
+      "stable": "栗東高柳大",
+      "danwaGrade": {
+        "grade": "C",
+        "reason": "徐々に大人に／どれだけやれますか",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "C",
+        "v": 2,
+        "reason": "同格維持",
+        "prev": "C",
+        "danwa": "C"
+      }
     },
     {
       "listOrder": 14,
@@ -781,7 +941,20 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "美浦堀"
+      "stable": "美浦堀",
+      "danwaGrade": {
+        "grade": "D",
+        "reason": "晩生／コントロール難しい／競馬を教えていきたい",
+        "fatal": true,
+        "fatalTag": "教えていきたい・晩生"
+      },
+      "seiryu": {
+        "grade": "D",
+        "v": 2,
+        "reason": "致命ワード天井強制",
+        "prev": "C",
+        "danwa": "D"
+      }
     },
     {
       "listOrder": 15,
@@ -830,7 +1003,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "栗東友道"
+      "stable": "栗東友道",
+      "danwaGrade": {
+        "grade": "A",
+        "reason": "チーク着用で前向きさ／東京2400合う",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "A",
+        "v": 2,
+        "reason": "同格維持",
+        "prev": "A",
+        "danwa": "A"
+      }
     },
     {
       "listOrder": 16,
@@ -879,7 +1064,20 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "美浦堀"
+      "stable": "美浦堀",
+      "danwaGrade": {
+        "grade": "D",
+        "reason": "晩生の傾向／将来は走ってくる／自分のリズム優先でどれだけ",
+        "fatal": true,
+        "fatalTag": "自分のリズム優先・将来は・晩生"
+      },
+      "seiryu": {
+        "grade": "C",
+        "v": 2,
+        "reason": "致命ワード天井強制",
+        "prev": "A",
+        "danwa": "D"
+      }
     },
     {
       "listOrder": 17,
@@ -932,7 +1130,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "栗東谷"
+      "stable": "栗東谷",
+      "danwaGrade": {
+        "grade": "A",
+        "reason": "前走ゲート不利具体／坂路で自己ベスト／距離延長対応",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "D",
+        "v": 2,
+        "reason": "D実力は陣営意志で覆せず",
+        "prev": "D",
+        "danwa": "A"
+      }
     },
     {
       "listOrder": 18,
@@ -985,7 +1195,19 @@
       ],
       "sexAge": "牡3",
       "kinryo": 57.0,
-      "stable": "美浦本間"
+      "stable": "美浦本間",
+      "danwaGrade": {
+        "grade": "A",
+        "reason": "ここ目標／血統的に距離／トビ大きく東京／良馬場で走らせたい",
+        "fatal": false
+      },
+      "seiryu": {
+        "grade": "B",
+        "v": 2,
+        "reason": "陣営意志+1",
+        "prev": "C",
+        "danwa": "A"
+      }
     }
   ],
   "finalBets": {
