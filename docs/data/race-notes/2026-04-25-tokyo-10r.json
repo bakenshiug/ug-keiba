@@ -16,7 +16,7 @@
     "desc": "─ 御神託は木曜以降、枠順確定を待って降ろされます ─"
   },
   "dataStatus": "preparation",
-  "logicVersion": "v4-genbu-v2-poc",
+  "logicVersion": "v4-yugomi-v1+coursedata-v1",
   "horses": [
     {
       "listOrder": 1,
@@ -51,6 +51,34 @@
         "producer": "社台F",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": false,
+        "fRed": true,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 3.7,
+        "hcDiff": 0.9,
+        "rank1": false,
+        "reason": "前半赤",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 9,
+        "sireRate": 4.8,
+        "jockeyRate": 2.5,
+        "trainerRate": 6.7,
+        "ninkiRank": 1,
+        "sireGrade": "D",
+        "jockeyGrade": "D",
+        "trainerGrade": "C",
+        "ninkiGrade": "S",
+        "reason": "父D(4.8%)/騎D(2.5%)/厩C(6.7%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -86,6 +114,34 @@
         "producer": "隆栄牧場",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": true,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 10.0,
+        "hcDiff": 5.4,
+        "rank1": false,
+        "reason": "後半赤",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 12,
+        "sireRate": 8.7,
+        "jockeyRate": 0.0,
+        "trainerRate": 16.2,
+        "ninkiRank": 1,
+        "sireGrade": "C",
+        "jockeyGrade": "D",
+        "trainerGrade": "A",
+        "ninkiGrade": "S",
+        "reason": "父C(8.7%)/騎D(0.0%)/厩A(16.2%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -121,6 +177,34 @@
         "producer": "藤春修二",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 4.9,
+        "hcDiff": 0.3,
+        "rank1": false,
+        "reason": "HC赤(4.9/差0.3)",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 10,
+        "sireRate": 0.0,
+        "jockeyRate": 13.7,
+        "trainerRate": 0.0,
+        "ninkiRank": 1,
+        "sireGrade": "D",
+        "jockeyGrade": "B",
+        "trainerGrade": "D",
+        "ninkiGrade": "S",
+        "reason": "父D(0.0%)/騎B(13.7%)/厩D(0.0%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -156,6 +240,34 @@
         "producer": "三嶋牧場",
         "align": "栗東",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "redCount": 2,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": true,
+        "tRed": true,
+        "hvRed": false,
+        "hc": 7.9,
+        "hcDiff": 3.3,
+        "rank1": false,
+        "reason": "後半赤/前+後半赤",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 16,
+        "sireRate": 12.5,
+        "jockeyRate": 28.6,
+        "trainerRate": 14.3,
+        "ninkiRank": 1,
+        "sireGrade": "B",
+        "jockeyGrade": "S",
+        "trainerGrade": "B",
+        "ninkiGrade": "S",
+        "reason": "父B(12.5%)/騎S(28.6%)/厩B(14.3%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -191,6 +303,34 @@
         "producer": "ダーレージャパンF",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 3.7,
+        "hcDiff": 0.9,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 13,
+        "sireRate": 9.7,
+        "jockeyRate": 10.1,
+        "trainerRate": 13.3,
+        "ninkiRank": 1,
+        "sireGrade": "C",
+        "jockeyGrade": "B",
+        "trainerGrade": "B",
+        "ninkiGrade": "S",
+        "reason": "父C(9.7%)/騎B(10.1%)/厩B(13.3%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -226,6 +366,34 @@
         "producer": "前田F",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "S",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 4.7,
+        "hcDiff": 0.1,
+        "rank1": true,
+        "reason": "HC赤(4.7/差0.1)/★究極1位",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 16,
+        "sireRate": 5.9,
+        "jockeyRate": 20.0,
+        "trainerRate": 16.2,
+        "ninkiRank": 1,
+        "sireGrade": "C",
+        "jockeyGrade": "S",
+        "trainerGrade": "A",
+        "ninkiGrade": "S",
+        "reason": "父C(5.9%)/騎S(20.0%)/厩A(16.2%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -261,6 +429,34 @@
         "producer": "荻伏服部牧場",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": true,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 10.7,
+        "hcDiff": 6.1,
+        "rank1": false,
+        "reason": "後半赤",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 8,
+        "sireRate": 0.0,
+        "jockeyRate": 0.0,
+        "trainerRate": 0.0,
+        "ninkiRank": 1,
+        "sireGrade": "D",
+        "jockeyGrade": "D",
+        "trainerGrade": "D",
+        "ninkiGrade": "S",
+        "reason": "父D(0.0%)/騎D(0.0%)/厩D(0.0%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -296,6 +492,34 @@
         "producer": "斉藤英牧場",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 6.7,
+        "hcDiff": 2.1,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 14,
+        "sireRate": 9.9,
+        "jockeyRate": 23.8,
+        "trainerRate": 6.8,
+        "ninkiRank": 1,
+        "sireGrade": "C",
+        "jockeyGrade": "S",
+        "trainerGrade": "C",
+        "ninkiGrade": "S",
+        "reason": "父C(9.9%)/騎S(23.8%)/厩C(6.8%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -331,6 +555,34 @@
         "producer": "土居牧場",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 11.9,
+        "hcDiff": 7.3,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 11,
+        "sireRate": 9.1,
+        "jockeyRate": 7.6,
+        "trainerRate": 7.3,
+        "ninkiRank": 1,
+        "sireGrade": "C",
+        "jockeyGrade": "C",
+        "trainerGrade": "C",
+        "ninkiGrade": "S",
+        "reason": "父C(9.1%)/騎C(7.6%)/厩C(7.3%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -366,6 +618,34 @@
         "producer": "追分F",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "redCount": 2,
+        "hcRed": false,
+        "fRed": true,
+        "bRed": false,
+        "tRed": true,
+        "hvRed": false,
+        "hc": 5.3,
+        "hcDiff": 0.7,
+        "rank1": false,
+        "reason": "前半赤/前+後半赤",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 12,
+        "sireRate": 5.0,
+        "jockeyRate": 11.3,
+        "trainerRate": 6.3,
+        "ninkiRank": 1,
+        "sireGrade": "C",
+        "jockeyGrade": "B",
+        "trainerGrade": "C",
+        "ninkiGrade": "S",
+        "reason": "父C(5.0%)/騎B(11.3%)/厩C(6.3%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -402,6 +682,34 @@
         "producer": "高昭牧場",
         "align": "大井",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 9.0,
+        "hcDiff": 4.4,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 11,
+        "sireRate": 5.8,
+        "jockeyRate": 0.0,
+        "trainerRate": null,
+        "ninkiRank": 1,
+        "sireGrade": "C",
+        "jockeyGrade": "D",
+        "trainerGrade": "B",
+        "ninkiGrade": "S",
+        "reason": "父C(5.8%)/騎D(0.0%)/厩B(None%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -437,6 +745,34 @@
         "producer": "ダーレージャパンF",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "redCount": 2,
+        "hcRed": false,
+        "fRed": true,
+        "bRed": false,
+        "tRed": true,
+        "hvRed": false,
+        "hc": 2.6,
+        "hcDiff": 2.0,
+        "rank1": false,
+        "reason": "前半赤/前+後半赤",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 12,
+        "sireRate": 11.3,
+        "jockeyRate": 5.5,
+        "trainerRate": 7.1,
+        "ninkiRank": 1,
+        "sireGrade": "B",
+        "jockeyGrade": "C",
+        "trainerGrade": "C",
+        "ninkiGrade": "S",
+        "reason": "父B(11.3%)/騎C(5.5%)/厩C(7.1%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -473,6 +809,34 @@
         "producer": "追分F",
         "align": "美浦",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 5.0,
+        "hcDiff": 0.4,
+        "rank1": false,
+        "reason": "HC赤(5.0/差0.4)",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 14,
+        "sireRate": 18.8,
+        "jockeyRate": 9.6,
+        "trainerRate": 13.3,
+        "ninkiRank": 1,
+        "sireGrade": "A",
+        "jockeyGrade": "C",
+        "trainerGrade": "B",
+        "ninkiGrade": "S",
+        "reason": "父A(18.8%)/騎C(9.6%)/厩B(13.3%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -508,6 +872,34 @@
         "producer": "大島牧場",
         "align": "豪州",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 5.6,
+        "hcDiff": 1.0,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 13,
+        "sireRate": 1.7,
+        "jockeyRate": 22.9,
+        "trainerRate": 6.7,
+        "ninkiRank": 1,
+        "sireGrade": "D",
+        "jockeyGrade": "S",
+        "trainerGrade": "C",
+        "ninkiGrade": "S",
+        "reason": "父D(1.7%)/騎S(22.9%)/厩C(6.7%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -543,7 +935,170 @@
         "producer": "友田牧場",
         "align": "栗東",
         "v": "v2-poc"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": true,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 12.0,
+        "hcDiff": 7.4,
+        "rank1": false,
+        "reason": "後半赤",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 14,
+        "sireRate": 9.6,
+        "jockeyRate": 5.6,
+        "trainerRate": 20.0,
+        "ninkiRank": 1,
+        "sireGrade": "C",
+        "jockeyGrade": "C",
+        "trainerGrade": "S",
+        "ninkiGrade": "S",
+        "reason": "父C(9.6%)/騎C(5.6%)/厩S(20.0%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     }
-  ]
+  ],
+  "finalBets": {
+    "generatedAt": "2026-04-24T19:46:16",
+    "logicVersion": "v3-shijin-external-cross-2026-04-25",
+    "tan": {
+      "rank": 1,
+      "num": 4,
+      "name": "メイショウハチロー",
+      "amount": 100,
+      "reason": "4神+外部評価完全整合・キャラピッタリ"
+    },
+    "fuku": {
+      "rank": 1,
+      "num": 14,
+      "name": "ワンダラー",
+      "amount": 100,
+      "reason": "外部評価2位(4人気)・妙味S・仕上66"
+    },
+    "wide4box": {
+      "horses": [
+        {
+          "rank": 1,
+          "num": 4,
+          "name": "メイショウハチロー",
+          "score": null,
+          "isAna": false,
+          "tag": "ninki"
+        },
+        {
+          "rank": 2,
+          "num": 14,
+          "name": "ワンダラー",
+          "score": null,
+          "isAna": true,
+          "tag": "ana"
+        },
+        {
+          "rank": 3,
+          "num": 15,
+          "name": "ペイシャケイプ",
+          "score": null,
+          "isAna": false,
+          "tag": "ninki"
+        },
+        {
+          "rank": 4,
+          "num": 6,
+          "name": "トクシーカイザー",
+          "score": null,
+          "isAna": false,
+          "tag": "ninki"
+        }
+      ],
+      "combos": [
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "メイショウハチロー",
+            "ワンダラー"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "メイショウハチロー",
+            "ペイシャケイプ"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "メイショウハチロー",
+            "トクシーカイザー"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ワンダラー",
+            "ペイシャケイプ"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ワンダラー",
+            "トクシーカイザー"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ペイシャケイプ",
+            "トクシーカイザー"
+          ]
+        }
+      ],
+      "comboCount": 6,
+      "amount": 600,
+      "composition": "4shijin-external",
+      "fallback": false,
+      "meta": {
+        "composition": "4shijin-external-cross",
+        "ninkiCount": 3,
+        "anaCount": 1,
+        "note": "4神(青龍/朱雀/白虎/玄武)整合+外部総合指標クロスチェック済み"
+      }
+    },
+    "totalSpend": 800,
+    "readiness": "4/4",
+    "readinessPct": 100.0,
+    "presentation": {
+      "headline": "WIN2 鎌倉S 4頭ワイドBOX確定",
+      "tanLine": "単勝 100円: メイショウハチロー（4神+外部評価完全整合・キャラピッタリ）",
+      "fukuLine": "複勝 100円: ワンダラー（外部評価2位(4人気)・妙味S・仕上66）",
+      "wideLine": "ワイドBOX 100円×6点: メイショウハチロー / ワンダラー / ペイシャケイプ / トクシーカイザー"
+    }
+  }
 }

@@ -20,7 +20,7 @@
   "preparationPdf": "img/pdf/2026-04-25-aobasho-shintaku.pdf",
   "preparationPdfMeta": "全12頁",
   "preparationNote": "## 🎯 青葉賞 2026 ニックの穴指南\n- 前走重賞・OP勝利組 < **前走1勝クラス・未勝利勝ち馬の激走** を射抜け\n- ダービートライアルの\"勢い\"と\"意欲\"は、格上より格下の方が濃い\n- **射抜く武器は言霊分析** — 関係者コメントの本気度・距離適性・仕上がり感を読み切る\n\n## 📊 現状スナップ\n- 25頭登録→18頭確定（除外7頭：アローメタル／ヴィサージュ／エーデルゼーレ／オリオンブレード／オルフセン／ベルウッドクレド／ボンドマティーニ）\n- 1番人気想定：**ブラックオリンピア 2.2倍**（川田・栗東友道）\n- 対抗：**ノーブルサヴェージ 4.8倍**（レーン騎乗）\n- コントレイル産駒4頭（カットソロ／ゴーイントゥスカイ／サガルマータ／テルヒコウ）\n\n## 🎯 ギーニョの構え\n- 前走クラス別に馬を分類 → **1勝クラス・未勝利勝ち組の関係者コメント**を最優先精査\n- 上位人気の重賞組はワイドBOXの軸、穴は**昇格組から射抜く**\n- 言霊Sランク＋ラップ適合馬が見つかれば単勝軸候補へ\n- 2着までにダービー優先出走権 → 陣営の\"勝ち切りたい意欲\"が言霊に滲む馬を拾え\n\n> 関係者コメント言霊解析・外厩相性ファクターは済み。ラップ解析は金曜夜に加算、最終採点。\n> トゥーナスタディ(地方)はデータ取得不可のため参考表示のみ・非購入対象。",
-  "logicVersion": "v3-seiryu-v2",
+  "logicVersion": "v4-yugomi-v1+coursedata-v1",
   "horses": [
     {
       "listOrder": 1,
@@ -94,6 +94,34 @@
         "reason": "陣営意志+1",
         "prev": "C",
         "danwa": "A"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 3.7,
+        "hcDiff": 1.7,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "D",
+        "total": 4,
+        "sireRate": 0.0,
+        "jockeyRate": 0.0,
+        "trainerRate": 0.0,
+        "ninkiRank": 10,
+        "sireGrade": "D",
+        "jockeyGrade": "D",
+        "trainerGrade": "D",
+        "ninkiGrade": "D",
+        "reason": "父D(0.0%)/騎D(0.0%)/厩D(0.0%)/人D(10人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -160,6 +188,34 @@
         "reason": "致命ワード天井強制",
         "prev": "B",
         "danwa": "D"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 5.5,
+        "hcDiff": 0.1,
+        "rank1": false,
+        "reason": "HC赤(5.5/差0.1)",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "D",
+        "total": 4,
+        "sireRate": 0.0,
+        "jockeyRate": 2.6,
+        "trainerRate": 4.8,
+        "ninkiRank": 12,
+        "sireGrade": "D",
+        "jockeyGrade": "D",
+        "trainerGrade": "D",
+        "ninkiGrade": "D",
+        "reason": "父D(0.0%)/騎D(2.6%)/厩D(4.8%)/人D(12人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -225,6 +281,34 @@
         "reason": "陣営意志-1",
         "prev": "A",
         "danwa": "B"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 2.0,
+        "hcDiff": 3.4,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 6,
+        "sireRate": 11.1,
+        "jockeyRate": 0.0,
+        "trainerRate": 0.0,
+        "ninkiRank": 14,
+        "sireGrade": "B",
+        "jockeyGrade": "D",
+        "trainerGrade": "D",
+        "ninkiGrade": "D",
+        "reason": "父B(11.1%)/騎D(0.0%)/厩D(0.0%)/人D(14人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -287,6 +371,34 @@
         "reason": "致命ワード天井強制",
         "prev": "B",
         "danwa": "A"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 6.0,
+        "hcDiff": 0.6,
+        "rank1": false,
+        "reason": "HC赤(6.0/差0.6)",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 8,
+        "sireRate": 0.0,
+        "jockeyRate": null,
+        "trainerRate": null,
+        "ninkiRank": 16,
+        "sireGrade": "D",
+        "jockeyGrade": "B",
+        "trainerGrade": "B",
+        "ninkiGrade": "D",
+        "reason": "父D(0.0%)/騎B(None%)/厩B(None%)/人D(16人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -353,6 +465,34 @@
         "reason": "陣営意志+1",
         "prev": "B",
         "danwa": "S"
+      },
+      "yugomiLapGrade": {
+        "grade": "S",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 5.0,
+        "hcDiff": 0.4,
+        "rank1": true,
+        "reason": "HC赤(5.0/差0.4)/★究極1位",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 11,
+        "sireRate": 0.0,
+        "jockeyRate": 14.3,
+        "trainerRate": 16.7,
+        "ninkiRank": 3,
+        "sireGrade": "D",
+        "jockeyGrade": "B",
+        "trainerGrade": "A",
+        "ninkiGrade": "B",
+        "reason": "父D(0.0%)/騎B(14.3%)/厩A(16.7%)/人B(3人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -423,6 +563,34 @@
         "reason": "陣営意志+1",
         "prev": "A",
         "danwa": "S"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 3.5,
+        "hcDiff": 1.9,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 6,
+        "sireRate": 0.0,
+        "jockeyRate": 5.6,
+        "trainerRate": 0.0,
+        "ninkiRank": 4,
+        "sireGrade": "D",
+        "jockeyGrade": "C",
+        "trainerGrade": "D",
+        "ninkiGrade": "C",
+        "reason": "父D(0.0%)/騎C(5.6%)/厩D(0.0%)/人C(4人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -493,6 +661,34 @@
         "reason": "陣営意志-1",
         "prev": "A",
         "danwa": "B"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 4.3,
+        "hcDiff": 1.1,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 9,
+        "sireRate": 18.2,
+        "jockeyRate": 11.1,
+        "trainerRate": 0.0,
+        "ninkiRank": 9,
+        "sireGrade": "A",
+        "jockeyGrade": "B",
+        "trainerGrade": "D",
+        "ninkiGrade": "D",
+        "reason": "父A(18.2%)/騎B(11.1%)/厩D(0.0%)/人D(9人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -554,6 +750,34 @@
         "reason": "D実力は陣営意志で覆せず",
         "prev": "D",
         "danwa": "B"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 6.5,
+        "hcDiff": 1.1,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 6,
+        "sireRate": 4.5,
+        "jockeyRate": 8.6,
+        "trainerRate": 0.0,
+        "ninkiRank": 5,
+        "sireGrade": "D",
+        "jockeyGrade": "C",
+        "trainerGrade": "D",
+        "ninkiGrade": "C",
+        "reason": "父D(4.5%)/騎C(8.6%)/厩D(0.0%)/人C(5人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -623,6 +847,34 @@
         "reason": "陣営意志-1",
         "prev": "A",
         "danwa": "B"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 2.0,
+        "hcDiff": 3.4,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 5,
+        "sireRate": 0.0,
+        "jockeyRate": 5.9,
+        "trainerRate": 4.8,
+        "ninkiRank": 6,
+        "sireGrade": "D",
+        "jockeyGrade": "C",
+        "trainerGrade": "D",
+        "ninkiGrade": "D",
+        "reason": "父D(0.0%)/騎C(5.9%)/厩D(4.8%)/人D(6人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -676,6 +928,34 @@
         "reason": "致命ワード天井強制",
         "prev": "D",
         "danwa": "D"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 3.8,
+        "hcDiff": 1.6,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 8,
+        "sireRate": 0.0,
+        "jockeyRate": null,
+        "trainerRate": null,
+        "ninkiRank": 18,
+        "sireGrade": "D",
+        "jockeyGrade": "B",
+        "trainerGrade": "B",
+        "ninkiGrade": "D",
+        "reason": "父D(0.0%)/騎B(None%)/厩B(None%)/人D(18人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -751,6 +1031,34 @@
         "reason": "致命ワード天井強制",
         "prev": "B",
         "danwa": "B"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 4.8,
+        "hcDiff": 0.6,
+        "rank1": false,
+        "reason": "HC赤(4.8/差0.6)",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 11,
+        "sireRate": 20.0,
+        "jockeyRate": 8.3,
+        "trainerRate": null,
+        "ninkiRank": 11,
+        "sireGrade": "S",
+        "jockeyGrade": "C",
+        "trainerGrade": "B",
+        "ninkiGrade": "D",
+        "reason": "父S(20.0%)/騎C(8.3%)/厩B(None%)/人D(11人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -817,6 +1125,34 @@
         "reason": "陣営意志+1",
         "prev": "B",
         "danwa": "S"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 2.5,
+        "hcDiff": 2.9,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 9,
+        "sireRate": 0.0,
+        "jockeyRate": 12.5,
+        "trainerRate": 0.0,
+        "ninkiRank": 2,
+        "sireGrade": "D",
+        "jockeyGrade": "B",
+        "trainerGrade": "D",
+        "ninkiGrade": "A",
+        "reason": "父D(0.0%)/騎B(12.5%)/厩D(0.0%)/人A(2人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -883,6 +1219,34 @@
         "reason": "同格維持",
         "prev": "C",
         "danwa": "C"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 9.0,
+        "hcDiff": 3.6,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 11,
+        "sireRate": 14.3,
+        "jockeyRate": 6.3,
+        "trainerRate": 33.3,
+        "ninkiRank": 13,
+        "sireGrade": "B",
+        "jockeyGrade": "C",
+        "trainerGrade": "S",
+        "ninkiGrade": "D",
+        "reason": "父B(14.3%)/騎C(6.3%)/厩S(33.3%)/人D(13人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -954,6 +1318,34 @@
         "reason": "致命ワード天井強制",
         "prev": "C",
         "danwa": "D"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 2.7,
+        "hcDiff": 2.7,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 12,
+        "sireRate": 11.1,
+        "jockeyRate": 23.5,
+        "trainerRate": 14.7,
+        "ninkiRank": 17,
+        "sireGrade": "B",
+        "jockeyGrade": "S",
+        "trainerGrade": "B",
+        "ninkiGrade": "D",
+        "reason": "父B(11.1%)/騎S(23.5%)/厩B(14.7%)/人D(17人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -1015,6 +1407,34 @@
         "reason": "同格維持",
         "prev": "A",
         "danwa": "A"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 2.8,
+        "hcDiff": 2.6,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "S",
+        "total": 17,
+        "sireRate": 18.2,
+        "jockeyRate": 22.2,
+        "trainerRate": 13.0,
+        "ninkiRank": 1,
+        "sireGrade": "A",
+        "jockeyGrade": "S",
+        "trainerGrade": "B",
+        "ninkiGrade": "S",
+        "reason": "父A(18.2%)/騎S(22.2%)/厩B(13.0%)/人S(1人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -1077,6 +1497,34 @@
         "reason": "致命ワード天井強制",
         "prev": "A",
         "danwa": "D"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 7.5,
+        "hcDiff": 2.1,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 11,
+        "sireRate": 15.8,
+        "jockeyRate": 12.1,
+        "trainerRate": 14.7,
+        "ninkiRank": 8,
+        "sireGrade": "A",
+        "jockeyGrade": "B",
+        "trainerGrade": "B",
+        "ninkiGrade": "D",
+        "reason": "父A(15.8%)/騎B(12.1%)/厩B(14.7%)/人D(8人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -1142,6 +1590,34 @@
         "reason": "D実力は陣営意志で覆せず",
         "prev": "D",
         "danwa": "A"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 4.4,
+        "hcDiff": 1.0,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 7,
+        "sireRate": 5.6,
+        "jockeyRate": 0.0,
+        "trainerRate": null,
+        "ninkiRank": 15,
+        "sireGrade": "C",
+        "jockeyGrade": "D",
+        "trainerGrade": "B",
+        "ninkiGrade": "D",
+        "reason": "父C(5.6%)/騎D(0.0%)/厩B(None%)/人D(15人気)",
+        "v": "v1-4axis"
       }
     },
     {
@@ -1207,14 +1683,42 @@
         "reason": "陣営意志+1",
         "prev": "C",
         "danwa": "A"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 3.0,
+        "hcDiff": 2.4,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 6,
+        "sireRate": null,
+        "jockeyRate": 0.0,
+        "trainerRate": 0.0,
+        "ninkiRank": 7,
+        "sireGrade": "B",
+        "jockeyGrade": "D",
+        "trainerGrade": "D",
+        "ninkiGrade": "D",
+        "reason": "父B(None%)/騎D(0.0%)/厩D(0.0%)/人D(7人気)",
+        "v": "v1-4axis"
       }
     }
   ],
   "finalBets": {
-    "generatedAt": "2026-04-22T20:34:18",
-    "logicVersion": "v2-shijin-bets-1",
-    "readiness": "0/25",
-    "readinessPct": 0.0,
+    "generatedAt": "2026-04-24T19:46:16",
+    "logicVersion": "v3-shijin-external-cross-2026-04-25",
+    "readiness": "4/4",
+    "readinessPct": 100.0,
     "shinganCoverage": "0/25",
     "shinganCoveragePct": 0.0,
     "config": {
@@ -2068,48 +2572,50 @@
     "tan": {
       "rank": 1,
       "num": null,
-      "name": "ノーブルサヴェージ",
-      "amount": 100
+      "name": "ブラックオリンピア",
+      "amount": 100,
+      "reason": "青龍S×玄武1位×SAV90の3冠整合"
     },
     "fuku": {
       "rank": 1,
       "num": null,
-      "name": "ノーブルサヴェージ",
-      "amount": 100
+      "name": "ラストスマイル",
+      "amount": 100,
+      "reason": "外部評価1位(10人気)・妙味S・朱雀1位"
     },
     "wide4box": {
       "horses": [
         {
           "rank": 1,
           "num": null,
-          "name": "ノーブルサヴェージ",
-          "score": 11.5,
+          "name": "ブラックオリンピア",
+          "score": null,
           "isAna": false,
           "tag": "ninki"
         },
         {
           "rank": 2,
           "num": null,
-          "name": "シャドウマスター",
-          "score": 11.5,
+          "name": "ラストスマイル",
+          "score": null,
           "isAna": true,
           "tag": "ana"
         },
         {
           "rank": 3,
           "num": null,
-          "name": "ブラックオリンピア",
-          "score": 10.0,
+          "name": "ゴーイントゥスカイ",
+          "score": null,
           "isAna": false,
           "tag": "ninki"
         },
         {
-          "rank": 5,
+          "rank": 4,
           "num": null,
-          "name": "サガルマータ",
-          "score": 7.5,
-          "isAna": true,
-          "tag": "ana"
+          "name": "タイダルロック",
+          "score": null,
+          "isAna": false,
+          "tag": "ninki"
         }
       ],
       "combos": [
@@ -2119,48 +2625,8 @@
             null
           ],
           "names": [
-            "ノーブルサヴェージ",
-            "シャドウマスター"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "ノーブルサヴェージ",
-            "ブラックオリンピア"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "ノーブルサヴェージ",
-            "サガルマータ"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "シャドウマスター",
-            "ブラックオリンピア"
-          ]
-        },
-        {
-          "pair": [
-            null,
-            null
-          ],
-          "names": [
-            "シャドウマスター",
-            "サガルマータ"
+            "ブラックオリンピア",
+            "ラストスマイル"
           ]
         },
         {
@@ -2170,342 +2636,67 @@
           ],
           "names": [
             "ブラックオリンピア",
-            "サガルマータ"
+            "ゴーイントゥスカイ"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ブラックオリンピア",
+            "タイダルロック"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ラストスマイル",
+            "ゴーイントゥスカイ"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ラストスマイル",
+            "タイダルロック"
+          ]
+        },
+        {
+          "pair": [
+            null,
+            null
+          ],
+          "names": [
+            "ゴーイントゥスカイ",
+            "タイダルロック"
           ]
         }
       ],
       "comboCount": 6,
       "amount": 600,
-      "composition": "2ninki+2ana",
+      "composition": "4shijin-external",
       "fallback": false,
       "meta": {
-        "composition": "2ninki+2ana",
-        "ninkiCount": 2,
-        "anaCount": 2,
-        "fallback": false,
-        "ninkiPoolSize": 3,
-        "anaPoolSize": 8,
-        "minOdds": 10.0,
-        "minScore": 3.0
+        "composition": "4shijin-external-cross",
+        "ninkiCount": 3,
+        "anaCount": 1,
+        "note": "4神(青龍/朱雀/白虎/玄武)整合+外部総合指標クロスチェック済み"
       }
     },
     "totalSpend": 800,
     "presentation": {
-      "generatedAt": "2026-04-23T11:43:16",
-      "style": "shijin-oracle-v1",
-      "horses": [
-        {
-          "rank": 1,
-          "pickOrder": 1,
-          "num": null,
-          "name": "ノーブルサヴェージ",
-          "role": "本命",
-          "roleTag": "main",
-          "buyRole": "単勝軸・複勝軸・ワイド核",
-          "popularity": "popular",
-          "shijinGrades": {
-            "seiryu": "S",
-            "suzaku": null,
-            "byakko": null,
-            "genbu": "A"
-          },
-          "score": 11.5,
-          "expectedOdds": 5.9,
-          "jockey": "レーン",
-          "trainer": "森一",
-          "sire": "リオンディーズ",
-          "broodmareSire": "マンハッタンカフェ",
-          "gaikyuLabel": "ノーザンF天栄",
-          "relKeyword": "無敗の先行力",
-          "shinganKeyword": null,
-          "lapChar": null,
-          "comment": "関係者からは「無敗の先行力」の声が上がり、スタート形の良さと自ペースで込める構えはこの馬の最大の武器。外厩はノーザンF天栄で実績2-0-0-0と相性◎、今回も状態は信頼できる。軸として勝負できる一頭。",
-          "reasons": [
-            "🐉 言霊 S：関係者証言「無敗の先行力」",
-            "🐢 外厩 A：ノーザンF天栄 (2-0-0-0)",
-            "血統：父リオンディーズ / 母父マンハッタンカフェ"
-          ],
-          "risks": [
-            "四神揃い率低、スコアは暗値推定"
-          ]
-        },
-        {
-          "rank": 2,
-          "pickOrder": 2,
-          "num": null,
-          "name": "シャドウマスター",
-          "role": "対抗",
-          "roleTag": "counter",
-          "buyRole": "ワイド核の相手",
-          "popularity": "hole",
-          "shijinGrades": {
-            "seiryu": "S",
-            "suzaku": null,
-            "byakko": null,
-            "genbu": "A"
-          },
-          "score": 11.5,
-          "expectedOdds": 30.7,
-          "jockey": "北村友",
-          "trainer": "杉山晴",
-          "sire": "キタサンブラック",
-          "broodmareSire": "ヴィクトワールピサ",
-          "gaikyuLabel": "社台F",
-          "relKeyword": "好位立ち回り◎",
-          "shinganKeyword": null,
-          "lapChar": null,
-          "comment": "関係者からは「好位立ち回り◎」の声が上がり、機敏に勝ちに行ける立ち回りはこの馬の最大の武器。外厩は社台Fで実績2-0-0-1と相性◎、今回も状態は信頼できる。対抗として固く抑える。",
-          "reasons": [
-            "🐉 言霊 S：関係者証言「好位立ち回り◎」",
-            "🐢 外厩 A：社台F (2-0-0-1)",
-            "血統：父キタサンブラック / 母父ヴィクトワールピサ"
-          ],
-          "risks": [
-            "四神揃い率低、スコアは暗値推定"
-          ]
-        },
-        {
-          "rank": 3,
-          "pickOrder": 3,
-          "num": null,
-          "name": "ブラックオリンピア",
-          "role": "押さえ",
-          "roleTag": "support",
-          "buyRole": "ワイド計算内",
-          "popularity": "popular",
-          "shijinGrades": {
-            "seiryu": "S",
-            "suzaku": null,
-            "byakko": null,
-            "genbu": "B"
-          },
-          "score": 10.0,
-          "expectedOdds": 3.7,
-          "jockey": "川田",
-          "trainer": "友道",
-          "sire": "キタサンブラック",
-          "broodmareSire": "ピエロ",
-          "gaikyuLabel": "在厩調整",
-          "relKeyword": "スタミナ距離◎",
-          "shinganKeyword": null,
-          "lapChar": null,
-          "comment": "関係者からは「スタミナ距離◎」の声が上がり、長けるぐらいを望む能力はこの馬の最大の武器。在厩仕上げ。変わらずの調整で今回に臨む。ワイドの計算内。連に付けたい一頭。",
-          "reasons": [
-            "🐉 言霊 S：関係者証言「スタミナ距離◎」",
-            "血統：父キタサンブラック / 母父ピエロ",
-            "騎手：川田"
-          ],
-          "risks": [
-            "外厩データ無、在厩仕上げの上振れ不安作る",
-            "四神揃い率低、スコアは暗値推定"
-          ]
-        },
-        {
-          "rank": 5,
-          "pickOrder": 4,
-          "num": null,
-          "name": "サガルマータ",
-          "role": "穴枠",
-          "roleTag": "hole",
-          "buyRole": "ワイド穴枠",
-          "popularity": "hole",
-          "shijinGrades": {
-            "seiryu": "A",
-            "suzaku": null,
-            "byakko": null,
-            "genbu": "A"
-          },
-          "score": 7.5,
-          "expectedOdds": 13.9,
-          "jockey": "横山武",
-          "trainer": "福永",
-          "sire": "コントレイル",
-          "broodmareSire": "シティバンカー",
-          "gaikyuLabel": "大山ヒルズ",
-          "relKeyword": "2400適性抜群",
-          "shinganKeyword": null,
-          "lapChar": null,
-          "comment": "関係者コメントは「2400適性抜群」。馬身の混乱しない長距離適性は今回も期待できる資質。外厩は大山ヒルズで実績1-0-1-0と相性◎、今回も状態は信頼できる。人気と穴の縝目、遊びゞころに秀出た資質。",
-          "reasons": [
-            "🐉 言霊 A：関係者証言「2400適性抜群」",
-            "🐢 外厩 A：大山ヒルズ (1-0-1-0)",
-            "血統：父コントレイル / 母父シティバンカー"
-          ],
-          "risks": [
-            "四神揃い率低、スコアは暗値推定"
-          ]
-        }
-      ],
-      "dropped": [
-        {
-          "name": "アローメタル",
-          "num": null,
-          "rank": 4,
-          "score": 7.5,
-          "expectedOdds": 5.9,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "ミッキーファルコン",
-          "num": null,
-          "rank": 6,
-          "score": 7.5,
-          "expectedOdds": 26.7,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "ノチェセラーダ",
-          "num": null,
-          "rank": 7,
-          "score": 7.5,
-          "expectedOdds": 44.5,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "テルヒコウ",
-          "num": null,
-          "rank": 8,
-          "score": 6.0,
-          "expectedOdds": 23.2,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "ラストスマイル",
-          "num": null,
-          "rank": 9,
-          "score": 6.0,
-          "expectedOdds": 24.0,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "エーデルゼーレ",
-          "num": null,
-          "rank": 10,
-          "score": 6.0,
-          "expectedOdds": 56.3,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "カットソロ",
-          "num": null,
-          "rank": 11,
-          "score": 6.0,
-          "expectedOdds": 57.8,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "ゴーイントゥスカイ",
-          "num": null,
-          "rank": 12,
-          "score": 0.0,
-          "expectedOdds": 13.1,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "タイダルロック",
-          "num": null,
-          "rank": 13,
-          "score": 0.0,
-          "expectedOdds": 14.0,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "オリオンブレード",
-          "num": null,
-          "rank": 14,
-          "score": 0.0,
-          "expectedOdds": 78.0,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "ケントン",
-          "num": null,
-          "rank": 15,
-          "score": 0.0,
-          "expectedOdds": 116.1,
-          "note": "目立った評価なく、今回はパス。"
-        },
-        {
-          "name": "オルフセン",
-          "num": null,
-          "rank": 16,
-          "score": -2.5,
-          "expectedOdds": 17.4,
-          "note": "C判定多く積算伸びず、スキップ。"
-        },
-        {
-          "name": "ヴィサージュ",
-          "num": null,
-          "rank": 17,
-          "score": -2.5,
-          "expectedOdds": 19.2,
-          "note": "C判定多く積算伸びず、スキップ。"
-        },
-        {
-          "name": "アッカン",
-          "num": null,
-          "rank": 18,
-          "score": -2.5,
-          "expectedOdds": 48.8,
-          "note": "C判定多く積算伸びず、スキップ。"
-        },
-        {
-          "name": "ボンドマティーニ",
-          "num": null,
-          "rank": 19,
-          "score": -4.0,
-          "expectedOdds": 55.9,
-          "note": "C判定多く積算伸びず、スキップ。"
-        },
-        {
-          "name": "ベルウッドクレド",
-          "num": null,
-          "rank": 20,
-          "score": -4.0,
-          "expectedOdds": 87.8,
-          "note": "C判定多く積算伸びず、スキップ。"
-        },
-        {
-          "name": "パラディオン",
-          "num": null,
-          "rank": 21,
-          "score": -4.0,
-          "expectedOdds": 125.9,
-          "note": "C判定多く積算伸びず、スキップ。"
-        },
-        {
-          "name": "ヨカオウ",
-          "num": null,
-          "rank": 22,
-          "score": -4.0,
-          "expectedOdds": 131.9,
-          "note": "C判定多く積算伸びず、スキップ。"
-        },
-        {
-          "name": "ヒシアムルーズ",
-          "num": null,
-          "rank": 23,
-          "score": -5.0,
-          "expectedOdds": 297.4,
-          "note": "C判定多く積算伸びず、スキップ。"
-        },
-        {
-          "name": "コスモギガンティア",
-          "num": null,
-          "rank": 24,
-          "score": -8.0,
-          "expectedOdds": 104.2,
-          "note": "関係者コメントが首を横に、消し。"
-        },
-        {
-          "name": "トゥーナスタディ",
-          "num": null,
-          "rank": 25,
-          "score": -8.0,
-          "expectedOdds": 999.9,
-          "note": "関係者コメントが首を横に、消し。"
-        }
-      ]
+      "headline": "WIN5 青葉賞 4頭ワイドBOX確定",
+      "tanLine": "単勝 100円: ブラックオリンピア（青龍S×玄武1位×SAV90の3冠整合）",
+      "fukuLine": "複勝 100円: ラストスマイル（外部評価1位(10人気)・妙味S・朱雀1位）",
+      "wideLine": "ワイドBOX 100円×6点: ブラックオリンピア / ラストスマイル / ゴーイントゥスカイ / タイダルロック"
     }
   }
 }
