@@ -28,7 +28,7 @@ def _strip(s):
 
 
 def parse_shutuba(html):
-    """全頭の {gate, num, name, sire, dam, bms, trainer, jockey, sexAge, kinryo} dictを返す。馬名で検索可能"""
+    """全頭の {gate, num, name, sire, dam, bms, trainer, jockey, sexAge, kinryo, prevName, prevFinish, prevDate, prevDist, prevTime} dictを返す。馬名で検索可能"""
     out = []
     # HorseList行抽出
     for row in re.findall(r'<tr[^>]*class="HorseList"[^>]*>(.*?)</tr>', html, re.S):
@@ -54,19 +54,53 @@ def parse_shutuba(html):
             kg = re.search(r'<span>(\d+(?:\.\d+)?)</span>', jt.group(1))
             kinryo = kg.group(1) if kg else None
 
+        # 前走 (最初のPast td)
+        prev_name, prev_finish, prev_date, prev_dist, prev_time = '', '', '', '', ''
+        past_m = re.search(r'<td[^>]*class="Past[^"]*"[^>]*>(.*?)</td>', row, re.S)
+        if past_m:
+            past = past_m.group(1)
+            d01 = re.search(r'<div class="Data01">(.*?)</div>', past, re.S)
+            if d01:
+                ds = re.search(r'<span>([^<]+?)</span>', d01.group(1))
+                if ds:
+                    prev_date = ds.group(1).replace('&nbsp;', ' ').strip()
+                fn = re.search(r'<span class="Num">([^<]+)</span>', d01.group(1))
+                if fn:
+                    prev_finish = fn.group(1).strip()
+            d02 = re.search(r'<div class="Data02">(.*?)</div>', past, re.S)
+            if d02:
+                # <a href...>レース名<span>grade</span></a> から レース名のみ
+                a = re.search(r'<a[^>]*>([^<]+?)(?:<span|</a>)', d02.group(1), re.S)
+                if a:
+                    prev_name = a.group(1).strip()
+            d05 = re.search(r'<div class="Data05">([^<]+)', past)
+            if d05:
+                # "ダ1400 1:24.2 " → 距離 + タイム
+                txt = re.sub(r'\s+', ' ', d05.group(1)).strip()
+                parts = txt.split(' ', 1)
+                if parts:
+                    prev_dist = parts[0]
+                    if len(parts) > 1:
+                        prev_time = parts[1].strip()
+
         if not name_m:
             continue
         out.append({
-            'gate':    gate.group(1) if gate else '',
-            'num':     num.group(1)  if num  else '',
-            'name':    name_m.group(1).strip(),
-            'sire':    sire.group(1).strip() if sire else '',
-            'dam':     dam.group(1).strip()  if dam  else '',
-            'bms':     bms.group(1).strip()  if bms  else '',
-            'trainer': trainer_m.group(1).strip().split('・')[-1] if trainer_m else '',
-            'jockey':  jockey or '',
-            'sexAge':  barei.group(1).strip() if barei else '',
-            'kinryo':  kinryo or '',
+            'gate':       gate.group(1) if gate else '',
+            'num':        num.group(1)  if num  else '',
+            'name':       name_m.group(1).strip(),
+            'sire':       sire.group(1).strip() if sire else '',
+            'dam':        dam.group(1).strip()  if dam  else '',
+            'bms':        bms.group(1).strip()  if bms  else '',
+            'trainer':    trainer_m.group(1).strip().split('・')[-1] if trainer_m else '',
+            'jockey':     jockey or '',
+            'sexAge':     barei.group(1).strip() if barei else '',
+            'kinryo':     kinryo or '',
+            'prevName':   prev_name,
+            'prevFinish': prev_finish,
+            'prevDate':   prev_date,
+            'prevDist':   prev_dist,
+            'prevTime':   prev_time,
         })
     return out
 
@@ -96,7 +130,7 @@ def merge_to_horses(horses_top, shutuba_list):
 
 
 def merge_to_presentation(pres_horses, shutuba_list):
-    """presentation.horses[] にも num/gate/jockey 等を反映（"—" を上書き）"""
+    """presentation.horses[] にも num/gate/jockey/prevName/prevFinish 等を反映（"—" を上書き）"""
     by_name = {h['name']: h for h in shutuba_list}
     for p in pres_horses:
         s = by_name.get(p.get('name'))
@@ -109,6 +143,8 @@ def merge_to_presentation(pres_horses, shutuba_list):
         if p.get('bms')  in ('—', '', None):    p['bms']     = s.get('bms')     or '—'
         if p.get('jockey') in ('—', '', None):  p['jockey']  = s.get('jockey')  or '—'
         if p.get('trainer') in ('—', '', None): p['trainer'] = s.get('trainer') or '—'
+        if p.get('prevName') in ('—', '', None):   p['prevName']   = s.get('prevName')   or '—'
+        if p.get('prevFinish') in ('—', '', None): p['prevFinish'] = s.get('prevFinish') or '—'
     return pres_horses
 
 
