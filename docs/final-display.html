@@ -674,9 +674,14 @@ function render(){
           <span class="ds-pay">払　¥${k.pay.toLocaleString()}</span>
         </div>` : '';
 
+      // タイトル：曜日付き
+      const yobi = ['日','月','火','水','木','金','土'];
+      const dt = new Date(currentDate + 'T00:00:00');
+      const yobiLabel = isNaN(dt.getTime()) ? '本　日' : `${yobi[dt.getDay()]}　曜　日`;
+
       summaryEl.innerHTML = `
         <div class="day-summary">
-          <div class="day-summary-title mincho">本　日　の　戦　績</div>
+          <div class="day-summary-title mincho">${yobiLabel}　の　戦　績</div>
           ${kindRow('ワイド', w, wRate)}
           ${kindRow('馬　連', u, uRate)}
           <div class="day-summary-grand">
