@@ -161,6 +161,11 @@ a{color:var(--kin);text-decoration:none;}
 .omamori.m-taikou{border-color:var(--taikou);}
 .omamori.m-tana{border-color:var(--tana);}
 .omamori.m-renka{border-color:var(--renka);}
+/* 4神カード border + glow */
+.omamori.m-seiryu{border-color:rgba(140,192,222,.5);box-shadow:0 2px 20px rgba(140,192,222,.12),0 0 0 1px rgba(140,192,222,.2);}
+.omamori.m-suzaku{border-color:rgba(224,140,125,.55);box-shadow:0 2px 20px rgba(224,140,125,.15),0 0 0 1px rgba(224,140,125,.2);}
+.omamori.m-byakko{border-color:rgba(232,208,130,.55);box-shadow:0 2px 20px rgba(232,208,130,.15),0 0 0 1px rgba(232,208,130,.2);}
+.omamori.m-genbu {border-color:rgba(156,182,141,.5);box-shadow:0 2px 20px rgba(156,182,141,.12),0 0 0 1px rgba(156,182,141,.2);}
 
 .omamori-bar{
   background:linear-gradient(180deg,var(--shu) 0%,#6a1f1f 100%);
@@ -173,6 +178,11 @@ a{color:var(--kin);text-decoration:none;}
 .omamori-bar .mark-inline{
   display:inline-block;font-size:14px;margin-right:8px;
   color:var(--kin);font-weight:900;
+}
+.omamori-bar .bar-grade{
+  display:inline-block;margin-left:6px;font-size:10.5px;
+  color:var(--kin);letter-spacing:.05em;font-weight:900;
+  opacity:.85;
 }
 .omamori-bar::after{
   content:'';position:absolute;left:10%;right:10%;bottom:-3px;height:1px;
@@ -623,6 +633,9 @@ function formatDayHeader(d, label){
 function markClass(mark){
   return ({'◎':'m-honmei','○':'m-taikou','▲':'m-tana','△':'m-renka'})[mark] || '';
 }
+function godClass(god){
+  return ({'seiryu':'m-seiryu','suzaku':'m-suzaku','byakko':'m-byakko','genbu':'m-genbu'})[god] || '';
+}
 
 function finishClass(f){
   if(!f || f === '—') return 'fin-lose';
@@ -657,9 +670,9 @@ function omamoriHtml(p, raceResult){
   }
 
   return `
-  <div class="omamori ${markClass(p.mark)}${rank ? ' has-result' : ''}">
+  <div class="omamori ${godClass(p.god) || markClass(p.mark)}${rank ? ' has-result' : ''}">
     <div class="omamori-bar">
-      <span class="mark-inline">${p.mark}</span>御 守（${p.markLabel}）
+      <span class="mark-inline">${p.godEmoji || p.mark}</span>${p.godLabel ? `${p.godLabel}1位` : `御 守（${p.markLabel}）`}${p.godGrade ? `<span class="bar-grade">[${p.godGrade}]</span>` : ''}
       ${rankBadge}
     </div>
     <div class="omamori-body">

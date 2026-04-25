@@ -1662,178 +1662,198 @@
     "meta": "東京11R ／ 芝2000m ／ 13頭",
     "horses": [
       {
-        "mark": "◎",
-        "markLabel": "本命",
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐉",
+        "markLabel": "青龍1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨①",
+        "name": "エンネ",
         "ninki": "—",
-        "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "—",
-        "trainer": "—",
-        "gaikyu": "—",
+        "odds": "5.7",
+        "sire": "キズナ",
+        "bms": "メダグリアドーロ",
+        "jockey": "ディー",
+        "trainer": "吉岡",
+        "gaikyu": "チャンピオンヒルズ",
         "prevName": "—",
         "prevFinish": "—",
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "S"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "S",
             "soku": "—",
-            "gan": "—"
+            "gan": "S"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "血統36%・媒体高評価・2軸一致"
       },
       {
-        "mark": "○",
-        "markLabel": "対抗",
+        "god": "suzaku",
+        "godLabel": "朱雀",
+        "godEmoji": "🔥",
+        "godGrade": "A",
+        "rankInGod": 1,
+        "mark": "🔥",
+        "markLabel": "朱雀1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨②",
+        "name": "ラフターラインズ",
         "ninki": "—",
-        "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "—",
-        "trainer": "—",
-        "gaikyu": "—",
+        "odds": "2.3",
+        "sire": "アルアイン",
+        "bms": "キングカメハメハ",
+        "jockey": "レーン",
+        "trainer": "小笠",
+        "gaikyu": "ノーザンファーム天栄",
         "prevName": "—",
         "prevFinish": "—",
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "A"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "A",
             "soku": "—",
-            "gan": "—"
+            "gan": "A"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "能力高もコース血統0%慎重"
       },
       {
-        "mark": "▲",
-        "markLabel": "単穴",
+        "god": "byakko",
+        "godLabel": "白虎",
+        "godEmoji": "🐅",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐅",
+        "markLabel": "白虎1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨③",
+        "name": "ペイシャシス",
         "ninki": "—",
-        "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "—",
-        "trainer": "—",
-        "gaikyu": "—",
+        "odds": "105.5",
+        "sire": "シスキン",
+        "bms": "スペシャルウィーク",
+        "jockey": "北村宏",
+        "trainer": "加藤公",
+        "gaikyu": "チャンピオンヒルズ",
         "prevName": "—",
         "prevFinish": "—",
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "A"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "—",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "S"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "センス有・差し切る"
       },
       {
-        "mark": "△",
-        "markLabel": "連下",
+        "god": "genbu",
+        "godLabel": "玄武",
+        "godEmoji": "🐢",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐢",
+        "markLabel": "玄武1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨④",
+        "name": "サムシングスイート",
         "ninki": "—",
-        "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "—",
-        "trainer": "—",
-        "gaikyu": "—",
+        "odds": "10.1",
+        "sire": "サートゥルナーリア",
+        "bms": "ヴィクトワールピサ",
+        "jockey": "酒井",
+        "trainer": "伊藤大",
+        "gaikyu": "チャンピオンヒルズ",
         "prevName": "—",
         "prevFinish": "—",
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "B"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "A",
             "soku": "—",
-            "gan": "—"
+            "gan": "A"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "S"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "位置取り奏功"
       }
     ],
     "bets": {
       "strategy": "wide-only",
       "wide": {
         "horses": [
-          "未降臨①",
-          "未降臨②",
-          "未降臨③",
-          "未降臨④"
+          "エンネ",
+          "ラフターラインズ",
+          "ペイシャシス",
+          "サムシングスイート"
         ],
         "perPoint": 100
       },

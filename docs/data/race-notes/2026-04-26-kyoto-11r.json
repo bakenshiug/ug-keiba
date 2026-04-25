@@ -2535,178 +2535,198 @@
     "meta": "京都11R ／ 芝1600m（外） ／ 18頭",
     "horses": [
       {
-        "mark": "◎",
-        "markLabel": "本命",
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐉",
+        "markLabel": "青龍1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨①",
+        "name": "ベラジオボンド",
         "ninki": "—",
-        "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "—",
-        "trainer": "—",
-        "gaikyu": "—",
+        "odds": "8.3",
+        "sire": "ロードカナロア",
+        "bms": "ドバイデスティネイション",
+        "jockey": "北村友",
+        "trainer": "上村",
+        "gaikyu": "在厩調整",
         "prevName": "—",
         "prevFinish": "—",
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "S"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "—",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "重賞十分・強くなる余地"
       },
       {
-        "mark": "○",
-        "markLabel": "対抗",
+        "god": "suzaku",
+        "godLabel": "朱雀",
+        "godEmoji": "🔥",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🔥",
+        "markLabel": "朱雀1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨②",
+        "name": "アドマイヤズーム",
         "ninki": "—",
-        "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "—",
-        "trainer": "—",
-        "gaikyu": "—",
+        "odds": "4.4",
+        "sire": "モーリス",
+        "bms": "ハーツクライ",
+        "jockey": "武豊",
+        "trainer": "友道",
+        "gaikyu": "山元トレーニング",
         "prevName": "—",
         "prevFinish": "—",
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "B"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "S",
             "soku": "—",
-            "gan": "—"
+            "gan": "S"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "敗因明確も伸び欠く"
       },
       {
-        "mark": "▲",
-        "markLabel": "単穴",
+        "god": "byakko",
+        "godLabel": "白虎",
+        "godEmoji": "🐅",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐅",
+        "markLabel": "白虎1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨③",
+        "name": "エルトンバローズ",
         "ninki": "—",
-        "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "—",
-        "trainer": "—",
-        "gaikyu": "—",
+        "odds": "14.7",
+        "sire": "ディープブリランテ",
+        "bms": "ブライアンズタイム",
+        "jockey": "西村淳",
+        "trainer": "杉山晴",
+        "gaikyu": "チャンピオンヒルズ",
         "prevName": "—",
         "prevFinish": "—",
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "D"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "—",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "S"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "本調子にない"
       },
       {
-        "mark": "△",
-        "markLabel": "連下",
+        "god": "genbu",
+        "godLabel": "玄武",
+        "godEmoji": "🐢",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐢",
+        "markLabel": "玄武1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨④",
+        "name": "ショウナンアデイブ",
         "ninki": "—",
-        "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "—",
-        "trainer": "—",
-        "gaikyu": "—",
+        "odds": "37.7",
+        "sire": "ディープインパクト",
+        "bms": "マインシャフト",
+        "jockey": "池添",
+        "trainer": "高野",
+        "gaikyu": "ノーザンファームしがらき",
         "prevName": "—",
         "prevFinish": "—",
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "B"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "—",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "S"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "走る気持ち戻る"
       }
     ],
     "bets": {
       "strategy": "wide-only",
       "wide": {
         "horses": [
-          "未降臨①",
-          "未降臨②",
-          "未降臨③",
-          "未降臨④"
+          "ベラジオボンド",
+          "アドマイヤズーム",
+          "エルトンバローズ",
+          "ショウナンアデイブ"
         ],
         "perPoint": 100
       },

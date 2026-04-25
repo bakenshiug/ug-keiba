@@ -640,11 +640,16 @@
     "meta": "福島11R ／ 芝1200m ／ 16頭",
     "horses": [
       {
-        "mark": "◎",
-        "markLabel": "本命",
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐉",
+        "markLabel": "青龍1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨①",
+        "name": "サウンド",
         "ninki": "—",
         "odds": "—",
         "sire": "—",
@@ -657,35 +662,40 @@
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "S"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "—",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "神託確認待ち"
       },
       {
-        "mark": "○",
-        "markLabel": "対抗",
+        "god": "suzaku",
+        "godLabel": "朱雀",
+        "godEmoji": "🔥",
+        "godGrade": "A",
+        "rankInGod": 1,
+        "mark": "🔥",
+        "markLabel": "朱雀1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨②",
+        "name": "シュタールヴィント",
         "ninki": "—",
         "odds": "—",
         "sire": "—",
@@ -698,35 +708,40 @@
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "—"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "A",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "神託確認待ち"
       },
       {
-        "mark": "▲",
-        "markLabel": "単穴",
+        "god": "byakko",
+        "godLabel": "白虎",
+        "godEmoji": "🐅",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐅",
+        "markLabel": "白虎1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨③",
+        "name": "イツモニコニコ",
         "ninki": "—",
         "odds": "—",
         "sire": "—",
@@ -739,35 +754,40 @@
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "—"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "—",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "S"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "—"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "神託確認待ち"
       },
       {
-        "mark": "△",
-        "markLabel": "連下",
+        "god": "genbu",
+        "godLabel": "玄武",
+        "godEmoji": "🐢",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐢",
+        "markLabel": "玄武1位",
         "num": "—",
         "gate": "—",
-        "name": "未降臨④",
+        "name": "ナムラローズマリー",
         "ninki": "—",
         "odds": "—",
         "sire": "—",
@@ -780,38 +800,38 @@
         "badges": [
           {
             "t": "seiryu",
-            "g": "—",
-            "label": "青龍（言霊）"
+            "label": "青龍（言霊）",
+            "g": "—"
           },
           {
             "t": "suzaku",
-            "g": "—",
             "label": "朱雀（速眼）",
+            "g": "—",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "—",
-            "label": "白虎（ラップ）"
+            "label": "白虎（ラップ）",
+            "g": "—"
           },
           {
             "t": "genbu",
-            "g": "—",
-            "label": "玄武（地脈）"
+            "label": "玄武（地脈）",
+            "g": "S"
           }
         ],
-        "comment": "神託降臨待ち…"
+        "comment": "神託確認待ち"
       }
     ],
     "bets": {
       "strategy": "wide-only",
       "wide": {
         "horses": [
-          "未降臨①",
-          "未降臨②",
-          "未降臨③",
-          "未降臨④"
+          "サウンド",
+          "シュタールヴィント",
+          "イツモニコニコ",
+          "ナムラローズマリー"
         ],
         "perPoint": 100
       },
