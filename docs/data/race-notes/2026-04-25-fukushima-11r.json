@@ -1084,15 +1084,7 @@
       }
     ],
     "bets": {
-      "strategy": "4horse-box",
-      "tan": {
-        "name": "キタノソワレ",
-        "amount": 100
-      },
-      "fuku": {
-        "name": "ビルカール",
-        "amount": 100
-      },
+      "strategy": "wide-only",
       "wide": {
         "horses": [
           "キタノソワレ",
@@ -1102,7 +1094,7 @@
         ],
         "perPoint": 100
       },
-      "totalSpend": 800
+      "totalSpend": 600
     },
     "note": "外部総合指標で混戦（接戦）判定 → 4頭ワイドBOX（800円）。外部評価1位キタノソワレを軸に、ビルカール穴＋ルージュアズライトピンポイント＋スノーサイレンス玄武S級で4神統合。ゴールドハンマー「いずれチャンス」致命で排除。",
     "win5Picks": [
@@ -1131,6 +1123,365 @@
         "note": "外部評価1位・仕上66・妙味A"
       }
     ],
-    "win5Summary": "UG哲学適用でルージュアズライト青龍S＝複勝軸に抜擢（自厩舎◎印・昨秋この舞台逆算のピンポイント照準）。ビルカール（青龍A×朱雀A×好調キープ）・スノーサイレンス（玄武S級・通用の力）・キタノソワレ（外部1位・仕上66・妙味A）の4頭でWIN5三層構成（③④⑤⑪）。カウスリップ・プレゼンティーアは買い目外へ。"
+    "win5Summary": "UG哲学適用でルージュアズライト青龍S＝複勝軸に抜擢（自厩舎◎印・昨秋この舞台逆算のピンポイント照準）。ビルカール（青龍A×朱雀A×好調キープ）・スノーサイレンス（玄武S級・通用の力）・キタノソワレ（外部1位・仕上66・妙味A）の4頭でWIN5三層構成（③④⑤⑪）。カウスリップ・プレゼンティーアは買い目外へ。",
+    "raceId": "202603010511",
+    "result": {
+      "fetched": "2026-04-25T16:31:28",
+      "raceId": "202603010511",
+      "horses": [
+        {
+          "rank": "1",
+          "gate": "6",
+          "num": "8",
+          "name": "プレゼンティーア",
+          "sexAge": "牝5",
+          "kinryo": "56.0",
+          "jockey": "松本",
+          "time": "1:07.6",
+          "finalNinki": "7",
+          "finalOdds": "10.4",
+          "last3F": "",
+          "trainer": "田中克",
+          "weight": "492(-2)"
+        },
+        {
+          "rank": "2",
+          "gate": "8",
+          "num": "11",
+          "name": "ルージュアズライト",
+          "sexAge": "牝6",
+          "kinryo": "56.0",
+          "jockey": "荻野極",
+          "time": "1:07.8",
+          "finalNinki": "1",
+          "finalOdds": "5.2",
+          "last3F": "36.6",
+          "trainer": "森一",
+          "weight": "450(-6)"
+        },
+        {
+          "rank": "3",
+          "gate": "5",
+          "num": "6",
+          "name": "ワークソング",
+          "sexAge": "牡5",
+          "kinryo": "58.0",
+          "jockey": "国分恭",
+          "time": "1:08.0",
+          "finalNinki": "2",
+          "finalOdds": "5.3",
+          "last3F": "",
+          "trainer": "牧浦",
+          "weight": "476(-6)"
+        },
+        {
+          "rank": "4",
+          "gate": "3",
+          "num": "3",
+          "name": "キタノソワレ",
+          "sexAge": "牝5",
+          "kinryo": "56.0",
+          "jockey": "丹内",
+          "time": "1:08.0",
+          "finalNinki": "4",
+          "finalOdds": "6.6",
+          "last3F": "",
+          "trainer": "本間",
+          "weight": "488(+8)"
+        },
+        {
+          "rank": "5",
+          "gate": "8",
+          "num": "12",
+          "name": "カウスリップ",
+          "sexAge": "牝4",
+          "kinryo": "56.0",
+          "jockey": "菊沢",
+          "time": "1:08.1",
+          "finalNinki": "9",
+          "finalOdds": "16.0",
+          "last3F": "36.6",
+          "trainer": "中舘",
+          "weight": "536(-6)"
+        },
+        {
+          "rank": "6",
+          "gate": "5",
+          "num": "5",
+          "name": "ビルカール",
+          "sexAge": "牡6",
+          "kinryo": "58.0",
+          "jockey": "石川",
+          "time": "1:08.2",
+          "finalNinki": "8",
+          "finalOdds": "15.5",
+          "last3F": "",
+          "trainer": "水野",
+          "weight": "476(+2)"
+        },
+        {
+          "rank": "7",
+          "gate": "6",
+          "num": "7",
+          "name": "ゴールドハンマー",
+          "sexAge": "牝4",
+          "kinryo": "56.0",
+          "jockey": "舟山",
+          "time": "1:08.4",
+          "finalNinki": "5",
+          "finalOdds": "7.8",
+          "last3F": "36.6",
+          "trainer": "村田",
+          "weight": "490(-2)"
+        },
+        {
+          "rank": "8",
+          "gate": "7",
+          "num": "9",
+          "name": "サザンエルフ",
+          "sexAge": "牝7",
+          "kinryo": "56.0",
+          "jockey": "横山琉",
+          "time": "1:08.7",
+          "finalNinki": "10",
+          "finalOdds": "20.4",
+          "last3F": "",
+          "trainer": "中川",
+          "weight": "486(-6)"
+        },
+        {
+          "rank": "9",
+          "gate": "2",
+          "num": "2",
+          "name": "イマージョン",
+          "sexAge": "牡4",
+          "kinryo": "58.0",
+          "jockey": "丸山",
+          "time": "1:09.2",
+          "finalNinki": "3",
+          "finalOdds": "6.3",
+          "last3F": "",
+          "trainer": "高野",
+          "weight": "512(0)"
+        },
+        {
+          "rank": "10",
+          "gate": "1",
+          "num": "1",
+          "name": "ジェネラーレ",
+          "sexAge": "牡5",
+          "kinryo": "58.0",
+          "jockey": "富田",
+          "time": "1:09.3",
+          "finalNinki": "6",
+          "finalOdds": "8.0",
+          "last3F": "",
+          "trainer": "野中",
+          "weight": "492(0)"
+        },
+        {
+          "rank": "11",
+          "gate": "7",
+          "num": "10",
+          "name": "シャカシャカシー",
+          "sexAge": "牡5",
+          "kinryo": "58.0",
+          "jockey": "長岡",
+          "time": "1:09.7",
+          "finalNinki": "11",
+          "finalOdds": "24.9",
+          "last3F": "",
+          "trainer": "茶木",
+          "weight": "524(+2)"
+        },
+        {
+          "rank": "取消",
+          "gate": "4",
+          "num": "4",
+          "name": "スノーサイレンス",
+          "sexAge": "牝4",
+          "kinryo": "56.0",
+          "jockey": "斎藤",
+          "time": "",
+          "finalNinki": "",
+          "finalOdds": "",
+          "last3F": "",
+          "trainer": "小栗",
+          "weight": ""
+        }
+      ],
+      "payouts": {
+        "tan": [
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": 1040,
+            "ninki": 7
+          }
+        ],
+        "fuku": [
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": 340,
+            "ninki": 7
+          },
+          {
+            "combo": [
+              "11"
+            ],
+            "amount": null,
+            "ninki": null
+          },
+          {
+            "combo": [
+              "6"
+            ],
+            "amount": null,
+            "ninki": null
+          }
+        ],
+        "wakuren": [
+          {
+            "combo": [
+              "6"
+            ],
+            "amount": 850,
+            "ninki": 1
+          },
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": null,
+            "ninki": null
+          }
+        ],
+        "umaren": [
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": 5050,
+            "ninki": 25
+          },
+          {
+            "combo": [
+              "11"
+            ],
+            "amount": null,
+            "ninki": null
+          }
+        ],
+        "wide": [
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": 1650,
+            "ninki": 29
+          },
+          {
+            "combo": [
+              "11"
+            ],
+            "amount": 1230,
+            "ninki": 19
+          },
+          {
+            "combo": [
+              "6"
+            ],
+            "amount": null,
+            "ninki": null
+          },
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": null,
+            "ninki": null
+          },
+          {
+            "combo": [
+              "6"
+            ],
+            "amount": null,
+            "ninki": null
+          },
+          {
+            "combo": [
+              "11"
+            ],
+            "amount": null,
+            "ninki": null
+          }
+        ],
+        "umatan": [
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": 11080,
+            "ninki": 57
+          },
+          {
+            "combo": [
+              "11"
+            ],
+            "amount": null,
+            "ninki": null
+          }
+        ],
+        "sanrenpuku": [
+          {
+            "combo": [
+              "6"
+            ],
+            "amount": 8340,
+            "ninki": 30
+          },
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": null,
+            "ninki": null
+          },
+          {
+            "combo": [
+              "11"
+            ],
+            "amount": null,
+            "ninki": null
+          }
+        ],
+        "sanrentan": [
+          {
+            "combo": [
+              "8"
+            ],
+            "amount": 76380,
+            "ninki": 376
+          },
+          {
+            "combo": [
+              "11"
+            ],
+            "amount": null,
+            "ninki": null
+          },
+          {
+            "combo": [
+              "6"
+            ],
+            "amount": null,
+            "ninki": null
+          }
+        ]
+      }
+    }
   }
 }
