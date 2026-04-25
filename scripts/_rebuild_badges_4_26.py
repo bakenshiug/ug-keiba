@@ -17,9 +17,17 @@ def get_god_grade(horse, god):
     if god == 'suzaku':
         return (horse.get('suzakuGrade') or {}).get('grade')
     if god == 'byakko':
-        return (horse.get('yugomiLapGrade') or {}).get('grade')
+        # 白虎: yugomiLapGrade > lapFactors.grade フォールバック
+        ylg = (horse.get('yugomiLapGrade') or {}).get('grade')
+        if ylg:
+            return ylg
+        return (horse.get('lapFactors') or {}).get('grade')
     if god == 'genbu':
-        return (horse.get('courseDataGrade') or {}).get('grade')
+        # 玄武: courseDataGrade > gaikyuFactor.grade フォールバック（auto_pick.pyロジックと整合）
+        cd = (horse.get('courseDataGrade') or {}).get('grade')
+        if cd:
+            return cd
+        return (horse.get('gaikyuFactor') or {}).get('grade')
     return None
 
 
