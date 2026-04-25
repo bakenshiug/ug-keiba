@@ -5,7 +5,92 @@
     "date": "2026-04-26",
     "meta": "東京10R ／ ダ1600m ／ 16頭"
   },
-  "horses": [],
+  "horses": [
+    {
+      "name": "ドンインザムード",
+      "relComment": {
+        "grade": "S"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "B"
+      }
+    },
+    {
+      "name": "バトルクライ",
+      "relComment": {
+        "grade": "B"
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "B"
+      }
+    },
+    {
+      "name": "オウギノカナメ",
+      "relComment": {
+        "grade": "B"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "S"
+      },
+      "courseDataGrade": {
+        "grade": "B"
+      }
+    },
+    {
+      "name": "ペリエール",
+      "relComment": {
+        "grade": "A"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "S"
+      }
+    }
+  ],
   "presentation": {
     "win5Layer": "WIN2",
     "startTime": "15:00",
@@ -41,19 +126,19 @@
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "A",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",
             "label": "玄武（地脈）",
-            "g": "—"
+            "g": "B"
           }
         ],
         "comment": "言霊S、在厩仕上げに迷い無し。バレンタイン2着の流れ、ここで勝ち切る。",
@@ -84,7 +169,7 @@
           {
             "t": "seiryu",
             "label": "青龍（言霊）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "suzaku",
@@ -96,12 +181,12 @@
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",
             "label": "玄武（地脈）",
-            "g": "—"
+            "g": "B"
           }
         ],
         "comment": "IDM最高点、ポラリスS9着は参考外。在厩集中で速眼が同期する。",
@@ -132,12 +217,12 @@
           {
             "t": "seiryu",
             "label": "青龍（言霊）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "B",
             "soku": "—",
             "gan": "—"
           },
@@ -149,7 +234,7 @@
           {
             "t": "genbu",
             "label": "玄武（地脈）",
-            "g": "—"
+            "g": "B"
           }
         ],
         "comment": "ダ1600のラップ理に最適化、トリプル赤の説得力。1番人気の背中に隠れず差す。",
@@ -180,19 +265,19 @@
           {
             "t": "seiryu",
             "label": "青龍（言霊）",
-            "g": "—"
+            "g": "A"
           },
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "B",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",

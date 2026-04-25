@@ -120,15 +120,23 @@
       "stable": "栗東吉岡",
       "suzakuGrade": {
         "grade": "S",
-        "soku": null,
+        "soku": {
+          "grade": "—"
+        },
         "gan": {
-          "grade": "S",
+          "grade": "—",
           "source": "iphHroAN4Sc",
           "url": "https://www.youtube.com/watch?v=iphHroAN4Sc",
           "keyword": "本命「本物・real deal」",
           "quote": "Enne is the real deal, no doubt about it. ... A horse that runs quite well, with a high potential to become a great horse."
         },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "A"
+      },
+      "courseDataGrade": {
+        "grade": "A"
       }
     },
     {
@@ -277,15 +285,23 @@
       "stable": "美浦伊藤大",
       "suzakuGrade": {
         "grade": "A",
-        "soku": null,
+        "soku": {
+          "grade": "—"
+        },
         "gan": {
-          "grade": "A",
+          "grade": "—",
           "source": "iphHroAN4Sc",
           "url": "https://www.youtube.com/watch?v=iphHroAN4Sc",
           "keyword": "関東3頭の一角（ニック判断A格上げ）",
           "quote": "There are three horses from the Kanto region. Something Sweet, Laughter Lines, Label Seine"
         },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "S"
       }
     },
     {
@@ -444,10 +460,20 @@
       "kinryo": 55.0,
       "stable": "栗東加藤公",
       "suzakuGrade": {
-        "grade": null,
-        "soku": null,
-        "gan": null,
+        "grade": "B",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "S"
+      },
+      "courseDataGrade": {
+        "grade": "A"
       }
     },
     {
@@ -560,15 +586,23 @@
       "stable": "美浦小笠",
       "suzakuGrade": {
         "grade": "A",
-        "soku": null,
+        "soku": {
+          "grade": "—"
+        },
         "gan": {
-          "grade": "A",
+          "grade": "—",
           "source": "iphHroAN4Sc",
           "url": "https://www.youtube.com/watch?v=iphHroAN4Sc",
           "keyword": "関東3頭の一角（ニック判断A格上げ）",
           "quote": "There are three horses from the Kanto region. Something Sweet, Laughter Lines, Label Seine"
         },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "A"
       }
     },
     {
@@ -1692,12 +1726,12 @@
             "label": "朱雀（速眼）",
             "g": "S",
             "soku": "—",
-            "gan": "S"
+            "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "A"
           },
           {
             "t": "genbu",
@@ -1740,12 +1774,12 @@
             "label": "朱雀（速眼）",
             "g": "A",
             "soku": "—",
-            "gan": "A"
+            "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",
@@ -1786,7 +1820,7 @@
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "B",
             "soku": "—",
             "gan": "—"
           },
@@ -1836,12 +1870,12 @@
             "label": "朱雀（速眼）",
             "g": "A",
             "soku": "—",
-            "gan": "A"
+            "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",

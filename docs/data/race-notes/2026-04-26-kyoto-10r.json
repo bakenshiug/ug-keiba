@@ -5,7 +5,92 @@
     "date": "2026-04-26",
     "meta": "京都10R ／ 芝1800m（外） ／ 18頭"
   },
-  "horses": [],
+  "horses": [
+    {
+      "name": "レイニング",
+      "relComment": {
+        "grade": "S"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "A"
+      }
+    },
+    {
+      "name": "ミスタージーティー",
+      "relComment": {
+        "grade": "B"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "A"
+      }
+    },
+    {
+      "name": "ショウナンラピダス",
+      "relComment": {
+        "grade": "B"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "S"
+      },
+      "courseDataGrade": {
+        "grade": "C"
+      }
+    },
+    {
+      "name": "レディーミコノス",
+      "relComment": {
+        "grade": "A"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "S"
+      }
+    }
+  ],
   "presentation": {
     "win5Layer": "WIN1",
     "startTime": "14:50",
@@ -41,19 +126,19 @@
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "B",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",
             "label": "玄武（地脈）",
-            "g": "—"
+            "g": "A"
           }
         ],
         "comment": "ノーザンF天栄帰り×戸崎、コース距離9-3-4-19、舞台は揃った。",
@@ -84,7 +169,7 @@
           {
             "t": "seiryu",
             "label": "青龍（言霊）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "suzaku",
@@ -96,12 +181,12 @@
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",
             "label": "玄武（地脈）",
-            "g": "—"
+            "g": "A"
           }
         ],
         "comment": "チャンピオンヒルズ23週の鍛錬、坂井×ドゥラメンテ。眠れる才の覚醒前夜。",
@@ -132,12 +217,12 @@
           {
             "t": "seiryu",
             "label": "青龍（言霊）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "C",
             "soku": "—",
             "gan": "—"
           },
@@ -149,7 +234,7 @@
           {
             "t": "genbu",
             "label": "玄武（地脈）",
-            "g": "—"
+            "g": "C"
           }
         ],
         "comment": "8枠18番でも、ラップが叫ぶ。HCトリプル赤の証は外枠の不利を凌駕する。",
@@ -180,19 +265,19 @@
           {
             "t": "seiryu",
             "label": "青龍（言霊）",
-            "g": "—"
+            "g": "A"
           },
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "B",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",

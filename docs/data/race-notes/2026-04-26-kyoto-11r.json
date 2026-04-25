@@ -187,15 +187,23 @@
       "stable": "栗東友道",
       "suzakuGrade": {
         "grade": "S",
-        "soku": null,
+        "soku": {
+          "grade": "—"
+        },
         "gan": {
-          "grade": "S",
+          "grade": "—",
           "source": "iphHroAN4Sc",
           "url": "https://www.youtube.com/watch?v=iphHroAN4Sc",
           "keyword": "clear favorite・人気通り決着想定",
           "quote": "The Mile Championship is a good race, and Admire Zoom is the clear favorite, and it looks like that's exactly what's going to happen."
         },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "A"
+      },
+      "courseDataGrade": {
+        "grade": "A"
       }
     },
     {
@@ -360,10 +368,20 @@
       "kinryo": 57.0,
       "stable": "栗東杉山晴",
       "suzakuGrade": {
-        "grade": null,
-        "soku": null,
-        "gan": null,
+        "grade": "A",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "S"
+      },
+      "courseDataGrade": {
+        "grade": "A"
       }
     },
     {
@@ -833,10 +851,20 @@
       "kinryo": 57.0,
       "stable": "栗東高野",
       "suzakuGrade": {
-        "grade": null,
-        "soku": null,
-        "gan": null,
+        "grade": "A",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "S"
       }
     },
     {
@@ -1192,10 +1220,20 @@
       "kinryo": 57.0,
       "stable": "栗東上村",
       "suzakuGrade": {
-        "grade": null,
-        "soku": null,
-        "gan": null,
+        "grade": "A",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "B"
+      },
+      "courseDataGrade": {
+        "grade": "B"
       }
     },
     {
@@ -2563,14 +2601,14 @@
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "A",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",
@@ -2613,12 +2651,12 @@
             "label": "朱雀（速眼）",
             "g": "S",
             "soku": "—",
-            "gan": "S"
+            "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "A"
           },
           {
             "t": "genbu",
@@ -2659,7 +2697,7 @@
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "A",
             "soku": "—",
             "gan": "—"
           },
@@ -2671,7 +2709,7 @@
           {
             "t": "genbu",
             "label": "玄武（地脈）",
-            "g": "B"
+            "g": "A"
           }
         ],
         "comment": "東京新聞杯13着は参考外、HC0.2僅差1位のラップ完成度。穴の本命。",
@@ -2707,14 +2745,14 @@
           {
             "t": "suzaku",
             "label": "朱雀（速眼）",
-            "g": "—",
+            "g": "A",
             "soku": "—",
             "gan": "—"
           },
           {
             "t": "byakko",
             "label": "白虎（ラップ）",
-            "g": "—"
+            "g": "B"
           },
           {
             "t": "genbu",
