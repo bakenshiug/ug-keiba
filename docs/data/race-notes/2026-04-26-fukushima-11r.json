@@ -1,0 +1,855 @@
+{
+  "race": {
+    "name": "モルガナイトステークス",
+    "grade": "OP",
+    "date": "2026-04-26",
+    "venue": "福島",
+    "surface": "芝",
+    "distance": 1200,
+    "course": "右B",
+    "startTime": "15:15",
+    "raceNo": 11,
+    "win5Leg": 3,
+    "raceCondition": "(特指), 国際, 4歳以上, オープン, ハンデ"
+  },
+  "raceTitle": {
+    "main": "モルガナイトS",
+    "sub": "WIN5第3レッグ・福島1200逃げ先行勝負",
+    "desc": "─ 御神託は枠順確定後 ─"
+  },
+  "dataStatus": "preparation",
+  "courseData": {
+    "source": "competition-book / cyuou/data/202601060611",
+    "fetchedAt": "2026-04-25",
+    "fetchedVia": "Chrome MCP (Method A)",
+    "summary": {
+      "course": "福島 芝・1200m",
+      "period": "2023-04-26〜2026-04-19",
+      "totalRaces": 159,
+      "horsesAggregated": 16
+    },
+    "tendencies": {
+      "passOrder4thCorner": [
+        {
+          "rank": "1番手",
+          "win": 29.6,
+          "place": 45.3,
+          "show": 56.0,
+          "data": "47-25-17-70"
+        },
+        {
+          "rank": "2番手",
+          "win": 12.7,
+          "place": 27.7,
+          "show": 40.0,
+          "data": "28-33-27-132"
+        },
+        {
+          "rank": "3番手",
+          "win": 13.1,
+          "place": 28.0,
+          "show": 37.9,
+          "data": "28-32-21-133"
+        },
+        {
+          "rank": "4-5番手",
+          "win": 8.3,
+          "place": 19.0,
+          "show": 31.0,
+          "data": "25-32-36-207"
+        },
+        {
+          "rank": "6-9番手",
+          "win": 4.4,
+          "place": 9.1,
+          "show": 15.3,
+          "data": "27-29-38-522"
+        },
+        {
+          "rank": "10番手以下",
+          "win": 0.5,
+          "place": 1.7,
+          "show": 4.4,
+          "data": "4-9-21-731"
+        }
+      ],
+      "cornerPosition": [
+        {
+          "position": "最内",
+          "win": 10.7,
+          "place": 19.4,
+          "show": 25.8
+        },
+        {
+          "position": "内",
+          "win": 6.1,
+          "place": 13.5,
+          "show": 21.4
+        },
+        {
+          "position": "中",
+          "win": 6.2,
+          "place": 12.4,
+          "show": 19.9
+        },
+        {
+          "position": "外",
+          "win": 5.7,
+          "place": 12.2,
+          "show": 18.3
+        },
+        {
+          "position": "大外",
+          "win": 4.9,
+          "place": 9.8,
+          "show": 16.5
+        }
+      ],
+      "frame": [
+        {
+          "frame": 1,
+          "win": 10.1,
+          "place": 21.8,
+          "show": 29.2
+        },
+        {
+          "frame": 2,
+          "win": 9.0,
+          "place": 16.1,
+          "show": 23.2
+        },
+        {
+          "frame": 3,
+          "win": 10.5,
+          "place": 19.1,
+          "show": 22.7
+        },
+        {
+          "frame": 4,
+          "win": 7.4,
+          "place": 12.7,
+          "show": 20.8
+        },
+        {
+          "frame": 5,
+          "win": 3.8,
+          "place": 8.7,
+          "show": 13.9
+        },
+        {
+          "frame": 6,
+          "win": 6.0,
+          "place": 12.8,
+          "show": 19.5
+        },
+        {
+          "frame": 7,
+          "win": 3.7,
+          "place": 9.0,
+          "show": 19.3
+        },
+        {
+          "frame": 8,
+          "win": 6.2,
+          "place": 13.4,
+          "show": 20.8
+        }
+      ],
+      "popularity": [
+        {
+          "rank": 1,
+          "win": 30.8,
+          "place": 52.2,
+          "show": 64.8
+        },
+        {
+          "rank": 2,
+          "win": 22.6,
+          "place": 36.5,
+          "show": 49.7
+        },
+        {
+          "rank": 3,
+          "win": 14.5,
+          "place": 31.4,
+          "show": 44.0
+        },
+        {
+          "rank": "4-5",
+          "win": 7.9,
+          "place": 17.0,
+          "show": 29.2
+        },
+        {
+          "rank": "6-9",
+          "win": 3.4,
+          "place": 8.3,
+          "show": 13.6
+        },
+        {
+          "rank": "10+",
+          "win": 0.6,
+          "place": 2.6,
+          "show": 5.7
+        }
+      ],
+      "trackCondition": [
+        {
+          "state": "良",
+          "raceCount": 7,
+          "avgWinTime": "1:08.83"
+        },
+        {
+          "state": "稍重",
+          "raceCount": 1,
+          "avgWinTime": "1:10.71"
+        }
+      ]
+    },
+    "courseInsights": [
+      "🏃 福島1200は典型的な前残りバイアス：4角1番手で勝率29.6%・複勝56.0%",
+      "📍 ポジションは最内＞内＞中＞外＞大外の順。**最内最強**",
+      "🎯 3枠が全体ベスト（勝率10.5%）、5枠が鬼門（勝率3.8%）、7枠も微妙（勝率3.7%）",
+      "💰 単勝1番人気が極めて堅い（勝率30.8%・複勝64.8%）。荒れにくいレース傾向",
+      "⚠️ 10番人気以下はほぼ来ない（勝率0.6%・複勝5.7%）"
+    ],
+    "horseFactors": [
+      {
+        "name": "イツモニコニコ",
+        "sire": "ビッグアーサー",
+        "trainer": "浜田",
+        "jockey": "西塚洸",
+        "sireCourse": {
+          "win": 11.2,
+          "place": 24.1,
+          "show": 32.8
+        },
+        "jockeyCourse": {
+          "win": 3.4,
+          "place": 6.9,
+          "show": 10.3
+        },
+        "trainerCourse": {
+          "win": 9.1,
+          "place": 18.2,
+          "show": 18.2
+        }
+      },
+      {
+        "name": "カルロヴェローチェ",
+        "sire": "シルバーステート",
+        "trainer": "須貝尚",
+        "jockey": "丸山元",
+        "sireCourse": {
+          "win": 8.2,
+          "place": 16.4,
+          "show": 21.3
+        },
+        "jockeyCourse": {
+          "win": 8.7,
+          "place": 17.4,
+          "show": 29.0
+        },
+        "trainerCourse": {
+          "win": 18.8,
+          "place": 18.8,
+          "show": 25.0
+        }
+      },
+      {
+        "name": "クファシル",
+        "sire": "モーリス",
+        "trainer": "池添学",
+        "jockey": "亀田温",
+        "sireCourse": {
+          "win": 10.0,
+          "place": 16.7,
+          "show": 23.3
+        },
+        "jockeyCourse": {
+          "win": 2.8,
+          "place": 11.1,
+          "show": 16.7
+        },
+        "trainerCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 0.0
+        }
+      },
+      {
+        "name": "クムシラコ",
+        "sire": "ディスクリートキャット",
+        "trainer": "千葉",
+        "jockey": "嶋田純",
+        "sireCourse": {
+          "win": 10.0,
+          "place": 15.0,
+          "show": 20.0
+        },
+        "jockeyCourse": {
+          "win": 0.0,
+          "place": 3.4,
+          "show": 13.8
+        },
+        "trainerCourse": {
+          "win": 0.0,
+          "place": 7.1,
+          "show": 21.4
+        }
+      },
+      {
+        "name": "サウンドモリアーナ",
+        "sire": "ミッキーアイル",
+        "trainer": "武英",
+        "jockey": "吉田隼",
+        "sireCourse": {
+          "win": 11.8,
+          "place": 20.6,
+          "show": 29.4
+        },
+        "jockeyCourse": {
+          "win": 6.1,
+          "place": 15.2,
+          "show": 24.2
+        },
+        "trainerCourse": {
+          "win": 15.4,
+          "place": 15.4,
+          "show": 23.1
+        }
+      },
+      {
+        "name": "シュタールヴィント",
+        "sire": "ロードカナロア",
+        "trainer": "矢作",
+        "jockey": "菱田裕",
+        "sireCourse": {
+          "win": 5.3,
+          "place": 19.7,
+          "show": 28.9
+        },
+        "jockeyCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 14.3
+        },
+        "trainerCourse": {
+          "win": 25.0,
+          "place": 25.0,
+          "show": 25.0
+        }
+      },
+      {
+        "name": "ショウナンハクラク",
+        "sire": "フランケル",
+        "trainer": "松下",
+        "jockey": "小沢大",
+        "sireCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 14.3
+        },
+        "jockeyCourse": {
+          "win": 2.1,
+          "place": 14.9,
+          "show": 17.0
+        },
+        "trainerCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 33.3
+        }
+      },
+      {
+        "name": "ジョーメッドヴィン",
+        "sire": "ドレフォン",
+        "trainer": "清水久",
+        "jockey": "横山琉",
+        "sireCourse": {
+          "win": 8.8,
+          "place": 20.6,
+          "show": 20.6
+        },
+        "jockeyCourse": {
+          "win": 2.3,
+          "place": 6.8,
+          "show": 18.2
+        },
+        "trainerCourse": {
+          "win": 11.1,
+          "place": 44.4,
+          "show": 44.4
+        }
+      },
+      {
+        "name": "テイエムリステット",
+        "sire": "モーリス",
+        "trainer": "秋山",
+        "jockey": "荻野琢",
+        "sireCourse": {
+          "win": 10.0,
+          "place": 16.7,
+          "show": 23.3
+        },
+        "jockeyCourse": {
+          "win": 12.5,
+          "place": 12.5,
+          "show": 25.0
+        },
+        "trainerCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 25.0
+        }
+      },
+      {
+        "name": "ナナオ",
+        "sire": "ロードカナロア",
+        "trainer": "小栗",
+        "jockey": "舟山瑠",
+        "sireCourse": {
+          "win": 5.3,
+          "place": 19.7,
+          "show": 28.9
+        },
+        "jockeyCourse": {
+          "win": 15.8,
+          "place": 26.3,
+          "show": 47.4
+        },
+        "trainerCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 33.3
+        }
+      },
+      {
+        "name": "ナムラローズマリー",
+        "sire": "ミッキーアイル",
+        "trainer": "羽月",
+        "jockey": "幸英明",
+        "sireCourse": {
+          "win": 11.8,
+          "place": 20.6,
+          "show": 29.4
+        },
+        "jockeyCourse": {
+          "win": 50.0,
+          "place": 50.0,
+          "show": 50.0
+        },
+        "trainerCourse": {
+          "win": 10.0,
+          "place": 20.0,
+          "show": 40.0
+        }
+      },
+      {
+        "name": "マイネルレノン",
+        "sire": "ダイワメジャー",
+        "trainer": "宮",
+        "jockey": "泉谷楓",
+        "sireCourse": {
+          "win": 5.1,
+          "place": 23.7,
+          "show": 33.9
+        },
+        "jockeyCourse": {
+          "win": 33.3,
+          "place": 33.3,
+          "show": 50.0
+        },
+        "trainerCourse": {
+          "win": 0.0,
+          "place": 16.7,
+          "show": 33.3
+        }
+      },
+      {
+        "name": "ムイ",
+        "sire": "ミッキーアイル",
+        "trainer": "笹田",
+        "jockey": "富田暁",
+        "sireCourse": {
+          "win": 11.8,
+          "place": 20.6,
+          "show": 29.4
+        },
+        "jockeyCourse": {
+          "win": 4.0,
+          "place": 12.0,
+          "show": 20.0
+        },
+        "trainerCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 0.0
+        }
+      },
+      {
+        "name": "モズナナスター",
+        "sire": "モズアスコット",
+        "trainer": "矢作",
+        "jockey": "柴田大",
+        "sireCourse": {
+          "win": 0.0,
+          "place": 7.1,
+          "show": 21.4
+        },
+        "jockeyCourse": {
+          "win": 8.7,
+          "place": 13.0,
+          "show": 13.0
+        },
+        "trainerCourse": {
+          "win": 25.0,
+          "place": 25.0,
+          "show": 25.0
+        }
+      },
+      {
+        "name": "ユキノファラオ",
+        "sire": "ワールドエース",
+        "trainer": "小野次",
+        "jockey": "大久保友",
+        "sireCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 5.3
+        },
+        "jockeyCourse": {
+          "win": 0.0,
+          "place": 0.0,
+          "show": 0.0
+        },
+        "trainerCourse": {
+          "win": 4.0,
+          "place": 8.0,
+          "show": 16.0
+        }
+      },
+      {
+        "name": "レッドアヴァンティ",
+        "sire": "ドゥラメンテ",
+        "trainer": "尾関",
+        "jockey": "石川裕",
+        "sireCourse": {
+          "win": 12.5,
+          "place": 25.0,
+          "show": 37.5
+        },
+        "jockeyCourse": {
+          "win": 11.6,
+          "place": 16.3,
+          "show": 23.3
+        },
+        "trainerCourse": {
+          "win": 4.0,
+          "place": 8.0,
+          "show": 24.0
+        }
+      }
+    ],
+    "courseTopRanks": {
+      "sire": [
+        {
+          "rank": 1,
+          "name": "レッドアヴァンティ",
+          "sire": "ドゥラメンテ",
+          "win": 12.5,
+          "show": 37.5
+        },
+        {
+          "rank": 2,
+          "name": "サウンドモリアーナ/ナムラローズマリー/ムイ",
+          "sire": "ミッキーアイル",
+          "win": 11.8,
+          "show": 29.4
+        },
+        {
+          "rank": 3,
+          "name": "イツモニコニコ",
+          "sire": "ビッグアーサー",
+          "win": 11.2,
+          "show": 32.8
+        }
+      ],
+      "jockey": [
+        {
+          "rank": 1,
+          "name": "ナムラローズマリー",
+          "jockey": "幸英明",
+          "win": 50.0,
+          "show": 50.0,
+          "note": "試行2回のみ"
+        },
+        {
+          "rank": 2,
+          "name": "マイネルレノン",
+          "jockey": "泉谷楓",
+          "win": 33.3,
+          "show": 50.0,
+          "note": "試行3回のみ"
+        },
+        {
+          "rank": 3,
+          "name": "ナナオ",
+          "jockey": "舟山瑠",
+          "win": 15.8,
+          "show": 47.4
+        }
+      ],
+      "trainer": [
+        {
+          "rank": 1,
+          "name": "シュタールヴィント/モズナナスター",
+          "trainer": "矢作",
+          "win": 25.0,
+          "show": 25.0
+        },
+        {
+          "rank": 2,
+          "name": "カルロヴェローチェ",
+          "trainer": "須貝尚",
+          "win": 18.8,
+          "show": 25.0
+        },
+        {
+          "rank": 3,
+          "name": "サウンドモリアーナ",
+          "trainer": "武英",
+          "win": 15.4,
+          "show": 23.1
+        },
+        {
+          "rank": "show1",
+          "name": "ジョーメッドヴィン",
+          "trainer": "清水久",
+          "win": 11.1,
+          "show": 44.4
+        }
+      ]
+    }
+  },
+  "horses": [],
+  "presentation": {
+    "win5Layer": "WIN3",
+    "startTime": "15:15",
+    "nameEn": "MORGANITE STAKES",
+    "meta": "福島11R ／ 芝1200m ／ 16頭",
+    "horses": [
+      {
+        "mark": "◎",
+        "markLabel": "本命",
+        "num": "—",
+        "gate": "—",
+        "name": "未降臨①",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "—",
+        "trainer": "—",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "—",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "—",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "—",
+            "label": "朱雀（速眼）",
+            "soku": "—",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "—",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "—",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "神託降臨待ち…"
+      },
+      {
+        "mark": "○",
+        "markLabel": "対抗",
+        "num": "—",
+        "gate": "—",
+        "name": "未降臨②",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "—",
+        "trainer": "—",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "—",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "—",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "—",
+            "label": "朱雀（速眼）",
+            "soku": "—",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "—",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "—",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "神託降臨待ち…"
+      },
+      {
+        "mark": "▲",
+        "markLabel": "単穴",
+        "num": "—",
+        "gate": "—",
+        "name": "未降臨③",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "—",
+        "trainer": "—",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "—",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "—",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "—",
+            "label": "朱雀（速眼）",
+            "soku": "—",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "—",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "—",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "神託降臨待ち…"
+      },
+      {
+        "mark": "△",
+        "markLabel": "連下",
+        "num": "—",
+        "gate": "—",
+        "name": "未降臨④",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "—",
+        "trainer": "—",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "—",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "—",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "—",
+            "label": "朱雀（速眼）",
+            "soku": "—",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "—",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "—",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "神託降臨待ち…"
+      }
+    ],
+    "bets": {
+      "strategy": "wide-only",
+      "wide": {
+        "horses": [
+          "未降臨①",
+          "未降臨②",
+          "未降臨③",
+          "未降臨④"
+        ],
+        "perPoint": 100
+      },
+      "totalSpend": 600
+    },
+    "note": "神託降臨待ち。4/26（日）WIN3：モルガナイトS（福島11R／芝1200m／16頭／オープン）。",
+    "win5Picks": [
+      {
+        "mark": "◎",
+        "num": "",
+        "name": "イツモニコニコ",
+        "note": "青龍A × 玄武B"
+      },
+      {
+        "mark": "○",
+        "num": "",
+        "name": "サウンドモリアーナ",
+        "note": "青龍A × 在厩調整"
+      },
+      {
+        "mark": "▲",
+        "num": "",
+        "name": "ナムラローズマリー",
+        "note": "青龍A × 在厩調整"
+      },
+      {
+        "mark": "△",
+        "num": "",
+        "name": "モズナナスター",
+        "note": "青龍A × 軽ハンデ"
+      },
+      {
+        "mark": "☆",
+        "num": "",
+        "name": "クファシル",
+        "note": "青龍D × 玄武A（巻返）"
+      }
+    ],
+    "win5Summary": "S級・双方A級一致馬が不在の混戦。青龍Aの本命馬は外厩弱め、玄武Aの3頭は前走凡走と評価分岐。ハンデ戦の妙味が凝縮。"
+  }
+}

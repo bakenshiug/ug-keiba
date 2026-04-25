@@ -2193,23 +2193,39 @@ function buildMarkMap(sougouRankMap, anaRankMap, totalHorseCount) {
 }
 
 // 新ロジック移行期：準備中レースの簡易表示
-// 四神グレードバッジ（1個）
-function renderShijinChip(kind, grade) {
+// 四神グレードバッジ（1個・任意で2層目の内訳サブテキスト付き）
+function renderShijinChip(kind, grade, subInfo) {
   const META = {
     seiryu: {emoji:'🐉', label:'言霊',  color:'#1F4D2E'},
-    suzaku: {emoji:'🐦', label:'神眼',  color:'#9B2D30'},
+    suzaku: {emoji:'🔥', label:'速眼',  color:'#9B2D30'},
     byakko: {emoji:'🐅', label:'ラップ', color:'#C9A961'},
     genbu:  {emoji:'🐢', label:'外厩',  color:'#1A1A1A'},
   }[kind] || {emoji:'・', label:'', color:'#999'};
   const gBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[grade] || '#cbc5b6';
   const gradeTxt = grade || '—';
   const dim = grade ? 1 : 0.45;
+  const subLine = subInfo
+    ? `<div style="font-size:8.5px;color:${META.color};opacity:.65;letter-spacing:.04em;margin-top:2px;text-align:right;font-family:'Inter',sans-serif;">${subInfo}</div>`
+    : '';
   return `
-    <div style="display:flex;align-items:center;gap:6px;padding:5px 10px;border:1px solid ${META.color};border-radius:4px;background:#fff;opacity:${dim};min-width:72px;">
-      <span style="font-size:14px;line-height:1;">${META.emoji}</span>
-      <span style="font-size:10px;color:${META.color};font-weight:700;letter-spacing:.04em;flex:1;">${META.label}</span>
-      <span style="display:inline-block;font-size:10px;color:#fff;background:${gBg};padding:1px 6px;border-radius:2px;font-family:'Shippori Mincho',serif;font-weight:700;min-width:14px;text-align:center;">${gradeTxt}</span>
+    <div style="display:flex;flex-direction:column;padding:5px 10px;border:1px solid ${META.color};border-radius:4px;background:#fff;opacity:${dim};min-width:72px;">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span style="font-size:14px;line-height:1;">${META.emoji}</span>
+        <span style="font-size:10px;color:${META.color};font-weight:700;letter-spacing:.04em;flex:1;">${META.label}</span>
+        <span style="display:inline-block;font-size:10px;color:#fff;background:${gBg};padding:1px 6px;border-radius:2px;font-family:'Shippori Mincho',serif;font-weight:700;min-width:14px;text-align:center;">${gradeTxt}</span>
+      </div>
+      ${subLine}
     </div>`;
+}
+
+// 朱雀の内訳サブテキスト生成（速A／眼S 形式）
+function buildSuzakuSubInfo(h) {
+  const sg = h?.suzakuGrade;
+  if (!sg) return null;
+  const soku = sg.soku?.grade || '—';
+  const gan  = sg.gan?.grade  || '—';
+  if (soku === '—' && gan === '—') return null;
+  return `速${soku}／眼${gan}`;
 }
 
 // 1頭分プレゼンテーションカード
@@ -2232,7 +2248,7 @@ function renderShijinHorseCard(ph, idx) {
   const shijinBar = `
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;">
       ${renderShijinChip('seiryu', sg.seiryu)}
-      ${renderShijinChip('suzaku', sg.suzaku)}
+      ${renderShijinChip('suzaku', sg.suzaku, buildSuzakuSubInfo(ph))}
       ${renderShijinChip('byakko', sg.byakko)}
       ${renderShijinChip('genbu',  sg.genbu)}
     </div>`;
@@ -2414,12 +2430,12 @@ function renderFinalBets(fb) {
         <div>
           <div style="font-size:10px;color:#C9A961;letter-spacing:.18em;font-weight:700;">⛩ FINAL ORACLE ／ 四神の御神託</div>
           <div style="font-size:22px;font-weight:800;letter-spacing:.10em;margin-top:4px;">御神託降臨</div>
-          <div style="font-size:10px;color:#F5EDD6;opacity:.85;margin-top:3px;letter-spacing:.06em;">🐉言霊 ・ 🐦神眼 ・ 🐅ラップ ・ 🐢外厩</div>
+          <div style="font-size:10px;color:#F5EDD6;opacity:.85;margin-top:3px;letter-spacing:.06em;">🐉言霊 ・ 🔥速眼 ・ 🐅ラップ ・ 🐢外厩</div>
         </div>
         <div style="text-align:right;font-family:'Inter',sans-serif;">
           <div style="font-size:10px;opacity:.85;letter-spacing:.04em;">揃い率 ${esc(fb.readiness || '')} (${fb.readinessPct ?? 0}%)</div>
           <div style="font-size:22px;font-weight:900;color:#C9A961;margin-top:2px;letter-spacing:.02em;">¥${(fb.totalSpend || 0).toLocaleString()}</div>
-          ${fb.shinganCoverage ? `<div style="font-size:9px;opacity:.7;margin-top:2px;letter-spacing:.06em;">神眼 ${esc(fb.shinganCoverage)}</div>` : ''}
+          ${fb.shinganCoverage ? `<div style="font-size:9px;opacity:.7;margin-top:2px;letter-spacing:.06em;">速眼 ${esc(fb.shinganCoverage)}</div>` : ''}
         </div>
       </div>
 
@@ -2483,7 +2499,7 @@ function renderFinalBets(fb) {
                 <th style="text-align:center;padding:6px 8px;font-size:10px;">馬番</th>
                 <th style="text-align:left;padding:6px 10px;font-size:10px;">馬名</th>
                 <th style="text-align:center;padding:6px 6px;font-size:10px;">🐉言霊</th>
-                <th style="text-align:center;padding:6px 6px;font-size:10px;">🐦神眼</th>
+                <th style="text-align:center;padding:6px 6px;font-size:10px;">🔥速眼</th>
                 <th style="text-align:center;padding:6px 6px;font-size:10px;">🐅ラップ</th>
                 <th style="text-align:center;padding:6px 6px;font-size:10px;">🐢外厩</th>
                 <th style="text-align:right;padding:6px 8px;font-size:10px;">総合</th>
@@ -2493,7 +2509,7 @@ function renderFinalBets(fb) {
             <tbody>${scoreRows}</tbody>
           </table>
           <div style="margin-top:8px;font-size:10px;color:var(--muted);letter-spacing:.04em;font-family:'Inter',sans-serif;">
-            重み: 言霊×${fb.config?.weights?.relComment ?? 2} ／ 神眼×${fb.config?.weights?.shingan ?? 1.5} ／ ラップ×${fb.config?.weights?.lapFactors ?? 1} ／ 外厩×${fb.config?.weights?.gaikyuFactor ?? 0.5}
+            重み: 言霊×${fb.config?.weights?.relComment ?? 2} ／ 速眼×${fb.config?.weights?.shingan ?? 1.5} ／ ラップ×${fb.config?.weights?.lapFactors ?? 1} ／ 外厩×${fb.config?.weights?.gaikyuFactor ?? 0.5}
             ／ 点数: S=${fb.config?.gradePoints?.S ?? 5}, A=${fb.config?.gradePoints?.A ?? 3}, B=${fb.config?.gradePoints?.B ?? 0}, C=${fb.config?.gradePoints?.C ?? -2}, D=${fb.config?.gradePoints?.D ?? -4}
           </div>
         </div>
@@ -2519,7 +2535,7 @@ function computeProvisionalScore(h) {
   const W = { seiryu: 2.0, suzaku: 1.5, byakko: 1.0, genbu: genbuWeight };
   const grades = {
     seiryu: h.relComment?.grade,
-    suzaku: h.shingan?.grade,
+    suzaku: h.suzakuGrade?.grade,
     byakko: h.lapFactors?.grade,
     genbu:  h.gaikyuFactor?.grade,
   };

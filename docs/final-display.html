@@ -255,6 +255,11 @@ a{color:var(--kin);text-decoration:none;}
 .badge.b-genbu{background:rgba(85,104,72,.3);color:#9CB68D;border-color:rgba(156,182,141,.35);}
 .badge.b-suzaku{background:rgba(180,70,60,.25);color:#E08C7D;border-color:rgba(224,140,125,.35);}
 .badge.b-soho{background:rgba(201,169,97,.15);color:var(--kin);border-color:rgba(201,169,97,.35);}
+.badge-sub{
+  display:block;font-size:8.5px;opacity:.7;margin-top:2px;
+  letter-spacing:.04em;font-family:'Inter','Shippori Mincho',sans-serif;
+  font-weight:600;
+}
 
 .omamori-comment{
   font-size:11.5px;color:rgba(244,233,201,.75);
@@ -346,230 +351,62 @@ a{color:var(--kin);text-decoration:none;}
 //  picks = 4頭（◎○▲△）
 //  bets  = 単勝1点・複勝1点・ワイド4頭BOX(6点)
 // ───────────────────────────────────────
-const RACES = [
+// ───────────────────────────────────────
+//  本殿データ — race-notes.presentation から fetch
+//  週次メンテ：RACES_MANIFESTに新レースのkeyを追加するだけ
+//  各 race-notes JSON の .presentation セクションが picks/bets/note のソース
+// ───────────────────────────────────────
+const RACES_MANIFEST = [
   // ================= 2026-04-25 土曜 =================
-  {
-    key:'2026-04-25-kyoto-10r',
-    date:'2026-04-25', day:'sat', label:'土',
-    win5:'WIN1', grade:'3勝',
-    name:'観月橋S', nameEn:'KANGETSUBASHI STAKES',
-    meta:'京都10R ／ ダ1800m ／ 11頭',
-    startTime:'14:50',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'パシアンジャン',gate:'8',num:'10',ninki:'1',odds:'1.6',sire:'シニスターミニスター',bms:'ゴールドアリュール',jockey:'松山',trainer:'栗東・鈴木孝',gaikyu:'山岡トレセン',prevName:'雅S（京都・ダ1800）',prevFinish:'3着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'S',label:'朱雀（性能）'},{t:'byakko',g:'B',label:'白虎（ラップ）'},{t:'genbu',g:'A',label:'玄武（データ）'}],comment:'玄武1位×レース適性合致×外部総合指標の妙味S。京都1800好相性・実戦型・気で走るの具体性。'},
-      {mark:'○',markLabel:'対抗',name:'デルアヴァー',gate:'1',num:'1',ninki:'2',odds:'6.5',sire:'フランケル',bms:'Smart Strike',jockey:'西村淳',trainer:'栗東',gaikyu:'在厩調整',prevName:'アリエスS(中山ダ1800m)',prevFinish:'3着',badges:[{t:'seiryu',g:'S',label:'青龍（言語分析）'},{t:'suzaku',g:'B',label:'朱雀（性能）'},{t:'byakko',g:'B',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'自厩舎◎印／勝ち負けできる／使った上積み。青龍S級の陣営本気度。複勝軸。'},
-      {mark:'▲',markLabel:'単穴',name:'タガノマカシヤ',gate:'7',num:'9',ninki:'3',odds:'7.2',sire:'アメリカンペイトリオット',bms:'フジキセキ',jockey:'岩田望',trainer:'栗東・中村',gaikyu:'宇治田原優駿S',prevName:'伊丹S（阪神・ダ1800）',prevFinish:'2着',badges:[{t:'seiryu',g:'B',label:'青龍（言語分析）'},{t:'suzaku',g:'S',label:'朱雀（性能）'},{t:'byakko',g:'S',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'白虎S軸を素直に評価。ゴチャつかなければの注文あり。'},
-      {mark:'△',markLabel:'連下',name:'マイノワール',gate:'2',num:'2',ninki:'7',odds:'19.5',sire:'マインドユアビスケッツ',bms:'ハービンジャー',jockey:'浜中',trainer:'栗東・笹田',gaikyu:'在厩調整',prevName:'伊勢S（中京・ダ1900）',prevFinish:'3着',badges:[{t:'seiryu',g:'B',label:'青龍（言語分析）'},{t:'suzaku',g:'A',label:'朱雀（性能）'},{t:'byakko',g:'D',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'ダート堅実・2回目の継続騎乗で安定ソース。外部総合指標1位(5人気)・仕上69最強。'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'タガノマカシヤ',amount:100},
-      fuku:{name:'デルアヴァー',amount:100},
-      wide:{horses:['パシアンジャン','デルアヴァー','タガノマカシヤ','マイノワール'],perPoint:100},
-      totalSpend:800
-    },
-    note:'4頭ワイドBOX標準（800円）。UG哲学適用→【単勝】▲タガノマカシヤ＝朱雀S×白虎Sの2S持ちで両輪強く妙味狙い（12倍）。【複勝軸】○デルアヴァー＝青龍S「使った上積み」陣営本気度Maxで崩れず絡む信頼。【ワイドBOX】パシアンジャン／デルアヴァー／タガノマカシヤ／マイノワールの4頭。'
-  },
-  {
-    key:'2026-04-25-tokyo-10r',
-    date:'2026-04-25', day:'sat', label:'土',
-    win5:'WIN2', grade:'3勝',
-    name:'鎌倉S', nameEn:'KAMAKURA STAKES',
-    meta:'東京10R ／ ダ1400m ／ 15頭',
-    startTime:'15:00',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'メイショウハチロー',gate:'3',num:'4',ninki:'1',odds:'3.9',sire:'シニスターミニスター',bms:'ダイワメジャー',jockey:'川田',trainer:'栗東・福永',gaikyu:'キャニオンファーム土山',prevName:'銀蹄S（東京）',prevFinish:'2着',badges:[{t:'seiryu',g:'B',label:'青龍（言語分析）'},{t:'suzaku',g:'S',label:'朱雀（性能）'},{t:'byakko',g:'B',label:'白虎（ラップ）'},{t:'genbu',g:'A',label:'玄武（データ）'}],comment:'4神+外部評価完全整合・キャラピッタリ。前後のつながり悪いがひと絞りで態勢。直線長いコース合う。'},
-      {mark:'○',markLabel:'対抗',name:'ワンダラー',gate:'8',num:'14',ninki:'9',odds:'18.0',sire:'マクフィ',bms:'ルーラーシップ',jockey:'レーン',trainer:'美浦・黒岩',gaikyu:'在厩調整',prevName:'卯月S（中山）',prevFinish:'2着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'B',label:'朱雀（性能）'},{t:'byakko',g:'D',label:'白虎（ラップ）'},{t:'genbu',g:'A',label:'玄武（データ）'}],comment:'外部評価2位(4人気)・妙味S・仕上66。しっかり加速・状態維持・以前と状態違う。十分対応の穴候補。'},
-      {mark:'▲',markLabel:'単穴',name:'ペイシャケイプ',gate:'8',num:'15',ninki:'3',odds:'6.7',sire:'シャンハイボビー',bms:'ヴィクトワールピサ',jockey:'横山典',trainer:'栗東・高橋康',gaikyu:'ドラゴンファーム',prevName:'鳴門S（阪神）',prevFinish:'6着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'B',label:'朱雀（性能）'},{t:'byakko',g:'C',label:'白虎（ラップ）'},{t:'genbu',g:'A',label:'玄武（データ）'}],comment:'敗因具体（4角行きたがった）、東京1400勝ち実績。'},
-      {mark:'△',markLabel:'連下',name:'クインズデネブ',gate:'2',num:'2',ninki:'12',odds:'36.5',sire:'カレンブラックヒル',bms:'ストラヴィンスキー',jockey:'杉原誠',trainer:'美浦小島茂',gaikyu:'阿見トレセン',prevName:'豊明S(中京ダ1400m)',prevFinish:'5着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'B',label:'朱雀（性能）'},{t:'byakko',g:'C',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'気配間違いなく上向き／得意の東京1400なら面白そう。4頭目はトクシーカイザー→クインズデネブへ変更。'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'メイショウハチロー',amount:100},
-      fuku:{name:'ワンダラー',amount:100},
-      wide:{horses:['メイショウハチロー','ワンダラー','ペイシャケイプ','クインズデネブ'],perPoint:100},
-      totalSpend:800
-    },
-    note:'外部総合指標で混戦（接戦）判定 → 4頭ワイドBOX（800円）。トクシーカイザー→クインズデネブに入替。メイショウハチロー軸＋ワンダラー穴軸で4神統合ボックス。レーウィンは青龍致命「試走宣言」で排除継続。'
-  },
-  {
-    key:'2026-04-25-fukushima-11r',
-    date:'2026-04-25', day:'sat', label:'土',
-    win5:'WIN3', grade:'3勝',
-    name:'福島中央テレビ杯', nameEn:'FUKUSHIMA CHUO TV CUP',
-    meta:'福島11R ／ ダ1150m ／ 12頭',
-    startTime:'15:15',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'キタノソワレ',gate:'3',num:'3',ninki:'6',odds:'10.0',sire:'トゥザワールド',bms:'フレンチデピュティ',jockey:'丹内祐',trainer:'美浦本間',gaikyu:'在厩調整',prevName:'卯月賞3勝C(中山ダ1200m)',prevFinish:'3着',badges:[{t:'seiryu',g:'C',label:'青龍（言語分析）'},{t:'suzaku',g:'B',label:'朱雀（性能）'},{t:'byakko',g:'D',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'外部評価1位・仕上66・妙味A。中団理想／流れに乗れるか鍵／うまく展開向けばの展開頼み型。'},
-      {mark:'○',markLabel:'対抗',name:'ビルカール',gate:'5',num:'5',ninki:'11',odds:'18.4',sire:'ミッキーアイル',bms:'ストリートセンス',jockey:'石川',trainer:'美浦・水野',gaikyu:'KSトレーニングC',prevName:'なにわS（阪神）',prevFinish:'3着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'A',label:'朱雀（性能）'},{t:'byakko',g:'C',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'外部評価2位(7人気)・SAV69。好調子キープ・1150ちょうどいい穴軸。'},
-      {mark:'▲',markLabel:'単穴',name:'ルージュアズライト',gate:'8',num:'11',ninki:'3',odds:'6.6',sire:'リオンディーズ',bms:'ハーツクライ',jockey:'荻野極',trainer:'美浦・森一',gaikyu:'エスティF小見川',prevName:'春風S（中山）',prevFinish:'13着',badges:[{t:'seiryu',g:'S',label:'青龍（言語分析）'},{t:'suzaku',g:'C',label:'朱雀（性能）'},{t:'byakko',g:'C',label:'白虎（ラップ）'},{t:'genbu',g:'A',label:'玄武（データ）'}],comment:'自厩舎◎印・昨秋この舞台で勝った時から逆算のピンポイント照準。青龍S級の本気度。'},
-      {mark:'△',markLabel:'連下',name:'スノーサイレンス',gate:'4',num:'4',ninki:'4',odds:'6.7',sire:'サンダースノー',bms:'コマンズ',jockey:'斎藤新',trainer:'栗東小栗',gaikyu:'ダーレー・ジャパン岡山',prevName:'有田賞2勝C(小倉ダ1000m)',prevFinish:'1着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'D',label:'朱雀（性能）'},{t:'byakko',g:'D',label:'白虎（ラップ）'},{t:'genbu',g:'S',label:'玄武（データ）'}],comment:'玄武S級（コース適性）・外枠でも最後まで頑張った／距離合う／芝スタートいい／通用の力。'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'キタノソワレ',amount:100},
-      fuku:{name:'ビルカール',amount:100},
-      wide:{horses:['キタノソワレ','ビルカール','ルージュアズライト','スノーサイレンス'],perPoint:100},
-      totalSpend:800
-    },
-    note:'外部総合指標で混戦（接戦）判定 → 4頭ワイドBOX（800円）。外部評価1位キタノソワレを軸に、ビルカール穴＋ルージュアズライトピンポイント＋スノーサイレンス玄武S級で4神統合。ゴールドハンマー「いずれチャンス」致命で排除。'
-  },
-  {
-    key:'2026-04-25-kyoto-11r',
-    date:'2026-04-25', day:'sat', label:'土',
-    win5:'WIN4', grade:'L',
-    name:'天王山S', nameEn:'TENNOZAN STAKES',
-    meta:'京都11R ／ ダ1200m ／ 12頭',
-    startTime:'15:35',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'ゲッティヴィラ',gate:'7',num:'10',ninki:'2',odds:'5.7',sire:'フロステッド',bms:'Into Mischief',jockey:'西村淳',trainer:'栗東小栗',gaikyu:'大山ヒルズ',prevName:'令月S(阪神ダ1200m)',prevFinish:'7着',badges:[{t:'seiryu',g:'B',label:'青龍（言語分析）'},{t:'suzaku',g:'B',label:'朱雀（性能）'},{t:'byakko',g:'A',label:'白虎（ラップ）'},{t:'genbu',g:'A',label:'玄武（データ）'}],comment:'敗因具体（スタート・冬ダート重）／京都相性いい／軽いダートなら。白虎A×玄武Aの舞台完全合致で単勝軸。'},
-      {mark:'○',markLabel:'対抗',name:'ジョーローリット',gate:'6',num:'7',ninki:'8',odds:'10.8',sire:'ダノンレジェンド',bms:'ジョーカプチーノ',jockey:'角田和',trainer:'栗東・中竹',gaikyu:'大山ヒルズ',prevName:'令月S（阪神）',prevFinish:'6着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'S',label:'朱雀（性能）'},{t:'byakko',g:'D',label:'白虎（ラップ）'},{t:'genbu',g:'A',label:'玄武（データ）'}],comment:'外部評価1位(6人気)・仕上81・大穴候補。敗因具体（ブリンカー効き過ぎ）→外す対策。スピード上位。'},
-      {mark:'▲',markLabel:'単穴',name:'ヒルノドゴール',gate:'5',num:'6',ninki:'3',odds:'7.0',sire:'アニマルキングダム',bms:'ハーツクライ',jockey:'幸英明',trainer:'栗東北出',gaikyu:'キャニオンファーム土山',prevName:'コーラS(L)(阪神ダ1400m)',prevFinish:'9着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'B',label:'朱雀（性能）'},{t:'byakko',g:'S',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'白虎S級（究極1位）・仕上82最強。敗因具体（調教本数少）／乗り込み十分／クラス2走目で前進。'},
-      {mark:'△',markLabel:'連下',name:'ドンアミティエ',gate:'8',num:'11',ninki:'5',odds:'7.8',sire:'アジアエクスプレス',bms:'キングヘイロー',jockey:'松山',trainer:'栗東・今野',gaikyu:'宇治田原優駿S',prevName:'リヤドダートS（海外GⅡ）',prevFinish:'7着',badges:[{t:'seiryu',g:'B',label:'青龍（言語分析）'},{t:'suzaku',g:'S',label:'朱雀（性能）'},{t:'byakko',g:'A',label:'白虎（ラップ）'},{t:'genbu',g:'S',label:'玄武（データ）'}],comment:'玄武S級（コース適性）。検疫で緩さ残るが攻め動く・斤量負けしない・力は上位巻き返し。'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'ゲッティヴィラ',amount:100},
-      fuku:{name:'ジョーローリット',amount:100},
-      wide:{horses:['ゲッティヴィラ','ジョーローリット','ヒルノドゴール','ドンアミティエ'],perPoint:100},
-      totalSpend:800
-    },
-    note:'4頭ワイドBOX標準（800円）。◎ゲッティヴィラ白虎A×玄武A舞台合致／○ジョーローリット外部評価1位(6人気)大穴／▲ヒルノドゴール白虎S級究極1位／△ドンアミティエ玄武S級で4神統合ボックス。ファムエレガンテ「自分のリズム」致命排除。'
-  },
-  {
-    key:'2026-04-25-tokyo-11r',
-    date:'2026-04-25', day:'sat', label:'土',
-    win5:'WIN5', grade:'G2',
-    name:'青葉賞', nameEn:'AOBA SHO',
-    meta:'東京11R ／ 芝2400m ／ 18頭',
-    startTime:'15:45',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'ブラックオリンピア',gate:'2',num:'4',ninki:'1',odds:'3.1',sire:'キタサンブラック',bms:'Pierro',jockey:'川田',trainer:'栗東・友道',gaikyu:'在厩調整',prevName:'アザレア賞1勝（阪神・芝2400）',prevFinish:'1着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'A',label:'朱雀（性能）'},{t:'byakko',g:'D',label:'白虎（ラップ）'},{t:'genbu',g:'S',label:'玄武（データ）'}],comment:'青龍A×玄武S×朱雀peak90の3冠整合・1番人気鉄板。アザレア賞勝ち馬、長距離向き成長・川田＋友道厩舎の本格派ルートで単勝軸。'},
-      {mark:'○',markLabel:'対抗',name:'ラストスマイル',gate:'4',num:'8',ninki:'7',odds:'17.8',sire:'ポエティックフレア',bms:'ゼンノロブロイ',jockey:'杉原',trainer:'本間',gaikyu:'在厩調整',prevName:'スプリングSGⅡ（中山・芝1800）',prevFinish:'6着',badges:[{t:'seiryu',g:'A',label:'青龍（言語分析）'},{t:'suzaku',g:'S',label:'朱雀（性能）'},{t:'byakko',g:'D',label:'白虎（ラップ）'},{t:'genbu',g:'C',label:'玄武（データ）'}],comment:'外部評価1位(10人気)・妙味S・朱雀1位(peak90.4)。ここ目標／血統的に距離／トビ大きく東京／良馬場で走らせたい。'},
-      {mark:'▲',markLabel:'単穴',name:'ゴーイントゥスカイ',gate:'8',num:'16',ninki:'4',odds:'11.6',sire:'コントレイル',bms:'Tapit',jockey:'武豊',trainer:'美浦・上原佑',gaikyu:'山元トレーニング',prevName:'きさらぎ賞GIII（京都・芝1800）',prevFinish:'6着',badges:[{t:'seiryu',g:'S',label:'青龍（言語分析）'},{t:'suzaku',g:'S',label:'朱雀（性能）'},{t:'byakko',g:'S',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'きさらぎ賞6着も白虎S級（究極1位）・走法プロファイルが1着理想値と一致。距離延長で武豊＋コントレイル産駒、2400は条件好転。'},
-      {mark:'△',markLabel:'連下',name:'シャドウマスター',gate:'5',num:'9',ninki:'10',odds:'40.9',sire:'キタサンブラック',bms:'ヴィクトワールピサ',jockey:'北村友',trainer:'栗東・杉山晴',gaikyu:'社台ファーム鈴鹿(2-0-0-1)',prevName:'ゆきやなぎ賞1勝クラス',prevFinish:'1着',badges:[{t:'seiryu',g:'B',label:'青龍（言語分析）'},{t:'suzaku',g:'C',label:'朱雀（性能）'},{t:'byakko',g:'D',label:'白虎（ラップ）'},{t:'genbu',g:'B',label:'玄武（データ）'}],comment:'【発走前最終差替】前走ゆきやなぎ賞(1勝C)1着・言霊A「長距離で良さ出た」・社台F鈴鹿2-0-0-1相性A・父キタサンブラック青葉賞好相性18.2%・🔥杉山晴紀厩舎直近1週複勝率70%絶好調🔥。40.9倍10人気の真の穴候補（ニック穴指南格言「前走1勝C勝ち馬の激走」にドンピシャ適合）。タイダルロック（青龍D）から入替。'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'ブラックオリンピア',amount:100},
-      fuku:{name:'ラストスマイル',amount:100},
-      wide:{horses:['ブラックオリンピア','ラストスマイル','ゴーイントゥスカイ','シャドウマスター'],perPoint:100},
-      totalSpend:800
-    },
-    note:'4頭ワイドBOX標準（800円）。【発走前最終差替】タイダルロック（青龍D・言霊「器用さ一瞬欠く」）→シャドウマスター（前走ゆきやなぎ賞1勝C1着・青龍B・言霊A「長距離で良さ出た」・社台F鈴鹿A相性・🔥杉山晴紀厩舎1週複勝率70%絶好調🔥・40.9倍10人気の真の穴）に入替。◎ブラックオリンピア3冠整合／○ラストスマイル妙味S／▲ゴーイントゥスカイ白虎S級／△シャドウマスター穴指南格言ドンピシャで4神統合ボックス。'
-  },
+  {key:'2026-04-25-kyoto-10r',     date:'2026-04-25', day:'sat', label:'土'},
+  {key:'2026-04-25-tokyo-10r',     date:'2026-04-25', day:'sat', label:'土'},
+  {key:'2026-04-25-fukushima-11r', date:'2026-04-25', day:'sat', label:'土'},
+  {key:'2026-04-25-kyoto-11r',     date:'2026-04-25', day:'sat', label:'土'},
+  {key:'2026-04-25-tokyo-11r',     date:'2026-04-25', day:'sat', label:'土'},
   // ================= 2026-04-26 日曜 =================
-  {
-    key:'2026-04-26-kyoto-10r',
-    date:'2026-04-26', day:'sun', label:'日',
-    win5:'WIN1', grade:'3勝',
-    name:'センテニアル・パークS', nameEn:'CENTENNIAL PARK STAKES',
-    meta:'京都10R ／ 芝1800m（外） ／ 18頭',
-    startTime:'14:50',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'未降臨①',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'○',markLabel:'対抗',name:'未降臨②',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'▲',markLabel:'単穴',name:'未降臨③',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'△',markLabel:'連下',name:'未降臨④',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'未降臨①',amount:100},
-      fuku:{name:'未降臨②',amount:100},
-      wide:{horses:['未降臨①','未降臨②','未降臨③','未降臨④'],perPoint:100},
-      totalSpend:800
-    },
-    note:'神託降臨待ち。4/26（日）WIN1：センテニアル・パークS（京都10R／芝1800m外／18頭）。'
-  },
-  {
-    key:'2026-04-26-tokyo-10r',
-    date:'2026-04-26', day:'sun', label:'日',
-    win5:'WIN2', grade:'L',
-    name:'オアシスS', nameEn:'OASIS STAKES',
-    meta:'東京10R ／ ダ1600m ／ 16頭',
-    startTime:'15:00',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'未降臨①',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'○',markLabel:'対抗',name:'未降臨②',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'▲',markLabel:'単穴',name:'未降臨③',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'△',markLabel:'連下',name:'未降臨④',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'未降臨①',amount:100},
-      fuku:{name:'未降臨②',amount:100},
-      wide:{horses:['未降臨①','未降臨②','未降臨③','未降臨④'],perPoint:100},
-      totalSpend:800
-    },
-    note:'神託降臨待ち。4/26（日）WIN2：オアシスS（東京10R／ダ1600m／16頭／リステッド）。'
-  },
-  {
-    key:'2026-04-26-fukushima-11r',
-    date:'2026-04-26', day:'sun', label:'日',
-    win5:'WIN3', grade:'OP',
-    name:'モルガナイトS', nameEn:'MORGANITE STAKES',
-    meta:'福島11R ／ 芝1200m ／ 16頭',
-    startTime:'15:15',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'未降臨①',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'○',markLabel:'対抗',name:'未降臨②',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'▲',markLabel:'単穴',name:'未降臨③',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'△',markLabel:'連下',name:'未降臨④',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'未降臨①',amount:100},
-      fuku:{name:'未降臨②',amount:100},
-      wide:{horses:['未降臨①','未降臨②','未降臨③','未降臨④'],perPoint:100},
-      totalSpend:800
-    },
-    note:'神託降臨待ち。4/26（日）WIN3：モルガナイトS（福島11R／芝1200m／16頭／オープン）。'
-  },
-  {
-    key:'2026-04-26-kyoto-11r',
-    date:'2026-04-26', day:'sun', label:'日',
-    win5:'WIN4', grade:'G2',
-    name:'読売マイラーズC', nameEn:'YOMIURI MILERS CUP',
-    meta:'京都11R ／ 芝1600m（外） ／ 18頭',
-    startTime:'15:30',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'未降臨①',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'○',markLabel:'対抗',name:'未降臨②',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'▲',markLabel:'単穴',name:'未降臨③',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'△',markLabel:'連下',name:'未降臨④',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'未降臨①',amount:100},
-      fuku:{name:'未降臨②',amount:100},
-      wide:{horses:['未降臨①','未降臨②','未降臨③','未降臨④'],perPoint:100},
-      totalSpend:800
-    },
-    note:'神託降臨待ち。4/26（日）WIN4：第57回読売マイラーズC（京都11R／芝1600m外／18頭／GⅡ）。'
-  },
-  {
-    key:'2026-04-26-tokyo-11r',
-    date:'2026-04-26', day:'sun', label:'日',
-    win5:'WIN5', grade:'G2',
-    name:'フローラS', nameEn:'FLORA STAKES',
-    meta:'東京11R ／ 芝2000m ／ 13頭',
-    startTime:'15:45',
-    picks:[
-      {mark:'◎',markLabel:'本命',name:'未降臨①',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'○',markLabel:'対抗',name:'未降臨②',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'▲',markLabel:'単穴',name:'未降臨③',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-      {mark:'△',markLabel:'連下',name:'未降臨④',gate:'—',num:'—',ninki:'—',odds:'—',sire:'—',bms:'—',jockey:'—',trainer:'—',gaikyu:'—',prevName:'—',prevFinish:'—',badges:[{t:'seiryu',g:'—',label:'青龍（言語分析）'},{t:'suzaku',g:'—',label:'朱雀（性能）'},{t:'byakko',g:'—',label:'白虎（ラップ）'},{t:'genbu',g:'—',label:'玄武（データ）'}],comment:'神託降臨待ち…'},
-    ],
-    bets:{
-      strategy:'4horse-box',
-      tan:{name:'未降臨①',amount:100},
-      fuku:{name:'未降臨②',amount:100},
-      wide:{horses:['未降臨①','未降臨②','未降臨③','未降臨④'],perPoint:100},
-      totalSpend:800
-    },
-    note:'神託降臨待ち。4/26（日）WIN5：第61回サンケイスポーツ賞フローラS（東京11R／芝2000m／13頭／GⅡ／3歳牝）。'
-  },
+  {key:'2026-04-26-kyoto-10r',     date:'2026-04-26', day:'sun', label:'日'},
+  {key:'2026-04-26-tokyo-10r',     date:'2026-04-26', day:'sun', label:'日'},
+  {key:'2026-04-26-fukushima-11r', date:'2026-04-26', day:'sun', label:'日'},
+  {key:'2026-04-26-kyoto-11r',     date:'2026-04-26', day:'sun', label:'日'},
+  {key:'2026-04-26-tokyo-11r',     date:'2026-04-26', day:'sun', label:'日'},
 ];
+
+let RACES = [];
+
+async function loadRaces() {
+  const loaded = await Promise.all(RACES_MANIFEST.map(async m => {
+    try {
+      const res = await fetch(`data/race-notes/${m.key}.json`, {cache:'no-cache'});
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const d = await res.json();
+      const p = d.presentation || {};
+      return {
+        key:       m.key,
+        date:      (d.race && d.race.date) || m.date,
+        day:       m.day,
+        label:     m.label,
+        win5:      p.win5Layer || '',
+        grade:     (d.race && d.race.grade) || '',
+        name:      (d.race && d.race.name) || '未定',
+        nameEn:    p.nameEn || '',
+        meta:      p.meta || '',
+        startTime: p.startTime || '',
+        picks:     p.horses || [],
+        bets:      p.bets || {},
+        note:      p.note || ''
+      };
+    } catch(e) {
+      console.error(`race-notes load failed: ${m.key}`, e);
+      // 最低限の placeholder で埋めて UI 崩壊を防ぐ
+      return {
+        key: m.key, date: m.date, day: m.day, label: m.label,
+        win5:'', grade:'', name:'読込失敗', meta:'',
+        startTime:'', picks: [], bets:{}, note:`データ読込失敗: ${m.key}`
+      };
+    }
+  }));
+  RACES = loaded;
+}
 
 // ───────────────────────────────────────
 //  レンダリング
@@ -641,9 +478,12 @@ function finishClass(f){
 }
 
 function omamoriHtml(p){
-  const badges = (p.badges||[]).map(b =>
-    `<span class="badge b-${b.t}">${b.label}${b.g}</span>`
-  ).join('');
+  const badges = (p.badges||[]).map(b => {
+    const sub = (b.t === 'suzaku' && (b.soku || b.gan))
+      ? `<span class="badge-sub">速${b.soku||'—'}／眼${b.gan||'—'}</span>`
+      : '';
+    return `<span class="badge b-${b.t}">${b.label}${b.g}${sub}</span>`;
+  }).join('');
   const finClass = finishClass(p.prevFinish);
   return `
   <div class="omamori ${markClass(p.mark)}">
@@ -734,6 +574,21 @@ function hondenHtml(r){
         <div class="offering-content">${horseCell(r.bets.tan.name)}</div>
         <div class="offering-amount">¥${r.bets.tan.amount}（1点）</div>
       </div>`;
+  } else if(strategy === 'wide-only'){
+    // 2026-04-26〜：単勝複勝廃止、ワイドBOX 4頭BOX のみ（6点×¥100=¥600）
+    const wideCombos = makeCombos(r.bets.wide.horses);
+    const wideTotal  = wideCombos.length * r.bets.wide.perPoint;
+    grandTotal = wideTotal;
+    offeringDesc = 'ワイド４頭ＢＯＸ 専用奉納';
+    offeringRows = `
+      <div class="offering-row">
+        <div class="offering-type mincho">ワイド</div>
+        <div class="offering-content">
+          ${r.bets.wide.horses.map(h => horseCell(h)).join('　')}
+          <div style="margin-top:4px;color:rgba(244,233,201,.55);font-size:11px;">4頭BOX = ${wideCombos.length}点</div>
+        </div>
+        <div class="offering-amount">¥${wideTotal}（${wideCombos.length}点×¥${r.bets.wide.perPoint}）</div>
+      </div>`;
   }
 
   const win5Html = r.win5 ? `<span>${r.win5} 対象</span>` : '';
@@ -776,9 +631,10 @@ function makeCombos(arr){
 }
 
 // ───────────────────────────────────────
-//  初期化
+//  初期化（race-notes fetch 後に描画）
 // ───────────────────────────────────────
-(function init(){
+(async function init(){
+  await loadRaces();
   const today = new Date().toISOString().slice(0,10);
   const days = uniqueDays().map(d => d.date);
   const target = days.find(d => d >= today) || days[days.length-1] || days[0];
