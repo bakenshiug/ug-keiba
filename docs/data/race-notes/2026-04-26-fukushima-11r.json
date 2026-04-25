@@ -918,7 +918,7 @@
       }
     ],
     "bets": {
-      "strategy": "wide-only",
+      "strategy": "wide-and-umaren",
       "wide": {
         "horses": [
           "サウンドモリアーナ",
@@ -928,7 +928,16 @@
         ],
         "perPoint": 100
       },
-      "totalSpend": 600
+      "totalSpend": 1200,
+      "umaren": {
+        "horses": [
+          "サウンドモリアーナ",
+          "シュタールヴィント",
+          "イツモニコニコ",
+          "ナムラローズマリー"
+        ],
+        "perPoint": 100
+      }
     },
     "note": "神託降臨待ち。4/26（日）WIN3：モルガナイトS（福島11R／芝1200m／16頭／オープン）。",
     "win5Picks": [

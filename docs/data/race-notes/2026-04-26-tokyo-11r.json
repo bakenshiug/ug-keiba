@@ -1899,7 +1899,7 @@
       }
     ],
     "bets": {
-      "strategy": "wide-only",
+      "strategy": "wide-and-umaren",
       "wide": {
         "horses": [
           "エンネ",
@@ -1909,7 +1909,16 @@
         ],
         "perPoint": 100
       },
-      "totalSpend": 600
+      "totalSpend": 1200,
+      "umaren": {
+        "horses": [
+          "エンネ",
+          "ラフターラインズ",
+          "ファムクラジューズ",
+          "サムシングスイート"
+        ],
+        "perPoint": 100
+      }
     },
     "note": "神託降臨待ち。4/26（日）WIN5：第61回サンケイスポーツ賞フローラS（東京11R／芝2000m／13頭／GⅡ／3歳牝）。",
     "win5Picks": [

@@ -2766,7 +2766,7 @@
       }
     ],
     "bets": {
-      "strategy": "wide-only",
+      "strategy": "wide-and-umaren",
       "wide": {
         "horses": [
           "ベラジオボンド",
@@ -2776,7 +2776,16 @@
         ],
         "perPoint": 100
       },
-      "totalSpend": 600
+      "totalSpend": 1200,
+      "umaren": {
+        "horses": [
+          "ベラジオボンド",
+          "アドマイヤズーム",
+          "エルトンバローズ",
+          "ショウナンアデイブ"
+        ],
+        "perPoint": 100
+      }
     },
     "note": "神託降臨待ち。4/26（日）WIN4：第57回読売マイラーズC（京都11R／芝1600m外／18頭／GⅡ）。",
     "win5Picks": [

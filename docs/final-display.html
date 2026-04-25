@@ -334,6 +334,37 @@ a{color:var(--kin);text-decoration:none;}
 .profit-plus{color:#82DB6F;}
 .profit-minus{color:#E08C7D;}
 
+/* ───── ワイド+馬連 並列ブロック ───── */
+.result-kinds{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;
+}
+@media(max-width:640px){
+  .result-kinds{grid-template-columns:1fr;}
+}
+.result-kind{
+  padding:12px 14px;border-radius:5px;
+  border:1px solid rgba(201,169,97,.16);
+  background:rgba(20,20,20,.4);
+}
+.result-kind.result-win{border-color:rgba(47,124,68,.45);background:rgba(31,92,48,.12);}
+.result-kind.result-gami{border-color:rgba(196,123,31,.4);background:rgba(154,88,16,.1);}
+.result-kind-head{
+  text-align:center;font-size:12.5px;letter-spacing:.32em;
+  color:#C9A961;font-weight:700;
+  border-bottom:1px solid rgba(201,169,97,.18);
+  padding-bottom:7px;margin-bottom:9px;
+}
+.result-kind .result-hits{margin-bottom:9px;}
+.result-kind .result-hit-row{font-size:12px;padding:4px 2px;}
+.result-kind .result-total-row{font-size:11.5px;padding:3px 2px;}
+.result-kind .result-profit{font-size:13px;padding-top:7px;margin-top:4px;}
+.result-grand{
+  border-top:2px solid rgba(201,169,97,.3);padding-top:10px;margin-top:6px;
+  background:rgba(15,15,15,.4);padding:10px 14px;border-radius:4px;
+}
+.result-grand .result-total-row{font-size:13.5px;}
+.result-grand .result-profit{font-size:15px;font-weight:900;}
+
 /* ───── 日別合計バナー（4/25 戦績バナー等） ───── */
 .day-summary{
   margin:14px 16px 2px;padding:14px 22px;
@@ -739,29 +770,24 @@ function dailyProverb(rate, hits, total){
   return '神はガミを恐れず。';
 }
 
-// 的中判定（wide-only 想定）
+// 券種別の的中判定（汎用版）
+// kind: 'wide' | 'umaren'
 // 戻り値: {type:'win'|'gami'|'lose', hits:[{pair,amount}], totalPay, totalSpend}
-function judgeWinning(r){
+function judgeKind(r, kind){
   const result = r.result;
   const bets   = r.bets || {};
-  const strat  = bets.strategy || '';
   if (!result || !result.horses || !result.payouts) return null;
+  const cfg = bets[kind];
+  if (!cfg || !cfg.horses) return null;
 
-  // wide-only のみ精緻判定（他strategyは today はスコープ外）
-  if (strat !== 'wide-only') {
-    return { type: 'lose', hits: [], totalPay: 0, totalSpend: 0, note: 'strategy未対応' };
-  }
-
-  const wide = bets.wide || {};
-  const horses = wide.horses || [];
-  const per    = wide.perPoint || 100;
+  const horses = cfg.horses || [];
+  const per    = cfg.perPoint || 100;
   const totalSpend = (horses.length * (horses.length - 1) / 2) * per;
 
-  // ピック馬名 → 結果馬の馬番に変換
   const nameToNum = {};
   result.horses.forEach(h => { if (h.name) nameToNum[h.name] = String(h.num); });
 
-  const widePayouts = result.payouts.wide || [];
+  const payouts = result.payouts[kind] || [];
   const hits = [];
   let totalPay = 0;
 
@@ -770,9 +796,8 @@ function judgeWinning(r){
       const a = nameToNum[horses[i]];
       const b = nameToNum[horses[j]];
       if (!a || !b) continue;
-      // 払戻のwide combo[]に [a,b] or [b,a] が含まれるか
-      const hit = widePayouts.find(w => {
-        const c = (w.combo || []).map(String);
+      const hit = payouts.find(p => {
+        const c = (p.combo || []).map(String);
         return (c[0] === a && c[1] === b) || (c[0] === b && c[1] === a);
       });
       if (hit && hit.amount) {
@@ -781,55 +806,84 @@ function judgeWinning(r){
       }
     }
   }
-
   let type;
   if (totalPay === 0) type = 'lose';
   else if (totalPay >= totalSpend) type = 'win';
   else type = 'gami';
-
   return { type, hits, totalPay, totalSpend };
 }
 
-// 結果セクション（払戻明細＋投資収支＋回収率＋格言）
-function renderResultSection(r){
-  const v = judgeWinning(r);
+// レース全体の的中サマリー（ワイド+馬連を統合）
+function judgeWinning(r){
+  const result = r.result;
+  const bets   = r.bets || {};
+  const strat  = bets.strategy || '';
+  if (!result) return null;
+
+  // 旧 wide-only も新 wide-and-umaren も両対応
+  const w = judgeKind(r, 'wide');
+  const u = judgeKind(r, 'umaren');
+  const segs = [w, u].filter(x => x);
+  if (segs.length === 0) {
+    return { type: 'lose', hits: [], totalPay: 0, totalSpend: 0, note: 'strategy未対応' };
+  }
+  const totalPay = segs.reduce((s,x) => s + x.totalPay, 0);
+  const totalSpend = segs.reduce((s,x) => s + x.totalSpend, 0);
+  const hits = segs.flatMap(x => x.hits);
+  let type;
+  if (totalPay === 0) type = 'lose';
+  else if (totalPay >= totalSpend) type = 'win';
+  else type = 'gami';
+  return { type, hits, totalPay, totalSpend, perKind: { wide: w, umaren: u } };
+}
+
+// 券種ごとの結果ブロックHTML
+function renderKindBlock(label, v){
   if (!v) return '';
+  const profit = v.totalPay - v.totalSpend;
+  const profitSign = profit >= 0 ? '+' : '−';
+  const rate = v.totalSpend ? Math.round((v.totalPay / v.totalSpend) * 1000) / 10 : 0;
   const verdictLabel =
     v.type === 'win'  ? '🎯 的　中'
     : v.type === 'gami' ? '🎯 ガミ的中'
     : '— 外　れ';
-  const verdictClass = v.type;
-  const profit = v.totalPay - v.totalSpend;
-  const profitSign = profit >= 0 ? '+' : '−';
-  const rate = v.totalSpend ? Math.round((v.totalPay / v.totalSpend) * 1000) / 10 : 0;
   const hitsHtml = v.hits.length
     ? v.hits.map(h =>
         `<div class="result-hit-row"><span class="result-hit-pair">${h.pair[0]} − ${h.pair[1]}</span><span class="result-hit-amount">¥${h.amount.toLocaleString()}</span></div>`
       ).join('')
     : `<div class="result-hit-row" style="opacity:.55;">的中なし</div>`;
-  const proverb = pickProverb(v.type, r.key);
-
   return `
-  <div class="result-block result-${verdictClass}">
-    <div class="result-title mincho">結　果</div>
-    <div class="result-verdict mincho">${verdictLabel}</div>
+  <div class="result-kind result-${v.type}">
+    <div class="result-kind-head mincho">${label} ${verdictLabel}</div>
     <div class="result-hits">${hitsHtml}</div>
-    <div class="result-total-row">
-      <span class="mincho">投　資</span>
-      <span>¥${v.totalSpend.toLocaleString()}</span>
-    </div>
-    <div class="result-total-row">
-      <span class="mincho">払　戻</span>
-      <span>¥${v.totalPay.toLocaleString()}</span>
-    </div>
-    <div class="result-total-row">
-      <span class="mincho">回 収 率</span>
-      <span class="${rate >= 100 ? 'profit-plus' : 'profit-minus'}">${rate}%</span>
-    </div>
-    <div class="result-total-row result-profit">
-      <span class="mincho">収　支</span>
-      <span class="${profit >= 0 ? 'profit-plus' : 'profit-minus'}">${profitSign}¥${Math.abs(profit).toLocaleString()}</span>
-    </div>
+    <div class="result-total-row"><span class="mincho">投　資</span><span>¥${v.totalSpend.toLocaleString()}</span></div>
+    <div class="result-total-row"><span class="mincho">払　戻</span><span>¥${v.totalPay.toLocaleString()}</span></div>
+    <div class="result-total-row"><span class="mincho">回 収 率</span><span class="${rate >= 100 ? 'profit-plus' : 'profit-minus'}">${rate}%</span></div>
+    <div class="result-total-row result-profit"><span class="mincho">収　支</span><span class="${profit >= 0 ? 'profit-plus' : 'profit-minus'}">${profitSign}¥${Math.abs(profit).toLocaleString()}</span></div>
+  </div>`;
+}
+
+// 結果セクション（ワイド+馬連 並列表示）
+function renderResultSection(r){
+  const v = judgeWinning(r);
+  if (!v) return '';
+  const wideBlk   = v.perKind && v.perKind.wide   ? renderKindBlock('ワイド', v.perKind.wide)   : '';
+  const umarenBlk = v.perKind && v.perKind.umaren ? renderKindBlock('馬　連', v.perKind.umaren) : '';
+  const totalRate = v.totalSpend ? Math.round((v.totalPay / v.totalSpend) * 1000) / 10 : 0;
+  const totalProfit = v.totalPay - v.totalSpend;
+  const totalSign = totalProfit >= 0 ? '+' : '−';
+  const proverb = pickProverb(v.type, r.key);
+  return `
+  <div class="result-block result-${v.type}">
+    <div class="result-title mincho">結　果</div>
+    <div class="result-kinds">${wideBlk}${umarenBlk}</div>
+    ${v.perKind && v.perKind.wide && v.perKind.umaren ? `
+    <div class="result-grand">
+      <div class="result-total-row"><span class="mincho">合計投資</span><span>¥${v.totalSpend.toLocaleString()}</span></div>
+      <div class="result-total-row"><span class="mincho">合計払戻</span><span>¥${v.totalPay.toLocaleString()}</span></div>
+      <div class="result-total-row"><span class="mincho">合計回収率</span><span class="${totalRate >= 100 ? 'profit-plus' : 'profit-minus'}">${totalRate}%</span></div>
+      <div class="result-total-row result-profit"><span class="mincho">合計収支</span><span class="${totalProfit >= 0 ? 'profit-plus' : 'profit-minus'}">${totalSign}¥${Math.abs(totalProfit).toLocaleString()}</span></div>
+    </div>` : ''}
     <div class="result-proverb mincho">― ${proverb} ―</div>
   </div>`;
 }
@@ -896,7 +950,7 @@ function hondenHtml(r){
         <div class="offering-amount">¥${r.bets.tan.amount}（1点）</div>
       </div>`;
   } else if(strategy === 'wide-only'){
-    // 2026-04-26〜：単勝複勝廃止、ワイドBOX 4頭BOX のみ（6点×¥100=¥600）
+    // 旧スキーマ後方互換
     const wideCombos = makeCombos(r.bets.wide.horses);
     const wideTotal  = wideCombos.length * r.bets.wide.perPoint;
     grandTotal = wideTotal;
@@ -909,6 +963,35 @@ function hondenHtml(r){
           <div style="margin-top:4px;color:rgba(244,233,201,.55);font-size:11px;">4頭BOX = ${wideCombos.length}点</div>
         </div>
         <div class="offering-amount">¥${wideTotal}（${wideCombos.length}点×¥${r.bets.wide.perPoint}）</div>
+      </div>`;
+  } else if(strategy === 'wide-and-umaren'){
+    // 2026-04-26〜v2: ワイド+馬連 並列奉納
+    const wideHorses   = (r.bets.wide   && r.bets.wide.horses)   || [];
+    const umarenHorses = (r.bets.umaren && r.bets.umaren.horses) || [];
+    const wideCombos   = makeCombos(wideHorses);
+    const umarenCombos = makeCombos(umarenHorses);
+    const widePer      = (r.bets.wide   && r.bets.wide.perPoint)   || 100;
+    const umarenPer    = (r.bets.umaren && r.bets.umaren.perPoint) || 100;
+    const wideTotal    = wideCombos.length   * widePer;
+    const umarenTotal  = umarenCombos.length * umarenPer;
+    grandTotal = wideTotal + umarenTotal;
+    offeringDesc = 'ワイド ＆ 馬連 ４頭ＢＯＸ 並列奉納';
+    offeringRows = `
+      <div class="offering-row">
+        <div class="offering-type mincho">ワイド</div>
+        <div class="offering-content">
+          ${wideHorses.map(h => horseCell(h)).join('　')}
+          <div style="margin-top:4px;color:rgba(244,233,201,.55);font-size:11px;">4頭BOX = ${wideCombos.length}点</div>
+        </div>
+        <div class="offering-amount">¥${wideTotal}（${wideCombos.length}点×¥${widePer}）</div>
+      </div>
+      <div class="offering-row">
+        <div class="offering-type mincho">馬　連</div>
+        <div class="offering-content">
+          ${umarenHorses.map(h => horseCell(h)).join('　')}
+          <div style="margin-top:4px;color:rgba(244,233,201,.55);font-size:11px;">4頭BOX = ${umarenCombos.length}点</div>
+        </div>
+        <div class="offering-amount">¥${umarenTotal}（${umarenCombos.length}点×¥${umarenPer}）</div>
       </div>`;
   }
 
