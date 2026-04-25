@@ -243,6 +243,7 @@ a{color:var(--kin);text-decoration:none;}
 .omamori-info dt{color:var(--kin);letter-spacing:.1em;font-weight:700;white-space:nowrap;}
 .omamori-info dd{color:var(--sand);}
 .omamori-info .prev-race{color:rgba(244,233,201,.85);}
+.omamori-info .prev-cd{color:rgba(201,169,97,.7);font-size:10.5px;margin:0 2px;letter-spacing:.02em;}
 .omamori-info .prev-finish{
   display:inline-block;padding:0 6px;margin-left:4px;border-radius:2px;
   font-weight:900;font-size:11px;
@@ -689,7 +690,7 @@ function omamoriHtml(p, raceResult){
         <dt>騎手</dt><dd>${p.jockey}</dd>
         <dt>厩舎</dt><dd>${p.trainer}</dd>
         <dt>外厩</dt><dd>${p.gaikyu}</dd>
-        <dt>前走</dt><dd class="prev-race">${p.prevName}<span class="prev-finish ${finClass}">${p.prevFinish}</span></dd>
+        <dt>前走</dt><dd class="prev-race">${p.prevName}${(p.prevTrack||p.prevDist) ? `<span class="prev-cd">（${[p.prevTrack, p.prevDist].filter(x=>x && x !== '—').join('・')}）</span>` : ''}<span class="prev-finish ${finClass}">${p.prevFinish}${p.prevFinish && p.prevFinish !== '—' ? '着' : ''}</span></dd>
       </dl>
       <div class="omamori-badges">${badges}</div>
       <div class="omamori-comment">${p.comment}</div>

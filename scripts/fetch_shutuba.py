@@ -143,8 +143,15 @@ def merge_to_presentation(pres_horses, shutuba_list):
         if p.get('bms')  in ('—', '', None):    p['bms']     = s.get('bms')     or '—'
         if p.get('jockey') in ('—', '', None):  p['jockey']  = s.get('jockey')  or '—'
         if p.get('trainer') in ('—', '', None): p['trainer'] = s.get('trainer') or '—'
-        if p.get('prevName') in ('—', '', None):   p['prevName']   = s.get('prevName')   or '—'
-        if p.get('prevFinish') in ('—', '', None): p['prevFinish'] = s.get('prevFinish') or '—'
+        # 前走: 既存値あっても上書き（フォーマット最新化のため）
+        if s.get('prevName'):   p['prevName']   = s['prevName']
+        if s.get('prevFinish'): p['prevFinish'] = s['prevFinish']
+        if s.get('prevDist'):   p['prevDist']   = s['prevDist']
+        # 前走場: prevDate "2026.02.01 東京" の後ろを取る
+        pd = s.get('prevDate') or ''
+        parts = pd.split()
+        if len(parts) >= 2:
+            p['prevTrack'] = parts[-1]
     return pres_horses
 
 
