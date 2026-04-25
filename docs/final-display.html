@@ -438,7 +438,9 @@ let RACES = [];
 async function loadRaces() {
   const loaded = await Promise.all(RACES_MANIFEST.map(async m => {
     try {
-      const res = await fetch(`data/race-notes/${m.key}.json`, {cache:'no-cache'});
+      // CDN edge cache 回避：build番号代わりに分単位のタイムスタンプを付与
+      const _bust = Math.floor(Date.now() / 60000);
+      const res = await fetch(`data/race-notes/${m.key}.json?_=${_bust}`, {cache:'no-cache'});
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const d = await res.json();
       const p = d.presentation || {};
