@@ -354,8 +354,8 @@
     },
     {
       "listOrder": 7,
-      "num": null,
-      "gate": null,
+      "num": "11",
+      "gate": "7",
       "name": "ファムクラジューズ",
       "jockey": "横山武",
       "trainer": "黒岩",
@@ -365,7 +365,7 @@
       "gaikyu": "ビッグレッドファーム鉾田",
       "relComment": {
         "keyword": "タフでファイト心",
-        "grade": "A"
+        "grade": "S"
       },
       "lapFactors": null,
       "gaikyuFactor": {
@@ -407,10 +407,20 @@
       "kinryo": 55.0,
       "stable": "美浦黒岩",
       "suzakuGrade": {
-        "grade": null,
-        "soku": null,
-        "gan": null,
+        "grade": "B",
+        "soku": {
+          "grade": "—"
+        },
+        "gan": {
+          "grade": "—"
+        },
         "v": "v2-soku-gan"
+      },
+      "yugomiLapGrade": {
+        "grade": "S"
+      },
+      "courseDataGrade": {
+        "grade": "S"
       }
     },
     {
@@ -1799,23 +1809,25 @@
         "rankInGod": 1,
         "mark": "🐅",
         "markLabel": "白虎1位",
-        "num": "4",
-        "gate": "4",
-        "name": "ペイシャシス",
-        "ninki": "13",
-        "odds": "83.0",
-        "sire": "シスキン",
-        "bms": "スペシャルウィーク",
-        "jockey": "北村宏",
-        "trainer": "加藤公",
-        "gaikyu": "チャンピオンヒルズ",
-        "prevName": "3歳未勝利",
+        "num": "11",
+        "gate": "7",
+        "name": "ファムクラジューズ",
+        "ninki": "4",
+        "odds": "8.0",
+        "sire": "ベンバトル",
+        "bms": "ディープインパクト",
+        "jockey": "横山武",
+        "trainer": "黒岩",
+        "gaikyu": "ビッグレッドF鉾田",
+        "prevName": "フリージア",
         "prevFinish": "1",
+        "prevTrack": "東京",
+        "prevDist": "芝2000",
         "badges": [
           {
             "t": "seiryu",
             "label": "青龍（言霊）",
-            "g": "A"
+            "g": "S"
           },
           {
             "t": "suzaku",
@@ -1832,12 +1844,10 @@
           {
             "t": "genbu",
             "label": "玄武（地脈）",
-            "g": "A"
+            "g": "S"
           }
         ],
-        "comment": "センス有・差し切る、HC0.2のラップ完成。13頭少頭数が外目枠を消す。",
-        "prevDist": "芝1600",
-        "prevTrack": "京都"
+        "comment": "前走フリージア(東京芝2000) 1着・ジャスティンシカゴ0.2秒差完勝。SSSB級神託降臨、外厩+25反映前は玄武素点1位144.3＋青龍S3タイ。"
       },
       {
         "god": "genbu",
@@ -1894,7 +1904,7 @@
         "horses": [
           "エンネ",
           "ラフターラインズ",
-          "ペイシャシス",
+          "ファムクラジューズ",
           "サムシングスイート"
         ],
         "perPoint": 100
