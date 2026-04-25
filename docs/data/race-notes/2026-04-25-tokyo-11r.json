@@ -1957,7 +1957,7 @@
     "win5Summary": "五層は1点突破。ブラックオリンピアは青龍A×玄武S×朱雀peak90の3冠整合・1番人気鉄板。アザレア賞勝ち馬、長距離向き成長・川田＋友道厩舎の本格派ルート。WIN5五層はここ1頭に託す。",
     "raceId": "202605020111",
     "result": {
-      "fetched": "2026-04-25T16:31:30",
+      "fetched": "2026-04-25T16:42:32",
       "raceId": "202605020111",
       "horses": [
         {
@@ -2244,68 +2244,46 @@
         "fuku": [
           {
             "combo": [
-              "16"
+              "16",
+              "7",
+              "4"
             ],
             "amount": 220,
             "ninki": 4
-          },
-          {
-            "combo": [
-              "7"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "4"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "wakuren": [
           {
             "combo": [
-              "4"
+              "4",
+              "8"
             ],
             "amount": 1560,
             "ninki": 8
-          },
-          {
-            "combo": [
-              "8"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "umaren": [
           {
             "combo": [
-              "7"
+              "7",
+              "16"
             ],
             "amount": 2350,
             "ninki": 7
-          },
-          {
-            "combo": [
-              "16"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "wide": [
           {
             "combo": [
-              "7"
+              "7",
+              "16"
             ],
             "amount": 730,
             "ninki": 5
           },
           {
             "combo": [
+              "4",
               "16"
             ],
             "amount": 440,
@@ -2313,93 +2291,43 @@
           },
           {
             "combo": [
-              "4"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "16"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "4"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
+              "4",
               "7"
             ],
-            "amount": null,
-            "ninki": null
+            "amount": 370,
+            "ninki": 2
           }
         ],
         "umatan": [
           {
             "combo": [
-              "16"
+              "16",
+              "7"
             ],
             "amount": 5850,
             "ninki": 19
-          },
-          {
-            "combo": [
-              "7"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "sanrenpuku": [
           {
             "combo": [
-              "4"
+              "4",
+              "7",
+              "16"
             ],
             "amount": 2280,
             "ninki": 3
-          },
-          {
-            "combo": [
-              "7"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "16"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "sanrentan": [
           {
             "combo": [
-              "16"
+              "16",
+              "7",
+              "4"
             ],
             "amount": 17700,
             "ninki": 43
-          },
-          {
-            "combo": [
-              "7"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "4"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ]
       }

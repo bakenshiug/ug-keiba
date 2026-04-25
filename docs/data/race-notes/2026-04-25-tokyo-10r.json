@@ -1316,7 +1316,7 @@
     "win5Summary": "UG哲学適用：青龍S・2S持ち不在のため素直な序列。メイショウハチローは朱雀S×4神整合の1人気で単勝本命。ワンダラーは青龍A×外部妙味S×8人気で複勝穴軸（\"以前と状態違う\"の具体進化）。ペイシャケイプ（東京1400勝ち実績）・クインズデネブ（得意舞台＋101倍妙味）がワイド残り2枠。トクシーカイザー・スプランドゥールは買い目外へ。レーウィン・イノセントキャットは致命で完全排除。",
     "raceId": "202605020110",
     "result": {
-      "fetched": "2026-04-25T16:31:29",
+      "fetched": "2026-04-25T16:42:32",
       "raceId": "202605020110",
       "horses": [
         {
@@ -1558,68 +1558,46 @@
         "fuku": [
           {
             "combo": [
-              "15"
+              "15",
+              "4",
+              "12"
             ],
             "amount": 160,
             "ninki": 2
-          },
-          {
-            "combo": [
-              "4"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "12"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "wakuren": [
           {
             "combo": [
-              "3"
+              "3",
+              "8"
             ],
             "amount": 330,
             "ninki": 1
-          },
-          {
-            "combo": [
-              "8"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "umaren": [
           {
             "combo": [
-              "4"
+              "4",
+              "15"
             ],
             "amount": 590,
             "ninki": 1
-          },
-          {
-            "combo": [
-              "15"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "wide": [
           {
             "combo": [
-              "4"
+              "4",
+              "15"
             ],
             "amount": 300,
             "ninki": 1
           },
           {
             "combo": [
+              "12",
               "15"
             ],
             "amount": 1600,
@@ -1627,93 +1605,43 @@
           },
           {
             "combo": [
+              "4",
               "12"
             ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "15"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "4"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "12"
-            ],
-            "amount": null,
-            "ninki": null
+            "amount": 1240,
+            "ninki": 14
           }
         ],
         "umatan": [
           {
             "combo": [
-              "15"
+              "15",
+              "4"
             ],
             "amount": 1020,
             "ninki": 1
-          },
-          {
-            "combo": [
-              "4"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "sanrenpuku": [
           {
             "combo": [
-              "4"
+              "4",
+              "12",
+              "15"
             ],
             "amount": 5070,
             "ninki": 14
-          },
-          {
-            "combo": [
-              "12"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "15"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ],
         "sanrentan": [
           {
             "combo": [
-              "15"
+              "15",
+              "4",
+              "12"
             ],
             "amount": 19790,
             "ninki": 53
-          },
-          {
-            "combo": [
-              "4"
-            ],
-            "amount": null,
-            "ninki": null
-          },
-          {
-            "combo": [
-              "12"
-            ],
-            "amount": null,
-            "ninki": null
           }
         ]
       }

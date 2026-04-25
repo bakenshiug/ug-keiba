@@ -92,10 +92,16 @@ def parse_payouts(html):
             if not (result_m and payout_m):
                 continue
 
-            # Result：<li>or<div>or 単一<span>
+            # Result：netkeiba構造
+            #   単勝/枠連/馬連等：<div><span>馬番</span></div> 1個
+            #   複勝/ワイド等：複数組み合わせを <ul>...</ul> ごとに分け、
+            #                  各 ul 内に <li><span>馬番</span></li> が並ぶ
+            #   3連複/3連単：同様
             r_html = result_m.group(1)
-            r_items = re.findall(r'<(?:li|div)[^>]*>(.*?)</(?:li|div)>', r_html, re.S)
-            if not r_items:
+            ul_blocks = re.findall(r'<ul[^>]*>(.*?)</ul>', r_html, re.S)
+            if ul_blocks:
+                r_items = ul_blocks
+            else:
                 r_items = [r_html]
 
             # 配当（円のついた数字）と人気
