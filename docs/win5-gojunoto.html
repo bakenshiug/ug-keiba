@@ -100,6 +100,53 @@ html,body{
 .day-tab .day-kanji{font-size:19px;display:block;margin-bottom:3px;}
 .day-tab .day-date{font-size:11px;opacity:.85;letter-spacing:.12em;}
 
+/* ── 神主御神託バナー ── */
+.proverb-banner{
+  max-width:760px;
+  margin:8px auto 16px;
+  padding:0 16px;
+}
+.proverb-frame{
+  position:relative;
+  background:linear-gradient(180deg,rgba(45,28,16,.55) 0%,rgba(26,17,8,.7) 100%);
+  border:1px solid rgba(201,169,97,.35);
+  border-radius:2px;
+  padding:18px 28px 16px;
+  text-align:center;
+  box-shadow:0 2px 16px rgba(0,0,0,.35),inset 0 0 24px rgba(201,169,97,.05);
+}
+.proverb-frame::before,
+.proverb-frame::after{
+  content:'';position:absolute;left:24px;right:24px;height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(201,169,97,.4) 50%,transparent 100%);
+}
+.proverb-frame::before{top:6px;}
+.proverb-frame::after{bottom:6px;}
+.proverb-label{
+  display:inline-block;
+  font-size:10.5px;letter-spacing:.55em;
+  color:rgba(201,169,97,.85);font-weight:700;
+  padding:0 12px;margin-bottom:10px;
+  background:rgba(26,17,8,.6);
+  position:relative;z-index:1;
+}
+.proverb-text{
+  margin:6px 0 8px;padding:0;
+  font-size:14.5px;letter-spacing:.06em;line-height:1.85;
+  color:var(--sand);font-style:normal;font-weight:500;
+  white-space:pre-line;
+}
+.proverb-author{
+  font-size:11px;letter-spacing:.18em;
+  color:rgba(201,169,97,.7);
+  margin-top:4px;
+}
+@media(max-width:640px){
+  .proverb-text{font-size:13px;line-height:1.7;}
+  .proverb-frame{padding:14px 16px 12px;}
+  .proverb-label{letter-spacing:.4em;font-size:10px;}
+}
+
 /* ── 五重塔 ── */
 .tower-wrap{
   max-width:860px;
@@ -495,6 +542,15 @@ html,body{
   <a href="index.html" class="home-link mincho">⛩ 境内へ戻る</a>
 </header>
 
+<!-- ═════ 神主御神託バナー（日替わり） ═════ -->
+<div class="proverb-banner mincho" id="proverbBanner" data-day="sat">
+  <div class="proverb-frame">
+    <div class="proverb-label">神 主 御 神 託</div>
+    <blockquote class="proverb-text" id="proverbText"></blockquote>
+    <div class="proverb-author" id="proverbAuthor"></div>
+  </div>
+</div>
+
 <nav class="day-tabs" role="tablist" aria-label="開催日切替">
   <button class="day-tab active" data-day="sat" role="tab" aria-selected="true">
     <span class="day-kanji mincho">土曜</span>
@@ -538,6 +594,27 @@ html,body{
 //  各層のpicksは race-notes.presentation.win5Picks から自動描画
 //  ニックは race-notes 側を編集するだけで反映される
 // ═════════════════════════════════════
+// ═════ 日替わり 神主御神託 ═════
+const PROVERBS_BY_DAY = {
+  sat: {
+    text: '神は今日、貴殿に微笑みき。\n3 連単 6 点、ニックの直感を許し賜う。',
+    author: '── 神宮の歓喜（青葉賞 17,700円的中の章）',
+  },
+  sun: {
+    text: '昨日は ◎ をブラックに置いた。\n神は微笑み、ボクは泣いた。\n今日は神託に従う。されどニックには従わず。',
+    author: '── 神宮の悔恨（ギーニョ神主独白）',
+  },
+};
+function applyProverb(day){
+  const p = PROVERBS_BY_DAY[day] || PROVERBS_BY_DAY.sat;
+  const t = document.getElementById('proverbText');
+  const a = document.getElementById('proverbAuthor');
+  const b = document.getElementById('proverbBanner');
+  if (t) t.textContent = '「' + p.text + '」';
+  if (a) a.textContent = p.author;
+  if (b) b.dataset.day = day;
+}
+
 const RACES_MANIFEST = [
   // 土曜
   {key:'2026-04-25-kyoto-10r',     day:'sat', layer:1},
@@ -673,11 +750,13 @@ document.querySelectorAll('.day-tab').forEach(btn => {
     document.querySelectorAll('.tower-wrap').forEach(w => {
       w.hidden = (w.id !== 'tower-' + day);
     });
+    applyProverb(day);
     window.scrollTo({top:0, behavior:'smooth'});
   });
 });
 
 // 初期化
+applyProverb('sat');
 loadAndRender();
 </script>
 
