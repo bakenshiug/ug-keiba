@@ -24,8 +24,8 @@
   "horses": [
     {
       "listOrder": 1,
-      "num": null,
-      "gate": null,
+      "num": "10",
+      "gate": "7",
       "name": "エイシンウィスパー",
       "jockey": "松若",
       "trainer": "今野",
@@ -74,12 +74,17 @@
           "quote": "Eishin Whisper looks very promising and is the type that can move quickly. ... this is a very good horse."
         },
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "エイシンカラット",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝2000",
+      "prevTrack": "中京"
     },
     {
       "listOrder": 2,
-      "num": null,
-      "gate": null,
+      "num": "13",
+      "gate": "8",
       "name": "エンネ",
       "jockey": "ディー",
       "trainer": "吉岡",
@@ -137,12 +142,17 @@
       },
       "courseDataGrade": {
         "grade": "A"
-      }
+      },
+      "dam": "ルパンII",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 3,
-      "num": null,
-      "gate": null,
+      "num": "9",
+      "gate": "6",
       "name": "コウギョク",
       "jockey": "横山和",
       "trainer": "昆",
@@ -187,12 +197,17 @@
           "quote": "Kougyoku's horse looks promising, but it lacks punch and a sense of scale."
         },
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "ハーランズルビー",
+      "prevName": "水仙賞",
+      "prevFinish": "8",
+      "prevDist": "芝2200(外)",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 4,
-      "num": null,
-      "gate": null,
+      "num": "8",
+      "gate": "6",
       "name": "ゴバド",
       "jockey": "原",
       "trainer": "加藤征",
@@ -244,12 +259,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "シャンデリアスピン",
+      "prevName": "クイーンC",
+      "prevFinish": "13",
+      "prevDist": "芝1600",
+      "prevTrack": "東京"
     },
     {
       "listOrder": 5,
-      "num": null,
-      "gate": null,
+      "num": "3",
+      "gate": "3",
       "name": "サムシングスイート",
       "jockey": "酒井",
       "trainer": "伊藤大",
@@ -302,12 +322,17 @@
       },
       "courseDataGrade": {
         "grade": "S"
-      }
+      },
+      "dam": "サムシングジャスト",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝2000",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 6,
-      "num": null,
-      "gate": null,
+      "num": "12",
+      "gate": "8",
       "name": "スタニングレディ",
       "jockey": "三浦",
       "trainer": "高木",
@@ -350,7 +375,12 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "フォクシーレディ",
+      "prevName": "大寒桜賞",
+      "prevFinish": "3",
+      "prevDist": "芝2200",
+      "prevTrack": "中京"
     },
     {
       "listOrder": 7,
@@ -421,12 +451,17 @@
       },
       "courseDataGrade": {
         "grade": "S"
-      }
+      },
+      "dam": "キューンハイト",
+      "prevName": "フリージア",
+      "prevFinish": "1",
+      "prevDist": "芝2000",
+      "prevTrack": "東京"
     },
     {
       "listOrder": 8,
-      "num": null,
-      "gate": null,
+      "num": "4",
+      "gate": "4",
       "name": "ペイシャシス",
       "jockey": "北村宏",
       "trainer": "加藤公",
@@ -484,12 +519,17 @@
       },
       "courseDataGrade": {
         "grade": "A"
-      }
+      },
+      "dam": "ペイシャフェリス",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝1600",
+      "prevTrack": "京都"
     },
     {
       "listOrder": 9,
-      "num": null,
-      "gate": null,
+      "num": "6",
+      "gate": "5",
       "name": "ペンダント",
       "jockey": "佐々木",
       "trainer": "池江",
@@ -551,12 +591,17 @@
           "quote": "I'm thinking of taking another look at the pendant sometime after autumn. ... He stretched out but got off to a slow start for the fourth time in a row."
         },
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "スパイラルステップ",
+      "prevName": "3歳1勝クラス",
+      "prevFinish": "1",
+      "prevDist": "ダ1800",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 10,
-      "num": null,
-      "gate": null,
+      "num": "5",
+      "gate": "4",
       "name": "ラフターラインズ",
       "jockey": "レーン",
       "trainer": "小笠",
@@ -613,12 +658,17 @@
       },
       "courseDataGrade": {
         "grade": "A"
-      }
+      },
+      "dam": "バンゴール",
+      "prevName": "きさらぎ賞",
+      "prevFinish": "3",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "京都"
     },
     {
       "listOrder": 11,
-      "num": null,
-      "gate": null,
+      "num": "2",
+      "gate": "2",
       "name": "ラベルセーヌ",
       "jockey": "荻野極",
       "trainer": "鹿戸",
@@ -659,12 +709,17 @@
           "quote": "When you see the horses at La Belle Seine, you think, 'Huh?'"
         },
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "ラフォルス",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝1800",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 12,
-      "num": null,
-      "gate": null,
+      "num": "7",
+      "gate": "5",
       "name": "リアライズルミナス",
       "jockey": "松山",
       "trainer": "橋口",
@@ -722,12 +777,17 @@
           "quote": "this Silver State offspring can handle the distance, seems to have a good temperament, and moves quite steadily. This was his first win in his fourth race."
         },
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "ジュルビアン",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 13,
-      "num": null,
-      "gate": null,
+      "num": "1",
+      "gate": "1",
       "name": "リスレジャンデール",
       "jockey": "津村",
       "trainer": "栗田",
@@ -766,7 +826,12 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "リリーズキャンドル",
+      "prevName": "セントポー",
+      "prevFinish": "7",
+      "prevDist": "芝1800",
+      "prevTrack": "東京"
     }
   ],
   "finalBets": {

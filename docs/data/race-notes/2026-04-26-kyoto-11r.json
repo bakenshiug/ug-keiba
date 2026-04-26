@@ -24,8 +24,8 @@
   "horses": [
     {
       "listOrder": 1,
-      "num": null,
-      "gate": null,
+      "num": "13",
+      "gate": "7",
       "name": "アサヒ",
       "jockey": "松本",
       "trainer": "金成",
@@ -145,12 +145,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "ライクザウインド",
+      "prevName": "六甲S",
+      "prevFinish": "9",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 2,
-      "num": null,
-      "gate": null,
+      "num": "9",
+      "gate": "5",
       "name": "アドマイヤズーム",
       "jockey": "武豊",
       "trainer": "友道",
@@ -204,12 +209,17 @@
       },
       "courseDataGrade": {
         "grade": "A"
-      }
+      },
+      "dam": "ダイワズーム",
+      "prevName": "MBSスワ",
+      "prevFinish": "6",
+      "prevDist": "芝1400(外)",
+      "prevTrack": "京都"
     },
     {
       "listOrder": 3,
-      "num": null,
-      "gate": null,
+      "num": "10",
+      "gate": "5",
       "name": "ウォーターリヒト",
       "jockey": "高杉",
       "trainer": "石橋",
@@ -290,12 +300,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "ウォーターピオニー",
+      "prevName": "東京新聞杯",
+      "prevFinish": "3",
+      "prevDist": "芝1600",
+      "prevTrack": "東京"
     },
     {
       "listOrder": 4,
-      "num": null,
-      "gate": null,
+      "num": "17",
+      "gate": "8",
       "name": "エルトンバローズ",
       "jockey": "西村淳",
       "trainer": "杉山晴",
@@ -382,7 +397,12 @@
       },
       "courseDataGrade": {
         "grade": "A"
-      }
+      },
+      "dam": "ショウナンカラット",
+      "prevName": "東京新聞杯",
+      "prevFinish": "13",
+      "prevDist": "芝1600",
+      "prevTrack": "東京"
     },
     {
       "listOrder": 5,
@@ -464,8 +484,8 @@
     },
     {
       "listOrder": 6,
-      "num": null,
-      "gate": null,
+      "num": "11",
+      "gate": "6",
       "name": "キョウエイブリッサ",
       "jockey": "田山",
       "trainer": "武市",
@@ -545,12 +565,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "キョウエイポズナン",
+      "prevName": "六甲S",
+      "prevFinish": "5",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 7,
-      "num": null,
-      "gate": null,
+      "num": "4",
+      "gate": "2",
       "name": "クルゼイロドスル",
       "jockey": "太宰",
       "trainer": "高橋忠",
@@ -618,12 +643,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "スタリア",
+      "prevName": "睦月S",
+      "prevFinish": "7",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "京都"
     },
     {
       "listOrder": 8,
-      "num": null,
-      "gate": null,
+      "num": "16",
+      "gate": "8",
       "name": "シックスペンス",
       "jockey": "戸崎圭",
       "trainer": "田中博",
@@ -684,12 +714,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "フィンレイズラッキーチャーム",
+      "prevName": "フェブラリ",
+      "prevFinish": "9",
+      "prevDist": "ダ1600",
+      "prevTrack": "東京"
     },
     {
       "listOrder": 9,
-      "num": null,
-      "gate": null,
+      "num": "8",
+      "gate": "4",
       "name": "シャンパンカラー",
       "jockey": "岩田康",
       "trainer": "田中剛",
@@ -749,12 +784,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "メモリアルライフ",
+      "prevName": "中山記念",
+      "prevFinish": "10",
+      "prevDist": "芝1800",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 10,
-      "num": null,
-      "gate": null,
+      "num": "5",
+      "gate": "3",
       "name": "ショウナンアデイブ",
       "jockey": "池添",
       "trainer": "高野",
@@ -865,12 +905,17 @@
       },
       "courseDataGrade": {
         "grade": "S"
-      }
+      },
+      "dam": "シーヴ",
+      "prevName": "小倉大賞典",
+      "prevFinish": "3",
+      "prevDist": "芝1800",
+      "prevTrack": "小倉"
     },
     {
       "listOrder": 11,
-      "num": null,
-      "gate": null,
+      "num": "1",
+      "gate": "1",
       "name": "ドラゴンブースト",
       "jockey": "丹内",
       "trainer": "藤野",
@@ -931,12 +976,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "トーコーディオーネ",
+      "prevName": "大阪城S",
+      "prevFinish": "1",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 12,
-      "num": null,
-      "gate": null,
+      "num": "3",
+      "gate": "2",
       "name": "ファインライン",
       "jockey": "鮫島駿",
       "trainer": "松永幹",
@@ -1005,12 +1055,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "ディープサウス",
+      "prevName": "岸和田S",
+      "prevFinish": "1",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 13,
-      "num": null,
-      "gate": null,
+      "num": "12",
+      "gate": "6",
       "name": "ファーヴェント",
       "jockey": "坂井",
       "trainer": "藤原",
@@ -1078,12 +1133,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "トータルヒート",
+      "prevName": "ダービーC",
+      "prevFinish": "3",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 14,
-      "num": null,
-      "gate": null,
+      "num": "6",
+      "gate": "3",
       "name": "ブエナオンダ",
       "jockey": "田口",
       "trainer": "須貝",
@@ -1155,12 +1215,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "オーサムウインド",
+      "prevName": "ダービーC",
+      "prevFinish": "6",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 15,
-      "num": null,
-      "gate": null,
+      "num": "7",
+      "gate": "4",
       "name": "ベラジオボンド",
       "jockey": "北村友",
       "trainer": "上村",
@@ -1234,12 +1299,17 @@
       },
       "courseDataGrade": {
         "grade": "B"
-      }
+      },
+      "dam": "ダンサーデスティネイション",
+      "prevName": "六甲S",
+      "prevFinish": "1",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 16,
-      "num": null,
-      "gate": null,
+      "num": "15",
+      "gate": "7",
       "name": "マテンロウスカイ",
       "jockey": "横山典",
       "trainer": "松永幹",
@@ -1327,12 +1397,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "レッドラヴィータ",
+      "prevName": "マーチS",
+      "prevFinish": "12",
+      "prevDist": "ダ1800",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 17,
-      "num": null,
-      "gate": null,
+      "num": "18",
+      "gate": "8",
       "name": "ランスオブカオス",
       "jockey": "吉村",
       "trainer": "奥村豊",
@@ -1405,12 +1480,17 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "ハイドラン",
+      "prevName": "東風S",
+      "prevFinish": "11",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 18,
-      "num": null,
-      "gate": null,
+      "num": "14",
+      "gate": "7",
       "name": "ロングラン",
       "jockey": "団野",
       "trainer": "和田勇",
@@ -1510,7 +1590,12 @@
         "soku": null,
         "gan": null,
         "v": "v2-soku-gan"
-      }
+      },
+      "dam": "ノッテビアンカ",
+      "prevName": "フェブラリ",
+      "prevFinish": "14",
+      "prevDist": "ダ1600",
+      "prevTrack": "東京"
     }
   ],
   "finalBets": {
