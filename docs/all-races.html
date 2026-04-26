@@ -140,7 +140,14 @@ a{color:var(--kin);text-decoration:none;}
 .horse-table .col-grade.gD{color:#E08C7D;}
 .horse-table .col-grade.gNA{color:rgba(244,233,201,.25);}
 .horse-table .col-jockey,.horse-table .col-trainer{font-size:11px;color:rgba(244,233,201,.7);}
-.horse-table .col-sire{font-size:11px;color:rgba(201,169,97,.75);}
+.horse-table .col-sire,.horse-table .col-bms{font-size:11px;color:rgba(201,169,97,.75);}
+.horse-table .col-gaikyu{font-size:10.5px;color:rgba(156,182,141,.85);max-width:120px;}
+.horse-table .col-gaikyu .muted{color:rgba(244,233,201,.25);}
+.horse-table .col-prev{font-size:10.5px;color:rgba(244,233,201,.65);max-width:140px;}
+.horse-table .col-prev .prev-finish{
+  display:inline-block;margin-left:4px;padding:0 5px;border-radius:2px;
+  font-size:10px;font-weight:700;background:rgba(201,169,97,.15);color:#E8D082;
+}
 .horse-table .col-pick{font-size:14px;font-weight:900;}
 .horse-table .col-pick .seiryu{color:var(--seiryu);}
 .horse-table .col-pick .suzaku{color:var(--suzaku);}
@@ -165,12 +172,17 @@ a{color:var(--kin);text-decoration:none;}
 .race-payouts-mini .pay-amt{color:#E8D082;font-weight:700;}
 
 /* ── レスポンシブ ── */
+@media(max-width:900px){
+  .horse-table .col-bms,.horse-table .col-gaikyu{display:none;}
+  .horse-table th:nth-child(12),.horse-table th:nth-child(13){display:none;}
+}
 @media(max-width:640px){
   .horse-table{font-size:10.5px;}
   .horse-table th{font-size:9.5px;padding:6px 3px;letter-spacing:.04em;}
   .horse-table td{padding:6px 3px;}
   .horse-table .col-name{padding-left:5px;}
-  .horse-table .col-jockey,.horse-table .col-trainer,.horse-table .col-sire{display:none;}
+  .horse-table .col-jockey,.horse-table .col-trainer,.horse-table .col-sire,.horse-table .col-prev{display:none;}
+  .horse-table th:nth-child(9),.horse-table th:nth-child(10),.horse-table th:nth-child(11),.horse-table th:nth-child(14){display:none;}
   .race-card-head{gap:8px;}
   .race-result-summary{text-align:left;font-size:10.5px;}
 }
@@ -363,6 +375,10 @@ function raceCardHtml(r){
     const pickIcon = pick ? `<span class="${godPickClass(pick)}">${godPickIcon(pick)}</span>` : '';
     const rankCls = h.rank === '1' ? 'r1' : h.rank === '2' ? 'r2' : h.rank === '3' ? 'r3' : '';
     const rowCls = h.rank ? `row-rank-${h.rank}` : '';
+    const prevHtml = h.prevName
+      ? `${esc(h.prevName)}<span class="prev-finish">${h.prevFinish ? esc(h.prevFinish) + '着' : ''}</span>`
+      : '';
+    const gaikyuHtml = h.gaikyu ? esc(h.gaikyu) : '<span class="muted">—</span>';
     return `<tr class="${rowCls}">
       <td class="col-rank ${rankCls}">${esc(h.rank || '')}</td>
       <td class="col-num"><span class="gate">${esc(h.gate || '')}</span>${esc(h.num || '')}</td>
@@ -375,6 +391,9 @@ function raceCardHtml(r){
       <td class="col-jockey">${esc(h.jockey || '')}</td>
       <td class="col-trainer">${esc(h.trainer || '')}</td>
       <td class="col-sire">${esc(h.sire || '')}</td>
+      <td class="col-bms">${esc(h.broodmareSire || '')}</td>
+      <td class="col-gaikyu">${gaikyuHtml}</td>
+      <td class="col-prev">${prevHtml}</td>
       <td class="col-finalodds">${h.finalOdds ? esc(h.finalOdds) + '倍' : ''}</td>
     </tr>`;
   }).join('');
@@ -414,6 +433,9 @@ function raceCardHtml(r){
             <th>騎手</th>
             <th>厩舎</th>
             <th>父</th>
+            <th>母父</th>
+            <th>外厩</th>
+            <th>前走</th>
             <th>確定</th>
           </tr>
         </thead>
