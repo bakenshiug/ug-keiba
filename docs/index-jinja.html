@@ -363,11 +363,13 @@ a{color:inherit;}
 }
 .shijin-grid-kirin .shijin-card{
   max-width:880px;width:100%;
-  display:grid;grid-template-columns:auto 1fr;
-  gap:36px;align-items:center;
+  display:flex;align-items:center;
+  gap:36px;
   padding:44px 48px 36px;
   text-align:left;
 }
+.kirin-content{flex:1;display:flex;flex-direction:column;gap:0;}
+.shijin-grid-kirin .shijin-kamon{flex-shrink:0;}
 .shijin-grid-kirin .shijin-kamon{font-size:96px;margin:0;}
 .shijin-grid-kirin .shijin-name{font-size:32px;margin-bottom:6px;}
 .shijin-grid-kirin .shijin-direction{font-size:11px;letter-spacing:.32em;}
@@ -1104,13 +1106,15 @@ a{color:inherit;}
   <div class="shijin-grid-kirin">
     <div class="shijin-card kirin">
       <div class="shijin-kamon">🦒</div>
-      <div class="shijin-name mincho">麒 麟</div>
-      <div class="shijin-direction">KIRIN ─ 中 央 土</div>
-      <div class="shijin-factor">総 合</div>
-      <div class="shijin-factor-en">SOGO / 4神合議の頂点</div>
-      <div class="shijin-weight">神徳 ×1.5</div>
-      <p class="shijin-desc">四方の神々の声を聴き、合議の結晶を示す。picks内なら☆印で本命指定、外なら「麒麟外伝」として補欠候補に。神宮の灯台たり、最終判断の指針となる中央の神。</p>
-      <div class="shijin-goriyaku">合議の結晶・神宮の灯台</div>
+      <div class="kirin-content">
+        <div class="shijin-name mincho">麒 麟</div>
+        <div class="shijin-direction">KIRIN ─ 中 央 土</div>
+        <div class="shijin-factor">総 合</div>
+        <div class="shijin-factor-en">SOGO / 4神合議の頂点</div>
+        <div class="shijin-weight">神徳 ×1.5</div>
+        <p class="shijin-desc">四方の神々の声を聴き、合議の結晶を示す。picks内なら☆印で本命指定、外なら「麒麟外伝」として補欠候補に。神宮の灯台たり、最終判断の指針となる中央の神。</p>
+        <div class="shijin-goriyaku">合議の結晶・神宮の灯台</div>
+      </div>
     </div>
   </div>
 </section>
