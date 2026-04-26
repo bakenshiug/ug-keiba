@@ -8,7 +8,10 @@
     "distance": 1150,
     "course": "右",
     "startTime": "15:15",
-    "headCount": 12
+    "headCount": 12,
+    "kind": "ダ",
+    "weather": "晴",
+    "track": "良"
   },
   "raceTitle": {
     "main": "福島中央テレビ杯",
@@ -84,7 +87,7 @@
     {
       "listOrder": 2,
       "num": 2,
-      "gate": null,
+      "gate": "2",
       "name": "イマージョン",
       "lapFactors": {
         "grade": "C",
@@ -142,12 +145,23 @@
         "ninkiGrade": "S",
         "reason": "父C(6.5%)/騎C(9.8%)/厩S(33.3%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "ロードカナロア",
+      "dam": "アディクティド",
+      "broodmareSire": "ディクタット",
+      "trainer": "高野",
+      "jockey": "丸山",
+      "sexAge": "牡4黒鹿",
+      "kinryo": "58.0",
+      "prevName": "喜多方特別",
+      "prevFinish": "1",
+      "prevDist": "ダ1150",
+      "prevTrack": "福島"
     },
     {
       "listOrder": 3,
       "num": 3,
-      "gate": null,
+      "gate": "3",
       "name": "キタノソワレ",
       "lapFactors": {
         "grade": "B",
@@ -205,7 +219,18 @@
         "ninkiGrade": "S",
         "reason": "父D(0.0%)/騎B(10.6%)/厩C(5.3%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "トゥザワールド",
+      "dam": "チャームラブ",
+      "broodmareSire": "フレンチデピュティ",
+      "trainer": "本間",
+      "jockey": "丹内",
+      "sexAge": "牝5鹿",
+      "kinryo": "56.0",
+      "prevName": "卯月S",
+      "prevFinish": "3",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 4,
@@ -273,7 +298,7 @@
     {
       "listOrder": 5,
       "num": 5,
-      "gate": null,
+      "gate": "5",
       "name": "ビルカール",
       "lapFactors": {
         "grade": "A",
@@ -331,12 +356,23 @@
         "ninkiGrade": "S",
         "reason": "父C(6.9%)/騎D(0.0%)/厩D(3.6%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "ミッキーアイル",
+      "dam": "サンシャインキッス",
+      "broodmareSire": "ストリートセンス",
+      "trainer": "水野",
+      "jockey": "石川",
+      "sexAge": "牡6黒鹿",
+      "kinryo": "58.0",
+      "prevName": "なにわS",
+      "prevFinish": "3",
+      "prevDist": "ダ1200",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 6,
       "num": 6,
-      "gate": null,
+      "gate": "5",
       "name": "ワークソング",
       "lapFactors": {
         "grade": "D",
@@ -394,12 +430,23 @@
         "ninkiGrade": "S",
         "reason": "父S(23.8%)/騎B(12.5%)/厩A(15.8%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "モーニン",
+      "dam": "ハッピーラン",
+      "broodmareSire": "フレンチデピュティ",
+      "trainer": "牧浦",
+      "jockey": "国分恭",
+      "sexAge": "牡5鹿",
+      "kinryo": "58.0",
+      "prevName": "フェアウェ",
+      "prevFinish": "13",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 7,
       "num": 7,
-      "gate": null,
+      "gate": "6",
       "name": "ゴールドハンマー",
       "lapFactors": {
         "grade": "C",
@@ -458,12 +505,23 @@
         "ninkiGrade": "S",
         "reason": "父D(0.0%)/騎D(0.0%)/厩C(7.7%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "ミスターメロディ",
+      "dam": "フレッシビレ",
+      "broodmareSire": "スズカコーズウェイ",
+      "trainer": "村田",
+      "jockey": "舟山",
+      "sexAge": "牝4鹿",
+      "kinryo": "56.0",
+      "prevName": "4歳以上2勝クラス",
+      "prevFinish": "1",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 8,
       "num": 8,
-      "gate": null,
+      "gate": "6",
       "name": "プレゼンティーア",
       "lapFactors": {
         "grade": "B",
@@ -521,12 +579,23 @@
         "ninkiGrade": "S",
         "reason": "父C(5.3%)/騎B(13.3%)/厩S(25.0%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "マジェスティックウォリアー",
+      "dam": "キョウエイカプリス",
+      "broodmareSire": "ゴールドアリュール",
+      "trainer": "田中克",
+      "jockey": "松本",
+      "sexAge": "牝5鹿",
+      "kinryo": "56.0",
+      "prevName": "4歳以上2勝クラス",
+      "prevFinish": "1",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 9,
       "num": 9,
-      "gate": null,
+      "gate": "7",
       "name": "サザンエルフ",
       "lapFactors": {
         "grade": "C",
@@ -584,12 +653,23 @@
         "ninkiGrade": "S",
         "reason": "父B(10.7%)/騎C(8.6%)/厩B(14.3%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "パイロ",
+      "dam": "プレシャスエルフ",
+      "broodmareSire": "コロナドズクエスト",
+      "trainer": "中川",
+      "jockey": "横山琉",
+      "sexAge": "牝7栗",
+      "kinryo": "56.0",
+      "prevName": "春風S",
+      "prevFinish": "6",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 10,
       "num": 10,
-      "gate": null,
+      "gate": "7",
       "name": "シャカシャカシー",
       "lapFactors": {
         "grade": "B",
@@ -647,7 +727,18 @@
         "ninkiGrade": "S",
         "reason": "父C(8.8%)/騎D(0.0%)/厩B(11.1%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "ヘニーヒューズ",
+      "dam": "パワフルラリマー",
+      "broodmareSire": "サクラバクシンオー",
+      "trainer": "茶木",
+      "jockey": "長岡",
+      "sexAge": "牡5栃栗",
+      "kinryo": "58.0",
+      "prevName": "橿原S",
+      "prevFinish": "16",
+      "prevDist": "ダ1200",
+      "prevTrack": "京都"
     },
     {
       "listOrder": 11,
@@ -715,7 +806,7 @@
     {
       "listOrder": 12,
       "num": 12,
-      "gate": null,
+      "gate": "8",
       "name": "カウスリップ",
       "lapFactors": {
         "grade": "C",
@@ -773,7 +864,18 @@
         "ninkiGrade": "S",
         "reason": "父C(6.5%)/騎D(1.4%)/厩B(14.3%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "ロードカナロア",
+      "dam": "キープセイク",
+      "broodmareSire": "Sea The Stars",
+      "trainer": "中舘",
+      "jockey": "菊沢",
+      "sexAge": "牝4鹿",
+      "kinryo": "56.0",
+      "prevName": "フェアウェ",
+      "prevFinish": "10",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     }
   ],
   "finalBets": {
@@ -1135,7 +1237,7 @@
     "win5Summary": "UG哲学適用でルージュアズライト青龍S＝複勝軸に抜擢（自厩舎◎印・昨秋この舞台逆算のピンポイント照準）。ビルカール（青龍A×朱雀A×好調キープ）・スノーサイレンス（玄武S級・通用の力）・キタノソワレ（注目1位・仕上良好・妙味A）の4頭でWIN5三層構成（③④⑤⑪）。カウスリップ・プレゼンティーアは買い目外へ。",
     "raceId": "202603010511",
     "result": {
-      "fetched": "2026-04-25T16:42:31",
+      "fetched": "2026-04-26T09:42:00",
       "raceId": "202603010511",
       "horses": [
         {

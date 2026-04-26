@@ -1,0 +1,587 @@
+{
+  "race": {
+    "name": "３歳未勝利",
+    "kind": "ダ",
+    "distance": "1700",
+    "weather": "晴",
+    "track": "良"
+  },
+  "presentation": {
+    "raceId": "202603010501",
+    "startTime": "09:45",
+    "meta": "R ／ ダ1700m ／ 15頭",
+    "result": {
+      "fetched": "2026-04-26T09:42:00",
+      "raceId": "202603010501",
+      "horses": [
+        {
+          "rank": "1",
+          "gate": "3",
+          "num": "5",
+          "name": "ゴールドドレッサ",
+          "sexAge": "牝3",
+          "kinryo": "52.0",
+          "jockey": "▲石田",
+          "time": "1:47.7",
+          "finalNinki": "1",
+          "finalOdds": "3.9",
+          "last3F": "",
+          "trainer": "中川",
+          "weight": "434(-2)"
+        },
+        {
+          "rank": "2",
+          "gate": "8",
+          "num": "15",
+          "name": "シュヴェスター",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "長岡",
+          "time": "1:47.8",
+          "finalNinki": "7",
+          "finalOdds": "13.5",
+          "last3F": "",
+          "trainer": "高橋亮",
+          "weight": "424(+2)"
+        },
+        {
+          "rank": "3",
+          "gate": "6",
+          "num": "10",
+          "name": "ホテルストリート",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "丹内",
+          "time": "1:48.0",
+          "finalNinki": "4",
+          "finalOdds": "5.6",
+          "last3F": "",
+          "trainer": "伊藤大",
+          "weight": "490(+2)"
+        },
+        {
+          "rank": "4",
+          "gate": "2",
+          "num": "3",
+          "name": "サイモンセレーノ",
+          "sexAge": "牝3",
+          "kinryo": "52.0",
+          "jockey": "▲石神道",
+          "time": "1:48.0",
+          "finalNinki": "8",
+          "finalOdds": "50.3",
+          "last3F": "38.9",
+          "trainer": "勢司",
+          "weight": "436(-10)"
+        },
+        {
+          "rank": "5",
+          "gate": "2",
+          "num": "2",
+          "name": "エイユーサクラ",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "横山琉",
+          "time": "1:48.1",
+          "finalNinki": "5",
+          "finalOdds": "9.4",
+          "last3F": "",
+          "trainer": "高橋忠",
+          "weight": "478(+6)"
+        },
+        {
+          "rank": "6",
+          "gate": "6",
+          "num": "11",
+          "name": "メイショウサザナミ",
+          "sexAge": "牝3",
+          "kinryo": "52.0",
+          "jockey": "▲遠藤",
+          "time": "1:48.7",
+          "finalNinki": "13",
+          "finalOdds": "153.0",
+          "last3F": "",
+          "trainer": "本田",
+          "weight": "484(0)"
+        },
+        {
+          "rank": "7",
+          "gate": "7",
+          "num": "13",
+          "name": "ピンクカメリア",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "川又",
+          "time": "1:49.0",
+          "finalNinki": "14",
+          "finalOdds": "158.7",
+          "last3F": "38.9",
+          "trainer": "笹田",
+          "weight": "402(0)"
+        },
+        {
+          "rank": "8",
+          "gate": "4",
+          "num": "6",
+          "name": "エイシンキーンラン",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "菊沢",
+          "time": "1:49.2",
+          "finalNinki": "3",
+          "finalOdds": "4.7",
+          "last3F": "",
+          "trainer": "田中剛",
+          "weight": "470(-6)"
+        },
+        {
+          "rank": "9",
+          "gate": "7",
+          "num": "12",
+          "name": "チカマヨルキーナ",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "松本",
+          "time": "1:49.6",
+          "finalNinki": "6",
+          "finalOdds": "9.6",
+          "last3F": "",
+          "trainer": "藤岡健",
+          "weight": "478(0)"
+        },
+        {
+          "rank": "10",
+          "gate": "1",
+          "num": "1",
+          "name": "ヒカ",
+          "sexAge": "牝3",
+          "kinryo": "52.0",
+          "jockey": "▲和田陽",
+          "time": "1:49.6",
+          "finalNinki": "15",
+          "finalOdds": "220.4",
+          "last3F": "",
+          "trainer": "飯田",
+          "weight": "502(-2)"
+        },
+        {
+          "rank": "11",
+          "gate": "8",
+          "num": "14",
+          "name": "タイセイパフューム",
+          "sexAge": "牝3",
+          "kinryo": "53.0",
+          "jockey": "◇古川奈",
+          "time": "1:49.9",
+          "finalNinki": "10",
+          "finalOdds": "74.6",
+          "last3F": "",
+          "trainer": "牧浦",
+          "weight": "478(+2)"
+        },
+        {
+          "rank": "12",
+          "gate": "5",
+          "num": "9",
+          "name": "ロジマギー",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "丸山",
+          "time": "1:50.0",
+          "finalNinki": "2",
+          "finalOdds": "4.1",
+          "last3F": "",
+          "trainer": "宮田",
+          "weight": "460(-8)"
+        },
+        {
+          "rank": "13",
+          "gate": "5",
+          "num": "8",
+          "name": "レインボーワールド",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "野中",
+          "time": "1:50.8",
+          "finalNinki": "12",
+          "finalOdds": "131.8",
+          "last3F": "",
+          "trainer": "畠山",
+          "weight": "438(0)"
+        },
+        {
+          "rank": "14",
+          "gate": "3",
+          "num": "4",
+          "name": "サツキマーメイド",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "菅原隆",
+          "time": "1:51.1",
+          "finalNinki": "11",
+          "finalOdds": "115.9",
+          "last3F": "",
+          "trainer": "石栗",
+          "weight": "404(-6)"
+        },
+        {
+          "rank": "15",
+          "gate": "4",
+          "num": "7",
+          "name": "ノヴェルカフナ",
+          "sexAge": "牝3",
+          "kinryo": "52.0",
+          "jockey": "▲小林美",
+          "time": "1:52.7",
+          "finalNinki": "9",
+          "finalOdds": "60.4",
+          "last3F": "",
+          "trainer": "秋本",
+          "weight": "472(0)"
+        }
+      ],
+      "payouts": {
+        "tan": [
+          {
+            "combo": [
+              "5"
+            ],
+            "amount": 390,
+            "ninki": 1
+          }
+        ],
+        "fuku": [
+          {
+            "combo": [
+              "5",
+              "15",
+              "10"
+            ],
+            "amount": 160,
+            "ninki": 3
+          }
+        ],
+        "wakuren": [
+          {
+            "combo": [
+              "3",
+              "8"
+            ],
+            "amount": 3110,
+            "ninki": 15
+          }
+        ],
+        "umaren": [
+          {
+            "combo": [
+              "5",
+              "15"
+            ],
+            "amount": 2980,
+            "ninki": 13
+          }
+        ],
+        "wide": [
+          {
+            "combo": [
+              "5",
+              "15"
+            ],
+            "amount": 1050,
+            "ninki": 14
+          },
+          {
+            "combo": [
+              "5",
+              "10"
+            ],
+            "amount": 470,
+            "ninki": 5
+          },
+          {
+            "combo": [
+              "10",
+              "15"
+            ],
+            "amount": 1500,
+            "ninki": 18
+          }
+        ],
+        "umatan": [
+          {
+            "combo": [
+              "5",
+              "15"
+            ],
+            "amount": 4810,
+            "ninki": 23
+          }
+        ],
+        "sanrenpuku": [
+          {
+            "combo": [
+              "5",
+              "10",
+              "15"
+            ],
+            "amount": 5720,
+            "ninki": 20
+          }
+        ],
+        "sanrentan": [
+          {
+            "combo": [
+              "5",
+              "15",
+              "10"
+            ],
+            "amount": 23410,
+            "ninki": 90
+          }
+        ]
+      }
+    }
+  },
+  "horses": [
+    {
+      "name": "ヒカ",
+      "gate": "1",
+      "num": "1",
+      "sire": "クリソベリル",
+      "dam": "オーシャンズ",
+      "broodmareSire": "サウスヴィグラス",
+      "trainer": "飯田",
+      "jockey": "和田陽",
+      "sexAge": "牝3鹿",
+      "kinryo": "52.0",
+      "prevName": "3歳新馬",
+      "prevFinish": "15",
+      "prevDist": "ダ1800",
+      "prevTrack": "京都"
+    },
+    {
+      "name": "エイユーサクラ",
+      "gate": "2",
+      "num": "2",
+      "sire": "ダノンレジェンド",
+      "dam": "エイユーモモチャン",
+      "broodmareSire": "サクラバクシンオー",
+      "trainer": "高橋忠",
+      "jockey": "横山琉",
+      "sexAge": "牝3青鹿",
+      "kinryo": "55.0",
+      "prevName": "2歳新馬",
+      "prevFinish": "7",
+      "prevDist": "ダ1400",
+      "prevTrack": "中京"
+    },
+    {
+      "name": "サイモンセレーノ",
+      "gate": "2",
+      "num": "3",
+      "sire": "カリフォルニアクローム",
+      "dam": "ペルスネージュ",
+      "broodmareSire": "ディープインパクト",
+      "trainer": "勢司",
+      "jockey": "石神道",
+      "sexAge": "牝3鹿",
+      "kinryo": "52.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "8",
+      "prevDist": "ダ1600",
+      "prevTrack": "東京"
+    },
+    {
+      "name": "サツキマーメイド",
+      "gate": "3",
+      "num": "4",
+      "sire": "ビーチパトロール",
+      "dam": "サツキワルツ",
+      "broodmareSire": "アーネストリー",
+      "trainer": "石栗",
+      "jockey": "菅原隆",
+      "sexAge": "牝3鹿",
+      "kinryo": "55.0",
+      "prevName": "3歳新馬",
+      "prevFinish": "15",
+      "prevDist": "芝1800",
+      "prevTrack": "東京"
+    },
+    {
+      "name": "ゴールドドレッサ",
+      "gate": "3",
+      "num": "5",
+      "sire": "ゴールドドリーム",
+      "dam": "ラタンドレス",
+      "broodmareSire": "エンパイアメーカー",
+      "trainer": "中川",
+      "jockey": "石田",
+      "sexAge": "牝3鹿",
+      "kinryo": "52.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "3",
+      "prevDist": "ダ1800",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "エイシンキーンラン",
+      "gate": "4",
+      "num": "6",
+      "sire": "エイシンヒカリ",
+      "dam": "エイシンロード",
+      "broodmareSire": "ジャスタウェイ",
+      "trainer": "田中剛",
+      "jockey": "菊沢",
+      "sexAge": "牝3芦",
+      "kinryo": "55.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "3",
+      "prevDist": "ダ1700",
+      "prevTrack": "福島"
+    },
+    {
+      "name": "ノヴェルカフナ",
+      "gate": "4",
+      "num": "7",
+      "sire": "スマートオーディン",
+      "dam": "ウィステリアカフナ",
+      "broodmareSire": "スペシャルウィーク",
+      "trainer": "秋本",
+      "jockey": "小林美",
+      "sexAge": "牝3鹿",
+      "kinryo": "52.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "15",
+      "prevDist": "芝1800",
+      "prevTrack": "東京"
+    },
+    {
+      "name": "レインボーワールド",
+      "gate": "5",
+      "num": "8",
+      "sire": "トゥザワールド",
+      "dam": "デヴァター",
+      "broodmareSire": "トーセンラー",
+      "trainer": "畠山",
+      "jockey": "野中",
+      "sexAge": "牝3鹿",
+      "kinryo": "55.0",
+      "prevName": "",
+      "prevFinish": "",
+      "prevDist": "",
+      "prevTrack": ""
+    },
+    {
+      "name": "ロジマギー",
+      "gate": "5",
+      "num": "9",
+      "sire": "ハービンジャー",
+      "dam": "ロジマギーゴー",
+      "broodmareSire": "ハーツクライ",
+      "trainer": "宮田",
+      "jockey": "丸山",
+      "sexAge": "牝3鹿",
+      "kinryo": "55.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "3",
+      "prevDist": "ダ1800",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "ホテルストリート",
+      "gate": "6",
+      "num": "10",
+      "sire": "オルフェーヴル",
+      "dam": "サイドストリート",
+      "broodmareSire": "ヨハネスブルグ",
+      "trainer": "伊藤大",
+      "jockey": "丹内",
+      "sexAge": "牝3栗",
+      "kinryo": "55.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "5",
+      "prevDist": "ダ1700",
+      "prevTrack": "福島"
+    },
+    {
+      "name": "メイショウサザナミ",
+      "gate": "6",
+      "num": "11",
+      "sire": "マジェスティックウォリアー",
+      "dam": "メイショウナヴィア",
+      "broodmareSire": "リオンディーズ",
+      "trainer": "本田",
+      "jockey": "遠藤",
+      "sexAge": "牝3鹿",
+      "kinryo": "52.0",
+      "prevName": "3歳新馬",
+      "prevFinish": "13",
+      "prevDist": "ダ1800",
+      "prevTrack": "京都"
+    },
+    {
+      "name": "チカマヨルキーナ",
+      "gate": "7",
+      "num": "12",
+      "sire": "ナダル",
+      "dam": "エスキシータ",
+      "broodmareSire": "ハーツクライ",
+      "trainer": "藤岡健",
+      "jockey": "松本",
+      "sexAge": "牝3黒鹿",
+      "kinryo": "55.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "11",
+      "prevDist": "ダ1700",
+      "prevTrack": "小倉"
+    },
+    {
+      "name": "ピンクカメリア",
+      "gate": "7",
+      "num": "13",
+      "sire": "リアルスティール",
+      "dam": "クリームヒルト",
+      "broodmareSire": "ノヴェリスト",
+      "trainer": "笹田",
+      "jockey": "川又",
+      "sexAge": "牝3鹿",
+      "kinryo": "55.0",
+      "prevName": "3歳新馬",
+      "prevFinish": "14",
+      "prevDist": "芝1200",
+      "prevTrack": "小倉"
+    },
+    {
+      "name": "タイセイパフューム",
+      "gate": "8",
+      "num": "14",
+      "sire": "マインドユアビスケッツ",
+      "dam": "エヌワイパフューム",
+      "broodmareSire": "ジャスタウェイ",
+      "trainer": "牧浦",
+      "jockey": "古川奈",
+      "sexAge": "牝3鹿",
+      "kinryo": "53.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "8",
+      "prevDist": "ダ1800",
+      "prevTrack": "阪神"
+    },
+    {
+      "name": "シュヴェスター",
+      "gate": "8",
+      "num": "15",
+      "sire": "シニスターミニスター",
+      "dam": "ペルレストラーダ",
+      "broodmareSire": "アルデバランII",
+      "trainer": "高橋亮",
+      "jockey": "長岡",
+      "sexAge": "牝3栗",
+      "kinryo": "55.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "13",
+      "prevDist": "ダ1200",
+      "prevTrack": "阪神"
+    }
+  ]
+}

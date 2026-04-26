@@ -1,0 +1,385 @@
+{
+  "race": {
+    "name": "石和特別",
+    "kind": "芝",
+    "distance": "1800",
+    "weather": "晴",
+    "track": "良"
+  },
+  "presentation": {
+    "raceId": "202605020109",
+    "startTime": "14:25",
+    "meta": "R ／ 芝1800m ／ 8頭",
+    "result": {
+      "fetched": "2026-04-26T09:42:11",
+      "raceId": "202605020109",
+      "horses": [
+        {
+          "rank": "1",
+          "gate": "6",
+          "num": "6",
+          "name": "ダノンミッション",
+          "sexAge": "牡4",
+          "kinryo": "58.0",
+          "jockey": "レーン",
+          "time": "1:45.1",
+          "finalNinki": "1",
+          "finalOdds": "1.7",
+          "last3F": "",
+          "trainer": "堀",
+          "weight": "490(+2)"
+        },
+        {
+          "rank": "2",
+          "gate": "8",
+          "num": "9",
+          "name": "ノビリシマビジョン",
+          "sexAge": "牝4",
+          "kinryo": "56.0",
+          "jockey": "ルメー",
+          "time": "1:45.1",
+          "finalNinki": "3",
+          "finalOdds": "4.8",
+          "last3F": "",
+          "trainer": "青木",
+          "weight": "500(0)"
+        },
+        {
+          "rank": "3",
+          "gate": "7",
+          "num": "7",
+          "name": "ビーオンザカバー",
+          "sexAge": "牡4",
+          "kinryo": "58.0",
+          "jockey": "戸崎圭",
+          "time": "1:45.3",
+          "finalNinki": "2",
+          "finalOdds": "4.5",
+          "last3F": "",
+          "trainer": "伊藤圭",
+          "weight": "482(+4)"
+        },
+        {
+          "rank": "4",
+          "gate": "5",
+          "num": "5",
+          "name": "オメガインペリアル",
+          "sexAge": "牡5",
+          "kinryo": "58.0",
+          "jockey": "坂井",
+          "time": "1:45.5",
+          "finalNinki": "5",
+          "finalOdds": "20.8",
+          "last3F": "",
+          "trainer": "安田",
+          "weight": "474(0)"
+        },
+        {
+          "rank": "5",
+          "gate": "2",
+          "num": "2",
+          "name": "アルゲンテウス",
+          "sexAge": "セ7",
+          "kinryo": "58.0",
+          "jockey": "横山和",
+          "time": "1:45.6",
+          "finalNinki": "6",
+          "finalOdds": "22.3",
+          "last3F": "33.4",
+          "trainer": "小島",
+          "weight": "466(-8)"
+        },
+        {
+          "rank": "6",
+          "gate": "3",
+          "num": "3",
+          "name": "マイネルフォルツァ",
+          "sexAge": "牡6",
+          "kinryo": "58.0",
+          "jockey": "矢野貴",
+          "time": "1:45.7",
+          "finalNinki": "8",
+          "finalOdds": "110.3",
+          "last3F": "",
+          "trainer": "金成",
+          "weight": "520(0)"
+        },
+        {
+          "rank": "7",
+          "gate": "4",
+          "num": "4",
+          "name": "レベルスルール",
+          "sexAge": "牡4",
+          "kinryo": "58.0",
+          "jockey": "横山武",
+          "time": "1:45.8",
+          "finalNinki": "4",
+          "finalOdds": "7.5",
+          "last3F": "",
+          "trainer": "池江",
+          "weight": "498(-8)"
+        },
+        {
+          "rank": "8",
+          "gate": "1",
+          "num": "1",
+          "name": "ヤコブセン",
+          "sexAge": "牡4",
+          "kinryo": "58.0",
+          "jockey": "岩田康",
+          "time": "1:46.2",
+          "finalNinki": "7",
+          "finalOdds": "92.0",
+          "last3F": "",
+          "trainer": "斎藤誠",
+          "weight": "508(-10)"
+        },
+        {
+          "rank": "9",
+          "gate": "8",
+          "num": "8",
+          "name": "コスモスプモーニ",
+          "sexAge": "牡6",
+          "kinryo": "58.0",
+          "jockey": "木幡巧",
+          "time": "1:47.6",
+          "finalNinki": "9",
+          "finalOdds": "224.1",
+          "last3F": "",
+          "trainer": "松山",
+          "weight": "488(+4)"
+        }
+      ],
+      "payouts": {
+        "tan": [
+          {
+            "combo": [
+              "6"
+            ],
+            "amount": 170,
+            "ninki": 1
+          }
+        ],
+        "fuku": [
+          {
+            "combo": [
+              "6",
+              "9",
+              "7"
+            ],
+            "amount": 110,
+            "ninki": 2
+          }
+        ],
+        "wakuren": [
+          {
+            "combo": [
+              "6",
+              "8"
+            ],
+            "amount": 300,
+            "ninki": 1
+          }
+        ],
+        "umaren": [
+          {
+            "combo": [
+              "6",
+              "9"
+            ],
+            "amount": 310,
+            "ninki": 1
+          }
+        ],
+        "wide": [
+          {
+            "combo": [
+              "6",
+              "9"
+            ],
+            "amount": 160,
+            "ninki": 2
+          },
+          {
+            "combo": [
+              "6",
+              "7"
+            ],
+            "amount": 140,
+            "ninki": 1
+          },
+          {
+            "combo": [
+              "7",
+              "9"
+            ],
+            "amount": 320,
+            "ninki": 4
+          }
+        ],
+        "umatan": [
+          {
+            "combo": [
+              "6",
+              "9"
+            ],
+            "amount": 510,
+            "ninki": 2
+          }
+        ],
+        "sanrenpuku": [
+          {
+            "combo": [
+              "6",
+              "7",
+              "9"
+            ],
+            "amount": 380,
+            "ninki": 1
+          }
+        ],
+        "sanrentan": [
+          {
+            "combo": [
+              "6",
+              "9",
+              "7"
+            ],
+            "amount": 1200,
+            "ninki": 1
+          }
+        ]
+      }
+    }
+  },
+  "horses": [
+    {
+      "name": "ヤコブセン",
+      "gate": "1",
+      "num": "1",
+      "sire": "エピファネイア",
+      "dam": "スマッシュ",
+      "broodmareSire": "キングカメハメハ",
+      "trainer": "斎藤誠",
+      "jockey": "岩田康",
+      "sexAge": "牡4栗",
+      "kinryo": "58.0",
+      "prevName": "RKB賞",
+      "prevFinish": "14",
+      "prevDist": "芝1800",
+      "prevTrack": "小倉"
+    },
+    {
+      "name": "アルゲンテウス",
+      "gate": "2",
+      "num": "2",
+      "sire": "シルバーステート",
+      "dam": "ラダームブランシェ",
+      "broodmareSire": "チチカステナンゴ",
+      "trainer": "小島",
+      "jockey": "横山和",
+      "sexAge": "セ7芦",
+      "kinryo": "58.0",
+      "prevName": "4歳以上2勝クラス",
+      "prevFinish": "6",
+      "prevDist": "芝2000",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "マイネルフォルツァ",
+      "gate": "3",
+      "num": "3",
+      "sire": "ゴールドシップ",
+      "dam": "ラッフォルツァート",
+      "broodmareSire": "グラスワンダー",
+      "trainer": "金成",
+      "jockey": "矢野貴",
+      "sexAge": "牡6栗",
+      "kinryo": "58.0",
+      "prevName": "4歳以上2勝クラス",
+      "prevFinish": "9",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "レベルスルール",
+      "gate": "4",
+      "num": "4",
+      "sire": "イスラボニータ",
+      "dam": "ロックディスタウン",
+      "broodmareSire": "オルフェーヴル",
+      "trainer": "池江",
+      "jockey": "横山武",
+      "sexAge": "牡4鹿",
+      "kinryo": "58.0",
+      "prevName": "4歳以上1勝クラス",
+      "prevFinish": "1",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "阪神"
+    },
+    {
+      "name": "ダノンミッション",
+      "gate": "6",
+      "num": "6",
+      "sire": "ロードカナロア",
+      "dam": "フローレスダンサー",
+      "broodmareSire": "ハービンジャー",
+      "trainer": "堀",
+      "jockey": "レーン",
+      "sexAge": "牡4鹿",
+      "kinryo": "58.0",
+      "prevName": "4歳以上2勝クラス",
+      "prevFinish": "2",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "ビーオンザカバー",
+      "gate": "7",
+      "num": "7",
+      "sire": "ハービンジャー",
+      "dam": "セレブリティモデル",
+      "broodmareSire": "キングカメハメハ",
+      "trainer": "伊藤圭",
+      "jockey": "戸崎圭",
+      "sexAge": "牡4鹿",
+      "kinryo": "58.0",
+      "prevName": "館山特別",
+      "prevFinish": "5",
+      "prevDist": "芝1800",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "コスモスプモーニ",
+      "gate": "8",
+      "num": "8",
+      "sire": "リアルインパクト",
+      "dam": "シャドウライフ",
+      "broodmareSire": "サクラバクシンオー",
+      "trainer": "松山",
+      "jockey": "木幡巧",
+      "sexAge": "牡6鹿",
+      "kinryo": "58.0",
+      "prevName": "4歳以上2勝クラス",
+      "prevFinish": "10",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "阪神"
+    },
+    {
+      "name": "ノビリシマビジョン",
+      "gate": "8",
+      "num": "9",
+      "sire": "フィエールマン",
+      "dam": "マチカネタマカズラ",
+      "broodmareSire": "Kingmambo",
+      "trainer": "青木",
+      "jockey": "ルメー",
+      "sexAge": "牝4黒鹿",
+      "kinryo": "56.0",
+      "prevName": "房総特別",
+      "prevFinish": "4",
+      "prevDist": "芝2000",
+      "prevTrack": "中山"
+    }
+  ]
+}

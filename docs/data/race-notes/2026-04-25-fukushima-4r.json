@@ -1,0 +1,618 @@
+{
+  "race": {
+    "name": "３歳未勝利",
+    "kind": "ダ",
+    "distance": "1150",
+    "weather": "晴",
+    "track": "良"
+  },
+  "presentation": {
+    "raceId": "202603010504",
+    "startTime": "11:15",
+    "meta": "R ／ ダ1150m ／ 16頭",
+    "result": {
+      "fetched": "2026-04-26T09:42:02",
+      "raceId": "202603010504",
+      "horses": [
+        {
+          "rank": "1",
+          "gate": "4",
+          "num": "7",
+          "name": "ブレイヴソルジャー",
+          "sexAge": "牡3",
+          "kinryo": "54.0",
+          "jockey": "▲石田",
+          "time": "1:09.0",
+          "finalNinki": "4",
+          "finalOdds": "8.5",
+          "last3F": "",
+          "trainer": "新開",
+          "weight": "452(-12)"
+        },
+        {
+          "rank": "2",
+          "gate": "1",
+          "num": "2",
+          "name": "セイウンヤオヨロズ",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "野中",
+          "time": "1:09.3",
+          "finalNinki": "5",
+          "finalOdds": "13.9",
+          "last3F": "",
+          "trainer": "上原博",
+          "weight": "476(+4)"
+        },
+        {
+          "rank": "3",
+          "gate": "4",
+          "num": "8",
+          "name": "ニンジャトットリ",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "木幡育",
+          "time": "1:09.4",
+          "finalNinki": "2",
+          "finalOdds": "3.1",
+          "last3F": "",
+          "trainer": "松永康",
+          "weight": "458(-6)"
+        },
+        {
+          "rank": "4",
+          "gate": "8",
+          "num": "15",
+          "name": "ジーティーニッツァ",
+          "sexAge": "牡3",
+          "kinryo": "54.0",
+          "jockey": "▲遠藤",
+          "time": "1:09.5",
+          "finalNinki": "9",
+          "finalOdds": "36.5",
+          "last3F": "",
+          "trainer": "伊藤伸",
+          "weight": "450(-8)"
+        },
+        {
+          "rank": "5",
+          "gate": "8",
+          "num": "16",
+          "name": "フィールマイプラン",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "荻野極",
+          "time": "1:09.7",
+          "finalNinki": "3",
+          "finalOdds": "7.2",
+          "last3F": "37.2",
+          "trainer": "岩戸",
+          "weight": "440(0)"
+        },
+        {
+          "rank": "6",
+          "gate": "2",
+          "num": "3",
+          "name": "コウソクルリアン",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "武藤",
+          "time": "1:10.0",
+          "finalNinki": "1",
+          "finalOdds": "2.6",
+          "last3F": "37.2",
+          "trainer": "武藤",
+          "weight": "466(-6)"
+        },
+        {
+          "rank": "7",
+          "gate": "5",
+          "num": "10",
+          "name": "ユナダイヤ",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "小沢",
+          "time": "1:10.4",
+          "finalNinki": "12",
+          "finalOdds": "192.2",
+          "last3F": "",
+          "trainer": "岡田",
+          "weight": "426(-4)"
+        },
+        {
+          "rank": "8",
+          "gate": "7",
+          "num": "14",
+          "name": "クルビデンス",
+          "sexAge": "牡3",
+          "kinryo": "54.0",
+          "jockey": "▲上里",
+          "time": "1:10.6",
+          "finalNinki": "8",
+          "finalOdds": "34.7",
+          "last3F": "",
+          "trainer": "菊川",
+          "weight": "458(-6)"
+        },
+        {
+          "rank": "9",
+          "gate": "3",
+          "num": "6",
+          "name": "カシノユメミヅキ",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "本田重",
+          "time": "1:11.0",
+          "finalNinki": "16",
+          "finalOdds": "447.6",
+          "last3F": "",
+          "trainer": "和田雄",
+          "weight": "510(+9)"
+        },
+        {
+          "rank": "10",
+          "gate": "3",
+          "num": "5",
+          "name": "ビースタニング",
+          "sexAge": "牝3",
+          "kinryo": "51.0",
+          "jockey": "★河原田",
+          "time": "1:11.6",
+          "finalNinki": "14",
+          "finalOdds": "296.8",
+          "last3F": "",
+          "trainer": "小手川",
+          "weight": "478(-5)"
+        },
+        {
+          "rank": "11",
+          "gate": "7",
+          "num": "13",
+          "name": "ブレイシオン",
+          "sexAge": "牝3",
+          "kinryo": "53.0",
+          "jockey": "◇古川奈",
+          "time": "1:11.6",
+          "finalNinki": "13",
+          "finalOdds": "236.9",
+          "last3F": "",
+          "trainer": "青木",
+          "weight": "452(-10)"
+        },
+        {
+          "rank": "12",
+          "gate": "2",
+          "num": "4",
+          "name": "ヴェントディルーナ",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "菊沢",
+          "time": "1:12.0",
+          "finalNinki": "10",
+          "finalOdds": "84.6",
+          "last3F": "",
+          "trainer": "清水英",
+          "weight": "472(-4)"
+        },
+        {
+          "rank": "13",
+          "gate": "1",
+          "num": "1",
+          "name": "ガクエンテンゴク",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "丸田",
+          "time": "1:12.2",
+          "finalNinki": "11",
+          "finalOdds": "164.8",
+          "last3F": "",
+          "trainer": "秋本",
+          "weight": "512(+2)"
+        },
+        {
+          "rank": "14",
+          "gate": "6",
+          "num": "12",
+          "name": "リスペクトライト",
+          "sexAge": "牡3",
+          "kinryo": "54.0",
+          "jockey": "▲石神道",
+          "time": "1:12.8",
+          "finalNinki": "15",
+          "finalOdds": "314.5",
+          "last3F": "",
+          "trainer": "和田郎",
+          "weight": "434(0)"
+        },
+        {
+          "rank": "15",
+          "gate": "5",
+          "num": "9",
+          "name": "マロ",
+          "sexAge": "牡3",
+          "kinryo": "54.0",
+          "jockey": "▲小林美",
+          "time": "1:13.0",
+          "finalNinki": "6",
+          "finalOdds": "14.7",
+          "last3F": "",
+          "trainer": "藤野",
+          "weight": "516(+2)"
+        },
+        {
+          "rank": "16",
+          "gate": "6",
+          "num": "11",
+          "name": "ルヴレアール",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "丹内",
+          "time": "1:13.4",
+          "finalNinki": "7",
+          "finalOdds": "15.5",
+          "last3F": "",
+          "trainer": "角田",
+          "weight": "466(-2)"
+        }
+      ],
+      "payouts": {
+        "tan": [
+          {
+            "combo": [
+              "7"
+            ],
+            "amount": 850,
+            "ninki": 4
+          }
+        ],
+        "fuku": [
+          {
+            "combo": [
+              "7",
+              "2",
+              "8"
+            ],
+            "amount": 230,
+            "ninki": 5
+          }
+        ],
+        "wakuren": [
+          {
+            "combo": [
+              "1",
+              "4"
+            ],
+            "amount": 1490,
+            "ninki": 7
+          }
+        ],
+        "umaren": [
+          {
+            "combo": [
+              "2",
+              "7"
+            ],
+            "amount": 4950,
+            "ninki": 16
+          }
+        ],
+        "wide": [
+          {
+            "combo": [
+              "2",
+              "7"
+            ],
+            "amount": 1530,
+            "ninki": 19
+          },
+          {
+            "combo": [
+              "7",
+              "8"
+            ],
+            "amount": 520,
+            "ninki": 4
+          },
+          {
+            "combo": [
+              "2",
+              "8"
+            ],
+            "amount": 690,
+            "ninki": 8
+          }
+        ],
+        "umatan": [
+          {
+            "combo": [
+              "7",
+              "2"
+            ],
+            "amount": 7470,
+            "ninki": 27
+          }
+        ],
+        "sanrenpuku": [
+          {
+            "combo": [
+              "2",
+              "7",
+              "8"
+            ],
+            "amount": 4820,
+            "ninki": 14
+          }
+        ],
+        "sanrentan": [
+          {
+            "combo": [
+              "7",
+              "2",
+              "8"
+            ],
+            "amount": 29570,
+            "ninki": 97
+          }
+        ]
+      }
+    }
+  },
+  "horses": [
+    {
+      "name": "ガクエンテンゴク",
+      "gate": "1",
+      "num": "1",
+      "sire": "アメリカンペイトリオット",
+      "dam": "アイスウィッチ",
+      "broodmareSire": "シンボリクリスエス",
+      "trainer": "秋本",
+      "jockey": "丸田",
+      "sexAge": "牡3青鹿",
+      "kinryo": "57.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "16",
+      "prevDist": "ダ1800",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "セイウンヤオヨロズ",
+      "gate": "1",
+      "num": "2",
+      "sire": "セイウンコウセイ",
+      "dam": "エテ",
+      "broodmareSire": "Congrats",
+      "trainer": "上原博",
+      "jockey": "野中",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "4",
+      "prevDist": "ダ1150",
+      "prevTrack": "福島"
+    },
+    {
+      "name": "コウソクルリアン",
+      "gate": "2",
+      "num": "3",
+      "sire": "サトノダイヤモンド",
+      "dam": "ファッションストリート",
+      "broodmareSire": "ストリートセンス",
+      "trainer": "武藤",
+      "jockey": "武藤",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "2",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "ヴェントディルーナ",
+      "gate": "2",
+      "num": "4",
+      "sire": "ファインニードル",
+      "dam": "プリティーアセット",
+      "broodmareSire": "Shamardal",
+      "trainer": "清水英",
+      "jockey": "菊沢",
+      "sexAge": "牝3黒鹿",
+      "kinryo": "55.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "14",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "ビースタニング",
+      "gate": "3",
+      "num": "5",
+      "sire": "タワーオブロンドン",
+      "dam": "タマモアマリリス",
+      "broodmareSire": "ゼンノロブロイ",
+      "trainer": "小手川",
+      "jockey": "河原田",
+      "sexAge": "牝3鹿",
+      "kinryo": "51.0",
+      "prevName": "ガーネット",
+      "prevFinish": "8",
+      "prevDist": "ダ1400",
+      "prevTrack": "川崎"
+    },
+    {
+      "name": "カシノユメミヅキ",
+      "gate": "3",
+      "num": "6",
+      "sire": "メイショウボーラー",
+      "dam": "トウケイサクラ",
+      "broodmareSire": "シンボリクリスエス",
+      "trainer": "和田雄",
+      "jockey": "本田重",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "JRA交流",
+      "prevFinish": "7",
+      "prevDist": "ダ1400",
+      "prevTrack": "佐賀"
+    },
+    {
+      "name": "ブレイヴソルジャー",
+      "gate": "4",
+      "num": "7",
+      "sire": "ファインニードル",
+      "dam": "レッドレネット",
+      "broodmareSire": "キングカメハメハ",
+      "trainer": "新開",
+      "jockey": "石田",
+      "sexAge": "牡3栗",
+      "kinryo": "54.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "7",
+      "prevDist": "芝1200",
+      "prevTrack": "小倉"
+    },
+    {
+      "name": "ニンジャトットリ",
+      "gate": "4",
+      "num": "8",
+      "sire": "ミッキーアイル",
+      "dam": "ディアデム",
+      "broodmareSire": "シンボリクリスエス",
+      "trainer": "松永康",
+      "jockey": "木幡育",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "2",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "マロ",
+      "gate": "5",
+      "num": "9",
+      "sire": "エスポワールシチー",
+      "dam": "ベルメーリャ",
+      "broodmareSire": "キングカメハメハ",
+      "trainer": "藤野",
+      "jockey": "小林美",
+      "sexAge": "牡3黒鹿",
+      "kinryo": "54.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "15",
+      "prevDist": "ダ1200",
+      "prevTrack": "阪神"
+    },
+    {
+      "name": "ユナダイヤ",
+      "gate": "5",
+      "num": "10",
+      "sire": "サトノクラウン",
+      "dam": "ブライトメジャー",
+      "broodmareSire": "ダイワメジャー",
+      "trainer": "岡田",
+      "jockey": "小沢",
+      "sexAge": "牝3黒鹿",
+      "kinryo": "55.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "11",
+      "prevDist": "ダ1200",
+      "prevTrack": "阪神"
+    },
+    {
+      "name": "ルヴレアール",
+      "gate": "6",
+      "num": "11",
+      "sire": "リアルスティール",
+      "dam": "ラカリフォルニー",
+      "broodmareSire": "Dutch Art",
+      "trainer": "角田",
+      "jockey": "丹内",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "4",
+      "prevDist": "ダ1200",
+      "prevTrack": "阪神"
+    },
+    {
+      "name": "リスペクトライト",
+      "gate": "6",
+      "num": "12",
+      "sire": "フリオーソ",
+      "dam": "シャルロットノアル",
+      "broodmareSire": "フジキセキ",
+      "trainer": "和田郎",
+      "jockey": "石神道",
+      "sexAge": "牡3栗",
+      "kinryo": "54.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "6",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "ブレイシオン",
+      "gate": "7",
+      "num": "13",
+      "sire": "セイウンコウセイ",
+      "dam": "メイショウオスカル",
+      "broodmareSire": "フジキセキ",
+      "trainer": "青木",
+      "jockey": "古川奈",
+      "sexAge": "牝3栗",
+      "kinryo": "53.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "14",
+      "prevDist": "ダ1800",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "クルビデンス",
+      "gate": "7",
+      "num": "14",
+      "sire": "アメリカンペイトリオット",
+      "dam": "シャインレジーナ",
+      "broodmareSire": "アグネスタキオン",
+      "trainer": "菊川",
+      "jockey": "上里",
+      "sexAge": "牡3鹿",
+      "kinryo": "54.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "6",
+      "prevDist": "ダ1200",
+      "prevTrack": "中京"
+    },
+    {
+      "name": "ジーティーニッツァ",
+      "gate": "8",
+      "num": "15",
+      "sire": "ミスチヴィアスアレックス",
+      "dam": "ドリームデュネット",
+      "broodmareSire": "ディープインパクト",
+      "trainer": "伊藤伸",
+      "jockey": "遠藤",
+      "sexAge": "牡3鹿",
+      "kinryo": "54.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "6",
+      "prevDist": "ダ1300",
+      "prevTrack": "東京"
+    },
+    {
+      "name": "フィールマイプラン",
+      "gate": "8",
+      "num": "16",
+      "sire": "サトノクラウン",
+      "dam": "フィールザプリティ",
+      "broodmareSire": "ブラックタイド",
+      "trainer": "岩戸",
+      "jockey": "荻野極",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "6",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "race": {
+    "name": "あやめ賞",
+    "kind": "芝",
+    "distance": "1800",
+    "weather": "晴",
+    "track": "良"
+  },
+  "presentation": {
+    "raceId": "202608030108",
+    "startTime": "13:45",
+    "meta": "R ／ 芝1800m ／ 6頭",
+    "result": {
+      "fetched": "2026-04-26T09:42:07",
+      "raceId": "202608030108",
+      "horses": [
+        {
+          "rank": "1",
+          "gate": "2",
+          "num": "2",
+          "name": "ブレットパス",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "西村淳",
+          "time": "1:45.1",
+          "finalNinki": "1",
+          "finalOdds": "1.6",
+          "last3F": "",
+          "trainer": "中内田",
+          "weight": "496(+4)"
+        },
+        {
+          "rank": "2",
+          "gate": "4",
+          "num": "4",
+          "name": "ブラックシャリマー",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "吉村",
+          "time": "1:45.1",
+          "finalNinki": "2",
+          "finalOdds": "3.7",
+          "last3F": "34.3",
+          "trainer": "杉山晴",
+          "weight": "500(-4)"
+        },
+        {
+          "rank": "3",
+          "gate": "3",
+          "num": "3",
+          "name": "キシダンチョウ",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "高杉",
+          "time": "1:45.3",
+          "finalNinki": "3",
+          "finalOdds": "5.7",
+          "last3F": "",
+          "trainer": "吉岡",
+          "weight": "506(-8)"
+        },
+        {
+          "rank": "4",
+          "gate": "1",
+          "num": "1",
+          "name": "アイガーリー",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "菱田",
+          "time": "1:45.3",
+          "finalNinki": "5",
+          "finalOdds": "23.2",
+          "last3F": "",
+          "trainer": "秋山",
+          "weight": "440(0)"
+        },
+        {
+          "rank": "5",
+          "gate": "5",
+          "num": "5",
+          "name": "ララファキュルテ",
+          "sexAge": "牡3",
+          "kinryo": "57.0",
+          "jockey": "岩田望",
+          "time": "1:45.5",
+          "finalNinki": "4",
+          "finalOdds": "6.6",
+          "last3F": "",
+          "trainer": "斉藤崇",
+          "weight": "480(+4)"
+        },
+        {
+          "rank": "6",
+          "gate": "6",
+          "num": "6",
+          "name": "ジャストビート",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "鮫島駿",
+          "time": "1:46.5",
+          "finalNinki": "6",
+          "finalOdds": "99.5",
+          "last3F": "",
+          "trainer": "安達",
+          "weight": "418(-6)"
+        }
+      ],
+      "payouts": {
+        "tan": [
+          {
+            "combo": [
+              "2"
+            ],
+            "amount": 160,
+            "ninki": 1
+          }
+        ],
+        "fuku": [
+          {
+            "combo": [
+              "2",
+              "4"
+            ],
+            "amount": 110,
+            "ninki": 1
+          }
+        ],
+        "umaren": [
+          {
+            "combo": [
+              "2",
+              "4"
+            ],
+            "amount": 240,
+            "ninki": 1
+          }
+        ],
+        "wide": [
+          {
+            "combo": [
+              "2",
+              "4"
+            ],
+            "amount": 130,
+            "ninki": 1
+          },
+          {
+            "combo": [
+              "2",
+              "3"
+            ],
+            "amount": 140,
+            "ninki": 2
+          },
+          {
+            "combo": [
+              "3",
+              "4"
+            ],
+            "amount": 270,
+            "ninki": 5
+          }
+        ],
+        "umatan": [
+          {
+            "combo": [
+              "2",
+              "4"
+            ],
+            "amount": 360,
+            "ninki": 1
+          }
+        ],
+        "sanrenpuku": [
+          {
+            "combo": [
+              "2",
+              "3",
+              "4"
+            ],
+            "amount": 340,
+            "ninki": 2
+          }
+        ],
+        "sanrentan": [
+          {
+            "combo": [
+              "2",
+              "4",
+              "3"
+            ],
+            "amount": 950,
+            "ninki": 2
+          }
+        ]
+      }
+    }
+  },
+  "horses": [
+    {
+      "name": "アイガーリー",
+      "gate": "1",
+      "num": "1",
+      "sire": "モズアスコット",
+      "dam": "チョコレートバイン",
+      "broodmareSire": "ディープインパクト",
+      "trainer": "秋山",
+      "jockey": "菱田",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "Fウォーク",
+      "prevFinish": "6",
+      "prevDist": "芝1600",
+      "prevTrack": "中京"
+    },
+    {
+      "name": "ブレットパス",
+      "gate": "2",
+      "num": "2",
+      "sire": "アルアイン",
+      "dam": "パッシングスルー",
+      "broodmareSire": "ルーラーシップ",
+      "trainer": "中内田",
+      "jockey": "西村淳",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "水仙賞",
+      "prevFinish": "2",
+      "prevDist": "芝2200(外)",
+      "prevTrack": "中山"
+    },
+    {
+      "name": "キシダンチョウ",
+      "gate": "3",
+      "num": "3",
+      "sire": "ロードカナロア",
+      "dam": "キャリコ",
+      "broodmareSire": "ディープインパクト",
+      "trainer": "吉岡",
+      "jockey": "高杉",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "ゆきやなぎ",
+      "prevFinish": "4",
+      "prevDist": "芝2400(外)",
+      "prevTrack": "阪神"
+    },
+    {
+      "name": "ブラックシャリマー",
+      "gate": "4",
+      "num": "4",
+      "sire": "キタサンブラック",
+      "dam": "フォークレジェンド",
+      "broodmareSire": "Tapizar",
+      "trainer": "杉山晴",
+      "jockey": "吉村",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "京都"
+    },
+    {
+      "name": "ララファキュルテ",
+      "gate": "5",
+      "num": "5",
+      "sire": "シスキン",
+      "dam": "ビットレート",
+      "broodmareSire": "スペシャルウィーク",
+      "trainer": "斉藤崇",
+      "jockey": "岩田望",
+      "sexAge": "牡3鹿",
+      "kinryo": "57.0",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝1600(外)",
+      "prevTrack": "阪神"
+    },
+    {
+      "name": "ジャストビート",
+      "gate": "6",
+      "num": "6",
+      "sire": "デクラレーションオブウォー",
+      "dam": "ステルス",
+      "broodmareSire": "ディープインパクト",
+      "trainer": "安達",
+      "jockey": "鮫島駿",
+      "sexAge": "牝3鹿",
+      "kinryo": "55.0",
+      "prevName": "君子蘭賞",
+      "prevFinish": "6",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "阪神"
+    }
+  ]
+}

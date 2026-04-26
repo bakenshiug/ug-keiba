@@ -9,7 +9,10 @@
     "course": "左A",
     "startTime": "15:45",
     "numHorses": 25,
-    "headCount": 18
+    "headCount": 18,
+    "kind": "芝",
+    "weather": "晴",
+    "track": "良"
   },
   "raceTitle": {
     "main": "青葉賞",
@@ -24,8 +27,8 @@
   "horses": [
     {
       "listOrder": 1,
-      "num": null,
-      "gate": null,
+      "num": "10",
+      "gate": "5",
       "name": "アッカン",
       "jockey": "池添",
       "trainer": "奥村武",
@@ -122,12 +125,17 @@
         "ninkiGrade": "D",
         "reason": "父D(0.0%)/騎D(0.0%)/厩D(0.0%)/人D(10人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "シティリズム",
+      "prevName": "すみれS",
+      "prevFinish": "5",
+      "prevDist": "芝2200",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 2,
-      "num": null,
-      "gate": null,
+      "num": "2",
+      "gate": "1",
       "name": "カットソロ",
       "jockey": "津村",
       "trainer": "矢作",
@@ -216,12 +224,17 @@
         "ninkiGrade": "D",
         "reason": "父D(0.0%)/騎D(2.6%)/厩D(4.8%)/人D(12人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "スルターナ",
+      "prevName": "アザレア賞",
+      "prevFinish": "3",
+      "prevDist": "芝2400(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 3,
-      "num": null,
-      "gate": null,
+      "num": "18",
+      "gate": "8",
       "name": "ケントン",
       "jockey": "木幡巧",
       "trainer": "田島",
@@ -309,7 +322,12 @@
         "ninkiGrade": "D",
         "reason": "父B(11.1%)/騎D(0.0%)/厩D(0.0%)/人D(14人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "エーティーロゼッタ",
+      "prevName": "山吹賞",
+      "prevFinish": "1",
+      "prevDist": "芝2200(外)",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 4,
@@ -403,8 +421,8 @@
     },
     {
       "listOrder": 5,
-      "num": null,
-      "gate": null,
+      "num": "16",
+      "gate": "8",
       "name": "ゴーイントゥスカイ",
       "jockey": "武豊",
       "trainer": "上原佑",
@@ -493,12 +511,17 @@
         "ninkiGrade": "B",
         "reason": "父D(0.0%)/騎B(14.3%)/厩A(16.7%)/人B(3人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "ゴーイントゥザウィンドウ",
+      "prevName": "きさらぎ賞",
+      "prevFinish": "6",
+      "prevDist": "芝1800(外)",
+      "prevTrack": "京都"
     },
     {
       "listOrder": 6,
-      "num": null,
-      "gate": null,
+      "num": "12",
+      "gate": "6",
       "name": "サガルマータ",
       "jockey": "横山武",
       "trainer": "福永",
@@ -591,12 +614,17 @@
         "ninkiGrade": "C",
         "reason": "父D(0.0%)/騎C(5.6%)/厩D(0.0%)/人C(4人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "コンヴィクションII",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝2400(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 7,
-      "num": null,
-      "gate": null,
+      "num": "17",
+      "gate": "8",
       "name": "シャドウマスター",
       "jockey": "北村友",
       "trainer": "杉山晴",
@@ -689,12 +717,17 @@
         "ninkiGrade": "D",
         "reason": "父A(18.2%)/騎B(11.1%)/厩D(0.0%)/人D(9人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "シャドウマリア",
+      "prevName": "ゆきやなぎ",
+      "prevFinish": "1",
+      "prevDist": "芝2400(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 8,
-      "num": null,
-      "gate": null,
+      "num": "7",
+      "gate": "4",
       "name": "タイダルロック",
       "jockey": "三浦",
       "trainer": "武井",
@@ -778,12 +811,17 @@
         "ninkiGrade": "C",
         "reason": "父D(4.5%)/騎C(8.6%)/厩D(0.0%)/人C(5人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "アースライズ",
+      "prevName": "ディープ記",
+      "prevFinish": "4",
+      "prevDist": "芝2000",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 9,
-      "num": null,
-      "gate": null,
+      "num": "6",
+      "gate": "3",
       "name": "テルヒコウ",
       "jockey": "坂井",
       "trainer": "矢作",
@@ -875,7 +913,12 @@
         "ninkiGrade": "D",
         "reason": "父D(0.0%)/騎C(5.9%)/厩D(4.8%)/人D(6人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "ミッシングリンク",
+      "prevName": "大寒桜賞",
+      "prevFinish": "1",
+      "prevDist": "芝2200",
+      "prevTrack": "中京"
     },
     {
       "listOrder": 10,
@@ -960,8 +1003,8 @@
     },
     {
       "listOrder": 11,
-      "num": null,
-      "gate": null,
+      "num": "11",
+      "gate": "6",
       "name": "ノチェセラーダ",
       "jockey": "ディー",
       "trainer": "杉山佳",
@@ -1059,12 +1102,17 @@
         "ninkiGrade": "D",
         "reason": "父S(20.0%)/騎C(8.3%)/厩B(None%)/人D(11人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "ノチェブランカ",
+      "prevName": "すみれS",
+      "prevFinish": "3",
+      "prevDist": "芝2200",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 12,
-      "num": null,
-      "gate": null,
+      "num": "15",
+      "gate": "7",
       "name": "ノーブルサヴェージ",
       "jockey": "レーン",
       "trainer": "森一",
@@ -1153,12 +1201,17 @@
         "ninkiGrade": "A",
         "reason": "父D(0.0%)/騎B(12.5%)/厩D(0.0%)/人A(2人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "アグレアーブル",
+      "prevName": "水仙賞",
+      "prevFinish": "1",
+      "prevDist": "芝2200(外)",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 13,
-      "num": null,
-      "gate": null,
+      "num": "3",
+      "gate": "2",
       "name": "パラディオン",
       "jockey": "吉田豊",
       "trainer": "高柳大",
@@ -1247,12 +1300,17 @@
         "ninkiGrade": "D",
         "reason": "父B(14.3%)/騎C(6.3%)/厩S(33.3%)/人D(13人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "ステラリード",
+      "prevName": "京成杯",
+      "prevFinish": "14",
+      "prevDist": "芝2000",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 14,
-      "num": null,
-      "gate": null,
+      "num": "9",
+      "gate": "5",
       "name": "ヒシアムルーズ",
       "jockey": "佐々木",
       "trainer": "堀",
@@ -1346,12 +1404,17 @@
         "ninkiGrade": "D",
         "reason": "父B(11.1%)/騎S(23.5%)/厩B(14.7%)/人D(17人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "ソーメニーウェイズ",
+      "prevName": "3歳1勝クラス",
+      "prevFinish": "8",
+      "prevDist": "芝2000",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 15,
-      "num": null,
-      "gate": null,
+      "num": "4",
+      "gate": "2",
       "name": "ブラックオリンピア",
       "jockey": "川田",
       "trainer": "友道",
@@ -1435,12 +1498,17 @@
         "ninkiGrade": "S",
         "reason": "父A(18.2%)/騎S(22.2%)/厩B(13.0%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "ピノ",
+      "prevName": "アザレア賞",
+      "prevFinish": "1",
+      "prevDist": "芝2400(外)",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 16,
-      "num": null,
-      "gate": null,
+      "num": "5",
+      "gate": "3",
       "name": "ミッキーファルコン",
       "jockey": "田辺",
       "trainer": "堀",
@@ -1525,12 +1593,17 @@
         "ninkiGrade": "D",
         "reason": "父A(15.8%)/騎B(12.1%)/厩B(14.7%)/人D(8人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "ミッキークイーン",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "prevDist": "芝2200(外)",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 17,
-      "num": null,
-      "gate": null,
+      "num": "14",
+      "gate": "7",
       "name": "ヨカオウ",
       "jockey": "岩田康",
       "trainer": "谷",
@@ -1618,12 +1691,17 @@
         "ninkiGrade": "D",
         "reason": "父C(5.6%)/騎D(0.0%)/厩B(None%)/人D(15人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "ヨカヨカ",
+      "prevName": "山吹賞",
+      "prevFinish": "7",
+      "prevDist": "芝2200(外)",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 18,
-      "num": null,
-      "gate": null,
+      "num": "8",
+      "gate": "4",
       "name": "ラストスマイル",
       "jockey": "杉原",
       "trainer": "本間",
@@ -1711,7 +1789,12 @@
         "ninkiGrade": "D",
         "reason": "父B(None%)/騎D(0.0%)/厩D(0.0%)/人D(7人気)",
         "v": "v1-4axis"
-      }
+      },
+      "dam": "スナップドラゴン",
+      "prevName": "スプリング",
+      "prevFinish": "6",
+      "prevDist": "芝1800",
+      "prevTrack": "中山"
     }
   ],
   "finalBets": {
@@ -1966,7 +2049,7 @@
     "win5Summary": "五層は1点突破。ブラックオリンピアは青龍A×玄武S×朱雀peak90の3冠整合・1番人気鉄板。アザレア賞勝ち馬、長距離向き成長・川田＋友道厩舎の本格派ルート。WIN5五層はここ1頭に託す。",
     "raceId": "202605020111",
     "result": {
-      "fetched": "2026-04-25T16:42:32",
+      "fetched": "2026-04-26T09:42:08",
       "raceId": "202605020111",
       "horses": [
         {

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神宮全頭神託｜全レース | UG競馬ワイド神宮</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --shu:#8A2D2D; --shu-light:#C0392B; --kin:#C9A961; --kin-deep:#A07B28;
+  --sumi:#1a1108; --sand:#F4E9C9; --wood:#2c1d10; --bg:#0f0b08;
+  --card:#1a120a; --paper:#1e1409;
+  --seiryu:#8CC0DE; --suzaku:#E08C7D; --byakko:#E8D082; --genbu:#9CB68D;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  font-family:'Shippori Mincho','Noto Serif JP',serif;color:var(--sand);
+  background:radial-gradient(1200px 600px at 50% -10%, rgba(201,169,97,.15), transparent 60%),var(--bg);
+  min-height:100vh;line-height:1.7;
+}
+.mincho{font-family:'Shippori Mincho','Noto Serif JP',serif;}
+a{color:var(--kin);text-decoration:none;}
+
+/* ── AI試験運用バナー ── */
+.ai-trial-banner{
+  background:linear-gradient(180deg,rgba(45,28,16,.85) 0%,rgba(26,17,8,.92) 100%);
+  border-bottom:1px solid rgba(201,169,97,.4);
+  padding:9px 12px 10px;text-align:center;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  position:relative;z-index:50;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+.ai-trial-banner::before,.ai-trial-banner::after{
+  content:'';position:absolute;left:6%;right:6%;height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(201,169,97,.4) 50%,transparent 100%);
+}
+.ai-trial-banner::before{top:3px;}.ai-trial-banner::after{bottom:3px;}
+.ai-trial-banner-text{font-size:11.5px;letter-spacing:.08em;line-height:1.7;color:rgba(244,233,201,.9);}
+.ai-trial-banner-text .ai-trial-icon{font-size:14px;margin-right:6px;vertical-align:middle;}
+.ai-trial-banner-text strong{color:#E8D082;font-weight:700;letter-spacing:.05em;}
+.ai-trial-banner-text .ai-trial-author{display:block;font-size:10px;color:rgba(201,169,97,.7);margin-top:2px;letter-spacing:.18em;}
+@media(max-width:640px){.ai-trial-banner-text{font-size:10.5px;line-height:1.55;}.ai-trial-banner-text .ai-trial-author{font-size:9px;}}
+
+/* ── ヘッダ ── */
+.page-header{padding:36px 24px 24px;text-align:center;border-bottom:1px solid rgba(201,169,97,.2);}
+.page-title{font-size:clamp(26px,5vw,44px);font-weight:900;color:var(--kin);letter-spacing:.24em;text-shadow:0 0 24px rgba(201,169,97,.3);}
+.page-subtitle{margin-top:8px;font-size:12px;color:rgba(201,169,97,.7);letter-spacing:.3em;}
+.page-lead{margin-top:16px;font-size:13px;color:rgba(255,240,200,.65);}
+.home-link{display:inline-block;margin-top:14px;font-size:12px;color:var(--kin);border:1px solid var(--kin);padding:6px 18px;border-radius:2px;letter-spacing:.12em;}
+.home-link:hover{background:var(--kin);color:var(--sumi);}
+
+/* ── 日タブ ── */
+.day-tabs{display:flex;justify-content:center;gap:2px;margin:24px auto 0;max-width:520px;padding:0 16px;}
+.day-tab{flex:1;background:rgba(26,17,8,.6);color:rgba(201,169,97,.55);border:1px solid rgba(201,169,97,.25);padding:11px 14px 9px;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.15em;cursor:pointer;transition:all .2s;}
+.day-tab:hover{color:var(--kin);background:rgba(201,169,97,.08);}
+.day-tab.active{background:linear-gradient(180deg,var(--shu) 0%,var(--shu-light) 100%);color:var(--sand);border-color:var(--kin);box-shadow:0 0 0 1px var(--kin) inset;}
+.day-tab .day-kanji{font-size:18px;display:block;margin-bottom:2px;}
+.day-tab .day-date{font-size:10.5px;opacity:.85;letter-spacing:.12em;}
+
+/* ── 場タブ ── */
+.venue-tabs{display:flex;justify-content:center;gap:2px;margin:18px auto 0;max-width:600px;padding:0 16px;flex-wrap:wrap;}
+.venue-tab{
+  padding:8px 22px;background:transparent;color:rgba(201,169,97,.6);
+  border:1px solid rgba(201,169,97,.25);font-family:inherit;font-size:12.5px;
+  letter-spacing:.18em;cursor:pointer;font-weight:700;transition:all .15s;
+}
+.venue-tab.active{background:rgba(201,169,97,.15);color:var(--kin);border-color:var(--kin);}
+.venue-tab:hover:not(.active){color:var(--sand);}
+
+/* ── レースリスト ── */
+.race-list{max-width:1100px;margin:24px auto 60px;padding:0 16px;}
+.race-card{
+  background:linear-gradient(180deg,#1e1509 0%,#140c06 100%);
+  border:1px solid rgba(201,169,97,.25);border-radius:4px;
+  margin-bottom:10px;overflow:hidden;
+  transition:all .2s;
+}
+.race-card:hover{border-color:var(--kin);}
+.race-card.expanded{border-color:var(--kin);box-shadow:0 0 24px rgba(201,169,97,.1);}
+.race-card-head{
+  padding:12px 16px;cursor:pointer;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.race-num-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;background:var(--shu);color:var(--sand);
+  font-size:13px;font-weight:900;border-radius:3px;letter-spacing:.04em;
+  flex-shrink:0;
+}
+.race-num-badge.major{background:linear-gradient(135deg,var(--kin) 0%,var(--kin-deep) 100%);color:var(--sumi);}
+.race-info-main{flex:1;min-width:200px;}
+.race-name{font-size:15px;font-weight:700;color:var(--kin);letter-spacing:.05em;}
+.race-meta{font-size:11px;color:rgba(244,233,201,.55);margin-top:2px;letter-spacing:.04em;}
+.race-grade-badge{
+  display:inline-block;padding:2px 8px;font-size:10px;font-weight:900;
+  border-radius:2px;letter-spacing:.1em;margin-left:6px;vertical-align:middle;
+}
+.race-grade-G1{background:linear-gradient(135deg,#E8B86A,#A07B28);color:#1a1108;}
+.race-grade-G2{background:linear-gradient(135deg,#7BA06A,#3D5C2E);color:#f4e9c9;}
+.race-grade-G3{background:linear-gradient(135deg,#5C8AB8,#2E4A6E);color:#f4e9c9;}
+.race-grade-OP,.race-grade-L{background:rgba(201,169,97,.3);color:var(--kin);}
+.race-grade-3勝,.race-grade-2勝,.race-grade-1勝,.race-grade-未勝利,.race-grade-新馬{background:rgba(80,75,70,.35);color:rgba(244,233,201,.75);}
+.race-result-summary{font-size:11.5px;color:rgba(244,233,201,.75);text-align:right;flex:1;min-width:160px;}
+.race-result-summary .winner{color:#E8D082;font-weight:700;font-size:12.5px;}
+.race-result-summary .ninki{color:rgba(201,169,97,.65);font-size:10.5px;margin-left:6px;}
+.race-toggle{font-size:14px;color:var(--kin);transition:transform .2s;flex-shrink:0;}
+.race-card.expanded .race-toggle{transform:rotate(180deg);}
+
+/* ── 全頭採点表（展開時） ── */
+.race-card-body{display:none;padding:0;border-top:1px solid rgba(201,169,97,.18);}
+.race-card.expanded .race-card-body{display:block;}
+.horse-table{width:100%;border-collapse:collapse;font-size:12px;}
+.horse-table th{
+  background:rgba(0,0,0,.3);color:rgba(201,169,97,.85);
+  padding:8px 6px;text-align:center;font-size:10.5px;letter-spacing:.1em;
+  border-bottom:1px solid rgba(201,169,97,.25);font-weight:700;
+}
+.horse-table td{
+  padding:7px 6px;border-bottom:1px solid rgba(201,169,97,.08);
+  text-align:center;color:rgba(244,233,201,.85);
+}
+.horse-table tr:last-child td{border-bottom:0;}
+.horse-table tr.row-rank-1 td{background:linear-gradient(90deg,rgba(232,184,106,.12),transparent);}
+.horse-table tr.row-rank-2 td{background:linear-gradient(90deg,rgba(192,192,192,.08),transparent);}
+.horse-table tr.row-rank-3 td{background:linear-gradient(90deg,rgba(196,140,72,.08),transparent);}
+.horse-table .col-rank{width:32px;font-weight:700;color:var(--kin);}
+.horse-table .col-rank.r1{color:#E8B86A;}
+.horse-table .col-rank.r2{color:#C8C8C8;}
+.horse-table .col-rank.r3{color:#C48E48;}
+.horse-table .col-num{width:36px;}
+.horse-table .col-num .gate{display:inline-block;font-size:9px;color:rgba(244,233,201,.45);margin-right:2px;}
+.horse-table .col-name{text-align:left;color:var(--sand);font-weight:700;letter-spacing:.04em;padding-left:10px;}
+.horse-table .col-grade{width:34px;font-weight:900;font-size:13px;}
+.horse-table .col-grade.gS{color:#E8B86A;text-shadow:0 0 6px rgba(232,184,106,.4);}
+.horse-table .col-grade.gA{color:#9CB68D;}
+.horse-table .col-grade.gB{color:rgba(244,233,201,.75);}
+.horse-table .col-grade.gC{color:rgba(196,123,31,.85);}
+.horse-table .col-grade.gD{color:#E08C7D;}
+.horse-table .col-grade.gNA{color:rgba(244,233,201,.25);}
+.horse-table .col-jockey,.horse-table .col-trainer{font-size:11px;color:rgba(244,233,201,.7);}
+.horse-table .col-sire{font-size:11px;color:rgba(201,169,97,.75);}
+.horse-table .col-pick{font-size:14px;font-weight:900;}
+.horse-table .col-pick .seiryu{color:var(--seiryu);}
+.horse-table .col-pick .suzaku{color:var(--suzaku);}
+.horse-table .col-pick .byakko{color:var(--byakko);}
+.horse-table .col-pick .genbu{color:var(--genbu);}
+.horse-table .col-finalodds{font-size:10.5px;color:rgba(244,233,201,.6);}
+
+/* 4神 サブヘッダ色分け */
+.horse-table th.th-seiryu{color:var(--seiryu);}
+.horse-table th.th-suzaku{color:var(--suzaku);}
+.horse-table th.th-byakko{color:var(--byakko);}
+.horse-table th.th-genbu{color:var(--genbu);}
+
+/* 払戻ミニサマリ */
+.race-payouts-mini{
+  padding:10px 16px;background:rgba(0,0,0,.35);
+  font-size:11px;color:rgba(244,233,201,.7);
+  border-top:1px solid rgba(201,169,97,.15);
+  display:flex;flex-wrap:wrap;gap:14px 24px;
+}
+.race-payouts-mini .pay-label{color:var(--kin);font-weight:700;letter-spacing:.1em;margin-right:4px;}
+.race-payouts-mini .pay-amt{color:#E8D082;font-weight:700;}
+
+/* ── レスポンシブ ── */
+@media(max-width:640px){
+  .horse-table{font-size:10.5px;}
+  .horse-table th{font-size:9.5px;padding:6px 3px;letter-spacing:.04em;}
+  .horse-table td{padding:6px 3px;}
+  .horse-table .col-name{padding-left:5px;}
+  .horse-table .col-jockey,.horse-table .col-trainer,.horse-table .col-sire{display:none;}
+  .race-card-head{gap:8px;}
+  .race-result-summary{text-align:left;font-size:10.5px;}
+}
+
+/* ── footer ── */
+.footer{text-align:center;padding:30px 16px 24px;color:rgba(201,169,97,.5);font-size:10.5px;letter-spacing:.32em;}
+
+.empty-state{
+  text-align:center;padding:60px 20px;color:rgba(201,169,97,.5);
+  font-size:14px;letter-spacing:.1em;
+}
+</style>
+</head>
+<body>
+
+<!-- ═════ AI試験運用バナー（全ページ共通） ═════ -->
+<div class="ai-trial-banner">
+  <div class="ai-trial-banner-text">
+    <span class="ai-trial-icon">🤖</span>神 宮 、 A I で 全 レ ー ス 採 点 へ 拡 張 中 。 試 運 転 故 、 神 託 に 粗 あ り 。 <strong>さ れ ど 人 気 は 嘘 つ け ど 、 構 造 は 嘘 つ か ぬ 。</strong>
+    <span class="ai-trial-author">─ ギ ー ニ ョ 修 行 中 の 一 文 ─</span>
+  </div>
+</div>
+
+<header class="page-header">
+  <div class="page-title mincho">神 宮 全 頭 神 託</div>
+  <div class="page-subtitle mincho">SHIN PER UMA SHINTAKU ｜ 全 レ ー ス 4 神 採 点</div>
+  <p class="page-lead mincho">3場×12レース＝36鞍、全頭の青龍・朱雀・白虎・玄武 grade 一覧。</p>
+  <a href="index.html" class="home-link mincho">⛩ 境内へ戻る</a>
+</header>
+
+<!-- 日タブ -->
+<nav class="day-tabs" id="dayTabs"></nav>
+
+<!-- 場タブ -->
+<nav class="venue-tabs" id="venueTabs"></nav>
+
+<!-- レースリスト -->
+<div class="race-list" id="raceList"></div>
+
+<footer class="footer mincho">
+  ⛩ U G 競 馬 ワ イ ド 神 宮 ／ 神 宮 全 頭 神 託 ⛩
+</footer>
+
+<script>
+// ═══════════════════════════════════════
+//  all-races.html v1 — 全レース全頭4神採点表
+// ═══════════════════════════════════════
+
+const VENUES = [
+  {key:'kyoto',     label:'京都'},
+  {key:'tokyo',     label:'東京'},
+  {key:'fukushima', label:'福島'},
+];
+const DAYS = [
+  {date:'2026-04-25', label:'土', kanji:'土曜'},
+  {date:'2026-04-26', label:'日', kanji:'日曜'},
+];
+let currentDay = '2026-04-25';
+let currentVenue = 'kyoto';
+let RACES_DATA = {};  // {race_key: race_note_json}
+
+function esc(s){
+  return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+
+function gradeClass(g){
+  return 'g' + (g === '—' || !g ? 'NA' : g);
+}
+
+function godPickIcon(p){
+  if (!p || !p.god) return '';
+  return ({'seiryu':'🐉','suzaku':'🔥','byakko':'🐅','genbu':'🐢'})[p.god] || '';
+}
+function godPickClass(p){
+  if (!p || !p.god) return '';
+  return p.god;
+}
+
+async function loadDay(day){
+  // RACES_DATA 初期化
+  RACES_DATA = {};
+  // 各 venue × R1-12 を全部 fetch
+  const promises = [];
+  for (const v of VENUES){
+    for (let r = 1; r <= 12; r++){
+      const key = `${day}-${v.key}-${r}r`;
+      promises.push(
+        fetch(`data/race-notes/${key}.json?_=${Math.floor(Date.now()/60000)}`, {cache:'no-cache'})
+          .then(res => res.ok ? res.json() : null)
+          .then(d => { if (d) RACES_DATA[key] = d; })
+          .catch(() => {})
+      );
+    }
+  }
+  await Promise.all(promises);
+  renderVenueTabs();
+  renderRaceList();
+}
+
+function renderDayTabs(){
+  const c = document.getElementById('dayTabs');
+  c.innerHTML = DAYS.map(d => {
+    const active = d.date === currentDay ? ' active' : '';
+    return `<button class="day-tab${active}" onclick="setDay('${d.date}')">
+      <span class="day-kanji mincho">${d.kanji}</span>
+      <span class="day-date">${d.date.slice(5).replace('-','/')}</span>
+    </button>`;
+  }).join('');
+}
+
+function renderVenueTabs(){
+  const c = document.getElementById('venueTabs');
+  c.innerHTML = VENUES.map(v => {
+    const active = v.key === currentVenue ? ' active' : '';
+    // この場×この日のレース数カウント
+    const cnt = Object.keys(RACES_DATA).filter(k => k.startsWith(`${currentDay}-${v.key}-`)).length;
+    return `<button class="venue-tab${active}" onclick="setVenue('${v.key}')">${v.label} ${cnt}R</button>`;
+  }).join('');
+}
+
+function setDay(d){
+  currentDay = d;
+  renderDayTabs();
+  loadDay(d);
+}
+function setVenue(v){
+  currentVenue = v;
+  renderVenueTabs();
+  renderRaceList();
+}
+
+function isMajor(grade){
+  return ['G1','G2','G3','OP','L'].includes(grade);
+}
+
+function renderRaceList(){
+  const c = document.getElementById('raceList');
+  const races = [];
+  for (let r = 1; r <= 12; r++){
+    const key = `${currentDay}-${currentVenue}-${r}r`;
+    const d = RACES_DATA[key];
+    if (d) races.push({key, num:r, data:d});
+  }
+  if (!races.length){
+    c.innerHTML = `<div class="empty-state">レースデータが見つかりません…</div>`;
+    return;
+  }
+  c.innerHTML = races.map(r => raceCardHtml(r)).join('');
+}
+
+function raceCardHtml(r){
+  const d = r.data;
+  const race = d.race || {};
+  const pres = d.presentation || {};
+  const result = pres.result || {};
+  const horses_top = d.horses || [];
+  const win5Picks = pres.win5Picks || [];
+  const presHorses = pres.horses || [];
+  // pickされた馬名→godマップ
+  const pickedByName = {};
+  presHorses.forEach(p => { if (p.name) pickedByName[p.name] = p; });
+
+  const grade = race.grade || '';
+  const isMaj = isMajor(grade);
+  const numBadgeClass = isMaj ? 'race-num-badge major' : 'race-num-badge';
+
+  // 結果サマリ
+  const resHorses = result.horses || [];
+  const winner = resHorses.find(h => h.rank === '1');
+  const second = resHorses.find(h => h.rank === '2');
+  const third  = resHorses.find(h => h.rank === '3');
+  const winnerHtml = winner
+    ? `<span class="winner">🥇 ${esc(winner.name)}</span><span class="ninki">${esc(winner.finalNinki || '')}人気/${esc(winner.finalOdds || '')}倍</span>`
+    : '<span style="color:rgba(244,233,201,.4);">結果未取得</span>';
+
+  // 全頭テーブル
+  const horsesByName = {};
+  horses_top.forEach(h => { if (h.name) horsesByName[h.name] = h; });
+  // 結果ベース順位、なければhorses_top順
+  const allHorses = resHorses.length ? resHorses.map(rh => ({...horsesByName[rh.name], ...rh}))
+                                    : horses_top.map(h => ({...h, rank:'', finalNinki:'', finalOdds:''}));
+
+  const rowsHtml = allHorses.map(h => {
+    const sg = h.suzakuGrade || {};
+    const gs = (h.relComment || {}).grade || '—';
+    const gz = sg.grade || '—';
+    const gb = (h.yugomiLapGrade || {}).grade || (h.lapFactors || {}).grade || '—';
+    const gg = (h.courseDataGrade || {}).grade || (h.gaikyuFactor || {}).grade || '—';
+    const pick = pickedByName[h.name];
+    const pickIcon = pick ? `<span class="${godPickClass(pick)}">${godPickIcon(pick)}</span>` : '';
+    const rankCls = h.rank === '1' ? 'r1' : h.rank === '2' ? 'r2' : h.rank === '3' ? 'r3' : '';
+    const rowCls = h.rank ? `row-rank-${h.rank}` : '';
+    return `<tr class="${rowCls}">
+      <td class="col-rank ${rankCls}">${esc(h.rank || '')}</td>
+      <td class="col-num"><span class="gate">${esc(h.gate || '')}</span>${esc(h.num || '')}</td>
+      <td class="col-name">${esc(h.name || '?')}</td>
+      <td class="col-grade ${gradeClass(gs)}">${esc(gs)}</td>
+      <td class="col-grade ${gradeClass(gz)}">${esc(gz)}</td>
+      <td class="col-grade ${gradeClass(gb)}">${esc(gb)}</td>
+      <td class="col-grade ${gradeClass(gg)}">${esc(gg)}</td>
+      <td class="col-pick">${pickIcon}</td>
+      <td class="col-jockey">${esc(h.jockey || '')}</td>
+      <td class="col-trainer">${esc(h.trainer || '')}</td>
+      <td class="col-sire">${esc(h.sire || '')}</td>
+      <td class="col-finalodds">${h.finalOdds ? esc(h.finalOdds) + '倍' : ''}</td>
+    </tr>`;
+  }).join('');
+
+  // 払戻ミニ
+  const payouts = result.payouts || {};
+  let payoutsMini = '';
+  if (payouts.tan) {
+    const items = [];
+    if (payouts.tan && payouts.tan[0]) items.push(`<span><span class="pay-label">単勝</span><span class="pay-amt">¥${payouts.tan[0].amount}</span></span>`);
+    if (payouts.umaren && payouts.umaren[0]) items.push(`<span><span class="pay-label">馬連</span><span class="pay-amt">¥${payouts.umaren[0].amount.toLocaleString()}</span></span>`);
+    if (payouts.wide && payouts.wide.length) items.push(`<span><span class="pay-label">ワイド</span>${payouts.wide.length}点</span>`);
+    if (payouts.sanrentan && payouts.sanrentan[0]) items.push(`<span><span class="pay-label">3連単</span><span class="pay-amt">¥${payouts.sanrentan[0].amount.toLocaleString()}</span></span>`);
+    if (items.length) payoutsMini = `<div class="race-payouts-mini">${items.join('')}</div>`;
+  }
+
+  return `<div class="race-card" id="card-${r.key}" onclick="toggleRace('${r.key}')">
+    <div class="race-card-head">
+      <div class="${numBadgeClass}">${r.num}R</div>
+      <div class="race-info-main">
+        <div class="race-name mincho">${esc(race.name || '?')} ${grade ? `<span class="race-grade-badge race-grade-${esc(grade.replace(/勝.*/,'勝'))}">${esc(grade)}</span>` : ''}</div>
+        <div class="race-meta">${esc(race.kind || '')}${esc(race.distance || '')}m ／ ${horses_top.length}頭 ／ ${esc(pres.startTime || '')}</div>
+      </div>
+      <div class="race-result-summary">${winnerHtml}</div>
+      <div class="race-toggle">▼</div>
+    </div>
+    <div class="race-card-body">
+      <table class="horse-table">
+        <thead>
+          <tr>
+            <th>着</th><th>馬番</th><th>馬名</th>
+            <th class="th-seiryu" title="言霊">青龍</th>
+            <th class="th-suzaku" title="速眼">朱雀</th>
+            <th class="th-byakko" title="ラップ">白虎</th>
+            <th class="th-genbu" title="地脈">玄武</th>
+            <th>pick</th>
+            <th>騎手</th>
+            <th>厩舎</th>
+            <th>父</th>
+            <th>確定</th>
+          </tr>
+        </thead>
+        <tbody>${rowsHtml}</tbody>
+      </table>
+      ${payoutsMini}
+    </div>
+  </div>`;
+}
+
+function toggleRace(key){
+  const card = document.getElementById('card-' + key);
+  if (card) card.classList.toggle('expanded');
+}
+
+// ═════ 初期化 ═════
+renderDayTabs();
+loadDay(currentDay);
+</script>
+
+</body>
+</html>

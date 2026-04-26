@@ -8,7 +8,10 @@
     "distance": 1200,
     "course": "右",
     "startTime": "15:35",
-    "headCount": 12
+    "headCount": 12,
+    "kind": "ダ",
+    "weather": "晴",
+    "track": "稍"
   },
   "raceTitle": {
     "main": "天王山S",
@@ -21,7 +24,7 @@
     {
       "listOrder": 1,
       "num": 1,
-      "gate": null,
+      "gate": "1",
       "name": "ケイアイアニラ",
       "lapFactors": {
         "grade": "A",
@@ -79,12 +82,23 @@
         "ninkiGrade": "S",
         "reason": "父C(9.3%)/騎D(3.4%)/厩C(7.1%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "パイロ",
+      "dam": "プリンセスキナウ",
+      "broodmareSire": "キングカメハメハ",
+      "trainer": "吉岡",
+      "jockey": "高杉",
+      "sexAge": "牡6黒鹿",
+      "kinryo": "57.0",
+      "prevName": "ジャニュア",
+      "prevFinish": "8",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 2,
       "num": 2,
-      "gate": null,
+      "gate": "2",
       "name": "ジュンウィンダム",
       "lapFactors": {
         "grade": "A",
@@ -142,12 +156,23 @@
         "ninkiGrade": "S",
         "reason": "父D(4.2%)/騎D(0.0%)/厩C(8.1%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "カレンブラックヒル",
+      "dam": "ゴッドカリビアン",
+      "broodmareSire": "ベーカバド",
+      "trainer": "浜田",
+      "jockey": "国分優",
+      "sexAge": "牝6鹿",
+      "kinryo": "55.0",
+      "prevName": "京葉S",
+      "prevFinish": "12",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 3,
       "num": 3,
-      "gate": null,
+      "gate": "3",
       "name": "ペプチドヤマト",
       "lapFactors": {
         "grade": "S",
@@ -205,12 +230,23 @@
         "ninkiGrade": "S",
         "reason": "父B(10.4%)/騎D(4.8%)/厩C(7.5%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "ドレフォン",
+      "dam": "ペプチドルビー",
+      "broodmareSire": "コロナドズクエスト",
+      "trainer": "武英",
+      "jockey": "高倉",
+      "sexAge": "牡7栗",
+      "kinryo": "58.0",
+      "prevName": "大和S",
+      "prevFinish": "8",
+      "prevDist": "ダ1200",
+      "prevTrack": "京都"
     },
     {
       "listOrder": 4,
       "num": 4,
-      "gate": null,
+      "gate": "4",
       "name": "オーブルクール",
       "lapFactors": {
         "grade": "B",
@@ -268,12 +304,23 @@
         "ninkiGrade": "S",
         "reason": "父B(11.4%)/騎D(0.0%)/厩D(0.0%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "デクラレーションオブウォー",
+      "dam": "メイショウユウゼン",
+      "broodmareSire": "タイキシャトル",
+      "trainer": "矢野",
+      "jockey": "原",
+      "sexAge": "牝5鹿",
+      "kinryo": "55.0",
+      "prevName": "ジャニュア",
+      "prevFinish": "15",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 5,
       "num": 5,
-      "gate": null,
+      "gate": "5",
       "name": "メイショウホウレン",
       "lapFactors": {
         "grade": "A",
@@ -331,12 +378,23 @@
         "ninkiGrade": "S",
         "reason": "父C(6.7%)/騎C(8.3%)/厩C(5.5%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "エスポワールシチー",
+      "dam": "キンゲショウ",
+      "broodmareSire": "Hard Spun",
+      "trainer": "安達",
+      "jockey": "浜中",
+      "sexAge": "牡5栗",
+      "kinryo": "58.0",
+      "prevName": "千葉S",
+      "prevFinish": "12",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 6,
       "num": 6,
-      "gate": null,
+      "gate": "5",
       "name": "ヒルノドゴール",
       "lapFactors": {
         "grade": "B",
@@ -394,12 +452,23 @@
         "ninkiGrade": "S",
         "reason": "父C(6.7%)/騎C(5.8%)/厩B(14.3%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "アニマルキングダム",
+      "dam": "ヒルノケアンズ",
+      "broodmareSire": "ハーツクライ",
+      "trainer": "北出",
+      "jockey": "幸",
+      "sexAge": "牡5栗",
+      "kinryo": "57.0",
+      "prevName": "コーラルS",
+      "prevFinish": "9",
+      "prevDist": "ダ1400",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 7,
       "num": 7,
-      "gate": null,
+      "gate": "6",
       "name": "ジョーローリット",
       "lapFactors": {
         "grade": "S",
@@ -457,12 +526,23 @@
         "ninkiGrade": "S",
         "reason": "父A(18.4%)/騎D(0.0%)/厩B(11.4%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "ダノンレジェンド",
+      "dam": "ジョーカルーア",
+      "broodmareSire": "ジョーカプチーノ",
+      "trainer": "中竹",
+      "jockey": "角田和",
+      "sexAge": "牝5芦",
+      "kinryo": "55.0",
+      "prevName": "令月S",
+      "prevFinish": "6",
+      "prevDist": "ダ1200",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 8,
       "num": 8,
-      "gate": null,
+      "gate": "6",
       "name": "ケイアイシェルビー",
       "lapFactors": {
         "grade": "B",
@@ -520,12 +600,23 @@
         "ninkiGrade": "S",
         "reason": "父D(0.0%)/騎C(6.5%)/厩D(0.0%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "ディープインパクト",
+      "dam": "ケイアイガーベラ",
+      "broodmareSire": "Smarty Jones",
+      "trainer": "平田",
+      "jockey": "藤懸",
+      "sexAge": "牡8鹿",
+      "kinryo": "57.0",
+      "prevName": "令月S",
+      "prevFinish": "10",
+      "prevDist": "ダ1200",
+      "prevTrack": "阪神"
     },
     {
       "listOrder": 9,
       "num": 9,
-      "gate": null,
+      "gate": "7",
       "name": "カズゴルティス",
       "lapFactors": {
         "grade": "B",
@@ -583,7 +674,18 @@
         "ninkiGrade": "S",
         "reason": "父D(0.0%)/騎C(7.5%)/厩D(0.0%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "アルアイン",
+      "dam": "スネガエクスプレス",
+      "broodmareSire": "ウォーエンブレム",
+      "trainer": "西園翔",
+      "jockey": "団野",
+      "sexAge": "セ5鹿",
+      "kinryo": "57.0",
+      "prevName": "京葉S",
+      "prevFinish": "15",
+      "prevDist": "ダ1200",
+      "prevTrack": "中山"
     },
     {
       "listOrder": 10,
@@ -651,7 +753,7 @@
     {
       "listOrder": 11,
       "num": 11,
-      "gate": null,
+      "gate": "8",
       "name": "ドンアミティエ",
       "lapFactors": {
         "grade": "S",
@@ -709,7 +811,18 @@
         "ninkiGrade": "S",
         "reason": "父B(11.5%)/騎A(15.9%)/厩S(20.8%)/人S(1人気)",
         "v": "v1-4axis"
-      }
+      },
+      "sire": "アジアエクスプレス",
+      "dam": "クラシックス",
+      "broodmareSire": "キングヘイロー",
+      "trainer": "今野",
+      "jockey": "松山",
+      "sexAge": "牡6黒鹿",
+      "kinryo": "60.0",
+      "prevName": "リヤドダー",
+      "prevFinish": "7",
+      "prevDist": "ダ1200",
+      "prevTrack": "キングアブドゥルアジーズ"
     },
     {
       "listOrder": 12,
@@ -1021,7 +1134,7 @@
     "win5Summary": "四層は1点突破。ゲッティヴィラは白虎A×玄武A＝京都1200軽ダート舞台完全合致。敗因具体（スタート・冬ダート重）／京都相性いい／軽いダートなら、の再現性狙い。WIN5四層はここ1頭に託す。",
     "raceId": "202608030111",
     "result": {
-      "fetched": "2026-04-25T16:42:32",
+      "fetched": "2026-04-26T09:42:04",
       "raceId": "202608030111",
       "horses": [
         {
