@@ -283,6 +283,7 @@ a{color:var(--kin);text-decoration:none;}
 .rank-2{background:#c9c5be;color:#2a2a2a;}
 .rank-3{background:#b08850;color:#1a1a1a;}
 .rank-out{background:rgba(80,75,70,.55);color:rgba(244,233,201,.7);}
+.rank-kesi{background:rgba(60,50,45,.65);color:rgba(244,233,201,.5);text-decoration:line-through;letter-spacing:.08em;}
 .omamori.has-result .omamori-bar{position:relative;}
 
 /* ───── 的中バッジ（レースヘッダ） ───── */
@@ -803,12 +804,16 @@ function omamoriHtml(p, raceResult){
   const rank = rh && rh.rank ? rh.rank : '';
   const finalNinki = (rh && rh.finalNinki) || p.ninki;
   const finalOdds  = (rh && rh.finalOdds)  || p.odds;
-  // 着順バッジ（1-3着＝色つき／4着以下＝モノクロ／未確定＝なし）
+  // 着順バッジ（1-3着＝色つき／4着以下＝モノクロ／取消＝専用ラベル／未確定＝なし）
   let rankBadge = '';
   if (rank) {
-    const rn = parseInt(rank);
-    const cls = rn === 1 ? 'rank-1' : (rn === 2 ? 'rank-2' : (rn === 3 ? 'rank-3' : 'rank-out'));
-    rankBadge = `<span class="rank-badge ${cls}">${rank}着</span>`;
+    if (rank === '取消' || rank === '中止' || rank === '除外') {
+      rankBadge = `<span class="rank-badge rank-kesi">出走取消</span>`;
+    } else {
+      const rn = parseInt(rank);
+      const cls = rn === 1 ? 'rank-1' : (rn === 2 ? 'rank-2' : (rn === 3 ? 'rank-3' : 'rank-out'));
+      rankBadge = `<span class="rank-badge ${cls}">${rank}着</span>`;
+    }
   }
 
   return `
