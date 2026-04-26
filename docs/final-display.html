@@ -517,9 +517,52 @@ a{color:var(--kin);text-decoration:none;}
   .offering-type{width:auto;margin-right:8px;}
   .offering-amount{width:100%;text-align:right;margin-top:2px;}
 }
+
+/* ── AI試験運用バナー（全ページ共通） ── */
+.ai-trial-banner{
+  background:linear-gradient(180deg,rgba(45,28,16,.85) 0%,rgba(26,17,8,.92) 100%);
+  border-bottom:1px solid rgba(201,169,97,.4);
+  padding:9px 12px 10px;text-align:center;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  position:relative;z-index:50;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+.ai-trial-banner::before,
+.ai-trial-banner::after{
+  content:'';position:absolute;left:6%;right:6%;height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(201,169,97,.4) 50%,transparent 100%);
+}
+.ai-trial-banner::before{top:3px;}
+.ai-trial-banner::after{bottom:3px;}
+.ai-trial-banner-text{
+  font-size:11.5px;letter-spacing:.08em;line-height:1.7;
+  color:rgba(244,233,201,.9);
+}
+.ai-trial-banner-text .ai-trial-icon{
+  font-size:14px;margin-right:6px;vertical-align:middle;
+}
+.ai-trial-banner-text strong{
+  color:#E8D082;font-weight:700;letter-spacing:.05em;
+}
+.ai-trial-banner-text .ai-trial-author{
+  display:block;font-size:10px;color:rgba(201,169,97,.7);
+  margin-top:2px;letter-spacing:.18em;
+}
+@media(max-width:640px){
+  .ai-trial-banner-text{font-size:10.5px;line-height:1.55;}
+  .ai-trial-banner-text .ai-trial-author{font-size:9px;}
+}
 </style>
 </head>
 <body>
+<!-- ═════ AI試験運用バナー（全ページ共通） ═════ -->
+<div class="ai-trial-banner">
+  <div class="ai-trial-banner-text">
+    <span class="ai-trial-icon">🤖</span>神 宮 、 A I で 全 レ ー ス 採 点 へ 拡 張 中 。 試 運 転 故 、 神 託 に 粗 あ り 。 <strong>さ れ ど 人 気 は 嘘 つ け ど 、 構 造 は 嘘 つ か ぬ 。</strong>
+    <span class="ai-trial-author">─ ギ ー ニ ョ 修 行 中 の 一 文 ─</span>
+  </div>
+</div>
+
 
 <header class="page-header">
   <div class="page-title mincho">本　殿</div>
