@@ -380,9 +380,48 @@ a{color:inherit;}
 }
 .shijin-grid-kirin{
   display:flex;justify-content:center;
-  margin:28px auto 0;max-width:1100px;
+  margin:36px auto 0;max-width:1100px;padding:0 20px;
 }
-.shijin-grid-kirin .shijin-card{max-width:340px;width:100%;}
+.shijin-grid-kirin .shijin-card{
+  max-width:880px;width:100%;
+  display:grid;grid-template-columns:auto 1fr;
+  gap:36px;align-items:center;
+  padding:44px 48px 36px;
+  text-align:left;
+}
+.shijin-grid-kirin .shijin-kamon{font-size:96px;margin:0;}
+.shijin-grid-kirin .shijin-name{font-size:32px;margin-bottom:6px;}
+.shijin-grid-kirin .shijin-direction{font-size:11px;letter-spacing:.32em;}
+.shijin-grid-kirin .shijin-factor{font-size:18px;margin-top:14px;letter-spacing:.4em;}
+.shijin-grid-kirin .shijin-factor-en{font-size:11px;letter-spacing:.18em;}
+.shijin-grid-kirin .shijin-weight{font-size:13px;margin:12px 0 14px;font-weight:900;color:#A07B28;}
+.shijin-grid-kirin .shijin-desc{font-size:13px;line-height:1.85;margin-top:0;}
+.shijin-grid-kirin .shijin-goriyaku{margin-top:14px;}
+.shijin-card.kirin{
+  background:linear-gradient(180deg,#fffdf3 0%,#fff8e8 100%);
+  border:2px solid #C9A961;
+  box-shadow:0 6px 28px rgba(201,169,97,.25),0 0 0 1px rgba(201,169,97,.1) inset;
+  position:relative;
+  overflow:hidden;
+}
+.shijin-card.kirin::before{
+  background:linear-gradient(90deg,#E8B86A 0%,#C9A961 50%,#A07B28 100%);
+  height:6px;
+}
+.shijin-card.kirin::after{
+  content:'';position:absolute;
+  bottom:-50px;right:-50px;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(201,169,97,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+@media(max-width:680px){
+  .shijin-grid-kirin .shijin-card{
+    grid-template-columns:1fr;text-align:center;padding:36px 24px;
+  }
+  .shijin-grid-kirin .shijin-kamon{font-size:72px;}
+  .shijin-grid-kirin .shijin-name{font-size:26px;}
+}
 @media(max-width:980px){
   .shijin-grid{grid-template-columns:repeat(2, 1fr);}
 }
@@ -406,8 +445,6 @@ a{color:inherit;}
 .shijin-card.suzaku::before{background:var(--shu);}
 .shijin-card.byakko::before{background:var(--kin);}
 .shijin-card.genbu::before{background:var(--sumi);}
-.shijin-card.kirin::before{background:linear-gradient(90deg,#C9A961,#A07B28);height:5px;}
-.shijin-card.kirin{background:linear-gradient(180deg,#fffbf0 0%,#fff 100%);border-color:#C9A961;box-shadow:0 4px 16px rgba(201,169,97,.15);}
 .shijin-kamon{
   font-size:56px;line-height:1;
   margin-bottom:12px;
