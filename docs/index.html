@@ -373,11 +373,16 @@ a{color:inherit;}
 /* ── 四神の御加護 ── */
 .shijin-grid{
   display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:20px;
-  max-width:1100px;
+  grid-template-columns:repeat(5, 1fr);
+  gap:18px;
+  max-width:1280px;
   margin:0 auto;
 }
+@media(max-width:980px){
+  .shijin-grid{grid-template-columns:repeat(2, 1fr);}
+}
+@media(max-width:560px){
+  .shijin-grid{grid-template-columns:1fr;}
 .shijin-card{
   background:linear-gradient(180deg, var(--paper) 0%, #fff 100%);
   border:1px solid var(--border);
@@ -396,6 +401,8 @@ a{color:inherit;}
 .shijin-card.suzaku::before{background:var(--shu);}
 .shijin-card.byakko::before{background:var(--kin);}
 .shijin-card.genbu::before{background:var(--sumi);}
+.shijin-card.kirin::before{background:linear-gradient(90deg,#C9A961,#A07B28);height:5px;}
+.shijin-card.kirin{background:linear-gradient(180deg,#fffbf0 0%,#fff 100%);border-color:#C9A961;box-shadow:0 4px 16px rgba(201,169,97,.15);}
 .shijin-kamon{
   font-size:56px;line-height:1;
   margin-bottom:12px;
@@ -411,6 +418,7 @@ a{color:inherit;}
 .shijin-card.suzaku .shijin-name{color:var(--shu);}
 .shijin-card.byakko .shijin-name{color:var(--kin-deep);}
 .shijin-card.genbu  .shijin-name{color:var(--sumi);}
+.shijin-card.kirin .shijin-name{color:#A07B28;letter-spacing:.32em;}
 .shijin-direction{
   font-size:10px;color:var(--muted);
   letter-spacing:.25em;
@@ -1099,11 +1107,11 @@ a{color:inherit;}
       <div class="shijin-kamon">🐅</div>
       <div class="shijin-name mincho">白 虎</div>
       <div class="shijin-direction">BYAKKO ─ 西 方 金</div>
-      <div class="shijin-factor">ラ ッ プ</div>
-      <div class="shijin-factor-en">LAP / レースラップが全てを物語る</div>
+      <div class="shijin-factor">速 眼</div>
+      <div class="shijin-factor-en">SOKUGAN / 能力＋ラップ＋相馬眼</div>
       <div class="shijin-weight">神徳 ×1.0</div>
-      <p class="shijin-desc">4角の位置取りとレースラップを徹底解析。金属質の冷徹さで時計を刻み、どの馬の脚が今回条件に噛み合うかを審（あきら）かにする西の神。</p>
-      <div class="shijin-goriyaku">適性確信・勝ちパターン照合</div>
+      <p class="shijin-desc">能力指数とレースラップを徹底解析、さらに相馬眼お化けの眼力で統合する白虎v2。金属質の冷徹さで時計を刻み、本物の一頭を審（あきら）かにする西の神。</p>
+      <div class="shijin-goriyaku">本物発見・適性確信</div>
     </div>
     <div class="shijin-card genbu">
       <div class="shijin-kamon">🐢</div>
@@ -1114,6 +1122,16 @@ a{color:inherit;}
       <div class="shijin-weight">神徳 ×1.0</div>
       <p class="shijin-desc">父×コース／騎手×コース／調教師×コース／単勝人気帯の4軸で舞台適合性を採点する柱1と、ノーザンF・チャンピオンヒルズ等の仕上げ履歴を採点する柱2の2本柱。水底の静けさで舞台の地層と状態を見通し、馬券の土台を固める北の神。</p>
       <div class="shijin-goriyaku">舞台適合・土台確定</div>
+    </div>
+    <div class="shijin-card kirin">
+      <div class="shijin-kamon">🦒</div>
+      <div class="shijin-name mincho">麒 麟</div>
+      <div class="shijin-direction">KIRIN ─ 中 央 土</div>
+      <div class="shijin-factor">総 合</div>
+      <div class="shijin-factor-en">SOGO / 4神合議の頂点</div>
+      <div class="shijin-weight">神徳 ×1.5</div>
+      <p class="shijin-desc">四方の神々の声を聴き、合議の結晶を示す。picks内なら☆印で本命指定、外なら「麒麟外伝」として補欠候補に。神宮の灯台たり、最終判断の指針となる中央の神。</p>
+      <div class="shijin-goriyaku">合議の結晶・神宮の灯台</div>
     </div>
   </div>
 </section>
