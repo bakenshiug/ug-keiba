@@ -300,6 +300,69 @@ html,body{
   letter-spacing:.06em;
   line-height:1.5;
 }
+
+/* ── 結果バッジ・的中演出 ── */
+.floor.floor-hit .floor-body{
+  background:linear-gradient(180deg, rgba(31,92,48,.18) 0%, #1a1108 100%);
+  border-color:rgba(130,219,111,.45);
+  box-shadow:inset 0 0 24px rgba(130,219,111,.05);
+}
+.floor.floor-miss .floor-body{
+  background:linear-gradient(180deg, rgba(60,40,40,.25) 0%, #1a1108 100%);
+  border-color:rgba(224,140,125,.35);
+}
+.floor-result-badge{
+  display:inline-block;padding:2px 10px;border-radius:2px;
+  font-size:10.5px;letter-spacing:.18em;font-weight:900;
+  margin-left:auto;
+}
+.floor-result-badge.win5-floor-hit{
+  background:linear-gradient(135deg,#2f7c44,#1f5c30);color:#f4e9c9;
+  box-shadow:0 0 12px rgba(130,219,111,.3);
+}
+.floor-result-badge.win5-floor-miss{
+  background:rgba(80,75,70,.55);color:rgba(244,233,201,.6);
+}
+.floor-result{
+  display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;
+  padding:6px 10px;margin:6px 0 8px;
+  background:rgba(0,0,0,.3);border-radius:3px;
+  font-size:11.5px;
+  border:1px solid rgba(201,169,97,.18);
+}
+.floor-result.win5-floor-hit{
+  border-color:rgba(130,219,111,.4);background:rgba(31,92,48,.18);
+}
+.floor-result.win5-floor-miss{
+  border-color:rgba(224,140,125,.3);
+}
+.floor-result-label{
+  font-size:10px;color:#E8B86A;letter-spacing:.32em;font-weight:700;
+  padding:1px 6px;background:rgba(201,169,97,.15);border-radius:2px;
+}
+.floor-result-num{
+  font-size:11px;color:rgba(244,233,201,.75);font-family:'Inter',sans-serif;
+}
+.floor-result-name{
+  font-size:13px;color:var(--sand);font-weight:700;letter-spacing:.04em;
+}
+.floor-result.win5-floor-hit .floor-result-name{
+  color:#E8D082;text-shadow:0 0 8px rgba(232,208,130,.3);
+}
+.floor-result-odds{
+  font-size:11px;color:rgba(201,169,97,.7);font-family:'Inter',sans-serif;
+}
+
+/* picks内に1着馬がいた場合のハイライト */
+.pick-row.pick-row-winner{
+  background:linear-gradient(90deg,rgba(232,184,106,.18),transparent);
+  border-left:3px solid #E8B86A;padding-left:8px;
+}
+.pick-winner-tag{
+  display:inline-block;margin-left:6px;padding:1px 6px;
+  background:linear-gradient(135deg,#E8B86A,#A07B28);color:#1a1108;
+  font-size:9px;font-weight:900;border-radius:2px;letter-spacing:.08em;
+}
 @media (max-width:640px){
   .pick-note{display:none;}
   .pick-row{font-size:12.5px;}
@@ -712,21 +775,49 @@ function renderFloors(day, races){
     const picks = p.win5Picks || [];
     const summary = p.win5Summary || '神のお告げを待ち賜う';
     const isSingle = picks.length === 1;
+
+    // 結果取得：1着馬・picks内/外判定
+    const result = p.result || {};
+    const resHorses = result.horses || [];
+    const winner = resHorses.find(h => h.rank === '1');
+    const pickNames = picks.map(pk => pk.name);
+    const winnerInPicks = winner && pickNames.includes(winner.name);
+    let resultBadge = '';
+    let resultBlock = '';
+    if (winner) {
+      const cls = winnerInPicks ? 'win5-floor-hit' : 'win5-floor-miss';
+      const ico = winnerInPicks ? '🎯' : '✗';
+      const label = winnerInPicks ? '層 通 過' : '層 撃 沈';
+      resultBadge = `<span class="floor-result-badge ${cls}">${ico} ${label}</span>`;
+      resultBlock = `<div class="floor-result ${cls}">
+        <span class="floor-result-label mincho">1着</span>
+        <span class="floor-result-num">${esc(winner.gate||'')}枠${esc(winner.num||'')}番</span>
+        <span class="floor-result-name mincho">${esc(winner.name)}</span>
+        <span class="floor-result-odds">${esc(winner.finalNinki||'?')}人気/${esc(winner.finalOdds||'?')}倍</span>
+      </div>`;
+    }
+
     const picksHtml = picks.length > 0
       ? picks.map(pk => {
           const cls = MARK_CLASS_MAP[pk.mark] || 'honmei';
           const numHtml = pk.num ? `<span class="combo-num-inline">${esc(pk.num)}</span>` : '';
-          return `<div class="pick-row"><span class="pick-mark ${cls}">${esc(pk.mark)}</span><span class="pick-name">${numHtml}${esc(pk.name)}</span><span class="pick-note">${esc(pk.note||'')}</span></div>`;
+          // pick が1着馬の場合 ハイライト
+          const isWinnerPick = winner && pk.name === winner.name;
+          const winnerCls = isWinnerPick ? ' pick-row-winner' : '';
+          return `<div class="pick-row${winnerCls}"><span class="pick-mark ${cls}">${esc(pk.mark)}</span><span class="pick-name">${numHtml}${esc(pk.name)}${isWinnerPick ? ' <span class="pick-winner-tag">🥇1着</span>' : ''}</span><span class="pick-note">${esc(pk.note||'')}</span></div>`;
         }).join('')
       : `<div class="pick-row" style="color:rgba(244,233,201,.4);font-style:italic;">神 託 降 臨 待 ち …</div>`;
-    return `<div class="floor floor-${r.layer}">
+    const floorCls = winner ? (winnerInPicks ? 'floor-hit' : 'floor-miss') : '';
+    return `<div class="floor floor-${r.layer} ${floorCls}">
       <div class="roof"></div>
       <div class="floor-body">
         <div class="floor-header">
           <span class="floor-label mincho">${LAYER_LABEL[r.layer]} ／ WIN${r.layer}</span>
           <span class="floor-race mincho">${esc(raceName)}${grade}</span>
+          ${resultBadge}
         </div>
         <div class="floor-meta">${esc(meta)}</div>
+        ${resultBlock}
         <div class="floor-picks${isSingle ? ' floor-picks-single':''}">${picksHtml}</div>
         <div class="floor-summary">${esc(summary)}</div>
       </div>
