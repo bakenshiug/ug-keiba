@@ -358,12 +358,13 @@ function raceCardHtml(r){
     ? `<span class="winner">🥇 ${esc(winner.name)}</span><span class="ninki">${esc(winner.finalNinki || '')}人気/${esc(winner.finalOdds || '')}倍</span>`
     : '<span style="color:rgba(244,233,201,.4);">結果未取得</span>';
 
-  // 全頭テーブル
-  const horsesByName = {};
-  horses_top.forEach(h => { if (h.name) horsesByName[h.name] = h; });
-  // 結果ベース順位、なければhorses_top順
-  const allHorses = resHorses.length ? resHorses.map(rh => ({...horsesByName[rh.name], ...rh}))
-                                    : horses_top.map(h => ({...h, rank:'', finalNinki:'', finalOdds:''}));
+  // 全頭テーブル（馬番順固定、結果あれば rank等マージ）
+  const resByName = {};
+  resHorses.forEach(rh => { if (rh.name) resByName[rh.name] = rh; });
+  const allHorses = horses_top
+    .slice()
+    .sort((a,b) => (parseInt(a.num) || 99) - (parseInt(b.num) || 99))
+    .map(h => ({...h, ...(resByName[h.name] || {rank:'', finalNinki:'', finalOdds:''})}));
 
   const rowsHtml = allHorses.map(h => {
     const sg = h.suzakuGrade || {};
@@ -436,7 +437,7 @@ function raceCardHtml(r){
             <th>母父</th>
             <th>外厩</th>
             <th>前走</th>
-            <th>確定</th>
+            <th>オッズ</th>
           </tr>
         </thead>
         <tbody>${rowsHtml}</tbody>
