@@ -167,6 +167,30 @@ html,body{
 .footer{padding:20px 14px 40px;text-align:center;font-size:10px;color:var(--muted);letter-spacing:.1em;}
 .footer-link{color:var(--shu);text-decoration:none;font-weight:700;}
 
+/* タブバー */
+.tab-bar{
+  display:flex;gap:0;background:rgba(251,247,238,.85);
+  border-bottom:2px solid rgba(201,169,97,.3);
+  position:sticky;top:57px;z-index:100;backdrop-filter:blur(6px);
+}
+.tab-btn{
+  flex:1;padding:11px 6px;font-size:11.5px;font-weight:700;color:var(--muted);
+  background:transparent;border:none;cursor:pointer;
+  border-bottom:3px solid transparent;transition:all .18s;
+  letter-spacing:.03em;text-align:center;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+}
+.tab-btn.active{color:var(--shu);border-bottom:3px solid var(--shu);background:rgba(155,45,48,.06);}
+.tab-grade{
+  font-size:9px;font-weight:900;padding:1px 5px;border-radius:3px;margin-right:4px;
+  vertical-align:middle;color:#fff;
+}
+.tab-grade.g1{background:linear-gradient(135deg,var(--shu),var(--shu-dk));}
+.tab-grade.g2{background:linear-gradient(135deg,var(--kin),#a88c52);}
+.tab-grade.g3{background:linear-gradient(135deg,#2B5A9F,#1a3d6e);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;}
+
 @media(min-width:600px){
   .hero-name{font-size:34px;}
   .kairitsu-grid{flex-direction:row;flex-wrap:wrap;}
@@ -195,8 +219,18 @@ html,body{
 <div class="breadcrumb-banner">
   <span class="bc-item">直近実績：青葉賞 3連単6点17,700円的中／フローラS ◎エンネ3着</span>
   <span class="bc-sep">›</span>
-  <span class="bc-current">春の天皇賞 展望（神託は5/2金夜）</span>
+  <span class="bc-current">5/2-3 三本殿展望（神託は5/2金夜）</span>
 </div>
+
+<!-- タブ -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" data-pane="tenno"><span class="tab-grade g1">G1</span>天皇賞・春</button>
+  <button class="tab-btn" data-pane="keio"><span class="tab-grade g2">G2</span>京王杯SC</button>
+  <button class="tab-btn" data-pane="unicorn"><span class="tab-grade g3">G3</span>ユニコーンS</button>
+</div>
+
+<!-- ====== 天皇賞・春 ====== -->
+<div class="tab-pane active" id="pane-tenno">
 
 <div class="hero">
   <span class="hero-grade">G1</span>
@@ -345,9 +379,150 @@ html,body{
   </div>
 </div>
 
+</div><!-- /pane-tenno -->
+
+<!-- ====== 京王杯SC ====== -->
+<div class="tab-pane" id="pane-keio">
+
+<div class="hero">
+  <span class="hero-grade" style="background:linear-gradient(135deg,var(--kin),#a88c52);">G2</span>
+  <div class="hero-name">第七十一回　京王杯スプリングカップ</div>
+  <div class="hero-sub">KEIO HAI SPRING CUP</div>
+  <div class="hero-meta">2026年5月2日（土）東京 芝1400m 4歳上 別定 20頭</div>
+</div>
+
+<div class="section">
+  <div class="section-title">神宮の戒律 三カ条</div>
+  <div class="section-sub">― 春の府中マイラー戦線、刹那の1400 ―</div>
+
+  <div class="kairitsu-grid">
+    <div class="kairitsu">
+      <div class="kairitsu-no">第一條</div>
+      <div class="kairitsu-head">前走重賞組を疑うな</div>
+      <div class="kairitsu-data">過去10年 阪神Cor高松宮記念組 → 馬券圏内常連</div>
+      <div class="kairitsu-body">G1帰り・短距離重賞帰りが軸。<em>1400mは1200と1600の中間ではなく、独立した戦場</em>。1200のスピードと1600の持続力、両方を持つ馬が勝つ。</div>
+    </div>
+
+    <div class="kairitsu">
+      <div class="kairitsu-no">第二條</div>
+      <div class="kairitsu-head">東京の直線は、上がり3F最速</div>
+      <div class="kairitsu-data">勝ち馬の上がり = 全馬中ベスト3以内が常</div>
+      <div class="kairitsu-body">広い府中で1400mは<em>道中の位置取りより末脚の絶対値</em>。差し・追込が前を捕まえる舞台。先行馬は前半45秒台の楽逃げ以外厳しい。</div>
+    </div>
+
+    <div class="kairitsu">
+      <div class="kairitsu-no">第三條</div>
+      <div class="kairitsu-head">古馬の格と、3歳明け馬の勢い</div>
+      <div class="kairitsu-data">7歳以上 0勝 ／ 4-5歳が中心</div>
+      <div class="kairitsu-body">別定戦ゆえG1馬は斤量増の苦戦パターンも。<em>4-5歳の上がり馬</em>を主軸に、NHKマイル組の3歳延長は警戒。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">ギーニョの構え</div>
+  <div class="section-sub">― 出走馬確定後、4神＋麒麟が降りる ―</div>
+
+  <div class="kamae-box">
+    <div class="kamae-title">⛩ 神 託 待 機 ⛩</div>
+    <div class="kamae-body">
+      頭数20頭の<em>大箱マイラー戦</em>。<br>
+      青龍は前走時計と上がりの真意を読み、<br>
+      朱雀は東京1400の展開と差しの効きを測り、<br>
+      白虎は能力指数と末脚キャラを掘り、<br>
+      玄武は東京1400実績と外厩の仕上げを問う。<br>
+      <em>麒麟は20頭の中央に、一頭を立てる</em>。
+    </div>
+
+    <div class="kami-grid">
+      <div class="kami-row"><span class="kami-icon">🐉</span><span><span class="kami-name">青龍</span><span class="kami-target">前走の真意</span></span></div>
+      <div class="kami-row"><span class="kami-icon">🔥</span><span><span class="kami-name">朱雀</span><span class="kami-target">展開＋状態</span></span></div>
+      <div class="kami-row"><span class="kami-icon">🐅</span><span><span class="kami-name">白虎</span><span class="kami-target">能力＋末脚</span></span></div>
+      <div class="kami-row"><span class="kami-icon">🐢</span><span><span class="kami-name">玄武</span><span class="kami-target">東京1400実績</span></span></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /pane-keio -->
+
+<!-- ====== ユニコーンS ====== -->
+<div class="tab-pane" id="pane-unicorn">
+
+<div class="hero">
+  <span class="hero-grade" style="background:linear-gradient(135deg,#2B5A9F,#1a3d6e);">G3</span>
+  <div class="hero-name">第三十一回　ユニコーンステークス</div>
+  <div class="hero-sub">UNICORN STAKES</div>
+  <div class="hero-meta">2026年5月3日（日）京都 ダート1900m 3歳 16頭</div>
+</div>
+
+<div class="section">
+  <div class="section-title">神宮の戒律 三カ条</div>
+  <div class="section-sub">― 三歳ダート王者の試金石、京都1900 ―</div>
+
+  <div class="kairitsu-grid">
+    <div class="kairitsu">
+      <div class="kairitsu-no">第一條</div>
+      <div class="kairitsu-head">距離延長組に勝機あり</div>
+      <div class="kairitsu-data">前走1800m以下からの距離延長 → 連対多数</div>
+      <div class="kairitsu-body">3歳ダート界は1800m前後の重賞・OPが主戦場。<em>1900mは未知の壁ではなく、スタミナの裏打ち</em>。距離経験よりも血統と気性。</div>
+    </div>
+
+    <div class="kairitsu">
+      <div class="kairitsu-no">第二條</div>
+      <div class="kairitsu-head">京都ダートの2コーナー奥</div>
+      <div class="kairitsu-data">スタート→2コーナー坂下りで隊列確定</div>
+      <div class="kairitsu-body">スタート直後の坂下りで脚を使うか溜めるかが勝負。<em>逃げ・先行が枠順次第で残りやすい</em>。外枠不利の傾向は東京コースより顕著。</div>
+    </div>
+
+    <div class="kairitsu">
+      <div class="kairitsu-no">第三條</div>
+      <div class="kairitsu-head">血統は米国系か、ハーツ系か</div>
+      <div class="kairitsu-data">勝ち馬の父系 → ヘニーヒューズ系orハーツクライ系が中心</div>
+      <div class="kairitsu-body">ダート1900＝中距離スタミナを要するため、<em>パワー一辺倒よりスタミナ寄せ</em>。3歳GW時点での仕上がりも重要、当日の馬体に注目。</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">ギーニョの構え</div>
+  <div class="section-sub">― 出走馬確定後、4神＋麒麟が降りる ―</div>
+
+  <div class="kamae-box">
+    <div class="kamae-title">⛩ 神 託 待 機 ⛩</div>
+    <div class="kamae-body">
+      関東遠征のヒヤシンスS組と、関西の兵庫CS組が交わる<em>三歳ダート分水嶺</em>。<br>
+      青龍は陣営の本気度を読み、<br>
+      朱雀は京都ダ1900の隊列と内枠先行を測り、<br>
+      白虎はスピード指数とパワーキャラを掘り、<br>
+      玄武は父系血統と仕上げの軸を問う。<br>
+      <em>麒麟が立てる三歳の頂、ジャパンダートクラシックへの伏線</em>。
+    </div>
+
+    <div class="kami-grid">
+      <div class="kami-row"><span class="kami-icon">🐉</span><span><span class="kami-name">青龍</span><span class="kami-target">陣営本気度</span></span></div>
+      <div class="kami-row"><span class="kami-icon">🔥</span><span><span class="kami-name">朱雀</span><span class="kami-target">京都ダ展開</span></span></div>
+      <div class="kami-row"><span class="kami-icon">🐅</span><span><span class="kami-name">白虎</span><span class="kami-target">能力＋パワー</span></span></div>
+      <div class="kami-row"><span class="kami-icon">🐢</span><span><span class="kami-name">玄武</span><span class="kami-target">血統＋外厩</span></span></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /pane-unicorn -->
+
 <div class="footer">
   最終予想は <a href="final-display.html" class="footer-link">本殿</a> にて 5/3 朝 ／ 過去御神託は <a href="entries-archive.html" class="footer-link">記録殿</a> へ
 </div>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target=btn.dataset.pane;
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b===btn));
+    document.querySelectorAll('.tab-pane').forEach(p=>p.classList.toggle('active',p.id==='pane-'+target));
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+</script>
 
 </body>
 </html>
