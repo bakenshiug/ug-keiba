@@ -49,9 +49,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
 .mon-badge{position:absolute;top:28px;right:40px;font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--kin-dk);background:rgba(201,169,97,.12);border:1px solid rgba(201,169,97,.4);padding:4px 12px;border-radius:3px;}
 
 /* セクション見出し */
-.section-heading{font-size:14px;font-weight:900;letter-spacing:.25em;color:var(--kin-dk);text-align:center;margin-bottom:30px;position:relative;}
-.section-heading::before,.section-heading::after{content:'';position:absolute;top:50%;width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--kin));}
-.section-heading::before{right:calc(50% + 10px);transform:scaleX(-1);} .section-heading::after{left:calc(50% + 10px);}
+.section-heading{font-size:14px;font-weight:900;letter-spacing:.25em;color:var(--kin-dk);text-align:center;margin-bottom:30px;}
 
 /* ─── SLIDE 1 タイトル ─── */
 .s-title .main-grade{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.2em;background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;padding:4px 18px;border-radius:3px;margin-bottom:18px;}
@@ -764,8 +762,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
 
 </div><!-- /deck -->
 
-<div id="voiceBadge">🔊 ギーニョ 読み上げ中</div>
-<div class="nav-hint" id="navHint">← → キーまたはクリックで進む　／　S = ナレーション　／　G = 音声ON/OFF</div>
+<div class="nav-hint" id="navHint">← → キーまたはクリックで進む　／　S = ナレーション原稿表示</div>
 
 <script>
 (function(){
@@ -773,41 +770,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   const total = slides.length;
   let cur = 0;
   let notesVisible = false;
-
-  /* ── Web Speech API ── */
-  const synth = window.speechSynthesis;
-  let voiceEnabled = false;
-  let voices = [];
-
-  function loadVoices(){
-    voices = synth.getVoices().filter(v => v.lang && v.lang.startsWith('ja'));
-  }
-  if(speechSynthesis.onvoiceschanged !== undefined){
-    speechSynthesis.onvoiceschanged = loadVoices;
-  }
-  loadVoices();
-
-  function speakGinyo(slideEl){
-    if(!voiceEnabled) return;
-    synth.cancel();
-    const text = slideEl.dataset.ginyo;
-    if(!text) return;
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
-    u.rate = 0.87;
-    u.pitch = 0.78;
-    const v = voices.find(v => v.name.includes('Kyoko'))
-           || voices.find(v => v.name.includes('Otoya'))
-           || voices.find(v => v.lang && v.lang.startsWith('ja'));
-    if(v) u.voice = v;
-    const badge = document.getElementById('voiceBadge');
-    if(badge){
-      badge.style.opacity = '1';
-      u.onend = () => badge.style.opacity = '0';
-      u.onerror = () => badge.style.opacity = '0';
-    }
-    synth.speak(u);
-  }
 
   function showSlide(n){
     slides[cur].classList.remove('active');
@@ -817,7 +779,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       document.querySelectorAll('.speaker-notes').forEach(el => el.classList.remove('show'));
       slides[cur].querySelector('.speaker-notes')?.classList.add('show');
     }
-    speakGinyo(slides[cur]);
     flashHint();
   }
 
@@ -841,21 +802,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       e.preventDefault(); showSlide(cur - 1);
     } else if(e.key.toLowerCase() === 's') {
       toggleNotes();
-    } else if(e.key.toLowerCase() === 'g') {
-      voiceEnabled = !voiceEnabled;
-      const badge = document.getElementById('voiceBadge');
-      if(!voiceEnabled){ synth.cancel(); if(badge) badge.style.opacity = '0'; }
-      flashHint();
-      const h = document.getElementById('navHint');
-      h.textContent = voiceEnabled
-        ? '🔊 音声ON ─ G キーでOFF'
-        : '🔇 音声OFF ─ G キーでON';
-      h.style.opacity = '1';
-      clearTimeout(h._t);
-      h._t = setTimeout(() => {
-        h.textContent = '← → キーまたはクリックで進む　／　S = ナレーション　／　G = 音声ON/OFF';
-        h.style.opacity = '0';
-      }, 2200);
     } else if(e.key === 'Escape') {
       notesVisible = false;
       document.querySelectorAll('.speaker-notes').forEach(el => el.classList.remove('show'));
