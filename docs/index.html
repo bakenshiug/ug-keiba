@@ -650,6 +650,25 @@ a{color:inherit;}
   grid-template-columns:repeat(3,1fr);
   gap:16px;
 }
+.keidai-row-label{
+  font-family:'Shippori Mincho',serif;
+  font-size:11px;color:var(--shu);
+  letter-spacing:.32em;font-weight:700;
+  text-align:center;padding:24px 0 12px;
+  position:relative;
+}
+.keidai-row-label:first-of-type{padding-top:0;}
+.keidai-row-label::before,.keidai-row-label::after{
+  content:'';position:absolute;top:calc(50% + 6px);
+  width:80px;height:1px;background:rgba(201,169,97,.4);
+}
+.keidai-row-label::before{left:calc(50% - 160px);}
+.keidai-row-label::after{right:calc(50% - 160px);}
+.keidai-row-label small{
+  display:block;font-size:9px;color:rgba(155,45,48,.55);
+  letter-spacing:.18em;font-weight:500;margin-top:3px;
+}
+.keidai-row-shijin{grid-template-columns:repeat(5,1fr);}
 .keidai-card{
   background:var(--bg);
   border:1px solid var(--border);
@@ -667,6 +686,20 @@ a{color:inherit;}
   transform:translateY(-2px);
   box-shadow:0 8px 28px rgba(155,45,48,.08);
 }
+.keidai-card.is-disabled{
+  cursor:default;opacity:.7;
+  background:linear-gradient(180deg,var(--bg) 0%,rgba(201,169,97,.06) 100%);
+}
+.keidai-card.is-disabled:hover{
+  border-color:var(--border);
+  transform:none;
+  box-shadow:none;
+}
+.keidai-card.shijin{padding:20px 16px;}
+.keidai-card.shijin .keidai-icon{font-size:40px;text-align:center;margin-bottom:4px;}
+.keidai-card.shijin .keidai-modern{text-align:center;}
+.keidai-card.shijin .keidai-name{text-align:center;font-size:17px;}
+.keidai-card.shijin .keidai-desc{text-align:center;font-size:11px;}
 .keidai-icon{
   font-size:34px;
   margin-bottom:8px;
@@ -696,6 +729,15 @@ a{color:inherit;}
   opacity:0;transition:all .2s ease;
 }
 .keidai-card:hover .keidai-arrow{opacity:1;transform:translateX(4px);}
+.keidai-badge{
+  position:absolute;top:10px;right:10px;
+  font-size:9px;font-weight:800;letter-spacing:.1em;
+  padding:3px 8px;border-radius:3px;
+  font-family:'Shippori Mincho',serif;
+}
+.keidai-badge.coming{background:linear-gradient(135deg,var(--kin),#a88c52);color:#fff;}
+.keidai-badge.prep{background:rgba(155,45,48,.12);color:var(--shu);border:1px solid rgba(155,45,48,.3);}
+.keidai-badge.new{background:linear-gradient(135deg,var(--shu),var(--shu-dk));color:#fff;}
 
 /* ── 境内看板 ── */
 .kanban{
@@ -966,6 +1008,8 @@ a{color:inherit;}
   .section{padding:64px 20px;}
   .section-title{font-size:24px;letter-spacing:.1em;}
   .race-grid,.keidai-grid{grid-template-columns:1fr;}
+  .keidai-row-shijin{grid-template-columns:1fr;}
+  .keidai-row-label::before,.keidai-row-label::after{display:none;}
   .nenju-grid{grid-template-columns:repeat(2,1fr);}
   .goshinsai{grid-template-columns:1fr;padding:28px 24px;gap:20px;text-align:center;}
   .goshinsai-icon{font-size:72px;}
@@ -1264,68 +1308,123 @@ a{color:inherit;}
 <section class="section">
   <h2 class="section-title mincho">境 内 図</h2>
   <p class="section-subtitle">KEIDAI MAP ─ 各社殿のご案内</p>
+  <!-- 中央段：四神＋麒麟 -->
+  <div class="keidai-row-label">中央段　四神 ＋ 麒麟<small>SHIJIN ＋ KIRIN ─ 神宮の哲学</small></div>
+  <div class="keidai-grid keidai-row-shijin">
+    <div class="keidai-card shijin is-disabled">
+      <div class="keidai-icon">🐉</div>
+      <div class="keidai-modern mincho">SEIRYU</div>
+      <div class="keidai-name mincho">青 龍 社</div>
+      <div class="keidai-desc">言霊。前走の真意を読む。</div>
+      <span class="keidai-badge prep">採点準備中</span>
+    </div>
+    <div class="keidai-card shijin is-disabled">
+      <div class="keidai-icon">🔥</div>
+      <div class="keidai-modern mincho">SUZAKU</div>
+      <div class="keidai-name mincho">朱 雀 社</div>
+      <div class="keidai-desc">展開＋状態。隊列と仕上げ。</div>
+      <span class="keidai-badge prep">採点準備中</span>
+    </div>
+    <div class="keidai-card shijin is-disabled" style="border-color:var(--kin);background:linear-gradient(180deg,var(--bg) 0%,rgba(201,169,97,.12) 100%);">
+      <div class="keidai-icon">🦒</div>
+      <div class="keidai-modern mincho">KIRIN</div>
+      <div class="keidai-name mincho">麒 麟 殿</div>
+      <div class="keidai-desc">中央。四神の総意を一頭に。</div>
+      <span class="keidai-badge prep">採点準備中</span>
+    </div>
+    <div class="keidai-card shijin is-disabled">
+      <div class="keidai-icon">🐅</div>
+      <div class="keidai-modern mincho">BYAKKO</div>
+      <div class="keidai-name mincho">白 虎 社</div>
+      <div class="keidai-desc">能力＋ラップ＋眼。</div>
+      <span class="keidai-badge prep">採点準備中</span>
+    </div>
+    <div class="keidai-card shijin is-disabled">
+      <div class="keidai-icon">🐢</div>
+      <div class="keidai-modern mincho">GENBU</div>
+      <div class="keidai-name mincho">玄 武 社</div>
+      <div class="keidai-desc">地脈＋外厩。血と仕上げ。</div>
+      <span class="keidai-badge prep">採点準備中</span>
+    </div>
+  </div>
+
+  <!-- 日次段：ニックの参拝動線 -->
+  <div class="keidai-row-label">日 次 段　参 拝 動 線<small>NICHIJI ─ 展望から最終御託宣まで</small></div>
   <div class="keidai-grid">
     <a href="entries.html" class="keidai-card">
       <div class="keidai-icon">🏛</div>
       <div class="keidai-modern mincho">HAIDEN</div>
       <div class="keidai-name mincho">拝 殿</div>
-      <div class="keidai-desc">神々の居並び。出走馬の過去走・ラップ・関係者コメントを一堂に。</div>
+      <div class="keidai-desc">重賞展望。神宮の戒律と注目馬の見立て、構えの算段を授く。</div>
       <span class="keidai-arrow">›</span>
     </a>
     <a href="final-display.html" class="keidai-card">
       <div class="keidai-icon">⛩</div>
       <div class="keidai-modern mincho">HONDEN</div>
       <div class="keidai-name mincho">本 殿</div>
-      <div class="keidai-desc">最奥の御託宣。◎○▲☆の4本柱より単勝・複勝・ワイド4頭BOXの神結び。お賽銭800円にて加護を授く。</div>
+      <div class="keidai-desc">最奥の御託宣。四神＋麒麟の合議より、単勝・複勝・馬連・ワイドの神結び。</div>
       <span class="keidai-arrow">›</span>
     </a>
     <a href="win5-gojunoto.html" class="keidai-card">
       <div class="keidai-icon">🏯</div>
       <div class="keidai-modern mincho">GOJŪNOTO</div>
       <div class="keidai-name mincho">五 重 塔</div>
-      <div class="keidai-desc">WIN5最終御託宣。五層の塔にて四神ファクターを束ね、神々の結論を結ぶ。</div>
+      <div class="keidai-desc">WIN5最終御託宣。五層の塔にて四神＋麒麟を束ね、神々の結論を結ぶ。</div>
       <span class="keidai-arrow">›</span>
     </a>
+  </div>
+
+  <!-- 記録段：神宮の蔵 -->
+  <div class="keidai-row-label">記 録 段　神 宮 の 蔵<small>KIROKU ─ 4/25起点・新生神宮の記録</small></div>
+  <div class="keidai-grid">
     <a href="archive.html" class="keidai-card">
       <div class="keidai-icon">📜</div>
       <div class="keidai-modern mincho">EMADEN</div>
       <div class="keidai-name mincho">絵 馬 殿</div>
-      <div class="keidai-desc">歴代の参拝記録。的中・不的中の絵馬、等しく奉納される。</div>
+      <div class="keidai-desc">今週からの参拝記録。4/25青葉賞17,700円的中を起点に積み上げる絵馬。</div>
+      <span class="keidai-badge new">NEW</span>
       <span class="keidai-arrow">›</span>
     </a>
-    <a href="archive.html" class="keidai-card">
-      <div class="keidai-icon">🔥</div>
-      <div class="keidai-modern mincho">OTAKIAGE</div>
-      <div class="keidai-name mincho">お焚き上げ所</div>
-      <div class="keidai-desc">外れ馬券を浄化する場。燃やして次週の加護へと変える。</div>
-      <span class="keidai-arrow">›</span>
-    </a>
-    <a href="final-display.html" class="keidai-card">
+    <a href="goriyaku-cho.html" class="keidai-card">
       <div class="keidai-icon">📖</div>
       <div class="keidai-modern mincho">GORIYAKU CHO</div>
-      <div class="keidai-name mincho">ご利益帳</div>
-      <div class="keidai-desc">神恩倍率（回収率）を刻む帳面。実績を数字にて証明す。</div>
+      <div class="keidai-name mincho">ご 利 益 帳</div>
+      <div class="keidai-desc">馬連・ワイドのサイト累計的中率＆回収率。神恩倍率を数字で証明す。</div>
+      <span class="keidai-badge new">NEW</span>
       <span class="keidai-arrow">›</span>
     </a>
-    <a href="kinkai-display.html" class="keidai-card">
+    <div class="keidai-card is-disabled">
+      <div class="keidai-icon">📺</div>
+      <div class="keidai-modern mincho">SHAMUSHO BUNKO</div>
+      <div class="keidai-name mincho">社 務 所 文 庫</div>
+      <div class="keidai-desc">YouTube動画準備中。神託の映像化、近日開幕。</div>
+      <span class="keidai-badge coming">準備中</span>
+    </div>
+  </div>
+
+  <!-- 補助段：社務所周り -->
+  <div class="keidai-row-label">補 助 段　社 務 所 周 り<small>HOJO ─ 補佐の場</small></div>
+  <div class="keidai-grid">
+    <div class="keidai-card is-disabled">
       <div class="keidai-icon">💰</div>
       <div class="keidai-modern mincho">HOMOTSUDEN</div>
       <div class="keidai-name mincho">宝 物 殿</div>
-      <div class="keidai-desc">コース別の金塊馬を奉納。隠れた黄金の気配を開帳す。</div>
-      <span class="keidai-arrow">›</span>
-    </a>
+      <div class="keidai-desc">コース別の金塊馬DB。全レース予想開始に合わせて開帳。</div>
+      <span class="keidai-badge coming">近々公開</span>
+    </div>
     <a href="how-to-buy.html" class="keidai-card">
       <div class="keidai-icon">📋</div>
       <div class="keidai-modern mincho">SAHŌ</div>
-      <div class="keidai-name mincho">参拝作法</div>
+      <div class="keidai-name mincho">参 拝 作 法</div>
       <div class="keidai-desc">初参拝の方へ。お賽銭の作法・札の奉納手順をご案内。</div>
       <span class="keidai-arrow">›</span>
     </a>
-    <a href="https://note.com/gaikyukeiba_ace" class="keidai-card" target="_blank" rel="noopener">
-      <div class="keidai-icon">📚</div>
-      <div class="keidai-modern mincho">BUNKO</div>
-      <div class="keidai-name mincho">社務所文庫</div>
-      <div class="keidai-desc">馬券師小説「サラブレッド・アンダーグラウンド」連載中。</div>
+    <a href="otakiage.html" class="keidai-card">
+      <div class="keidai-icon">🔥</div>
+      <div class="keidai-modern mincho">OTAKIAGE</div>
+      <div class="keidai-name mincho">お焚き上げ所</div>
+      <div class="keidai-desc">人気薄抜擢馬の浄火台。神主ギーニョが拾い上げし激走の記録、ここに刻む。</div>
+      <span class="keidai-badge new">NEW</span>
       <span class="keidai-arrow">›</span>
     </a>
   </div>
