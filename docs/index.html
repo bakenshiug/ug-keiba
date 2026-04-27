@@ -873,6 +873,12 @@ a{color:inherit;}
   padding-bottom:8px;
   border-bottom:1px dotted var(--border);
 }
+.honou-date{
+  font-size:9px;
+  color:var(--muted);
+  letter-spacing:.05em;
+  margin-bottom:4px;
+}
 .honou-mark{
   font-family:'Shippori Mincho',serif;
   font-size:24px;
@@ -906,6 +912,12 @@ a{color:inherit;}
 }
 .honou-card.hit2 .honou-result{
   background:var(--border);color:var(--sumi);
+}
+.honou-card.miss .honou-result{
+  background:#e8e8e8;color:var(--muted);
+}
+.honou-card.miss{
+  opacity:.7;
 }
 
 /* ── 今週のお告げ / Quote ── */
@@ -1317,6 +1329,22 @@ a{color:inherit;}
   <div class="honou-wrap">
     <div class="honou-list">
       <div class="honou-card hit1">
+        <div class="honou-date">2026/4/26</div>
+        <div class="honou-race mincho">センテニアル・パークS</div>
+        <div class="honou-mark mincho">🔥朱雀1位</div>
+        <div class="honou-name mincho">ミスタージーティー</div>
+        <div class="honou-pop">11番人気</div>
+        <div class="honou-result mincho">3着激走</div>
+      </div>
+      <div class="honou-card miss">
+        <div class="honou-date">2026/4/25</div>
+        <div class="honou-race mincho">観月橋S</div>
+        <div class="honou-mark mincho">△</div>
+        <div class="honou-name mincho">マイノワール</div>
+        <div class="honou-pop">6番人気</div>
+        <div class="honou-result mincho">11着 外れ</div>
+      </div>
+      <div class="honou-card hit1">
         <div class="honou-race mincho">福島牝馬S G3</div>
         <div class="honou-mark mincho">☆</div>
         <div class="honou-name mincho">カニキュル</div>
@@ -1453,7 +1481,7 @@ a{color:inherit;}
       <div class="keidai-icon">📜</div>
       <div class="keidai-modern mincho">EMADEN</div>
       <div class="keidai-name mincho">絵 馬 殿</div>
-      <div class="keidai-desc">今週からの参拝記録。4/25青葉賞17,700円的中を起点に積み上げる絵馬。</div>
+      <div class="keidai-desc">今週からの参拝記録。4/25青葉賞ワイド的中を起点に積み上げる絵馬。</div>
       <span class="keidai-badge new">NEW</span>
       <span class="keidai-arrow">›</span>
     </a>
@@ -1528,6 +1556,22 @@ a{color:inherit;}
   <p class="section-subtitle">HONOU-UTA ─ 神主ギーニョが拾い上げし激走の記録</p>
   <div class="honou-wrap">
     <div class="honou-list">
+      <div class="honou-card hit1">
+        <div class="honou-date">2026/4/26</div>
+        <div class="honou-race mincho">センテニアル・パークS</div>
+        <div class="honou-mark mincho">🔥朱雀1位</div>
+        <div class="honou-name mincho">ミスタージーティー</div>
+        <div class="honou-pop">11番人気</div>
+        <div class="honou-result mincho">3着激走</div>
+      </div>
+      <div class="honou-card miss">
+        <div class="honou-date">2026/4/25</div>
+        <div class="honou-race mincho">観月橋S</div>
+        <div class="honou-mark mincho">△</div>
+        <div class="honou-name mincho">マイノワール</div>
+        <div class="honou-pop">6番人気</div>
+        <div class="honou-result mincho">11着 外れ</div>
+      </div>
       <div class="honou-card hit1">
         <div class="honou-race mincho">福島牝馬S G3</div>
         <div class="honou-mark mincho">☆</div>
