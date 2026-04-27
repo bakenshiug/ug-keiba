@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>お焚き上げ所｜人気薄抜擢馬の浄火台 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FAFAFA;--paper:#FBF7EE;
+  --sumi:#1A1A1A;--shu:#9B2D30;--shu-dk:#7A1E1E;
+  --midori:#1F4D2E;--kin:#C9A961;
+  --border:rgba(201,169,97,.35);
+  --text:#2A2A2A;--muted:rgba(42,42,42,.6);
+}
+html,body{
+  background:var(--bg);
+  background-image:linear-gradient(160deg, rgba(251,247,238,.5) 0%, rgba(250,250,250,1) 50%, rgba(251,247,238,.5) 100%);
+  color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;min-height:100vh;
+}
+
+.kisetsu-bar{background:linear-gradient(90deg,var(--shu) 0%,var(--shu-dk) 100%);color:#fff;padding:6px 18px;font-size:11px;letter-spacing:.15em;text-align:center;font-weight:500;}
+
+.page-header{
+  background:rgba(250,250,250,.92);border-bottom:2px solid var(--shu);
+  box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);
+  padding:12px 16px;display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:200;backdrop-filter:blur(8px);
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;font-weight:700;color:var(--shu);text-decoration:none;
+  padding:5px 10px;border-radius:8px;
+  border:1px solid var(--border);background:rgba(201,169,97,.12);
+  white-space:nowrap;flex-shrink:0;
+}
+.page-title{font-size:16px;font-weight:800;color:var(--shu);letter-spacing:.08em;}
+.page-sub{font-size:10px;color:var(--muted);margin-top:1px;letter-spacing:.08em;}
+
+.hero{
+  background:linear-gradient(135deg,#FBF7EE 0%,#F5EFE0 100%);
+  padding:34px 16px;text-align:center;border-bottom:1px solid var(--border);
+  position:relative;
+}
+.hero-flame{font-size:54px;line-height:1;margin-bottom:8px;
+  filter:drop-shadow(0 4px 8px rgba(155,45,48,.25));
+  animation:flame-flicker 2.5s ease-in-out infinite;
+}
+@keyframes flame-flicker{
+  0%,100%{transform:scale(1) rotate(-2deg);}
+  50%{transform:scale(1.06) rotate(2deg);}
+}
+.hero-title{font-size:30px;font-weight:800;color:var(--shu-dk);letter-spacing:.1em;}
+.hero-sub{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.18em;}
+.hero-msg{
+  font-size:12.5px;color:var(--shu-dk);margin-top:14px;line-height:1.85;letter-spacing:.04em;
+  max-width:540px;margin-left:auto;margin-right:auto;
+}
+.hero-msg em{color:var(--shu);font-style:normal;font-weight:700;}
+
+.section{padding:18px 14px 8px;max-width:760px;margin:0 auto;}
+.section-title{
+  font-size:15px;font-weight:800;color:var(--shu);letter-spacing:.1em;
+  text-align:center;position:relative;padding:0 30px;margin-bottom:6px;
+}
+.section-title::before,.section-title::after{
+  content:'';position:absolute;top:50%;width:24px;height:1px;background:var(--kin);
+}
+.section-title::before{left:0;} .section-title::after{right:0;}
+.section-sub{font-size:11px;color:var(--muted);text-align:center;margin-bottom:14px;letter-spacing:.08em;}
+
+/* KPIバナー */
+.kpi-banner{
+  display:flex;justify-content:center;gap:20px;flex-wrap:wrap;
+  background:linear-gradient(135deg,rgba(201,169,97,.12),rgba(155,45,48,.08));
+  border:1px solid var(--border);border-radius:10px;
+  padding:16px 12px;margin-bottom:18px;
+}
+.kpi{text-align:center;min-width:90px;}
+.kpi-label{font-size:10px;color:var(--muted);letter-spacing:.18em;font-weight:700;}
+.kpi-value{font-size:24px;font-weight:800;color:var(--shu);margin-top:4px;}
+.kpi-unit{font-size:11px;color:var(--shu-dk);margin-left:1px;}
+
+/* 抜擢馬カード */
+.batteki-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+.batteki-card{
+  background:#fff;border:1px solid var(--border);border-radius:8px;
+  padding:14px 14px 12px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;
+  align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+.batteki-card.win1{border-left:4px solid var(--shu);}
+.batteki-card.win2{border-left:4px solid var(--midori);}
+.batteki-card.win3{border-left:4px solid var(--kin);}
+.batteki-card.miss{border-left:4px solid rgba(120,120,120,.4);opacity:.7;}
+
+.bat-pop{
+  font-size:22px;font-weight:800;color:var(--shu);
+  width:50px;text-align:center;line-height:1;
+  font-family:'Shippori Mincho',serif;
+}
+.bat-pop-unit{font-size:10px;color:var(--muted);font-weight:700;display:block;margin-top:2px;}
+.bat-name{font-size:14px;font-weight:800;color:var(--sumi);letter-spacing:.04em;}
+.bat-race{font-size:10.5px;color:var(--muted);margin-top:3px;letter-spacing:.04em;}
+.bat-mark{font-size:11px;color:var(--shu);font-weight:700;margin-top:2px;}
+.bat-result{
+  font-size:10px;font-weight:800;padding:5px 10px;border-radius:14px;
+  letter-spacing:.04em;white-space:nowrap;
+}
+.r-1{background:linear-gradient(135deg,var(--shu),var(--shu-dk));color:#fff;}
+.r-2{background:linear-gradient(135deg,var(--midori),#163c24);color:#fff;}
+.r-3{background:linear-gradient(135deg,var(--kin),#a88c52);color:#fff;}
+.r-x{background:rgba(155,45,48,.08);color:var(--muted);border:1px solid rgba(155,45,48,.15);}
+
+.notice{
+  background:rgba(201,169,97,.1);border:1px dashed rgba(201,169,97,.45);
+  padding:14px 16px;border-radius:8px;font-size:12px;color:var(--shu-dk);
+  line-height:1.8;text-align:center;letter-spacing:.04em;margin-top:18px;
+}
+.notice em{color:var(--shu);font-style:normal;font-weight:700;}
+
+.footer{padding:20px 14px 40px;text-align:center;font-size:10px;color:var(--muted);letter-spacing:.1em;}
+.footer-link{color:var(--shu);text-decoration:none;font-weight:700;}
+
+@media(min-width:700px){
+  .batteki-grid{grid-template-columns:1fr 1fr;}
+  .hero-title{font-size:36px;}
+}
+</style>
+</head>
+<body>
+
+<div class="kisetsu-bar">卯月廿七日　人気薄抜擢馬の浄火台</div>
+
+<div class="page-header">
+  <a href="index.html" class="back-btn">⛩ 鳥居</a>
+  <div style="flex:1;text-align:center;">
+    <div class="page-title">お焚き上げ所　OTAKIAGE</div>
+    <div class="page-sub">UG競馬ワイド神宮 ／ 人気薄抜擢馬の記録</div>
+  </div>
+  <a href="archive.html" class="back-btn">📜 絵馬</a>
+</div>
+
+<div class="hero">
+  <div class="hero-flame">🔥</div>
+  <div class="hero-title">お焚き上げ所</div>
+  <div class="hero-sub">OTAKIAGE ─ 神主ギーニョが拾い上げし激走の記録</div>
+  <div class="hero-msg">
+    人気は嘘をつく。だが構造は嘘をつかぬ。<br>
+    <em>5番人気以下にて神宮が抜擢し、結果を残した馬たち</em>を、<br>
+    ここに浄火として刻む。
+  </div>
+</div>
+
+<!-- KPIバナー -->
+<div class="section">
+  <div class="kpi-banner">
+    <div class="kpi">
+      <div class="kpi-label">抜擢総数</div>
+      <div class="kpi-value">8<span class="kpi-unit">頭</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">激走（1着）</div>
+      <div class="kpi-value">2<span class="kpi-unit">頭</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">連対（2着）</div>
+      <div class="kpi-value">4<span class="kpi-unit">頭</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">3着激走</div>
+      <div class="kpi-value">2<span class="kpi-unit">頭</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">抜 擢 馬 一 覧</div>
+  <div class="section-sub">― 人気順・着順を併記。神宮初期の浄火 ―</div>
+
+  <div class="batteki-grid">
+
+    <div class="batteki-card win1">
+      <div class="bat-pop">12<span class="bat-pop-unit">人気</span></div>
+      <div>
+        <div class="bat-name">ジッピーチューン</div>
+        <div class="bat-race">桜花賞 G1（阪神 芝1600m）</div>
+        <div class="bat-mark">神宮印 △ 連下</div>
+      </div>
+      <span class="bat-result r-3">3 着 激 走</span>
+    </div>
+
+    <div class="batteki-card win1">
+      <div class="bat-pop">10<span class="bat-pop-unit">人気</span></div>
+      <div>
+        <div class="bat-name">カニキュル</div>
+        <div class="bat-race">福島牝馬S G3（福島 芝1800m）</div>
+        <div class="bat-mark">神宮印 ☆ 抜擢</div>
+      </div>
+      <span class="bat-result r-3">3 着 激 走</span>
+    </div>
+
+    <div class="batteki-card win2">
+      <div class="bat-pop">9<span class="bat-pop-unit">人気</span></div>
+      <div>
+        <div class="bat-name">サイルーン</div>
+        <div class="bat-race">ダービー卿CT G3（中山 芝1600m）</div>
+        <div class="bat-mark">神宮印 ○ 対抗</div>
+      </div>
+      <span class="bat-result r-2">2 着 連 対</span>
+    </div>
+
+    <div class="batteki-card win2">
+      <div class="bat-pop">8<span class="bat-pop-unit">人気</span></div>
+      <div>
+        <div class="bat-name">エイシンディード</div>
+        <div class="bat-race">ファルコンS G3（中京 芝1400m）</div>
+        <div class="bat-mark">神宮印 ○ 対抗</div>
+      </div>
+      <span class="bat-result r-2">2 着 連 対</span>
+    </div>
+
+    <div class="batteki-card win2">
+      <div class="bat-pop">8<span class="bat-pop-unit">人気</span></div>
+      <div>
+        <div class="bat-name">ロードフィレール</div>
+        <div class="bat-race">若葉S OP（阪神 芝2000m）</div>
+        <div class="bat-mark">神宮印 ☆ 抜擢</div>
+      </div>
+      <span class="bat-result r-2">2 着 連 対</span>
+    </div>
+
+    <div class="batteki-card win2">
+      <div class="bat-pop">6<span class="bat-pop-unit">人気</span></div>
+      <div>
+        <div class="bat-name">アクアヴァーナル</div>
+        <div class="bat-race">阪神大賞典 G2（阪神 芝3000m）</div>
+        <div class="bat-mark">神宮印 ☆ 抜擢</div>
+      </div>
+      <span class="bat-result r-2">2 着 連 対</span>
+    </div>
+
+    <div class="batteki-card win1">
+      <div class="bat-pop">6<span class="bat-pop-unit">人気</span></div>
+      <div>
+        <div class="bat-name">レザベーション</div>
+        <div class="bat-race">NZT G2（中山 芝1600m）</div>
+        <div class="bat-mark">神宮印 ☆ 抜擢</div>
+      </div>
+      <span class="bat-result r-1">1 着 激 走</span>
+    </div>
+
+    <div class="batteki-card win1">
+      <div class="bat-pop">4<span class="bat-pop-unit">人気</span></div>
+      <div>
+        <div class="bat-name">マイユニバース</div>
+        <div class="bat-race">日経賞 G2（中山 芝2500m）</div>
+        <div class="bat-mark">神宮印 ☆ 抜擢</div>
+      </div>
+      <span class="bat-result r-1">1 着 激 走</span>
+    </div>
+
+  </div>
+
+  <div class="notice">
+    ※ Phase 1 自動採点パイプライン稼働後、<em>4/25-26以降の人気薄抜擢馬を自動収集</em>。<br>
+    マイラーズCのショウナンアデイブ（13人気4着・玄武）など、神宮の眼が拾い上げた馬たちが続々と浄火台に名を刻む。
+  </div>
+</div>
+
+<div class="footer">
+  最終予想は <a href="final-display.html" class="footer-link">本殿</a> ／ 過去御神託は <a href="archive.html" class="footer-link">絵馬殿</a> へ
+</div>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ご利益帳｜神恩倍率 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FAFAFA;--paper:#FBF7EE;
+  --sumi:#1A1A1A;--shu:#9B2D30;--shu-dk:#7A1E1E;
+  --midori:#1F4D2E;--kin:#C9A961;
+  --border:rgba(201,169,97,.35);
+  --text:#2A2A2A;--muted:rgba(42,42,42,.6);
+}
+html,body{
+  background:var(--bg);
+  background-image:linear-gradient(160deg, rgba(251,247,238,.5) 0%, rgba(250,250,250,1) 50%, rgba(251,247,238,.5) 100%);
+  color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;min-height:100vh;
+}
+
+.kisetsu-bar{background:linear-gradient(90deg,var(--shu) 0%,var(--shu-dk) 100%);color:#fff;padding:6px 18px;font-size:11px;letter-spacing:.15em;text-align:center;font-weight:500;}
+
+.page-header{
+  background:rgba(250,250,250,.92);border-bottom:2px solid var(--shu);
+  box-shadow:0 2px 0 var(--kin),0 6px 14px rgba(155,45,48,.08);
+  padding:12px 16px;display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:200;backdrop-filter:blur(8px);
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;font-weight:700;color:var(--shu);text-decoration:none;
+  padding:5px 10px;border-radius:8px;
+  border:1px solid var(--border);background:rgba(201,169,97,.12);
+  white-space:nowrap;flex-shrink:0;
+}
+.page-title{font-size:16px;font-weight:800;color:var(--shu);letter-spacing:.08em;}
+.page-sub{font-size:10px;color:var(--muted);margin-top:1px;letter-spacing:.08em;}
+
+.hero{
+  background:linear-gradient(135deg,#FBF7EE 0%,#F5EFE0 100%);
+  padding:32px 16px;text-align:center;border-bottom:1px solid var(--border);
+  position:relative;
+}
+.hero::before,.hero::after{content:'⛩';position:absolute;top:18px;font-size:18px;color:var(--kin);opacity:.5;}
+.hero::before{left:18px;} .hero::after{right:18px;}
+.hero-title{font-size:30px;font-weight:800;color:var(--shu-dk);letter-spacing:.1em;}
+.hero-sub{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.18em;}
+.hero-since{font-size:12px;color:var(--shu);margin-top:14px;font-weight:700;letter-spacing:.06em;}
+
+.section{padding:18px 14px 8px;max-width:760px;margin:0 auto;}
+.section-title{
+  font-size:15px;font-weight:800;color:var(--shu);letter-spacing:.1em;
+  text-align:center;position:relative;padding:0 30px;margin-bottom:14px;
+}
+.section-title::before,.section-title::after{
+  content:'';position:absolute;top:50%;width:24px;height:1px;background:var(--kin);
+}
+.section-title::before{left:0;} .section-title::after{right:0;}
+
+/* KPIサマリー */
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px;}
+.kpi-card{
+  background:#fff;border:1px solid var(--border);border-radius:10px;
+  padding:18px 14px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,.04);
+}
+.kpi-label{font-size:10px;color:var(--muted);letter-spacing:.18em;font-weight:700;}
+.kpi-value{font-size:32px;font-weight:800;color:var(--shu);margin-top:6px;letter-spacing:.04em;}
+.kpi-unit{font-size:13px;color:var(--shu-dk);margin-left:2px;}
+.kpi-detail{font-size:10px;color:var(--muted);margin-top:6px;}
+.kpi-card.hilite{background:linear-gradient(135deg,rgba(201,169,97,.1),rgba(155,45,48,.06));}
+
+/* レース実績テーブル */
+.race-row{
+  display:grid;grid-template-columns:90px 1fr auto;gap:10px;
+  padding:12px 14px;background:#fff;border:1px solid var(--border);
+  border-radius:8px;margin-bottom:8px;align-items:center;
+}
+.race-date{font-size:11px;color:var(--muted);font-weight:700;}
+.race-name{font-size:13px;color:var(--sumi);font-weight:800;}
+.race-meta{font-size:10px;color:var(--muted);margin-top:2px;}
+.race-result{
+  font-size:10px;font-weight:800;padding:4px 10px;border-radius:14px;
+  letter-spacing:.04em;
+}
+.result-hit{background:rgba(31,77,46,.12);color:var(--midori);border:1px solid rgba(31,77,46,.3);}
+.result-miss{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.2);}
+.result-big{background:linear-gradient(135deg,var(--kin),#a88c52);color:#fff;border:1px solid #a88c52;}
+
+.bet-summary{
+  font-size:11px;color:var(--shu-dk);margin-top:6px;
+  padding:6px 10px;background:rgba(201,169,97,.1);border-radius:5px;
+  letter-spacing:.04em;
+}
+
+/* 注意書き */
+.notice{
+  background:rgba(201,169,97,.1);border:1px dashed rgba(201,169,97,.45);
+  padding:14px 16px;border-radius:8px;font-size:12px;color:var(--shu-dk);
+  line-height:1.7;text-align:center;letter-spacing:.04em;margin-top:14px;
+}
+.notice em{color:var(--shu);font-style:normal;font-weight:700;}
+
+.footer{padding:20px 14px 40px;text-align:center;font-size:10px;color:var(--muted);letter-spacing:.1em;}
+.footer-link{color:var(--shu);text-decoration:none;font-weight:700;}
+
+@media(min-width:600px){
+  .hero-title{font-size:36px;}
+  .kpi-grid{grid-template-columns:repeat(4,1fr);}
+}
+</style>
+</head>
+<body>
+
+<div class="kisetsu-bar">卯月廿七日　神恩倍率　御開帳</div>
+
+<div class="page-header">
+  <a href="index.html" class="back-btn">⛩ 鳥居</a>
+  <div style="flex:1;text-align:center;">
+    <div class="page-title">ご 利 益 帳　GORIYAKU CHO</div>
+    <div class="page-sub">UG競馬ワイド神宮 ／ 神恩倍率の帳面</div>
+  </div>
+  <a href="archive.html" class="back-btn">📜 絵馬</a>
+</div>
+
+<div class="hero">
+  <div class="hero-title">ご 利 益 帳</div>
+  <div class="hero-sub">GORIYAKU CHO ─ 神恩倍率（馬連・ワイド累計）</div>
+  <div class="hero-since">⛩ 神宮リニューアル後の起点：2026-04-25 ⛩</div>
+</div>
+
+<!-- KPIサマリー -->
+<div class="section">
+  <div class="section-title">神恩倍率　累計</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card hilite">
+      <div class="kpi-label">的中率</div>
+      <div class="kpi-value">75<span class="kpi-unit">%</span></div>
+      <div class="kpi-detail">3 / 4 重賞</div>
+    </div>
+    <div class="kpi-card hilite">
+      <div class="kpi-label">回収率</div>
+      <div class="kpi-value">221<span class="kpi-unit">%</span></div>
+      <div class="kpi-detail">投資 ¥3,200 / 払戻 ¥7,070</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">最大ヒット</div>
+      <div class="kpi-value">17,700<span class="kpi-unit">円</span></div>
+      <div class="kpi-detail">青葉賞 3連単</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">対象期間</div>
+      <div class="kpi-value">2<span class="kpi-unit">日</span></div>
+      <div class="kpi-detail">4/25〜4/26</div>
+    </div>
+  </div>
+</div>
+
+<!-- レース別実績 -->
+<div class="section">
+  <div class="section-title">レース別 神恩倍率</div>
+
+  <div class="race-row">
+    <div class="race-date">4/25 (土)</div>
+    <div>
+      <div class="race-name">青葉賞 G2</div>
+      <div class="race-meta">東京 芝2400m</div>
+      <div class="bet-summary">3連単6点 ¥600 → 払戻 ¥17,700　<strong>回収率 2,950%</strong></div>
+    </div>
+    <span class="race-result result-big">🏆 大的中</span>
+  </div>
+
+  <div class="race-row">
+    <div class="race-date">4/26 (日)</div>
+    <div>
+      <div class="race-name">フローラS G2</div>
+      <div class="race-meta">東京 芝2000m 牝</div>
+      <div class="bet-summary">△エンネ3着→ワイド回収<strong>（集計中）</strong></div>
+    </div>
+    <span class="race-result result-hit">🎯 ワイド的中</span>
+  </div>
+
+  <div class="race-row">
+    <div class="race-date">4/26 (日)</div>
+    <div>
+      <div class="race-name">マイラーズC G2</div>
+      <div class="race-meta">京都 芝1600m外</div>
+      <div class="bet-summary">picks 全頭着外</div>
+    </div>
+    <span class="race-result result-miss">🏴‍☠️ 不的中</span>
+  </div>
+
+  <div class="race-row">
+    <div class="race-date">4/26 (日)</div>
+    <div>
+      <div class="race-name">観月橋S OP</div>
+      <div class="race-meta">京都 芝1800m</div>
+      <div class="bet-summary">馬連的中</div>
+    </div>
+    <span class="race-result result-hit">🎯 馬連的中</span>
+  </div>
+
+  <div class="notice">
+    ※ Phase 1 自動採点パイプライン稼働後、<em>馬連・ワイドBOX全レースの自動集計</em>に切り替わります。<br>
+    現状は重賞4戦の手動記録のみ。5/3 天皇賞春から本格運用、神恩倍率は日々更新。
+  </div>
+</div>
+
+<div class="footer">
+  最終予想は <a href="final-display.html" class="footer-link">本殿</a> ／ 過去御神託は <a href="archive.html" class="footer-link">絵馬殿</a> へ
+</div>
+
+</body>
+</html>
