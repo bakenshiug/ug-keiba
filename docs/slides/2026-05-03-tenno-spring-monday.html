@@ -7,10 +7,10 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#080810;--kin:#C9A961;--kin-dk:#9B7A3A;
+  --bg:#FAFAFA;--paper:#FBF7EE;--kin:#C9A961;--kin-dk:#9B7A3A;
   --kin-glow:rgba(201,169,97,.35);--shu:#9B2D30;
-  --text:#F5EFE0;--muted:rgba(245,239,224,.6);--dim:rgba(245,239,224,.3);
-  --midori:#4A9F6E;
+  --text:#2A2A2A;--muted:rgba(42,42,42,.6);--dim:rgba(42,42,42,.32);
+  --midori:#2A7A4E;
 }
 html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;height:100%;overflow:hidden;user-select:none;}
 
@@ -19,150 +19,155 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   position:absolute;inset:0;width:100%;height:100%;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   padding:60px 80px;opacity:0;pointer-events:none;
-  transition:opacity .35s ease;background:var(--bg);overflow:hidden;
+  transition:opacity .35s ease;
+  background:linear-gradient(160deg,rgba(251,247,238,.7) 0%,rgba(250,250,250,1) 50%,rgba(251,247,238,.7) 100%);
+  overflow:hidden;
 }
 .slide.active{opacity:1;pointer-events:auto;}
 .slide::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 0%,rgba(201,169,97,.07) 0%,transparent 65%);
+  background:radial-gradient(ellipse at 50% 0%,rgba(201,169,97,.05) 0%,transparent 60%);
   pointer-events:none;
 }
 
 /* 金枠 */
-.slide-frame{position:absolute;inset:20px;border:1px solid rgba(201,169,97,.35);border-radius:4px;pointer-events:none;}
+.slide-frame{position:absolute;inset:20px;border:1px solid rgba(201,169,97,.4);border-radius:4px;pointer-events:none;}
 .slide-frame::before,.slide-frame::after{
   content:'';position:absolute;background:linear-gradient(90deg,transparent,var(--kin),transparent);
   left:60px;right:60px;height:1px;
 }
 .slide-frame::before{top:0;} .slide-frame::after{bottom:0;}
 
-.slide-corner{position:absolute;width:22px;height:22px;border-color:var(--kin);border-style:solid;opacity:.65;}
+.slide-corner{position:absolute;width:22px;height:22px;border-color:var(--kin);border-style:solid;opacity:.7;}
 .slide-corner.tl{top:20px;left:20px;border-width:2px 0 0 2px;}
 .slide-corner.tr{top:20px;right:20px;border-width:2px 2px 0 0;}
 .slide-corner.bl{bottom:20px;left:20px;border-width:0 0 2px 2px;}
 .slide-corner.br{bottom:20px;right:20px;border-width:0 2px 2px 0;}
 
-.slide-logo{position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.22em;color:var(--kin);font-weight:700;opacity:.75;white-space:nowrap;}
+.slide-logo{position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.22em;color:var(--kin-dk);font-weight:700;opacity:.8;white-space:nowrap;}
 .slide-num{position:absolute;bottom:28px;right:36px;font-size:11px;color:var(--dim);letter-spacing:.1em;}
-.mon-badge{position:absolute;top:28px;right:40px;font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--kin);background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.35);padding:4px 12px;border-radius:3px;}
+.mon-badge{position:absolute;top:28px;right:40px;font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--kin-dk);background:rgba(201,169,97,.12);border:1px solid rgba(201,169,97,.4);padding:4px 12px;border-radius:3px;}
 
 /* セクション見出し */
-.section-heading{font-size:14px;font-weight:900;letter-spacing:.25em;color:var(--kin);text-align:center;margin-bottom:30px;position:relative;}
+.section-heading{font-size:14px;font-weight:900;letter-spacing:.25em;color:var(--kin-dk);text-align:center;margin-bottom:30px;position:relative;}
 .section-heading::before,.section-heading::after{content:'';position:absolute;top:50%;width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--kin));}
 .section-heading::before{right:calc(50% + 10px);transform:scaleX(-1);} .section-heading::after{left:calc(50% + 10px);}
 
 /* ─── SLIDE 1 タイトル ─── */
 .s-title .main-grade{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.2em;background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;padding:4px 18px;border-radius:3px;margin-bottom:18px;}
 .s-title .main-title{font-size:70px;font-weight:800;color:var(--text);letter-spacing:.1em;line-height:1.1;text-align:center;}
-.s-title .main-title span{display:block;font-size:28px;font-weight:500;color:var(--kin);letter-spacing:.2em;margin-bottom:6px;}
+.s-title .main-title span{display:block;font-size:28px;font-weight:500;color:var(--kin-dk);letter-spacing:.2em;margin-bottom:6px;}
 .s-title .main-sub{font-size:17px;color:var(--muted);margin-top:14px;letter-spacing:.18em;}
 .s-title .main-venue{font-size:14px;color:var(--dim);margin-top:8px;letter-spacing:.12em;}
-.s-title .brand-badge{margin-top:34px;font-size:12px;color:var(--kin);letter-spacing:.2em;font-weight:700;border:1px solid rgba(201,169,97,.35);padding:6px 24px;border-radius:3px;}
+.s-title .brand-badge{margin-top:34px;font-size:12px;color:var(--kin-dk);letter-spacing:.2em;font-weight:700;border:1px solid rgba(201,169,97,.4);padding:6px 24px;border-radius:3px;}
 
-/* ─── SLIDE 2 キャラ ─── */
+/* ─── キャラ ─── */
 .char-stage{display:flex;gap:70px;align-items:flex-end;width:100%;max-width:1400px;}
 .char-box{flex:1;display:flex;flex-direction:column;align-items:center;}
-.char-avatar{font-size:90px;line-height:1;margin-bottom:12px;width:160px;height:160px;object-fit:cover;border-radius:12px;border:2px solid rgba(201,169,97,.3);}
-.char-name{font-size:19px;font-weight:800;color:var(--kin);letter-spacing:.1em;margin-bottom:4px;}
+.char-avatar{font-size:90px;line-height:1;margin-bottom:12px;width:160px;height:160px;object-fit:cover;border-radius:12px;border:2px solid rgba(201,169,97,.35);}
+.char-name{font-size:19px;font-weight:800;color:var(--kin-dk);letter-spacing:.1em;margin-bottom:4px;}
 .char-tag{font-size:12px;color:var(--muted);letter-spacing:.06em;text-align:center;}
-.char-bubble{background:rgba(201,169,97,.07);border:1px solid rgba(201,169,97,.25);border-radius:10px;padding:16px 20px;margin-top:16px;font-size:14.5px;line-height:1.75;color:var(--text);letter-spacing:.04em;max-width:480px;}
-.char-bubble.ginyo{border-color:rgba(155,45,48,.35);background:rgba(155,45,48,.07);}
-.char-bubble em{color:var(--kin);font-style:normal;font-weight:700;}
-.char-bubble.ginyo em{color:#F0A0A0;}
+.char-bubble{background:rgba(201,169,97,.06);border:1px solid rgba(201,169,97,.28);border-radius:10px;padding:16px 20px;margin-top:16px;font-size:14.5px;line-height:1.75;color:var(--text);letter-spacing:.04em;max-width:480px;}
+.char-bubble.ginyo{border-color:rgba(155,45,48,.3);background:rgba(155,45,48,.05);}
+.char-bubble em{color:var(--kin-dk);font-style:normal;font-weight:700;}
+.char-bubble.ginyo em{color:var(--shu);}
 .vs-divider{font-size:30px;font-weight:800;color:var(--dim);align-self:center;margin-bottom:90px;}
 
-/* ─── SLIDE 3 アジェンダ ─── */
+/* ─── アジェンダ ─── */
 .agenda-list{display:flex;flex-direction:column;gap:12px;width:100%;max-width:900px;}
-.agenda-item{display:flex;align-items:center;gap:20px;background:rgba(201,169,97,.05);border:1px solid rgba(201,169,97,.2);border-radius:6px;padding:14px 22px;}
-.agenda-num{font-size:34px;font-weight:800;color:var(--kin);min-width:52px;text-align:center;line-height:1;}
+.agenda-item{display:flex;align-items:center;gap:20px;background:rgba(201,169,97,.05);border:1px solid rgba(201,169,97,.22);border-radius:6px;padding:14px 22px;}
+.agenda-num{font-size:34px;font-weight:800;color:var(--kin-dk);min-width:52px;text-align:center;line-height:1;}
 .agenda-txt{font-size:16px;color:var(--text);letter-spacing:.05em;}
 .agenda-txt span{font-size:12px;color:var(--muted);display:block;margin-top:2px;}
 
-/* ─── SLIDE 4 コース ─── */
+/* ─── コース ─── */
 .course-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;width:100%;max-width:1200px;}
-.course-card{background:rgba(201,169,97,.05);border:1px solid rgba(201,169,97,.2);border-radius:8px;padding:22px 26px;}
-.cc-label{font-size:10px;font-weight:900;letter-spacing:.2em;color:var(--kin);margin-bottom:8px;}
+.course-card{background:rgba(201,169,97,.05);border:1px solid rgba(201,169,97,.22);border-radius:8px;padding:22px 26px;}
+.cc-label{font-size:10px;font-weight:900;letter-spacing:.2em;color:var(--kin-dk);margin-bottom:8px;}
 .cc-value{font-size:26px;font-weight:800;color:var(--text);letter-spacing:.05em;}
 .cc-note{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.6;}
 
-/* ─── SLIDE 5-7 戒律 ─── */
-.kairitsu-no-big{font-size:12px;font-weight:900;letter-spacing:.22em;color:var(--kin);margin-bottom:12px;}
+/* ─── 戒律 ─── */
+.kairitsu-no-big{font-size:12px;font-weight:900;letter-spacing:.22em;color:var(--kin-dk);margin-bottom:12px;}
 .kairitsu-head-big{font-size:52px;font-weight:800;color:var(--text);letter-spacing:.06em;line-height:1.15;margin-bottom:16px;}
-.kairitsu-data-big{display:inline-block;font-size:14px;font-weight:800;color:var(--kin);background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.3);padding:7px 18px;border-radius:4px;margin-bottom:22px;letter-spacing:.06em;}
-.kairitsu-body-big{font-size:18px;line-height:1.85;color:rgba(245,239,224,.82);max-width:900px;letter-spacing:.04em;}
-.kairitsu-body-big em{color:var(--kin);font-style:normal;font-weight:700;}
+.kairitsu-data-big{display:inline-block;font-size:14px;font-weight:800;color:var(--kin-dk);background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.3);padding:7px 18px;border-radius:4px;margin-bottom:22px;letter-spacing:.06em;}
+.kairitsu-body-big{font-size:18px;line-height:1.85;color:rgba(42,42,42,.82);max-width:900px;letter-spacing:.04em;}
+.kairitsu-body-big em{color:var(--kin-dk);font-style:normal;font-weight:700;}
 .kairitsu-examples{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px;}
-.example-chip{font-size:13px;font-weight:700;background:rgba(155,45,48,.18);border:1px solid rgba(155,45,48,.35);color:rgba(245,239,224,.88);padding:5px 13px;border-radius:4px;letter-spacing:.04em;}
+.example-chip{font-size:13px;font-weight:700;background:rgba(155,45,48,.1);border:1px solid rgba(155,45,48,.25);color:rgba(42,42,42,.88);padding:5px 13px;border-radius:4px;letter-spacing:.04em;}
 
-/* ─── SLIDE 8 配当 ─── */
+/* ─── 配当 ─── */
 .haito-slide-table{width:100%;max-width:980px;border-collapse:collapse;font-size:16px;}
-.haito-slide-table th{padding:13px 18px;text-align:center;background:rgba(201,169,97,.1);border-bottom:2px solid rgba(201,169,97,.28);font-weight:800;color:var(--kin);letter-spacing:.1em;}
-.haito-slide-table td{padding:13px 18px;text-align:center;border-bottom:1px solid rgba(201,169,97,.1);font-weight:700;}
+.haito-slide-table th{padding:13px 18px;text-align:center;background:rgba(201,169,97,.1);border-bottom:2px solid rgba(201,169,97,.3);font-weight:800;color:var(--kin-dk);letter-spacing:.1em;}
+.haito-slide-table td{padding:13px 18px;text-align:center;border-bottom:1px solid rgba(201,169,97,.12);font-weight:700;}
 .haito-slide-table td:first-child{text-align:left;color:var(--muted);font-size:14px;padding-left:26px;}
-.td-avg{font-size:22px;color:var(--kin);}
+.td-avg{font-size:22px;color:var(--kin-dk);}
 .td-max{font-size:13px;color:var(--midori);}
 .td-min{font-size:13px;color:var(--dim);}
 .haito-note-big{margin-top:22px;font-size:14px;color:var(--muted);line-height:1.8;max-width:980px;text-align:center;background:rgba(201,169,97,.05);padding:12px 22px;border-radius:6px;}
-.haito-note-big em{color:var(--kin);font-style:normal;font-weight:700;}
+.haito-note-big em{color:var(--kin-dk);font-style:normal;font-weight:700;}
 
-/* ─── SLIDE 9-13 注目馬 ─── */
+/* ─── 注目馬 ─── */
 .horse-slide{width:100%;max-width:1200px;}
 .horse-name-big{font-size:40px;font-weight:800;color:var(--text);letter-spacing:.06em;line-height:1.1;}
 .horse-prev{font-size:13px;color:var(--muted);letter-spacing:.04em;margin-top:6px;}
 .horse-pills{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0;}
 .pill{font-size:12px;font-weight:700;padding:4px 11px;border-radius:4px;letter-spacing:.04em;}
-.pill.good{background:rgba(74,159,110,.16);color:#7AE0A8;border:1px solid rgba(74,159,110,.3);}
-.pill.warn{background:rgba(155,45,48,.16);color:#F09090;border:1px solid rgba(155,45,48,.3);}
-.horse-comment-big{font-size:17px;line-height:1.85;color:rgba(245,239,224,.82);letter-spacing:.04em;}
-.horse-comment-big em{color:var(--kin);font-style:normal;font-weight:700;}
-.ginyo-comment{display:flex;gap:11px;align-items:flex-start;background:rgba(155,45,48,.07);border:1px solid rgba(155,45,48,.28);border-radius:6px;padding:12px 16px;margin-top:12px;}
+.pill.good{background:rgba(74,159,110,.12);color:#1A5A38;border:1px solid rgba(74,159,110,.32);}
+.pill.warn{background:rgba(155,45,48,.1);color:#8B1A1D;border:1px solid rgba(155,45,48,.28);}
+.horse-comment-big{font-size:17px;line-height:1.85;color:rgba(42,42,42,.82);letter-spacing:.04em;}
+.horse-comment-big em{color:var(--kin-dk);font-style:normal;font-weight:700;}
+.ginyo-comment{display:flex;gap:11px;align-items:flex-start;background:rgba(155,45,48,.06);border:1px solid rgba(155,45,48,.22);border-radius:6px;padding:12px 16px;margin-top:12px;}
 .ginyo-icon{font-size:22px;flex-shrink:0;}
-.ginyo-text{font-size:13px;line-height:1.7;color:rgba(245,239,224,.72);letter-spacing:.04em;}
-.ginyo-text strong{color:rgba(240,160,160,.9);}
+.ginyo-text{font-size:13px;line-height:1.7;color:rgba(42,42,42,.75);letter-spacing:.04em;}
+.ginyo-text strong{color:var(--shu);}
 
-/* ─── SLIDE 14 4神 ─── */
+/* ─── 4神 ─── */
 .shijin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%;max-width:1260px;}
-.shijin-card{background:rgba(201,169,97,.04);border:1px solid rgba(201,169,97,.18);border-radius:8px;padding:26px 18px;text-align:center;}
+.shijin-card{background:rgba(201,169,97,.04);border:1px solid rgba(201,169,97,.2);border-radius:8px;padding:26px 18px;text-align:center;}
 .shijin-emoji{font-size:52px;margin-bottom:10px;display:block;}
-.shijin-name{font-size:19px;font-weight:800;color:var(--kin);letter-spacing:.1em;margin-bottom:6px;}
+.shijin-name{font-size:19px;font-weight:800;color:var(--kin-dk);letter-spacing:.1em;margin-bottom:6px;}
 .shijin-role{font-size:12px;color:var(--muted);letter-spacing:.06em;margin-bottom:10px;}
-.shijin-factors{font-size:12px;color:rgba(245,239,224,.72);line-height:1.65;text-align:left;}
+.shijin-factors{font-size:12px;color:rgba(42,42,42,.72);line-height:1.65;text-align:left;}
 
-/* ─── SLIDE 15 予告 ─── */
-.yotoku-big{font-size:86px;font-weight:800;color:var(--kin);letter-spacing:.08em;text-align:center;line-height:1;}
+/* ─── 予告 ─── */
+.yotoku-big{font-size:86px;font-weight:800;color:var(--kin-dk);letter-spacing:.08em;text-align:center;line-height:1;}
 .yotoku-sub{font-size:20px;color:var(--muted);margin-top:14px;letter-spacing:.16em;text-align:center;}
-.yotoku-msg{margin-top:34px;font-size:17px;line-height:1.9;color:rgba(245,239,224,.78);text-align:center;max-width:860px;letter-spacing:.05em;}
-.yotoku-msg em{color:var(--kin);font-style:normal;font-weight:700;}
+.yotoku-msg{margin-top:34px;font-size:17px;line-height:1.9;color:rgba(42,42,42,.78);text-align:center;max-width:860px;letter-spacing:.05em;}
+.yotoku-msg em{color:var(--kin-dk);font-style:normal;font-weight:700;}
 
-/* ─── SLIDE 16 END ─── */
-.end-title{font-size:56px;font-weight:800;color:var(--kin);letter-spacing:.1em;text-align:center;margin-bottom:22px;}
+/* ─── END ─── */
+.end-title{font-size:56px;font-weight:800;color:var(--kin-dk);letter-spacing:.1em;text-align:center;margin-bottom:22px;}
 .end-sub{font-size:17px;color:var(--muted);letter-spacing:.18em;text-align:center;margin-bottom:38px;}
 .end-actions{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;}
 .end-action{font-size:15px;font-weight:700;padding:13px 30px;border-radius:6px;letter-spacing:.08em;}
 .end-action.primary{background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;}
-.end-action.secondary{background:transparent;color:var(--kin);border:2px solid var(--kin);}
+.end-action.secondary{background:transparent;color:var(--kin-dk);border:2px solid var(--kin);}
 
 /* アニメ */
-@keyframes kin-glow{0%,100%{text-shadow:0 0 20px rgba(201,169,97,.4);}50%{text-shadow:0 0 40px rgba(201,169,97,.85),0 0 80px rgba(201,169,97,.3);}}
+@keyframes kin-glow{0%,100%{text-shadow:0 0 16px rgba(155,122,58,.4);}50%{text-shadow:0 0 32px rgba(155,122,58,.7),0 0 60px rgba(155,122,58,.25);}}
 .glow{animation:kin-glow 3s ease-in-out infinite;}
 @keyframes float-slow{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 .float{animation:float-slow 4s ease-in-out infinite;}
 
 /* ナレーション */
-.speaker-notes{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,.93);border-top:2px solid var(--kin);padding:16px 38px;font-size:13.5px;line-height:1.7;color:#F0E8D0;letter-spacing:.04em;max-height:190px;overflow-y:auto;z-index:999;}
+.speaker-notes{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(251,247,238,.97);border-top:2px solid var(--kin);padding:16px 38px;font-size:13.5px;line-height:1.7;color:#2A2A2A;letter-spacing:.04em;max-height:190px;overflow-y:auto;z-index:999;}
 .speaker-notes.show{display:block;}
-.notes-label{font-size:10px;font-weight:900;letter-spacing:.2em;color:var(--kin);margin-bottom:7px;}
-.notes-char.nick{font-weight:800;color:#7AE0A8;margin-right:5px;}
-.notes-char.ginyo{font-weight:800;color:#F09090;margin-right:5px;}
+.notes-label{font-size:10px;font-weight:900;letter-spacing:.2em;color:var(--kin-dk);margin-bottom:7px;}
+.notes-char.kodamaru{font-weight:800;color:#1A6040;margin-right:5px;}
+.notes-char.ginyo{font-weight:800;color:#8B1A1D;margin-right:5px;}
 
-.nav-hint{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--dim);letter-spacing:.12em;pointer-events:none;z-index:500;transition:opacity .5s;}
+.nav-hint{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--muted);letter-spacing:.12em;pointer-events:none;z-index:500;transition:opacity .5s;}
+
+/* 音声バッジ */
+#voiceBadge{position:fixed;top:16px;right:16px;font-size:11px;background:rgba(155,45,48,.85);color:#fff;padding:5px 14px;border-radius:4px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:600;letter-spacing:.1em;}
 </style>
 </head>
 <body>
 <div class="deck" id="deck">
 
 <!-- ===== SLIDE 1: タイトル ===== -->
-<div class="slide s-title active" id="s1">
+<div class="slide s-title active" id="s1" data-ginyo="3200mの聖地、京都。我が神宮の春天展望、はじめよう。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -177,16 +182,49 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   <div class="main-sub">SPRING TENNO SHO 2026</div>
   <div class="main-venue">2026年 5月3日（日）　京都 芝3200m 外回り</div>
   <div class="brand-badge">⛩ UG 競 馬 ワ イ ド 神 宮</div>
-  <div class="slide-num">01 / 16</div>
+  <div class="slide-num">01 / 18</div>
   <div class="speaker-notes">
     <div class="notes-label">SPEAKER NOTES ─ スライド 01</div>
-    <span class="notes-char nick">ニック：</span>え〜みなさんこんにちは！UG競馬ワイド神宮のニックです！今週はGW超豪華ウィークということで、春の天皇賞G1、京王杯スプリングカップG2、ユニコーンステークスG3の三本立て！今日は週明け月曜版として、まず春天の展望をガッツリやっていきます！<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……神宮の門は、3200mの先に開く。始めよう。
+    <span class="notes-char kodamaru">こだまる：</span>みなさんこんにちは〜！ボク、UG競馬ワイド神宮の巫女見習い・こだまるです！今週はGW超豪華ウィーク！春天の展望やっていきます！ウチのギーニョ様がですね〜もう今日は本気モードだって言ってまして...ちょっと怖いですw よろしくどうぞ！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>3200mの聖地、京都。我が神宮の春天展望、はじめよう。
   </div>
 </div>
 
-<!-- ===== SLIDE 2: キャラ登場 ===== -->
-<div class="slide" id="s2">
+<!-- ===== SLIDE 2: フック「アドマイヤテラで本当に大丈夫？」 ===== -->
+<div class="slide" id="s2" data-ginyo="アドマイヤテラは磐石だ。だが神宮は、データの影に潜む伏兵を見逃さない。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="mon-badge">月 曜 展 望</div>
+
+  <div style="text-align:center;max-width:1100px;">
+    <div style="font-size:13px;font-weight:900;letter-spacing:.3em;color:var(--shu);margin-bottom:18px;">今 週 の 問 い</div>
+    <div style="font-size:60px;font-weight:800;color:var(--text);letter-spacing:.05em;line-height:1.2;margin-bottom:22px;">
+      アドマイヤテラで<br>本当に大丈夫？
+    </div>
+    <div style="font-size:17px;color:var(--muted);letter-spacing:.12em;margin-bottom:36px;">〜 我が神宮はデータ度外視して飛び込んでくる伏兵馬をキャッチ 〜</div>
+    <div style="display:flex;gap:22px;justify-content:center;flex-wrap:wrap;">
+      <div style="background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.35);border-radius:8px;padding:18px 32px;font-size:15px;color:var(--text);letter-spacing:.06em;font-weight:700;">
+        ✅ データ完璧な本命候補
+      </div>
+      <div style="background:rgba(155,45,48,.07);border:1px solid rgba(155,45,48,.3);border-radius:8px;padding:18px 32px;font-size:15px;color:var(--text);letter-spacing:.06em;font-weight:700;">
+        🔥 神宮が捉えた伏兵馬 ？？？
+      </div>
+    </div>
+    <div style="margin-top:28px;font-size:14px;color:var(--dim);letter-spacing:.12em;">詳細は 5/2（金）夜 ── 神 託 降 臨</div>
+  </div>
+
+  <div class="slide-num">02 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 02</div>
+    <span class="notes-char kodamaru">こだまる：</span>ちょっとみなさん！ウチのギーニョ様がですね〜アドマイヤテラは鉄板って言いながら、ぼそっと「でも影に潜む伏兵がいる」って言ってたんですよ！伏兵キャッチしちゃってるんです！誰なんでしょうね〜...まあ金曜日まで秘密ですけどw<br>
+    <span class="notes-char ginyo">ギーニョ：</span>アドマイヤテラは磐石だ。だが神宮は、データの影に潜む伏兵を見逃さない。
+  </div>
+</div>
+
+<!-- ===== SLIDE 3: キャラ登場 ===== -->
+<div class="slide" id="s3" data-ginyo="構造は嘘をつかない。それが神宮の基本原則だ。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -194,19 +232,19 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   <div class="section-heading">本 日 の 語 り 部</div>
   <div class="char-stage">
     <div class="char-box">
-      <img class="char-avatar float" src="img/nick.png" alt="ニック" onerror="this.outerHTML='<div class=\'char-avatar float\' style=\'font-size:90px;line-height:1;margin-bottom:12px;\'>🙋</div>'">
-      <div class="char-name">ニック</div>
-      <div class="char-tag">本格派馬券師 ／ チャンネル主</div>
+      <img class="char-avatar float" src="img/kodamaru.png" alt="こだまる" onerror="this.outerHTML='<div class=\'char-avatar float\' style=\'font-size:90px;line-height:1;margin-bottom:12px;\'>🪄</div>'">
+      <div class="char-name">こだまる</div>
+      <div class="char-tag">UG神宮 巫女見習い</div>
       <div class="char-bubble">
-        え、あの〜みなさん聞こえてますかw<br>
-        今週は<em>GW超豪華ウィーク</em>！<br>
-        春天・京王杯SC・ユニコーンSの三本立てです。<br>
-        今日は月曜版として春天を深掘りします！
+        え〜みなさんこんにちは！<br>
+        ボクがこだまる、<em>UG神宮の巫女見習い</em>です！<br>
+        ウチのギーニョ様に弟子入りしてから、<br>
+        競馬の見え方が変わりました...多分w
       </div>
     </div>
     <div class="vs-divider">×</div>
     <div class="char-box">
-      <img class="char-avatar float" src="img/ginyo.png" alt="ギーニョ" onerror="this.outerHTML='<div class=\'char-avatar float\' style=\'font-size:90px;line-height:1;margin-bottom:12px;\'>⛩</div>'">
+      <img class="char-avatar float" src="img/giinyo-daijin.png" alt="ギーニョ" onerror="this.outerHTML='<div class=\'char-avatar float\' style=\'font-size:90px;line-height:1;margin-bottom:12px;\'>⛩</div>'">
       <div class="char-name">ギーニョ</div>
       <div class="char-tag">言語神 ／ UG神宮の神主</div>
       <div class="char-bubble ginyo">
@@ -217,16 +255,16 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       </div>
     </div>
   </div>
-  <div class="slide-num">02 / 16</div>
+  <div class="slide-num">03 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 02</div>
-    <span class="notes-char nick">ニック：</span>改めましてニックです！相方のギーニョと一緒に今週末の春天をガチで展望していきます。<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……余談だが、G1週は魂の密度が違う。始まるぞ。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 03</div>
+    <span class="notes-char kodamaru">こだまる：</span>はい！ボクがこだまる！今日は月曜展望版でGW春天を深掘りします！ウチのギーニョ様がですね〜今日も重そうな顔して来てまして。でもこれがいつもデータ的中するんですよね。楽しんでいってください〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>構造は嘘をつかない。それが神宮の基本原則だ。
   </div>
 </div>
 
-<!-- ===== SLIDE 3: アジェンダ ===== -->
-<div class="slide" id="s3">
+<!-- ===== SLIDE 4: アジェンダ ===== -->
+<div class="slide" id="s4" data-ginyo="5つの問いを経て、春天の構造が見えてくる。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -254,15 +292,16 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       <div class="agenda-txt">金曜夜・神託降臨の予告<span>5/2金曜夜、4神＋麒麟が最終結論を降ろす</span></div>
     </div>
   </div>
-  <div class="slide-num">03 / 16</div>
+  <div class="slide-num">04 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 03</div>
-    <span class="notes-char nick">ニック：</span>今日は大きく5パートでお送りします。コース確認→戒律3カ条→配当データ→注目馬5頭→金曜夜予告の流れです！
+    <div class="notes-label">SPEAKER NOTES ─ スライド 04</div>
+    <span class="notes-char kodamaru">こだまる：</span>今日は5パート！コース確認から始まって、ウチのギーニョ様の戒律3カ条、配当データ、注目馬5頭、最後は金曜夜の予告で締めます！サクッとわかりやすくいきます〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>5つの問いを経て、春天の構造が見えてくる。
   </div>
 </div>
 
-<!-- ===== SLIDE 4: コース ===== -->
-<div class="slide" id="s4">
+<!-- ===== SLIDE 5: コース ===== -->
+<div class="slide" id="s5" data-ginyo="3200mを走り切るとは、スタミナだけではない。精神と、京都という土地との相性が問われる。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -290,16 +329,16 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       <div class="cc-note">芝G1最長距離。<br>淀の下り坂、そして最後の急坂。<br>スタミナと末脚が問われる舞台。</div>
     </div>
   </div>
-  <div class="slide-num">04 / 16</div>
+  <div class="slide-num">05 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 04</div>
-    <span class="notes-char nick">ニック：</span>京都芝3200m、日本芝G1最長距離です。コーナー6回で坂が2回ある。スタミナだけじゃなくてコーナリングと末脚が全部必要なんですよね。<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……3200mを走り切るとは、精神の強さと京都という土地との相性が問われる。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 05</div>
+    <span class="notes-char kodamaru">こだまる：</span>京都芝3200m！G1最長距離ですよ！コーナー6回に坂2回で、ウチのギーニョ様がですね〜「これは精神力まで問われる舞台」って言ってました。馬の精神力ってどうやって測るんですかねw ボクには謎ですが、データはちゃんと測ってるらしいです！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>3200mを走り切るとは、スタミナだけではない。精神と、京都という土地との相性が問われる。
   </div>
 </div>
 
-<!-- ===== SLIDE 5: 戒律第一條 ===== -->
-<div class="slide" id="s5">
+<!-- ===== SLIDE 6: 戒律第一條 ===== -->
+<div class="slide" id="s6" data-ginyo="複勝率100%。データが語りうる最も強い言葉だ。逆らう理由がない。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -321,16 +360,16 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       <div class="example-chip">→ 今年の該当馬 → アドマイヤテラ（レコード勝ち）</div>
     </div>
   </div>
-  <div class="slide-num">05 / 16</div>
+  <div class="slide-num">06 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 05</div>
-    <span class="notes-char nick">ニック：</span>戒律第一條！これはもう鉄則中の鉄則で、阪神大賞典の勝ち馬が春天で馬券外に飛んだことが過去10年ゼロなんです。アドマイヤテラは今年レコードで勝ってきてますから、この戒律をそのまま満たしてるんですよね。<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……複勝率100%というのは、データが語りうる最強の言葉だ。逆らう理由が、ない。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 06</div>
+    <span class="notes-char kodamaru">こだまる：</span>鉄則一条目〜！ウチのギーニョ様がですね〜阪神大賞典勝ち馬が春天で馬券外に来たことがゼロって言い張ってまして。複勝率100%...もう怖すぎてボクは震えてますw 今年の該当馬はアドマイヤテラで、これは逆らえないやつです！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>複勝率100%。データが語りうる最も強い言葉だ。逆らう理由がない。
   </div>
 </div>
 
-<!-- ===== SLIDE 6: 戒律第二條 ===== -->
-<div class="slide" id="s6">
+<!-- ===== SLIDE 7: 戒律第二條 ===== -->
+<div class="slide" id="s7" data-ginyo="一度制した舞台を、馬は忘れない。ヘデントールの蹄跡は、まだ京都に残っている。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -351,16 +390,16 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       <div class="example-chip">→ 今年の前年覇者 → ヘデントール</div>
     </div>
   </div>
-  <div class="slide-num">06 / 16</div>
+  <div class="slide-num">07 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 06</div>
-    <span class="notes-char nick">ニック：</span>第二條は前年覇者の鉄則！京都開催の時は前年勝ち馬が4勝・2着2回で、着外は1例だけなんです。今年はヘデントールが前年覇者として出てきますね。<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……3200mを走り切った馬の記憶は、骨に刻まれる。連覇とはそういう話だ。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 07</div>
+    <span class="notes-char kodamaru">こだまる：</span>二条目！ウチのギーニョ様がですね〜前年覇者の連覇則について熱く語ってまして。ヘデントール、前走6着でしたがウチのギーニョ様は「あれはノーカウント」って即バッサリ切り捨てまして。潔すぎてちょっと笑いましたww<br>
+    <span class="notes-char ginyo">ギーニョ：</span>一度制した舞台を、馬は忘れない。ヘデントールの蹄跡は、まだ京都に残っている。
   </div>
 </div>
 
-<!-- ===== SLIDE 7: 戒律第三條 ===== -->
-<div class="slide" id="s7">
+<!-- ===== SLIDE 8: 戒律第三條 ===== -->
+<div class="slide" id="s8" data-ginyo="422kgの小さな体に、神宮は炎を見る。軽量の牡馬が3200mを制する。それが戒律の約束だ。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -380,16 +419,16 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       <div class="example-chip">→ 今年の422kg馬 → マイネルカンパーナ</div>
     </div>
   </div>
-  <div class="slide-num">07 / 16</div>
+  <div class="slide-num">08 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 07</div>
-    <span class="notes-char nick">ニック：</span>第三條が今年一番面白いかも！460kg以下の軽量馬×京都重賞実績の組み合わせが穴の方程式で、今年のマイネルカンパーナが422kgでこれにドンピシャなんです！<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……小なるものが、大きなものを制す。422kgという数字に、炎を見る。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 08</div>
+    <span class="notes-char kodamaru">こだまる：</span>三条目がボク的に今年一番ワクワクしてて！ウチのギーニョ様がですね〜422kgって数字を見た瞬間に目が輝いてたんですよ。軽量馬かける京都重賞実績で穴が開くって。422kgってもはやアスリート体型じゃないですかw<br>
+    <span class="notes-char ginyo">ギーニョ：</span>422kgの小さな体に、神宮は炎を見る。軽量の牡馬が3200mを制する。それが戒律の約束だ。
   </div>
 </div>
 
-<!-- ===== SLIDE 8: 配当の素顔 ===== -->
-<div class="slide" id="s8">
+<!-- ===== SLIDE 9: 配当の素顔 ===== -->
+<div class="slide" id="s9" data-ginyo="本命が来る場面で本命を買う。それだけでも十分な収益が出るのが、春天という舞台だ。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -409,16 +448,16 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
     G1らしく<em>単勝平均¥385</em>は本命決着が基本。ただし三連単最高<em>¥242,730</em>の破壊力あり。<br>
     馬連¥4,016平均——2着に穴を絡めれば、神宮の構えが輝く。
   </div>
-  <div class="slide-num">08 / 16</div>
+  <div class="slide-num">09 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 08</div>
-    <span class="notes-char nick">ニック：</span>配当データです！単勝平均385円ってことは本命決着が基本なんですよね。でも三連単最高24万円超えがあるってことで一発大爆発もある。馬連4016円平均なので、ここで穴を絡められると美味しいですね。<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……本命が来る場面で本命を買う。それだけでも十分な収益が出るのが、春天という舞台だ。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 09</div>
+    <span class="notes-char kodamaru">こだまる：</span>配当データ来ました〜！単勝平均385円って本命決着が基本なんですよね。でも三連単最高242,730円！ウチのギーニョ様がですね〜「一発の破壊力を侮るな」って言ってまして...馬連4016円平均がボク的には一番美味しいポイントです！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>本命が来る場面で本命を買う。それだけでも十分な収益が出るのが、春天という舞台だ。
   </div>
 </div>
 
-<!-- ===== SLIDE 9: アドマイヤテラ ===== -->
-<div class="slide" id="s9">
+<!-- ===== SLIDE 10: アドマイヤテラ ===== -->
+<div class="slide" id="s10" data-ginyo="第一條と菊花賞リンク。二つの鍵を持つ馬は今年ただ一頭。逆らう根拠が見当たらない。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -440,20 +479,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       </div>
       <div class="ginyo-comment">
         <span class="ginyo-icon">⛩</span>
-        <div class="ginyo-text"><strong style="color:#F09090;">ギーニョ：</strong>第一條と菊花賞リンクを兼ね備えた唯一の馬。逆らう根拠を見つけるほうが難しい。<em style="color:var(--kin);">本命の最右翼として構える</em>。</div>
+        <div class="ginyo-text"><strong>ギーニョ：</strong>第一條と菊花賞リンクを兼ね備えた唯一の馬。逆らう根拠を見つけるほうが難しい。<em style="color:var(--kin-dk);">本命の最右翼として構える</em>。</div>
       </div>
     </div>
   </div>
-  <div class="slide-num">09 / 16</div>
+  <div class="slide-num">10 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 09</div>
-    <span class="notes-char nick">ニック：</span>注目馬一頭目！アドマイヤテラです。阪神大賞典レコード勝ちで、菊花賞3着経験もある。戒律第一條の該当馬で、データとガッチリ合致してます。<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……2:02.0のレコードは偶然ではない。この馬の時代が来ている、と感じる。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 10</div>
+    <span class="notes-char kodamaru">こだまる：</span>アドマイヤテラ！ウチのギーニョ様がですね〜阪神大賞典レコード勝ちで菊花賞3着もあるって言い出して、「この双リンクを持つのは今年この馬だけだ」って力説してまして。ボク的にも本命最右翼で！前走500kg台が少し気になりますが本番で絞れてくれ〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>第一條と菊花賞リンク。二つの鍵を持つ馬は今年ただ一頭。逆らう根拠が見当たらない。
   </div>
 </div>
 
-<!-- ===== SLIDE 10: クロワデュノール ===== -->
-<div class="slide" id="s10">
+<!-- ===== SLIDE 11: クロワデュノール ===== -->
+<div class="slide" id="s11" data-ginyo="才能に疑いはない。だが京都は初めての者に牙を向く。能力か地脈か、それがこの馬の問いだ。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -476,20 +515,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       </div>
       <div class="ginyo-comment">
         <span class="ginyo-icon">⛩</span>
-        <div class="ginyo-text"><strong style="color:#F09090;">ギーニョ：</strong>才能は本物。だが京都という土地は、初めて踏む者に牙を向くことがある。<em style="color:var(--kin);">能力と地脈のどちらが勝るか</em>、それがこの馬の問いだ。</div>
+        <div class="ginyo-text"><strong>ギーニョ：</strong>才能は本物。だが京都という土地は、初めて踏む者に牙を向くことがある。<em style="color:var(--kin-dk);">能力と地脈のどちらが勝るか</em>、それがこの馬の問いだ。</div>
       </div>
     </div>
   </div>
-  <div class="slide-num">10 / 16</div>
+  <div class="slide-num">11 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 10</div>
-    <span class="notes-char nick">ニック：</span>クロワデュノール！父がキタサンブラックで血統的な春天適性は最高。大阪杯も太め残りで勝ったんで上積みある。ただ京都未経験・3200m初なのが神宮としては気になるポイントですね。<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……この馬の運命は、京都の第4コーナーで決まる。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 11</div>
+    <span class="notes-char kodamaru">こだまる：</span>クロワデュノール！ウチのギーニョ様がですね〜父キタサンブラック春天連覇血統で大阪杯も太め残りで勝ってて上積みあるって言ってます。でも京都未経験かつ3200m初走がどうかで...ウチのギーニョ様、めずらしく迷ってましたw 珍しいです！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>才能に疑いはない。だが京都は初めての者に牙を向く。能力か地脈か、それがこの馬の問いだ。
   </div>
 </div>
 
-<!-- ===== SLIDE 11: ヘデントール ===== -->
-<div class="slide" id="s11">
+<!-- ===== SLIDE 12: ヘデントール ===== -->
+<div class="slide" id="s12" data-ginyo="去年の蹄跡が残る坂を、もう一度登る。それが前年覇者の使命だ。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -511,20 +550,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       </div>
       <div class="ginyo-comment">
         <span class="ginyo-icon">⛩</span>
-        <div class="ginyo-text"><strong style="color:#F09090;">ギーニョ：</strong>京都3200mを一度制した魂は、同じ場所に引き寄せられる。<em style="color:var(--kin);">戒律第二條は、この馬のために存在する</em>。</div>
+        <div class="ginyo-text"><strong>ギーニョ：</strong>京都3200mを一度制した魂は、同じ場所に引き寄せられる。<em style="color:var(--kin-dk);">戒律第二條は、この馬のために存在する</em>。</div>
       </div>
     </div>
   </div>
-  <div class="slide-num">11 / 16</div>
+  <div class="slide-num">12 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 11</div>
-    <span class="notes-char nick">ニック：</span>ヘデントール、去年の覇者！第二條の当事者ですね。前走が京都記念6着でしたが、あそこは有力馬が軒並みパフォーマンス落としてたレースなんでノーカウントでいいと思います。ルメール継続も強いポイント！<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……去年の蹄跡が残る京都の坂を、また登る。それが強さというものだ。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 12</div>
+    <span class="notes-char kodamaru">こだまる：</span>ヘデントール、去年の覇者！ウチのギーニョ様がですね〜前走6着を一秒で「ノーカウント」って言い捨てまして。その潔さがすごいw 追い切りで流しまで入れてきた仕上げの本気度と、ルメール継続がポイントです！ウチのギーニョ様、対抗で組むって言ってました！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>去年の蹄跡が残る坂を、もう一度登る。それが前年覇者の使命だ。
   </div>
 </div>
 
-<!-- ===== SLIDE 12: シンエンペラー ===== -->
-<div class="slide" id="s12">
+<!-- ===== SLIDE 13: シンエンペラー ===== -->
+<div class="slide" id="s13" data-ginyo="ジャパンカップを走った格は本物だ。仕切り直しの一戦が、逆に吉と出る場面がある。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -546,20 +585,20 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       </div>
       <div class="ginyo-comment">
         <span class="ginyo-icon">⛩</span>
-        <div class="ginyo-text"><strong style="color:#F09090;">ギーニョ：</strong>JCを走った馬の記憶は格を持つ。仕上がってきた時のポテンシャルは本物。<em style="color:var(--kin);">仕上がりをパドックで確認せよ</em>。</div>
+        <div class="ginyo-text"><strong>ギーニョ：</strong>JCを走った馬の記憶は格を持つ。仕上がってきた時のポテンシャルは本物。<em style="color:var(--kin-dk);">仕上がりをパドックで確認せよ</em>。</div>
       </div>
     </div>
   </div>
-  <div class="slide-num">12 / 16</div>
+  <div class="slide-num">13 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 12</div>
-    <span class="notes-char nick">ニック：</span>シンエンペラー！ジャパンカップ出走経験があって、世界レベルの経験値がある馬ですよね。京都2歳S勝ちで右回りも得意。調子の波が激しいのが懸念ですが仕上がった時のポテンシャルは相当高い！<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……皇帝の名を冠した馬が、春の京都で目覚める場面があるとすれば、今年かもしれない。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 13</div>
+    <span class="notes-char kodamaru">こだまる：</span>シンエンペラー！ウチのギーニョ様がですね〜JC走ってる馬は格が違うって言ってまして。調子の波が激しいのが唯一の不安だって。パドックで見極めろってことらしいです。ハマったら怖い、ハマらなかったら...まあしょうがないw<br>
+    <span class="notes-char ginyo">ギーニョ：</span>ジャパンカップを走った格は本物だ。仕切り直しの一戦が、逆に吉と出る場面がある。
   </div>
 </div>
 
-<!-- ===== SLIDE 13: マイネルカンパーナ（穴） ===== -->
-<div class="slide" id="s13">
+<!-- ===== SLIDE 14: マイネルカンパーナ（穴） ===== -->
+<div class="slide" id="s14" data-ginyo="422kg。それは戒律が求める軽量の体現だ。この馬に、神宮は神託を持ち越す。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -578,22 +617,61 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
         ステイヤーズS2着は余力を残した好内容。ダイヤモンドS外枠4着も力を出した走り。<br>
         <em>下り坂を生かした内枠先行で、神宮の穴を開け得る一頭</em>。
       </div>
-      <div class="ginyo-comment" style="border-color:rgba(201,169,97,.35);background:rgba(201,169,97,.06);">
+      <div class="ginyo-comment" style="border-color:rgba(201,169,97,.3);background:rgba(201,169,97,.05);">
         <span class="ginyo-icon">🔥</span>
-        <div class="ginyo-text"><strong style="color:var(--kin);">ギーニョ（穴炎）：</strong>422kgという数字は、戒律が求める「軽量」の体現。京都重賞実績の有無を金曜夜に最終確認し、<em style="color:var(--kin);">神託を降ろす</em>。</div>
+        <div class="ginyo-text"><strong style="color:var(--kin-dk);">ギーニョ（穴炎）：</strong>422kgという数字は、戒律が求める「軽量」の体現。京都重賞実績の有無を金曜夜に最終確認し、<em style="color:var(--kin-dk);">神託を降ろす</em>。</div>
       </div>
     </div>
   </div>
-  <div class="slide-num">13 / 16</div>
+  <div class="slide-num">14 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 13</div>
-    <span class="notes-char nick">ニック：</span>穴候補のマイネルカンパーナ！422kgって軽くないですか！でも第三條の軽量×京都実績にドンピシャで合致してる。ステイヤーズS2着で長距離適性もある。下り坂の京都で内枠引けたら面白いんじゃないかと思ってます！<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……小なるものが巨きなものを制す。それが戒律の教えだ。この馬を、神宮は見ている。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 14</div>
+    <span class="notes-char kodamaru">こだまる：</span>マイネルカンパーナ！ウチのギーニョ様がですね〜422kgって見た瞬間に目が輝いてたんですよ。第三條にドンピシャで合致してて、ステイヤーズS2着で長距離適性もある。内枠引いて下り坂先行できたら一発！ボクの穴本命候補です！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>422kg。それは戒律が求める軽量の体現だ。この馬に、神宮は神託を持ち越す。
   </div>
 </div>
 
-<!-- ===== SLIDE 14: 4神体系 ===== -->
-<div class="slide" id="s14">
+<!-- ===== SLIDE 15: ？？？ 神宮の伏兵馬 ===== -->
+<div class="slide" id="s15" data-ginyo="名を明かす時は、金曜の夜。二頭の影が、神宮に潜む。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 伏 兵 警 報</div>
+  <div class="mon-badge">月 曜 展 望</div>
+
+  <div style="text-align:center;max-width:1100px;">
+    <div style="font-size:13px;font-weight:900;letter-spacing:.3em;color:var(--shu);margin-bottom:14px;">⚠️ 伏 兵 警 報 発 令 中</div>
+    <div style="font-size:56px;font-weight:800;color:var(--text);letter-spacing:.1em;margin-bottom:28px;" class="glow">？ ？ ？</div>
+
+    <div style="display:flex;gap:24px;justify-content:center;margin-bottom:30px;flex-wrap:wrap;">
+      <div style="background:rgba(201,169,97,.07);border:2px dashed rgba(201,169,97,.45);border-radius:10px;padding:22px 38px;min-width:260px;">
+        <div style="font-size:13px;color:var(--kin-dk);letter-spacing:.15em;margin-bottom:12px;font-weight:800;">伏 兵 馬 ①</div>
+        <div style="font-size:30px;font-weight:800;color:var(--dim);letter-spacing:.22em;">●●●●●●●●</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:10px;letter-spacing:.06em;">金曜夜まで非公開</div>
+      </div>
+      <div style="background:rgba(155,45,48,.05);border:2px dashed rgba(155,45,48,.35);border-radius:10px;padding:22px 38px;min-width:260px;">
+        <div style="font-size:13px;color:var(--shu);letter-spacing:.15em;margin-bottom:12px;font-weight:800;">伏 兵 馬 ②</div>
+        <div style="font-size:30px;font-weight:800;color:var(--dim);letter-spacing:.22em;">▲▲▲▲▲▲▲▲</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:10px;letter-spacing:.06em;">金曜夜まで非公開</div>
+      </div>
+    </div>
+
+    <div style="font-size:16px;color:var(--muted);line-height:1.9;letter-spacing:.05em;">
+      二桁人気で買えると最高ですよね〜<br>
+      <span style="color:var(--kin-dk);font-weight:700;">やっぱりみなさん、お金って大事ですよね。</span>
+    </div>
+  </div>
+
+  <div class="slide-num">15 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 15</div>
+    <span class="notes-char kodamaru">こだまる：</span>どの馬でしょう...でもね...う〜ん。ウチのギーニョ様がですね〜めちゃめちゃニヤニヤしながら伏せてるんですよ。2頭いるらしくて。二桁人気で買えると最高なんですよね〜、やっぱりみなさんお金って大事ですよね。金曜夜までのお楽しみです！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>名を明かす時は、金曜の夜。二頭の影が、神宮に潜む。
+  </div>
+</div>
+
+<!-- ===== SLIDE 16: 4神体系 ===== -->
+<div class="slide" id="s16" data-ginyo="4神の合議なくして、麒麟は立たない。4つの視点が交差する場所に、真実がある。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -625,19 +703,19 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
       <div class="shijin-factors">コースデータと外厩。<br>父×コース・騎手×コース。<br>「舞台適性」の採点。</div>
     </div>
   </div>
-  <div style="margin-top:22px;text-align:center;font-size:22px;font-weight:800;color:var(--kin);letter-spacing:.1em;">
+  <div style="margin-top:22px;text-align:center;font-size:22px;font-weight:800;color:var(--kin-dk);letter-spacing:.1em;">
     ＋ 🦒 麒 麟 ── 4神の総意を一頭に結ぶ「神宮の本命」
   </div>
-  <div class="slide-num">14 / 16</div>
+  <div class="slide-num">16 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 14</div>
-    <span class="notes-char nick">ニック：</span>神宮の採点システムをご紹介！青龍=前走コメント、朱雀=スピード指数+展開、白虎=ラップ分析、玄武=コースデータ外厩、この4神が各馬を採点して、総合1位を麒麟として本命指定するんです。金曜夜に全部出ます！<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……4神の合議なくして、麒麟は立たない。金曜夜、すべての神が集う。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 16</div>
+    <span class="notes-char kodamaru">こだまる：</span>神宮の採点システム紹介！ウチのギーニョ様がですね〜青龍・朱雀・白虎・玄武の4神が全馬を採点して、総合1位が麒麟になるって説明してくれました！金曜夜の動画で全スコア公開しますんで楽しみにしてください！ボクも毎回ドキドキしてます！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>4神の合議なくして、麒麟は立たない。4つの視点が交差する場所に、真実がある。
   </div>
 </div>
 
-<!-- ===== SLIDE 15: 金曜予告 ===== -->
-<div class="slide" id="s15">
+<!-- ===== SLIDE 17: 金曜予告 ===== -->
+<div class="slide" id="s17" data-ginyo="5月2日、金曜の夜。麒麟が立つ。その時を待て。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -648,19 +726,19 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
     Phase 1 自動採点パイプライン、<em>本格運用初戦</em>。<br>
     青龍・朱雀・白虎・玄武の4神が全馬を採点し、<em>麒麟が一頭を選ぶ</em>。<br><br>
     神宮ウェブサイトにて<em>最終結論・買い目・神託スコアを公開</em>。<br><br>
-    <strong style="color:var(--kin);">bakenshiug.github.io/ug-keiba</strong><br><br>
+    <strong style="color:var(--kin-dk);">bakenshiug.github.io/ug-keiba</strong><br><br>
     見逃すな。構造は、嘘をつかない。
   </div>
-  <div class="slide-num">15 / 16</div>
+  <div class="slide-num">17 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 15</div>
-    <span class="notes-char nick">ニック：</span>というわけで今週末の春天展望でした！金曜夜に神宮サイトで最終結論出しますんで、ぜひチェックしてください！アドマイヤテラ・ヘデントール・マイネルカンパーナ、この3頭を軸に金曜夜に神宮の神託が降ります！<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……待て。金曜の夜まで、静かに待て。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 17</div>
+    <span class="notes-char kodamaru">こだまる：</span>というわけで春天展望でした！ウチのギーニョ様が金曜夜に全スコアと買い目を発表します！アドマイヤテラ・ヘデントール・マイネルカンパーナ、そしてあの2頭伏せ馬の真実も！神宮サイトとYouTubeチェックしてください〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>5月2日、金曜の夜。麒麟が立つ。その時を待て。
   </div>
 </div>
 
-<!-- ===== SLIDE 16: END ===== -->
-<div class="slide" id="s16">
+<!-- ===== SLIDE 18: END ===== -->
+<div class="slide" id="s18" data-ginyo="また会おう。金曜の夜に。">
   <div class="slide-frame"></div>
   <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
@@ -673,20 +751,21 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
     <div class="end-action secondary">🔔 チャンネル登録で神託を受け取る</div>
   </div>
   <div style="margin-top:34px;font-size:14px;color:var(--muted);text-align:center;line-height:1.85;letter-spacing:.07em;">
-    次回：<span style="color:var(--kin);font-weight:700;">5/2（金）夜 ── 春天 最終神託</span>（買い目・スコア完全公開）<br>
-    神宮サイト：<span style="color:var(--kin);font-weight:700;">bakenshiug.github.io/ug-keiba</span>
+    次回：<span style="color:var(--kin-dk);font-weight:700;">5/2（金）夜 ── 春天 最終神託</span>（買い目・スコア完全公開）<br>
+    神宮サイト：<span style="color:var(--kin-dk);font-weight:700;">bakenshiug.github.io/ug-keiba</span>
   </div>
-  <div class="slide-num">16 / 16</div>
+  <div class="slide-num">18 / 18</div>
   <div class="speaker-notes">
-    <div class="notes-label">SPEAKER NOTES ─ スライド 16</div>
-    <span class="notes-char nick">ニック：</span>ご視聴ありがとうございました！高評価とチャンネル登録よろしくお願いします！金曜夜に最終予想動画アップしますんで、そちらもぜひ！それでは！<br>
-    <span class="notes-char ginyo">ギーニョ：</span>……また会おう。金曜の夜に。
+    <div class="notes-label">SPEAKER NOTES ─ スライド 18</div>
+    <span class="notes-char kodamaru">こだまる：</span>ご視聴ありがとうございました〜！高評価とチャンネル登録よろしくお願いします！ウチのギーニョ様がですね〜ちゃんと登録してくれって珍しく言ってましたw 金曜夜もよろしくです！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>また会おう。金曜の夜に。
   </div>
 </div>
 
 </div><!-- /deck -->
 
-<div class="nav-hint" id="navHint">← → キーまたはクリックで進む　／　S = ナレーション原稿表示</div>
+<div id="voiceBadge">🔊 ギーニョ 読み上げ中</div>
+<div class="nav-hint" id="navHint">← → キーまたはクリックで進む　／　S = ナレーション　／　G = 音声ON/OFF</div>
 
 <script>
 (function(){
@@ -695,20 +774,56 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   let cur = 0;
   let notesVisible = false;
 
+  /* ── Web Speech API ── */
+  const synth = window.speechSynthesis;
+  let voiceEnabled = false;
+  let voices = [];
+
+  function loadVoices(){
+    voices = synth.getVoices().filter(v => v.lang && v.lang.startsWith('ja'));
+  }
+  if(speechSynthesis.onvoiceschanged !== undefined){
+    speechSynthesis.onvoiceschanged = loadVoices;
+  }
+  loadVoices();
+
+  function speakGinyo(slideEl){
+    if(!voiceEnabled) return;
+    synth.cancel();
+    const text = slideEl.dataset.ginyo;
+    if(!text) return;
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ja-JP';
+    u.rate = 0.87;
+    u.pitch = 0.78;
+    const v = voices.find(v => v.name.includes('Kyoko'))
+           || voices.find(v => v.name.includes('Otoya'))
+           || voices.find(v => v.lang && v.lang.startsWith('ja'));
+    if(v) u.voice = v;
+    const badge = document.getElementById('voiceBadge');
+    if(badge){
+      badge.style.opacity = '1';
+      u.onend = () => badge.style.opacity = '0';
+      u.onerror = () => badge.style.opacity = '0';
+    }
+    synth.speak(u);
+  }
+
   function showSlide(n){
     slides[cur].classList.remove('active');
     cur = ((n % total) + total) % total;
     slides[cur].classList.add('active');
     if(notesVisible){
-      document.querySelectorAll('.speaker-notes').forEach(el=>el.classList.remove('show'));
+      document.querySelectorAll('.speaker-notes').forEach(el => el.classList.remove('show'));
       slides[cur].querySelector('.speaker-notes')?.classList.add('show');
     }
+    speakGinyo(slides[cur]);
     flashHint();
   }
 
   function toggleNotes(){
     notesVisible = !notesVisible;
-    document.querySelectorAll('.speaker-notes').forEach(el=>el.classList.remove('show'));
+    document.querySelectorAll('.speaker-notes').forEach(el => el.classList.remove('show'));
     if(notesVisible) slides[cur].querySelector('.speaker-notes')?.classList.add('show');
   }
 
@@ -716,24 +831,44 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
     const h = document.getElementById('navHint');
     h.style.opacity = '1';
     clearTimeout(h._t);
-    h._t = setTimeout(()=>h.style.opacity='0', 2000);
+    h._t = setTimeout(() => h.style.opacity = '0', 2000);
   }
 
-  document.addEventListener('keydown', e=>{
-    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') { e.preventDefault(); showSlide(cur+1); }
-    else if(e.key==='ArrowLeft'||e.key==='ArrowUp') { e.preventDefault(); showSlide(cur-1); }
-    else if(e.key.toLowerCase()==='s') toggleNotes();
-    else if(e.key==='Escape'){ notesVisible=false; document.querySelectorAll('.speaker-notes').forEach(el=>el.classList.remove('show')); }
+  document.addEventListener('keydown', e => {
+    if(e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault(); showSlide(cur + 1);
+    } else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault(); showSlide(cur - 1);
+    } else if(e.key.toLowerCase() === 's') {
+      toggleNotes();
+    } else if(e.key.toLowerCase() === 'g') {
+      voiceEnabled = !voiceEnabled;
+      const badge = document.getElementById('voiceBadge');
+      if(!voiceEnabled){ synth.cancel(); if(badge) badge.style.opacity = '0'; }
+      flashHint();
+      const h = document.getElementById('navHint');
+      h.textContent = voiceEnabled
+        ? '🔊 音声ON ─ G キーでOFF'
+        : '🔇 音声OFF ─ G キーでON';
+      h.style.opacity = '1';
+      clearTimeout(h._t);
+      h._t = setTimeout(() => {
+        h.textContent = '← → キーまたはクリックで進む　／　S = ナレーション　／　G = 音声ON/OFF';
+        h.style.opacity = '0';
+      }, 2200);
+    } else if(e.key === 'Escape') {
+      notesVisible = false;
+      document.querySelectorAll('.speaker-notes').forEach(el => el.classList.remove('show'));
+    }
   });
 
-  document.getElementById('deck').addEventListener('click', e=>{
+  document.getElementById('deck').addEventListener('click', e => {
     if(e.target.closest('button,a')) return;
-    showSlide(e.clientX / window.innerWidth < 0.35 ? cur-1 : cur+1);
+    showSlide(e.clientX / window.innerWidth < 0.35 ? cur - 1 : cur + 1);
   });
 
-  // 初期ヒント
   const h = document.getElementById('navHint');
-  h._t = setTimeout(()=>h.style.opacity='0', 3500);
+  h._t = setTimeout(() => h.style.opacity = '0', 3500);
 })();
 </script>
 </body>
