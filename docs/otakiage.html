@@ -155,133 +155,17 @@ html,body{
 
 <!-- KPIバナー -->
 <div class="section">
-  <div class="kpi-banner">
-    <div class="kpi">
-      <div class="kpi-label">抜擢総数</div>
-      <div class="kpi-value">10<span class="kpi-unit">頭</span></div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">激走（1着）</div>
-      <div class="kpi-value">3<span class="kpi-unit">頭</span></div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">連対（2着）</div>
-      <div class="kpi-value">4<span class="kpi-unit">頭</span></div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">3着激走</div>
-      <div class="kpi-value">3<span class="kpi-unit">頭</span></div>
-    </div>
+  <div class="kpi-banner" id="otakiage-kpi">
+    <div class="kpi"><div class="kpi-label">抜擢総数</div><div class="kpi-value" id="kpi-total">—<span class="kpi-unit">頭</span></div></div>
+    <div class="kpi"><div class="kpi-label">激走（1着）</div><div class="kpi-value" id="kpi-1st">—<span class="kpi-unit">頭</span></div></div>
+    <div class="kpi"><div class="kpi-label">連対（2着）</div><div class="kpi-value" id="kpi-2nd">—<span class="kpi-unit">頭</span></div></div>
+    <div class="kpi"><div class="kpi-label">3着激走</div><div class="kpi-value" id="kpi-3rd">—<span class="kpi-unit">頭</span></div></div>
   </div>
 
   <div class="section-title">抜 擢 馬 一 覧</div>
   <div class="section-sub">― 人気順・着順を併記。神宮初期の浄火 ―</div>
 
-  <div class="batteki-grid">
-
-    <div class="batteki-card win1">
-      <div class="bat-pop">12<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-name">ジッピーチューン</div>
-        <div class="bat-race">桜花賞 G1（阪神 芝1600m）</div>
-        <div class="bat-mark">神宮印 △ 連下</div>
-      </div>
-      <span class="bat-result r-3">3 着 激 走</span>
-    </div>
-
-    <div class="batteki-card win1">
-      <div class="bat-pop">10<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-name">カニキュル</div>
-        <div class="bat-race">福島牝馬S G3（福島 芝1800m）</div>
-        <div class="bat-mark">神宮印 ☆ 抜擢</div>
-      </div>
-      <span class="bat-result r-3">3 着 激 走</span>
-    </div>
-
-    <div class="batteki-card win2">
-      <div class="bat-pop">9<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-name">サイルーン</div>
-        <div class="bat-race">ダービー卿CT G3（中山 芝1600m）</div>
-        <div class="bat-mark">神宮印 ○ 対抗</div>
-      </div>
-      <span class="bat-result r-2">2 着 連 対</span>
-    </div>
-
-    <div class="batteki-card win2">
-      <div class="bat-pop">8<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-name">エイシンディード</div>
-        <div class="bat-race">ファルコンS G3（中京 芝1400m）</div>
-        <div class="bat-mark">神宮印 ○ 対抗</div>
-      </div>
-      <span class="bat-result r-2">2 着 連 対</span>
-    </div>
-
-    <div class="batteki-card win2">
-      <div class="bat-pop">8<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-name">ロードフィレール</div>
-        <div class="bat-race">若葉S OP（阪神 芝2000m）</div>
-        <div class="bat-mark">神宮印 ☆ 抜擢</div>
-      </div>
-      <span class="bat-result r-2">2 着 連 対</span>
-    </div>
-
-    <div class="batteki-card win2">
-      <div class="bat-pop">6<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-name">アクアヴァーナル</div>
-        <div class="bat-race">阪神大賞典 G2（阪神 芝3000m）</div>
-        <div class="bat-mark">神宮印 ☆ 抜擢</div>
-      </div>
-      <span class="bat-result r-2">2 着 連 対</span>
-    </div>
-
-    <div class="batteki-card win1">
-      <div class="bat-pop">6<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-name">レザベーション</div>
-        <div class="bat-race">NZT G2（中山 芝1600m）</div>
-        <div class="bat-mark">神宮印 ☆ 抜擢</div>
-      </div>
-      <span class="bat-result r-1">1 着 激 走</span>
-    </div>
-
-    <div class="batteki-card win1">
-      <div class="bat-pop">4<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-name">マイユニバース</div>
-        <div class="bat-race">日経賞 G2（中山 芝2500m）</div>
-        <div class="bat-mark">神宮印 ☆ 抜擢</div>
-      </div>
-      <span class="bat-result r-1">1 着 激 走</span>
-    </div>
-
-    <div class="batteki-card win1">
-      <div class="bat-pop">11<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-date">2026/4/26</div>
-        <div class="bat-name">ミスタージーティー</div>
-        <div class="bat-race">センテニアル・パークS（東京）</div>
-        <div class="bat-mark">神宮印 🔥朱雀1位</div>
-      </div>
-      <span class="bat-result r-3">3 着 激 走</span>
-    </div>
-
-    <div class="batteki-card win1">
-      <div class="bat-pop">6<span class="bat-pop-unit">人気</span></div>
-      <div>
-        <div class="bat-date">2026/4/25</div>
-        <div class="bat-name">マイノワール</div>
-        <div class="bat-race">観月橋S（京都）13.7倍</div>
-        <div class="bat-mark">神宮印 △ 御守</div>
-      </div>
-      <span class="bat-result r-1">1 着 激 走</span>
-    </div>
-
-  </div>
+  <div class="batteki-grid" id="batteki-grid"></div>
 
   <div class="notice">
     ※ Phase 1 自動採点パイプライン稼働後、<em>4/25-26以降の人気薄抜擢馬を自動収集</em>。<br>
@@ -292,6 +176,50 @@ html,body{
 <div class="footer">
   最終予想は <a href="final-display.html" class="footer-link">本殿</a> ／ 過去御神託は <a href="archive.html" class="footer-link">絵馬殿</a> へ
 </div>
+
+<script>
+(function(){
+  const resultClass = {1:'r-1', 2:'r-2', 3:'r-3'};
+  const winClass = {1:'win1', 2:'win2', 3:'win1', miss:'miss'};
+
+  function buildCard(d) {
+    const wc = d.type === 'miss' ? 'miss' : winClass[d.result] || 'win1';
+    const rc = resultClass[d.result] || '';
+    const raceLine = [d.race, d.grade, d.venue ? '（' + d.venue + (d.surface ? ' ' + d.surface : '') + '）' : ''].filter(Boolean).join(' ');
+    const oddsStr = d.odds ? ' ' + d.odds + '倍' : '';
+    return `<div class="batteki-card ${wc}">
+      <div class="bat-pop">${d.pop}<span class="bat-pop-unit">人気</span></div>
+      <div>
+        ${d.date ? `<div class="bat-date">${d.date}</div>` : ''}
+        <div class="bat-name">${d.horse}</div>
+        <div class="bat-race">${raceLine}${oddsStr}</div>
+        <div class="bat-mark">神宮印 ${d.mark}</div>
+      </div>
+      <span class="bat-result ${rc}">${d.label.replace(/激走|連対|外れ/, m => m.split('').join(' '))}</span>
+    </div>`;
+  }
+
+  fetch('data/results.json')
+    .then(r => r.json())
+    .then(data => {
+      // カード描画
+      const grid = document.getElementById('batteki-grid');
+      if (grid) grid.innerHTML = data.map(buildCard).join('');
+
+      // KPI集計
+      const total = data.length;
+      const r1 = data.filter(d => d.result === 1).length;
+      const r2 = data.filter(d => d.result === 2).length;
+      const r3 = data.filter(d => d.result === 3).length;
+      const setText = (id, val) => { const el = document.getElementById(id); if(el) el.childNodes[0].nodeValue = val; };
+      setText('kpi-total', total);
+      setText('kpi-1st',  r1);
+      setText('kpi-2nd',  r2);
+      setText('kpi-3rd',  r3);
+    })
+    .catch(() => {});
+})();
+</script>
 
 </body>
 </html>

@@ -192,25 +192,7 @@ html,body{
     <span class="race-result result-miss">🏴‍☠️ 不的中</span>
   </div>
 
-  <div class="race-row">
-    <div class="race-date">4/26 (日)</div>
-    <div>
-      <div class="race-name">観月橋S OP</div>
-      <div class="race-meta">京都 芝1800m</div>
-      <div class="bet-summary">△マイノワール 6番人気13.7倍 → 1着　<strong>（払戻集計中）</strong></div>
-    </div>
-    <span class="race-result result-hit">🎯 1着激走</span>
-  </div>
-
-  <div class="race-row">
-    <div class="race-date">4/26 (日)</div>
-    <div>
-      <div class="race-name">センテニアル・パークS</div>
-      <div class="race-meta">東京</div>
-      <div class="bet-summary">🔥朱雀1位 ミスタージーティー 11番人気 → 3着　<strong>（払戻集計中）</strong></div>
-    </div>
-    <span class="race-result result-hit">🎯 3着激走</span>
-  </div>
+  <div id="dynamic-race-rows"></div>
 
   <div class="notice">
     ※ Phase 1 自動採点パイプライン稼働後、<em>重賞・OP・全レース対象の自動集計</em>に切り替わります。<br>
@@ -221,6 +203,48 @@ html,body{
 <div class="footer">
   最終予想は <a href="final-display.html" class="footer-link">本殿</a> ／ 過去御神託は <a href="archive.html" class="footer-link">絵馬殿</a> へ
 </div>
+
+<script>
+(function(){
+  // 手動登録済みレース（重複防止）
+  const MANUAL = ['青葉賞','フローラS','マイラーズC'];
+
+  function dateLabel(dateStr) {
+    const d = new Date(dateStr.replace(/\//g,'-'));
+    return (d.getMonth()+1) + '/' + d.getDate() + ' (' + ['日','月','火','水','木','金','土'][d.getDay()] + ')';
+  }
+
+  function buildRow(d) {
+    const isHit = d.type !== 'miss';
+    const resultLabel = isHit ? `🎯 ${d.label}` : '🏴‍☠️ 不的中';
+    const resultClass = isHit ? 'result-hit' : 'result-miss';
+    const raceName = d.race + (d.grade ? ' ' + d.grade : '');
+    const meta = [d.venue, d.surface].filter(Boolean).join(' ');
+    const oddsStr = d.odds ? d.odds + '倍' : '';
+    const summary = `${d.mark} ${d.horse} ${d.pop}番人気${oddsStr ? ' ' + oddsStr : ''} → ${d.result}着`;
+    return `<div class="race-row">
+      <div class="race-date">${dateLabel(d.date)}</div>
+      <div>
+        <div class="race-name">${raceName}</div>
+        ${meta ? `<div class="race-meta">${meta}</div>` : ''}
+        <div class="bet-summary">${summary}${d.payout ? `　払戻¥${d.payout.toLocaleString()}` : '　<strong>（払戻集計中）</strong>'}</div>
+      </div>
+      <span class="race-result ${resultClass}">${resultLabel}</span>
+    </div>`;
+  }
+
+  fetch('data/results.json')
+    .then(r => r.json())
+    .then(data => {
+      const rows = data
+        .filter(d => !MANUAL.includes(d.race))
+        .map(buildRow).join('');
+      const el = document.getElementById('dynamic-race-rows');
+      if (el) el.innerHTML = rows;
+    })
+    .catch(() => {});
+})();
+</script>
 
 </body>
 </html>
