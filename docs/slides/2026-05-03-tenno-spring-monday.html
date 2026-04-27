@@ -62,7 +62,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
 /* ─── SLIDE 2 キャラ ─── */
 .char-stage{display:flex;gap:70px;align-items:flex-end;width:100%;max-width:1400px;}
 .char-box{flex:1;display:flex;flex-direction:column;align-items:center;}
-.char-avatar{font-size:90px;line-height:1;margin-bottom:12px;}
+.char-avatar{font-size:90px;line-height:1;margin-bottom:12px;width:160px;height:160px;object-fit:cover;border-radius:12px;border:2px solid rgba(201,169,97,.3);}
 .char-name{font-size:19px;font-weight:800;color:var(--kin);letter-spacing:.1em;margin-bottom:4px;}
 .char-tag{font-size:12px;color:var(--muted);letter-spacing:.06em;text-align:center;}
 .char-bubble{background:rgba(201,169,97,.07);border:1px solid rgba(201,169,97,.25);border-radius:10px;padding:16px 20px;margin-top:16px;font-size:14.5px;line-height:1.75;color:var(--text);letter-spacing:.04em;max-width:480px;}
@@ -106,11 +106,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
 .haito-note-big em{color:var(--kin);font-style:normal;font-weight:700;}
 
 /* ─── SLIDE 9-13 注目馬 ─── */
-.horse-slide{width:100%;max-width:1300px;display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:start;}
-.horse-mark-big{font-size:72px;font-weight:900;line-height:1;width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.horse-mark-big.honmei{background:linear-gradient(135deg,var(--shu),#7A1E1E);}
-.horse-mark-big.taikou{background:linear-gradient(135deg,#1F4D2E,#0f2c18);}
-.horse-mark-big.ana{background:linear-gradient(135deg,#3A0F1A,#5A1020);font-size:48px;}
+.horse-slide{width:100%;max-width:1200px;}
 .horse-name-big{font-size:40px;font-weight:800;color:var(--text);letter-spacing:.06em;line-height:1.1;}
 .horse-prev{font-size:13px;color:var(--muted);letter-spacing:.04em;margin-top:6px;}
 .horse-pills{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0;}
@@ -198,7 +194,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   <div class="section-heading">本 日 の 語 り 部</div>
   <div class="char-stage">
     <div class="char-box">
-      <div class="char-avatar float">🙋</div>
+      <img class="char-avatar float" src="img/nick.png" alt="ニック" onerror="this.outerHTML='<div class=\'char-avatar float\' style=\'font-size:90px;line-height:1;margin-bottom:12px;\'>🙋</div>'">
       <div class="char-name">ニック</div>
       <div class="char-tag">本格派馬券師 ／ チャンネル主</div>
       <div class="char-bubble">
@@ -210,7 +206,7 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
     </div>
     <div class="vs-divider">×</div>
     <div class="char-box">
-      <div class="char-avatar float">⛩</div>
+      <img class="char-avatar float" src="img/ginyo.png" alt="ギーニョ" onerror="this.outerHTML='<div class=\'char-avatar float\' style=\'font-size:90px;line-height:1;margin-bottom:12px;\'>⛩</div>'">
       <div class="char-name">ギーニョ</div>
       <div class="char-tag">言語神 ／ UG神宮の神主</div>
       <div class="char-bubble ginyo">
@@ -428,7 +424,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
   <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 注 目 馬</div>
   <div class="horse-slide">
-    <div><div class="horse-mark-big honmei">◎</div></div>
     <div>
       <div class="horse-name-big">アドマイヤテラ</div>
       <div class="horse-prev">前走：阪神大賞典 1着（レコード 2:02.0）</div>
@@ -464,7 +459,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
   <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 注 目 馬</div>
   <div class="horse-slide">
-    <div><div class="horse-mark-big honmei" style="font-size:56px;">◎</div></div>
     <div>
       <div class="horse-name-big">クロワデュノール</div>
       <div class="horse-prev">前走：大阪杯 1着（プラス10kgで勝ち切り）</div>
@@ -501,7 +495,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
   <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 注 目 馬</div>
   <div class="horse-slide">
-    <div><div class="horse-mark-big taikou">○</div></div>
     <div>
       <div class="horse-name-big">ヘデントール</div>
       <div class="horse-prev">前走：京都記念 6着 ／ 前年覇者・連覇狙い</div>
@@ -537,7 +530,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
   <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 注 目 馬</div>
   <div class="horse-slide">
-    <div><div class="horse-mark-big taikou">▲</div></div>
     <div>
       <div class="horse-name-big">シンエンペラー</div>
       <div class="horse-prev">前走：ネオムターフカップ ／ JC出走の国際経験</div>
@@ -573,7 +565,6 @@ html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','
   <div class="slide-corner bl"></div><div class="slide-corner br"></div>
   <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 穴 抜 擢</div>
   <div class="horse-slide">
-    <div><div class="horse-mark-big ana">☆</div></div>
     <div>
       <div class="horse-name-big">マイネルカンパーナ</div>
       <div class="horse-prev">前走：ダイヤモンドS ／ ステイヤーズS2着 ／ 馬体重422kg</div>
