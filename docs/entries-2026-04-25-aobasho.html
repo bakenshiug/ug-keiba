@@ -1,0 +1,3019 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>拝殿｜出走馬の御神託 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/jinja.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FAFAFA;--bg-dk:#FBF7EE;--bg-md:#F5F0E3;
+  --bg1:#FAFAFA;--bg2:#FBF7EE;--bg3:#FAFAFA;
+  --paper:#FBF7EE;
+  --sumi:#1A1A1A;--shu:#9B2D30;--shu-dk:#7A1E1E;
+  --midori:#1F4D2E;--kin:#C9A961;
+  --pink:#9B2D30;--pink-dk:#7A1E1E;--pink-lt:#B85558;
+  --gold:#C9A961;
+  --card:rgba(255,255,255,.9);--border:rgba(201,169,97,.3);
+  --text:#2A2A2A;--muted:rgba(42,42,42,.6);
+  --zi-s:#C9A961;--zi-a:#1F4D2E;--zi-b:#2B5A9F;--zi-c:#9B2D30;--zi-d:rgba(155,45,48,.45);
+}
+html,body{
+  background:var(--bg);
+  background-image:linear-gradient(160deg, rgba(251,247,238,.5) 0%, rgba(250,250,250,1) 50%, rgba(251,247,238,.5) 100%),radial-gradient(circle at 20% 30%, rgba(201,169,97,.04) 0%, transparent 60%),radial-gradient(circle at 80% 70%, rgba(155,45,48,.03) 0%, transparent 60%);
+  color:var(--text);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  min-height:100vh;
+}
+
+/* ── ヘッダー（鳥居風）── */
+.page-header{
+  background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+  border-bottom:2px solid var(--shu);
+  padding:12px 16px;
+  display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 12px rgba(155,45,48,.08);
+  position:relative;
+}
+.page-header::before{
+  content:'⛩';
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-size:60px;color:var(--shu);opacity:.04;
+  pointer-events:none;
+}
+.page-header::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  opacity:.4;
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;font-weight:700;color:var(--shu);
+  text-decoration:none;padding:6px 12px;border-radius:3px;
+  border:1px solid var(--shu);
+  background:var(--paper);
+  white-space:nowrap;flex-shrink:0;
+  font-family:'Shippori Mincho',serif;
+  transition:all .18s;
+}
+.back-btn:hover{background:var(--shu);color:#fff;}
+.page-title{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:16px;font-weight:800;color:var(--shu);letter-spacing:.08em;}
+.page-sub{font-size:10px;color:var(--muted);margin-top:1px;letter-spacing:.08em;}
+
+/* ── バナー（案内札）── */
+.breadcrumb-banner{
+  padding:10px 16px;
+  background:var(--paper);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  font-family:'Shippori Mincho',serif;
+}
+.bc-item{font-size:11px;font-weight:700;color:var(--muted);}
+.bc-sep{font-size:13px;color:var(--kin);font-weight:900;}
+.bc-current{font-size:11px;font-weight:900;color:var(--shu);}
+
+/* ── ギーニョ大神 御神体ヒーロー ── */
+.ginyo-hero{
+  position:relative;
+  padding:22px 32px 20px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(249,233,183,.35) 0%, transparent 55%),
+    linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  gap:22px;flex-wrap:wrap;
+  overflow:hidden;
+}
+.ginyo-hero::before,.ginyo-hero::after{
+  content:'';position:absolute;top:0;bottom:0;width:6px;
+  background:linear-gradient(180deg,var(--shu) 0%,var(--shu-dk) 50%,var(--shu) 100%);
+  opacity:.9;
+}
+.ginyo-hero::before{left:0;}
+.ginyo-hero::after{right:0;}
+.gh-avatar-wrap{
+  position:relative;
+  width:120px;height:120px;
+  flex-shrink:0;
+}
+.gh-halo-outer{
+  position:absolute;inset:-12px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(249,233,183,.9) 0%, rgba(201,169,97,.25) 60%, transparent 95%);
+  z-index:0;
+}
+.gh-halo-ring{
+  position:absolute;inset:-4px;
+  border-radius:50%;
+  border:1px solid var(--kin);
+  z-index:1;
+}
+.gh-avatar{
+  position:relative;z-index:2;
+  width:120px;height:120px;border-radius:50%;
+  border:3px solid var(--kin);
+  box-shadow:0 4px 18px rgba(155,45,48,.25), inset 0 0 0 1px rgba(255,255,255,.6);
+  object-fit:cover;
+  object-position:center 28%;
+  background:var(--paper);
+}
+.gh-text{
+  text-align:center;
+  max-width:440px;
+  flex:1 1 260px;min-width:240px;
+}
+.gh-label{
+  font-family:'Shippori Mincho',serif;
+  font-size:9.5px;font-weight:700;color:var(--kin);
+  letter-spacing:.32em;margin-bottom:6px;
+}
+.gh-title{
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:24px;font-weight:800;color:var(--shu);
+  letter-spacing:.22em;line-height:1;
+  margin-bottom:10px;
+  position:relative;display:inline-block;padding:0 18px;
+}
+.gh-title::before,.gh-title::after{
+  content:'';position:absolute;top:50%;width:12px;height:1px;
+  background:var(--kin);
+}
+.gh-title::before{left:0;}
+.gh-title::after{right:0;}
+.gh-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:16px;font-weight:700;color:var(--sumi);
+  letter-spacing:.14em;margin-bottom:4px;
+}
+.gh-sub{
+  font-family:'Shippori Mincho',serif;
+  font-size:11px;color:var(--muted);
+  letter-spacing:.1em;margin-bottom:12px;
+}
+.gh-divider{
+  width:64%;max-width:200px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--kin),transparent);
+  margin:0 auto 10px;
+}
+.gh-msg{
+  font-family:'Shippori Mincho',serif;
+  font-size:12.5px;color:var(--sumi);
+  letter-spacing:.08em;line-height:1.75;font-weight:500;
+}
+.gh-msg em{
+  font-style:normal;color:var(--shu);font-weight:700;
+  border-bottom:1px dotted var(--kin);padding-bottom:1px;
+}
+@media (max-width:640px){
+  .ginyo-hero{gap:12px;padding:16px 18px 14px;flex-direction:column;}
+  .ginyo-hero::before,.ginyo-hero::after{width:4px;}
+  .gh-avatar-wrap,.gh-avatar{width:92px;height:92px;}
+  .gh-halo-outer{inset:-8px;}
+  .gh-text{min-width:0;flex:1 1 auto;width:100%;}
+  .gh-label{font-size:8.5px;letter-spacing:.28em;margin-bottom:4px;}
+  .gh-title{font-size:19px;letter-spacing:.18em;margin-bottom:8px;}
+  .gh-name{font-size:14px;margin-bottom:3px;}
+  .gh-sub{font-size:10.5px;margin-bottom:9px;}
+  .gh-divider{margin-bottom:8px;}
+  .gh-msg{font-size:11.5px;line-height:1.7;}
+}
+
+/* ── 過去10年の神託マトリクス（今週の3重賞）── */
+.oracle-matrix{
+  background:linear-gradient(180deg,var(--paper) 0%,#fff 100%);
+  padding:14px 16px 14px;
+  border-bottom:1px solid var(--border);
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+}
+.oracle-head{text-align:center;padding:2px 0 8px;position:relative;}
+.oracle-head::before,.oracle-head::after{
+  content:'';position:absolute;top:50%;width:30%;max-width:120px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--kin),transparent);
+}
+.oracle-head::before{left:4%;}
+.oracle-head::after{right:4%;}
+.oracle-title{
+  font-size:13px;font-weight:800;color:var(--shu);
+  letter-spacing:.18em;display:inline-block;padding:0 10px;
+}
+.oracle-sub{
+  display:block;font-size:10px;color:var(--muted);
+  letter-spacing:.12em;margin-top:3px;font-weight:600;
+}
+.oracle-body{
+  max-width:580px;margin:0 auto;
+  display:flex;flex-direction:column;gap:4px;
+  padding:4px 0 0;
+}
+.oracle-row{
+  display:grid;
+  grid-template-columns:96px 96px 1fr;
+  align-items:center;gap:10px;
+  font-size:12px;padding:4px 6px;
+  border-radius:3px;
+  background:rgba(255,255,255,.5);
+  border:1px solid rgba(201,169,97,.18);
+}
+.oracle-race{
+  font-weight:800;color:var(--sumi);letter-spacing:.04em;
+  border-left:3px solid var(--shu);padding-left:8px;
+}
+.oracle-rough{
+  font-weight:700;letter-spacing:.02em;font-size:11px;
+  text-align:center;padding:2px 4px;border-radius:3px;
+}
+.rough-1{color:var(--midori);background:rgba(31,77,46,.08);}
+.rough-2{color:#8a6e2a;background:rgba(201,169,97,.15);}
+.rough-3{color:var(--shu);background:rgba(155,45,48,.1);}
+.oracle-keyword{
+  color:var(--sumi);font-weight:700;
+  letter-spacing:.06em;font-size:11.5px;
+}
+@media (max-width:520px){
+  .oracle-row{grid-template-columns:78px 82px 1fr;font-size:11px;gap:6px;padding:3px 5px;}
+  .oracle-rough{font-size:10px;}
+  .oracle-keyword{font-size:10.5px;}
+}
+
+/* ── タブ（御札バー）── */
+.tab-bar{
+  display:flex;gap:0;
+  background:var(--paper);
+  border-bottom:2px solid var(--border);
+  position:sticky;top:57px;z-index:100;
+  font-family:'Shippori Mincho',serif;
+}
+.tab-btn{
+  flex:1;padding:11px 8px;
+  font-size:12px;font-weight:700;color:var(--muted);
+  background:transparent;border:none;cursor:pointer;
+  border-bottom:3px solid transparent;
+  transition:all .18s;letter-spacing:.08em;
+  text-align:center;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+}
+.tab-btn.active{
+  color:var(--shu);
+  border-bottom:3px solid var(--shu);
+  background:rgba(155,45,48,.06);
+  font-weight:900;
+}
+.tab-btn .tab-grade{
+  font-size:9px;font-weight:900;
+  padding:1px 5px;border-radius:3px;margin-right:4px;
+  vertical-align:middle;
+}
+.grade-g1{background:linear-gradient(135deg,var(--shu),var(--shu-dk));color:#fff;}
+.grade-g2{background:linear-gradient(135deg,var(--kin),#a88c52);color:#fff;}
+.grade-l{background:linear-gradient(135deg,var(--midori),#163c24);color:#fff;}
+.grade-op{background:linear-gradient(135deg,#8a8a8a,#6a6a6a);color:#fff;}
+
+/* ── レース情報（本日の御神籤）── */
+.race-info{
+  padding:12px 16px;
+  background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  position:relative;
+}
+.race-info::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  opacity:.5;
+}
+.race-info-name{font-family:'Shippori Mincho','Noto Serif JP',serif;font-size:17px;font-weight:800;color:var(--sumi);letter-spacing:.04em;}
+.race-info-meta{font-size:11px;color:var(--muted);margin-top:2px;font-family:'Shippori Mincho',serif;}
+.horse-count{
+  margin-left:auto;font-size:10px;font-weight:700;
+  padding:4px 12px;border-radius:3px;
+  background:rgba(155,45,48,.08);color:var(--shu);
+  border:1px solid var(--shu);
+  font-family:'Shippori Mincho',serif;
+  letter-spacing:.08em;
+}
+
+/* ── 馬カード（御神籤札）── */
+.horse-list{padding:12px 12px 80px;}
+.horse-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:4px;
+  margin-bottom:10px;
+  overflow:hidden;
+  transition:all .15s;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+  font-family:'Shippori Mincho',serif;
+  position:relative;
+}
+.horse-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  opacity:.25;
+  pointer-events:none;
+}
+.horse-card:active{border-color:var(--shu);}
+.tokuchuu-banner{
+  margin:6px 0 2px;
+  padding:6px 12px;
+  background:linear-gradient(90deg,rgba(201,169,97,.12),rgba(201,169,97,.04));
+  border:1px solid var(--kin);
+  border-left:3px solid var(--kin);
+  border-radius:0 4px 4px 0;
+  font-size:11px;font-weight:800;
+  color:#7a5500;
+  letter-spacing:.08em;
+  font-family:'Shippori Mincho',serif;
+}
+
+/* カードヘッダー */
+.card-head{
+  display:flex;flex-direction:column;gap:8px;
+  padding:12px 14px 10px;
+  background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+  border-bottom:1px solid var(--border);
+}
+/* Z字レイアウト：左(馬番+馬名) ↔ 右(オッズ) */
+.card-head-top{display:flex;align-items:center;gap:10px;}
+.horse-num{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  flex-shrink:0;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+.horse-num-rank{font-size:15px;font-weight:900;line-height:1;}
+.horse-num-mode{font-size:7px;font-weight:700;line-height:1;letter-spacing:.03em;opacity:.85;}
+/* ランク#1 強調（強弱の法則） */
+.horse-num.rank1-highlight{
+  box-shadow:0 0 0 2.5px var(--kin), 0 3px 10px rgba(201,169,97,.4);
+}
+.horse-num-zi     {background:rgba(155,45,48,.1);color:var(--shu);}
+.horse-num-sougou {background:linear-gradient(135deg,rgba(201,169,97,.15),rgba(31,77,46,.1));color:var(--shu-dk);}
+.horse-num-tan    {background:rgba(201,169,97,.18);color:#7a5500;}
+.horse-num-fuku   {background:rgba(31,77,46,.12);color:var(--midori);}
+.horse-num-ana    {background:rgba(155,45,48,.14);color:var(--shu-dk);}
+.horse-num-sf3    {background:rgba(201,169,97,.2);color:#7a5500;}
+.horse-num-keshi  {background:var(--paper);color:var(--muted);border:1px solid var(--border);}
+/* ── 印バッジ（神職の印章）── */
+.mark-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:50%;
+  font-size:16px;font-weight:900;flex-shrink:0;line-height:1;
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+  font-family:'Shippori Mincho',serif;
+}
+.mark-honmei { background:linear-gradient(135deg,var(--shu),var(--shu-dk)); color:#fff; border:2px solid var(--shu-dk); }  /* ◎ */
+.mark-taikou { background:linear-gradient(135deg,var(--midori),#163c24); color:#fff; border:2px solid #163c24; }  /* ○ */
+.mark-tantan { background:linear-gradient(135deg,var(--kin),#a88c52); color:#fff; border:2px solid #a88c52; }  /* ▲ */
+.mark-hoshi  { background:linear-gradient(135deg,#8b1a1a,#5a0e0e); color:#fff; border:2px solid #5a0e0e; }  /* ⭐ */
+.mark-sankaku{ background:linear-gradient(135deg,#8a8a8a,#6a6a6a); color:#fff; border:2px solid #6a6a6a; font-size:13px; } /* △ */
+/* ── 枠番バッジ（JRA公式8色） ── */
+.gate-badge{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  width:30px;height:30px;border-radius:6px;flex-shrink:0;
+  font-weight:900;box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+.gate-num-main{font-size:13px;line-height:1;}
+.gate-frame-sub{font-size:6.5px;line-height:1;opacity:.85;letter-spacing:.02em;}
+.gate-1{background:#f0f0f0;color:#333;border:1.5px solid #aaa;}            /* 白 */
+.gate-2{background:#1a1a1a;color:#fff;border:1.5px solid #555;}            /* 黒 */
+.gate-3{background:#dc2626;color:#fff;border:1.5px solid #b91c1c;}         /* 赤 */
+.gate-4{background:#2563eb;color:#fff;border:1.5px solid #1e40af;}         /* 青 */
+.gate-5{background:#fbbf24;color:#333;border:1.5px solid #d97706;}         /* 黄 */
+.gate-6{background:#16a34a;color:#fff;border:1.5px solid #166534;}         /* 緑 */
+.gate-7{background:#ea580c;color:#fff;border:1.5px solid #c2410c;}         /* 橙 */
+.gate-8{background:#f472b6;color:#fff;border:1.5px solid #db2777;}         /* 桃 */
+.horse-num-uma{background:rgba(155,45,48,.1);color:var(--shu);border:1px solid var(--shu);}
+.horse-name{
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:16px;font-weight:800;color:var(--sumi);
+  flex:1;min-width:0;
+  letter-spacing:.04em;line-height:1.2;
+}
+/* 馬名ランク#1 強調（神託馬）*/
+.horse-name.rank1-name{ color:var(--shu); font-size:17px; font-weight:900; }
+/* ── バッジグループ ── */
+.badge-groups{display:flex;flex-direction:column;gap:5px;flex-shrink:0;}
+.badge-group{display:flex;align-items:flex-start;gap:4px;flex-wrap:wrap;}
+.badge-group-label{
+  font-size:7px;font-weight:900;letter-spacing:.6px;
+  color:rgba(0,0,0,.22);white-space:nowrap;
+  min-width:22px;text-align:right;padding-top:3px;flex-shrink:0;
+}
+/* グループ別テーマ色（強弱・色は3色ルール） */
+.badge-group-label.lbl-blood  { color:rgba(180,83,9,.45);  }  /* 血統 → amber */
+.badge-group-label.lbl-ability{ color:rgba(4,120,87,.45);  }  /* 実力 → green */
+.badge-group-label.lbl-apt    { color:rgba(37,99,235,.38); }  /* 適性 → blue  */
+.badge-group-label.lbl-cond   { color:rgba(192,24,96,.4);  }  /* 条件 → pink  */
+.badge-group-label.lbl-state  { color:rgba(109,40,217,.4); }  /* 状態 → purple */
+.badge-group-label.lbl-lap    { color:rgba(6,148,162,.8);  }  /* ラップ → cyan (×1.5強化後、濃度UP) */
+.badge-group-label.lbl-lap small { font-size:8px;margin-left:3px;color:rgba(6,148,162,.65); }
+.badge-group.badge-group-lap { background:linear-gradient(90deg,rgba(6,148,162,.08),rgba(6,148,162,.03)); border-left:2px solid rgba(6,148,162,.45); border-radius:6px; padding:3px 6px; }
+.badges{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0;}
+
+/* 想定人気・オッズ（御札右端）*/
+.odds-tag{
+  display:flex;flex-direction:column;align-items:flex-end;
+  flex-shrink:0;gap:0px;
+  padding:4px 9px;border-radius:3px;
+  background:rgba(155,45,48,.06);
+  border:1px solid var(--border);
+  font-family:'Shippori Mincho',serif;
+}
+.odds-pop{
+  font-size:10px;font-weight:900;color:var(--shu);letter-spacing:.08em;white-space:nowrap;
+}
+.odds-val{
+  font-size:14px;font-weight:900;color:var(--sumi);letter-spacing:.02em;white-space:nowrap;
+}
+.odds-na{font-size:10px;color:var(--muted);font-style:italic;}
+
+/* ZI能力値バッジ（品格カラー）*/
+.zi-badge{
+  font-size:10px;font-weight:900;padding:2px 7px;border-radius:3px;
+  white-space:nowrap;letter-spacing:.04em;
+  font-family:'Shippori Mincho',serif;
+}
+.zi-s{background:rgba(201,169,97,.15);color:#7a5500;border:1px solid var(--kin);}
+.zi-a{background:rgba(31,77,46,.08);color:var(--midori);border:1px solid var(--midori);}
+.zi-b{background:rgba(43,90,159,.08);color:#2B5A9F;border:1px solid rgba(43,90,159,.4);}
+.zi-c{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.3);}
+.zi-d{background:var(--paper);color:var(--muted);border:1px solid var(--border);}
+
+/* 外厩グレードバッジ */
+.ext-grade{
+  font-size:10px;font-weight:900;padding:2px 7px;border-radius:3px;
+  white-space:nowrap;font-family:'Shippori Mincho',serif;
+}
+.extg-s{background:rgba(201,169,97,.15);color:#7a5500;border:1px solid var(--kin);}
+.extg-a{background:rgba(31,77,46,.08);color:var(--midori);border:1px solid var(--midori);}
+.extg-b{background:var(--paper);color:var(--muted);border:1px solid var(--border);}
+
+/* 血統グレードバッジ */
+.blood-grade{
+  font-size:9px;font-weight:900;padding:2px 6px;border-radius:5px;
+  white-space:nowrap;letter-spacing:.03em;
+}
+/* S grades: 金 3段階 */
+.bg-3s{background:var(--kin);color:#fff;border:1px solid #a88c52;font-weight:900;}
+.bg-2s,.bg-s{background:rgba(201,169,97,.18);color:#7a5500;border:1px solid var(--kin);}
+.bg-1s{background:rgba(201,169,97,.08);color:#7a5500;border:1px solid rgba(201,169,97,.5);}
+/* A grades: 深緑 3段階 */
+.bg-3a{background:var(--midori);color:#fff;border:1px solid #163c24;font-weight:900;}
+.bg-2a,.bg-a{background:rgba(31,77,46,.12);color:var(--midori);border:1px solid var(--midori);}
+.bg-1a{background:rgba(31,77,46,.05);color:var(--midori);border:1px solid rgba(31,77,46,.3);}
+/* B grades: 藍 3段階 */
+.bg-3b{background:#2B5A9F;color:#fff;border:1px solid #1e3f73;font-weight:900;}
+.bg-2b,.bg-b{background:rgba(43,90,159,.1);color:#2B5A9F;border:1px solid rgba(43,90,159,.5);}
+.bg-1b{background:rgba(43,90,159,.04);color:#2B5A9F;border:1px solid rgba(43,90,159,.3);}
+/* C grades: 朱 3段階 */
+.bg-3c{background:var(--shu);color:#fff;border:1px solid var(--shu-dk);font-weight:900;}
+.bg-2c,.bg-c{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.4);}
+.bg-1c{background:rgba(155,45,48,.04);color:var(--shu);border:1px solid rgba(155,45,48,.25);}
+/* D */
+.bg-d{background:var(--paper);color:var(--muted);border:1px solid var(--border);}
+.bg-n{background:#fff;color:var(--muted);border:1px solid var(--border);}
+.bg-analyzing{background:var(--paper);color:var(--muted);border:1px solid var(--border);font-style:italic;letter-spacing:.04em;}
+.bg-age-fixed{background:rgba(43,90,159,.08);color:#2B5A9F;border:1px solid rgba(43,90,159,.4);font-weight:700;}
+
+/* ── デュアルバッジ (単/複 分割) ── */
+.dual-badge{
+  display:inline-flex;align-items:stretch;
+  border-radius:5px;overflow:hidden;
+  white-space:nowrap;font-size:9px;font-weight:900;
+  border:1px solid #d1d5db;
+}
+.dual-lbl{
+  display:flex;align-items:center;padding:0 5px;
+  background:#f3f4f6;
+  color:#6b7280;font-size:8px;font-weight:700;
+  border-right:1px solid #d1d5db;
+}
+.dual-t,.dual-f{
+  display:flex;align-items:center;padding:2px 5px;gap:1px;
+}
+.dual-t{border-right:1px solid #e5e7eb;}
+.dual-t::before{content:'単';font-size:7px;opacity:.6;font-weight:700;}
+.dual-f::before{content:'複';font-size:7px;opacity:.6;font-weight:700;}
+
+/* ── スコアバー（御神託の指標）── */
+.score-bars{
+  display:flex;flex-direction:column;gap:4px;
+  padding:8px 12px;
+  background:var(--paper);
+  border-radius:0 0 4px 4px;
+  border:1px solid var(--border);
+  border-top:2px solid var(--kin);
+  font-family:'Shippori Mincho',serif;
+}
+.score-row{display:flex;align-items:center;gap:6px;}
+.score-lbl{
+  font-size:10px;font-weight:900;width:14px;text-align:center;flex-shrink:0;
+  font-family:'Shippori Mincho',serif;
+}
+.score-lbl.tan-lbl{color:var(--shu);}
+.score-lbl.fuku-lbl{color:var(--midori);}
+.score-track{
+  flex:1;height:5px;background:rgba(201,169,97,.15);
+  border-radius:3px;overflow:hidden;min-width:0;
+}
+.score-fill{height:100%;border-radius:3px;transition:width .3s;}
+.score-fill.tan-fill{background:linear-gradient(90deg,var(--shu),var(--shu-dk));}
+.score-fill.fuku-fill{background:linear-gradient(90deg,var(--midori),#163c24);}
+.score-fill.ana-fill{background:linear-gradient(90deg,#5a3a7a,#40285a);}
+.score-fill.sougo-fill{background:linear-gradient(90deg,var(--kin),#a88c52);}
+.score-val{
+  font-size:10px;font-weight:900;width:36px;text-align:right;flex-shrink:0;
+  font-family:'Shippori Mincho',serif;
+}
+.score-val.tan-val{color:var(--shu);}
+.score-val.fuku-val{color:var(--midori);}
+.score-rank{
+  font-size:9px;font-weight:900;width:24px;text-align:center;flex-shrink:0;
+  color:var(--muted);font-family:'Shippori Mincho',serif;
+}
+/* 強弱: #1 = 金色強調、#2#3 = サブカラー */
+.score-rank.rk1{
+  color:#fff;background:var(--kin);border-radius:3px;
+  padding:1px 4px;font-size:8px;
+}
+.score-rank.rk2{color:var(--muted);}
+.score-rank.rk3{color:var(--shu);}
+
+/* ── 買い目提案（授与所）── */
+.bet-section{
+  margin:10px 12px;padding:14px 16px;
+  background:#fff;
+  border:2px solid var(--kin);
+  border-radius:4px;
+  position:relative;
+  font-family:'Shippori Mincho',serif;
+}
+.bet-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--shu) 0%,var(--kin) 50%,var(--shu) 100%);
+  pointer-events:none;
+}
+.bet-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:12px;
+  border-bottom:1px solid var(--border);padding-bottom:10px;
+}
+.bet-race-type{
+  font-size:11px;font-weight:900;padding:4px 12px;border-radius:3px;
+  color:#fff;letter-spacing:.1em;background:var(--shu);
+}
+.bet-title{font-size:14px;font-weight:800;color:var(--shu);letter-spacing:.08em;font-family:'Shippori Mincho','Noto Serif JP',serif;}
+.bet-total{margin-left:auto;font-size:11px;font-weight:700;color:var(--muted);}
+.bet-row{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 0;border-bottom:1px solid rgba(201,169,97,.15);
+  flex-wrap:wrap;
+}
+.bet-row:last-child{border-bottom:none;}
+.bet-type{
+  font-size:12px;font-weight:900;padding:3px 10px;border-radius:3px;
+  background:var(--shu);color:#fff;white-space:nowrap;min-width:44px;text-align:center;
+  letter-spacing:.06em;
+}
+.bet-horses{
+  font-size:13px;font-weight:700;color:var(--sumi);flex:1;
+  font-family:'Shippori Mincho',serif;
+}
+.bet-points{
+  font-size:11px;font-weight:900;color:var(--muted);white-space:nowrap;
+}
+.bet-note{
+  font-size:10px;color:var(--muted);width:100%;padding-left:2px;
+}
+.bet-optional-note{
+  font-size:11px;font-weight:600;color:var(--shu-dk);
+  width:100%;padding:5px 10px;margin-top:2px;
+  background:rgba(155,45,48,.06);
+  border-left:3px solid var(--shu);
+  border-radius:0 4px 4px 0;
+}
+.bet-row-detail{flex-direction:column;align-items:stretch;gap:6px;padding:10px 0;}
+.bet-row-top{display:flex;align-items:center;gap:8px;}
+.bet-note-inline{font-size:10px;color:var(--muted);margin-left:auto;}
+.bet-formation-rows{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.bet-formation-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.bet-chakuban{
+  font-size:11px;font-weight:900;color:var(--shu);
+  white-space:nowrap;min-width:40px;
+}
+.bet-horse-chips{display:flex;flex-wrap:wrap;gap:4px;}
+.bet-horses-detail{
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  padding:7px 12px;background:rgba(201,169,97,.08);border-radius:4px;
+  border:1px solid var(--border);
+}
+.bet-jiku{
+  font-size:12px;font-weight:900;color:var(--shu);white-space:nowrap;
+}
+.bet-arrow{font-size:14px;color:var(--kin);flex-shrink:0;}
+.bet-aite-chips{display:flex;flex-wrap:wrap;gap:4px;flex:1;}
+.bet-horse-chip{
+  font-size:11px;font-weight:700;
+  padding:3px 10px;border-radius:3px;
+  background:rgba(155,45,48,.08);
+  border:1px solid var(--shu);
+  color:var(--shu-dk);
+  white-space:nowrap;
+  font-family:'Shippori Mincho',serif;
+}
+/* ── ソートバー（御札振り分け）── */
+.sort-bar{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 12px;
+  background:var(--paper);
+  border-bottom:1px solid var(--border);
+  font-family:'Shippori Mincho',serif;
+}
+.sort-bar-label{
+  font-size:10px;font-weight:800;
+  color:var(--shu);white-space:nowrap;letter-spacing:.08em;
+}
+.sort-btn{
+  font-size:10px;font-weight:700;
+  padding:5px 12px;border-radius:3px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--muted);
+  cursor:pointer;white-space:nowrap;
+  font-family:'Shippori Mincho',serif;
+  transition:all .18s;
+}
+.sort-btn.active{
+  background:rgba(155,45,48,.08);
+  border-color:var(--shu);
+  color:var(--shu);
+  font-weight:900;
+}
+.sort-btn.ana-btn{
+  border-color:rgba(90,58,122,.35);
+  color:#5a3a7a;
+}
+.sort-btn.ana-btn.active{
+  background:rgba(90,58,122,.1);
+  border-color:#5a3a7a;
+  color:#40285a;
+}
+.sort-btn.sf3-btn{
+  border-color:rgba(201,169,97,.5);
+  color:#7a5500;
+}
+.sort-btn.sf3-btn.active{
+  background:rgba(201,169,97,.15);
+  border-color:var(--kin);
+  color:#7a5500;
+}
+.sort-btn.sougou-btn{
+  border-color:rgba(155,45,48,.35);
+  color:var(--shu-dk);
+  font-weight:800;
+}
+.sort-btn.sougou-btn.active{
+  background:linear-gradient(90deg,rgba(201,169,97,.15),rgba(155,45,48,.12));
+  border-color:var(--shu);
+  color:var(--shu);
+}
+.sort-btn.uma-btn{
+  border-color:rgba(43,90,159,.35);
+  color:#2B5A9F;
+}
+.sort-btn.uma-btn.active{
+  background:rgba(43,90,159,.08);
+  border-color:#2B5A9F;
+  color:#1e3f73;
+  font-weight:800;
+}
+.sort-btn.mark-btn{
+  border-color:rgba(201,169,97,.5);
+  color:#7a5500;
+  font-weight:800;
+}
+.sort-btn.mark-btn.active{
+  background:linear-gradient(90deg,rgba(201,169,97,.2),rgba(155,45,48,.12));
+  border-color:var(--kin);
+  color:#7a5500;
+  font-weight:900;
+}
+.horse-num-mark-sort{background:linear-gradient(135deg,rgba(201,169,97,.2),rgba(155,45,48,.12));color:#7a5500;border:1px solid var(--kin);}
+
+/* カード本体 */
+.card-body{padding:10px 14px;background:#fff;color:var(--text);font-family:'Shippori Mincho',serif;}
+.horse-meta-row{
+  display:flex;gap:12px;flex-wrap:wrap;
+  font-size:11px;color:var(--text);margin-bottom:8px;
+}
+.horse-meta-row span{display:flex;align-items:center;gap:3px;}
+.meta-label{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.12em;}
+
+/* 外厩フルバッジ（御札）*/
+.ext-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:3px;white-space:nowrap;margin-bottom:8px;font-family:'Shippori Mincho',serif;}
+.ext-northern-tei{background:rgba(201,169,97,.15);color:#7a5500;border:1px solid var(--kin);}
+.ext-northern-shi{background:rgba(43,90,159,.1);color:#2B5A9F;border:1px solid rgba(43,90,159,.5);}
+.ext-champion    {background:rgba(31,77,46,.1);color:var(--midori);border:1px solid var(--midori);}
+.ext-yamamoto    {background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.4);}
+.ext-canyon      {background:rgba(90,58,122,.08);color:#5a3a7a;border:1px solid rgba(90,58,122,.4);}
+.ext-esutei      {background:rgba(155,45,48,.06);color:var(--shu-dk);border:1px solid rgba(155,45,48,.3);}
+.ext-other       {background:var(--paper);color:var(--text);border:1px solid var(--border);}
+.ext-zaiku       {background:#fff;color:var(--muted);border:1px solid var(--border);font-style:italic;}
+
+/* レース目標バッジ（御札）*/
+.rt-badge{display:inline-block;font-size:10px;font-weight:800;padding:2px 9px;border-radius:3px;white-space:nowrap;margin-bottom:8px;margin-left:5px;letter-spacing:.04em;font-family:'Shippori Mincho',serif;}
+.rt-derby  {background:rgba(43,90,159,.1);color:#2B5A9F;border:1px solid rgba(43,90,159,.5);}
+.rt-both   {background:rgba(201,169,97,.15);color:#7a5500;border:1px solid var(--kin);}
+.rt-satsuki{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.4);}
+
+/* ギーニョ神託（御神託箱）*/
+.ginyo-box{
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-left:3px solid var(--shu);
+  border-radius:0 4px 4px 0;
+  padding:11px 14px;
+  margin-top:6px;
+  font-family:'Shippori Mincho',serif;
+}
+.ginyo-header{
+  display:flex;align-items:center;gap:6px;
+  margin-bottom:8px;
+}
+.ginyo-label{
+  font-size:10px;font-weight:900;letter-spacing:.14em;
+  color:var(--shu);
+}
+.ginyo-label::before{content:'◆ ';color:var(--kin);}
+.ginyo-section{margin-bottom:7px;}
+.ginyo-section-title{
+  font-size:10px;font-weight:900;color:var(--shu);
+  letter-spacing:.12em;margin-bottom:4px;
+}
+.sf3-comment-section .ginyo-section-title{color:#7a5500;}
+.sf3-comment-section .ginyo-text{
+  background:rgba(201,169,97,.08);
+  border-left:3px solid var(--kin);
+  padding:6px 10px;border-radius:0 4px 4px 0;
+}
+.condition-comment-section .ginyo-section-title{color:#2B5A9F;}
+.condition-comment-section .ginyo-text{
+  background:rgba(43,90,159,.06);
+  border-left:3px solid #2B5A9F;
+  padding:6px 10px;border-radius:0 4px 4px 0;
+}
+.blood-judge-section .ginyo-section-title{color:var(--midori);}
+.blood-judge-section .ginyo-text{
+  background:rgba(31,77,46,.06);
+  border-left:3px solid var(--midori);
+  padding:6px 10px;border-radius:0 4px 4px 0;
+}
+.ginyo-text{
+  font-size:12px;line-height:1.85;color:var(--text);
+  font-family:'Shippori Mincho',serif;
+}
+.no-comment{
+  font-size:11px;color:var(--muted);
+  font-style:italic;padding:4px 0;
+}
+.prev-finish{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;font-weight:900;
+  padding:2px 9px;border-radius:3px;margin-bottom:6px;
+  background:rgba(201,169,97,.15);color:#7a5500;
+  border:1px solid var(--kin);
+  font-family:'Shippori Mincho',serif;
+}
+.prev-race-name{
+  font-size:9px;font-weight:700;
+  background:var(--kin);color:#fff;
+  padding:1px 6px;border-radius:3px;
+  letter-spacing:.04em;
+}
+
+/* 前走なし */
+.no-race{font-size:11px;color:var(--muted);font-style:italic;}
+
+/* ランク表示（御札の序列）*/
+.rank-badge{
+  font-size:9px;font-weight:900;padding:2px 7px;border-radius:3px;
+  background:rgba(155,45,48,.1);color:var(--shu);
+  border:1px solid rgba(155,45,48,.3);margin-right:6px;
+  font-family:'Shippori Mincho',serif;
+}
+
+/* ── ギーニョ重賞データ解析（御神託の解説）── */
+.analysis-section{
+  margin:12px 12px 0;
+  border-radius:4px;
+  overflow:hidden;
+  border:1px solid var(--kin);
+  background:#fff;
+  font-family:'Shippori Mincho',serif;
+  box-shadow:0 1px 4px rgba(0,0,0,.04);
+}
+/* ── ラップ解析中バナー ── */
+.lap-inprogress-block{
+  background:linear-gradient(135deg,rgba(31,77,46,.06),rgba(201,169,97,.04));
+  border-bottom:1px solid var(--border) !important;
+}
+.lap-inprogress-head{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;
+}
+.lap-inprogress-icon{font-size:20px;flex-shrink:0;}
+.lap-inprogress-title{
+  font-size:12px;font-weight:900;color:var(--midori);letter-spacing:.12em;
+}
+.lap-inprogress-sub{
+  font-size:10px;color:var(--muted);margin-top:2px;line-height:1.6;
+}
+.lap-inprogress-badge{
+  margin-left:auto;flex-shrink:0;
+  font-size:9px;font-weight:900;letter-spacing:.12em;
+  padding:3px 10px;border-radius:3px;
+  background:var(--midori);color:#fff;
+  animation:livePulse 1.8s ease-in-out infinite;
+}
+@keyframes livePulse{
+  0%,100%{opacity:1;} 50%{opacity:.5;}
+}
+/* ── 最終追い切り解析中バナー ── */
+.fw-inprogress-block{
+  background:linear-gradient(135deg,rgba(201,169,97,.08),rgba(201,169,97,.02));
+  border-bottom:1px solid var(--border) !important;
+}
+.fw-inprogress-title{
+  font-size:12px;font-weight:900;color:#7a5500;letter-spacing:.12em;
+}
+.fw-inprogress-badge{
+  margin-left:auto;flex-shrink:0;
+  font-size:9px;font-weight:900;letter-spacing:.12em;
+  padding:3px 10px;border-radius:3px;
+  background:var(--kin);color:#fff;
+  animation:livePulse 1.8s ease-in-out infinite;
+}
+.analysis-block{
+  background:#fff;
+  padding:14px 16px;
+  border-bottom:1px solid rgba(201,169,97,.15);
+}
+.analysis-block:last-child{border-bottom:none;}
+.analysis-block-title{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:900;letter-spacing:.18em;
+  color:var(--shu);
+  padding-bottom:7px;
+  border-bottom:1px solid var(--border);
+  font-family:'Shippori Mincho',serif;
+}
+.analysis-block-title::before{content:'◆';color:var(--kin);font-size:9px;}
+.analysis-block-title.analysis-toggle{
+  cursor:pointer;user-select:none;
+  margin-bottom:0;
+  border-bottom:none;
+  transition:background .15s;
+  border-radius:3px;
+  padding:7px 6px;
+}
+.analysis-block-title.analysis-toggle:hover{
+  background:rgba(155,45,48,.05);
+}
+.analysis-toggle-icon{
+  margin-left:auto;font-size:11px;color:var(--shu);
+  transition:transform .2s;
+}
+.analysis-toggle-hint{
+  font-size:9px;font-weight:400;color:var(--muted);letter-spacing:.04em;
+  white-space:nowrap;
+}
+.analysis-body{
+  padding-top:11px;
+  border-top:1px solid var(--border);
+  margin-top:8px;
+}
+.analysis-icon{font-size:14px;color:var(--kin);}
+.analysis-comment{
+  font-size:12px;line-height:1.95;
+  color:var(--text);
+  white-space:pre-wrap;
+  font-family:'Shippori Mincho',serif;
+}
+/* ── レース別タイトルヘッドライン（本殿の号札）── */
+.analysis-headline{
+  text-align:center;
+  padding:14px 12px 16px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:14px;
+  background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);
+}
+.rt-main{
+  display:block;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:22px;font-weight:800;
+  color:var(--shu);
+  letter-spacing:.12em;
+  line-height:1.3;
+  margin-bottom:4px;
+}
+.rt-sub{
+  display:block;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:16px;font-weight:700;
+  color:var(--sumi);
+  letter-spacing:.06em;
+  margin-bottom:6px;
+}
+.rt-desc{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  font-style:italic;
+  margin-bottom:8px;
+  font-family:'Shippori Mincho',serif;
+}
+.rt-humor{
+  display:block;
+  font-size:11px;
+  color:var(--muted);
+  font-style:italic;
+  line-height:1.8;
+  font-family:'Shippori Mincho',serif;
+}
+/* ランキングリスト（番付）*/
+.rank-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+.rank-item{
+  display:flex;align-items:flex-start;gap:10px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:4px;padding:10px 12px;
+  font-family:'Shippori Mincho',serif;
+}
+.rank-item.rank-keshi{
+  opacity:.6;
+  border-color:rgba(155,45,48,.2);
+  background:rgba(155,45,48,.03);
+}
+.rank-num{
+  flex-shrink:0;
+  width:28px;height:28px;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;
+  font-family:'Shippori Mincho',serif;
+}
+.rank-num.r1{background:var(--kin);color:#fff;border:1px solid #a88c52;}
+.rank-num.r2{background:#8a8a8a;color:#fff;border:1px solid #6a6a6a;}
+.rank-num.r3{background:#a66820;color:#fff;border:1px solid #7e4e18;}
+.rank-num.rn{background:var(--paper);color:var(--muted);border:1px solid var(--border);}
+.rank-num.rx{background:rgba(155,45,48,.08);color:var(--shu);border:1px solid rgba(155,45,48,.3);font-size:10px;}
+.rank-info{flex:1;min-width:0;}
+.rank-horse{
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  font-size:14px;font-weight:800;color:var(--sumi);
+  margin-bottom:4px;
+}
+.rank-horse-comment{
+  font-size:11px;line-height:1.85;
+  color:var(--text);
+  font-family:'Shippori Mincho',serif;
+}
+
+.loading{text-align:center;padding:48px 16px;color:var(--muted);font-size:13px;font-family:'Shippori Mincho',serif;}
+
+/* ═══════════════════════════════════════════════════════
+   🎬 配信モード（URL末尾 ?broadcast=1）
+   YouTube配信でそのままOBSのブラウザソースに流す用
+═══════════════════════════════════════════════════════ */
+body.broadcast-mode{background:#fafaf7;}
+body.broadcast-mode .jinja-kisetsu,
+body.broadcast-mode .page-header,
+body.broadcast-mode .breadcrumb-banner,
+body.broadcast-mode .ginyo-hero,
+body.broadcast-mode .oracle-matrix,
+body.broadcast-mode .jinja-footer,
+body.broadcast-mode .tab-bar,
+body.broadcast-mode .race-tabs,
+body.broadcast-mode .sort-tabs,
+body.broadcast-mode .disclaimer{display:none !important;}
+
+/* コンテンツ全体を拡大表示 */
+body.broadcast-mode #content{
+  zoom:1.75;
+  max-width:1100px;
+  margin:28px auto !important;
+}
+
+/* 準備中テーブルを配信向けに整える */
+body.broadcast-mode #content table{border-collapse:separate !important;border-spacing:0 !important;}
+body.broadcast-mode #content table thead th{
+  padding:14px 12px !important;
+  font-size:14px !important;
+  background:var(--paper);
+  border-bottom:3px solid var(--sumi) !important;
+}
+body.broadcast-mode #content table tbody tr{
+  border-bottom:1px solid var(--border) !important;
+}
+body.broadcast-mode #content table tbody tr:nth-child(even){
+  background:rgba(201,169,97,.04);
+}
+body.broadcast-mode #content table tbody tr td{
+  padding:16px 12px !important;
+  vertical-align:top !important;
+  line-height:1.7 !important;
+}
+
+/* 現在の配信中マーカー */
+body.broadcast-mode .bc-focus{
+  background:rgba(201,169,97,.18) !important;
+  outline:3px solid var(--shu);
+  outline-offset:-3px;
+}
+
+/* 前走レース表示（全画面で大きく） */
+.prev-race-line{
+  display:inline-block;
+  margin-top:6px;
+  font-size:11px;
+  padding:3px 10px;
+  background:linear-gradient(90deg,rgba(201,169,97,.18),rgba(201,169,97,.06));
+  border:1px solid var(--kin);
+  border-radius:3px;
+  color:#7a5500;
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+.prev-race-line .prev-label{
+  color:var(--shu);
+  margin-right:6px;
+  font-weight:800;
+}
+.prev-race-line .prev-name{
+  background:var(--kin);
+  color:#fff;
+  padding:1px 7px;
+  border-radius:2px;
+  margin-right:6px;
+  font-size:10px;
+  letter-spacing:.05em;
+}
+.prev-race-line .prev-result{
+  color:#9B2D30;
+  font-weight:900;
+}
+
+/* 🏇 鞍上・馬体重ライン（配信モード特化） */
+.jw-line{
+  font-size:11px;
+  line-height:1.4;
+  letter-spacing:.04em;
+  margin-top:4px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.jw-line .jw-jockey{
+  color:var(--sumi);
+  font-weight:700;
+}
+.jw-line .jw-icon{font-size:10px;margin-right:3px;opacity:.7;}
+.jw-line .jw-weight{
+  color:#7a5500;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+}
+.jw-line .jw-weight.jw-small{color:#9B2D30;}  /* 420kg以下は穴候補の朱 */
+.jw-line .jw-delta{
+  margin-left:2px;
+  font-weight:800;
+  font-size:10px;
+}
+.jw-line .jw-prev-label{
+  display:inline-block;
+  font-size:9px;
+  font-weight:700;
+  color:#8a6a00;
+  background:rgba(201,169,97,.25);
+  padding:1px 4px;
+  border-radius:2px;
+  margin-right:4px;
+  letter-spacing:.04em;
+}
+body.broadcast-mode .jw-line .jw-prev-label{
+  font-size:10px;
+  padding:2px 6px;
+}
+
+/* 配信モード：鞍上・馬体重を大きく目立たせる */
+body.broadcast-mode .jw-line{
+  font-size:13px !important;
+  margin-top:6px !important;
+  padding:5px 0;
+  gap:12px;
+}
+body.broadcast-mode .jw-line .jw-jockey{
+  display:inline-block;
+  background:linear-gradient(90deg,rgba(155,45,48,.12),rgba(155,45,48,.02));
+  padding:3px 12px;
+  border-left:3px solid var(--shu);
+  font-family:'Shippori Mincho',serif;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+body.broadcast-mode .jw-line .jw-weight{
+  display:inline-block;
+  background:rgba(201,169,97,.15);
+  padding:3px 12px;
+  border-radius:3px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+body.broadcast-mode .jw-line .jw-weight.jw-small{
+  background:rgba(155,45,48,.15);
+  color:#9B2D30;
+}
+
+/* 配信モード：馬名セルに鞍上・馬体重を入れるので、
+   別カラムの鞍上(3)・厩舎(4)は視覚的に冗長。非表示にしてシンプルに */
+body.broadcast-mode #content table thead th:nth-child(3),
+body.broadcast-mode #content table thead th:nth-child(4),
+body.broadcast-mode #content table tbody td:nth-child(3),
+body.broadcast-mode #content table tbody td:nth-child(4){
+  display:none !important;
+}
+
+/* 配信モード用：矢印キーヒント */
+.bc-hint{
+  position:fixed;right:18px;bottom:16px;
+  font-size:10px;color:#888;
+  background:rgba(255,255,255,.85);
+  padding:6px 12px;border-radius:4px;
+  border:1px solid var(--border);
+  font-family:'Inter',sans-serif;
+  letter-spacing:.06em;z-index:9999;
+  pointer-events:none;
+}
+body:not(.broadcast-mode) .bc-hint{display:none;}
+
+/* ===== 御神託ブロック（神々しいレイアウト） ===== */
+.oracle-block{
+  position:relative;
+  background:
+    linear-gradient(180deg, rgba(255,253,248,.96) 0%, rgba(252,246,232,.92) 100%),
+    repeating-linear-gradient(45deg, transparent 0, transparent 8px, rgba(201,169,97,.03) 8px, rgba(201,169,97,.03) 9px);
+  border:1px solid var(--kin);
+  border-left:4px solid var(--shu);
+  border-right:4px solid var(--shu);
+  padding:26px 24px 22px;
+  margin-bottom:24px;
+  font-family:"Yu Mincho","游明朝","Hiragino Mincho ProN",serif;
+  box-shadow:0 2px 8px rgba(92,62,47,.08), inset 0 0 0 1px rgba(255,255,255,.6);
+}
+.oracle-block::before{
+  content:"⛩";
+  position:absolute;
+  top:-14px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:22px;
+  background:var(--paper, #fcf6e8);
+  color:var(--shu);
+  padding:0 12px;
+  letter-spacing:.2em;
+}
+.oracle-block::after{
+  content:"";
+  position:absolute;
+  top:6px;left:6px;right:6px;bottom:6px;
+  border:1px dashed rgba(201,169,97,.35);
+  pointer-events:none;
+}
+.oracle-label{
+  display:inline-block;
+  font-size:10px;
+  font-weight:700;
+  color:var(--kin);
+  background:var(--sumi);
+  padding:3px 12px;
+  border-radius:1px;
+  letter-spacing:.32em;
+  margin-bottom:14px;
+}
+.oracle-heading{
+  font-size:15px;
+  font-weight:700;
+  color:var(--shu);
+  margin:16px 0 10px;
+  padding:4px 0 6px 10px;
+  border-left:3px double var(--kin);
+  letter-spacing:.08em;
+  line-height:1.5;
+}
+.oracle-heading:first-child{margin-top:0;}
+.oracle-list{
+  margin:6px 0 14px;
+  padding-left:4px;
+  list-style:none;
+}
+.oracle-list li{
+  position:relative;
+  padding:5px 0 5px 22px;
+  line-height:1.85;
+  font-size:13.5px;
+  color:var(--sumi);
+  border-bottom:1px dotted rgba(201,169,97,.25);
+}
+.oracle-list li:last-child{border-bottom:none;}
+.oracle-list li::before{
+  content:"◆";
+  color:var(--kin);
+  position:absolute;
+  left:2px;top:7px;
+  font-size:10px;
+}
+.oracle-para{
+  margin:8px 0;
+  font-size:13.5px;
+  line-height:1.95;
+  color:var(--sumi);
+  text-indent:1em;
+}
+.oracle-note{
+  margin-top:14px;
+  padding-top:10px;
+  border-top:1px solid rgba(201,169,97,.3);
+  font-size:11.5px;
+  color:var(--muted);
+  letter-spacing:.04em;
+  font-family:'Inter','Hiragino Sans',sans-serif;
+}
+.oracle-emph{
+  color:var(--shu);
+  font-weight:700;
+  background:linear-gradient(transparent 65%, rgba(201,169,97,.25) 65%);
+  padding:0 2px;
+}
+
+/* ── AI試験運用バナー（全ページ共通） ── */
+.ai-trial-banner{
+  background:linear-gradient(180deg,rgba(45,28,16,.85) 0%,rgba(26,17,8,.92) 100%);
+  border-bottom:1px solid rgba(201,169,97,.4);
+  padding:9px 12px 10px;text-align:center;
+  font-family:'Shippori Mincho','Noto Serif JP',serif;
+  position:relative;z-index:50;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+.ai-trial-banner::before,
+.ai-trial-banner::after{
+  content:'';position:absolute;left:6%;right:6%;height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(201,169,97,.4) 50%,transparent 100%);
+}
+.ai-trial-banner::before{top:3px;}
+.ai-trial-banner::after{bottom:3px;}
+.ai-trial-banner-text{
+  font-size:11.5px;letter-spacing:.08em;line-height:1.7;
+  color:rgba(244,233,201,.9);
+}
+.ai-trial-banner-text .ai-trial-icon{
+  font-size:14px;margin-right:6px;vertical-align:middle;
+}
+.ai-trial-banner-text strong{
+  color:#E8D082;font-weight:700;letter-spacing:.05em;
+}
+.ai-trial-banner-text .ai-trial-author{
+  display:block;font-size:10px;color:rgba(201,169,97,.7);
+  margin-top:2px;letter-spacing:.18em;
+}
+@media(max-width:640px){
+  .ai-trial-banner-text{font-size:10.5px;line-height:1.55;}
+  .ai-trial-banner-text .ai-trial-author{font-size:9px;}
+}
+</style>
+</head>
+<body>
+<!-- ═════ AI試験運用バナー（全ページ共通） ═════ -->
+<div class="ai-trial-banner">
+  <div class="ai-trial-banner-text">
+    <span class="ai-trial-icon">🤖</span>神 宮 、 A I で 全 レ ー ス 採 点 へ 拡 張 中 。 試 運 転 故 、 神 託 に 粗 あ り 。 <strong>さ れ ど 人 気 は 嘘 つ け ど 、 構 造 は 嘘 つ か ぬ 。</strong>
+    <span class="ai-trial-author">─ ギ ー ニ ョ 修 行 中 の 一 文 ─</span>
+  </div>
+</div>
+
+
+<!-- 季節挨拶バー -->
+<div class="jinja-kisetsu" style="background:linear-gradient(90deg,var(--shu) 0%,var(--shu-dk) 100%);color:#fff;padding:6px 18px;font-size:11px;letter-spacing:.15em;text-align:center;font-weight:500;font-family:'Shippori Mincho',serif;">卯月廿二日　穀雨の候　拝殿にて御神託を承る</div>
+
+<div class="page-header">
+  <a href="index.html" class="back-btn">⛩ 鳥居</a>
+  <div style="flex:1;text-align:center;">
+    <div class="page-title">拝殿　HAIDEN</div>
+    <div class="page-sub">UG競馬ワイド神宮 ／ 出走馬の御神託</div>
+  </div>
+  <a href="entries-archive.html" class="back-btn" style="margin-left:auto;">📜 記録</a>
+</div>
+
+<div class="breadcrumb-banner">
+  <span class="bc-item">御神託の実績：NZT☆レザベーション6番人気1着 ／ 桜花賞△ジッピーチューン12番人気3着</span>
+  <span class="bc-sep">›</span>
+  <span class="bc-current">青葉賞・フローラS・マイラーズC 神託準備中 ／ 枠順確定（4/23木）待ち</span>
+</div>
+
+<!-- ギーニョ大神 御神体ヒーロー -->
+<div class="ginyo-hero">
+  <div class="gh-avatar-wrap">
+    <div class="gh-halo-outer"></div>
+    <div class="gh-halo-ring"></div>
+    <img src="img/giinyo-daijin.png" alt="ギーニョ大神 御本尊" class="gh-avatar">
+  </div>
+  <div class="gh-text">
+    <div class="gh-label">GIINYO OMOIKANE-NO-KAMI</div>
+    <div class="gh-title">御神託降臨</div>
+    <div class="gh-name">ギーニョ・思金神</div>
+    <div class="gh-sub">― 知恵と的中の神、4頭BOXの開祖 ―</div>
+    <div class="gh-divider"></div>
+    <div class="gh-msg">拝殿にて、<em>四神の神託</em>を授く。<br>問われるは、馬券に宿す一手の真意。</div>
+  </div>
+</div>
+
+<!-- 過去10年の神託マトリクス -->
+<div class="oracle-matrix">
+  <div class="oracle-head">
+    <span class="oracle-title">⛩ 過去10年の神託 ⛩</span>
+    <span class="oracle-sub">今週の3重賞 ／ 2026-04-25・26</span>
+  </div>
+  <div class="oracle-body">
+    <div class="oracle-row">
+      <span class="oracle-race">青葉賞</span>
+      <span class="oracle-rough rough-2">荒れ度 ★★</span>
+      <span class="oracle-keyword">距離延長組警戒</span>
+    </div>
+    <div class="oracle-row">
+      <span class="oracle-race">フローラS</span>
+      <span class="oracle-rough rough-3">荒れ度 ★★★</span>
+      <span class="oracle-keyword">開幕週・前残り穴</span>
+    </div>
+    <div class="oracle-row">
+      <span class="oracle-race">マイラーズC</span>
+      <span class="oracle-rough rough-1">荒れ度 ★</span>
+      <span class="oracle-keyword">先行粘り込み有利</span>
+    </div>
+  </div>
+</div>
+
+<!-- タブ -->
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" data-idx="0">
+    <span class="tab-grade grade-g2">G2</span>青葉賞
+  </button>
+  <button class="tab-btn" data-idx="1">
+    <span class="tab-grade grade-g2">G2</span>フローラS
+  </button>
+  <button class="tab-btn" data-idx="2">
+    <span class="tab-grade grade-g2">G2</span>マイラーズC
+  </button>
+</div>
+
+<!-- コンテンツ -->
+<div id="content"><p class="loading">⏳ 御神託を降ろしをります…</p></div>
+
+<script>
+const RACES = [
+  {
+    file: 'data/race-notes/2026-04-25-tokyo-11r.json',
+    label: '青葉賞', gradeCls: 'grade-g2',
+    meta: '4月25日(土) 東京 芝2400m 25頭'
+  },
+  {
+    file: 'data/race-notes/2026-04-26-tokyo-11r.json',
+    label: 'フローラS', gradeCls: 'grade-g2',
+    meta: '4月26日(日) 東京 芝2000m 牝 16頭'
+  },
+  {
+    file: 'data/race-notes/2026-04-26-kyoto-11r.json',
+    label: 'マイラーズC', gradeCls: 'grade-g2',
+    meta: '4月26日(日) 京都 芝1600m外 19頭'
+  },
+];
+
+let allData = [];
+let currentIdx = 0;
+
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ZI能力値グレード
+function ziGrade(zi) {
+  if (!zi) return 'D';
+  if (zi >= 120) return 'S';
+  if (zi >= 110) return 'A';
+  if (zi >= 100) return 'B';
+  if (zi >= 90)  return 'C';
+  return 'D';
+}
+
+// 外厩グレード
+function extGrade(fac, surface) {
+  // surface: 'ダ'=ダート / それ以外=芝
+  if (!fac || fac === '在厩調整') return 'C';
+  const isDirt = surface === 'ダ';
+  if (isDirt) {
+    // ダート: チャンピオンヒルズ45勝・しがらき34勝がトップ (2026/04/18 PDF)
+    if (fac.includes('チャンピオン') || fac.includes('しがらき')) return 'S';
+    if (fac.includes('天栄') || fac.includes('宇治田原') ||
+        fac.includes('山元')  || fac.includes('キャニオン') || fac.includes('大山ヒルズ')) return 'A';
+    if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
+    return 'B';
+  } else {
+    // 芝: 天栄・しがらきが48勝で同率トップ
+    if (fac.includes('天栄') || fac.includes('しがらき')) return 'S';
+    if (fac.includes('チャンピオン') || fac.includes('大山ヒルズ') ||
+        fac.includes('山元')        || fac.includes('社台ファーム') ||
+        fac.includes('社台F'))       return 'A';
+    if (fac.includes('宇治田原') || fac.includes('キャニオン')) return 'B';
+    if (fac.includes('優楽') || fac.includes('山岡') || fac.includes('ヒイラギ')) return 'C';
+    return 'B';
+  }
+}
+
+function raceTargetBadge(t) {
+  if (t === 'derby')   return `<span class="rt-badge rt-derby">🔵 ダービー狙い</span>`;
+  if (t === 'both')    return `<span class="rt-badge rt-both">🟡 両睨み</span>`;
+  if (t === 'satsuki') return `<span class="rt-badge rt-satsuki">🔴 皐月賞本気</span>`;
+  return '';
+}
+
+function extBadge(fac) {
+  if (!fac || fac === '在厩調整') return `<span class="ext-badge ext-zaiku">在厩調整</span>`;
+  if (fac.includes('天栄'))       return `<span class="ext-badge ext-northern-tei">${esc(fac)}</span>`;
+  if (fac.includes('しがらき'))   return `<span class="ext-badge ext-northern-shi">${esc(fac)}</span>`;
+  if (fac.includes('チャンピオン'))return `<span class="ext-badge ext-champion">${esc(fac)}</span>`;
+  if (fac.includes('山元'))       return `<span class="ext-badge ext-yamamoto">${esc(fac)}</span>`;
+  if (fac.includes('キャニオン')) return `<span class="ext-badge ext-canyon">${esc(fac)}</span>`;
+  if (fac.includes('エスティ'))   return `<span class="ext-badge ext-esutei">${esc(fac)}</span>`;
+  return `<span class="ext-badge ext-other">${esc(fac)}</span>`;
+}
+
+// 馬格グレード：prevWeight + sex から自動計算（牝馬は+20kg補正）
+function prevWeightGrade(w, sex) {
+  if (!w) return null;
+  const ww = w + (sex === '牝' ? 20 : 0);
+  if (ww >= 500) return 'S';
+  if (ww >= 480) return 'A';
+  if (ww >= 460) return 'B';
+  if (ww >= 440) return 'C';
+  return 'D';
+}
+
+function ziGradeBadge(zi) {
+  const g = ziGrade(zi);
+  return `<span class="zi-badge zi-${g.toLowerCase()}">能力${g}</span>`;
+}
+
+function extGradeBadge(fac, surface) {
+  const g = extGrade(fac, surface);
+  const [t, f] = GRADE_MAPS.ext[g] || ['C','B'];
+  return dualBadge('外厩', t, f);
+}
+
+function bloodGradeBadge(tan, fuku) {
+  const t = (tan  && tan  !== '—') ? tan  : null;
+  const f = (fuku && fuku !== '—') ? fuku : null;
+  return dualBadge('血統', t, f);
+}
+
+// ── グレード分割マップ (単勝 / 複勝) ──
+// [tanGrade, fukuGrade]
+const GRADE_MAPS = {
+  // ZI能力値: 突出した能力＝勝ちに来る → 単勝寄り
+  zi:    {S:['S','A'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
+  // 外厩: 仕上げ＝連対安定 → 複勝寄り（既存維持）
+  ext:   {S:['A','S'], A:['B','A'], B:['C','B'], C:['D','C']},
+  // 近走: B=やや低調でも複勝には踏ん張れる（既存維持）
+  // 12段階入力にも対応（表示は標準5段階に変換）
+  kinso: {
+    '3S':['S','S'], '2S':['S','A'], '1S':['A','S'],
+    '3A':['A','A'], '2A':['A','B'], '1A':['B','A'],
+    '3B':['B','B'], '2B':['C','B'], '1B':['C','C'],
+    '3C':['D','C'], '2C':['D','D'], '1C':['D','D'],
+    'S':['S','S'], 'A':['A','A'], 'B':['B','A'], 'C':['D','C'], 'D':['D','D']
+  },
+  // ペース: 展開がズバリ合う＝決め手になる → 単勝寄り
+  pace:  {S:['S','A'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
+  // 馬格: パワー・消耗しにくさ＝安定連対 → 複勝寄り
+  body:  {S:['A','S'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
+  // コース適性: 安定連対に寄与 → 複勝寄り
+  course:{S:['A','S'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
+  // 脚質: 展開での決め手＝勝ちに来る → 単勝寄り
+  style: {S:['S','A'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
+  // 斤量変化: S=+1~1.5kg増(単回225)最強, A=+2~2.5kg増(勝率13.3%), B=±0, C=今回減(単回33), D=+3kg以上増(勝率0%)
+  weightChange: {S:['S','A'], A:['A','A'], B:['C','B'], C:['D','C'], D:['D','D']},
+};
+
+function splitGrade(g, key) {
+  if (!g || g === '—') return [null, null];
+  if (GRADE_MAPS[key] && GRADE_MAPS[key][g]) return GRADE_MAPS[key][g];
+  // 12段階グレード（3S等）はGRADE_MAPSにないので単複同値で返す
+  return g ? [g, g] : [null, null];
+}
+
+function gradePoints(g) {
+  // 12段階評価
+  const pts = {
+    '3S':12,'2S':11,'1S':10,
+    '3A': 9,'2A': 8,'1A': 7,
+    '3B': 6,'2B': 5,'1B': 4,
+    '3C': 3,'2C': 2,'1C': 1,
+    'D':  0,
+    // 後方互換: 旧1文字グレード → 中間値(= 2X相当)
+    'S': 11, 'A': 8, 'B': 5, 'C': 2
+  };
+  return g != null ? (pts[g] ?? null) : null;
+}
+function gradeMax() { return 12; }
+
+function calcScores(h, surface) {
+  const [ziT, ziF]   = splitGrade(ziGrade(h.sabcZI), 'zi');
+  const [exT, exF]   = splitGrade(extGrade(h.extFacility, surface), 'ext');
+  // kinsoGrade: スコア計算は12段階元値をそのまま使用（gradePointsが3S〜1C対応済み）
+  // バッジ表示は kinsoGradeBadge(h.kinsoGrade) 側で GRADE_MAPS 変換するため分離
+  const kT  = h.kinsoGrade ?? null;
+  const kF  = h.kinsoGrade ?? null;
+  const [pT,  pF]    = splitGrade(h.paceGrade,  'pace');
+  const resolvedBodyGrade = h.bodyGrade ?? prevWeightGrade(h.prevWeight, h.sex);
+  const [bdT, bdF]   = splitGrade(resolvedBodyGrade, 'body');
+  const [cT,  cF]    = splitGrade(h.courseGrade,'course');
+  const [syT, syF]   = splitGrade(h.styleGrade, 'style');
+  const srT  = h.sireGradeTan     ?? null;  // 父（データ1）
+  const srF  = h.sireGradeFuku    ?? null;
+  const dsT  = h.damSireGradeTan  ?? null;  // 母父（データ1）
+  const dsF  = h.damSireGradeFuku ?? null;
+  const sr2T = h.sireGrade2Tan    ?? 'B';  // 父（データ2）null→中央値B
+  const sr2F = h.sireGrade2Fuku   ?? 'B';
+  const ds2T = h.damSireGrade2Tan ?? 'B';  // 母父（データ2）null→中央値B
+  const ds2F = h.damSireGrade2Fuku?? 'B';
+  const bT  = (h.bloodGradeTan  && h.bloodGradeTan  !== '—') ? h.bloodGradeTan  : null;  // 配合
+  const bF  = (h.bloodGradeFuku && h.bloodGradeFuku !== '—') ? h.bloodGradeFuku : null;
+  const stT = h.stableGradeTan  ?? null;
+  const stF = h.stableGradeFuku ?? null;
+  const brT = h.breederGradeTan  ?? null;
+  const brF = h.breederGradeFuku ?? null;
+  const jkT = h.jockeyGradeTan  ?? null;
+  const jkF = h.jockeyGradeFuku ?? null;
+  const gtT = h.gateGradeTan    ?? null;
+  const gtF = h.gateGradeFuku   ?? null;
+  // [削除: horseNumGrade — 皐月賞で1人気13着カヴァレリッツォA/A等ミスリード。枠番と機能重複]
+  const cbT = h.comboGradeTan    ?? null;  // 騎手×厩舎コンビ
+  const cbF = h.comboGradeFuku   ?? null;
+  const spT = h.specialGradeTan  ?? h.specialGrade ?? null;
+  const spF = h.specialGradeFuku ?? h.specialGrade ?? null;
+  // [削除: ageGrade — 3歳クラシックで全員同世代、分散ゼロ]
+  const rtT = h.rotGradeTan    ?? null;
+  const rtF = h.rotGradeFuku   ?? null;
+  const s3T = h.sf3GradeTan      ?? null;
+  const s3F = h.sf3GradeFuku     ?? null;
+  const lpT = h.lapGradeTan      ?? null;
+  const lpF = h.lapGradeFuku     ?? null;
+  const pmT = h.prevMarginGradeTan  ?? null;
+  const pmF = h.prevMarginGradeFuku ?? null;
+  const cdT = h.conditionGradeTan  ?? null;
+  const cdF = h.conditionGradeFuku ?? null;
+  const smT = h.somaGradeTan  ?? null;  // 相馬眼
+  const smF = h.somaGradeFuku ?? null;
+  // [削除: raceTargetGrade — 「皐月賞狙いA/ダービー思惑D」主観評価でデータ裏付けなし]
+  const fwT  = h.finalWorkoutGradeTan  ?? null;  // 最終追い切り（4/17-18追加）
+  const fwF  = h.finalWorkoutGradeFuku ?? null;
+  const khG  = h.kehaiGrade ?? null;            // 気配（最終追い切り目視評価）
+  const hgT  = h.haigoGradeTan  ?? null;  // 配合グレード（ギーニョ配合ジャッジ）
+  const hgF  = h.haigoGradeFuku ?? null;
+  // [削除: paradoxGrade — 皐月賞で1着△ロブチェンC/B vs 惨敗ライヒスアドラーA/A等、逆相関傾向]
+  // [削除: commentGrade — 1〜3着と惨敗馬でほぼ全員B/B、分散ゼロ]
+  const [wcT, wcF] = splitGrade(h.weightChangeGrade, 'weightChange');  // 斤量変化（今回増=優位/今回減=不利）
+  const pcT  = h.prevCourseGradeTan  ?? null;  // 前走コース（単回/複回ベース）
+  const pcF  = h.prevCourseGradeFuku ?? null;
+  // [削除: charGrade — bodyGrade / styleGrade と機能重複]
+  const prT  = h.pastRaceGradeTan  ?? null;  // 過去走スコア（クラス×着順×コース適性）×3倍ウェイト
+  const prF  = h.pastRaceGradeFuku ?? null;
+  const gkT  = h.gekisouGradeTan  ?? null;  // 🔥激走スコア（高人気乖離×本気×配合）×2倍ウェイト
+  const gkF  = h.gekisouGradeFuku ?? null;
+  // ── ラップ分析 3ファクター（×1.5倍ウェイト強化 2026-04-19 皐月賞以降） ──
+  const lhcT = h.lapHotCornerGrade  ?? null;  // ラップ①4角（4コーナー通過順位）
+  const lhcF = h.lapHotCornerGrade  ?? null;
+  const lgrT = h.lapGoldenRatioGrade ?? null; // ラップ②前後半ラップ比率
+  const lgrF = h.lapGoldenRatioGrade ?? null;
+  const lttT = h.lapTotalTimeGrade  ?? null;  // ラップ③前後半計タイム
+  const lttF = h.lapTotalTimeGrade  ?? null;
+  // [削除: soma2Grade — somaGrade と完全重複]
+  const gbT  = h.ginyoBonusGradeTan  ?? null;  // ギーニョ加点
+  const gbF  = h.ginyoBonusGradeFuku ?? null;
+
+  let tanScore=0, tanMax=0, fukuScore=0, fukuMax=0;
+  // 基本ファクター（等倍）※削除済み: horseNum/age/raceTarget/paradox/comment/char/soma2
+  for (const g of [ziT,exT,srT,dsT,sr2T,ds2T,bT,kT,pT,stT,bdT,cT,syT,brT,jkT,gtT,cbT,spT,rtT,s3T,cdT,smT,lpT,pmT,fwT,hgT,wcT,pcT,gbT,khG]) {
+    const p = gradePoints(g); if (p !== null){tanScore+=p; tanMax+=gradeMax();}
+  }
+  for (const g of [ziF,exF,srF,dsF,sr2F,ds2F,bF,kF,pF,stF,bdF,cF,syF,brF,jkF,gtF,cbF,spF,rtF,s3F,cdF,smF,lpF,pmF,fwF,hgF,wcF,pcF,gbF,khG]) {
+    const p = gradePoints(g); if (p !== null){fukuScore+=p; fukuMax+=gradeMax();}
+  }
+  // ラップ分析3ファクターは×1.5倍ウェイト（皐月賞で1-2-3着の方向性を最も正確に捉えた主力ファクター）
+  for (const g of [lhcT, lgrT, lttT]) {
+    const p = gradePoints(g); if (p !== null){ tanScore  += p * 1.5; tanMax  += gradeMax() * 1.5; }
+  }
+  for (const g of [lhcF, lgrF, lttF]) {
+    const p = gradePoints(g); if (p !== null){ fukuScore += p * 1.5; fukuMax += gradeMax() * 1.5; }
+  }
+  // 過去走スコアは×3倍ウェイト
+  const prPtsT = gradePoints(prT); if (prPtsT !== null){ tanScore  += prPtsT * 3; tanMax  += gradeMax() * 3; }
+  const prPtsF = gradePoints(prF); if (prPtsF !== null){ fukuScore += prPtsF * 3; fukuMax += gradeMax() * 3; }
+  // 🔥激走スコアは×2倍ウェイト
+  const gkPtsT = gradePoints(gkT); if (gkPtsT !== null){ tanScore  += gkPtsT * 2; tanMax  += gradeMax() * 2; }
+  const gkPtsF = gradePoints(gkF); if (gkPtsF !== null){ fukuScore += gkPtsF * 2; fukuMax += gradeMax() * 2; }
+  // ギーニョ評価：乗算（D=消し表示のみ・スコア影響なし, B=中立×1, S=最高×1.3）
+  const ginyoMult = g => ({'S':1.3,'A':1.15,'B':1.0,'C':0.7,'D':1.0}[g] ?? 1.0);
+  tanScore  *= ginyoMult(h.ginyoGradeTan  ?? 'B');
+  fukuScore *= ginyoMult(h.ginyoGradeFuku ?? 'B');
+  return {tanScore, fukuScore, tanMax, fukuMax};
+}
+
+// ── デュアルバッジ (ラベル + 単grade + 複grade) ──
+function cls(g) {
+  const m = {
+    '3S':'bg-3s','2S':'bg-2s','1S':'bg-1s',
+    '3A':'bg-3a','2A':'bg-2a','1A':'bg-1a',
+    '3B':'bg-3b','2B':'bg-2b','1B':'bg-1b',
+    '3C':'bg-3c','2C':'bg-2c','1C':'bg-1c',
+    'D':'bg-d',
+    // 後方互換
+    'S':'bg-2s','A':'bg-2a','B':'bg-2b','C':'bg-2c'
+  };
+  return m[g] || 'bg-analyzing';
+}
+function dualBadge(label, gTan, gFuku) {
+  const tl = gTan  || '?';
+  const fl = gFuku || '?';
+  return `<span class="dual-badge"><span class="dual-lbl">${esc(label)}</span><span class="dual-t ${cls(gTan)}">${tl}</span><span class="dual-f ${cls(gFuku)}">${fl}</span></span>`;
+}
+
+// ── 既存ファクターを分割してデュアルバッジ化 ──
+function kinsoGradeBadge(g) {
+  const [t,f] = splitGrade(g, 'kinso');
+  return dualBadge('着差', t, f);
+}
+function paceGradeBadge(g) {
+  const [t,f] = splitGrade(g, 'pace');
+  return dualBadge('ペース', t, f);
+}
+// 汎用: JSON に既に Tan/Fuku があるファクター用
+function gradeBadge(label, gTan, gFuku) {
+  if (!gTan && !gFuku) return `<span class="blood-grade bg-analyzing">${esc(label)} 解析中</span>`;
+  return dualBadge(label, gTan ?? null, gFuku ?? null);
+}
+// body / course / style 用 (単一grade → 分割)
+// nullLabel: null時に表示するテキスト（デフォルト「解析中」、完了系バッジは「解析完了」）
+function splitBadge(label, g, key, nullLabel = '解析中') {
+  if (!g) return `<span class="blood-grade bg-analyzing">${esc(label)} ${nullLabel}</span>`;
+  const [t,f] = splitGrade(g, key);
+  return dualBadge(label, t, f);
+}
+
+// ── スコアバー HTML ──
+function scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore, anaMax, anaRank, sougouScore, sougouRank) {
+  const tp = tanMax  > 0 ? Math.round(tanScore/tanMax*100)  : 0;
+  const fp = fukuMax > 0 ? Math.round(fukuScore/fukuMax*100) : 0;
+  const ap = anaMax  > 0 ? Math.round(Math.max(0, anaScore)/anaMax*100) : 0;
+  const sp = Math.round((sougouScore ?? 0) * 100);
+  const rkCls = r => r===1?'rk1':r===2?'rk2':r===3?'rk3':'';
+  return `
+  <div class="score-bars">
+    <div class="score-row">
+      <span class="score-lbl tan-lbl">単</span>
+      <div class="score-track"><div class="score-fill tan-fill" style="width:${tp}%"></div></div>
+      <span class="score-val tan-val">${Math.round(tanScore)}/${tanMax} <span style="opacity:.6;font-size:9px">${tp}%</span></span>
+      <span class="score-rank ${rkCls(tanRank)}">#${tanRank}</span>
+    </div>
+    <div class="score-row">
+      <span class="score-lbl fuku-lbl">複</span>
+      <div class="score-track"><div class="score-fill fuku-fill" style="width:${fp}%"></div></div>
+      <span class="score-val fuku-val">${Math.round(fukuScore)}/${fukuMax} <span style="opacity:.6;font-size:9px">${fp}%</span></span>
+      <span class="score-rank ${rkCls(fukuRank)}">#${fukuRank}</span>
+    </div>
+    <div class="score-row">
+      <span class="score-lbl" style="color:#a78bfa;" title="穴馬スコア：本気×激走×人気乖離">穴</span>
+      <div class="score-track"><div class="score-fill ana-fill" style="width:${ap}%"></div></div>
+      <span class="score-val" style="color:#5a3a7a;">${anaScore.toFixed(2)} <span style="opacity:.6;font-size:9px">${ap}%</span></span>
+      <span class="score-rank ${rkCls(anaRank)}">#${anaRank}</span>
+    </div>
+    <div class="score-row">
+      <span class="score-lbl" style="color:var(--kin);">総</span>
+      <div class="score-track"><div class="score-fill sougo-fill" style="width:${sp}%"></div></div>
+      <span class="score-val" style="color:#7a5500;">${sp}% </span>
+      <span class="score-rank ${rkCls(sougouRank)}">#${sougouRank}</span>
+    </div>
+  </div>`;
+}
+
+// ── 買い目生成ロジック ──
+function detectRaceType(byTan) {
+  if (byTan.length < 4) return '混戦';
+  // 総合スコアで判定（ginyoGrade乗算後の単勝スコアだと偏るため）
+  const bySg = [...byTan].sort((a,b) => (b.sougouScore??0) - (a.sougouScore??0));
+  const pct = s => s.sougouScore ?? 0;
+  const d12 = pct(bySg[0]) - pct(bySg[1]);
+  const d23 = pct(bySg[1]) - pct(bySg[2]);
+  const d34 = pct(bySg[2]) - pct(bySg[3]);
+  if (d12 >= 0.05)                               return '1強';
+  if (d12 <  0.05 && d23 >= 0.05)               return '2強';
+  if (d12 <  0.05 && d23 < 0.07 && d34 >= 0.05) return '3強';
+  return '混戦';
+}
+
+function pickUnique(lists, counts) {
+  const used = new Set();
+  return lists.map((list, i) => {
+    const picked = [];
+    for (const s of list) {
+      if (!used.has(s.name) && picked.length < counts[i]) {
+        picked.push(s.name); used.add(s.name);
+      }
+    }
+    return picked;
+  });
+}
+
+function generateBets(withAna, headCount) {
+  const tanPct  = s => s.tanMax  > 0 ? s.tanScore  / s.tanMax  : 0;
+  const fukuPct = s => s.fukuMax > 0 ? s.fukuScore / s.fukuMax : 0;
+  const byTan  = [...withAna].sort((a,b) => tanPct(b)  - tanPct(a));
+  const byFuku = [...withAna].sort((a,b) => fukuPct(b) - fukuPct(a));
+  const byAna  = [...withAna].sort((a,b) => b.anaScore  - a.anaScore);
+
+  const raceType = detectRaceType(byTan);
+  const bets = [];
+
+  // ── 共通：単勝・複勝 ──
+  const tan1  = byTan[0].name;
+  const fuku1 = byFuku[0].name;
+  const ana1  = byAna.find(s => s.name !== fuku1)?.name ?? byAna[0].name;
+  bets.push({ type:'単勝', horses:[tan1],        points:1, note:'単勝ランク1位' });
+  bets.push({ type:'複勝', horses:[fuku1, ana1], points:2, note:'複勝1位 ＋ 穴馬1位' });
+
+  // ── 1強戦 ──
+  if (raceType === '1強') {
+    const pool = withAna.filter(s => s.name !== tan1);
+    const [fg, ag] = pickUnique(
+      [pool.sort((a,b)=>fukuPct(b)-fukuPct(a)), pool.sort((a,b)=>b.anaScore-a.anaScore)],
+      [3, 3]
+    );
+    const aite = [...new Set([...fg, ...ag])].slice(0, 6);
+    const topAnaOdds = byAna[0]?.h?.expectedOdds ?? 0;
+    const use2ren = topAnaOdds >= 10 ? '馬単' : '馬連';
+    const pts2 = use2ren === '馬単' ? 12 : 6;
+    bets.push({ type:use2ren, horses:[tan1, ...aite], points:pts2,
+                note:`軸${tan1} × 相手6頭流し` });
+    bets.push({ type:'3連単', horses:[tan1, ...aite], points:30,
+                note:`1着固定 × 相手6頭流し（30点）` });
+
+  // ── 2強戦 ──
+  } else if (raceType === '2強') {
+    const jiku2 = [byTan[0].name, byTan[1].name];
+    const [rest] = pickUnique([byFuku.filter(s => !jiku2.includes(s.name))], [2]);
+    const box4 = [...jiku2, ...rest];
+    bets.push({ type:'馬連', horses:box4, points:6,
+                note:`4頭ボックス` });
+    bets.push({ type:'3連複', horses:jiku2, points:headCount - 2,
+                note:`軸2頭 × 残り全頭総流し（${headCount-2}点）` });
+
+  // ── 3強戦 ──
+  } else if (raceType === '3強') {
+    const jiku3 = [byTan[0].name, byTan[1].name, byTan[2].name];
+    const anaH  = byAna.find(s => !jiku3.includes(s.name))?.name;
+    const box4  = [...jiku3, ...(anaH ? [anaH] : [])];
+    bets.push({ type:'3連単', horses:box4, points:24,
+                note:`4頭ボックス（3強 ＋ 穴馬1位）` });
+
+  // ── 混戦 ──
+  } else {
+    const [fg, ag] = pickUnique([byFuku, byAna], [2, 2]);
+    const box4 = [...new Set([...fg, ...ag])].slice(0, 4);
+    bets.push({ type:'馬連', horses:box4, points:6,
+                note:`4頭ボックス` });
+    const jiku2 = [byTan[0].name, byTan[1].name];
+    bets.push({ type:'3連複', horses:jiku2, points:headCount - 2,
+                note:`軸2頭 × 残り全頭総流し（${headCount-2}点）` });
+  }
+
+  return { raceType, bets };
+}
+
+function renderBetRow(b, numMap) {
+  const chip = name => {
+    const num = numMap?.[name] ?? '';
+    return `<span class="bet-horse-chip">${num ? num+'番 ' : ''}${name}</span>`;
+  };
+
+  // フォーメーション表示（formation フィールドがある場合）
+  if (b.formation) {
+    const rows = Object.entries(b.formation).map(([label, names]) => `
+      <div class="bet-formation-row">
+        <span class="bet-chakuban">${label}</span>
+        <div class="bet-horse-chips">${names.map(chip).join('')}</div>
+      </div>`).join('');
+    return `
+    <div class="bet-row bet-row-detail">
+      <div class="bet-row-top">
+        <span class="bet-type">${b.type}</span>
+        <span class="bet-points">${b.points}点</span>
+        <div class="bet-note-inline">${b.note}</div>
+      </div>
+      <div class="bet-formation-rows">${rows}</div>
+    </div>`;
+  }
+
+  // 複数馬・軸流し表示
+  const needsDetail = (b.type === '馬単' || b.type === '馬連' || b.type === '3連単' || b.type === '3連複') && b.horses.length > 2;
+  if (needsDetail) {
+    const jiku = b.horses[0];
+    const aite = b.horses.slice(1);
+    const aiteChips = aite.map(chip).join('');
+    const label = (b.type === '3連単') ? '1着固定' : '◎ 軸';
+    return `
+    <div class="bet-row bet-row-detail">
+      <div class="bet-row-top">
+        <span class="bet-type">${b.type}</span>
+        <span class="bet-points">${b.points}点</span>
+        <div class="bet-note-inline">${b.note}</div>
+      </div>
+      <div class="bet-horses-detail">
+        <span class="bet-jiku">${label}　${jiku}</span>
+        <span class="bet-arrow">→</span>
+        <div class="bet-aite-chips">${aiteChips}</div>
+      </div>
+    </div>`;
+  }
+
+  // シンプル表示（単勝・複勝など）
+  const horseLabels = b.horses.map(chip).join(' ／ ');
+  return `
+  <div class="bet-row">
+    <span class="bet-type">${b.type}</span>
+    <span class="bet-horses">${horseLabels}</span>
+    <span class="bet-points">${b.points}点</span>
+    <div class="bet-note">${b.note}</div>
+    ${b.optionalNote ? `<div class="bet-optional-note">${esc(b.optionalNote)}</div>` : ''}
+  </div>`;
+}
+
+function buildBetSection(withAna, headCount, d) {
+  const customBets = d?.customBets;
+  const { raceType, bets: autoBets } = generateBets(withAna, headCount);
+  const bets = (customBets && customBets.length > 0) ? customBets : autoBets;
+  const typeColor = { '1強':'#9B2D30','2強':'#2B5A9F','3強':'#5a3a7a','混戦':'#6a6a6a' };
+  const color = typeColor[raceType] ?? '#4b5563';
+  const totalPoints = bets.reduce((s, b) => s + b.points, 0);
+  const numMap = {};
+  withAna.forEach(s => { numMap[s.name] = s.h.num; });
+  const rows = bets.map(b => renderBetRow(b, numMap)).join('');
+  return `
+  <div class="bet-section">
+    <div class="bet-header">
+      <span class="bet-race-type" style="background:${color};">${raceType}</span>
+      <span class="bet-title">🎯 買い目提案</span>
+      <span class="bet-total">合計 ${totalPoints}点</span>
+    </div>
+    ${rows}
+  </div>`;
+}
+
+let sortMode = 'sougou';
+let markRankMap = {};
+function setSortMode(mode) { sortMode = mode; renderRace(currentIdx); }
+
+function buildRankList(items) {
+  if (!items || items.length === 0) return '';
+  return '<ul class="rank-list">' + items.map(item => {
+    const isKeshi = String(item.rank) === '消';
+    const rankCls = isKeshi ? 'rx' : (item.rank === 1 ? 'r1' : item.rank === 2 ? 'r2' : item.rank === 3 ? 'r3' : 'rn');
+    const rankLabel = isKeshi ? '消' : String(item.rank);
+    return `
+    <li class="rank-item${isKeshi ? ' rank-keshi' : ''}">
+      <div class="rank-num ${rankCls}">${rankLabel}</div>
+      <div class="rank-info">
+        <div class="rank-horse">${esc(item.horse)}</div>
+        <div class="rank-horse-comment">${esc(item.comment)}</div>
+      </div>
+    </li>`;
+  }).join('') + '</ul>';
+}
+
+function toggleAnalysis(el) {
+  const body = el.nextElementSibling;
+  const icon = el.querySelector('.analysis-toggle-icon');
+  const hint = el.querySelector('.analysis-toggle-hint');
+  const isOpen = body.style.display !== 'none';
+  body.style.display = isOpen ? 'none' : 'block';
+  icon.textContent   = isOpen ? '▶' : '▼';
+  hint.textContent   = isOpen ? '展開' : '閉じる';
+}
+
+function buildAnalysisSection(d) {
+  const hasAnalysis = d.raceAnalysis;
+  const hasBlood    = d.bloodAnalysis;
+  const hasLapInProgress = d.race?.lapAnalysisInProgress;
+  if (!hasAnalysis && !hasBlood && !hasLapInProgress) return '';
+
+  let html = '<div class="analysis-section">';
+
+  if (hasLapInProgress) {
+    html += `
+    <div class="analysis-block lap-inprogress-block">
+      <div class="lap-inprogress-head">
+        <span class="lap-inprogress-icon">🔍</span>
+        <div>
+          <div class="lap-inprogress-title">ラップ解析中</div>
+          <div class="lap-inprogress-sub">ホットコーナー指数・ゴールデン比率・前後半タイムをスコアに反映中。追い切り後に最終確定。</div>
+        </div>
+        <span class="lap-inprogress-badge">LIVE</span>
+      </div>
+    </div>`;
+  }
+
+  if (d.race?.finalWorkoutAnalysisInProgress) {
+    html += `
+    <div class="analysis-block fw-inprogress-block">
+      <div class="lap-inprogress-head">
+        <span class="lap-inprogress-icon">🏋️</span>
+        <div>
+          <div class="fw-inprogress-title">最終追い切り解析中</div>
+          <div class="lap-inprogress-sub">最終追い切りタイム・動きを徹底解析中...</div>
+        </div>
+        <span class="fw-inprogress-badge">LIVE</span>
+      </div>
+    </div>`;
+  }
+
+  if (hasAnalysis) {
+    const rt = d.raceTitle ?? null;
+    const headlineHtml = rt ? `
+      <div class="analysis-headline">
+        <span class="rt-main">${esc(rt.main)}</span>
+        <span class="rt-sub">${esc(rt.sub)}</span>
+        <span class="rt-desc">${esc(rt.desc)}</span>
+        <span class="rt-humor">${esc(rt.humor)}</span>
+      </div>` : '';
+    html += `
+    <div class="analysis-block">
+      <div class="analysis-block-title analysis-toggle" onclick="toggleAnalysis(this)">
+        <span class="analysis-icon">📊</span>ギーニョの重賞データ解析
+        <span class="analysis-toggle-icon">▶</span>
+        <span class="analysis-toggle-hint">展開</span>
+      </div>
+      <div class="analysis-body" style="display:none">
+        ${headlineHtml}
+        <div class="analysis-comment">${esc(d.raceAnalysis)}</div>
+      </div>
+    </div>`;
+  }
+
+  if (hasBlood) {
+    html += `
+    <div class="analysis-block">
+      <div class="analysis-block-title analysis-toggle" onclick="toggleAnalysis(this)">
+        <span class="analysis-icon">🧬</span>ギーニョの血統解析
+        <span class="analysis-toggle-icon">▶</span>
+        <span class="analysis-toggle-hint">展開</span>
+      </div>
+      <div class="analysis-body" style="display:none">
+        <div class="analysis-comment">${esc(d.bloodAnalysis)}</div>
+      </div>
+    </div>`;
+  }
+
+  html += '</div>';
+  return html;
+}
+
+// 馬名→単勝/複勝コメントの検索マップを作成
+function buildCommentMaps(d) {
+  const tan = {}, fuku = {};
+  (d.sabcRankTan  || []).forEach(item => { if (item.horse) tan[item.horse]  = item.comment; });
+  (d.sabcRankFuku || []).forEach(item => { if (item.horse) fuku[item.horse] = item.comment; });
+  return {tan, fuku};
+}
+
+function buildSf3Comment(h) {
+  const diff = h.prevSF3Diff;
+  const rank = h.prevSF3Rank;
+  const odds = h.expectedOdds;
+  const score = h.sf3AnaScore;
+  if (score === null || score === undefined || rank === null) return null;
+
+  // 3F差レンジ
+  const diffInfo = diff === null ? null :
+    diff <= 0.1 ? {label:`${diff}差 [0.0-0.1]`, tan:43}  :
+    diff <= 0.3 ? {label:`${diff}差 [0.2-0.3]`, tan:78}  :
+    diff <= 0.5 ? {label:`${diff}差 [0.4-0.5]`, tan:60}  :
+    diff <= 0.7 ? {label:`${diff}差 [0.6-0.7]`, tan:150} :
+    diff <= 0.9 ? {label:`${diff}差 [0.8-0.9]`, tan:31}  :
+    diff <= 1.2 ? {label:`${diff}差 [1.0-1.2]`, tan:8}   :
+    diff <= 1.5 ? {label:`${diff}差 [1.3-1.5]`, tan:170} :
+    diff <= 1.9 ? {label:`${diff}差 [1.6-1.9]`, tan:0}   :
+                  {label:`${diff}差`, tan:0};
+  const rankInfo =
+    rank===1 ? {label:'前走上がり1位', fuku:22.2} :
+    rank===2 ? {label:'前走上がり2位', fuku:32.9} :
+    rank===3 ? {label:'前走上がり3位', fuku:22.2} :
+    rank<=5  ? {label:`前走上がり${rank}位`, fuku:24.5} :
+               {label:`前走上がり${rank}位`, fuku:16.1};
+
+  const tanStar = diffInfo && diffInfo.tan >= 150 ? '★★' : diffInfo && diffInfo.tan >= 100 ? '★' : '';
+  const diffStr  = diffInfo ? `${diffInfo.label} 単回${diffInfo.tan}${tanStar}` : `差不明`;
+  const rankStr  = `${rankInfo.label}（複勝率${rankInfo.fuku}%）`;
+  const oddsStr  = odds ? `${odds}倍` : '?倍';
+
+  let eval_ = '';
+  if (score >= 1.5)     eval_ = '◎ 統計穴馬最上位候補';
+  else if (score >= 0.6) eval_ = '○ 統計穴馬候補';
+  else if (score >= 0.2) eval_ = '▲ やや穴注目';
+  else                   eval_ = '△ 穴スコア低め';
+
+  return `${diffStr} × ${rankStr} × ${oddsStr} → スコア${score.toFixed(2)}（${eval_}）`;
+}
+
+function buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, ziRank, anaRank, sougouRank, popularity, tanComment, fukuComment, anaScore, anaMax, sougouScore, isKeshi, mark, surface) {
+  const dispRank  = sortMode==='tan' ? tanRank : sortMode==='fuku' ? fukuRank : sortMode==='ana' ? anaRank : sortMode==='sougou' ? sougouRank : sortMode==='uma' ? (h.horseNum ?? 0) : sortMode==='mark' ? (markRankMap?.[name] ?? 0) : ziRank;
+  const modeLabel = sortMode==='tan' ? '単勝'  : sortMode==='fuku' ? '複勝'   : sortMode==='ana' ? '穴馬'  : sortMode==='sougou' ? '総合'      : sortMode==='uma' ? '馬番' : sortMode==='mark' ? '印' : 'ZI';
+  const modeCls   = sortMode==='tan' ? 'tan'   : sortMode==='fuku' ? 'fuku'   : sortMode==='ana' ? 'ana'   : sortMode==='sougou' ? 'sougou'    : sortMode==='uma' ? 'uma' : sortMode==='mark' ? 'mark-sort' : 'zi';
+  const sf3Cmt = buildSf3Comment(h);
+  const raceAnaCmt = h.raceAnaNote ?? null;
+  const condCmt = h.conditionNote ?? null;
+  const bloodNote = h.bloodNote ?? null;
+  const hasComment = h.prevJockeyComment || h.prevRaceNote || tanComment || fukuComment || sf3Cmt || raceAnaCmt || condCmt || bloodNote;
+
+  const ginyoHtml = hasComment ? `
+    <div class="ginyo-box">
+      <div class="ginyo-header">
+        <span class="ginyo-label">🐶 ギーニョ分析</span>
+        ${h.prevFinish ? `<span class="prev-finish">前走${h.prevRaceName ? ` <span class="prev-race-name">${esc(h.prevRaceName)}</span>` : ''} ${esc(h.prevFinish)}</span>` : ''}
+      </div>
+      ${h.prevRaceNote ? `
+        <div class="ginyo-section">
+          <div class="ginyo-section-title">▍ パドック・レース所見</div>
+          <div class="ginyo-text">${esc(h.prevRaceNote)}</div>
+        </div>` : ''}
+      ${h.prevJockeyComment ? `
+        <div class="ginyo-section">
+          <div class="ginyo-section-title">▍ ギーニョの前走ジャッジ</div>
+          <div class="ginyo-text">${esc(h.prevJockeyComment)}</div>
+        </div>` : ''}
+      ${tanComment ? `
+        <div class="ginyo-section">
+          <div class="ginyo-section-title">▍ 🥇 単勝評価</div>
+          <div class="ginyo-text">${esc(tanComment)}</div>
+        </div>` : ''}
+      ${fukuComment ? `
+        <div class="ginyo-section">
+          <div class="ginyo-section-title">▍ 🎯 複勝評価</div>
+          <div class="ginyo-text">${esc(fukuComment)}</div>
+        </div>` : ''}
+      ${sf3Cmt ? `
+        <div class="ginyo-section sf3-comment-section">
+          <div class="ginyo-section-title">▍ 💰 穴馬評価（3F統計）</div>
+          <div class="ginyo-text">${esc(sf3Cmt)}</div>
+        </div>` : ''}
+      ${raceAnaCmt ? `
+        <div class="ginyo-section sf3-comment-section">
+          <div class="ginyo-section-title">▍ 🎯 穴馬ファクター（レース統計）</div>
+          <div class="ginyo-text">${esc(raceAnaCmt)}</div>
+        </div>` : ''}
+      ${condCmt ? `
+        <div class="ginyo-section condition-comment-section">
+          <div class="ginyo-section-title">▍ 📋 調教・気配評価</div>
+          <div class="ginyo-text">${esc(condCmt)}</div>
+        </div>` : ''}
+      ${bloodNote ? `
+        <div class="ginyo-section blood-judge-section">
+          <div class="ginyo-section-title">▍ 🧬 血統配合ジャッジ</div>
+          <div class="ginyo-text">${esc(bloodNote)}</div>
+        </div>` : ''}
+    </div>` : `<p class="no-comment">コメントデータなし</p>`;
+
+  return `
+  <div class="horse-card">
+    <div class="card-head">
+      <div class="card-head-top">
+        <div class="horse-num horse-num-${isKeshi ? 'keshi' : modeCls}${!isKeshi && dispRank === 1 ? ' rank1-highlight' : ''}">
+          <span class="horse-num-rank">${isKeshi ? '消' : dispRank}</span>
+          <span class="horse-num-mode">${isKeshi ? '消し' : modeLabel}</span>
+        </div>
+        ${mark ? (() => {
+          const cls = mark==='◎'?'mark-honmei':mark==='○'?'mark-taikou':mark==='▲'?'mark-tantan':mark==='⭐'?'mark-hoshi':'mark-sankaku';
+          return `<span class="mark-badge ${cls}" title="${mark}">${mark}</span>`;
+        })() : ''}
+        ${(h.frameNum && h.horseNum) ? `<span class="gate-badge gate-${h.frameNum}" title="${h.frameNum}枠${h.horseNum}番"><span class="gate-num-main">${h.horseNum}</span><span class="gate-frame-sub">${h.frameNum}枠</span></span>` : ''}
+        <span class="horse-name${!isKeshi && dispRank === 1 ? ' rank1-name' : ''}">${esc(name)}</span>
+        ${h.expectedOdds
+          ? `<div class="odds-tag">
+               <span class="odds-pop">${popularity}人気</span>
+               <span class="odds-val">${h.expectedOdds}倍</span>
+             </div>`
+          : `<div class="odds-tag"><span class="odds-na">オッズ未定</span></div>`}
+      </div>
+      <div class="badge-groups">
+        <div class="badge-group">
+          <span class="badge-group-label lbl-blood">血統</span>
+          ${gradeBadge('父', h.sireGradeTan ?? null, h.sireGradeFuku ?? null)}
+          ${gradeBadge('母父', h.damSireGradeTan ?? null, h.damSireGradeFuku ?? null)}
+          ${gradeBadge('生産', h.breederGradeTan ?? null, h.breederGradeFuku ?? null)}
+          ${gradeBadge('G配合', h.haigoGradeTan ?? null, h.haigoGradeFuku ?? null)}
+        </div>
+        <div class="badge-group">
+          <span class="badge-group-label lbl-ability">能力</span>
+          ${ziGradeBadge(h.sabcZI)}
+          ${gradeBadge('過去走', h.pastRaceGradeTan ?? null, h.pastRaceGradeFuku ?? null)}
+          ${kinsoGradeBadge(h.kinsoGrade)}
+          ${(h.rotGradeTan||h.rotGradeFuku)?gradeBadge('ローテ', h.rotGradeTan ?? null, h.rotGradeFuku ?? null):''}
+          ${(h.prevMarginGradeTan || h.prevMarginGradeFuku) ? gradeBadge('上がり', h.prevMarginGradeTan ?? null, h.prevMarginGradeFuku ?? null) : ''}
+          ${(h.ginyoBonusGradeTan || h.ginyoBonusGradeFuku) ? gradeBadge('ギーニョ加点', h.ginyoBonusGradeTan ?? null, h.ginyoBonusGradeFuku ?? null) : ''}
+        </div>
+        <div class="badge-group">
+          <span class="badge-group-label lbl-apt">適性</span>
+          ${splitBadge('コース', h.courseGrade,'course')}
+          ${paceGradeBadge(h.paceGrade)}
+          ${splitBadge('脚質', h.styleGrade,'style')}
+          ${splitBadge('馬格', h.bodyGrade ?? prevWeightGrade(h.prevWeight, h.sex),'body')}
+        </div>
+        <div class="badge-group">
+          <span class="badge-group-label lbl-cond">条件</span>
+          ${gradeBadge('騎手', h.jockeyGradeTan ?? null, h.jockeyGradeFuku ?? null)}
+          ${gradeBadge('厩舎', h.stableGradeTan ?? null, h.stableGradeFuku ?? null)}
+          ${gradeBadge('枠番', h.gateGradeTan ?? null, h.gateGradeFuku ?? null)}
+          ${(h.comboGradeTan||h.comboGradeFuku)?gradeBadge('騎厩',h.comboGradeTan??null,h.comboGradeFuku??null):''}
+          ${splitBadge('斤量', h.weightChangeGrade, 'weightChange', '解析完了')}
+          ${(h.prevCourseGradeTan || h.prevCourseGradeFuku) ? gradeBadge('前走C', h.prevCourseGradeTan ?? null, h.prevCourseGradeFuku ?? null) : ''}
+        </div>
+        ${(h.lapHotCornerGrade || h.lapGoldenRatioGrade || h.lapTotalTimeGrade) ? `
+        <div class="badge-group badge-group-lap">
+          <span class="badge-group-label lbl-lap">🏁ラップ<small style="opacity:.7;font-weight:700;">×1.5</small></span>
+          ${gradeBadge('4角', h.lapHotCornerGrade ?? null, h.lapHotCornerGrade ?? null)}
+          ${gradeBadge('前後半比率', h.lapGoldenRatioGrade ?? null, h.lapGoldenRatioGrade ?? null)}
+          ${gradeBadge('タイム', h.lapTotalTimeGrade ?? null, h.lapTotalTimeGrade ?? null)}
+        </div>` : ''}
+        <div class="badge-group">
+          <span class="badge-group-label lbl-state">状態</span>
+          ${gradeBadge('調教', h.conditionGradeTan ?? null, h.conditionGradeFuku ?? null)}
+          ${gradeBadge('最終追切', h.finalWorkoutGradeTan ?? null, h.finalWorkoutGradeFuku ?? null)}
+          ${h.kehaiGrade ? gradeBadge('気配', h.kehaiGrade, h.kehaiGrade) : ''}
+          ${gradeBadge('相馬眼', h.somaGradeTan ?? null, h.somaGradeFuku ?? null)}
+          ${extGradeBadge(h.extFacility, surface)}
+          ${h.gekisouGradeTan ? gradeBadge('🔥激走', h.gekisouGradeTan, h.gekisouGradeFuku ?? null) : ''}
+          ${(h.specialGradeTan ?? h.specialGrade ?? h.specialGradeFuku) ? gradeBadge('特注', h.specialGradeTan ?? h.specialGrade ?? null, h.specialGradeFuku ?? h.specialGrade ?? null) : ''}
+        </div>
+      </div>
+      ${h.specialNote ? `<div class="tokuchuu-banner">⭐ 特注：${esc(h.specialNote)}</div>` : ''}
+      ${scoreBarHtml(tanScore, fukuScore, tanMax, fukuMax, tanRank, fukuRank, anaScore ?? 0, anaMax ?? 1, anaRank, sougouScore ?? 0, sougouRank)}
+    </div>
+    <div class="card-body">
+      <div class="horse-meta-row">
+        <span><span class="meta-label">騎</span>${esc(h.jockey) || '未定'}</span>
+        <span><span class="meta-label">父</span>${esc(h.sire || h.sabcSire) || '—'}</span>
+        <span><span class="meta-label">母父</span>${esc(h.damSire) || '—'}</span>
+        <span><span class="meta-label">厩</span>${esc(h.sabcTrainer) || '—'}</span>
+        ${h.age ? `<span><span class="meta-label">齢</span>${esc(h.sex||'')}${h.age}</span>` : ''}
+      </div>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0;">
+        ${extBadge(h.extFacility)}${raceTargetBadge(h.raceTarget ?? null)}
+      </div>
+      ${ginyoHtml}
+    </div>
+  </div>`;
+}
+
+// ── 印マップ構築（出走馬の半数に印を付けるロジック） ──
+// totalHorseCount: 出走馬数（印数 = Math.floor(totalHorseCount / 2)）
+// 順序: ◎総合1位 → ○総合2位 → ▲穴馬1位 → ⭐穴馬2位 → △総合3位〜（半数に達するまで）
+function buildMarkMap(sougouRankMap, anaRankMap, totalHorseCount) {
+  const targetCount = Math.floor(totalHorseCount / 2);
+  const markMap = {};
+  const assigned = new Set();
+  const sougouSorted = Object.keys(sougouRankMap).sort((a,b) => sougouRankMap[a] - sougouRankMap[b]);
+  const anaSorted    = Object.keys(anaRankMap).sort((a,b) => anaRankMap[a] - anaRankMap[b]);
+
+  function assign(horse, mark) {
+    markMap[horse] = mark;
+    assigned.add(horse);
+  }
+
+  // ◎ 総合1位
+  if (sougouSorted[0]) assign(sougouSorted[0], '◎');
+
+  // ○ 総合2位（繰り下げ）
+  for (const h of sougouSorted.slice(1)) {
+    if (!assigned.has(h)) { assign(h, '○'); break; }
+  }
+
+  // ▲ 総合3位（繰り下げ）
+  for (const h of sougouSorted.slice(2)) {
+    if (!assigned.has(h)) { assign(h, '▲'); break; }
+  }
+
+  // ⭐ 穴馬1位（繰り下げ：◎○▲と被ったら次へ）
+  for (const h of anaSorted) {
+    if (!assigned.has(h)) { assign(h, '⭐'); break; }
+  }
+
+  // △ 総合順（◎○▲⭐を除く、半数に達するまで）
+  for (const h of sougouSorted) {
+    if (assigned.size >= targetCount) break;
+    if (!assigned.has(h)) assign(h, '△');
+  }
+
+  return markMap;
+}
+
+// 新ロジック移行期：準備中レースの簡易表示
+// 四神グレードバッジ（1個・任意で2層目の内訳サブテキスト付き）
+function renderShijinChip(kind, grade, subInfo) {
+  const META = {
+    seiryu: {emoji:'🐉', label:'言霊',  color:'#1F4D2E'},
+    suzaku: {emoji:'🔥', label:'速眼',  color:'#9B2D30'},
+    byakko: {emoji:'🐅', label:'ラップ', color:'#C9A961'},
+    genbu:  {emoji:'🐢', label:'外厩',  color:'#1A1A1A'},
+  }[kind] || {emoji:'・', label:'', color:'#999'};
+  const gBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[grade] || '#cbc5b6';
+  const gradeTxt = grade || '—';
+  const dim = grade ? 1 : 0.45;
+  const subLine = subInfo
+    ? `<div style="font-size:8.5px;color:${META.color};opacity:.65;letter-spacing:.04em;margin-top:2px;text-align:right;font-family:'Inter',sans-serif;">${subInfo}</div>`
+    : '';
+  return `
+    <div style="display:flex;flex-direction:column;padding:5px 10px;border:1px solid ${META.color};border-radius:4px;background:#fff;opacity:${dim};min-width:72px;">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span style="font-size:14px;line-height:1;">${META.emoji}</span>
+        <span style="font-size:10px;color:${META.color};font-weight:700;letter-spacing:.04em;flex:1;">${META.label}</span>
+        <span style="display:inline-block;font-size:10px;color:#fff;background:${gBg};padding:1px 6px;border-radius:2px;font-family:'Shippori Mincho',serif;font-weight:700;min-width:14px;text-align:center;">${gradeTxt}</span>
+      </div>
+      ${subLine}
+    </div>`;
+}
+
+// 朱雀の内訳サブテキスト生成（速A／眼S 形式）
+function buildSuzakuSubInfo(h) {
+  const sg = h?.suzakuGrade;
+  if (!sg) return null;
+  const soku = sg.soku?.grade || '—';
+  const gan  = sg.gan?.grade  || '—';
+  if (soku === '—' && gan === '—') return null;
+  return `速${soku}／眼${gan}`;
+}
+
+// 1頭分プレゼンテーションカード
+function renderShijinHorseCard(ph, idx) {
+  const roleColorMap = {
+    main:    {accent:'#9B2D30', bg:'linear-gradient(135deg,rgba(155,45,48,.06),rgba(155,45,48,.02))', label:'本命'},
+    counter: {accent:'#8B7530', bg:'linear-gradient(135deg,rgba(139,117,48,.06),rgba(139,117,48,.02))', label:'対抗'},
+    support: {accent:'#1F4D2E', bg:'linear-gradient(135deg,rgba(31,77,46,.06),rgba(31,77,46,.02))', label:'押さえ'},
+    hole:    {accent:'#6E4A1F', bg:'linear-gradient(135deg,rgba(110,74,31,.10),rgba(110,74,31,.03))', label:'穴'},
+  };
+  const rc = roleColorMap[ph.roleTag] || roleColorMap.support;
+  const popBadge = ph.popularity === 'hole'
+    ? `<span style="display:inline-block;font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(155,45,48,.12);color:#9B2D30;font-weight:700;letter-spacing:.04em;">🔥 穴</span>`
+    : `<span style="display:inline-block;font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(31,77,46,.12);color:#1F4D2E;font-weight:700;letter-spacing:.04em;">⭐ 人気</span>`;
+
+  const reasonsList = (ph.reasons || []).map(r => `<li style="margin-bottom:4px;">${esc(r)}</li>`).join('');
+  const risksList   = (ph.risks   || []).map(r => `<li style="margin-bottom:4px;">${esc(r)}</li>`).join('');
+
+  const sg = ph.shijinGrades || {};
+  const shijinBar = `
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;">
+      ${renderShijinChip('seiryu', sg.seiryu)}
+      ${renderShijinChip('suzaku', sg.suzaku, buildSuzakuSubInfo(ph))}
+      ${renderShijinChip('byakko', sg.byakko)}
+      ${renderShijinChip('genbu',  sg.genbu)}
+    </div>`;
+
+  const pedLine = (ph.sire || ph.broodmareSire)
+    ? `<span style="font-size:11px;color:var(--muted);">父${esc(ph.sire||'—')} / 母父${esc(ph.broodmareSire||'—')}</span>`
+    : '';
+
+  const metaLine = [
+    ph.jockey ? `<span style="font-size:11px;color:var(--muted);">騎手${esc(ph.jockey)}</span>` : '',
+    ph.trainer ? `<span style="font-size:11px;color:var(--muted);">厩舎${esc(ph.trainer)}</span>` : '',
+    ph.gaikyuLabel ? `<span style="font-size:11px;color:var(--muted);">外厩${esc(ph.gaikyuLabel)}</span>` : '',
+    pedLine,
+  ].filter(Boolean).join('　');
+
+  const scoreStr = ph.score != null ? Number(ph.score).toFixed(2) : '-';
+  const oddsStr  = ph.expectedOdds != null ? `想定OD ${Number(ph.expectedOdds).toFixed(1)}` : '';
+
+  return `
+    <div style="border:2px solid ${rc.accent};border-radius:10px;overflow:hidden;background:${rc.bg};">
+      <div style="padding:10px 14px;background:${rc.accent};color:#fff;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="font-family:'Shippori Mincho',serif;font-weight:900;font-size:14px;letter-spacing:.12em;background:rgba(255,255,255,.18);padding:2px 8px;border-radius:3px;">【${esc(ph.role)}】</span>
+        ${popBadge}
+        <span style="font-family:'Inter',sans-serif;font-size:10px;opacity:.85;letter-spacing:.06em;">pick ${ph.pickOrder}/4 ／ rank${ph.rank}</span>
+        <span style="margin-left:auto;font-family:'Inter',sans-serif;font-weight:900;font-size:16px;color:#F5EDD6;">${scoreStr}<span style="font-size:10px;margin-left:4px;font-weight:500;opacity:.75;">pt</span></span>
+      </div>
+
+      <div style="padding:14px;">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;">
+          <span style="font-family:'Inter',sans-serif;font-weight:800;background:#1A1A1A;color:#C9A961;padding:4px 9px;border-radius:3px;font-size:14px;min-width:30px;text-align:center;">${ph.num != null ? ph.num : '?'}</span>
+          <span style="font-family:'Shippori Mincho',serif;font-weight:800;font-size:20px;letter-spacing:.04em;color:var(--sumi);">${esc(ph.name || '')}</span>
+          <span style="font-size:11px;color:var(--muted);font-family:'Inter',sans-serif;letter-spacing:.04em;">${oddsStr}</span>
+        </div>
+        ${metaLine ? `<div style="margin-top:6px;line-height:1.7;">${metaLine}</div>` : ''}
+
+        ${shijinBar}
+
+        <div style="background:#fff;border-left:3px solid ${rc.accent};padding:11px 13px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.85;font-size:13px;color:var(--sumi);">
+          ${esc(ph.comment || '')}
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;">
+          <div>
+            <div style="font-size:11px;font-weight:800;color:${rc.accent};letter-spacing:.06em;margin-bottom:5px;">✓ 推し理由</div>
+            <ul style="margin:0;padding-left:18px;font-size:12px;color:var(--sumi);line-height:1.7;">${reasonsList}</ul>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:800;color:#9B2D30;letter-spacing:.06em;margin-bottom:5px;">⚠ リスク</div>
+            <ul style="margin:0;padding-left:18px;font-size:12px;color:var(--sumi);line-height:1.7;">${risksList}</ul>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;padding:8px 11px;background:rgba(139,117,48,.08);border:1px dashed rgba(139,117,48,.4);border-radius:4px;font-size:12px;color:var(--sumi);">
+          <span style="font-weight:700;color:#8B7530;letter-spacing:.04em;">買い目役割：</span>
+          <strong style="font-weight:800;">${esc(ph.buyRole || '-')}</strong>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/* 御神託テキスト(Markdown風)をHTMLへ変換
+   対応記法:
+     ## 見出し → .oracle-heading
+     - 項目  → .oracle-list > li
+     > 注記  → .oracle-note
+     **強調** → .oracle-emph
+     空行  → 段落区切り
+     その他 → .oracle-para
+*/
+function renderOracle(text) {
+  if (!text) return '';
+  if (typeof text !== 'string') return '';
+  const lines = text.split('\n');
+  let html = '';
+  let inList = false;
+  const closeList = () => { if (inList) { html += '</ul>'; inList = false; } };
+  const escInline = (s) => {
+    // まずHTMLエスケープ
+    s = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    // **強調** を span に
+    s = s.replace(/\*\*([^*]+)\*\*/g, '<span class="oracle-emph">$1</span>');
+    return s;
+  };
+  for (const raw of lines) {
+    const ln = raw.trimEnd();
+    const trim = ln.trim();
+    if (trim === '') { closeList(); continue; }
+    if (trim.startsWith('## ')) {
+      closeList();
+      html += `<h4 class="oracle-heading">${escInline(trim.slice(3))}</h4>`;
+    } else if (trim.startsWith('- ')) {
+      if (!inList) { html += '<ul class="oracle-list">'; inList = true; }
+      html += `<li>${escInline(trim.slice(2))}</li>`;
+    } else if (trim.startsWith('> ')) {
+      closeList();
+      html += `<div class="oracle-note">${escInline(trim.slice(2))}</div>`;
+    } else {
+      closeList();
+      html += `<p class="oracle-para">${escInline(trim)}</p>`;
+    }
+  }
+  closeList();
+  return html;
+}
+
+function renderOracleBlock(note, label='準備中の御神託') {
+  if (!note) return '';
+  const inner = renderOracle(note);
+  return `
+    <div class="oracle-block">
+      <span class="oracle-label">${label}</span>
+      ${inner}
+    </div>`;
+}
+
+function renderFinalBets(fb) {
+  if (!fb) return '';
+
+  const hasPresentation = fb.presentation && Array.isArray(fb.presentation.horses) && fb.presentation.horses.length > 0;
+
+  // ────────── 採点詳細（全馬スコアボード）────────── 四神対応
+  const scoreRows = (fb.scoreboard || []).map(s => {
+    const bd = s.breakdown || {};
+    const cell = (k) => {
+      const gr = bd[k]?.grade || '—';
+      const gBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+      return `<td style="text-align:center;padding:4px 6px;"><span style="display:inline-block;font-size:10px;color:#fff;background:${gBg};padding:1px 6px;border-radius:2px;font-family:'Shippori Mincho',serif;font-weight:700;min-width:16px;">${gr}</span></td>`;
+    };
+    return `
+      <tr style="border-bottom:1px solid var(--border-soft);">
+        <td style="text-align:right;padding:4px 8px;font-family:'Inter',sans-serif;font-weight:700;color:var(--shu);">${s.rank}</td>
+        <td style="padding:4px 8px;font-family:'Inter',sans-serif;font-weight:700;background:#1A1A1A;color:#C9A961;text-align:center;border-radius:3px;">${s.num != null ? s.num : '?'}</td>
+        <td style="padding:4px 10px;font-weight:600;">${esc(s.name || '')}</td>
+        ${cell('relComment')}
+        ${cell('shingan')}
+        ${cell('lapFactors')}
+        ${cell('gaikyuFactor')}
+        <td style="text-align:right;padding:4px 8px;font-family:'Inter',sans-serif;font-weight:800;color:var(--sumi);">${Number(s.score).toFixed(2)}</td>
+        <td style="text-align:right;padding:4px 8px;font-family:'Inter',sans-serif;color:var(--muted);font-size:11px;">${s.expectedOdds != null ? s.expectedOdds.toFixed(1) : '-'}</td>
+      </tr>`;
+  }).join('');
+
+  // ────────── 頭カード ──────────
+  const horseCards = hasPresentation
+    ? fb.presentation.horses.map((ph, i) => renderShijinHorseCard(ph, i)).join('')
+    : '';
+
+  // ────────── 買い目サマリ ──────────
+  const topScore = (fb.scoreboard && fb.scoreboard[0]) ? Number(fb.scoreboard[0].score).toFixed(2) : '-';
+  const combos = (fb.wide4box?.combos || []).map(c =>
+    `<span style="display:inline-block;padding:3px 8px;margin:2px 3px 2px 0;background:var(--paper-deep,#F0EADB);border:1px solid var(--border,#E5DFD1);border-radius:3px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--sumi);">${c.pair[0]}-${c.pair[1]}</span>`
+  ).join('');
+
+  const compoLabel = {
+    '2ninki+2ana': '人気2＋穴2（理想）',
+    '3ninki+1ana': '人気3＋穴1（フォールバック）',
+    '4ninki+0ana': '人気4＋穴0（穴不在）',
+    'top4-raw':    'top4 素取り',
+    'short':       '馬不足',
+  }[fb.wide4box?.composition] || fb.wide4box?.composition || '';
+
+  // ────────── 落選の儀 ──────────
+  const droppedList = hasPresentation && Array.isArray(fb.presentation.dropped)
+    ? fb.presentation.dropped.map(d => `
+        <div style="display:flex;align-items:baseline;gap:10px;padding:6px 10px;border-bottom:1px dashed var(--border-soft);font-size:12px;">
+          <span style="font-family:'Inter',sans-serif;color:var(--muted);min-width:26px;font-size:10px;">${d.rank}位</span>
+          <span style="font-family:'Inter',sans-serif;font-weight:700;background:#4a4a4a;color:#e8e0c8;padding:2px 7px;border-radius:2px;min-width:24px;text-align:center;font-size:10px;">${d.num != null ? d.num : '?'}</span>
+          <span style="font-weight:600;min-width:120px;">${esc(d.name || '')}</span>
+          <span style="font-size:11px;color:var(--muted);font-family:'Inter',sans-serif;">${d.score != null ? Number(d.score).toFixed(1) : '-'}pt</span>
+          <span style="flex:1;color:var(--sumi);">${esc(d.note || '')}</span>
+        </div>`).join('')
+    : '';
+
+  return `
+    <div style="margin-bottom:24px;border:2px solid var(--shu);border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(155,45,48,.12);">
+      <!-- Header -->
+      <div style="background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:10px;color:#C9A961;letter-spacing:.18em;font-weight:700;">⛩ FINAL ORACLE ／ 四神の御神託</div>
+          <div style="font-size:22px;font-weight:800;letter-spacing:.10em;margin-top:4px;">御神託降臨</div>
+          <div style="font-size:10px;color:#F5EDD6;opacity:.85;margin-top:3px;letter-spacing:.06em;">🐉言霊 ・ 🔥速眼 ・ 🐅ラップ ・ 🐢外厩</div>
+        </div>
+        <div style="text-align:right;font-family:'Inter',sans-serif;">
+          <div style="font-size:10px;opacity:.85;letter-spacing:.04em;">揃い率 ${esc(fb.readiness || '')} (${fb.readinessPct ?? 0}%)</div>
+          <div style="font-size:22px;font-weight:900;color:#C9A961;margin-top:2px;letter-spacing:.02em;">¥${(fb.totalSpend || 0).toLocaleString()}</div>
+          ${fb.shinganCoverage ? `<div style="font-size:9px;opacity:.7;margin-top:2px;letter-spacing:.06em;">速眼 ${esc(fb.shinganCoverage)}</div>` : ''}
+        </div>
+      </div>
+
+      ${hasPresentation ? `
+      <!-- 4頭プレゼンテーション -->
+      <div style="padding:16px;background:var(--paper);display:grid;gap:14px;">
+        ${horseCards}
+      </div>
+      ` : ''}
+
+      <!-- 買い目サマリ -->
+      <div style="padding:14px 16px;background:#FAF6EB;border-top:1px solid var(--border-soft);">
+        <div style="font-size:11px;font-weight:800;color:var(--shu);letter-spacing:.1em;margin-bottom:10px;">━ 買い目構成 ━</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div style="background:#fff;border:1px solid rgba(139,117,48,.4);border-radius:6px;padding:9px 11px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <div style="font-size:11px;font-weight:700;color:#8B7530;">☀ 天の道 単勝</div>
+              <div style="font-family:'Inter',sans-serif;font-weight:900;color:#8B7530;font-size:13px;">¥${fb.tan?.amount ?? 0}</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+              <span style="font-family:'Inter',sans-serif;font-weight:800;background:#1A1A1A;color:#C9A961;padding:2px 6px;border-radius:2px;font-size:11px;min-width:24px;text-align:center;">${fb.tan?.num ?? '?'}</span>
+              <span style="font-weight:700;font-size:12px;">${esc(fb.tan?.name || '')}</span>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid rgba(31,77,46,.4);border-radius:6px;padding:9px 11px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <div style="font-size:11px;font-weight:700;color:#1F4D2E;">🌿 地の道 複勝</div>
+              <div style="font-family:'Inter',sans-serif;font-weight:900;color:#1F4D2E;font-size:13px;">¥${fb.fuku?.amount ?? 0}</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+              <span style="font-family:'Inter',sans-serif;font-weight:800;background:#1A1A1A;color:#C9A961;padding:2px 6px;border-radius:2px;font-size:11px;min-width:24px;text-align:center;">${fb.fuku?.num ?? '?'}</span>
+              <span style="font-weight:700;font-size:12px;">${esc(fb.fuku?.name || '')}</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(155,45,48,.4);border-radius:6px;padding:10px 12px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px;">
+            <div style="font-size:11px;font-weight:800;color:var(--shu);">🤝 人の道 ワイド4頭BOX <span style="font-weight:500;color:var(--muted);font-size:10px;">${compoLabel}</span></div>
+            <div style="font-family:'Inter',sans-serif;font-weight:900;color:var(--shu);font-size:13px;">¥${fb.wide4box?.amount ?? 0} <span style="font-size:10px;color:var(--muted);font-weight:500;">(${fb.wide4box?.comboCount ?? 0}点)</span></div>
+          </div>
+          <div style="margin-top:8px;">${combos}</div>
+        </div>
+      </div>
+
+      ${droppedList ? `
+      <!-- 落選の儀 -->
+      <details style="border-top:1px solid var(--border);background:var(--paper);">
+        <summary style="padding:10px 18px;cursor:pointer;font-size:12px;font-weight:700;color:var(--sumi);letter-spacing:.05em;">落選の儀（買わない馬 ${fb.presentation.dropped.length}頭）</summary>
+        <div style="padding:6px 14px 14px;">${droppedList}</div>
+      </details>
+      ` : ''}
+
+      <!-- 採点詳細（全馬スコアボード）-->
+      <details style="border-top:1px solid var(--border);background:var(--paper);">
+        <summary style="padding:10px 18px;cursor:pointer;font-size:12px;font-weight:700;color:var(--sumi);letter-spacing:.05em;">採点詳細（全馬スコアボード）</summary>
+        <div style="padding:4px 12px 14px;overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--sumi);">
+                <th style="text-align:right;padding:6px 8px;font-size:10px;">順</th>
+                <th style="text-align:center;padding:6px 8px;font-size:10px;">馬番</th>
+                <th style="text-align:left;padding:6px 10px;font-size:10px;">馬名</th>
+                <th style="text-align:center;padding:6px 6px;font-size:10px;">🐉言霊</th>
+                <th style="text-align:center;padding:6px 6px;font-size:10px;">🔥速眼</th>
+                <th style="text-align:center;padding:6px 6px;font-size:10px;">🐅ラップ</th>
+                <th style="text-align:center;padding:6px 6px;font-size:10px;">🐢外厩</th>
+                <th style="text-align:right;padding:6px 8px;font-size:10px;">総合</th>
+                <th style="text-align:right;padding:6px 8px;font-size:10px;">OD</th>
+              </tr>
+            </thead>
+            <tbody>${scoreRows}</tbody>
+          </table>
+          <div style="margin-top:8px;font-size:10px;color:var(--muted);letter-spacing:.04em;font-family:'Inter',sans-serif;">
+            重み: 言霊×${fb.config?.weights?.relComment ?? 2} ／ 速眼×${fb.config?.weights?.shingan ?? 1.5} ／ ラップ×${fb.config?.weights?.lapFactors ?? 1} ／ 外厩×${fb.config?.weights?.gaikyuFactor ?? 0.5}
+            ／ 点数: S=${fb.config?.gradePoints?.S ?? 5}, A=${fb.config?.gradePoints?.A ?? 3}, B=${fb.config?.gradePoints?.B ?? 0}, C=${fb.config?.gradePoints?.C ?? -2}, D=${fb.config?.gradePoints?.D ?? -4}
+          </div>
+        </div>
+      </details>
+
+      <!-- Footer -->
+      <div style="background:#1A1A1A;color:rgba(201,169,97,.7);padding:7px 18px;font-size:10px;font-family:'Inter',sans-serif;display:flex;justify-content:space-between;letter-spacing:.04em;flex-wrap:wrap;gap:6px;">
+        <span>logic: ${esc(fb.logicVersion || '')}</span>
+        <span>生成: ${esc(fb.generatedAt || '')}</span>
+      </div>
+    </div>
+  `;
+}
+
+// 暫定スコア算出：利用可能な四神grade だけで重み付き合計。
+// 白虎/朱雀が後日埋まれば自動的に加味される設計。
+// 玄武は source="individual"(JRDB実データ) と "fallback"(在厩調整等の推定) で重みを分岐：
+//   individual=×1.0 ／ fallback=×0.3 → バッジ表示(色/透明度)とも連動。
+function computeProvisionalScore(h) {
+  const gradeMap = { S: 4, A: 3, B: 2, C: 1, D: 0 };
+  const gfSource = h.gaikyuFactor?.source;
+  const genbuWeight = gfSource === 'individual' ? 1.0 : 0.3;
+  const W = { seiryu: 2.0, suzaku: 1.5, byakko: 1.0, genbu: genbuWeight };
+  const grades = {
+    seiryu: h.relComment?.grade,
+    suzaku: h.suzakuGrade?.grade,
+    byakko: h.lapFactors?.grade,
+    genbu:  h.gaikyuFactor?.grade,
+  };
+  let score = 0, count = 0, parts = [];
+  for (const [k, g] of Object.entries(grades)) {
+    if (g && gradeMap[g] !== undefined) {
+      const p = gradeMap[g] * W[k];
+      score += p;
+      count++;
+      parts.push(`${k}:${g}`);
+    }
+  }
+  return { score, count, parts };
+}
+
+// 現時点ランキング上位4頭（同点なら5頭以上もあり）のname Set を返す
+function computeFireHorses(horses) {
+  const scored = (horses || []).map(h => ({
+    name: h.name,
+    ...computeProvisionalScore(h),
+  })).filter(s => s.count > 0);
+  scored.sort((a, b) => b.score - a.score);
+  if (scored.length === 0) return { names: new Set(), scoredMap: new Map() };
+  const scoredMap = new Map(scored.map(s => [s.name, s]));
+  if (scored.length <= 4) return { names: new Set(scored.map(s => s.name)), scoredMap };
+  const fourthScore = scored[3].score;
+  return {
+    names: new Set(scored.filter(s => s.score >= fourthScore).map(s => s.name)),
+    scoredMap,
+  };
+}
+
+function renderPreparation(cfg, d) {
+  const r = d.race || {};
+  const note = d.preparationNote || '枠順確定後に関係者コメント・ラップ解析を入力し、新ロジックで採点を行う予定。';
+  const finalBetsBlock = renderFinalBets(d.finalBets);
+  const noteBlock = d.finalBets ? '' : renderOracleBlock(note, '準備中の御神託');
+  const { names: fireNames, scoredMap } = computeFireHorses(d.horses || []);
+  const byOdds = [...(d.horses || [])].sort((a,b) => (a.expectedOdds ?? 9999) - (b.expectedOdds ?? 9999));
+  const rows = byOdds.map((h, i) => {
+    const hasPed = h.sire || h.broodmareSire;
+    const pedLine = hasPed
+      ? `<div style="font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:2px;"><span style="color:var(--shu);">父</span>${esc(h.sire || '—')}　<span style="color:var(--shu);">母父</span>${esc(h.broodmareSire || '—')}</div>`
+      : '';
+    let gaikyuLine = '';
+    if (h.gaikyu) {
+      const g = h.gaikyu;
+      const label = g.includes('ノーザンファーム') ? g.replace('ノーザンファーム', 'NF') : g;
+      const gf = h.gaikyuFactor;
+      if (gf && gf.grade) {
+        const gr = gf.grade;
+        const isFallback = gf.source === 'fallback';
+        // individual: 従来カラー（緑/金/紺系）／ fallback: 彩度を落とした沈んだ石色
+        const gradeBg = isFallback
+          ? { S:'#6e5a30', A:'#34473b', B:'#334356', C:'#6a544a', D:'#3a3734' }[gr] || '#4f4c48'
+          : { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+        const badgeOpacity = isFallback ? '0.72' : '1';
+        const tooltip = isFallback ? '在厩調整' : `外厩: ${g}`;
+        const recStr = gf.recordStr ? `<span style="opacity:.75;margin-left:4px;">(${gf.recordStr})</span>` : '';
+        gaikyuLine = `<div style="margin-top:4px;"><span title="${esc(tooltip)}" style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;opacity:${badgeOpacity};">外厩 <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(label)}${recStr}</span></div>`;
+      } else {
+        const isNoazan = g.includes('ノーザンファーム');
+        const isZaikyu = g === '在厩調整';
+        const bg = isNoazan ? '#1f6b3a' : (isZaikyu ? '#8a8680' : '#b8870b');
+        gaikyuLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${bg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">外厩 ${esc(label)}</span></div>`;
+      }
+    }
+    let relCommentLine = '';
+    if (h.relComment && h.relComment.keyword && h.relComment.grade) {
+      const gr = h.relComment.grade;
+      const gradeBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+      relCommentLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">言霊 <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(h.relComment.keyword)}</span></div>`;
+    }
+    let lapFactorLine = '';
+    if (h.lapFactors && h.lapFactors.grade && h.lapFactors.lapChar) {
+      const lf = h.lapFactors;
+      const gr = lf.grade;
+      const gradeBg = { S:'#c49a3d', A:'#2f5c3b', B:'#2d4a6e', C:'#a06654', D:'#3e3a36' }[gr] || '#5d5a56';
+      const paceTag = lf.paceForecast ? `<span style="opacity:.7;margin-left:4px;">×${esc(lf.paceForecast)}</span>` : '';
+      lapFactorLine = `<div style="margin-top:4px;"><span style="display:inline-block;font-size:10px;letter-spacing:.06em;color:#fff;background:${gradeBg};padding:2px 8px;border-radius:2px;font-family:'Shippori Mincho',serif;">ラップ <strong style="font-weight:800;margin:0 4px 0 2px;">${gr}</strong>${esc(lf.lapChar)}${paceTag}</span></div>`;
+    }
+    // 🏁 前走レース・着順表示（配信モード＆通常モード共通）
+    let prevRaceLine = '';
+    if (h.prevRaceName || h.prevFinish) {
+      const nameHtml   = h.prevRaceName ? `<span class="prev-name">${esc(h.prevRaceName)}</span>` : '';
+      const resultHtml = h.prevFinish   ? `<span class="prev-result">${esc(h.prevFinish)}</span>` : '';
+      prevRaceLine = `<div style="margin-top:4px;"><span class="prev-race-line"><span class="prev-label">前走</span>${nameHtml}${resultHtml}</span></div>`;
+    }
+    // 🏇 鞍上・馬体重（馬名セル内に統合、配信モードで大きく表示）
+    let jockeyWeightLine = '';
+    const jwParts = [];
+    if (h.jockey) {
+      jwParts.push(`<span class="jw-jockey"><span class="jw-icon">🏇</span>${esc(h.jockey)}</span>`);
+    }
+    // 当日体重優先、無ければ前走体重を「前走」ラベル付きで表示
+    const displayW = h.horseWeight || h.prevHorseWeight;
+    const displayD = h.horseWeight ? h.horseWeightDelta : h.prevHorseWeightDelta;
+    const isPrevW  = !h.horseWeight && h.prevHorseWeight;
+    if (displayW) {
+      const wNum = Number(displayW);
+      const isSmall = wNum > 0 && wNum <= 420;  // 420kg以下は穴候補の朱
+      const wClass = isSmall ? 'jw-weight jw-small' : 'jw-weight';
+      let deltaHtml = '';
+      if (displayD != null && displayD !== '') {
+        const d = Number(displayD);
+        const dColor = d > 0 ? '#d64545' : d < 0 ? '#1f6b3a' : 'var(--muted)';
+        const dSign = d > 0 ? '+' : '';
+        deltaHtml = `<span class="jw-delta" style="color:${dColor};">(${dSign}${d})</span>`;
+      }
+      const prevLabel = isPrevW ? `<span class="jw-prev-label">前走</span>` : '';
+      jwParts.push(`<span class="${wClass}">${prevLabel}${esc(String(displayW))}kg${deltaHtml}</span>`);
+    }
+    if (jwParts.length) {
+      jockeyWeightLine = `<div class="jw-line">${jwParts.join('')}</div>`;
+    }
+    // 🔥 暫定トップ圏マーク（tooltipに暫定スコア・内訳を表示）
+    const fireMark = (() => {
+      if (!fireNames.has(h.name)) return '';
+      const s = scoredMap.get(h.name);
+      const scoreStr = s ? s.score.toFixed(1) : '';
+      const partsStr = s ? s.parts.join(' / ') : '';
+      return ` <span title="暫定トップ圏 ${scoreStr}pt（${partsStr}）" style="font-size:14px;cursor:help;">🔥</span>`;
+    })();
+    return `
+    <tr>
+      <td style="text-align:right;color:var(--shu);font-weight:700;vertical-align:top;padding-top:10px;">${i + 1}</td>
+      <td>
+        <div style="font-weight:600;">${esc(h.name)}${fireMark}</div>
+        ${pedLine}
+        ${jockeyWeightLine}
+        ${prevRaceLine}
+        ${gaikyuLine}
+        ${relCommentLine}
+        ${lapFactorLine}
+      </td>
+      <td style="vertical-align:top;padding-top:10px;">${esc(h.jockey ?? '未定')}</td>
+      <td style="color:var(--muted);vertical-align:top;padding-top:10px;">${esc(h.trainer ?? '')}</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums;vertical-align:top;padding-top:10px;">${h.expectedOdds != null ? h.expectedOdds.toFixed(1) : '-'}</td>
+    </tr>
+  `;}).join('');
+  document.getElementById('content').innerHTML = `
+    <div style="max-width:920px;margin:32px auto;padding:0 16px;font-family:'Shippori Mincho',serif;">
+      <div style="text-align:center;padding:28px 16px;background:var(--paper);border-top:3px solid var(--shu);border-bottom:3px solid var(--shu);margin-bottom:24px;">
+        <div style="font-size:12px;letter-spacing:.32em;color:var(--shu);margin-bottom:8px;">${esc(r.grade || '')} ／ ${esc(r.venue || '')} ${esc(r.surface || '')}${r.distance || ''}m</div>
+        <div style="font-size:26px;font-weight:800;letter-spacing:.18em;color:var(--sumi);margin-bottom:6px;">${esc(cfg.label)}</div>
+        <div style="font-size:11px;color:var(--muted);letter-spacing:.2em;">${esc(cfg.meta || '')} ／ ${esc(r.startTime || '')}発走</div>
+      </div>
+      ${renderOracleBlock(note, '準備中の御神託')}
+      ${fireNames.size > 0 ? `
+        <div style="margin:8px 0 12px;padding:8px 14px;background:rgba(155,45,48,.06);border-left:3px solid var(--shu);font-size:11px;color:var(--sumi);line-height:1.7;letter-spacing:.04em;">
+          <span style="font-weight:700;color:var(--shu);">🔥 現時点のトップ圏</span>
+          ／ 判明している神獣gradeだけで暫定算出（青龍×2.0 ／ 朱雀×1.5 ／ 白虎×1.0 ／ 玄武 実データ×1.0・在厩調整×0.3）。同点なら複数頭に付く。四神揃い次第自動で更新。
+        </div>
+      ` : ''}
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--sumi);">
+            <th style="text-align:right;padding:8px 10px;width:40px;">人気</th>
+            <th style="text-align:left;padding:8px 10px;">馬名</th>
+            <th style="text-align:left;padding:8px 10px;">騎手</th>
+            <th style="text-align:left;padding:8px 10px;">厩舎</th>
+            <th style="text-align:right;padding:8px 10px;">想定OD</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <p style="text-align:center;margin:28px 0 8px;font-size:11px;color:var(--muted);letter-spacing:.2em;">─ 拝殿にて、御神託の降臨を待ち申す ─</p>
+    </div>`;
+}
+
+// 月〜水用「過去10年傾向のみ」モード（trend-only）
+// 出馬表確定前なので登録馬リスト・四神・🔥は一切出さず、レースの骨格（データ傾向）だけを御神託する。
+// 既存の buildAnalysisSection を流用して raceAnalysis/bloodAnalysis を描画する。
+function renderTrendOnly(cfg, d) {
+  const r = d.race || {};
+  const confirmLabel = d.entryConfirmDate || '出馬表確定';
+  const noteFallback = `${confirmLabel}の後に四神を降ろし、個別馬の精査へと入る所存。それまではレースの骨格のみ御神託仕る。`;
+  const note = d.preparationNote || noteFallback;
+
+  document.getElementById('content').innerHTML = `
+    <div style="max-width:920px;margin:32px auto;padding:0 16px;font-family:'Shippori Mincho',serif;">
+      <div style="text-align:center;padding:28px 16px;background:var(--paper);border-top:3px solid var(--shu);border-bottom:3px solid var(--shu);margin-bottom:24px;">
+        <div style="font-size:12px;letter-spacing:.32em;color:var(--shu);margin-bottom:8px;">${esc(r.grade || '')} ／ ${esc(r.venue || '')} ${esc(r.surface || '')}${r.distance || ''}m</div>
+        <div style="font-size:26px;font-weight:800;letter-spacing:.18em;color:var(--sumi);margin-bottom:6px;">${esc(cfg.label)}</div>
+        <div style="font-size:11px;color:var(--muted);letter-spacing:.2em;">${esc(cfg.meta || '')} ／ ${esc(r.startTime || '')}発走</div>
+      </div>
+
+      <div style="margin:24px auto;padding:16px 20px;background:rgba(155,45,48,.04);border-left:3px solid var(--shu);color:var(--sumi);line-height:1.9;letter-spacing:.05em;font-size:13px;">
+        <div style="color:var(--shu);font-weight:700;font-size:11px;letter-spacing:.28em;margin-bottom:6px;">⛩ 前哨戦リサーチ</div>
+        ${esc(note)}
+      </div>
+
+      ${buildAnalysisSection(d)}
+
+      <p style="text-align:center;margin:36px 0 8px;font-size:11px;color:var(--muted);letter-spacing:.2em;">─ レースの性格を読み解きて、確定馬の降臨を待ち申す ─</p>
+    </div>`;
+}
+
+function renderRace(idx) {
+  if (!allData[idx]) return;
+  const {cfg, d} = allData[idx];
+  if (!d) {
+    document.getElementById('content').innerHTML =
+      `<p class="loading" style="color:#f87171">${esc(cfg.label)}のデータを取得できませんでした。準備中です。</p>`;
+    return;
+  }
+  // 月〜水：出馬表確定前の「傾向のみ」モード
+  if (d.dataStatus === 'trend-only') {
+    renderTrendOnly(cfg, d);
+    return;
+  }
+  // 新ロジック移行期：dataStatus='preparation' なら出馬登録ベースの馬名一覧のみ表示
+  if (d.dataStatus === 'preparation' && Array.isArray(d.horses)) {
+    renderPreparation(cfg, d);
+    return;
+  }
+  const horses = Object.entries(d.horses);
+  const surface = d.race?.surface ?? '芝';  // 外厩スコアの芝/ダ分岐用
+
+  // 全馬のスコアを計算
+  const scored = horses.map(([name, h]) => ({name, h, ...calcScores(h, surface)}));
+
+  // 穴馬スコア = 本気係数 × 激走係数 × (1 + 人気乖離係数) + 配合ボーナス + 逆説ボーナス
+  const withAna = scored.map(s => {
+    // ① 本気係数：このレース本命=2.0 / 両睨み=1.0 / 次走専念=0
+    // 皐月賞: satsuki/both/derby、福島牝馬S: fukushima/both_vm/vm
+    const raceTarget  = s.h.raceTarget ?? '';
+    const honki       = {'satsuki':2.0,'both':1.0,'derby':0,'fukushima':2.0,'both_vm':1.0,'vm':0}[raceTarget] ?? 0;
+    // ② 激走係数：S=3 / A=2 / B=1 / C=0.5 / なし=0.3
+    const gkGrade     = s.h.gekisouGradeTan ?? null;
+    const gekisouCoef = {'S':3, 'A':2, 'B':1, 'C':0.5}[gkGrade] ?? 0.3;
+    // ③ 人気乖離係数：オッズ5倍超で加算（log曲線・最大+4.0）
+    const odds        = s.h.expectedOdds ?? 5;
+    const oddsPt      = Math.min(Math.max(Math.log(odds / 5) * 1.5, 0), 4.0);
+    // ④ 配合ボーナス：G配合グレードで微調整
+    const haigoBonus  = {'S':1.0,'A':0.6,'B':0.2,'C':0,'D':-0.3}[s.h.haigoGradeTan ?? ''] ?? 0;
+    // [削除: paradoxBonus — 2026-04-19 皐月賞監査で逆相関傾向を確認したため撤廃]
+    const anaScore    = honki * gekisouCoef * (1 + oddsPt) + haigoBonus;
+    const sougouScore = (s.tanMax + s.fukuMax) > 0 ? (s.tanScore + s.fukuScore) / (s.tanMax + s.fukuMax) : 0;
+    const isKeshi = (s.h.ginyoGradeTan === 'D') && (s.h.ginyoGradeFuku === 'D');
+    return {...s, anaScore, sougouScore, isKeshi};
+  });
+
+  // sabcRankTan/Fuku の編集順位マップ（存在する場合はそちらを優先）
+  const tanEditRank = {}, fukuEditRank = {};
+  (d.sabcRankTan  || []).forEach(item => { if (item.horse) tanEditRank[item.horse]  = item.rank; });
+  (d.sabcRankFuku || []).forEach(item => { if (item.horse) fukuEditRank[item.horse] = item.rank; });
+  const hasTanEdit  = Object.keys(tanEditRank).length  > 0;
+  const hasFukuEdit = Object.keys(fukuEditRank).length > 0;
+
+  // 単勝/複勝/ZI/穴馬/総合/人気 順位マップ
+  const tanPct  = s => s.tanMax  > 0 ? s.tanScore  / s.tanMax  : 0;
+  const fukuPct = s => s.fukuMax > 0 ? s.fukuScore / s.fukuMax : 0;
+  const byTan    = [...withAna].sort((a,b) => tanPct(b)  - tanPct(a)  || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byFuku   = [...withAna].sort((a,b) => fukuPct(b) - fukuPct(a) || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byZI     = [...withAna].sort((a,b) => (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byAna    = [...withAna].sort((a,b) => (a.isKeshi?1:0)-(b.isKeshi?1:0) || b.anaScore - a.anaScore);
+  const bySougou = [...withAna].sort((a,b) => b.sougouScore - a.sougouScore || (b.h.sabcZI||0)-(a.h.sabcZI||0));
+  const byUma    = [...withAna].sort((a,b) => (a.h.horseNum||999) - (b.h.horseNum||999));
+  // 人気順（オッズ昇順）
+  const byOdds   = [...withAna].sort((a,b) => (a.h.expectedOdds||999) - (b.h.expectedOdds||999));
+  const tanRankMap={}, fukuRankMap={}, ziRankMap={}, anaRankMap={}, sougouRankMap={}, popularityMap={};
+  byTan.forEach(({name},i)    => tanRankMap[name]    = i+1);
+  byFuku.forEach(({name},i)   => fukuRankMap[name]   = i+1);
+  byZI.forEach(({name},i)     => ziRankMap[name]     = i+1);
+  byAna.forEach(({name},i)    => anaRankMap[name]    = i+1);
+  bySougou.forEach(({name},i) => sougouRankMap[name] = i+1);
+  byOdds.forEach(({name},i)   => popularityMap[name] = i+1);
+
+  // 印マップ（race.markDeltaTopN = 印数を直接指定。×2で出走馬数に変換して buildMarkMap へ）
+  const markDeltaTopN = d.race?.markDeltaTopN ?? null;
+  const markTotal = markDeltaTopN ? markDeltaTopN * 2 : horses.length;
+  const markMap = markDeltaTopN ? buildMarkMap(sougouRankMap, anaRankMap, markTotal) : {};
+
+  // 印順ソート（◎1 ○2 ▲3 ⭐4 △5 無印9）
+  const MARK_ORDER = {'◎':1,'○':2,'▲':3,'⭐':4,'△':5};
+  const byMark = markDeltaTopN
+    ? [...withAna].sort((a,b) => {
+        const ao = MARK_ORDER[markMap[a.name]] ?? 9;
+        const bo = MARK_ORDER[markMap[b.name]] ?? 9;
+        return ao - bo || b.sougouScore - a.sougouScore;
+      })
+    : byZI;
+  markRankMap = {};
+  byMark.forEach(({name},i) => markRankMap[name] = i+1);
+
+  // 表示順
+  let display;
+  if      (sortMode === 'tan')    display = byTan;
+  else if (sortMode === 'fuku')   display = byFuku;
+  else if (sortMode === 'ana')    display = byAna;
+  else if (sortMode === 'sougou') display = bySougou;
+  else if (sortMode === 'uma')    display = byUma;
+  else if (sortMode === 'mark')   display = byMark;
+  else                            display = byZI;
+
+  const {tan: tanCmt, fuku: fukuCmt} = buildCommentMaps(d);
+
+  const anaMax = Math.max(...withAna.map(s => s.anaScore ?? 0), 0.01);
+  const cards = display.map(({name, h, tanScore, fukuScore, tanMax, fukuMax, anaScore, sougouScore, isKeshi}) =>
+    buildHorseCard(name, h, tanScore, fukuScore, tanMax, fukuMax,
+                   tanRankMap[name], fukuRankMap[name], ziRankMap[name], anaRankMap[name],
+                   sougouRankMap[name], popularityMap[name],
+                   tanCmt[name] || null, fukuCmt[name] || null,
+                   anaScore ?? 0, anaMax, sougouScore ?? 0, isKeshi ?? false,
+                   markMap[name] ?? null, surface)
+  ).join('');
+
+  const sortBar = `
+    <div class="sort-bar" style="flex-wrap:wrap;">
+      <span class="sort-bar-label">並び順:</span>
+      <button class="sort-btn sougou-btn ${sortMode==='sougou'?'active':''}" onclick="setSortMode('sougou')">⭐ 総合スコア順</button>
+      <button class="sort-btn ${sortMode==='tan'   ?'active':''}" onclick="setSortMode('tan')">単勝スコア順</button>
+      <button class="sort-btn ${sortMode==='fuku'  ?'active':''}" onclick="setSortMode('fuku')">複勝スコア順</button>
+      <button class="sort-btn ana-btn ${sortMode==='ana'?'active':''}" onclick="setSortMode('ana')">穴馬スコア順</button>
+      <button class="sort-btn ${sortMode==='zi'    ?'active':''}" onclick="setSortMode('zi')">ZI順</button>
+      ${withAna.some(s=>s.h.horseNum) ? `<button class="sort-btn uma-btn ${sortMode==='uma'?'active':''}" onclick="setSortMode('uma')">🏇 馬番順</button>` : ''}
+      ${markDeltaTopN ? `<button class="sort-btn mark-btn ${sortMode==='mark'?'active':''}" onclick="setSortMode('mark')">◎ 印順</button>` : ''}
+    </div>`;
+
+  document.getElementById('content').innerHTML = `
+    <div class="race-info">
+      <div>
+        <div class="race-info-name">${esc(d.race?.name || cfg.label)}</div>
+        <div class="race-info-meta">${cfg.meta}</div>
+      </div>
+      <span class="horse-count">${horses.length}頭</span>
+    </div>
+    ${buildAnalysisSection(d)}
+    ${sortBar}
+    <div class="horse-list">${cards}</div>
+  `;
+}
+
+// タブ切り替え
+document.getElementById('tabBar').addEventListener('click', e => {
+  const btn = e.target.closest('.tab-btn');
+  if (!btn) return;
+  const idx = parseInt(btn.dataset.idx);
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentIdx = idx;
+  renderRace(idx);
+});
+
+// ═══════════════════════════════════════════════════════
+// 🎬 配信モード（?broadcast=1）初期化
+// YouTube配信でOBSブラウザソースに流す用。
+//   ・ 拡大表示 (zoom 1.75)
+//   ・ 不要なヘッダ・ナビ類を非表示
+//   ・ J/↓ で次の行、K/↑ で前の行へスムーズスクロール
+//   ・ ESC で通常表示に戻る
+// ═══════════════════════════════════════════════════════
+(function initBroadcastMode(){
+  const params = new URLSearchParams(location.search);
+  if (params.get('broadcast') !== '1') return;
+
+  document.body.classList.add('broadcast-mode');
+
+  // 操作ヒント（画面右下に常時表示、動画に映っても控えめ）
+  const hint = document.createElement('div');
+  hint.className = 'bc-hint';
+  hint.textContent = '▶ J / ↓ 次へ　K / ↑ 前へ　ESC 終了';
+  document.body.appendChild(hint);
+
+  // キーボードナビ
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
+      e.preventDefault(); scrollBroadcastNext();
+    } else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
+      e.preventDefault(); scrollBroadcastPrev();
+    } else if (e.key === 'Escape') {
+      document.body.classList.remove('broadcast-mode');
+      const h = document.querySelector('.bc-hint');
+      if (h) h.remove();
+    }
+  });
+})();
+
+function getBroadcastRows(){
+  // 馬カード / テーブル行 / シジンカードのいずれかを候補に
+  const candidates = document.querySelectorAll(
+    '#content tbody tr, #content .horse-card, #content > div > div[style*="border:2px solid"]'
+  );
+  return Array.from(candidates).filter(el => el.offsetHeight > 40);
+}
+
+function scrollBroadcastNext(){
+  const rows = getBroadcastRows();
+  if (!rows.length) { window.scrollBy({top: window.innerHeight * 0.5, behavior:'smooth'}); return; }
+  const mid = window.innerHeight / 2;
+  for (const r of rows) {
+    const rect = r.getBoundingClientRect();
+    if (rect.top > mid + 20) { r.scrollIntoView({block:'center', behavior:'smooth'}); return; }
+  }
+  window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
+}
+
+function scrollBroadcastPrev(){
+  const rows = getBroadcastRows();
+  if (!rows.length) { window.scrollBy({top: -window.innerHeight * 0.5, behavior:'smooth'}); return; }
+  const mid = window.innerHeight / 2;
+  const reversed = [...rows].reverse();
+  for (const r of reversed) {
+    const rect = r.getBoundingClientRect();
+    if (rect.top < mid - 20) { r.scrollIntoView({block:'center', behavior:'smooth'}); return; }
+  }
+  window.scrollTo({top: 0, behavior:'smooth'});
+}
+
+async function main() {
+  const results = await Promise.allSettled(
+    RACES.map(cfg => fetch(cfg.file + '?v=' + Date.now())
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(d => ({cfg, d})))
+  );
+  allData = results.map((res, i) =>
+    res.status === 'fulfilled' ? res.value : {cfg: RACES[i], d: null}
+  );
+
+  // ?race= URLパラメータで特定レースを初期選択（配信モード向け）
+  const params = new URLSearchParams(location.search);
+  const raceParam = params.get('race');
+  let initialIdx = 0;
+  if (raceParam) {
+    const hit = RACES.findIndex(r =>
+      (r.id && r.id === raceParam) ||
+      (r.label && r.label === raceParam) ||
+      (r.file && r.file.includes(raceParam))
+    );
+    if (hit >= 0) initialIdx = hit;
+  }
+  renderRace(initialIdx);
+}
+main();
+</script>
+</body>
+</html>
