@@ -855,7 +855,12 @@ a{color:inherit;}
   padding:20px 16px 16px;
   text-align:center;
   position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:190px;
 }
+.honou-card .honou-result{margin-top:auto;}
 .honou-card.hit1{
   background:linear-gradient(180deg,#FDF6E0 0%,var(--paper) 100%);
   border-color:var(--kin);
@@ -881,18 +886,23 @@ a{color:inherit;}
 }
 .honou-mark{
   font-family:'Shippori Mincho',serif;
-  font-size:24px;
+  font-size:22px;
   color:var(--shu);
-  line-height:1;
+  line-height:1.2;
   margin-bottom:4px;
+  word-break:keep-all;
+  white-space:nowrap;
+  transform:scale(var(--mark-scale,1));
 }
 .honou-name{
   font-family:'Shippori Mincho',serif;
-  font-size:14px;
+  font-size:13px;
   font-weight:700;
   color:var(--sumi);
   margin:4px 0;
-  letter-spacing:.02em;
+  letter-spacing:.01em;
+  line-height:1.4;
+  word-break:break-all;
 }
 .honou-pop{
   font-size:10px;
@@ -1336,13 +1346,13 @@ a{color:inherit;}
         <div class="honou-pop">11番人気</div>
         <div class="honou-result mincho">3着激走</div>
       </div>
-      <div class="honou-card miss">
+      <div class="honou-card hit1">
         <div class="honou-date">2026/4/25</div>
         <div class="honou-race mincho">観月橋S</div>
         <div class="honou-mark mincho">△</div>
         <div class="honou-name mincho">マイノワール</div>
-        <div class="honou-pop">6番人気</div>
-        <div class="honou-result mincho">11着 外れ</div>
+        <div class="honou-pop">6番人気 13.7倍</div>
+        <div class="honou-result mincho">1着激走</div>
       </div>
       <div class="honou-card hit1">
         <div class="honou-race mincho">福島牝馬S G3</div>
@@ -1571,13 +1581,13 @@ a{color:inherit;}
         <div class="honou-pop">11番人気</div>
         <div class="honou-result mincho">3着激走</div>
       </div>
-      <div class="honou-card miss">
+      <div class="honou-card hit1">
         <div class="honou-date">2026/4/25</div>
         <div class="honou-race mincho">観月橋S</div>
         <div class="honou-mark mincho">△</div>
         <div class="honou-name mincho">マイノワール</div>
-        <div class="honou-pop">6番人気</div>
-        <div class="honou-result mincho">11着 外れ</div>
+        <div class="honou-pop">6番人気 13.7倍</div>
+        <div class="honou-result mincho">1着激走</div>
       </div>
       <div class="honou-card hit1">
         <div class="honou-race mincho">福島牝馬S G3</div>
