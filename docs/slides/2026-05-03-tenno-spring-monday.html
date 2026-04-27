@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>春の天皇賞 展望 2026 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#080810;--kin:#C9A961;--kin-dk:#9B7A3A;
+  --kin-glow:rgba(201,169,97,.35);--shu:#9B2D30;
+  --text:#F5EFE0;--muted:rgba(245,239,224,.6);--dim:rgba(245,239,224,.3);
+  --midori:#4A9F6E;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;height:100%;overflow:hidden;user-select:none;}
+
+.deck{width:100vw;height:100vh;position:relative;overflow:hidden;}
+.slide{
+  position:absolute;inset:0;width:100%;height:100%;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:60px 80px;opacity:0;pointer-events:none;
+  transition:opacity .35s ease;background:var(--bg);overflow:hidden;
+}
+.slide.active{opacity:1;pointer-events:auto;}
+.slide::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(201,169,97,.07) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+/* 金枠 */
+.slide-frame{position:absolute;inset:20px;border:1px solid rgba(201,169,97,.35);border-radius:4px;pointer-events:none;}
+.slide-frame::before,.slide-frame::after{
+  content:'';position:absolute;background:linear-gradient(90deg,transparent,var(--kin),transparent);
+  left:60px;right:60px;height:1px;
+}
+.slide-frame::before{top:0;} .slide-frame::after{bottom:0;}
+
+.slide-corner{position:absolute;width:22px;height:22px;border-color:var(--kin);border-style:solid;opacity:.65;}
+.slide-corner.tl{top:20px;left:20px;border-width:2px 0 0 2px;}
+.slide-corner.tr{top:20px;right:20px;border-width:2px 2px 0 0;}
+.slide-corner.bl{bottom:20px;left:20px;border-width:0 0 2px 2px;}
+.slide-corner.br{bottom:20px;right:20px;border-width:0 2px 2px 0;}
+
+.slide-logo{position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.22em;color:var(--kin);font-weight:700;opacity:.75;white-space:nowrap;}
+.slide-num{position:absolute;bottom:28px;right:36px;font-size:11px;color:var(--dim);letter-spacing:.1em;}
+.mon-badge{position:absolute;top:28px;right:40px;font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--kin);background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.35);padding:4px 12px;border-radius:3px;}
+
+/* セクション見出し */
+.section-heading{font-size:14px;font-weight:900;letter-spacing:.25em;color:var(--kin);text-align:center;margin-bottom:30px;position:relative;}
+.section-heading::before,.section-heading::after{content:'';position:absolute;top:50%;width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--kin));}
+.section-heading::before{right:calc(50% + 10px);transform:scaleX(-1);} .section-heading::after{left:calc(50% + 10px);}
+
+/* ─── SLIDE 1 タイトル ─── */
+.s-title .main-grade{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.2em;background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;padding:4px 18px;border-radius:3px;margin-bottom:18px;}
+.s-title .main-title{font-size:70px;font-weight:800;color:var(--text);letter-spacing:.1em;line-height:1.1;text-align:center;}
+.s-title .main-title span{display:block;font-size:28px;font-weight:500;color:var(--kin);letter-spacing:.2em;margin-bottom:6px;}
+.s-title .main-sub{font-size:17px;color:var(--muted);margin-top:14px;letter-spacing:.18em;}
+.s-title .main-venue{font-size:14px;color:var(--dim);margin-top:8px;letter-spacing:.12em;}
+.s-title .brand-badge{margin-top:34px;font-size:12px;color:var(--kin);letter-spacing:.2em;font-weight:700;border:1px solid rgba(201,169,97,.35);padding:6px 24px;border-radius:3px;}
+
+/* ─── SLIDE 2 キャラ ─── */
+.char-stage{display:flex;gap:70px;align-items:flex-end;width:100%;max-width:1400px;}
+.char-box{flex:1;display:flex;flex-direction:column;align-items:center;}
+.char-avatar{font-size:90px;line-height:1;margin-bottom:12px;}
+.char-name{font-size:19px;font-weight:800;color:var(--kin);letter-spacing:.1em;margin-bottom:4px;}
+.char-tag{font-size:12px;color:var(--muted);letter-spacing:.06em;text-align:center;}
+.char-bubble{background:rgba(201,169,97,.07);border:1px solid rgba(201,169,97,.25);border-radius:10px;padding:16px 20px;margin-top:16px;font-size:14.5px;line-height:1.75;color:var(--text);letter-spacing:.04em;max-width:480px;}
+.char-bubble.ginyo{border-color:rgba(155,45,48,.35);background:rgba(155,45,48,.07);}
+.char-bubble em{color:var(--kin);font-style:normal;font-weight:700;}
+.char-bubble.ginyo em{color:#F0A0A0;}
+.vs-divider{font-size:30px;font-weight:800;color:var(--dim);align-self:center;margin-bottom:90px;}
+
+/* ─── SLIDE 3 アジェンダ ─── */
+.agenda-list{display:flex;flex-direction:column;gap:12px;width:100%;max-width:900px;}
+.agenda-item{display:flex;align-items:center;gap:20px;background:rgba(201,169,97,.05);border:1px solid rgba(201,169,97,.2);border-radius:6px;padding:14px 22px;}
+.agenda-num{font-size:34px;font-weight:800;color:var(--kin);min-width:52px;text-align:center;line-height:1;}
+.agenda-txt{font-size:16px;color:var(--text);letter-spacing:.05em;}
+.agenda-txt span{font-size:12px;color:var(--muted);display:block;margin-top:2px;}
+
+/* ─── SLIDE 4 コース ─── */
+.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;width:100%;max-width:1200px;}
+.course-card{background:rgba(201,169,97,.05);border:1px solid rgba(201,169,97,.2);border-radius:8px;padding:22px 26px;}
+.cc-label{font-size:10px;font-weight:900;letter-spacing:.2em;color:var(--kin);margin-bottom:8px;}
+.cc-value{font-size:26px;font-weight:800;color:var(--text);letter-spacing:.05em;}
+.cc-note{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.6;}
+
+/* ─── SLIDE 5-7 戒律 ─── */
+.kairitsu-no-big{font-size:12px;font-weight:900;letter-spacing:.22em;color:var(--kin);margin-bottom:12px;}
+.kairitsu-head-big{font-size:52px;font-weight:800;color:var(--text);letter-spacing:.06em;line-height:1.15;margin-bottom:16px;}
+.kairitsu-data-big{display:inline-block;font-size:14px;font-weight:800;color:var(--kin);background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.3);padding:7px 18px;border-radius:4px;margin-bottom:22px;letter-spacing:.06em;}
+.kairitsu-body-big{font-size:18px;line-height:1.85;color:rgba(245,239,224,.82);max-width:900px;letter-spacing:.04em;}
+.kairitsu-body-big em{color:var(--kin);font-style:normal;font-weight:700;}
+.kairitsu-examples{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px;}
+.example-chip{font-size:13px;font-weight:700;background:rgba(155,45,48,.18);border:1px solid rgba(155,45,48,.35);color:rgba(245,239,224,.88);padding:5px 13px;border-radius:4px;letter-spacing:.04em;}
+
+/* ─── SLIDE 8 配当 ─── */
+.haito-slide-table{width:100%;max-width:980px;border-collapse:collapse;font-size:16px;}
+.haito-slide-table th{padding:13px 18px;text-align:center;background:rgba(201,169,97,.1);border-bottom:2px solid rgba(201,169,97,.28);font-weight:800;color:var(--kin);letter-spacing:.1em;}
+.haito-slide-table td{padding:13px 18px;text-align:center;border-bottom:1px solid rgba(201,169,97,.1);font-weight:700;}
+.haito-slide-table td:first-child{text-align:left;color:var(--muted);font-size:14px;padding-left:26px;}
+.td-avg{font-size:22px;color:var(--kin);}
+.td-max{font-size:13px;color:var(--midori);}
+.td-min{font-size:13px;color:var(--dim);}
+.haito-note-big{margin-top:22px;font-size:14px;color:var(--muted);line-height:1.8;max-width:980px;text-align:center;background:rgba(201,169,97,.05);padding:12px 22px;border-radius:6px;}
+.haito-note-big em{color:var(--kin);font-style:normal;font-weight:700;}
+
+/* ─── SLIDE 9-13 注目馬 ─── */
+.horse-slide{width:100%;max-width:1300px;display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:start;}
+.horse-mark-big{font-size:72px;font-weight:900;line-height:1;width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.horse-mark-big.honmei{background:linear-gradient(135deg,var(--shu),#7A1E1E);}
+.horse-mark-big.taikou{background:linear-gradient(135deg,#1F4D2E,#0f2c18);}
+.horse-mark-big.ana{background:linear-gradient(135deg,#3A0F1A,#5A1020);font-size:48px;}
+.horse-name-big{font-size:40px;font-weight:800;color:var(--text);letter-spacing:.06em;line-height:1.1;}
+.horse-prev{font-size:13px;color:var(--muted);letter-spacing:.04em;margin-top:6px;}
+.horse-pills{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0;}
+.pill{font-size:12px;font-weight:700;padding:4px 11px;border-radius:4px;letter-spacing:.04em;}
+.pill.good{background:rgba(74,159,110,.16);color:#7AE0A8;border:1px solid rgba(74,159,110,.3);}
+.pill.warn{background:rgba(155,45,48,.16);color:#F09090;border:1px solid rgba(155,45,48,.3);}
+.horse-comment-big{font-size:17px;line-height:1.85;color:rgba(245,239,224,.82);letter-spacing:.04em;}
+.horse-comment-big em{color:var(--kin);font-style:normal;font-weight:700;}
+.ginyo-comment{display:flex;gap:11px;align-items:flex-start;background:rgba(155,45,48,.07);border:1px solid rgba(155,45,48,.28);border-radius:6px;padding:12px 16px;margin-top:12px;}
+.ginyo-icon{font-size:22px;flex-shrink:0;}
+.ginyo-text{font-size:13px;line-height:1.7;color:rgba(245,239,224,.72);letter-spacing:.04em;}
+.ginyo-text strong{color:rgba(240,160,160,.9);}
+
+/* ─── SLIDE 14 4神 ─── */
+.shijin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%;max-width:1260px;}
+.shijin-card{background:rgba(201,169,97,.04);border:1px solid rgba(201,169,97,.18);border-radius:8px;padding:26px 18px;text-align:center;}
+.shijin-emoji{font-size:52px;margin-bottom:10px;display:block;}
+.shijin-name{font-size:19px;font-weight:800;color:var(--kin);letter-spacing:.1em;margin-bottom:6px;}
+.shijin-role{font-size:12px;color:var(--muted);letter-spacing:.06em;margin-bottom:10px;}
+.shijin-factors{font-size:12px;color:rgba(245,239,224,.72);line-height:1.65;text-align:left;}
+
+/* ─── SLIDE 15 予告 ─── */
+.yotoku-big{font-size:86px;font-weight:800;color:var(--kin);letter-spacing:.08em;text-align:center;line-height:1;}
+.yotoku-sub{font-size:20px;color:var(--muted);margin-top:14px;letter-spacing:.16em;text-align:center;}
+.yotoku-msg{margin-top:34px;font-size:17px;line-height:1.9;color:rgba(245,239,224,.78);text-align:center;max-width:860px;letter-spacing:.05em;}
+.yotoku-msg em{color:var(--kin);font-style:normal;font-weight:700;}
+
+/* ─── SLIDE 16 END ─── */
+.end-title{font-size:56px;font-weight:800;color:var(--kin);letter-spacing:.1em;text-align:center;margin-bottom:22px;}
+.end-sub{font-size:17px;color:var(--muted);letter-spacing:.18em;text-align:center;margin-bottom:38px;}
+.end-actions{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;}
+.end-action{font-size:15px;font-weight:700;padding:13px 30px;border-radius:6px;letter-spacing:.08em;}
+.end-action.primary{background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;}
+.end-action.secondary{background:transparent;color:var(--kin);border:2px solid var(--kin);}
+
+/* アニメ */
+@keyframes kin-glow{0%,100%{text-shadow:0 0 20px rgba(201,169,97,.4);}50%{text-shadow:0 0 40px rgba(201,169,97,.85),0 0 80px rgba(201,169,97,.3);}}
+.glow{animation:kin-glow 3s ease-in-out infinite;}
+@keyframes float-slow{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.float{animation:float-slow 4s ease-in-out infinite;}
+
+/* ナレーション */
+.speaker-notes{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,.93);border-top:2px solid var(--kin);padding:16px 38px;font-size:13.5px;line-height:1.7;color:#F0E8D0;letter-spacing:.04em;max-height:190px;overflow-y:auto;z-index:999;}
+.speaker-notes.show{display:block;}
+.notes-label{font-size:10px;font-weight:900;letter-spacing:.2em;color:var(--kin);margin-bottom:7px;}
+.notes-char.nick{font-weight:800;color:#7AE0A8;margin-right:5px;}
+.notes-char.ginyo{font-weight:800;color:#F09090;margin-right:5px;}
+
+.nav-hint{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--dim);letter-spacing:.12em;pointer-events:none;z-index:500;transition:opacity .5s;}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ===== SLIDE 1: タイトル ===== -->
+<div class="slide s-title active" id="s1">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 週 明 け 展 望 ─ 月 曜 版</div>
+  <div class="mon-badge">月 曜 展 望</div>
+
+  <div class="main-grade">G1</div>
+  <div class="main-title glow">
+    <span>第 百 七 十 一 回</span>
+    春の天皇賞
+  </div>
+  <div class="main-sub">SPRING TENNO SHO 2026</div>
+  <div class="main-venue">2026年 5月3日（日）　京都 芝3200m 外回り</div>
+  <div class="brand-badge">⛩ UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="slide-num">01 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 01</div>
+    <span class="notes-char nick">ニック：</span>え〜みなさんこんにちは！UG競馬ワイド神宮のニックです！今週はGW超豪華ウィークということで、春の天皇賞G1、京王杯スプリングカップG2、ユニコーンステークスG3の三本立て！今日は週明け月曜版として、まず春天の展望をガッツリやっていきます！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……神宮の門は、3200mの先に開く。始めよう。
+  </div>
+</div>
+
+<!-- ===== SLIDE 2: キャラ登場 ===== -->
+<div class="slide" id="s2">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">本 日 の 語 り 部</div>
+  <div class="char-stage">
+    <div class="char-box">
+      <div class="char-avatar float">🙋</div>
+      <div class="char-name">ニック</div>
+      <div class="char-tag">本格派馬券師 ／ チャンネル主</div>
+      <div class="char-bubble">
+        え、あの〜みなさん聞こえてますかw<br>
+        今週は<em>GW超豪華ウィーク</em>！<br>
+        春天・京王杯SC・ユニコーンSの三本立てです。<br>
+        今日は月曜版として春天を深掘りします！
+      </div>
+    </div>
+    <div class="vs-divider">×</div>
+    <div class="char-box">
+      <div class="char-avatar float">⛩</div>
+      <div class="char-name">ギーニョ</div>
+      <div class="char-tag">言語神 ／ UG神宮の神主</div>
+      <div class="char-bubble ginyo">
+        ……3200mの舞台、京都外回り。<br>
+        過去十年のデータが語る<em>戒律三カ条</em>を、<br>
+        今日は余すところなく伝えよう。<br>
+        <em>人気は嘘をつく。構造は嘘をつかぬ。</em>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">02 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 02</div>
+    <span class="notes-char nick">ニック：</span>改めましてニックです！相方のギーニョと一緒に今週末の春天をガチで展望していきます。<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……余談だが、G1週は魂の密度が違う。始まるぞ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 3: アジェンダ ===== -->
+<div class="slide" id="s3">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">本 日 の 内 容</div>
+  <div class="agenda-list">
+    <div class="agenda-item">
+      <div class="agenda-num">①</div>
+      <div class="agenda-txt">春の天皇賞 基本情報<span>京都 芝3200m G1 ／ 2026年5月3日（日）</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">②</div>
+      <div class="agenda-txt">過去10年が語る「神宮の戒律 三カ条」<span>阪神大賞典 ／ 前年覇者 ／ 軽量馬 の絶対則</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">③</div>
+      <div class="agenda-txt">配当の素顔（過去11年 平均払戻データ）<span>単勝¥385 から 三連単¥242,730 まで</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">④</div>
+      <div class="agenda-txt">ギーニョの注目馬5頭<span>アドマイヤテラ ／ クロワデュノール ／ ヘデントール ／ シンエンペラー ／ 穴候補</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">⑤</div>
+      <div class="agenda-txt">金曜夜・神託降臨の予告<span>5/2金曜夜、4神＋麒麟が最終結論を降ろす</span></div>
+    </div>
+  </div>
+  <div class="slide-num">03 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 03</div>
+    <span class="notes-char nick">ニック：</span>今日は大きく5パートでお送りします。コース確認→戒律3カ条→配当データ→注目馬5頭→金曜夜予告の流れです！
+  </div>
+</div>
+
+<!-- ===== SLIDE 4: コース ===== -->
+<div class="slide" id="s4">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">春 天 の 舞 台</div>
+  <div class="course-grid">
+    <div class="course-card">
+      <div class="cc-label">開 催</div>
+      <div class="cc-value">第百七十一回</div>
+      <div class="cc-note">天皇賞・春<br>2026年 5月3日（日）</div>
+    </div>
+    <div class="course-card">
+      <div class="cc-label">コ ー ス</div>
+      <div class="cc-value">京都 芝3200m</div>
+      <div class="cc-note">外回り ／ 右回り<br>坂2回・コーナー6回</div>
+    </div>
+    <div class="course-card">
+      <div class="cc-label">レ ー ス 条 件</div>
+      <div class="cc-value">4歳以上・定量</div>
+      <div class="cc-note">4歳以上 58kg（牝馬2kg減）<br>賞金 1億円</div>
+    </div>
+    <div class="course-card">
+      <div class="cc-label">コ ー ス 特 性</div>
+      <div class="cc-value">スタミナの聖地</div>
+      <div class="cc-note">芝G1最長距離。<br>淀の下り坂、そして最後の急坂。<br>スタミナと末脚が問われる舞台。</div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 04</div>
+    <span class="notes-char nick">ニック：</span>京都芝3200m、日本芝G1最長距離です。コーナー6回で坂が2回ある。スタミナだけじゃなくてコーナリングと末脚が全部必要なんですよね。<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……3200mを走り切るとは、精神の強さと京都という土地との相性が問われる。
+  </div>
+</div>
+
+<!-- ===== SLIDE 5: 戒律第一條 ===== -->
+<div class="slide" id="s5">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div style="width:100%;max-width:1160px;">
+    <div class="kairitsu-no-big">神 宮 の 戒 律 ─ 第 一 條</div>
+    <div class="kairitsu-head-big">阪神大賞典の覇者を<br>疑うな</div>
+    <div class="kairitsu-data-big">過去10年 ／ 勝ち馬 → 複勝率 100% ・ 4着内率 100%</div>
+    <div class="kairitsu-body-big">
+      過去十年、阪神大賞典を勝った馬が春天で馬券外に飛んだ例はゼロ。<br>
+      <em>前走の足跡こそ、京都3200の予言書</em>である。<br><br>
+      前哨戦での仕上げの確かさ、3000m超の経験値、陣営の本気度――<br>
+      すべてが「阪神大賞典1着」という一行に凝縮されている。
+    </div>
+    <div class="kairitsu-examples">
+      <div class="example-chip">2024 テーオーロイヤル ✓</div>
+      <div class="example-chip">2023 アスクビクターモア ✓</div>
+      <div class="example-chip">2022 タイトルホルダー ✓</div>
+      <div class="example-chip">→ 今年の該当馬 → アドマイヤテラ（レコード勝ち）</div>
+    </div>
+  </div>
+  <div class="slide-num">05 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 05</div>
+    <span class="notes-char nick">ニック：</span>戒律第一條！これはもう鉄則中の鉄則で、阪神大賞典の勝ち馬が春天で馬券外に飛んだことが過去10年ゼロなんです。アドマイヤテラは今年レコードで勝ってきてますから、この戒律をそのまま満たしてるんですよね。<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……複勝率100%というのは、データが語りうる最強の言葉だ。逆らう理由が、ない。
+  </div>
+</div>
+
+<!-- ===== SLIDE 6: 戒律第二條 ===== -->
+<div class="slide" id="s6">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div style="width:100%;max-width:1160px;">
+    <div class="kairitsu-no-big">神 宮 の 戒 律 ─ 第 二 條</div>
+    <div class="kairitsu-head-big">前年覇者は、再び来る</div>
+    <div class="kairitsu-data-big">京都開催時 ／ 4勝 ・ 2着2回 ・ 着外1のみ</div>
+    <div class="kairitsu-body-big">
+      テイエムオペラオーから始まり、フェノメノ、キタサンブラック、フィエルマンと<em>連覇の系譜が続く</em>。<br>
+      京都3200は<em>記憶を持つコース</em>――一度頂点を踏んだ馬は、その道を知っている。<br><br>
+      着外の例外は1例のみ。それ以外は<em>全頭2着以内</em>。
+    </div>
+    <div class="kairitsu-examples">
+      <div class="example-chip">フェノメノ 連覇 ✓</div>
+      <div class="example-chip">キタサンブラック 連覇 ✓</div>
+      <div class="example-chip">フィエルマン 連覇 ✓</div>
+      <div class="example-chip">→ 今年の前年覇者 → ヘデントール</div>
+    </div>
+  </div>
+  <div class="slide-num">06 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 06</div>
+    <span class="notes-char nick">ニック：</span>第二條は前年覇者の鉄則！京都開催の時は前年勝ち馬が4勝・2着2回で、着外は1例だけなんです。今年はヘデントールが前年覇者として出てきますね。<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……3200mを走り切った馬の記憶は、骨に刻まれる。連覇とはそういう話だ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 7: 戒律第三條 ===== -->
+<div class="slide" id="s7">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div style="width:100%;max-width:1160px;">
+    <div class="kairitsu-no-big">神 宮 の 戒 律 ─ 第 三 條</div>
+    <div class="kairitsu-head-big">穴は、軽量にして<br>京都に通ず</div>
+    <div class="kairitsu-data-big">牡馬460kg未満 → 連対率40% ・ 複勝率60%</div>
+    <div class="kairitsu-body-big">
+      ディープボンドを除き、過去十年の人気薄馬券圏内は<em>全頭460kg台以下</em>。<br>
+      さらに<em>京都重賞で実績を残していること</em>――この二条件が穴の方程式。<br><br>
+      ブローザホーン→日経新春杯1着 ／ ビザンチンドリーム→きさらぎ賞1着<br>
+      クリンチャー→京都記念1着 ／ グロリーヴェイズ→菊花賞5着
+    </div>
+    <div class="kairitsu-examples">
+      <div class="example-chip">460kg以下 × 京都重賞実績 = 穴の方程式</div>
+      <div class="example-chip">→ 今年の422kg馬 → マイネルカンパーナ</div>
+    </div>
+  </div>
+  <div class="slide-num">07 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 07</div>
+    <span class="notes-char nick">ニック：</span>第三條が今年一番面白いかも！460kg以下の軽量馬×京都重賞実績の組み合わせが穴の方程式で、今年のマイネルカンパーナが422kgでこれにドンピシャなんです！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……小なるものが、大きなものを制す。422kgという数字に、炎を見る。
+  </div>
+</div>
+
+<!-- ===== SLIDE 8: 配当の素顔 ===== -->
+<div class="slide" id="s8">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">配 当 の 素 顔　─ 過去11年（2015-2025）─</div>
+  <table class="haito-slide-table">
+    <thead><tr><th>券 種</th><th>平 均</th><th>最 高</th><th>最 低</th></tr></thead>
+    <tbody>
+      <tr><td>単 勝</td><td class="td-avg">¥385</td><td class="td-max">¥600</td><td class="td-min">¥200</td></tr>
+      <tr><td>馬 連</td><td class="td-avg">¥4,016</td><td class="td-max">¥20,160</td><td class="td-min">¥520</td></tr>
+      <tr><td>馬 単</td><td class="td-avg">¥5,994</td><td class="td-max">¥29,950</td><td class="td-min">¥1,230</td></tr>
+      <tr><td>三連複</td><td class="td-avg">¥13,866</td><td class="td-max">¥57,160</td><td class="td-min">¥610</td></tr>
+      <tr><td>三連単</td><td class="td-avg">¥66,237</td><td class="td-max">¥242,730</td><td class="td-min">¥3,780</td></tr>
+    </tbody>
+  </table>
+  <div class="haito-note-big">
+    G1らしく<em>単勝平均¥385</em>は本命決着が基本。ただし三連単最高<em>¥242,730</em>の破壊力あり。<br>
+    馬連¥4,016平均——2着に穴を絡めれば、神宮の構えが輝く。
+  </div>
+  <div class="slide-num">08 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 08</div>
+    <span class="notes-char nick">ニック：</span>配当データです！単勝平均385円ってことは本命決着が基本なんですよね。でも三連単最高24万円超えがあるってことで一発大爆発もある。馬連4016円平均なので、ここで穴を絡められると美味しいですね。<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……本命が来る場面で本命を買う。それだけでも十分な収益が出るのが、春天という舞台だ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 9: アドマイヤテラ ===== -->
+<div class="slide" id="s9">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 注 目 馬</div>
+  <div class="horse-slide">
+    <div><div class="horse-mark-big honmei">◎</div></div>
+    <div>
+      <div class="horse-name-big">アドマイヤテラ</div>
+      <div class="horse-prev">前走：阪神大賞典 1着（レコード 2:02.0）</div>
+      <div class="horse-pills">
+        <span class="pill good">阪神大賞典覇者</span>
+        <span class="pill good">菊花賞3着</span>
+        <span class="pill good">戒律第一條 完全合致</span>
+        <span class="pill warn">前走+500kg台</span>
+      </div>
+      <div class="horse-comment-big">
+        前哨戦で時計レコードを叩き、しかも<em>仕上げに余裕を残しての勝利</em>。<br>
+        神宮の第一條と「菊花賞3着以内→春天勝ち馬全頭該当」の<em>双リンクを満たすのはこの馬のみ</em>。<br>
+        前走500kg台が唯一の懸念だが、本番で490kg台に絞ってくれば問題なし。
+      </div>
+      <div class="ginyo-comment">
+        <span class="ginyo-icon">⛩</span>
+        <div class="ginyo-text"><strong style="color:#F09090;">ギーニョ：</strong>第一條と菊花賞リンクを兼ね備えた唯一の馬。逆らう根拠を見つけるほうが難しい。<em style="color:var(--kin);">本命の最右翼として構える</em>。</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">09 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 09</div>
+    <span class="notes-char nick">ニック：</span>注目馬一頭目！アドマイヤテラです。阪神大賞典レコード勝ちで、菊花賞3着経験もある。戒律第一條の該当馬で、データとガッチリ合致してます。<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……2:02.0のレコードは偶然ではない。この馬の時代が来ている、と感じる。
+  </div>
+</div>
+
+<!-- ===== SLIDE 10: クロワデュノール ===== -->
+<div class="slide" id="s10">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 注 目 馬</div>
+  <div class="horse-slide">
+    <div><div class="horse-mark-big honmei" style="font-size:56px;">◎</div></div>
+    <div>
+      <div class="horse-name-big">クロワデュノール</div>
+      <div class="horse-prev">前走：大阪杯 1着（プラス10kgで勝ち切り）</div>
+      <div class="horse-pills">
+        <span class="pill good">現役最強格</span>
+        <span class="pill good">父キタサンブラック（春天連覇）</span>
+        <span class="pill warn">京都未経験</span>
+        <span class="pill warn">3200m初距離</span>
+      </div>
+      <div class="horse-comment-big">
+        大阪杯を<em>太め残りで制した上積み余地</em>は計り知れない。<br>
+        父は春天連覇のキタサンブラックで<em>血の約束は確か</em>。<br>
+        ただし京都を一度も走っていないのが神宮としては引っかかる。<br>
+        <em>能力で押し切れる馬だが、絶対視はしない構え</em>。
+      </div>
+      <div class="ginyo-comment">
+        <span class="ginyo-icon">⛩</span>
+        <div class="ginyo-text"><strong style="color:#F09090;">ギーニョ：</strong>才能は本物。だが京都という土地は、初めて踏む者に牙を向くことがある。<em style="color:var(--kin);">能力と地脈のどちらが勝るか</em>、それがこの馬の問いだ。</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">10 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 10</div>
+    <span class="notes-char nick">ニック：</span>クロワデュノール！父がキタサンブラックで血統的な春天適性は最高。大阪杯も太め残りで勝ったんで上積みある。ただ京都未経験・3200m初なのが神宮としては気になるポイントですね。<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……この馬の運命は、京都の第4コーナーで決まる。
+  </div>
+</div>
+
+<!-- ===== SLIDE 11: ヘデントール ===== -->
+<div class="slide" id="s11">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 注 目 馬</div>
+  <div class="horse-slide">
+    <div><div class="horse-mark-big taikou">○</div></div>
+    <div>
+      <div class="horse-name-big">ヘデントール</div>
+      <div class="horse-prev">前走：京都記念 6着 ／ 前年覇者・連覇狙い</div>
+      <div class="horse-pills">
+        <span class="pill good">前年覇者（戒律第二條）</span>
+        <span class="pill good">ルメール継続</span>
+        <span class="pill warn">長期休養明け</span>
+      </div>
+      <div class="horse-comment-big">
+        <em>第二條「前年覇者の鉄則」の本人</em>。<br>
+        京都記念は実績馬を弾く魔のレース――<em>あの6着は文字通りノーカウント</em>。<br>
+        1週前追い切りでゴール後の流しまで負荷をかけた仕上げは陣営の本気を物語る。<br>
+        連覇圏内、ルメールが再び跨るならば乗らない手はない。
+      </div>
+      <div class="ginyo-comment">
+        <span class="ginyo-icon">⛩</span>
+        <div class="ginyo-text"><strong style="color:#F09090;">ギーニョ：</strong>京都3200mを一度制した魂は、同じ場所に引き寄せられる。<em style="color:var(--kin);">戒律第二條は、この馬のために存在する</em>。</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">11 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 11</div>
+    <span class="notes-char nick">ニック：</span>ヘデントール、去年の覇者！第二條の当事者ですね。前走が京都記念6着でしたが、あそこは有力馬が軒並みパフォーマンス落としてたレースなんでノーカウントでいいと思います。ルメール継続も強いポイント！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……去年の蹄跡が残る京都の坂を、また登る。それが強さというものだ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 12: シンエンペラー ===== -->
+<div class="slide" id="s12">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 注 目 馬</div>
+  <div class="horse-slide">
+    <div><div class="horse-mark-big taikou">▲</div></div>
+    <div>
+      <div class="horse-name-big">シンエンペラー</div>
+      <div class="horse-prev">前走：ネオムターフカップ ／ JC出走の国際経験</div>
+      <div class="horse-pills">
+        <span class="pill good">JC出走の格</span>
+        <span class="pill good">京都2歳S勝ち（右回り実績）</span>
+        <span class="pill warn">調子の波が激しい</span>
+      </div>
+      <div class="horse-comment-big">
+        <em>昨年ジャパンカップを走った経験そのものが格</em>。<br>
+        世界最高峰のレースに名を連ねた事実、<em>クロワデュノールと同じ土俵に立った証</em>。<br>
+        仕切り直しの一戦が逆にプラスに出る場面。<br>
+        京都2歳S勝ちで右回り適性あり、<em>穴本命候補の一頭として注目</em>。
+      </div>
+      <div class="ginyo-comment">
+        <span class="ginyo-icon">⛩</span>
+        <div class="ginyo-text"><strong style="color:#F09090;">ギーニョ：</strong>JCを走った馬の記憶は格を持つ。仕上がってきた時のポテンシャルは本物。<em style="color:var(--kin);">仕上がりをパドックで確認せよ</em>。</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">12 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 12</div>
+    <span class="notes-char nick">ニック：</span>シンエンペラー！ジャパンカップ出走経験があって、世界レベルの経験値がある馬ですよね。京都2歳S勝ちで右回りも得意。調子の波が激しいのが懸念ですが仕上がった時のポテンシャルは相当高い！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……皇帝の名を冠した馬が、春の京都で目覚める場面があるとすれば、今年かもしれない。
+  </div>
+</div>
+
+<!-- ===== SLIDE 13: マイネルカンパーナ（穴） ===== -->
+<div class="slide" id="s13">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 穴 抜 擢</div>
+  <div class="horse-slide">
+    <div><div class="horse-mark-big ana">☆</div></div>
+    <div>
+      <div class="horse-name-big">マイネルカンパーナ</div>
+      <div class="horse-prev">前走：ダイヤモンドS ／ ステイヤーズS2着 ／ 馬体重422kg</div>
+      <div class="horse-pills">
+        <span class="pill good">422kg ＝ 戒律第三條に完全合致</span>
+        <span class="pill good">ステイヤーズS2着（長距離実績）</span>
+        <span class="pill warn">京都本格初挑戦</span>
+      </div>
+      <div class="horse-comment-big">
+        <em>第三條の真打</em>。460kg以下かつ五番人気以下になりそうな牡馬はほぼ本馬のみ。<br>
+        ステイヤーズS2着は余力を残した好内容。ダイヤモンドS外枠4着も力を出した走り。<br>
+        <em>下り坂を生かした内枠先行で、神宮の穴を開け得る一頭</em>。
+      </div>
+      <div class="ginyo-comment" style="border-color:rgba(201,169,97,.35);background:rgba(201,169,97,.06);">
+        <span class="ginyo-icon">🔥</span>
+        <div class="ginyo-text"><strong style="color:var(--kin);">ギーニョ（穴炎）：</strong>422kgという数字は、戒律が求める「軽量」の体現。京都重賞実績の有無を金曜夜に最終確認し、<em style="color:var(--kin);">神託を降ろす</em>。</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">13 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 13</div>
+    <span class="notes-char nick">ニック：</span>穴候補のマイネルカンパーナ！422kgって軽くないですか！でも第三條の軽量×京都実績にドンピシャで合致してる。ステイヤーズS2着で長距離適性もある。下り坂の京都で内枠引けたら面白いんじゃないかと思ってます！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……小なるものが巨きなものを制す。それが戒律の教えだ。この馬を、神宮は見ている。
+  </div>
+</div>
+
+<!-- ===== SLIDE 14: 4神体系 ===== -->
+<div class="slide" id="s14">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">神 宮 の 4 神 ＋ 麒 麟 体 系</div>
+  <div class="shijin-grid">
+    <div class="shijin-card">
+      <span class="shijin-emoji">🐉</span>
+      <div class="shijin-name">青 龍</div>
+      <div class="shijin-role">東 ／ 言霊</div>
+      <div class="shijin-factors">前走コメントと<br>厩舎インタビューを読む。<br>「意志と真実」の採点。</div>
+    </div>
+    <div class="shijin-card">
+      <span class="shijin-emoji">🔥</span>
+      <div class="shijin-name">朱 雀</div>
+      <div class="shijin-role">南 ／ 速眼</div>
+      <div class="shijin-factors">スピード指数と展開。<br>弥永チャンネルの相馬眼。<br>「速さと見る目」の採点。</div>
+    </div>
+    <div class="shijin-card">
+      <span class="shijin-emoji">🐅</span>
+      <div class="shijin-name">白 虎</div>
+      <div class="shijin-role">西 ／ ラップ</div>
+      <div class="shijin-factors">HC指数×ゴールデン比率。<br>ラップキャラと<br>上り適性の採点。</div>
+    </div>
+    <div class="shijin-card">
+      <span class="shijin-emoji">🐢</span>
+      <div class="shijin-name">玄 武</div>
+      <div class="shijin-role">北 ／ 地脈</div>
+      <div class="shijin-factors">コースデータと外厩。<br>父×コース・騎手×コース。<br>「舞台適性」の採点。</div>
+    </div>
+  </div>
+  <div style="margin-top:22px;text-align:center;font-size:22px;font-weight:800;color:var(--kin);letter-spacing:.1em;">
+    ＋ 🦒 麒 麟 ── 4神の総意を一頭に結ぶ「神宮の本命」
+  </div>
+  <div class="slide-num">14 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 14</div>
+    <span class="notes-char nick">ニック：</span>神宮の採点システムをご紹介！青龍=前走コメント、朱雀=スピード指数+展開、白虎=ラップ分析、玄武=コースデータ外厩、この4神が各馬を採点して、総合1位を麒麟として本命指定するんです。金曜夜に全部出ます！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……4神の合議なくして、麒麟は立たない。金曜夜、すべての神が集う。
+  </div>
+</div>
+
+<!-- ===== SLIDE 15: 金曜予告 ===== -->
+<div class="slide" id="s15">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="yotoku-big glow">5/2 金曜夜</div>
+  <div class="yotoku-sub">FRIDAY NIGHT ─ 神 託 降 臨</div>
+  <div class="yotoku-msg">
+    Phase 1 自動採点パイプライン、<em>本格運用初戦</em>。<br>
+    青龍・朱雀・白虎・玄武の4神が全馬を採点し、<em>麒麟が一頭を選ぶ</em>。<br><br>
+    神宮ウェブサイトにて<em>最終結論・買い目・神託スコアを公開</em>。<br><br>
+    <strong style="color:var(--kin);">bakenshiug.github.io/ug-keiba</strong><br><br>
+    見逃すな。構造は、嘘をつかない。
+  </div>
+  <div class="slide-num">15 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 15</div>
+    <span class="notes-char nick">ニック：</span>というわけで今週末の春天展望でした！金曜夜に神宮サイトで最終結論出しますんで、ぜひチェックしてください！アドマイヤテラ・ヘデントール・マイネルカンパーナ、この3頭を軸に金曜夜に神宮の神託が降ります！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……待て。金曜の夜まで、静かに待て。
+  </div>
+</div>
+
+<!-- ===== SLIDE 16: END ===== -->
+<div class="slide" id="s16">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div style="font-size:52px;margin-bottom:18px;" class="float">⛩</div>
+  <div class="end-title glow">ご清覧ありがとうございました</div>
+  <div class="end-sub">UG 競 馬 ワ イ ド 神 宮 ─ 週 明 け 展 望 月 曜 版</div>
+  <div class="end-actions">
+    <div class="end-action primary">👍 高評価をお願いします</div>
+    <div class="end-action secondary">🔔 チャンネル登録で神託を受け取る</div>
+  </div>
+  <div style="margin-top:34px;font-size:14px;color:var(--muted);text-align:center;line-height:1.85;letter-spacing:.07em;">
+    次回：<span style="color:var(--kin);font-weight:700;">5/2（金）夜 ── 春天 最終神託</span>（買い目・スコア完全公開）<br>
+    神宮サイト：<span style="color:var(--kin);font-weight:700;">bakenshiug.github.io/ug-keiba</span>
+  </div>
+  <div class="slide-num">16 / 16</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 16</div>
+    <span class="notes-char nick">ニック：</span>ご視聴ありがとうございました！高評価とチャンネル登録よろしくお願いします！金曜夜に最終予想動画アップしますんで、そちらもぜひ！それでは！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>……また会おう。金曜の夜に。
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<div class="nav-hint" id="navHint">← → キーまたはクリックで進む　／　S = ナレーション原稿表示</div>
+
+<script>
+(function(){
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let cur = 0;
+  let notesVisible = false;
+
+  function showSlide(n){
+    slides[cur].classList.remove('active');
+    cur = ((n % total) + total) % total;
+    slides[cur].classList.add('active');
+    if(notesVisible){
+      document.querySelectorAll('.speaker-notes').forEach(el=>el.classList.remove('show'));
+      slides[cur].querySelector('.speaker-notes')?.classList.add('show');
+    }
+    flashHint();
+  }
+
+  function toggleNotes(){
+    notesVisible = !notesVisible;
+    document.querySelectorAll('.speaker-notes').forEach(el=>el.classList.remove('show'));
+    if(notesVisible) slides[cur].querySelector('.speaker-notes')?.classList.add('show');
+  }
+
+  function flashHint(){
+    const h = document.getElementById('navHint');
+    h.style.opacity = '1';
+    clearTimeout(h._t);
+    h._t = setTimeout(()=>h.style.opacity='0', 2000);
+  }
+
+  document.addEventListener('keydown', e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') { e.preventDefault(); showSlide(cur+1); }
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp') { e.preventDefault(); showSlide(cur-1); }
+    else if(e.key.toLowerCase()==='s') toggleNotes();
+    else if(e.key==='Escape'){ notesVisible=false; document.querySelectorAll('.speaker-notes').forEach(el=>el.classList.remove('show')); }
+  });
+
+  document.getElementById('deck').addEventListener('click', e=>{
+    if(e.target.closest('button,a')) return;
+    showSlide(e.clientX / window.innerWidth < 0.35 ? cur-1 : cur+1);
+  });
+
+  // 初期ヒント
+  const h = document.getElementById('navHint');
+  h._t = setTimeout(()=>h.style.opacity='0', 3500);
+})();
+</script>
+</body>
+</html>
