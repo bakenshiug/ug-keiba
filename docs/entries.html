@@ -148,6 +148,21 @@ html,body{
   text-align:center;
 }
 .kamae-title{font-size:13px;font-weight:800;color:var(--shu);letter-spacing:.16em;}
+.kamae-kirin{
+  font-size:64px;line-height:1;margin:14px 0 10px;
+  filter:drop-shadow(0 4px 8px rgba(201,169,97,.35));
+  animation:kirin-float 4s ease-in-out infinite;
+}
+@keyframes kirin-float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+}
+.kamae-other{
+  font-size:11.5px;color:var(--shu-dk);margin-top:14px;padding:10px 12px;
+  background:rgba(155,45,48,.06);border:1px dashed rgba(155,45,48,.3);
+  border-radius:6px;line-height:1.7;letter-spacing:.04em;
+}
+.kamae-other em{color:var(--shu);font-style:normal;font-weight:700;}
 .kamae-body{font-size:13px;color:var(--text);margin-top:10px;line-height:1.85;}
 .kamae-body em{color:var(--shu-dk);font-style:normal;font-weight:700;}
 
@@ -273,9 +288,8 @@ html,body{
   <div class="section-title">ギーニョの見立て</div>
   <div class="section-sub">― 神託は5月2日金曜夜に降ろす。今は構えの算段を ―</div>
 
-  <div class="horse-card honmei">
+  <div class="horse-card">
     <div class="horse-head">
-      <div class="mark honmei">◎</div>
       <div>
         <div class="horse-name">アドマイヤテラ</div>
         <div class="horse-tag">前走 阪神大賞典 1着（レコード 2:02.0）</div>
@@ -289,9 +303,8 @@ html,body{
     <div class="horse-comment">前哨戦で時計レコードを叩き、しかも<em>仕上げに余裕を残しての勝利</em>。神宮の第一條と「菊花賞3着以内→春天勝ち馬全頭該当」の双リンクを満たすのはこの馬のみ。気がかりは前走馬体重が500kg台に乗ったことだが、本番に向けて絞り込んでくれば490kg台想定で問題なし。<em>本命の最右翼</em>として構える。</div>
   </div>
 
-  <div class="horse-card taikou">
+  <div class="horse-card">
     <div class="horse-head">
-      <div class="mark taikou">○</div>
       <div>
         <div class="horse-name">クロワデュノール</div>
         <div class="horse-tag">前走 大阪杯 1着（プラス10kgで勝ち切り）</div>
@@ -306,9 +319,8 @@ html,body{
     <div class="horse-comment">大阪杯を太め残りで制した上積み余地は計り知れない。父は春天連覇のキタサンブラックで血の約束は確か。<em>ただし神宮の第二條の影で、京都を一度も走っていない</em>のが引っかかる。馬体は筋肉質に変わり完成度は高いが、長距離型のフレームかどうかパドック確認必須。能力で押し切れる馬だが、絶対視はしない構え。</div>
   </div>
 
-  <div class="horse-card taikou">
+  <div class="horse-card">
     <div class="horse-head">
-      <div class="mark taikou">○</div>
       <div>
         <div class="horse-name">ヘデントール</div>
         <div class="horse-tag">前走 京都記念 6着（前年覇者・連覇狙い）</div>
@@ -322,9 +334,8 @@ html,body{
     <div class="horse-comment">第二條「前年覇者の鉄則」の本人。京都記念は実績馬を弾く魔のレースで、エリキング2着・大阪杯参戦組も伸び悩んだことを思えば<em>あの6着は文字通りノーカウント</em>。1週前追い切りでゴール後の流しまで負荷をかけた仕上げは陣営の本気を物語る。連覇圏内、ルメールが再び乗るならば乗らない手はない。</div>
   </div>
 
-  <div class="horse-card tantan">
+  <div class="horse-card">
     <div class="horse-head">
-      <div class="mark tantan">▲</div>
       <div>
         <div class="horse-name">シンエンペラー</div>
         <div class="horse-tag">前走 ネオムターフカップ／世界最高峰JC出走経験</div>
@@ -336,12 +347,11 @@ html,body{
       <span class="data-pill warn">調子の波</span>
       <span class="data-pill warn">距離未知</span>
     </div>
-    <div class="horse-comment">米G1を断念しての方針転換だが、<em>昨年ジャパンカップを走った経験そのものが格</em>。レーティング世界最高峰のレースに名を連ねた事実は、クロワデュノール・ダノンデサイルらと同じ土俵に立った証。仕切り直しの一戦が逆にプラスに出る場面。直線不利を含めた8着の中身は良い。京都2歳S勝ちで右回りの実績もあり、<em>穴本命候補の一頭として印を回したい</em>。</div>
+    <div class="horse-comment">米G1を断念しての方針転換だが、<em>昨年ジャパンカップを走った経験そのものが格</em>。レーティング世界最高峰のレースに名を連ねた事実は、クロワデュノール・ダノンデサイルらと同じ土俵に立った証。仕切り直しの一戦が逆にプラスに出る場面。直線不利を含めた8着の中身は良い。京都2歳S勝ちで右回りの実績もあり、<em>穴本命候補の一頭として注目したい</em>。</div>
   </div>
 
-  <div class="horse-card ana">
+  <div class="horse-card">
     <div class="horse-head">
-      <div class="mark ana">穴</div>
       <div>
         <div class="horse-name">マイネルカンパーナ</div>
         <div class="horse-tag">前走 ダイヤモンドS（馬体重422kg）</div>
@@ -363,6 +373,7 @@ html,body{
 
   <div class="kamae-box">
     <div class="kamae-title">⛩ 待 機 中 ⛩</div>
+    <div class="kamae-kirin">🦒</div>
     <div class="kamae-body">
       Phase 1 自動採点パイプライン、<em>本格運用初戦</em>。<br>
       青龍が前走コメントを読み、朱雀が展開と騎手を測り、<br>
@@ -375,6 +386,11 @@ html,body{
       <div class="kami-row"><span class="kami-icon">🔥</span><span><span class="kami-name">朱雀</span><span class="kami-target">展開＋状態</span></span></div>
       <div class="kami-row"><span class="kami-icon">🐅</span><span><span class="kami-name">白虎</span><span class="kami-target">能力＋ラップ＋眼</span></span></div>
       <div class="kami-row"><span class="kami-icon">🐢</span><span><span class="kami-name">玄武</span><span class="kami-target">地脈＋外厩</span></span></div>
+    </div>
+
+    <div class="kamae-other">
+      ※ 上記以外にも<em>好走可能性の高い馬の存在</em>を神宮は感じ取っている。<br>
+      4神採点が降りる5/2金曜夜、麒麟が真の総意を結んだとき<em>意外な一頭が浮上する</em>かもしれぬ。
     </div>
   </div>
 </div>
@@ -452,7 +468,8 @@ html,body{
   <div class="section-sub">― 出走馬確定後、4神＋麒麟が降りる ―</div>
 
   <div class="kamae-box">
-    <div class="kamae-title">⛩ 神 託 待 機 ⛩</div>
+    <div class="kamae-title">⛩ 待 機 中 ⛩</div>
+    <div class="kamae-kirin">🦒</div>
     <div class="kamae-body">
       頭数20頭の<em>大箱マイラー戦</em>。<br>
       青龍は前走時計と上がりの真意を読み、<br>
@@ -467,6 +484,11 @@ html,body{
       <div class="kami-row"><span class="kami-icon">🔥</span><span><span class="kami-name">朱雀</span><span class="kami-target">展開＋状態</span></span></div>
       <div class="kami-row"><span class="kami-icon">🐅</span><span><span class="kami-name">白虎</span><span class="kami-target">能力＋末脚</span></span></div>
       <div class="kami-row"><span class="kami-icon">🐢</span><span><span class="kami-name">玄武</span><span class="kami-target">東京1400実績</span></span></div>
+    </div>
+
+    <div class="kamae-other">
+      ※ 戒律の<em>三類型に当てはまらぬ馬</em>にも、神宮は神託を残す。<br>
+      高松宮帰り以外、4-5歳以外、490kg超でも――<em>麒麟が一頭、ふと選ぶ場面がある</em>。
     </div>
   </div>
 </div>
@@ -548,7 +570,8 @@ html,body{
   <div class="section-sub">― 出走馬確定後、4神＋麒麟が降りる ―</div>
 
   <div class="kamae-box">
-    <div class="kamae-title">⛩ 神 託 待 機 ⛩</div>
+    <div class="kamae-title">⛩ 待 機 中 ⛩</div>
+    <div class="kamae-kirin">🦒</div>
     <div class="kamae-body">
       新コース3年目、神宮にとっても初の本格挑戦。<br>
       青龍は1勝クラス勝ち上がりの内容を読み、<br>
@@ -563,6 +586,11 @@ html,body{
       <div class="kami-row"><span class="kami-icon">🔥</span><span><span class="kami-name">朱雀</span><span class="kami-target">京都ダ展開</span></span></div>
       <div class="kami-row"><span class="kami-icon">🐅</span><span><span class="kami-name">白虎</span><span class="kami-target">能力＋パワー</span></span></div>
       <div class="kami-row"><span class="kami-icon">🐢</span><span><span class="kami-name">玄武</span><span class="kami-target">同距離実績</span></span></div>
+    </div>
+
+    <div class="kamae-other">
+      ※ 京都新コースは<em>データの蓄積期</em>、神宮もまだ全貌を掴みきれていない。<br>
+      ダ1800m勝ち上がり以外の馬にも、<em>麒麟は静かに目を向ける</em>。
     </div>
   </div>
 </div>
