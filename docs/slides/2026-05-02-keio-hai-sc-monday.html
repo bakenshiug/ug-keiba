@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>京王杯スプリングカップ 展望 2026 | UG競馬ワイド神宮</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FAFAFA;--paper:#FBF7EE;--kin:#C9A961;--kin-dk:#9B7A3A;
+  --kin-glow:rgba(201,169,97,.35);--shu:#9B2D30;
+  --text:#2A2A2A;--muted:rgba(42,42,42,.6);--dim:rgba(42,42,42,.32);
+  --midori:#2A7A4E;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Shippori Mincho','Noto Serif JP',serif;height:100%;overflow:hidden;user-select:none;}
+
+.deck{width:100vw;height:100vh;position:relative;overflow:hidden;}
+.slide{
+  position:absolute;inset:0;width:100%;height:100%;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:60px 80px;opacity:0;pointer-events:none;
+  transition:opacity .35s ease;
+  background:linear-gradient(160deg,rgba(251,247,238,.7) 0%,rgba(250,250,250,1) 50%,rgba(251,247,238,.7) 100%);
+  overflow:hidden;
+}
+.slide.active{opacity:1;pointer-events:auto;}
+.slide::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(201,169,97,.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+/* 金枠 */
+.slide-frame{position:absolute;inset:20px;border:1px solid rgba(201,169,97,.4);border-radius:4px;pointer-events:none;}
+.slide-frame::before,.slide-frame::after{
+  content:'';position:absolute;background:linear-gradient(90deg,transparent,var(--kin),transparent);
+  left:60px;right:60px;height:1px;
+}
+.slide-frame::before{top:0;} .slide-frame::after{bottom:0;}
+
+.slide-corner{position:absolute;width:22px;height:22px;border-color:var(--kin);border-style:solid;opacity:.7;}
+.slide-corner.tl{top:20px;left:20px;border-width:2px 0 0 2px;}
+.slide-corner.tr{top:20px;right:20px;border-width:2px 2px 0 0;}
+.slide-corner.bl{bottom:20px;left:20px;border-width:0 0 2px 2px;}
+.slide-corner.br{bottom:20px;right:20px;border-width:0 2px 2px 0;}
+
+.slide-logo{position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.22em;color:var(--kin-dk);font-weight:700;opacity:.8;white-space:nowrap;}
+.slide-num{position:absolute;bottom:28px;right:36px;font-size:11px;color:var(--dim);letter-spacing:.1em;}
+.mon-badge{position:absolute;top:28px;right:40px;font-size:10px;font-weight:900;letter-spacing:.14em;color:var(--kin-dk);background:rgba(201,169,97,.12);border:1px solid rgba(201,169,97,.4);padding:4px 12px;border-radius:3px;}
+
+.section-heading{font-size:14px;font-weight:900;letter-spacing:.25em;color:var(--kin-dk);text-align:center;margin-bottom:30px;}
+
+.s-title .main-grade{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.2em;background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;padding:4px 18px;border-radius:3px;margin-bottom:18px;}
+.s-title .main-title{font-size:68px;font-weight:800;color:var(--text);letter-spacing:.08em;line-height:1.1;text-align:center;}
+.s-title .main-title span{display:block;font-size:24px;font-weight:500;color:var(--kin-dk);letter-spacing:.2em;margin-bottom:6px;}
+.s-title .main-sub{font-size:17px;color:var(--muted);margin-top:14px;letter-spacing:.18em;}
+.s-title .main-venue{font-size:14px;color:var(--dim);margin-top:8px;letter-spacing:.12em;}
+.s-title .brand-badge{margin-top:34px;font-size:12px;color:var(--kin-dk);letter-spacing:.2em;font-weight:700;border:1px solid rgba(201,169,97,.4);padding:6px 24px;border-radius:3px;}
+
+.char-stage{display:flex;gap:70px;align-items:flex-end;width:100%;max-width:1400px;}
+.char-box{flex:1;display:flex;flex-direction:column;align-items:center;}
+.char-avatar{font-size:90px;line-height:1;margin-bottom:12px;width:160px;height:160px;object-fit:cover;border-radius:12px;border:2px solid rgba(201,169,97,.35);}
+.char-name{font-size:19px;font-weight:800;color:var(--kin-dk);letter-spacing:.1em;margin-bottom:4px;}
+.char-tag{font-size:12px;color:var(--muted);letter-spacing:.06em;text-align:center;}
+.char-bubble{background:rgba(201,169,97,.06);border:1px solid rgba(201,169,97,.28);border-radius:10px;padding:16px 20px;margin-top:16px;font-size:14.5px;line-height:1.75;color:var(--text);letter-spacing:.04em;max-width:480px;}
+.char-bubble.ginyo{border-color:rgba(155,45,48,.3);background:rgba(155,45,48,.05);}
+.char-bubble em{color:var(--kin-dk);font-style:normal;font-weight:700;}
+.char-bubble.ginyo em{color:var(--shu);}
+.vs-divider{font-size:30px;font-weight:800;color:var(--dim);align-self:center;margin-bottom:90px;}
+
+.agenda-list{display:flex;flex-direction:column;gap:12px;width:100%;max-width:900px;}
+.agenda-item{display:flex;align-items:center;gap:20px;background:rgba(201,169,97,.05);border:1px solid rgba(201,169,97,.22);border-radius:6px;padding:14px 22px;}
+.agenda-num{font-size:34px;font-weight:800;color:var(--kin-dk);min-width:52px;text-align:center;line-height:1;}
+.agenda-txt{font-size:16px;color:var(--text);letter-spacing:.05em;}
+.agenda-txt span{font-size:12px;color:var(--muted);display:block;margin-top:2px;}
+
+.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;width:100%;max-width:1200px;}
+.course-card{background:rgba(201,169,97,.05);border:1px solid rgba(201,169,97,.22);border-radius:8px;padding:22px 26px;}
+.cc-label{font-size:10px;font-weight:900;letter-spacing:.2em;color:var(--kin-dk);margin-bottom:8px;}
+.cc-value{font-size:26px;font-weight:800;color:var(--text);letter-spacing:.05em;}
+.cc-note{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.6;}
+
+.kairitsu-no-big{font-size:12px;font-weight:900;letter-spacing:.22em;color:var(--kin-dk);margin-bottom:12px;}
+.kairitsu-head-big{font-size:52px;font-weight:800;color:var(--text);letter-spacing:.06em;line-height:1.15;margin-bottom:16px;}
+.kairitsu-data-big{display:inline-block;font-size:14px;font-weight:800;color:var(--kin-dk);background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.3);padding:7px 18px;border-radius:4px;margin-bottom:22px;letter-spacing:.06em;}
+.kairitsu-body-big{font-size:18px;line-height:1.85;color:rgba(42,42,42,.82);max-width:900px;letter-spacing:.04em;}
+.kairitsu-body-big em{color:var(--kin-dk);font-style:normal;font-weight:700;}
+.kairitsu-examples{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px;}
+.example-chip{font-size:13px;font-weight:700;background:rgba(155,45,48,.1);border:1px solid rgba(155,45,48,.25);color:rgba(42,42,42,.88);padding:5px 13px;border-radius:4px;letter-spacing:.04em;}
+
+.haito-slide-table{width:100%;max-width:980px;border-collapse:collapse;font-size:16px;}
+.haito-slide-table th{padding:13px 18px;text-align:center;background:rgba(201,169,97,.1);border-bottom:2px solid rgba(201,169,97,.3);font-weight:800;color:var(--kin-dk);letter-spacing:.1em;}
+.haito-slide-table td{padding:13px 18px;text-align:center;border-bottom:1px solid rgba(201,169,97,.12);font-weight:700;}
+.haito-slide-table td:first-child{text-align:left;color:var(--muted);font-size:14px;padding-left:26px;}
+.td-avg{font-size:22px;color:var(--kin-dk);}
+.td-max{font-size:13px;color:var(--midori);}
+.td-min{font-size:13px;color:var(--dim);}
+.haito-note-big{margin-top:22px;font-size:14px;color:var(--muted);line-height:1.8;max-width:980px;text-align:center;background:rgba(201,169,97,.05);padding:12px 22px;border-radius:6px;}
+.haito-note-big em{color:var(--kin-dk);font-style:normal;font-weight:700;}
+
+.horse-slide{width:100%;max-width:1200px;}
+.horse-name-big{font-size:40px;font-weight:800;color:var(--text);letter-spacing:.06em;line-height:1.1;}
+.horse-prev{font-size:13px;color:var(--muted);letter-spacing:.04em;margin-top:6px;}
+.horse-pills{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0;}
+.pill{font-size:12px;font-weight:700;padding:4px 11px;border-radius:4px;letter-spacing:.04em;}
+.pill.good{background:rgba(74,159,110,.12);color:#1A5A38;border:1px solid rgba(74,159,110,.32);}
+.pill.warn{background:rgba(155,45,48,.1);color:#8B1A1D;border:1px solid rgba(155,45,48,.28);}
+.horse-comment-big{font-size:17px;line-height:1.85;color:rgba(42,42,42,.82);letter-spacing:.04em;}
+.horse-comment-big em{color:var(--kin-dk);font-style:normal;font-weight:700;}
+.ginyo-comment{display:flex;gap:11px;align-items:flex-start;background:rgba(155,45,48,.06);border:1px solid rgba(155,45,48,.22);border-radius:6px;padding:12px 16px;margin-top:12px;}
+.ginyo-icon{font-size:22px;flex-shrink:0;}
+.ginyo-text{font-size:13px;line-height:1.7;color:rgba(42,42,42,.75);letter-spacing:.04em;}
+.ginyo-text strong{color:var(--shu);}
+
+.shijin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%;max-width:1260px;}
+.shijin-card{background:rgba(201,169,97,.04);border:1px solid rgba(201,169,97,.2);border-radius:8px;padding:26px 18px;text-align:center;}
+.shijin-emoji{font-size:52px;margin-bottom:10px;display:block;}
+.shijin-name{font-size:19px;font-weight:800;color:var(--kin-dk);letter-spacing:.1em;margin-bottom:6px;}
+.shijin-role{font-size:12px;color:var(--muted);letter-spacing:.06em;margin-bottom:10px;}
+.shijin-factors{font-size:12px;color:rgba(42,42,42,.72);line-height:1.65;text-align:left;}
+
+.yotoku-big{font-size:86px;font-weight:800;color:var(--kin-dk);letter-spacing:.08em;text-align:center;line-height:1;}
+.yotoku-sub{font-size:20px;color:var(--muted);margin-top:14px;letter-spacing:.16em;text-align:center;}
+.yotoku-msg{margin-top:34px;font-size:17px;line-height:1.9;color:rgba(42,42,42,.78);text-align:center;max-width:860px;letter-spacing:.05em;}
+.yotoku-msg em{color:var(--kin-dk);font-style:normal;font-weight:700;}
+
+.end-title{font-size:56px;font-weight:800;color:var(--kin-dk);letter-spacing:.1em;text-align:center;margin-bottom:22px;}
+.end-sub{font-size:17px;color:var(--muted);letter-spacing:.18em;text-align:center;margin-bottom:38px;}
+.end-actions{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;}
+.end-action{font-size:15px;font-weight:700;padding:13px 30px;border-radius:6px;letter-spacing:.08em;}
+.end-action.primary{background:linear-gradient(135deg,var(--shu),#7A1E1E);color:#fff;}
+.end-action.secondary{background:transparent;color:var(--kin-dk);border:2px solid var(--kin);}
+
+@keyframes kin-glow{0%,100%{text-shadow:0 0 16px rgba(155,122,58,.4);}50%{text-shadow:0 0 32px rgba(155,122,58,.7),0 0 60px rgba(155,122,58,.25);}}
+.glow{animation:kin-glow 3s ease-in-out infinite;}
+@keyframes float-slow{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.float{animation:float-slow 4s ease-in-out infinite;}
+
+.speaker-notes{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(251,247,238,.97);border-top:2px solid var(--kin);padding:16px 38px;font-size:13.5px;line-height:1.7;color:#2A2A2A;letter-spacing:.04em;max-height:190px;overflow-y:auto;z-index:999;}
+.speaker-notes.show{display:block;}
+.notes-label{font-size:10px;font-weight:900;letter-spacing:.2em;color:var(--kin-dk);margin-bottom:7px;}
+.notes-char.kodamaru{font-weight:800;color:#1A6040;margin-right:5px;}
+.notes-char.ginyo{font-weight:800;color:#8B1A1D;margin-right:5px;}
+
+.nav-hint{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--muted);letter-spacing:.12em;pointer-events:none;z-index:500;transition:opacity .5s;}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ===== SLIDE 1: タイトル ===== -->
+<div class="slide s-title active" id="s1" data-ginyo="1400mのスプリント戦。高松宮の疲れを吹き飛ばす舞台がここにある。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮 ─ 週 明 け 展 望 ─ 月 曜 版</div>
+  <div class="mon-badge">月 曜 展 望</div>
+
+  <div class="main-grade">G2</div>
+  <div class="main-title glow">
+    <span>第 六 十 一 回</span>
+    京王杯スプリングC
+  </div>
+  <div class="main-sub">KEIO HAI SPRING CUP 2026</div>
+  <div class="main-venue">2026年 5月2日（土）　東京 芝1400m G2</div>
+  <div class="brand-badge">⛩ UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="slide-num">01 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 01</div>
+    <span class="notes-char kodamaru">こだまる：</span>みなさんこんにちは〜！ボク、UG競馬ワイド神宮の巫女見習い・こだまるです！GWど真ん中の土曜日！京王杯スプリングカップの展望やっていきます！ウチのギーニョ様がですね〜高松宮帰りの馬たちに向かって「そう、その疲れが1400mで化ける」ってニヤニヤしながら言ってまして...なんか怖いですw よろしくどうぞ〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>1400mのスプリント戦。高松宮の疲れを吹き飛ばす舞台がここにある。
+  </div>
+</div>
+
+<!-- ===== SLIDE 2: フック ===== -->
+<div class="slide" id="s2" data-ginyo="高松宮で大敗した馬を笑う者は、この舞台を知らない者だ。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="mon-badge">月 曜 展 望</div>
+
+  <div style="text-align:center;max-width:1100px;">
+    <div style="font-size:13px;font-weight:900;letter-spacing:.3em;color:var(--shu);margin-bottom:18px;">今 週 の 問 い</div>
+    <div style="font-size:56px;font-weight:800;color:var(--text);letter-spacing:.05em;line-height:1.2;margin-bottom:22px;">
+      高松宮で10着。<br>でも勝てる。
+    </div>
+    <div style="font-size:17px;color:var(--muted);letter-spacing:.12em;margin-bottom:36px;">〜 過去11年、高松宮大敗組が東京1400mで復活する「構造」がある 〜</div>
+    <div style="display:flex;gap:22px;justify-content:center;flex-wrap:wrap;">
+      <div style="background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.35);border-radius:8px;padding:18px 32px;font-size:15px;color:var(--text);letter-spacing:.06em;font-weight:700;">
+        🏇 高松宮帰り → 勝率64%
+      </div>
+      <div style="background:rgba(155,45,48,.07);border:1px solid rgba(155,45,48,.3);border-radius:8px;padding:18px 32px;font-size:15px;color:var(--text);letter-spacing:.06em;font-weight:700;">
+        🔥 大敗してもノーカウント？
+      </div>
+    </div>
+    <div style="margin-top:28px;font-size:14px;color:var(--dim);letter-spacing:.12em;">詳細は 5/1（木）夜 ── 神 託 降 臨</div>
+  </div>
+
+  <div class="slide-num">02 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 02</div>
+    <span class="notes-char kodamaru">こだまる：</span>みなさん！ウチのギーニョ様がですね〜高松宮で10着14着の馬たちのデータを並べて「これは全部ノーカウントだ」って言い切ったんですよ！えっ、そんなのアリなの！？って思いますよね。でも過去11年の数字がそれを証明してるんです...神宮、ちょっとバグってますよね（笑）<br>
+    <span class="notes-char ginyo">ギーニョ：</span>高松宮で大敗した馬を笑う者は、この舞台を知らない者だ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 3: キャラ登場 ===== -->
+<div class="slide" id="s3" data-ginyo="人気は嘘をつく。前走着順もまた、嘘をつくことがある。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">本 日 の 語 り 部</div>
+  <div class="char-stage">
+    <div class="char-box">
+      <img class="char-avatar float" src="img/kodamaru.jpeg" alt="こだまる" onerror="this.outerHTML='<div class=\'char-avatar float\' style=\'font-size:90px;line-height:1;margin-bottom:12px;\'>🪄</div>'">
+      <div class="char-name">こだまる</div>
+      <div class="char-tag">UG神宮 巫女見習い</div>
+      <div class="char-bubble">
+        こんにちは！ボクがこだまる！<br>
+        <em>東京1400mの魔術</em>、今日は全部バラします！<br>
+        ウチのギーニョ様がですね〜<br>
+        前走着順見て笑ったら怒られましたw
+      </div>
+    </div>
+    <div class="vs-divider">×</div>
+    <div class="char-box">
+      <img class="char-avatar float" src="img/giinyo.png" alt="ギーニョ" onerror="this.outerHTML='<div class=\'char-avatar float\' style=\'font-size:90px;line-height:1;margin-bottom:12px;\'>⛩</div>'">
+      <div class="char-name">ギーニョ</div>
+      <div class="char-tag">言語神 ／ UG神宮の神主</div>
+      <div class="char-bubble ginyo">
+        ……東京芝1400m、外回り。<br>
+        高松宮を経た馬たちが<em>本来の距離</em>に戻る、<br>
+        この舞台の構造を11年分で語ろう。<br>
+        <em>前走を見るな。体と経験を見よ。</em>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">03 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 03</div>
+    <span class="notes-char kodamaru">こだまる：</span>こんにちは！今日は月曜展望版で京王杯スプリングカップを深掘りします！ウチのギーニョ様がですね〜今日は「前走を見るな」って最初から言い切りまして。スプリント界隈はG1を叩いた後が本番なんだとか。データで全部見ていきます〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>人気は嘘をつく。前走着順もまた、嘘をつくことがある。
+  </div>
+</div>
+
+<!-- ===== SLIDE 4: アジェンダ ===== -->
+<div class="slide" id="s4" data-ginyo="5つの視点を経て、1400mの正体が見えてくる。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">本 日 の 内 容</div>
+  <div class="agenda-list">
+    <div class="agenda-item">
+      <div class="agenda-num">①</div>
+      <div class="agenda-txt">京王杯SC 基本情報<span>東京 芝1400m G2 ／ 2026年5月2日（土）</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">②</div>
+      <div class="agenda-txt">過去11年が語る「神宮の戒律 三カ条」<span>高松宮帰り64% ／ 4-5歳73% ／ 460-490kgの鉄則</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">③</div>
+      <div class="agenda-txt">配当の素顔（過去11年 平均払戻データ）<span>三連単平均¥52,614 ── 穴が刺さりやすい舞台</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">④</div>
+      <div class="agenda-txt">神宮が注目する馬・穴パターン3選<span>高松宮大敗リベンジ ／ ダービーH連動 ／ マイラーズC帰り</span></div>
+    </div>
+    <div class="agenda-item">
+      <div class="agenda-num">⑤</div>
+      <div class="agenda-txt">木曜夜・神託降臨の予告<span>5/1木曜夜、4神＋麒麟が最終結論を降ろす</span></div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 04</div>
+    <span class="notes-char kodamaru">こだまる：</span>今日は5パート！コース確認から始まって、ウチのギーニョ様の戒律3カ条、配当データ、穴パターン3選、最後は木曜夜の予告で締めます！サクッとわかりやすくいきます〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>5つの視点を経て、1400mの正体が見えてくる。
+  </div>
+</div>
+
+<!-- ===== SLIDE 5: コース ===== -->
+<div class="slide" id="s5" data-ginyo="東京1400mは速い馬が勝つレースではない。経験と体型が合った馬が勝つレースだ。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">舞 台 の 素 顔</div>
+  <div class="course-grid">
+    <div class="course-card">
+      <div class="cc-label">開 催</div>
+      <div class="cc-value">第六十一回</div>
+      <div class="cc-note">京王杯スプリングカップ<br>2026年 5月2日（土）</div>
+    </div>
+    <div class="course-card">
+      <div class="cc-label">コ ー ス</div>
+      <div class="cc-value">東京 芝1400m</div>
+      <div class="cc-note">外回り ／ 左回り<br>スタート地点：2コーナー奥</div>
+    </div>
+    <div class="course-card">
+      <div class="cc-label">グ レ ー ド</div>
+      <div class="cc-value">G2</div>
+      <div class="cc-note">安田記念（6/1）のステップ<br>スプリンター〜マイラー混走</div>
+    </div>
+    <div class="course-card">
+      <div class="cc-label">距 離 特 性</div>
+      <div class="cc-value">1400mの妙味</div>
+      <div class="cc-note">1200mより長い→スタミナ要<br>1600mより短い→瞬発力も要<br>スプリンターのベストより<em>20m長く</em>て疲れが取れる</div>
+    </div>
+  </div>
+  <div class="slide-num">05 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 05</div>
+    <span class="notes-char kodamaru">こだまる：</span>舞台確認します！東京1400m、外回り左回りです。スプリンターにとっては「ちょっと長い1200m」、マイラーにとっては「ちょっと短い1600m」って感じ。高松宮（1200m）を走った後だと体の疲れが1400mでちょうどほぐれるんだとか。ウチのギーニョ様理論すごいですよね〜<br>
+    <span class="notes-char ginyo">ギーニョ：</span>東京1400mは速い馬が勝つレースではない。経験と体型が合った馬が勝つレースだ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 6: 戒律一 ===== -->
+<div class="slide" id="s6" data-ginyo="高松宮で10着でも勝てる。着順は忘れよ。この馬が高松宮を走ったかどうかを見よ。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+
+  <div style="width:100%;max-width:1100px;">
+    <div class="kairitsu-no-big">神 宮 の 戒 律 ── 第 一 条</div>
+    <div class="kairitsu-head-big">高松宮帰り<br>64%が勝つ</div>
+    <div class="kairitsu-data-big">過去11年（2015-2025）勝ち馬11頭中7頭</div>
+    <div class="kairitsu-body-big">
+      前走が<em>高松宮記念（G1）</em>だった馬が、この舞台を支配する。<br>
+      驚くべきは、<em>着順は一切関係ない</em>という事実。<br>
+      10着・12着・14着でも翌月ここで勝てる。<br>
+      G1の壁に当たった経験が、1400mで花開く。
+    </div>
+    <div class="kairitsu-examples">
+      <span class="example-chip">2024 ウインマーベル 高松宮12着→1着</span>
+      <span class="example-chip">2021 ラウダシオン 高松宮14着→1着</span>
+      <span class="example-chip">2020 ダノンスマッシュ 高松宮10着→1着</span>
+      <span class="example-chip">2015 サクラゴスペル 高松宮8着→1着</span>
+    </div>
+  </div>
+
+  <div class="slide-num">06 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 06</div>
+    <span class="notes-char kodamaru">こだまる：</span>神宮の戒律その1！高松宮帰りは64%！もうこれ鉄則なんですよ。ウチのギーニョ様がですね〜10着の馬のデータを指差して「ノーカウント、次を見よ」って一秒で言い捨てまして。潔すぎてちょっと笑いましたww 前走着順じゃなくて「高松宮を走ったかどうか」が全てなんですね〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>高松宮で10着でも勝てる。着順は忘れよ。この馬が高松宮を走ったかどうかを見よ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 7: 戒律二 ===== -->
+<div class="slide" id="s7" data-ginyo="4歳5歳、黄金の二年間。この舞台で若さが武器になる。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+
+  <div style="width:100%;max-width:1100px;">
+    <div class="kairitsu-no-big">神 宮 の 戒 律 ── 第 二 条</div>
+    <div class="kairitsu-head-big">4〜5歳、<br>73%の支配</div>
+    <div class="kairitsu-data-big">4歳4勝（36%）＋5歳4勝（36%）＝11年で8勝</div>
+    <div class="kairitsu-body-big">
+      <em>4歳・5歳の黄金世代</em>がこの舞台を占有する。<br>
+      6歳は2勝、7歳は1勝、<em>8歳以上の勝ち馬はゼロ</em>。<br>
+      年齢の壁は明確だ。加齢した名馬より、<br>
+      充実期の中堅を信じよ。
+    </div>
+    <div class="kairitsu-examples">
+      <span class="example-chip">2025 トウシンマカオ 牡6→例外的6歳勝利</span>
+      <span class="example-chip">2024 ウインマーベル 牡5</span>
+      <span class="example-chip">2023 レッドモンレーヴ 牡4</span>
+      <span class="example-chip">2022 メイケイエール 牝4</span>
+    </div>
+  </div>
+
+  <div class="slide-num">07 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 07</div>
+    <span class="notes-char kodamaru">こだまる：</span>戒律その2！4歳5歳で73%！8歳以上はゼロってのが衝撃ですよね。ウチのギーニョ様が「老兵は退け」って言ってて、なんかかっこいいんですけど、現役の僕らも将来そう言われるのかなってちょっとしんみりしましたw でも馬券的にはシビアに年齢は切ることが大事ですね！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>4歳5歳、黄金の二年間。この舞台で若さが武器になる。
+  </div>
+</div>
+
+<!-- ===== SLIDE 8: 戒律三 ===== -->
+<div class="slide" id="s8" data-ginyo="460から490kg。この体型が東京1400mに最も合う。大きすぎても、小さすぎても届かない。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+
+  <div style="width:100%;max-width:1100px;">
+    <div class="kairitsu-no-big">神 宮 の 戒 律 ── 第 三 条</div>
+    <div class="kairitsu-head-big">460〜490kg<br>が軸体型</div>
+    <div class="kairitsu-data-big">この体重帯で11年6勝（55%）</div>
+    <div class="kairitsu-body-big">
+      <em>460〜490kgの中型馬</em>が最も効率よく勝つ。<br>
+      520kg超の大型馬は1勝のみ（2016サトノアラジン526kg）。<br>
+      540kg超はゼロ。一方で420kg以下の軽量馬も苦戦。<br>
+      <em>東京1400mはコンパクトな体が合う舞台。</em>
+    </div>
+    <div class="kairitsu-examples">
+      <span class="example-chip">2024 スズハローム 8人気3着 452kg ★軽量穴</span>
+      <span class="example-chip">2025 トウシンマカオ 486kg</span>
+      <span class="example-chip">2022 メイケイエール 470kg</span>
+      <span class="example-chip">540kg超 → 過去11年勝利ゼロ</span>
+    </div>
+  </div>
+
+  <div class="slide-num">08 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 08</div>
+    <span class="notes-char kodamaru">こだまる：</span>戒律その3！体重460〜490kgが軸！大きすぎる馬は東京1400mで取り回しがしんどいんだとか。ウチのギーニョ様がですね〜540kg超の馬のデータを指差して「この子たちは1200mか2000mに行くべきだった」って言いまして。馬に対してかなり厳しいww でもデータって嘘つかないんですよね〜<br>
+    <span class="notes-char ginyo">ギーニョ：</span>460から490kg。この体型が東京1400mに最も合う。大きすぎても、小さすぎても届かない。
+  </div>
+</div>
+
+<!-- ===== SLIDE 9: 配当 ===== -->
+<div class="slide" id="s9" data-ginyo="三連単平均5万円超。穴が刺さる構造がある。それを見逃すな。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">配 当 の 素 顔</div>
+
+  <table class="haito-slide-table">
+    <thead>
+      <tr>
+        <th>券種</th>
+        <th>平均払戻</th>
+        <th>過去最高</th>
+        <th>最低</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>単 勝</td><td class="td-avg">¥490</td><td class="td-max">¥870</td><td class="td-min">¥310</td></tr>
+      <tr><td>馬 連</td><td class="td-avg">¥4,238</td><td class="td-max">¥19,230</td><td class="td-min">¥640</td></tr>
+      <tr><td>馬 単</td><td class="td-avg">¥6,618</td><td class="td-max">¥26,420</td><td class="td-min">¥1,230</td></tr>
+      <tr><td>三連複</td><td class="td-avg">¥9,664</td><td class="td-max">¥29,390</td><td class="td-min">¥1,220</td></tr>
+      <tr><td>三連単</td><td class="td-avg">¥52,614</td><td class="td-max">¥179,770</td><td class="td-min">¥5,360</td></tr>
+    </tbody>
+  </table>
+  <div class="haito-note-big">
+    三連単平均<em>¥52,614</em>はG2としては高め。人気薄が3着に絡みやすい構造。<br>
+    ワイド・三連複で丁寧に拾うか、穴を一点で仕留めるか。神宮はどちらも本気だ。
+  </div>
+
+  <div class="slide-num">09 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 09</div>
+    <span class="notes-char kodamaru">こだまる：</span>配当データです！三連単の平均が5万2千円超！G2でこれはかなり穴が刺さりやすいレースなんですよ。ウチのギーニョ様がですね〜「¥179,770の年はどの馬だったか知っているか」って聞いてきて...ボク知らなかったんですけど、11人気2着が刺さってたんですw 神宮のデータ、ちゃんと掘ってますから安心してください！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>三連単平均5万円超。穴が刺さる構造がある。それを見逃すな。
+  </div>
+</div>
+
+<!-- ===== SLIDE 10: 穴パターンA ===== -->
+<div class="slide" id="s10" data-ginyo="高松宮の大敗は、むしろ買いのサインだ。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">穴 パ タ ー ン 　A</div>
+
+  <div class="horse-slide">
+    <div class="horse-name-big">高松宮大敗リベンジ型</div>
+    <div class="horse-prev">パターンA ── 高松宮で4〜12着 → 京王杯SCで巻き返し</div>
+    <div class="horse-pills">
+      <span class="pill good">11年で4頭該当</span>
+      <span class="pill good">平均人気 約6番人気</span>
+      <span class="pill warn">前走着順は全無視</span>
+    </div>
+    <div class="horse-comment-big">
+      高松宮で揉まれ、消耗した状態でここに来る馬たち。<br>
+      だが「G1で戦った経験」は確かに蓄積されている。<br>
+      <em>1400mという距離に戻った瞬間、本来の力が出る。</em>
+    </div>
+    <div class="ginyo-comment">
+      <span class="ginyo-icon">⛩</span>
+      <div class="ginyo-text">
+        <strong>ギーニョ曰く：</strong>「スプリント界隈で揉まれた馬のG1経験は財産だ。着順で馬の値打ちを測る者は、この舞台で必ず損をする。」<br>
+        例: 2021 トゥラヴェスーラ 10人気2着（高松宮4着経由）
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">10 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 10</div>
+    <span class="notes-char kodamaru">こだまる：</span>穴パターンその1！高松宮大敗リベンジ型です！ウチのギーニョ様がですね〜前走の着順データを並べて「これはノイズだ、全部消せ」って言いまして。G1で大敗しても次のG2で穴開けてくる...神宮の信条「人気は嘘をつく」まさにそれですね。出走馬が確定したら誰に当てはまるか要チェックです！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>高松宮の大敗は、むしろ買いのサインだ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 11: 穴パターンB ===== -->
+<div class="slide" id="s11" data-ginyo="東京1600mで走った足が、1400mで活きる。距離短縮の魔法がある。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">穴 パ タ ー ン 　B</div>
+
+  <div class="horse-slide">
+    <div class="horse-name-big">ダービーH連動型</div>
+    <div class="horse-prev">パターンB ── ダービーハンデ（東京1600m G3）から短縮参戦</div>
+    <div class="horse-pills">
+      <span class="pill good">2勝（うち11人気1頭）</span>
+      <span class="pill good">凡走・好走どちらも活きる</span>
+      <span class="pill warn">距離短縮の反動に注意</span>
+    </div>
+    <div class="horse-comment-big">
+      ダービーH（東京1600m）から距離を短縮してくる馬が好走。<br>
+      凡走→1400mで激変、あるいは好走→そのまま継続の両パターン。<br>
+      <em>同じ東京コースのリズムが活きる。</em>
+    </div>
+    <div class="ginyo-comment">
+      <span class="ginyo-icon">⛩</span>
+      <div class="ginyo-text">
+        <strong>ギーニョ曰く：</strong>「同じ東京、同じ外回り。走り方が同じなら、距離が少し短くなるだけで力が凝縮される。」<br>
+        例: 2017 クラレント 11人気2着（ダービーH10着経由）★大穴
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">11 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 11</div>
+    <span class="notes-char kodamaru">こだまる：</span>穴パターンB！ダービーH連動型です！2017年に11人気2着が出てるんですよ！ウチのギーニョ様がですね〜「東京コースのリズムを知っている馬は強い」って。確かに同じ府中、同じ外回りですもんね。ダービーHの結果を見てからこっちに来る馬、チェックしておきましょう！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>東京1600mで走った足が、1400mで活きる。距離短縮の魔法がある。
+  </div>
+</div>
+
+<!-- ===== SLIDE 12: 穴パターンC ===== -->
+<div class="slide" id="s12" data-ginyo="マイラーズCで掲示板。そのまま1400mに短縮。騎手の腕が活きる舞台だ。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">穴 パ タ ー ン 　C</div>
+
+  <div class="horse-slide">
+    <div class="horse-name-big">マイラーズC帰り型</div>
+    <div class="horse-prev">パターンC ── マイラーズカップ（京都1600m G2）経由の古馬</div>
+    <div class="horse-pills">
+      <span class="pill good">2頭（8人気・7人気）</span>
+      <span class="pill good">掲示板〜中位から短縮</span>
+      <span class="pill warn">マイルG2の格が必要</span>
+    </div>
+    <div class="horse-comment-big">
+      京都マイラーズCで掲示板〜中位に食い込んだ古馬が、<br>
+      東京1400mへの短縮で好走するパターン。<br>
+      <em>マイルG2を経験した底力が1400mで爆発する。</em>
+    </div>
+    <div class="ginyo-comment">
+      <span class="ginyo-icon">⛩</span>
+      <div class="ginyo-text">
+        <strong>ギーニョ曰く：</strong>「G2の荒波で揉まれた古馬は、1400mという距離が短く感じる。体力に余裕が生まれる分、末脚が活きる。」<br>
+        例: 2021 カイザーミノル 8人気3着（マイラーズC3着経由）
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">12 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 12</div>
+    <span class="notes-char kodamaru">こだまる：</span>穴パターンC！マイラーズC帰りです！今年は4/26にマイラーズCがありましたよね。あそこから来る馬が穴候補かもしれません。ウチのギーニョ様がですね〜「G2の場数を踏んだ古馬は舐めてかかるな」って。掲示板に来てた馬チェックしておきましょう！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>マイラーズCで掲示板。そのまま1400mに短縮。騎手の腕が活きる舞台だ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 13: 注目馬1（本命候補） ===== -->
+<div class="slide" id="s13" data-ginyo="前走高松宮。着順は関係ない。この馬が4〜5歳なら、まず疑うな。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">本 命 候 補 の 条 件</div>
+
+  <div class="horse-slide">
+    <div class="horse-name-big">三冠チェックリスト</div>
+    <div class="horse-prev">出走馬確定後（木曜）に個別馬名・神宮印を公開</div>
+    <div class="horse-pills">
+      <span class="pill good">①前走：高松宮記念</span>
+      <span class="pill good">②年齢：4〜5歳</span>
+      <span class="pill good">③体重：460〜490kg</span>
+    </div>
+    <div class="horse-comment-big">
+      この3条件を全て満たす馬が最も信頼できる本命候補。<br>
+      2025年トウシンマカオ（高松宮4着→486kg→牡6で例外的勝利）のように<br>
+      条件が揃った馬はデータ的にも裏付けが取れる。<br>
+      <em>木曜夜の神託で名前は出す。今日はまず「条件」を覚えよ。</em>
+    </div>
+    <div class="ginyo-comment">
+      <span class="ginyo-icon">⛩</span>
+      <div class="ginyo-text">
+        <strong>ギーニョ曰く：</strong>「3条件が揃った馬を見つけた瞬間、判断は終わっている。後は4神で深掘りするだけだ。」
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-num">13 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 13</div>
+    <span class="notes-char kodamaru">こだまる：</span>本命候補の条件です！高松宮帰り×4-5歳×460-490kgの三冠！これが全部揃ってる馬が出てきたら、ウチのギーニョ様が「もう決まりだ」って言いそうですw 出走馬は木曜に確定するので、その時点でこのチェックリストに当てはめてみてください！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>前走高松宮。着順は関係ない。この馬が4〜5歳なら、まず疑うな。
+  </div>
+</div>
+
+<!-- ===== SLIDE 14: 注目馬2（4神採点イメージ） ===== -->
+<div class="slide" id="s14" data-ginyo="4神が揃って頷くとき、その馬は本物だ。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">4 神 採 点 の 見 方</div>
+
+  <div style="width:100%;max-width:1100px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px;">
+      <div style="background:rgba(74,159,110,.06);border:1px solid rgba(74,159,110,.28);border-radius:8px;padding:18px 22px;">
+        <div style="font-size:22px;font-weight:800;color:#1A5A38;margin-bottom:8px;">🐉 青龍（言霊）</div>
+        <div style="font-size:13px;line-height:1.7;color:var(--text);">厩舎コメント・前走インタビュー。「ここが目標」「状態は上向き」の有無を採点。京王杯SCに向けた前向きコメントが出るか？</div>
+      </div>
+      <div style="background:rgba(155,45,48,.05);border:1px solid rgba(155,45,48,.2);border-radius:8px;padding:18px 22px;">
+        <div style="font-size:22px;font-weight:800;color:var(--shu);margin-bottom:8px;">🔥 朱雀（速眼）</div>
+        <div style="font-size:13px;line-height:1.7;color:var(--text);">スピード指数＆弥永の相馬眼。スプリント路線での指数ピーク値と、前走からの上積みを確認。</div>
+      </div>
+      <div style="background:rgba(201,169,97,.06);border:1px solid rgba(201,169,97,.28);border-radius:8px;padding:18px 22px;">
+        <div style="font-size:22px;font-weight:800;color:var(--kin-dk);margin-bottom:8px;">🐅 白虎（ラップ）</div>
+        <div style="font-size:13px;line-height:1.7;color:var(--text);">HC指数×ゴールデン比率。東京1400mのラップキャラと過去実績のマッチ度。</div>
+      </div>
+      <div style="background:rgba(31,77,46,.06);border:1px solid rgba(31,77,46,.2);border-radius:8px;padding:18px 22px;">
+        <div style="font-size:22px;font-weight:800;color:#1F4D2E;margin-bottom:8px;">🐢 玄武（コース）</div>
+        <div style="font-size:13px;line-height:1.7;color:var(--text);">東京コースデータ（騎手×コース/厩舎×コース）と外厩仕上がり。東京1400mの実績馬が有利。</div>
+      </div>
+    </div>
+    <div style="text-align:center;font-size:14px;color:var(--muted);letter-spacing:.08em;">木曜夜に4神全採点を反映した最終神託を公開</div>
+  </div>
+
+  <div class="slide-num">14 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 14</div>
+    <span class="notes-char kodamaru">こだまる：</span>神宮の4神採点の見方です！青龍は言霊（コメント）・朱雀はスピード指数・白虎はラップ・玄武はコースデータ。木曜夜に全部採点して最終神託を出します！ウチのギーニョ様がですね〜「4神が全員頷くときは迷わず買え」って言いまして。全員一致の馬を探すのが神宮の醍醐味ですよね〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>4神が揃って頷くとき、その馬は本物だ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 15: ？？？伏兵馬 ===== -->
+<div class="slide" id="s15" data-ginyo="二桁人気の中に、構造を知った馬が潜む。それを嗅ぎ取るのが神宮の仕事だ。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">今 週 の ？ ？ ？ 伏 兵 馬</div>
+
+  <div style="text-align:center;max-width:1000px;">
+    <div style="font-size:80px;font-weight:800;color:var(--kin-dk);letter-spacing:.1em;margin-bottom:18px;">
+      ●●●●●
+    </div>
+    <div style="font-size:16px;color:var(--muted);letter-spacing:.18em;margin-bottom:32px;">── 木 曜 夜 ま で 非 公 開 ──</div>
+    <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;">
+      <div style="background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.3);border-radius:8px;padding:14px 26px;font-size:14px;font-weight:700;color:var(--kin-dk);">
+        穴パターンA<br><span style="font-size:11px;color:var(--muted);">高松宮大敗リベンジ型？</span>
+      </div>
+      <div style="background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.3);border-radius:8px;padding:14px 26px;font-size:14px;font-weight:700;color:var(--kin-dk);">
+        穴パターンB<br><span style="font-size:11px;color:var(--muted);">ダービーH連動型？</span>
+      </div>
+      <div style="background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.3);border-radius:8px;padding:14px 26px;font-size:14px;font-weight:700;color:var(--kin-dk);">
+        穴パターンC<br><span style="font-size:11px;color:var(--muted);">マイラーズC帰り型？</span>
+      </div>
+    </div>
+    <div style="font-size:15px;color:rgba(42,42,42,.75);line-height:1.9;letter-spacing:.05em;">
+      ウチのギーニョ様がですね〜<br>
+      なぜかニヤニヤしながら「穴パターンに該当する馬がいる」とだけ言って<br>
+      名前を全然教えてくれないんですよ。<br>
+      木曜夜まで待ってください〜！
+    </div>
+  </div>
+
+  <div class="slide-num">15 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 15</div>
+    <span class="notes-char kodamaru">こだまる：</span>今週の伏兵馬！まだ名前は出せないんですよ〜。ウチのギーニョ様がですね〜出走馬が確定してからでないと絞れないって。でも穴パターンのどれかに当てはまる馬が絶対いるはずなんで。木曜夜に最終神託で解禁します！二桁人気だったら最高なんですけどね〜みなさんもお金って大事ですよね。<br>
+    <span class="notes-char ginyo">ギーニョ：</span>二桁人気の中に、構造を知った馬が潜む。それを嗅ぎ取るのが神宮の仕事だ。
+  </div>
+</div>
+
+<!-- ===== SLIDE 16: 4神+麒麟説明 ===== -->
+<div class="slide" id="s16" data-ginyo="五神獣が揃うとき、神宮の神託は完成する。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+  <div class="section-heading">神 宮 の 五 神 獣 体 系</div>
+
+  <div class="shijin-grid">
+    <div class="shijin-card">
+      <span class="shijin-emoji">🐉</span>
+      <div class="shijin-name">青 龍</div>
+      <div class="shijin-role">東 ／ 言 霊</div>
+      <div class="shijin-factors">厩舎コメント<br>前走インタビュー<br>「意志」を読む</div>
+    </div>
+    <div class="shijin-card">
+      <span class="shijin-emoji">🔥</span>
+      <div class="shijin-name">朱 雀</div>
+      <div class="shijin-role">南 ／ 速 眼</div>
+      <div class="shijin-factors">スピード指数<br>弥永の相馬眼<br>「速さ」を数値化</div>
+    </div>
+    <div class="shijin-card">
+      <span class="shijin-emoji">🐅</span>
+      <div class="shijin-name">白 虎</div>
+      <div class="shijin-role">西 ／ ラ ッ プ</div>
+      <div class="shijin-factors">HC指数<br>ゴールデン比率<br>「勝ちパターン」照合</div>
+    </div>
+    <div class="shijin-card">
+      <span class="shijin-emoji">🐢</span>
+      <div class="shijin-name">玄 武</div>
+      <div class="shijin-role">北 ／ コ ー ス</div>
+      <div class="shijin-factors">コースデータ<br>外厩情報<br>「舞台適性」確認</div>
+    </div>
+  </div>
+  <div style="margin-top:18px;text-align:center;font-size:14px;color:var(--kin-dk);font-weight:700;letter-spacing:.12em;">
+    🦒 麒麟（中央）── 4神合議の総合1位馬。「最終的中」への切り札
+  </div>
+
+  <div class="slide-num">16 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 16</div>
+    <span class="notes-char kodamaru">こだまる：</span>神宮の五神獣システムです！青龍・朱雀・白虎・玄武の4神が各ファクターを採点して、その合議で最も評価が高かった馬が「麒麟」として選ばれます！ウチのギーニョ様がですね〜「4神が一致した馬に逆らうな」って言ってまして。木曜夜の神託でこの5神獣フル稼働の採点を公開します〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>五神獣が揃うとき、神宮の神託は完成する。
+  </div>
+</div>
+
+<!-- ===== SLIDE 17: 金曜夜予告 ===== -->
+<div class="slide" id="s17" data-ginyo="木曜夜、神託を降ろす。出走馬の全てが明らかになるその瞬間を待て。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+
+  <div class="yotoku-big glow">5/1</div>
+  <div class="yotoku-sub">木 曜 夜 ── 神 託 降 臨</div>
+  <div class="yotoku-msg">
+    出走馬確定後、<em>4神＋麒麟</em>による最終採点を公開。<br>
+    高松宮帰りの本命・三条件を満たす馬・そして<em>伏兵馬（●●●●）</em>の名前解禁。<br><br>
+    買い目は単勝1点・複勝2点・ワイド4頭BOX。<br>
+    <em>UG神宮の本殿に最終神託が降りる。</em>
+  </div>
+
+  <div class="slide-num">17 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 17</div>
+    <span class="notes-char kodamaru">こだまる：</span>木曜夜に最終神託を降ろします！UG競馬ワイド神宮のサイトに最終予想を更新します！ウチのギーニョ様がですね〜「出走馬が揃った瞬間が一番燃える」って言ってまして。伏兵馬の名前も木曜夜に解禁です！チャンネル登録しておいてもらえると嬉しいです〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>木曜夜、神託を降ろす。出走馬の全てが明らかになるその瞬間を待て。
+  </div>
+</div>
+
+<!-- ===== SLIDE 18: END ===== -->
+<div class="slide" id="s18" data-ginyo="高評価、チャンネル登録。それが神宮への参拝だ。">
+  <div class="slide-frame"></div>
+  <div class="slide-corner tl"></div><div class="slide-corner tr"></div>
+  <div class="slide-corner bl"></div><div class="slide-corner br"></div>
+  <div class="slide-logo">UG 競 馬 ワ イ ド 神 宮</div>
+
+  <div class="end-title">⛩ ありがとう</div>
+  <div class="end-sub">UG 競 馬 ワ イ ド 神 宮 ／ 京王杯SC展望 月曜版</div>
+  <div class="end-actions">
+    <div class="end-action primary">👍 高評価で応援</div>
+    <div class="end-action secondary">🔔 チャンネル登録</div>
+  </div>
+  <div style="margin-top:32px;font-size:14px;color:var(--muted);letter-spacing:.1em;text-align:center;line-height:2;">
+    木曜夜に最終神託を公開 ─ bakenshiug.github.io/ug-keiba<br>
+    高評価・チャンネル登録がギーニョの霊験をあらたかにします w
+  </div>
+
+  <div class="slide-num">18 / 18</div>
+  <div class="speaker-notes">
+    <div class="notes-label">SPEAKER NOTES ─ スライド 18</div>
+    <span class="notes-char kodamaru">こだまる：</span>最後まで見てくれてありがとうございます！高評価とチャンネル登録もよろしくお願いします！ウチのギーニョ様がですね〜「高評価が神宮への奉納だ」って言いまして。じゃあ奉納してもらいましょうw 木曜夜に最終神託を出します！またお会いしましょう〜！<br>
+    <span class="notes-char ginyo">ギーニョ：</span>高評価、チャンネル登録。それが神宮への参拝だ。
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<div class="nav-hint" id="navHint">← → キー・クリックでスライド移動　S キーでナレーション表示</div>
+
+<script>
+(function(){
+  const slides = document.querySelectorAll('.slide');
+  let cur = 0;
+  const TOTAL = slides.length;
+
+  function go(n) {
+    slides[cur].classList.remove('active');
+    cur = (n + TOTAL) % TOTAL;
+    slides[cur].classList.add('active');
+    document.getElementById('navHint').style.opacity = cur === 0 ? '1' : '0';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(cur + 1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+    else if (e.key === 's' || e.key === 'S') {
+      const active = slides[cur];
+      const notes = active.querySelector('.speaker-notes');
+      if (notes) notes.classList.toggle('show');
+    } else if (e.key === 'Escape') {
+      const active = slides[cur];
+      const notes = active.querySelector('.speaker-notes');
+      if (notes) notes.classList.remove('show');
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('.speaker-notes') || e.target.closest('.nav-hint')) return;
+    go(cur + 1);
+  });
+
+  setTimeout(() => {
+    document.getElementById('navHint').style.opacity = '0';
+  }, 4000);
+})();
+</script>
+</body>
+</html>
