@@ -164,6 +164,36 @@ html,body{
 }
 .kamae-other em{color:var(--shu);font-style:normal;font-weight:700;}
 .kamae-body{font-size:13px;color:var(--text);margin-top:10px;line-height:1.85;}
+
+/* 配当テーブル */
+.haito-table{
+  width:100%;border-collapse:collapse;
+  background:#fff;border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;
+  font-size:12px;
+}
+.haito-table th{
+  background:linear-gradient(135deg,rgba(155,45,48,.08),rgba(201,169,97,.1));
+  color:var(--shu-dk);font-weight:800;
+  padding:10px 8px;text-align:center;letter-spacing:.06em;
+  border-bottom:1px solid var(--border);
+}
+.haito-table td{
+  padding:10px 8px;text-align:center;
+  border-bottom:1px solid rgba(201,169,97,.18);
+  font-weight:700;
+}
+.haito-table tr:last-child td{border-bottom:none;}
+.haito-ken{color:var(--shu);text-align:left !important;padding-left:14px !important;letter-spacing:.04em;}
+.haito-avg{color:var(--shu-dk);font-size:13px;font-weight:800;}
+.haito-max{color:var(--midori);font-size:11px;}
+.haito-min{color:var(--muted);font-size:11px;}
+.haito-note{
+  font-size:11px;color:var(--shu-dk);margin-top:10px;
+  padding:8px 12px;background:rgba(201,169,97,.1);border-radius:5px;
+  letter-spacing:.04em;line-height:1.6;
+}
+.haito-note em{color:var(--shu);font-style:normal;font-weight:700;}
 .kamae-body em{color:var(--shu-dk);font-style:normal;font-weight:700;}
 
 .kami-grid{
@@ -280,6 +310,29 @@ html,body{
       <div class="kairitsu-data">牡馬460kg未満 → 連対率40%・複勝率60%</div>
       <div class="kairitsu-body">ディープボンドを除き、過去十年の人気薄馬券圏内は<em>全頭460kg台以下</em>。さらに京都重賞で実績を残していること――この二条件が穴の鍵。</div>
     </div>
+  </div>
+</div>
+
+<!-- 春天 配当の素顔 -->
+<div class="section">
+  <div class="section-title">配 当 の 素 顔</div>
+  <div class="section-sub">― 過去11年（2015-2025）平均配当 ―</div>
+
+  <table class="haito-table">
+    <thead>
+      <tr><th>券種</th><th>平均</th><th>最高</th><th>最低</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="haito-ken">単勝</td><td class="haito-avg">¥385</td><td class="haito-max">¥600</td><td class="haito-min">¥200</td></tr>
+      <tr><td class="haito-ken">馬連</td><td class="haito-avg">¥4,016</td><td class="haito-max">¥20,160</td><td class="haito-min">¥520</td></tr>
+      <tr><td class="haito-ken">馬単</td><td class="haito-avg">¥5,994</td><td class="haito-max">¥29,950</td><td class="haito-min">¥1,230</td></tr>
+      <tr><td class="haito-ken">三連複</td><td class="haito-avg">¥13,866</td><td class="haito-max">¥57,160</td><td class="haito-min">¥610</td></tr>
+      <tr><td class="haito-ken">三連単</td><td class="haito-avg">¥66,237</td><td class="haito-max">¥242,730</td><td class="haito-min">¥3,780</td></tr>
+    </tbody>
+  </table>
+
+  <div class="haito-note">
+    G1らしく単勝¥385と<em>本命決着が多い</em>。ただし三連単は最高¥242,730と一発の破壊力あり。馬連¥4,016平均は<em>2着候補に穴を絡めれば美味い</em>。
   </div>
 </div>
 
@@ -435,6 +488,29 @@ html,body{
   </div>
 </div>
 
+<!-- 京王杯SC 配当の素顔 -->
+<div class="section">
+  <div class="section-title">配 当 の 素 顔</div>
+  <div class="section-sub">― 過去11年（2015-2025）平均配当 ―</div>
+
+  <table class="haito-table">
+    <thead>
+      <tr><th>券種</th><th>平均</th><th>最高</th><th>最低</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="haito-ken">単勝</td><td class="haito-avg">¥490</td><td class="haito-max">¥870</td><td class="haito-min">¥310</td></tr>
+      <tr><td class="haito-ken">馬連</td><td class="haito-avg">¥4,238</td><td class="haito-max">¥19,230</td><td class="haito-min">¥640</td></tr>
+      <tr><td class="haito-ken">馬単</td><td class="haito-avg">¥6,618</td><td class="haito-max">¥26,420</td><td class="haito-min">¥1,230</td></tr>
+      <tr><td class="haito-ken">三連複</td><td class="haito-avg">¥9,664</td><td class="haito-max">¥29,390</td><td class="haito-min">¥1,220</td></tr>
+      <tr><td class="haito-ken">三連単</td><td class="haito-avg">¥52,614</td><td class="haito-max">¥179,770</td><td class="haito-min">¥5,360</td></tr>
+    </tbody>
+  </table>
+
+  <div class="haito-note">
+    三連単平均<em>¥52,614</em>。最高¥179,770と<em>人気薄が3着に絡みやすい体質</em>。馬連¥4,238も人気馬同士で決まらないバラけ傾向、ワイド・三連複狙いが旨い。
+  </div>
+</div>
+
 <div class="section">
   <div class="section-title">人気薄好走の三類型</div>
   <div class="section-sub">― 過去11年×5番人気以下12頭の見立て ―</div>
@@ -535,6 +611,29 @@ html,body{
       <div class="kairitsu-data">京都6頭の人気内訳: 1/2/3/3/1/5</div>
       <div class="kairitsu-body">旧東京時代の<em>14人気2着・11人気3着のような大穴は京都ではゼロ</em>。最大穴は2024サトノエピック5人気2着まで。荒れ度は東京時代より明確に低い。</div>
     </div>
+  </div>
+</div>
+
+<!-- ユニコーンS 配当の素顔 -->
+<div class="section">
+  <div class="section-title">配 当 の 素 顔</div>
+  <div class="section-sub">― 京都新コース時代（2024-2025・2年）平均配当 ―</div>
+
+  <table class="haito-table">
+    <thead>
+      <tr><th>券種</th><th>平均</th><th>最高</th><th>最低</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="haito-ken">単勝</td><td class="haito-avg">¥665</td><td class="haito-max">¥730</td><td class="haito-min">¥600</td></tr>
+      <tr><td class="haito-ken">馬連</td><td class="haito-avg">¥2,050</td><td class="haito-max">¥3,530</td><td class="haito-min">¥570</td></tr>
+      <tr><td class="haito-ken">馬単</td><td class="haito-avg">¥4,220</td><td class="haito-max">¥6,800</td><td class="haito-min">¥1,640</td></tr>
+      <tr><td class="haito-ken">三連複</td><td class="haito-avg">¥2,130</td><td class="haito-max">¥3,350</td><td class="haito-min">¥910</td></tr>
+      <tr><td class="haito-ken">三連単</td><td class="haito-avg">¥15,710</td><td class="haito-max">¥25,330</td><td class="haito-min">¥6,090</td></tr>
+    </tbody>
+  </table>
+
+  <div class="haito-note">
+    京都ダ1900新コースでは<em>配当が明確に鎮静化</em>。馬連¥2,050・三連複¥2,130は人気馬同士の決着が多い証。<em>大穴狙いはまだ早い、本線厚張り型のレース</em>。参考までに旧東京1600時代は三連単平均¥182,735（11年中9年）と荒れ気味だった。
   </div>
 </div>
 
