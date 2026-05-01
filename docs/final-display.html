@@ -628,6 +628,8 @@ async function loadRaces() {
         nameEn:    p.nameEn || '',
         meta:      p.meta || '',
         startTime: (d.race && d.race.startTime) || p.startTime || '',
+        venue:     (d.race && d.race.venue) || ({'tokyo':'東京','kyoto':'京都','hanshin':'阪神','nakayama':'中山','chukyo':'中京','kokura':'小倉','niigata':'新潟','fukushima':'福島','sapporo':'札幌','hakodate':'函館'}[m.key.replace(/^\d{4}-\d{2}-\d{2}-/,'').replace(/-\d+r$/,'')] || ''),
+        rNum:      (m.key.match(/-(\d+)r$/)||[])[1] || '',
         surface:   (d.race && d.race.surface) || '',
         distance:  (d.race && d.race.distance) || '',
         course:    (d.race && d.race.course) || '',
@@ -1130,7 +1132,7 @@ function hondenHtml(r){
   return `
   <div class="honden">
     <div class="honden-head">
-      <div class="honden-race-meta mincho">／　発走 ${r.startTime}</div>
+      <div class="honden-race-meta mincho">${r.label ? r.label+'曜' : ''}${r.venue}${r.rNum ? r.rNum+'R' : ''} ／発走 ${r.startTime}</div>
       <div class="honden-race-name mincho">${r.name}</div>
       ${(r.surface || r.distance) ? `<div class="honden-race-info mincho">${r.surface||''}${r.distance||''}m${r.course ? '（'+r.course+'）' : ''}　天候:${r.weather||'—'}　馬場:${r.baba||'—'}　${r.numHorses||''}頭</div>` : ''}
       <div class="honden-race-info">${win5Html}${gradeHtml}${verdictBadge}</div>
