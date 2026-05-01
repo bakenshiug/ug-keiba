@@ -64,8 +64,8 @@
         "num": "11",
         "gate": "8",
         "name": "メルカントゥール",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "2",
+        "odds": "3.1",
         "sire": "ルヴァンスレーヴ",
         "bms": "ゴールドヘイロー",
         "jockey": "川田将",
@@ -112,8 +112,8 @@
         "num": "9",
         "gate": "7",
         "name": "ソルチェリア",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "3",
+        "odds": "6.7",
         "sire": "ナダル",
         "bms": "エルコンドルパサー",
         "jockey": "幸英明",
@@ -160,8 +160,8 @@
         "num": "2",
         "gate": "2",
         "name": "ケイアイアギト",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "6",
+        "odds": "11.1",
         "sire": "エスポワールシチー",
         "bms": "Unbridled's Song",
         "jockey": "鮫島駿",
@@ -208,8 +208,8 @@
         "num": "5",
         "gate": "5",
         "name": "コロナドブリッジ",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "4",
+        "odds": "7.1",
         "sire": "ベンバトル",
         "bms": "ディープインパクト",
         "jockey": "松山弘",
@@ -386,7 +386,8 @@
       "bms": "Unbridled's Song",
       "farm": "静内山田牧場",
       "prevName": "サウジダービー",
-      "gaikyu": "チャンピオンヒルズ"
+      "gaikyu": "チャンピオンヒルズ",
+      "expectedOdds": "11.1"
     },
     {
       "num": "3",
@@ -589,7 +590,8 @@
       "bms": "ディープインパクト",
       "farm": "ノーザンＦ",
       "prevName": "若葉S",
-      "gaikyu": "NFしがらき"
+      "gaikyu": "NFしがらき",
+      "expectedOdds": "7.1"
     },
     {
       "num": "6",
@@ -855,7 +857,8 @@
       "bms": "エルコンドルパサー",
       "farm": "高村牧場",
       "prevName": "3歳1勝クラス",
-      "gaikyu": "グリーンF"
+      "gaikyu": "グリーンF",
+      "expectedOdds": "6.7"
     },
     {
       "num": "10",
@@ -988,7 +991,8 @@
       "bms": "ゴールドヘイロー",
       "farm": "ノーザンＦ",
       "prevName": "3歳1勝クラス",
-      "gaikyu": "NFしがらき"
+      "gaikyu": "NFしがらき",
+      "expectedOdds": "3.1"
     },
     {
       "num": "12",

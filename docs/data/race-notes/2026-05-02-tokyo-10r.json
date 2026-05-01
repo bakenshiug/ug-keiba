@@ -64,8 +64,8 @@
         "num": "1",
         "gate": "1",
         "name": "レディーゴール",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "3",
+        "odds": "4.5",
         "sire": "レイデオロ",
         "bms": "Equal Stripes",
         "jockey": "菅原明",
@@ -112,8 +112,8 @@
         "num": "11",
         "gate": "8",
         "name": "カナルサンマルタン",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "1",
+        "odds": "3.8",
         "sire": "リアルスティール",
         "bms": "Distorted Humor",
         "jockey": "ルメール",
@@ -160,8 +160,8 @@
         "num": "9",
         "gate": "7",
         "name": "サムシングスイート",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "5",
+        "odds": "8.6",
         "sire": "サートゥルナーリア",
         "bms": "ヴィクトワールピサ",
         "jockey": "横山武",
@@ -208,8 +208,8 @@
         "num": "6",
         "gate": "6",
         "name": "モートンアイランド",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "6",
+        "odds": "10.3",
         "sire": "モーリス",
         "bms": "Fastnet Rock",
         "jockey": "レーン",
@@ -397,7 +397,8 @@
       "bms": "Equal Stripes",
       "farm": "下河辺牧場",
       "prevName": "クイーンC",
-      "gaikyu": "エスティF小見川"
+      "gaikyu": "エスティF小見川",
+      "expectedOdds": "4.5"
     },
     {
       "num": "2",
@@ -843,7 +844,8 @@
       "bms": "Fastnet Rock",
       "farm": "ノーザンＦ",
       "prevName": "クイーンC",
-      "gaikyu": "NF天栄"
+      "gaikyu": "NF天栄",
+      "expectedOdds": "10.3"
     },
     {
       "num": "7",
@@ -1116,7 +1118,8 @@
       "broodmareSire": "ヴィクトワールピサ",
       "bms": "ヴィクトワールピサ",
       "farm": "那須野",
-      "prevName": "フローラS(取消)"
+      "prevName": "フローラS(取消)",
+      "expectedOdds": "8.6"
     },
     {
       "num": "10",
@@ -1302,7 +1305,8 @@
       "bms": "Distorted Humor",
       "farm": "ノーザンＦ",
       "prevName": "3歳未勝利",
-      "gaikyu": "NF天栄"
+      "gaikyu": "NF天栄",
+      "expectedOdds": "3.8"
     }
   ]
 }

@@ -64,8 +64,8 @@
         "num": "2",
         "gate": "1",
         "name": "ダノンセンチュリー",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "2",
+        "odds": "5.0",
         "sire": "フィエールマン",
         "bms": "Lope de Vega",
         "jockey": "ルメール",
@@ -112,8 +112,8 @@
         "num": "9",
         "gate": "5",
         "name": "フリームファクシ",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "16",
+        "odds": "88.1",
         "sire": "ルーラーシップ",
         "bms": "スペシャルウィーク",
         "jockey": "佐々木大輔",
@@ -160,8 +160,8 @@
         "num": "11",
         "gate": "6",
         "name": "アサカラキング",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "11",
+        "odds": "39.4",
         "sire": "キズナ",
         "bms": "キングヘイロー",
         "jockey": "戸崎圭",
@@ -208,8 +208,8 @@
         "num": "18",
         "gate": "8",
         "name": "ヤブサメ",
-        "ninki": "—",
-        "odds": "—",
+        "ninki": "3",
+        "odds": "6.0",
         "sire": "ファインニードル",
         "bms": "グラスワンダー",
         "jockey": "武豊",
@@ -359,7 +359,8 @@
       "farm": "ノーザンＦ",
       "prevName": "雲雀S",
       "gaikyu": "NF天栄",
-      "prevFinish": "1"
+      "prevFinish": "1",
+      "expectedOdds": "5.0"
     },
     {
       "num": "3",
@@ -730,7 +731,8 @@
       "farm": "ノーザンＦ",
       "prevName": "オーシャンS",
       "gaikyu": "NFしがらき",
-      "prevFinish": "13"
+      "prevFinish": "13",
+      "expectedOdds": "88.1"
     },
     {
       "num": "10",
@@ -837,7 +839,8 @@
       "farm": "協和牧場",
       "prevName": "阪急杯",
       "gaikyu": "エスティF小見川",
-      "prevFinish": "5"
+      "prevFinish": "5",
+      "expectedOdds": "39.4"
     },
     {
       "num": "12",
@@ -1211,7 +1214,8 @@
       "prevName": "シルクロードS",
       "gaikyu": "大山ヒルズ",
       "prevFinish": "5",
-      "prevRaceClass": "シルクロードS(GIII)"
+      "prevRaceClass": "シルクロードS(GIII)",
+      "expectedOdds": "6.0"
     }
   ]
 }
