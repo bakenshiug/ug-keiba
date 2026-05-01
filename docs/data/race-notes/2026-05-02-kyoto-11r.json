@@ -1,0 +1,958 @@
+{
+  "race": {
+    "name": "ユニコーンS",
+    "grade": "G3",
+    "date": "2026-05-02",
+    "venue": "京都",
+    "surface": "ダート",
+    "distance": 1900,
+    "course": "右",
+    "startTime": "15:30",
+    "numHorses": 12
+  },
+  "raceTitle": {
+    "main": "ユニコーンS",
+    "sub": "4神麒麟合議・初運用",
+    "desc": "─ 京都ダ1900m・3歳ダート王決定戦 ─"
+  },
+  "dataStatus": "scoring",
+  "logicVersion": "v3-kirin",
+  "presentation": {
+    "raceId": "202608030311",
+    "bets": {
+      "strategy": "wide-only",
+      "wide": {
+        "horses": [
+          "メルカントゥール",
+          "ソルチェリア",
+          "ケイアイアギト",
+          "コロナドブリッジ"
+        ],
+        "perPoint": 100
+      },
+      "totalSpend": 600
+    },
+    "horses": [
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐉",
+        "markLabel": "青龍1位",
+        "num": "11",
+        "gate": "8",
+        "name": "メルカントゥール",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "川田将",
+        "trainer": "杉山晴",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "1",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "S",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "B",
+            "label": "朱雀（速眼）",
+            "soku": "A",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "B",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "4馬身差快勝「期待馬・順当勝ち」。1900mプラス・重賞でも楽しみ"
+      },
+      {
+        "god": "suzaku",
+        "godLabel": "朱雀",
+        "godEmoji": "🔥",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🔥",
+        "markLabel": "朱雀1位",
+        "num": "9",
+        "gate": "7",
+        "name": "ソルチェリア",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "幸英明",
+        "trainer": "大根田",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "6",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "A",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "S",
+            "label": "朱雀（速眼）",
+            "soku": "A",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "A",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "syoin=前回1着分インタビュー。実際前走6着。力出せる態勢・遜色なし"
+      },
+      {
+        "god": "byakko",
+        "godLabel": "白虎",
+        "godEmoji": "🐅",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐅",
+        "markLabel": "白虎1位",
+        "num": "2",
+        "gate": "2",
+        "name": "ケイアイアギト",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "鮫島駿",
+        "trainer": "加藤征",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "5",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "—",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "B",
+            "label": "朱雀（速眼）",
+            "soku": "B",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "S",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走インタビューなし（サウジ帰り・評価外）"
+      },
+      {
+        "god": "genbu",
+        "godLabel": "玄武",
+        "godEmoji": "🐢",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐢",
+        "markLabel": "玄武1位",
+        "num": "5",
+        "gate": "5",
+        "name": "コロナドブリッジ",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "松山弘",
+        "trainer": "庄野",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "5",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "—",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "C",
+            "label": "朱雀（速眼）",
+            "soku": "C",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "C",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "S",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走インタビューなし・ダート適性未知（評価外）"
+      }
+    ]
+  },
+  "horses": [
+    {
+      "num": "1",
+      "gate": "1",
+      "name": "サイモンゼスト",
+      "jockey": "酒井学",
+      "trainer": "谷",
+      "prevFinish": "7",
+      "prevRaceClass": "3歳1勝C",
+      "horseWeight": null,
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "B",
+        "keyword": "前走インタビューなし（評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "D",
+        "canonical": "直行（中2週）",
+        "nyukyoDate": null
+      },
+      "patternGrade": "C",
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "50.0%",
+        "jockeyRate": "21.2%",
+        "trainerRate": "23.5%",
+        "sireGrade": "S",
+        "jockeyGrade": "B",
+        "trainerGrade": "B",
+        "note": "父サトノアラジンS圧倒的。騎手・師Bで3.67→A。パターン✗（前走7着）"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "C",
+        "spPeak": 77,
+        "spRise": -5,
+        "denmaGrade": "C",
+        "denmaRed": 1,
+        "note": "peak77(C)・rise-5(C)でspC。HC3.5赤1個(rank2)でdenmaC。avg2.0→C"
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "C",
+          "st": 49,
+          "shiage": 65,
+          "gap": -16
+        },
+        "jyuu": {
+          "grade": "C",
+          "raw": "△"
+        },
+        "sunaX": true,
+        "tokki": [
+          "スタミ○",
+          "ブ効果○",
+          "砂被る×"
+        ],
+        "gan": null,
+        "note": "sokuC(ST49/仕上65)×重C・砂被る×(-1)→最終D"
+      }
+    },
+    {
+      "num": "2",
+      "gate": "2",
+      "name": "ケイアイアギト",
+      "jockey": "鮫島駿",
+      "trainer": "加藤征",
+      "prevFinish": "5",
+      "prevRaceClass": "サウジダート",
+      "horseWeight": 518,
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "B",
+        "keyword": "前走インタビューなし（サウジ帰り・評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "チャンピオンヒルズ（滋賀）",
+        "nyukyoDate": "4/15"
+      },
+      "patternGrade": "C",
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "25.0%",
+        "jockeyRate": "34.3%",
+        "trainerRate": null,
+        "sireGrade": "A",
+        "jockeyGrade": "A",
+        "trainerGrade": null,
+        "note": "父A×鮫島A。加藤征0走(null補完→A)。4.0→A。海外帰りで判断難"
+      },
+      "yugomiLapGrade": {
+        "grade": "S",
+        "spGrade": "A",
+        "spPeak": 81,
+        "spRise": 12,
+        "denmaGrade": "S",
+        "denmaRed": 1,
+        "note": "peak81(B)・rise+12(S)でspA。HC3.0赤rank1=S。avg(4+5)/2=4.5→S"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "st": 56,
+          "shiage": 66,
+          "gap": -10
+        },
+        "jyuu": {
+          "grade": "A",
+          "raw": "○"
+        },
+        "sunaX": false,
+        "tokki": [
+          "物見",
+          "腰甘い",
+          "ダ軽い○"
+        ],
+        "gan": null,
+        "note": "sokuB(ST56/仕上66)×重A→最終B"
+      }
+    },
+    {
+      "num": "3",
+      "gate": "3",
+      "name": "ガウラディスコ",
+      "jockey": "松若風",
+      "trainer": "高柳大",
+      "prevFinish": "1",
+      "prevRaceClass": "3歳未勝利",
+      "horseWeight": null,
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "前走1着・モタれあり。大型馬らしくない動き・楽しみ"
+      },
+      "gaikyuFactor": {
+        "grade": "B",
+        "canonical": "吉澤S-WEST（滋賀）",
+        "nyukyoDate": "4/11"
+      },
+      "patternGrade": "C",
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "12.5%",
+        "jockeyRate": "22.0%",
+        "trainerRate": "37.5%",
+        "sireGrade": "C",
+        "jockeyGrade": "B",
+        "trainerGrade": "A",
+        "note": "高柳大師A×松若B。父クリソベリルCが重し。3.0→B。未勝利1着→パターン✗"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "B",
+        "spPeak": 76,
+        "spRise": 18,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "peak76(D)・rise+18(S)でspB。HC赤なし・ゴールデン比率データなし→denmaD。avg(3+1)/2=2.0→C"
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "D",
+          "st": 46,
+          "shiage": 63,
+          "gap": -17
+        },
+        "jyuu": {
+          "grade": "A",
+          "raw": "○"
+        },
+        "sunaX": false,
+        "tokki": [
+          "器用さ欠",
+          "馬込平気",
+          "ダ大丈夫"
+        ],
+        "gan": null,
+        "note": "sokuD(ST46/仕上63)×重A→最終D"
+      }
+    },
+    {
+      "num": "4",
+      "gate": "4",
+      "name": "シルバーレシオ",
+      "jockey": "岩田望",
+      "trainer": "野中",
+      "prevFinish": "1",
+      "prevRaceClass": "3歳1勝C(ダ1800)",
+      "horseWeight": 510,
+      "relComment": {
+        "grade": "A",
+        "syoinGrade": "A",
+        "danwaGrade": "A",
+        "keyword": "前走1着「強い内容・思った以上の脚」。成長感じる・ヒケ取らない"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "ノーザンFしがらき（滋賀）",
+        "nyukyoDate": "4/17"
+      },
+      "patternGrade": "S",
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "12.5%",
+        "jockeyRate": "32.6%",
+        "trainerRate": "21.4%",
+        "sireGrade": "C",
+        "jockeyGrade": "A",
+        "trainerGrade": "B",
+        "note": "岩田望A。父ルヴァンスレーヴC×野中BでC引き下げ。3.0→B。パターン✅✅(S)"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "S",
+        "spPeak": 88,
+        "spRise": 5,
+        "denmaGrade": "C",
+        "denmaRed": 0,
+        "note": "peak88(S)・rise+5(A)でspS。HC赤なし・重74.9(1着パターン75.1±0.5内)→denmaC。avg(5+2)/2=3.5→A"
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "S",
+          "st": 64,
+          "shiage": 66,
+          "gap": -2
+        },
+        "jyuu": {
+          "grade": "A",
+          "raw": "○"
+        },
+        "sunaX": false,
+        "tokki": [
+          "終い確実",
+          "一頭気抜",
+          "砂被る○"
+        ],
+        "gan": null,
+        "note": "sokuS(ST64/仕上66)×重A→最終S"
+      }
+    },
+    {
+      "num": "5",
+      "gate": "5",
+      "name": "コロナドブリッジ",
+      "jockey": "松山弘",
+      "trainer": "庄野",
+      "prevFinish": "5",
+      "prevRaceClass": "若葉S(芝2000)",
+      "horseWeight": 524,
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "C",
+        "keyword": "前走インタビューなし・ダート適性未知（評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "ノーザンFしがらき（滋賀）",
+        "nyukyoDate": "4/15"
+      },
+      "patternGrade": "C",
+      "courseDataGrade": {
+        "grade": "S",
+        "sireRate": null,
+        "jockeyRate": "47.5%",
+        "trainerRate": "50.0%",
+        "sireGrade": null,
+        "jockeyGrade": "S",
+        "trainerGrade": "S",
+        "note": "松山弘S×庄野S圧倒的。父ベンバトル0走(null補完→S)。5.0→S。⚠️芝→ダ転戦穴候補"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "B",
+        "spPeak": 79,
+        "spRise": 6,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "peak79(C)・rise+6(A)でspB。HC赤なし・ゴールデン比率データなし(芝上がり)→denmaD。avg(3+1)/2=2.0→C"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "st": 51,
+          "shiage": 66,
+          "gap": -15
+        },
+        "jyuu": {
+          "grade": "A",
+          "raw": "○"
+        },
+        "sunaX": false,
+        "tokki": [
+          "口向悪い",
+          "ハミ頼る"
+        ],
+        "gan": null,
+        "note": "sokuC(ST51/仕上66)×重A→最終C"
+      }
+    },
+    {
+      "num": "6",
+      "gate": "5",
+      "name": "ヴィエントデコラ",
+      "jockey": "浜中俊",
+      "trainer": "寺島",
+      "prevFinish": "6",
+      "prevRaceClass": "3歳1勝C",
+      "horseWeight": 446,
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "C",
+        "keyword": "前走インタビューなし・重賞どうか（評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "D",
+        "canonical": "直行（中2週）",
+        "nyukyoDate": null
+      },
+      "patternGrade": "D",
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "12.5%",
+        "jockeyRate": "13.3%",
+        "trainerRate": "33.3%",
+        "sireGrade": "C",
+        "jockeyGrade": "C",
+        "trainerGrade": "A",
+        "note": "寺島師A。父ルヴァンスレーヴ・浜中ともにC。2.67→B。パターン✗(6着+446kg小柄)"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "B",
+        "spPeak": 78,
+        "spRise": 0,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "peak78(C)・rise0(B)でspB。HC赤なし・良75.2/重75.7いずれも±0.5外→denmaD。avg(3+1)/2=2.0→C"
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "C",
+          "st": 50,
+          "shiage": 51,
+          "gap": -1
+        },
+        "jyuu": {
+          "grade": "A",
+          "raw": "○"
+        },
+        "sunaX": true,
+        "tokki": [
+          "ズブイ",
+          "砂被る×"
+        ],
+        "gan": null,
+        "note": "sokuC(ST50/仕上51)×重A・砂被る×(-1)→最終D"
+      }
+    },
+    {
+      "num": "7",
+      "gate": "6",
+      "name": "ストロングエース",
+      "jockey": "秋山稔",
+      "trainer": "相沢",
+      "prevFinish": "1",
+      "prevRaceClass": "3歳1勝C(ダ)",
+      "horseWeight": 470,
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "C",
+        "keyword": "前走1着だが「成長途上・力試し」で今回評価割引"
+      },
+      "gaikyuFactor": {
+        "grade": "D",
+        "canonical": "直行（中2週）",
+        "nyukyoDate": null
+      },
+      "patternGrade": "B",
+      "courseDataGrade": {
+        "grade": "C",
+        "sireRate": "0.0%",
+        "jockeyRate": "16.7%",
+        "trainerRate": "0.0%",
+        "sireGrade": "D",
+        "jockeyGrade": "B",
+        "trainerGrade": "D",
+        "note": "父ヤマカツエース・相沢師ともにD(0勝)。秋山稔Bのみ。1.67→C"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "A",
+        "spPeak": 83,
+        "spRise": 9,
+        "denmaGrade": "C",
+        "denmaRed": 0,
+        "note": "peak83(B)・rise+9(A)でspA。HC赤なし・良76.4(1着パターン76.1±0.5内)→denmaC。avg(4+2)/2=3.0→B"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "st": 59,
+          "shiage": 59,
+          "gap": 0
+        },
+        "jyuu": {
+          "grade": "A",
+          "raw": "○"
+        },
+        "sunaX": false,
+        "tokki": [
+          "展開待ち",
+          "大トビ",
+          "脚抜ダ○"
+        ],
+        "gan": null,
+        "note": "sokuA(ST59/仕上59)×重A→最終A"
+      }
+    },
+    {
+      "num": "8",
+      "gate": "6",
+      "name": "シャローファースト",
+      "jockey": "菱田裕",
+      "trainer": "安田翔",
+      "prevFinish": "7",
+      "prevRaceClass": "3歳1勝C",
+      "horseWeight": null,
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "D",
+        "keyword": "前走インタビューなし・「今後に生きてくれば」＝経験目的宣言（評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "ノーザンFしがらき（滋賀）",
+        "nyukyoDate": "4/10"
+      },
+      "patternGrade": "C",
+      "courseDataGrade": {
+        "grade": "C",
+        "sireRate": "12.5%",
+        "jockeyRate": "19.2%",
+        "trainerRate": "0.0%",
+        "sireGrade": "C",
+        "jockeyGrade": "B",
+        "trainerGrade": "D",
+        "note": "安田翔師D(0勝)が足を引く。父C×菱田B。2.0→C"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "B",
+        "spPeak": 77,
+        "spRise": 6,
+        "denmaGrade": "C",
+        "denmaRed": 0,
+        "note": "peak77(C)・rise+6(A)でspB。HC赤なし・良76.6(1着パターン76.1±0.5内)→denmaC。avg(3+2)/2=2.5→B"
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "D",
+          "st": 44,
+          "shiage": 55,
+          "gap": -11
+        },
+        "jyuu": {
+          "grade": "C",
+          "raw": "△"
+        },
+        "sunaX": false,
+        "tokki": [
+          "一本調子",
+          "展開待ち",
+          "他馬気に"
+        ],
+        "gan": null,
+        "note": "sokuD(ST44/仕上55)×重C→最終D"
+      }
+    },
+    {
+      "num": "9",
+      "gate": "7",
+      "name": "ソルチェリア",
+      "jockey": "幸英明",
+      "trainer": "大根田",
+      "prevFinish": "6",
+      "prevRaceClass": "3歳1勝C(ダ1800)",
+      "horseWeight": 502,
+      "relComment": {
+        "grade": "A",
+        "syoinGrade": "A",
+        "danwaGrade": "A",
+        "keyword": "syoin=前回1着分インタビュー。実際前走6着。力出せる態勢・遜色なし",
+        "syoinNote": "keibabook syoin表示は1着時インタビュー（実際前走は6着）"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "canonical": "グリーンF（滋賀）",
+        "nyukyoDate": "4/2"
+      },
+      "patternGrade": "B",
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "27.3%",
+        "jockeyRate": "19.2%",
+        "trainerRate": "26.3%",
+        "sireGrade": "A",
+        "jockeyGrade": "B",
+        "trainerGrade": "A",
+        "note": "父ナダルA×大根田師A。幸英明Bで3.67→A。パターン✗(前走6着)"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "A",
+        "spPeak": 85,
+        "spRise": 8,
+        "denmaGrade": "B",
+        "denmaRed": 1,
+        "note": "peak85(A)・rise+8(A)でspA。HC4.0赤(rank3)+重75.5(±0.5内)→denmaB。avg(4+3)/2=3.5→A"
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "A",
+          "st": 57,
+          "shiage": 66,
+          "gap": -9
+        },
+        "jyuu": {
+          "grade": "S",
+          "raw": "◎"
+        },
+        "sunaX": false,
+        "tokki": [],
+        "gan": null,
+        "note": "sokuA(ST57/仕上66)×重S→最終S"
+      }
+    },
+    {
+      "num": "10",
+      "gate": "7",
+      "name": "セイントエルモズ",
+      "jockey": "吉村誠",
+      "trainer": "小島茂",
+      "prevFinish": "11",
+      "prevRaceClass": "3歳1勝C(ダ1800)",
+      "horseWeight": 546,
+      "relComment": {
+        "grade": "A",
+        "syoinGrade": "A",
+        "danwaGrade": "A",
+        "keyword": "syoin=前回1着分インタビュー。実際前走11着。気配↑・距離延長OK",
+        "syoinNote": "keibabook syoin表示は1着時インタビュー（実際前走は11着）"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "canonical": "ミッドウェイF（茨城）",
+        "nyukyoDate": "4/7"
+      },
+      "patternGrade": "B",
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "25.0%",
+        "jockeyRate": "23.8%",
+        "trainerRate": "0.0%",
+        "sireGrade": "A",
+        "jockeyGrade": "B",
+        "trainerGrade": "D",
+        "note": "父サンダースノーA。小島茂師D(1走0勝)が足を引く。2.67→B。パターン✗(前走11着)"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "A",
+        "spPeak": 83,
+        "spRise": 16,
+        "denmaGrade": "B",
+        "denmaRed": 0,
+        "note": "peak83(B)・rise+16(S)でspA。HC赤なし・良75.8+重75.4(両方±0.5内)→denmaB。avg(4+3)/2=3.5→A"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "B",
+          "st": 54,
+          "shiage": 66,
+          "gap": -12
+        },
+        "jyuu": {
+          "grade": "S",
+          "raw": "◎"
+        },
+        "sunaX": false,
+        "tokki": [
+          "腰甘い"
+        ],
+        "gan": null,
+        "note": "sokuB(ST54/仕上66)×重S→最終A"
+      }
+    },
+    {
+      "num": "11",
+      "gate": "8",
+      "name": "メルカントゥール",
+      "jockey": "川田将",
+      "trainer": "杉山晴",
+      "prevFinish": "1",
+      "prevRaceClass": "3歳1勝C(ダ1800)",
+      "horseWeight": 530,
+      "relComment": {
+        "grade": "S",
+        "syoinGrade": "S",
+        "danwaGrade": "A",
+        "keyword": "4馬身差快勝「期待馬・順当勝ち」。1900mプラス・重賞でも楽しみ"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "ノーザンFしがらき（滋賀）",
+        "nyukyoDate": "4/11"
+      },
+      "patternGrade": "S",
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "12.5%",
+        "jockeyRate": "48.1%",
+        "trainerRate": "37.5%",
+        "sireGrade": "C",
+        "jockeyGrade": "S",
+        "trainerGrade": "A",
+        "note": "川田将S(48.1%)×杉山晴A。父ルヴァンスレーヴCが重し。3.67→A。パターン✅✅(S)"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "S",
+        "spPeak": 86,
+        "spRise": 10,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "peak86(A)・rise+10(S)でspS。HC赤なし・良74.6(±0.5外)・重データなし→denmaD。avg(5+1)/2=3.0→B"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "A",
+          "st": 59,
+          "shiage": 66,
+          "gap": -7
+        },
+        "jyuu": {
+          "grade": "A",
+          "raw": "○"
+        },
+        "sunaX": true,
+        "tokki": [
+          "砂被る×"
+        ],
+        "gan": null,
+        "note": "sokuA(ST59/仕上66)×重A・砂被る×(-1)→最終B"
+      }
+    },
+    {
+      "num": "12",
+      "gate": "8",
+      "name": "デールエルバハリ",
+      "jockey": "Mデムーロ",
+      "trainer": "杉山佳",
+      "prevFinish": "9",
+      "prevRaceClass": "3歳1勝C",
+      "horseWeight": 488,
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "D",
+        "keyword": "前走インタビューなし・「いい経験に」＝経験目的宣言（評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "D",
+        "canonical": "直行（中1週）",
+        "nyukyoDate": null
+      },
+      "patternGrade": "C",
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "12.5%",
+        "jockeyRate": "20.0%",
+        "trainerRate": "23.1%",
+        "sireGrade": "C",
+        "jockeyGrade": "B",
+        "trainerGrade": "B",
+        "note": "父クリソベリルC。デムーロ・杉山佳ともにB。2.67→B"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "C",
+        "spPeak": 75,
+        "spRise": 4,
+        "denmaGrade": "C",
+        "denmaRed": 0,
+        "note": "peak75(D)・rise+4(B)でspC。HC赤なし・良76.2(±0.5内)→denmaC。avg(2+2)/2=2.0→C"
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "D",
+          "st": 44,
+          "shiage": 48,
+          "gap": -4
+        },
+        "jyuu": {
+          "grade": "S",
+          "raw": "◎"
+        },
+        "sunaX": false,
+        "tokki": [
+          "腰甘い"
+        ],
+        "gan": null,
+        "note": "sokuD(ST44/仕上48)×重S→最終D"
+      }
+    }
+  ]
+}

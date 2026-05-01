@@ -1,0 +1,1071 @@
+{
+  "race": {
+    "name": "京王杯スプリングC",
+    "grade": "G2",
+    "date": "2026-05-02",
+    "venue": "東京",
+    "surface": "芝",
+    "distance": 1400,
+    "course": "左A",
+    "startTime": "15:45",
+    "numHorses": 18
+  },
+  "raceTitle": {
+    "main": "京王杯スプリングC",
+    "sub": "4神麒麟合議・初運用",
+    "desc": "─ 1400m精鋭18頭・速眼と言霊が交わる舞台 ─"
+  },
+  "dataStatus": "scoring",
+  "logicVersion": "v3-kirin",
+  "presentation": {
+    "raceId": "202605020311",
+    "bets": {
+      "strategy": "wide-only",
+      "wide": {
+        "horses": [
+          "ダノンセンチュリー",
+          "フリームファクシ",
+          "アサカラキング",
+          "ヤブサメ"
+        ],
+        "perPoint": 100
+      },
+      "totalSpend": 600
+    },
+    "horses": [
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "A",
+        "rankInGod": 1,
+        "mark": "🐉",
+        "markLabel": "青龍1位",
+        "num": "2",
+        "gate": "1",
+        "name": "ダノンセンチュリー",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "レーン",
+        "trainer": "萩原",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "—",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "A",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "A",
+            "label": "朱雀（速眼）",
+            "soku": "A",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "B",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走1着・鋭い決め手は上でも通用。ただし距離短縮懸念"
+      },
+      {
+        "god": "suzaku",
+        "godLabel": "朱雀",
+        "godEmoji": "🔥",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🔥",
+        "markLabel": "朱雀1位",
+        "num": "9",
+        "gate": "5",
+        "name": "フリームファクシ",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "佐々木大",
+        "trainer": "須貝尚",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "—",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "S",
+            "label": "朱雀（速眼）",
+            "soku": "S",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "A",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走13着も進路不利のみ。芝でも十分走れる"
+      },
+      {
+        "god": "byakko",
+        "godLabel": "白虎",
+        "godEmoji": "🐅",
+        "godGrade": "A",
+        "rankInGod": 2,
+        "mark": "🐅",
+        "markLabel": "白虎1位",
+        "num": "11",
+        "gate": "6",
+        "name": "アサカラキング",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "戸崎圭",
+        "trainer": "斎藤誠",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "—",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "S",
+            "label": "朱雀（速眼）",
+            "soku": "S",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "A",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走5着・大人になってきた。ハナ不問で好走可"
+      },
+      {
+        "god": "genbu",
+        "godLabel": "玄武",
+        "godEmoji": "🐢",
+        "godGrade": "A",
+        "rankInGod": 4,
+        "mark": "🐢",
+        "markLabel": "玄武1位",
+        "num": "18",
+        "gate": "8",
+        "name": "ヤブサメ",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "—",
+        "bms": "—",
+        "jockey": "武豊",
+        "trainer": "石橋",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "—",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "A",
+            "label": "朱雀（速眼）",
+            "soku": "A",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "A",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走5着0.1差・不利なければ。終い確実・長い直線は魅力"
+      }
+    ]
+  },
+  "horses": [
+    {
+      "num": "1",
+      "gate": "1",
+      "name": "レッドシュヴェルト",
+      "jockey": "横山和",
+      "trainer": "尾関",
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "B",
+        "keyword": "前走インタビューなし（評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "S",
+        "canonical": "ノーザンF天栄",
+        "nyukyoDate": "4/14"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "C",
+        "spPeak": 88,
+        "spRise": -2,
+        "denmaGrade": "A",
+        "denmaRed": 3,
+        "note": "重3赤(前半35.6/後半34.0/前後69.6)。稍重なら大きくプラス。sp最高88で伸びしろ限定。avg3.0→B"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "30.8%",
+        "jockeyRate": "30.0%",
+        "trainerRate": "38.2%",
+        "sireGrade": "A",
+        "jockeyGrade": "A",
+        "trainerGrade": "A",
+        "note": "全3軸A・バランス型"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "peak": 88,
+          "rise": -2
+        },
+        "gan": null,
+        "note": "soku=C（peak88/rise-2）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "2",
+      "gate": "1",
+      "name": "ダノンセンチュリー",
+      "jockey": "レーン",
+      "trainer": "萩原",
+      "relComment": {
+        "grade": "A",
+        "syoinGrade": "A",
+        "danwaGrade": "B",
+        "keyword": "前走1着・鋭い決め手は上でも通用。ただし距離短縮懸念"
+      },
+      "gaikyuFactor": {
+        "grade": "S",
+        "canonical": "ノーザンF天栄",
+        "nyukyoDate": "4/4"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "A",
+        "spPeak": 89,
+        "spRise": 11,
+        "denmaGrade": "C",
+        "denmaRed": 1,
+        "note": "HC差0.4でHC赤1個。sp上昇+11はS。ただし究極分析赤1のみ。avg3.0→B"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "0.0%",
+        "jockeyRate": "56.0%",
+        "trainerRate": "50.0%",
+        "sireGrade": "D",
+        "jockeyGrade": "S",
+        "trainerGrade": "S",
+        "note": "父ゼロだが騎手S×調教師S。レーン東京1400m圧倒的"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "peak": 89,
+          "rise": 11
+        },
+        "gan": null,
+        "note": "soku=A（peak89/rise+11）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "3",
+      "gate": "2",
+      "name": "カンチェンジュンガ",
+      "jockey": "ディービッグ",
+      "trainer": "庄野",
+      "relComment": {
+        "grade": "C",
+        "syoinGrade": "C",
+        "danwaGrade": "B",
+        "keyword": "前走15着・展開言い訳のみ。条件揃えば食い込み余地"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "canonical": "キャニオンファーム土山",
+        "nyukyoDate": "4/9"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "B",
+        "spPeak": 92,
+        "spRise": -4,
+        "denmaGrade": "B",
+        "denmaRed": 2,
+        "note": "良後半33.1/前後68.9で赤2個。sp最高92。上昇なし。avg3.0→B"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "19.2%",
+        "jockeyRate": "25.0%",
+        "trainerRate": "20.0%",
+        "sireGrade": "B",
+        "jockeyGrade": "A",
+        "trainerGrade": "B",
+        "note": "全軸中堅。ビッグアーサー産駒は及第点"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "peak": 92,
+          "rise": -4
+        },
+        "gan": null,
+        "note": "soku=B（peak92/rise-4）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "4",
+      "gate": "2",
+      "name": "シリウスコルト",
+      "jockey": "田辺裕",
+      "trainer": "田中勝",
+      "relComment": {
+        "grade": "C",
+        "syoinGrade": "C",
+        "danwaGrade": "B",
+        "keyword": "前走13着・折り合い難さ露呈。1ハロン短縮に期待"
+      },
+      "gaikyuFactor": {
+        "grade": "D",
+        "canonical": "直行（中3週）",
+        "nyukyoDate": null
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "B",
+        "spPeak": 93,
+        "spRise": -10,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "前走78と大幅下落。究極分析0赤。sp最高93あるが直近失速。avg2.0→C"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "sireRate": "13.0%",
+        "jockeyRate": "38.0%",
+        "trainerRate": "0.0%",
+        "sireGrade": "C",
+        "jockeyGrade": "A",
+        "trainerGrade": "D",
+        "note": "調教師ゼロが足を引っ張る。田辺は得意だが"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "peak": 93,
+          "rise": -10
+        },
+        "gan": null,
+        "note": "soku=B（peak93/rise-10）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "5",
+      "gate": "3",
+      "name": "ワイドラトゥール",
+      "jockey": "西塚洸",
+      "trainer": "藤原英",
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "A",
+        "keyword": "前走4着・展開不向きでも自分の競馬。ベスト距離で期待"
+      },
+      "gaikyuFactor": {
+        "grade": "B",
+        "canonical": "吉澤S-WEST",
+        "nyukyoDate": "4/14"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "A",
+        "spPeak": 95,
+        "spRise": -6,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "sp最高95(S相当)だが前走89で上昇なし。究極分析0赤。avg2.5→B"
+      },
+      "courseDataGrade": {
+        "grade": "D",
+        "sireRate": "8.3%",
+        "jockeyRate": "0.0%",
+        "trainerRate": "0.0%",
+        "sireGrade": "D",
+        "jockeyGrade": "D",
+        "trainerGrade": "D",
+        "note": "全3軸コース苦手。西塚洸・藤原英ともに0勝"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "peak": 95,
+          "rise": -6
+        },
+        "gan": null,
+        "note": "soku=A（peak95/rise-6）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "6",
+      "gate": "3",
+      "name": "セフィロ",
+      "jockey": "三浦皇",
+      "trainer": "菊沢",
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "前走3着・馬は良化。スムーズなら好勝負。流れひとつ"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "canonical": "山元トレセン",
+        "nyukyoDate": "4/14"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "B",
+        "spPeak": 90,
+        "spRise": 0,
+        "denmaGrade": "C",
+        "denmaRed": 1,
+        "note": "重後半33.9で赤1個。sp90横ばい。avg2.5→B"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "31.4%",
+        "jockeyRate": "34.7%",
+        "trainerRate": "32.0%",
+        "sireGrade": "A",
+        "jockeyGrade": "A",
+        "trainerGrade": "A",
+        "note": "イスラボニータ×三浦皇×菊沢 全A揃い"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "peak": 90,
+          "rise": 0
+        },
+        "gan": null,
+        "note": "soku=B（peak90/rise+0）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "7",
+      "gate": "4",
+      "name": "ラケマーダ",
+      "jockey": "原優介",
+      "trainer": "千田",
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "B",
+        "keyword": "前走インタビューなし（評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "canonical": "ダーレー・ジャパン岡山",
+        "nyukyoDate": "4/15"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "B",
+        "spPeak": 92,
+        "spRise": -1,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "究極分析0赤。sp横ばい。avg2.0→C"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "sireRate": "7.1%",
+        "jockeyRate": "8.7%",
+        "trainerRate": "28.6%",
+        "sireGrade": "D",
+        "jockeyGrade": "D",
+        "trainerGrade": "A",
+        "note": "千田師Aが救うが父・騎手D。合議でC"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "peak": 92,
+          "rise": -1
+        },
+        "gan": null,
+        "note": "soku=B（peak92/rise-1）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "8",
+      "gate": "4",
+      "name": "ララマセラシオン",
+      "jockey": "菅原明",
+      "trainer": "大竹",
+      "relComment": {
+        "grade": "C",
+        "syoinGrade": "C",
+        "danwaGrade": "C",
+        "keyword": "前走1200mペース不対応・1400m戻りはプラスも元気薄め"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "canonical": "阿見トレセン",
+        "nyukyoDate": "4/11"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "C",
+        "spPeak": 89,
+        "spRise": -19,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "前走69と激落ち。究極分析0赤。avg1.5→C"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "sireRate": "8.3%",
+        "jockeyRate": "23.1%",
+        "trainerRate": "17.1%",
+        "sireGrade": "D",
+        "jockeyGrade": "B",
+        "trainerGrade": "B",
+        "note": "父Dが足を引っ張る。菅原明・大竹はB"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "peak": 89,
+          "rise": -19
+        },
+        "gan": null,
+        "note": "soku=C（peak89/rise-19）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "9",
+      "gate": "5",
+      "name": "フリームファクシ",
+      "jockey": "佐々木大",
+      "trainer": "須貝尚",
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "前走13着も進路不利のみ。芝でも十分走れる"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "ノーザンFしがらき",
+        "nyukyoDate": "4/9"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "S",
+        "spPeak": 93,
+        "spRise": 12,
+        "denmaGrade": "C",
+        "denmaRed": 1,
+        "note": "sp上昇+12(S)が強烈。重前半35.9赤1個。avg3.5→A"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "24.0%",
+        "jockeyRate": "26.1%",
+        "trainerRate": "25.0%",
+        "sireGrade": "B",
+        "jockeyGrade": "A",
+        "trainerGrade": "A",
+        "note": "3軸揃って高水準。B+A+A=A"
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "S",
+          "peak": 93,
+          "rise": 12
+        },
+        "gan": null,
+        "note": "soku=S（peak93/rise+12）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "10",
+      "gate": "5",
+      "name": "キープカルム",
+      "jockey": "荻野極",
+      "trainer": "中竹",
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "A",
+        "keyword": "前走9着も不利あり。仕上がり良好・いい脚持つ"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "大山ヒルズ",
+        "nyukyoDate": "4/10"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "spGrade": "B",
+        "spPeak": 93,
+        "spRise": -3,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "究極分析0赤。sp93は水準だが上昇なし。avg2.0→C"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "25.3%",
+        "jockeyRate": "15.4%",
+        "trainerRate": "50.0%",
+        "sireGrade": "A",
+        "jockeyGrade": "B",
+        "trainerGrade": "S",
+        "note": "中竹師S(50%)が強烈。父A×A+B+S=4.0"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "peak": 93,
+          "rise": -3
+        },
+        "gan": null,
+        "note": "soku=B（peak93/rise-3）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "11",
+      "gate": "6",
+      "name": "アサカラキング",
+      "jockey": "戸崎圭",
+      "trainer": "斎藤誠",
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "A",
+        "keyword": "前走5着・大人になってきた。ハナ不問で好走可"
+      },
+      "gaikyuFactor": {
+        "grade": "B",
+        "canonical": "エスティF小見川",
+        "nyukyoDate": "4/9"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "S",
+        "spPeak": 95,
+        "spRise": 11,
+        "denmaGrade": "B",
+        "denmaRed": 2,
+        "note": "sp最高95・上昇+11でS。良前半33.9/前後68.2で赤2個。avg4.0→A"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "19.4%",
+        "jockeyRate": "46.4%",
+        "trainerRate": "22.5%",
+        "sireGrade": "B",
+        "jockeyGrade": "S",
+        "trainerGrade": "B",
+        "note": "戸崎圭S(46.4%)が引き上げ。B+S+B=A"
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "S",
+          "peak": 95,
+          "rise": 11
+        },
+        "gan": null,
+        "note": "soku=S（peak95/rise+11）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "12",
+      "gate": "6",
+      "name": "ウイントワイライト",
+      "jockey": "横山典",
+      "trainer": "西園翔",
+      "relComment": {
+        "grade": null,
+        "syoinGrade": null,
+        "danwaGrade": "A",
+        "keyword": "前走インタビューなし（評価外）"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "チャンピオンヒルズ",
+        "nyukyoDate": "4/11"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "A",
+        "spPeak": 89,
+        "spRise": 12,
+        "denmaGrade": "B",
+        "denmaRed": 2,
+        "note": "重後半32.5/前後69.5で赤2個🔥稍重向き。sp上昇+12。avg3.5→A"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "53.3%",
+        "jockeyRate": "12.5%",
+        "trainerRate": "54.5%",
+        "sireGrade": "S",
+        "jockeyGrade": "C",
+        "trainerGrade": "S",
+        "note": "父S×西園翔師S。騎手Cが重しも総合A"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "peak": 89,
+          "rise": 12
+        },
+        "gan": null,
+        "note": "soku=A（peak89/rise+12）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "13",
+      "gate": "7",
+      "name": "ファンダム",
+      "jockey": "ルメール",
+      "trainer": "辻",
+      "relComment": {
+        "grade": "C",
+        "syoinGrade": "C",
+        "danwaGrade": "B",
+        "keyword": "1200mちょうどいい→今回1400m距離不適・スプリンター体型"
+      },
+      "gaikyuFactor": {
+        "grade": "S",
+        "canonical": "ノーザンF天栄",
+        "nyukyoDate": "4/10"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "A",
+        "spPeak": 93,
+        "spRise": 6,
+        "denmaGrade": "C",
+        "denmaRed": 1,
+        "note": "HC差0.6でHC赤1個。sp上昇+6でA。avg3.0→B"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "45.0%",
+        "jockeyRate": "60.8%",
+        "trainerRate": "18.8%",
+        "sireGrade": "S",
+        "jockeyGrade": "S",
+        "trainerGrade": "B",
+        "note": "父S×ルメールS圧倒的。調教師BでもS+S+B=4.33→A"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "peak": 93,
+          "rise": 6
+        },
+        "gan": null,
+        "note": "soku=A（peak93/rise+6）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "14",
+      "gate": "7",
+      "name": "マイネルチケット",
+      "jockey": "横山武",
+      "trainer": "宮",
+      "relComment": {
+        "grade": "C",
+        "syoinGrade": "C",
+        "danwaGrade": "B",
+        "keyword": "前走9着・反応薄くモタれる余力もなし。今回メンバーなら"
+      },
+      "gaikyuFactor": {
+        "grade": "B",
+        "canonical": "ビッグレッドF鉾田",
+        "nyukyoDate": "4/16"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "B",
+        "spPeak": 91,
+        "spRise": -3,
+        "denmaGrade": "S",
+        "denmaRed": 3,
+        "note": "良後半33.1/前後68.9＋重前後69.6で赤3個。HC差0.7でrank1=S。avg4.0→A"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "16.7%",
+        "jockeyRate": "41.7%",
+        "trainerRate": "100.0%",
+        "sireGrade": "B",
+        "jockeyGrade": "S",
+        "trainerGrade": "S",
+        "note": "宮師3走100%🔥×横山武S。青龍Cとのギャップ大"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "peak": 91,
+          "rise": -3
+        },
+        "gan": null,
+        "note": "soku=B（peak91/rise-3）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "15",
+      "gate": "7",
+      "name": "レイベリング",
+      "jockey": "石橋脩",
+      "trainer": "鹿戸雄",
+      "relComment": {
+        "grade": "C",
+        "syoinGrade": "C",
+        "danwaGrade": "B",
+        "keyword": "前走8着・スタート言い訳のみ。左回り1400mは合う"
+      },
+      "gaikyuFactor": {
+        "grade": "B",
+        "canonical": "ビッグレッドF鉾田",
+        "nyukyoDate": "4/7"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "A",
+        "spPeak": 91,
+        "spRise": 5,
+        "denmaGrade": "B",
+        "denmaRed": 2,
+        "note": "HC差0.0でrank1タイ候補！良前半35.4+HC赤で赤2個。avg3.5→A"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "40.0%",
+        "jockeyRate": "2.4%",
+        "trainerRate": "37.8%",
+        "sireGrade": "S",
+        "jockeyGrade": "D",
+        "trainerGrade": "A",
+        "note": "父S×鹿戸Aだが石橋脩D(2.4%)が足を引く"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "peak": 91,
+          "rise": 5
+        },
+        "gan": null,
+        "note": "soku=A（peak91/rise+5）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "16",
+      "gate": "8",
+      "name": "ワールズエンド",
+      "jockey": "津村明",
+      "trainer": "池添学",
+      "relComment": {
+        "grade": "A",
+        "syoinGrade": "A",
+        "danwaGrade": "A",
+        "keyword": "前走2着・控える競馬で収穫大。能力は重賞でも見劣らず"
+      },
+      "gaikyuFactor": {
+        "grade": "B",
+        "canonical": "ノーザンFしがらき",
+        "nyukyoDate": "4/10",
+        "note": "放牧不安フラグあり⚠️"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "A",
+        "spPeak": 93,
+        "spRise": 2,
+        "denmaGrade": "D",
+        "denmaRed": 0,
+        "note": "前走93で絶好調。究極分析は全括弧(0赤)。ラップ実績なし。avg2.5→B"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "25.3%",
+        "jockeyRate": "17.0%",
+        "trainerRate": "0.0%",
+        "sireGrade": "A",
+        "jockeyGrade": "B",
+        "trainerGrade": "D",
+        "note": "池添学師0勝がボトルネック。A+B+D=2.67→B"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "peak": 93,
+          "rise": 2
+        },
+        "gan": null,
+        "note": "soku=A（peak93/rise+2）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "17",
+      "gate": "8",
+      "name": "ダノンマッキンリー",
+      "jockey": "高杉吏",
+      "trainer": "藤原英",
+      "relComment": {
+        "grade": "A",
+        "syoinGrade": "A",
+        "danwaGrade": "A",
+        "keyword": "まだまだ走れそう・1400mで一番結果。東京でどれだけやれるか楽しみ"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "ノーザンFしがらき",
+        "nyukyoDate": "4/16"
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "spGrade": "B",
+        "spPeak": 92,
+        "spRise": -6,
+        "denmaGrade": "C",
+        "denmaRed": 1,
+        "note": "良前半35.6赤1個。sp上昇-6でやや下落。avg2.5→B"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "sireRate": "26.5%",
+        "jockeyRate": null,
+        "trainerRate": "0.0%",
+        "sireGrade": "A",
+        "jockeyGrade": null,
+        "trainerGrade": "D",
+        "note": "高杉吏0戦(null補完)×藤原英0勝D。モーリスAが支える。2.5→B"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "peak": 92,
+          "rise": -6
+        },
+        "gan": null,
+        "note": "soku=B（peak92/rise-6）。gan未取得→soku単独グレード"
+      }
+    },
+    {
+      "num": "18",
+      "gate": "8",
+      "name": "ヤブサメ",
+      "jockey": "武豊",
+      "trainer": "石橋",
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "A",
+        "keyword": "前走5着0.1差・不利なければ。終い確実・長い直線は魅力"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "canonical": "大山ヒルズ",
+        "nyukyoDate": "3/25"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "spGrade": "A",
+        "spPeak": 93,
+        "spRise": 0,
+        "denmaGrade": "B",
+        "denmaRed": 2,
+        "note": "良後半33.1/前後68.9で赤2個。前走93で最高タイ。avg3.5→A"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "sireRate": "15.0%",
+        "jockeyRate": "22.2%",
+        "trainerRate": null,
+        "sireGrade": "B",
+        "jockeyGrade": "B",
+        "trainerGrade": null,
+        "note": "石橋師0走(null補完)。武豊B×ファインニードルB。基礎3.0→B。ただし白虎コース適性◎：府中向き○/左回り○/渋馬場○/距離○/荒馬場○ 全加点→A昇格"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "peak": 93,
+          "rise": 0
+        },
+        "gan": null,
+        "note": "soku=A（peak93/rise0）。瞬発力○・時計掛○（渋馬場も加点）。展開依存あり。gan未取得→soku単独A"
+      }
+    }
+  ]
+}

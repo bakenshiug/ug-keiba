@@ -1,0 +1,1223 @@
+{
+  "race": {
+    "name": "スイートピーS",
+    "grade": "L",
+    "date": "2026-05-02",
+    "venue": "東京",
+    "surface": "芝",
+    "distance": 1800,
+    "course": "左A",
+    "startTime": "15:05",
+    "numHorses": 11,
+    "baba": "重"
+  },
+  "raceTitle": {
+    "main": "スイートピーS",
+    "sub": "4神麒麟合議・初運用",
+    "desc": "─ 東京芝1800m・オークスTR 1着馬に優先出走権 ─"
+  },
+  "dataStatus": "scoring",
+  "logicVersion": "v3-kirin",
+  "presentation": {
+    "raceId": "202605020310",
+    "bets": {
+      "strategy": "wide-only",
+      "wide": {
+        "horses": [
+          "レディーゴール",
+          "カナルサンマルタン",
+          "サムシングスイート",
+          "モートンアイランド"
+        ],
+        "perPoint": 100
+      },
+      "totalSpend": 600
+    },
+    "horses": [
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "A",
+        "rankInGod": 1,
+        "mark": "🐉",
+        "markLabel": "青龍1位",
+        "num": "1",
+        "gate": "1",
+        "name": "レディーゴール",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "レイデオロ",
+        "bms": "—",
+        "jockey": "菅原明",
+        "trainer": "斎藤誠",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "11",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "A",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "C",
+            "label": "朱雀（速眼）",
+            "soku": "—",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "S",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "B",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "「距離を延ばして終い勝負が良さそう」今回直結。前走以上の上積み十分（転厩緒戦→本番）"
+      },
+      {
+        "god": "suzaku",
+        "godLabel": "朱雀",
+        "godEmoji": "🔥",
+        "godGrade": "A",
+        "rankInGod": 1,
+        "mark": "🔥",
+        "markLabel": "朱雀1位",
+        "num": "11",
+        "gate": "8",
+        "name": "カナルサンマルタン",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "リアルスティール",
+        "bms": "—",
+        "jockey": "ルメール",
+        "trainer": "宮田",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "1",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "A",
+            "label": "朱雀（速眼）",
+            "soku": "—",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "A",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "「1600mはちょうどいい」→1800m延長への懸念。「伸びしろあり・身体能力高い」。danwa「折り合いが鍵」条件付き"
+      },
+      {
+        "god": "byakko",
+        "godLabel": "白虎",
+        "godEmoji": "🐅",
+        "godGrade": "S",
+        "rankInGod": 2,
+        "mark": "🐅",
+        "markLabel": "白虎1位",
+        "num": "9",
+        "gate": "7",
+        "name": "サムシングスイート",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "サートゥルナーリア",
+        "bms": "—",
+        "jockey": "横山武",
+        "trainer": "伊藤大",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "1",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "C",
+            "label": "朱雀（速眼）",
+            "soku": "—",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "S",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "B",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "フローラS取消（鼻出血）→syoinなし。「問題なし・チャンスはありそう」danwa評価B"
+      },
+      {
+        "god": "genbu",
+        "godLabel": "玄武",
+        "godEmoji": "🐢",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "mark": "🐢",
+        "markLabel": "玄武1位",
+        "num": "6",
+        "gate": "6",
+        "name": "モートンアイランド",
+        "ninki": "—",
+        "odds": "—",
+        "sire": "モーリス",
+        "bms": "—",
+        "jockey": "レーン",
+        "trainer": "手塚久",
+        "gaikyu": "—",
+        "prevName": "—",
+        "prevFinish": "6",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "B",
+            "label": "朱雀（速眼）",
+            "soku": "—",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "A",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "S",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "「これから成長してくる馬・今後に生きる」→将来型致命でB天井。◎「能力高い」は惜しい"
+      }
+    ]
+  },
+  "kirinScore": {
+    "factors": [
+      {
+        "key": "jyusho_kaeri",
+        "label": "重賞帰り(G3以上)",
+        "pt": 2
+      },
+      {
+        "key": "enchosen",
+        "label": "1600m→1800m延長",
+        "pt": 2
+      },
+      {
+        "key": "jyurei_exp",
+        "label": "重/不良馬場経験(重馬場開催)",
+        "pt": 2
+      },
+      {
+        "key": "weight_heavy",
+        "label": "馬体重460kg以上(重馬場補正)",
+        "pt": 1
+      },
+      {
+        "key": "weight_zone",
+        "label": "馬体重440〜459kg(基準ゾーン)",
+        "pt": 1
+      },
+      {
+        "key": "prev_win",
+        "label": "前走1着",
+        "pt": 1
+      },
+      {
+        "key": "mikan",
+        "label": "未勝利上がり",
+        "pt": -1
+      },
+      {
+        "key": "tansuku",
+        "label": "前走2000m以上→距離短縮",
+        "pt": -1
+      },
+      {
+        "key": "overweight",
+        "label": "馬体重490kg超",
+        "pt": -1
+      },
+      {
+        "key": "ultralight",
+        "label": "馬体重420kg未満(重馬場懸念)",
+        "pt": -1
+      }
+    ],
+    "source": "過去5年(2021-2025)スイートピーS傾向分析"
+  },
+  "horses": [
+    {
+      "num": "1",
+      "gate": "1",
+      "name": "レディーゴール",
+      "jockey": "菅原明",
+      "trainer": "斎藤誠",
+      "sire": "レイデオロ",
+      "horseWeight": 456,
+      "prevFinish": "11",
+      "prevRaceClass": "クイーンC(GIII)",
+      "prevDist": 1600,
+      "prevBaba": "良",
+      "kirinPt": 5,
+      "kirinFactors": [
+        "jyusho_kaeri",
+        "enchosen",
+        "weight_zone"
+      ],
+      "relComment": {
+        "grade": "A",
+        "syoinGrade": "A",
+        "danwaGrade": "A",
+        "keyword": "「距離を延ばして終い勝負が良さそう」今回直結。前走以上の上積み十分（転厩緒戦→本番）"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 12,
+        "sireRate": 15.5,
+        "jockeyRate": 3.2,
+        "trainerRate": 6.7,
+        "ninkiRank": null,
+        "sireGrade": "A",
+        "jockeyGrade": "D",
+        "trainerGrade": "C",
+        "ninkiGrade": "B",
+        "reason": "父A(15.5%)/騎D(3.2%)/厩C(6.7%)/人気B固定(オッズ非反映) / 外厩C(エスティF小見川)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "C",
+        "gaikyuFarm": "エスティF小見川"
+      },
+      "yugomiLapGrade": {
+        "grade": "S",
+        "redCount": 2,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": true,
+        "tRed": true,
+        "hvRed": false,
+        "hc": 11.1,
+        "hcDiff": 7.3,
+        "rank1": true,
+        "reason": "後半赤/前+後半赤/★究極1位(致命除外後)",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "sav": 47,
+        "savGrade": "D",
+        "st": 48,
+        "stGrade": "D",
+        "shiage": 51,
+        "shiageGrade": "D",
+        "tenkaiRank": 9,
+        "tenkaiGrade": "B",
+        "tokkiAdj": 0.0,
+        "jyuu": {
+          "grade": "B",
+          "raw": "△",
+          "adj": -0.5
+        },
+        "tokki": [
+          "フワフワ",
+          "他馬気に"
+        ],
+        "totalPt": 5.5,
+        "note": "SAV:D(47)/ST:D(48)/仕上:D(51)/展開:B(9位)/特記:+0.0/重:△(-0.5)=計5.5",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "farm": "エスティF小見川",
+        "pt": 2,
+        "note": "エスティF小見川→外厩C(2pt)"
+      }
+    },
+    {
+      "num": "2",
+      "gate": "2",
+      "name": "ドナルンバ",
+      "jockey": "荻野極",
+      "trainer": "上原佑",
+      "sire": "サトノアラジン",
+      "horseWeight": 472,
+      "prevFinish": "2",
+      "prevRaceClass": "ミモザ賞(1勝C)",
+      "prevDist": 2000,
+      "prevBaba": "良",
+      "kirinPt": 0,
+      "kirinFactors": [
+        "weight_heavy",
+        "tansuku"
+      ],
+      "relComment": {
+        "grade": "A",
+        "syoinGrade": "A",
+        "danwaGrade": "A",
+        "keyword": "「着実に良化・器用な馬」惜しくも2着。◎「好勝負期待」東京舞台適性も言及"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 15,
+        "sireRate": 16.7,
+        "jockeyRate": 11.1,
+        "trainerRate": 10.5,
+        "ninkiRank": null,
+        "sireGrade": "A",
+        "jockeyGrade": "B",
+        "trainerGrade": "B",
+        "ninkiGrade": "B",
+        "reason": "父A(16.7%)/騎B(11.1%)/厩B(10.5%)/人気B固定(オッズ非反映) / 外厩C(阿見トレセン)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "C",
+        "gaikyuFarm": "阿見トレセン"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 3.5,
+        "hcDiff": 0.3,
+        "rank1": false,
+        "reason": "HC赤(差0.3)",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "sav": 62,
+        "savGrade": "B",
+        "st": 53,
+        "stGrade": "D",
+        "shiage": 59,
+        "shiageGrade": "D",
+        "tenkaiRank": 5,
+        "tenkaiGrade": "A",
+        "tokkiAdj": 0.0,
+        "jyuu": {
+          "grade": "B",
+          "raw": "△",
+          "adj": -0.5
+        },
+        "tokki": [
+          "腰甘い",
+          "荒馬場○"
+        ],
+        "totalPt": 8.5,
+        "note": "SAV:B(62)/ST:D(53)/仕上:D(59)/展開:A(5位)/特記:+0.0/重:△(-0.5)=計8.5",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "farm": "阿見トレセン",
+        "pt": 2,
+        "note": "阿見トレセン→外厩C(2pt)"
+      }
+    },
+    {
+      "num": "3",
+      "gate": "3",
+      "name": "ベルサンローラン",
+      "jockey": "石橋脩",
+      "trainer": "清水久",
+      "sire": "キタサンブラック",
+      "horseWeight": 448,
+      "prevFinish": "6",
+      "prevRaceClass": "アネモネS(L)",
+      "prevDist": 1600,
+      "prevBaba": "良",
+      "kirinPt": 3,
+      "kirinFactors": [
+        "enchosen",
+        "weight_zone"
+      ],
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "「見せ場あり内容は悪くない」6着。前走は外枠のせい・前々走レベルなら"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 13,
+        "sireRate": 14.7,
+        "jockeyRate": 2.4,
+        "trainerRate": 7.1,
+        "ninkiRank": null,
+        "sireGrade": "B",
+        "jockeyGrade": "D",
+        "trainerGrade": "C",
+        "ninkiGrade": "B",
+        "reason": "父B(14.7%)/騎D(2.4%)/厩C(7.1%)/人気B固定(オッズ非反映) / 外厩A(チャンピオンヒルズ)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "A",
+        "gaikyuFarm": "チャンピオンヒルズ"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": true,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 4.5,
+        "hcDiff": 0.7,
+        "rank1": false,
+        "reason": "HC赤(差0.7)",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "sav": 74,
+        "savGrade": "B",
+        "st": 55,
+        "stGrade": "D",
+        "shiage": 47,
+        "shiageGrade": "D",
+        "tenkaiRank": 4,
+        "tenkaiGrade": "A",
+        "tokkiAdj": 0.5,
+        "jyuu": {
+          "grade": "B",
+          "raw": "△",
+          "adj": -0.5
+        },
+        "tokki": [
+          "根性有り",
+          "上が速×"
+        ],
+        "totalPt": 9.0,
+        "note": "SAV:B(74)/ST:D(55)/仕上:D(47)/展開:A(4位)/特記:+0.5/重:△(-0.5)=計9.0",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "farm": "チャンピオンヒルズ",
+        "pt": 4,
+        "note": "チャンピオンヒルズ→外厩A(4pt)"
+      }
+    },
+    {
+      "num": "4",
+      "gate": "4",
+      "name": "アストリル",
+      "jockey": "田辺",
+      "trainer": "鈴木慎",
+      "sire": "デクラレーションオブウォー",
+      "horseWeight": 438,
+      "prevFinish": "1",
+      "prevRaceClass": "3歳未勝利",
+      "prevDist": 2000,
+      "prevBaba": "良",
+      "kirinPt": -1,
+      "kirinFactors": [
+        "prev_win",
+        "mikan",
+        "tansuku"
+      ],
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "「何とかできて良かった」控えめ1着。「力試しの一戦」＝上クラスで様子見"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 10,
+        "sireRate": 8.7,
+        "jockeyRate": 7.5,
+        "trainerRate": 0.0,
+        "ninkiRank": null,
+        "sireGrade": "C",
+        "jockeyGrade": "C",
+        "trainerGrade": "D",
+        "ninkiGrade": "B",
+        "reason": "父C(8.7%)/騎C(7.5%)/厩D(0.0%)/人気B固定(オッズ非反映) / 外厩C(Tomorrow Farm)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "C",
+        "gaikyuFarm": "Tomorrow Farm"
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "redCount": 1,
+        "hcRed": false,
+        "fRed": true,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 5.8,
+        "hcDiff": 2.0,
+        "rank1": false,
+        "reason": "前半赤",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "sav": 43,
+        "savGrade": "D",
+        "st": 43,
+        "stGrade": "D",
+        "shiage": 56,
+        "shiageGrade": "D",
+        "tenkaiRank": 11,
+        "tenkaiGrade": "C",
+        "tokkiAdj": 0.0,
+        "jyuu": {
+          "grade": "A",
+          "raw": "○",
+          "adj": 0.0
+        },
+        "tokki": [
+          "突っ張る",
+          "平坦向き"
+        ],
+        "totalPt": 5.0,
+        "note": "SAV:D(43)/ST:D(43)/仕上:D(56)/展開:C(11位)/特記:+0.0/重:○(+0.0)=計5.0",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "farm": "Tomorrow Farm",
+        "pt": 2,
+        "note": "Tomorrow Farm→外厩C(2pt)"
+      }
+    },
+    {
+      "num": "5",
+      "gate": "5",
+      "name": "サフランルージュ",
+      "jockey": "野中",
+      "trainer": "室井",
+      "sire": "ワールドプレミア",
+      "horseWeight": 400,
+      "prevFinish": "1",
+      "prevRaceClass": "3歳未勝利",
+      "prevDist": 1800,
+      "prevBaba": "良",
+      "kirinPt": -1,
+      "kirinFactors": [
+        "prev_win",
+        "mikan",
+        "ultralight"
+      ],
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "初戦「直線の捌き見事・次は更に変わる」底未知。「センスのいい勝ち方・楽にいい時計」"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "total": 10,
+        "sireRate": 0.0,
+        "jockeyRate": 2.8,
+        "trainerRate": null,
+        "ninkiRank": null,
+        "sireGrade": "D",
+        "jockeyGrade": "D",
+        "trainerGrade": "B",
+        "ninkiGrade": "B",
+        "reason": "父D(0.0%)/騎D(2.8%)/厩B(-%)/人気B固定(オッズ非反映) / 外厩C(林農場/浦河)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "C",
+        "gaikyuFarm": "林農場/浦河"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 9.0,
+        "hcDiff": 5.2,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "sav": 46,
+        "savGrade": "D",
+        "st": 48,
+        "stGrade": "D",
+        "shiage": 53,
+        "shiageGrade": "D",
+        "tenkaiRank": 10,
+        "tenkaiGrade": "C",
+        "tokkiAdj": -0.5,
+        "jyuu": {
+          "grade": "B",
+          "raw": "△",
+          "adj": -0.5
+        },
+        "tokki": [
+          "芝向き",
+          "腰甘い"
+        ],
+        "totalPt": 4.0,
+        "note": "SAV:D(46)/ST:D(48)/仕上:D(53)/展開:C(10位)/特記:-0.5/重:△(-0.5)=計4.0",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "C",
+        "farm": "林農場/浦河",
+        "pt": 2,
+        "note": "林農場/浦河→外厩C(2pt)"
+      }
+    },
+    {
+      "num": "6",
+      "gate": "6",
+      "name": "モートンアイランド",
+      "jockey": "レーン",
+      "trainer": "手塚久",
+      "sire": "モーリス",
+      "horseWeight": 434,
+      "prevFinish": "6",
+      "prevRaceClass": "クイーンC(GIII)",
+      "prevDist": 1600,
+      "prevBaba": "良",
+      "kirinPt": 4,
+      "kirinFactors": [
+        "jyusho_kaeri",
+        "enchosen"
+      ],
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "A",
+        "keyword": "「これから成長してくる馬・今後に生きる」→将来型致命でB天井。◎「能力高い」は惜しい",
+        "fatalWord": "将来型（これから成長・今後に生きる）"
+      },
+      "courseDataGrade": {
+        "grade": "S",
+        "total": 21,
+        "sireRate": 14.9,
+        "jockeyRate": 32.3,
+        "trainerRate": 22.7,
+        "ninkiRank": null,
+        "sireGrade": "B",
+        "jockeyGrade": "S",
+        "trainerGrade": "S",
+        "ninkiGrade": "B",
+        "reason": "父B(14.9%)/騎S(32.3%)/厩S(22.7%)/人気B固定(オッズ非反映) / 外厩S(ノーザンF天栄)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "S",
+        "gaikyuFarm": "ノーザンF天栄"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "redCount": 3,
+        "hcRed": false,
+        "fRed": true,
+        "bRed": true,
+        "tRed": true,
+        "hvRed": false,
+        "hc": 7.5,
+        "hcDiff": 3.7,
+        "rank1": false,
+        "reason": "前半赤/後半赤/前+後半赤/致命除外",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "sav": 86,
+        "savGrade": "S",
+        "st": 56,
+        "stGrade": "D",
+        "shiage": 57,
+        "shiageGrade": "D",
+        "tenkaiRank": 3,
+        "tenkaiGrade": "S",
+        "tokkiAdj": 0.0,
+        "jyuu": {
+          "grade": "B",
+          "raw": "△",
+          "adj": -0.5
+        },
+        "tokki": [
+          "脚外振走"
+        ],
+        "totalPt": 11.5,
+        "note": "SAV:S(86)/ST:D(56)/仕上:D(57)/展開:S(3位)/特記:+0.0/重:△(-0.5)=計11.5/致命除外",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "S",
+        "farm": "ノーザンF天栄",
+        "pt": 5,
+        "note": "ノーザンF天栄→外厩S(5pt)"
+      }
+    },
+    {
+      "num": "7",
+      "gate": "6",
+      "name": "ラヴィニール",
+      "jockey": "ディービッグ",
+      "trainer": "武英",
+      "sire": "キズナ",
+      "horseWeight": 460,
+      "prevFinish": "1",
+      "prevRaceClass": "3歳未勝利",
+      "prevDist": 1800,
+      "prevBaba": "良",
+      "kirinPt": 1,
+      "kirinFactors": [
+        "weight_heavy",
+        "prev_win",
+        "mikan"
+      ],
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "「強い内容」逃げ切り1着。danwa「将来性は十分」→将来型致命でB天井",
+        "fatalWord": "将来性は十分（danwa）"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 13,
+        "sireRate": 15.9,
+        "jockeyRate": 0.0,
+        "trainerRate": 0.0,
+        "ninkiRank": null,
+        "sireGrade": "A",
+        "jockeyGrade": "D",
+        "trainerGrade": "D",
+        "ninkiGrade": "B",
+        "reason": "父A(15.9%)/騎D(0.0%)/厩D(0.0%)/人気B固定(オッズ非反映) / 外厩A(ノーザンF/安平)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "A",
+        "gaikyuFarm": "ノーザンF/安平"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 6.5,
+        "hcDiff": 2.7,
+        "rank1": false,
+        "reason": "致命除外",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "sav": 62,
+        "savGrade": "B",
+        "st": 46,
+        "stGrade": "D",
+        "shiage": 47,
+        "shiageGrade": "D",
+        "tenkaiRank": 6,
+        "tenkaiGrade": "A",
+        "tokkiAdj": 0.0,
+        "jyuu": {
+          "grade": "A",
+          "raw": "○",
+          "adj": 0.0
+        },
+        "tokki": [],
+        "totalPt": 9.0,
+        "note": "SAV:B(62)/ST:D(46)/仕上:D(47)/展開:A(6位)/特記:+0.0/重:○(+0.0)=計9.0/致命除外",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "A",
+        "farm": "ノーザンF/安平",
+        "pt": 4,
+        "note": "ノーザンF/安平→外厩A(4pt)"
+      }
+    },
+    {
+      "num": "8",
+      "gate": "7",
+      "name": "アルバンヌ",
+      "jockey": "津村",
+      "trainer": "田中博",
+      "sire": "アドマイヤマーズ",
+      "horseWeight": 464,
+      "prevFinish": "6",
+      "prevRaceClass": "阪神JF(GI)",
+      "prevDist": 1600,
+      "prevBaba": "良",
+      "kirinPt": 5,
+      "kirinFactors": [
+        "jyusho_kaeri",
+        "enchosen",
+        "weight_heavy"
+      ],
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "阪神JF「脚を余した・能力は感じる」精神面課題。久々でも態勢整う"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 18,
+        "sireRate": 7.1,
+        "jockeyRate": 12.1,
+        "trainerRate": 37.0,
+        "ninkiRank": null,
+        "sireGrade": "C",
+        "jockeyGrade": "B",
+        "trainerGrade": "S",
+        "ninkiGrade": "B",
+        "reason": "父C(7.1%)/騎B(12.1%)/厩S(37.0%)/人気B固定(オッズ非反映) / 外厩S(ノーザンF天栄)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "S",
+        "gaikyuFarm": "ノーザンF天栄"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 6.5,
+        "hcDiff": 2.7,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "sav": 97,
+        "savGrade": "S",
+        "st": 60,
+        "stGrade": "D",
+        "shiage": 57,
+        "shiageGrade": "D",
+        "tenkaiRank": 2,
+        "tenkaiGrade": "S",
+        "tokkiAdj": 1.0,
+        "jyuu": {
+          "grade": "B",
+          "raw": "△",
+          "adj": -0.5
+        },
+        "tokki": [
+          "R中頭高",
+          "大トビ",
+          "広馬場向き"
+        ],
+        "totalPt": 12.5,
+        "note": "SAV:S(97)/ST:D(60)/仕上:D(57)/展開:S(2位)/特記:+1.0/重:△(-0.5)=計12.5",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "S",
+        "farm": "ノーザンF天栄",
+        "pt": 5,
+        "note": "ノーザンF天栄→外厩S(5pt)"
+      }
+    },
+    {
+      "num": "9",
+      "gate": "7",
+      "name": "サムシングスイート",
+      "jockey": "横山武",
+      "trainer": "伊藤大",
+      "sire": "サートゥルナーリア",
+      "horseWeight": 494,
+      "prevFinish": "1",
+      "prevRaceClass": "3歳未勝利(フローラS取消前)",
+      "prevDist": 2000,
+      "prevBaba": "稍重",
+      "kirinPt": 1,
+      "kirinFactors": [
+        "jyurei_exp",
+        "weight_heavy",
+        "prev_win",
+        "mikan",
+        "tansuku",
+        "overweight"
+      ],
+      "note": "フローラS取消→連闘。5走前(2歳未勝利芝1800重)で重馬場実績あり",
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": null,
+        "danwaGrade": "B",
+        "keyword": "フローラS取消（鼻出血）→syoinなし。「問題なし・チャンスはありそう」danwa評価B"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 14,
+        "sireRate": 15.6,
+        "jockeyRate": 14.0,
+        "trainerRate": 4.2,
+        "ninkiRank": null,
+        "sireGrade": "A",
+        "jockeyGrade": "B",
+        "trainerGrade": "D",
+        "ninkiGrade": "B",
+        "reason": "父A(15.6%)/騎B(14.0%)/厩D(4.2%)/人気B固定(オッズ非反映) / 外厩B(グリーンファーム)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "B",
+        "gaikyuFarm": "グリーンファーム"
+      },
+      "yugomiLapGrade": {
+        "grade": "S",
+        "redCount": 1,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": true,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 7.8,
+        "hcDiff": 4.0,
+        "rank1": false,
+        "reason": "後半赤/★弥永SS加点(C→S)",
+        "v": "v1-hc-golden",
+        "ganBonus": true,
+        "ganBonusNote": "弥永激推しSS相当・回避出走 +2ランク昇格(C→S)"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "sav": 54,
+        "savGrade": "C",
+        "st": 46,
+        "stGrade": "D",
+        "shiage": 56,
+        "shiageGrade": "D",
+        "tenkaiRank": 8,
+        "tenkaiGrade": "B",
+        "tokkiAdj": 0.0,
+        "jyuu": {
+          "grade": "A",
+          "raw": "○",
+          "adj": 0.0
+        },
+        "tokki": [
+          "渋馬場○",
+          "腰甘い"
+        ],
+        "totalPt": 7.0,
+        "note": "SAV:C(54)/ST:D(46)/仕上:D(56)/展開:B(8位)/特記:+0.0/重:○(+0.0)=計7.0",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "B",
+        "farm": "グリーンファーム",
+        "pt": 3,
+        "note": "グリーンファーム→外厩B(3pt)"
+      }
+    },
+    {
+      "num": "10",
+      "gate": "8",
+      "name": "ミツカネベネラ",
+      "jockey": "横山和",
+      "trainer": "鈴木伸",
+      "sire": "モーリス",
+      "horseWeight": 442,
+      "prevFinish": "14",
+      "prevRaceClass": "クイーンC(GIII)",
+      "prevDist": 1600,
+      "prevBaba": "良",
+      "kirinPt": 5,
+      "kirinFactors": [
+        "jyusho_kaeri",
+        "enchosen",
+        "weight_zone"
+      ],
+      "note": "クイーンC12人気14着→激走パターン(ウヴァロヴァイト型)",
+      "relComment": {
+        "grade": "C",
+        "syoinGrade": "D",
+        "danwaGrade": "C",
+        "keyword": "クイーンC「雰囲気もうひとつ・発汗凄い・追い出しても反応なし」D→間を開けて改善でC"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "total": 12,
+        "sireRate": 14.9,
+        "jockeyRate": 9.4,
+        "trainerRate": 0.0,
+        "ninkiRank": null,
+        "sireGrade": "B",
+        "jockeyGrade": "C",
+        "trainerGrade": "D",
+        "ninkiGrade": "B",
+        "reason": "父B(14.9%)/騎C(9.4%)/厩D(0.0%)/人気B固定(オッズ非反映) / 外厩B(ブルーS)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "B",
+        "gaikyuFarm": "ブルーS"
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "redCount": 0,
+        "hcRed": false,
+        "fRed": false,
+        "bRed": false,
+        "tRed": false,
+        "hvRed": false,
+        "hc": 7.5,
+        "hcDiff": 3.7,
+        "rank1": false,
+        "reason": "赤なし",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "sav": 60,
+        "savGrade": "B",
+        "st": 47,
+        "stGrade": "D",
+        "shiage": 47,
+        "shiageGrade": "D",
+        "tenkaiRank": 7,
+        "tenkaiGrade": "B",
+        "tokkiAdj": 0.0,
+        "jyuu": {
+          "grade": "A",
+          "raw": "○",
+          "adj": 0.0
+        },
+        "tokki": [
+          "折合○",
+          "渋馬場○",
+          "腰甲い"
+        ],
+        "totalPt": 8.0,
+        "note": "SAV:B(60)/ST:D(47)/仕上:D(47)/展開:B(7位)/特記:+0.0/重:○(+0.0)=計8.0",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "B",
+        "farm": "ブルーS",
+        "pt": 3,
+        "note": "ブルーS→外厩B(3pt)"
+      }
+    },
+    {
+      "num": "11",
+      "gate": "8",
+      "name": "カナルサンマルタン",
+      "jockey": "ルメール",
+      "trainer": "宮田",
+      "sire": "リアルスティール",
+      "horseWeight": 448,
+      "prevFinish": "1",
+      "prevRaceClass": "3歳未勝利",
+      "prevDist": 1600,
+      "prevBaba": "良",
+      "kirinPt": 5,
+      "kirinFactors": [
+        "enchosen",
+        "jyurei_exp",
+        "weight_zone",
+        "prev_win",
+        "mikan"
+      ],
+      "note": "2走前(2歳新馬芝1600重2着)で重馬場実績。未勝利-1を道悪+2で相殺",
+      "relComment": {
+        "grade": "B",
+        "syoinGrade": "B",
+        "danwaGrade": "B",
+        "keyword": "「1600mはちょうどいい」→1800m延長への懸念。「伸びしろあり・身体能力高い」。danwa「折り合いが鍵」条件付き",
+        "fatalWord": "「1600mはちょうどいい」距離延長懸念"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "total": 19,
+        "sireRate": 13.2,
+        "jockeyRate": 28.9,
+        "trainerRate": 11.9,
+        "ninkiRank": null,
+        "sireGrade": "B",
+        "jockeyGrade": "S",
+        "trainerGrade": "B",
+        "ninkiGrade": "B",
+        "reason": "父B(13.2%)/騎S(28.9%)/厩B(11.9%)/人気B固定(オッズ非反映) / 外厩S(ノーザンF天栄)",
+        "v": "v1-4axis",
+        "gaikyuFarmGrade": "S",
+        "gaikyuFarm": "ノーザンF天栄"
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "redCount": 3,
+        "hcRed": true,
+        "fRed": true,
+        "bRed": false,
+        "tRed": true,
+        "hvRed": false,
+        "hc": 2.5,
+        "hcDiff": 1.3,
+        "rank1": false,
+        "reason": "HC赤(差1.3)/前半赤/前+後半赤/致命除外",
+        "v": "v1-hc-golden"
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "sav": 101,
+        "savGrade": "S",
+        "st": 47,
+        "stGrade": "D",
+        "shiage": 62,
+        "shiageGrade": "C",
+        "tenkaiRank": 1,
+        "tenkaiGrade": "S",
+        "tokkiAdj": 0.0,
+        "jyuu": {
+          "grade": "A",
+          "raw": "○",
+          "adj": 0.0
+        },
+        "tokki": [
+          "腰甲い",
+          "時計速○"
+        ],
+        "totalPt": 13.0,
+        "note": "SAV:S(101)/ST:D(47)/仕上:C(62)/展開:S(1位)/特記:+0.0/重:○(+0.0)=計13.0/致命除外",
+        "v": "v1-6axis"
+      },
+      "gaikyuFactor": {
+        "grade": "S",
+        "farm": "ノーザンF天栄",
+        "pt": 5,
+        "note": "ノーザンF天栄→外厩S(5pt)"
+      }
+    }
+  ]
+}
