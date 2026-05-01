@@ -25,7 +25,7 @@
   "presentation": {
     "raceId": "202608030311",
     "bets": {
-      "strategy": "wide-only",
+      "strategy": "wide-umaren",
       "wide": {
         "horses": [
           "メルカントゥール",
@@ -33,9 +33,22 @@
           "ケイアイアギト",
           "コロナドブリッジ"
         ],
-        "perPoint": 100
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
       },
-      "totalSpend": 600
+      "totalSpend": 1200,
+      "umaren": {
+        "horses": [
+          "メルカントゥール",
+          "ソルチェリア",
+          "ケイアイアギト",
+          "コロナドブリッジ"
+        ],
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
+      }
     },
     "horses": [
       {
@@ -51,10 +64,10 @@
         "name": "メルカントゥール",
         "ninki": "—",
         "odds": "—",
-        "sire": "—",
-        "bms": "—",
+        "sire": "ルヴァンスレーヴ",
+        "bms": "ゴールドヘイロー",
         "jockey": "川田将",
-        "trainer": "杉山晴",
+        "trainer": "杉山晴(栗)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "1",
@@ -97,10 +110,10 @@
         "name": "ソルチェリア",
         "ninki": "—",
         "odds": "—",
-        "sire": "—",
-        "bms": "—",
+        "sire": "ナダル",
+        "bms": "エルコンドルパサー",
         "jockey": "幸英明",
-        "trainer": "大根田",
+        "trainer": "大根田(栗)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "6",
@@ -143,10 +156,10 @@
         "name": "ケイアイアギト",
         "ninki": "—",
         "odds": "—",
-        "sire": "—",
-        "bms": "—",
+        "sire": "エスポワールシチー",
+        "bms": "Unbridled's Song",
         "jockey": "鮫島駿",
-        "trainer": "加藤征",
+        "trainer": "加藤征(美)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "5",
@@ -189,10 +202,10 @@
         "name": "コロナドブリッジ",
         "ninki": "—",
         "odds": "—",
-        "sire": "—",
-        "bms": "—",
+        "sire": "ベンバトル",
+        "bms": "ディープインパクト",
         "jockey": "松山弘",
-        "trainer": "庄野",
+        "trainer": "庄野(栗)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "5",

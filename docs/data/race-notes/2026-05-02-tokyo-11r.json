@@ -25,7 +25,7 @@
   "presentation": {
     "raceId": "202605020311",
     "bets": {
-      "strategy": "wide-only",
+      "strategy": "wide-umaren",
       "wide": {
         "horses": [
           "ダノンセンチュリー",
@@ -33,9 +33,22 @@
           "アサカラキング",
           "ヤブサメ"
         ],
-        "perPoint": 100
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
       },
-      "totalSpend": 600
+      "totalSpend": 1200,
+      "umaren": {
+        "horses": [
+          "ダノンセンチュリー",
+          "フリームファクシ",
+          "アサカラキング",
+          "ヤブサメ"
+        ],
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
+      }
     },
     "horses": [
       {
@@ -51,10 +64,10 @@
         "name": "ダノンセンチュリー",
         "ninki": "—",
         "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "レーン",
-        "trainer": "萩原",
+        "sire": "フィエールマン",
+        "bms": "Lope de Vega",
+        "jockey": "ルメール",
+        "trainer": "萩原(美)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "—",
@@ -97,10 +110,10 @@
         "name": "フリームファクシ",
         "ninki": "—",
         "odds": "—",
-        "sire": "—",
-        "bms": "—",
-        "jockey": "佐々木大",
-        "trainer": "須貝尚",
+        "sire": "ルーラーシップ",
+        "bms": "スペシャルウィーク",
+        "jockey": "佐々木大輔",
+        "trainer": "須貝尚(栗)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "—",
@@ -143,10 +156,10 @@
         "name": "アサカラキング",
         "ninki": "—",
         "odds": "—",
-        "sire": "—",
-        "bms": "—",
+        "sire": "キズナ",
+        "bms": "キングヘイロー",
         "jockey": "戸崎圭",
-        "trainer": "斎藤誠",
+        "trainer": "斎藤誠(美)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "—",
@@ -189,10 +202,10 @@
         "name": "ヤブサメ",
         "ninki": "—",
         "odds": "—",
-        "sire": "—",
-        "bms": "—",
+        "sire": "ファインニードル",
+        "bms": "グラスワンダー",
         "jockey": "武豊",
-        "trainer": "石橋",
+        "trainer": "石橋(栗)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "—",

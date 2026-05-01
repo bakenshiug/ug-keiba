@@ -25,7 +25,7 @@
   "presentation": {
     "raceId": "202605020310",
     "bets": {
-      "strategy": "wide-only",
+      "strategy": "wide-umaren",
       "wide": {
         "horses": [
           "レディーゴール",
@@ -33,9 +33,22 @@
           "サムシングスイート",
           "モートンアイランド"
         ],
-        "perPoint": 100
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
       },
-      "totalSpend": 600
+      "totalSpend": 1200,
+      "umaren": {
+        "horses": [
+          "レディーゴール",
+          "カナルサンマルタン",
+          "サムシングスイート",
+          "モートンアイランド"
+        ],
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
+      }
     },
     "horses": [
       {
@@ -52,9 +65,9 @@
         "ninki": "—",
         "odds": "—",
         "sire": "レイデオロ",
-        "bms": "—",
+        "bms": "Equal Stripes",
         "jockey": "菅原明",
-        "trainer": "斎藤誠",
+        "trainer": "斎藤誠(美)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "11",
@@ -98,9 +111,9 @@
         "ninki": "—",
         "odds": "—",
         "sire": "リアルスティール",
-        "bms": "—",
+        "bms": "Distorted Humor",
         "jockey": "ルメール",
-        "trainer": "宮田",
+        "trainer": "宮田(美)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "1",
@@ -144,9 +157,9 @@
         "ninki": "—",
         "odds": "—",
         "sire": "サートゥルナーリア",
-        "bms": "—",
+        "bms": "ヴィクトワールピサ",
         "jockey": "横山武",
-        "trainer": "伊藤大",
+        "trainer": "伊藤大(美)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "1",
@@ -190,9 +203,9 @@
         "ninki": "—",
         "odds": "—",
         "sire": "モーリス",
-        "bms": "—",
-        "jockey": "レーン",
-        "trainer": "手塚久",
+        "bms": "Fastnet Rock",
+        "jockey": "ルメール",
+        "trainer": "手塚久(美)",
         "gaikyu": "—",
         "prevName": "—",
         "prevFinish": "6",
