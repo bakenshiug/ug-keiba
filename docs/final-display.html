@@ -129,6 +129,7 @@ a{color:var(--kin);text-decoration:none;}
   background:radial-gradient(ellipse at center top, rgba(201,169,97,.1), transparent 70%);
 }
 .honden-race-meta{font-size:11px;color:rgba(244,233,201,.6);letter-spacing:.22em;margin-bottom:6px;}
+.honden-race-info{font-size:11px;color:rgba(244,233,201,.55);letter-spacing:.12em;margin-top:4px;}
 .honden-race-name{
   font-size:clamp(22px,4vw,32px);color:var(--kin);font-weight:900;letter-spacing:.2em;
   text-shadow:0 0 20px rgba(201,169,97,.4);
@@ -626,7 +627,13 @@ async function loadRaces() {
         name:      (d.race && d.race.name) || '未定',
         nameEn:    p.nameEn || '',
         meta:      p.meta || '',
-        startTime: p.startTime || '',
+        startTime: (d.race && d.race.startTime) || p.startTime || '',
+        surface:   (d.race && d.race.surface) || '',
+        distance:  (d.race && d.race.distance) || '',
+        course:    (d.race && d.race.course) || '',
+        weather:   (d.race && d.race.weather) || '',
+        baba:      (d.race && d.race.baba) || '',
+        numHorses: (d.race && d.race.numHorses) || '',
         picks:     p.horses || [],
         bets:      p.bets || {},
         note:      p.note || '',
@@ -1123,8 +1130,9 @@ function hondenHtml(r){
   return `
   <div class="honden">
     <div class="honden-head">
-      <div class="honden-race-meta mincho">${r.meta}　／　発走 ${r.startTime}</div>
+      <div class="honden-race-meta mincho">／　発走 ${r.startTime}</div>
       <div class="honden-race-name mincho">${r.name}</div>
+      ${(r.surface || r.distance) ? `<div class="honden-race-info mincho">${r.surface||''}${r.distance||''}m${r.course ? '（'+r.course+'）' : ''}　天候:${r.weather||'—'}　馬場:${r.baba||'—'}　${r.numHorses||''}頭</div>` : ''}
       <div class="honden-race-info">${win5Html}${gradeHtml}${verdictBadge}</div>
     </div>
 

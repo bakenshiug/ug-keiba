@@ -196,8 +196,18 @@ def process_race(race_key, apply=False):
     kirin_names = {h.get('name') for h in kirin_horses}
     pres_horses = [to_presentation_horse(p, kirin_names) for p in picks]
 
-    # bets.wide / bets.umaren の horses を 4神picks の馬名に同期
+    # 既存コメントを保持（手動設定済みコメントを --apply で上書きしない）
     pres = d.setdefault('presentation', {})
+    existing_comments = {
+        h['name']: h['comment']
+        for h in pres.get('horses', [])
+        if h.get('comment') and h['comment'] not in ('—', '', None)
+        and 'syoin=' not in h['comment']  # 旧形式は除外
+        and 'danwa' not in h['comment']   # 旧形式は除外
+    }
+    for ph in pres_horses:
+        if ph['name'] in existing_comments:
+            ph['comment'] = existing_comments[ph['name']]
     # 麒麟情報を格納
     pres['kirin'] = {
         'names':   list(kirin_names),
