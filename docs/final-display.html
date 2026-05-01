@@ -574,7 +574,7 @@ a{color:var(--kin);text-decoration:none;}
 <header class="page-header">
   <div class="page-title mincho">本　殿</div>
   <div class="page-subtitle mincho">御 神 託 の 間</div>
-  <div class="page-lead mincho">選ばれし四頭に、単勝・複勝・ワイドを奉納する。</div>
+  <div class="page-lead mincho">選ばれし四頭に、馬連・ワイドを奉納する。</div>
   <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
 </header>
 
@@ -1085,7 +1085,7 @@ function hondenHtml(r){
         </div>
         <div class="offering-amount">¥${wideTotal}（${wideCombos.length}点×¥${r.bets.wide.perPoint}）</div>
       </div>`;
-  } else if(strategy === 'wide-and-umaren'){
+  } else if(strategy === 'wide-umaren' || strategy === 'wide-and-umaren'){
     // 2026-04-26〜v2: ワイド+馬連 並列奉納
     const wideHorses   = (r.bets.wide   && r.bets.wide.horses)   || [];
     const umarenHorses = (r.bets.umaren && r.bets.umaren.horses) || [];
