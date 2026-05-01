@@ -228,6 +228,11 @@ a{color:var(--kin);text-decoration:none;}
   text-align:center;color:rgba(201,169,97,.5);
   font-size:10px;letter-spacing:.2em;margin-bottom:8px;
 }
+.kirin-mark{
+  font-size:.85em;margin-right:3px;
+  vertical-align:middle;
+  filter:drop-shadow(0 0 4px rgba(255,220,80,.7));
+}
 
 .omamori-divider{
   height:1px;margin:4px 0 10px;
@@ -819,7 +824,7 @@ function omamoriHtml(p, raceResult){
         <span><span class="waku">${p.gate}枠</span><span class="uma">${p.num}番</span></span>
         <span class="ninki">${finalNinki}人気 <em class="odds">${finalOdds}倍</em></span>
       </div>
-      <div class="omamori-name mincho">${p.name}</div>
+      <div class="omamori-name mincho">${p.kirinMark ? '<span class="kirin-mark" title="麒麟（4神合議最上位）">🦒</span>' : ''}${p.name}</div>
       <div class="omamori-name-en">${(p.name||'').toUpperCase()}</div>
       <div class="omamori-divider"></div>
       <dl class="omamori-info">

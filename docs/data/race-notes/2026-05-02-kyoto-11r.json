@@ -57,6 +57,8 @@
         "godEmoji": "🐉",
         "godGrade": "S",
         "rankInGod": 1,
+        "kirinMark": false,
+        "kirinScore": 15,
         "mark": "🐉",
         "markLabel": "青龍1位",
         "num": "11",
@@ -103,6 +105,8 @@
         "godEmoji": "🔥",
         "godGrade": "S",
         "rankInGod": 1,
+        "kirinMark": true,
+        "kirinScore": 17,
         "mark": "🔥",
         "markLabel": "朱雀1位",
         "num": "9",
@@ -149,6 +153,8 @@
         "godEmoji": "🐅",
         "godGrade": "S",
         "rankInGod": 1,
+        "kirinMark": false,
+        "kirinScore": 12,
         "mark": "🐅",
         "markLabel": "白虎1位",
         "num": "2",
@@ -195,6 +201,8 @@
         "godEmoji": "🐢",
         "godGrade": "S",
         "rankInGod": 1,
+        "kirinMark": false,
+        "kirinScore": 9,
         "mark": "🐢",
         "markLabel": "玄武1位",
         "num": "5",
@@ -235,7 +243,14 @@
         ],
         "comment": "前走インタビューなし・ダート適性未知（評価外）"
       }
-    ]
+    ],
+    "kirin": {
+      "names": [
+        "ソルチェリア"
+      ],
+      "score": 17,
+      "inPicks": true
+    }
   },
   "horses": [
     {

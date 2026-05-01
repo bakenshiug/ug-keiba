@@ -57,6 +57,8 @@
         "godEmoji": "🐉",
         "godGrade": "A",
         "rankInGod": 1,
+        "kirinMark": false,
+        "kirinScore": 15,
         "mark": "🐉",
         "markLabel": "青龍1位",
         "num": "2",
@@ -103,6 +105,8 @@
         "godEmoji": "🔥",
         "godGrade": "S",
         "rankInGod": 1,
+        "kirinMark": true,
+        "kirinScore": 16,
         "mark": "🔥",
         "markLabel": "朱雀1位",
         "num": "9",
@@ -149,6 +153,8 @@
         "godEmoji": "🐅",
         "godGrade": "A",
         "rankInGod": 2,
+        "kirinMark": true,
+        "kirinScore": 16,
         "mark": "🐅",
         "markLabel": "白虎1位",
         "num": "11",
@@ -195,6 +201,8 @@
         "godEmoji": "🐢",
         "godGrade": "A",
         "rankInGod": 4,
+        "kirinMark": false,
+        "kirinScore": 15,
         "mark": "🐢",
         "markLabel": "玄武1位",
         "num": "18",
@@ -235,7 +243,15 @@
         ],
         "comment": "前走5着0.1差・不利なければ。終い確実・長い直線は魅力"
       }
-    ]
+    ],
+    "kirin": {
+      "names": [
+        "フリームファクシ",
+        "アサカラキング"
+      ],
+      "score": 16,
+      "inPicks": true
+    }
   },
   "horses": [
     {

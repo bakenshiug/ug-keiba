@@ -80,6 +80,28 @@ def rank_for_god(horses, god):
     )
 
 
+def kirin_score(horse):
+    """4神grade合算スコア（麒麟選定用）"""
+    return sum(grade_score(get_god_grade(horse, g)) for g in GODS)
+
+
+def pick_kirin(horses):
+    """麒麟（4神合算スコア最大）を選定。同点は D数少ない順。同点全員を返す"""
+    scored = []
+    for h in horses:
+        total   = kirin_score(h)
+        d_count = sum(1 for g in GODS if get_god_grade(h, g) == 'D')
+        scored.append((h, total, d_count))
+    scored.sort(key=lambda x: (-x[1], x[2]))
+    if not scored:
+        return [], 0
+    best_total   = scored[0][1]
+    best_d_count = scored[0][2]
+    # 同点タイ全員を麒麟とする
+    kirin_horses = [h for h, t, d in scored if t == best_total and d == best_d_count]
+    return kirin_horses, best_total
+
+
 def pick_4gods(horses):
     """4神1位の4頭を選定。重複の場合は次点繰り上げで別馬4頭を確保"""
     selected_names = set()
@@ -123,33 +145,37 @@ def build_badges(horse):
     return badges
 
 
-def to_presentation_horse(pick):
+def to_presentation_horse(pick, kirin_names=None):
     """auto_pick の pick を presentation.horses 形式に変換"""
     h = pick['horse']
     god = pick['god']
+    name = h.get('name', '?')
+    is_kirin = kirin_names and name in kirin_names
     return {
-        'god':       god,
-        'godLabel':  GOD_LABEL[god],
-        'godEmoji':  GOD_EMOJI[god],
-        'godGrade':  pick['grade'],
-        'rankInGod': pick['rankInGod'],
+        'god':        god,
+        'godLabel':   GOD_LABEL[god],
+        'godEmoji':   GOD_EMOJI[god],
+        'godGrade':   pick['grade'],
+        'rankInGod':  pick['rankInGod'],
+        'kirinMark':  is_kirin,          # 🦒 麒麟印フラグ
+        'kirinScore': kirin_score(h),    # 4神合算スコア
         # 互換のため mark/markLabel も持たせる（旧UIへのフォールバック）
-        'mark':      GOD_EMOJI[god],
-        'markLabel': f'{GOD_LABEL[god]}1位',
-        'num':       str(h.get('num') or h.get('umaban') or '—'),
-        'gate':      str(h.get('gate') or '—'),
-        'name':      h.get('name', '?'),
-        'ninki':     '—',  # 確定オッズ取得前は空、result反映で上書きされる
-        'odds':      str(h.get('expectedOdds') or '—'),
-        'sire':      h.get('sire', '—'),
-        'bms':       h.get('broodmareSire', h.get('bms', '—')),
-        'jockey':    h.get('jockey', '—'),
-        'trainer':   h.get('trainer', '—'),
-        'gaikyu':    h.get('gaikyu', '—'),
-        'prevName':  h.get('prevName', h.get('relComment', {}).get('prevRace', '—') if isinstance(h.get('relComment'), dict) else '—'),
-        'prevFinish':h.get('prevFinish', '—'),
-        'badges':    build_badges(h),
-        'comment':   (h.get('relComment') or {}).get('keyword', '—') if isinstance(h.get('relComment'), dict) else '—',
+        'mark':       GOD_EMOJI[god],
+        'markLabel':  f'{GOD_LABEL[god]}1位',
+        'num':        str(h.get('num') or h.get('umaban') or '—'),
+        'gate':       str(h.get('gate') or '—'),
+        'name':       name,
+        'ninki':      '—',  # 確定オッズ取得前は空、result反映で上書きされる
+        'odds':       str(h.get('expectedOdds') or '—'),
+        'sire':       h.get('sire', '—'),
+        'bms':        h.get('broodmareSire', h.get('bms', '—')),
+        'jockey':     h.get('jockey', '—'),
+        'trainer':    h.get('trainer', '—'),
+        'gaikyu':     h.get('gaikyu', '—'),
+        'prevName':   h.get('prevName', h.get('relComment', {}).get('prevRace', '—') if isinstance(h.get('relComment'), dict) else '—'),
+        'prevFinish': h.get('prevFinish', '—'),
+        'badges':     build_badges(h),
+        'comment':    (h.get('relComment') or {}).get('keyword', '—') if isinstance(h.get('relComment'), dict) else '—',
     }
 
 
@@ -165,10 +191,19 @@ def process_race(race_key, apply=False):
         return None
 
     picks = pick_4gods(horses)
-    pres_horses = [to_presentation_horse(p) for p in picks]
+    # 麒麟計算（全馬対象・4神合算スコア最大）
+    kirin_horses, kirin_total = pick_kirin(horses)
+    kirin_names = {h.get('name') for h in kirin_horses}
+    pres_horses = [to_presentation_horse(p, kirin_names) for p in picks]
 
     # bets.wide / bets.umaren の horses を 4神picks の馬名に同期
     pres = d.setdefault('presentation', {})
+    # 麒麟情報を格納
+    pres['kirin'] = {
+        'names':   list(kirin_names),
+        'score':   kirin_total,
+        'inPicks': bool(kirin_names & {h['name'] for h in pres_horses}),
+    }
     bets = pres.setdefault('bets', {})
     horse_names = [p['name'] for p in pres_horses]
     n = len(pres_horses)
