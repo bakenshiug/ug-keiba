@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>言霊のみ予想実験｜UG競馬ワイド神宮</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0a06;--ink:#f4e9c9;--shu:#c8473a;--gold:#c9a84c;
+    --paper:#1a130a;--border:rgba(201,168,76,.4);--ok:#5fa85c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+       font-family:'Noto Sans JP',sans-serif;line-height:1.7}
+  .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.05em}
+  header{padding:32px 16px 24px;text-align:center;border-bottom:1px solid var(--border)}
+  .h-title{font-size:28px;color:var(--gold);font-weight:700;letter-spacing:.2em}
+  .h-sub{font-size:13px;color:rgba(244,233,201,.6);margin-top:8px;letter-spacing:.15em}
+  .h-rule{font-size:12px;color:var(--shu);margin-top:12px}
+  .home-link{display:inline-block;margin-top:14px;padding:6px 16px;
+             border:1px solid var(--gold);color:var(--gold);text-decoration:none;
+             font-size:12px;letter-spacing:.2em}
+  .home-link:hover{background:var(--gold);color:var(--bg)}
+  main{max-width:920px;margin:0 auto;padding:24px 16px}
+  .race{margin-bottom:32px;padding:20px;border:1px solid var(--border);
+        background:var(--paper);border-radius:6px}
+  .race-header{display:flex;justify-content:space-between;align-items:baseline;
+               border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:14px}
+  .race-name{font-size:18px;color:var(--gold);font-weight:700}
+  .race-meta{font-size:12px;color:rgba(244,233,201,.6)}
+  .picks-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+  .picks-table th{background:rgba(201,168,76,.1);padding:8px;text-align:left;
+                  color:var(--gold);border-bottom:1px solid var(--border)}
+  .picks-table td{padding:10px 8px;border-bottom:1px dashed rgba(201,168,76,.2);
+                  vertical-align:top}
+  .mark{font-size:18px;font-weight:700;color:var(--shu);width:30px}
+  .mark.dou{color:#c9a84c}
+  .name{font-weight:700;color:var(--ink);width:120px}
+  .grade{display:inline-block;padding:2px 8px;background:var(--gold);color:var(--bg);
+         font-weight:700;font-size:11px;border-radius:3px;margin-left:6px}
+  .comment{color:rgba(244,233,201,.85);font-size:12px;line-height:1.6}
+  details{margin-top:14px;padding:10px;background:rgba(0,0,0,.2);border-radius:4px}
+  summary{cursor:pointer;color:var(--gold);font-size:12px;letter-spacing:.1em}
+  details ul{margin:8px 0 0;padding-left:18px;font-size:12px;color:rgba(244,233,201,.7)}
+  .fatal{margin-top:10px;padding:10px;background:rgba(200,71,58,.1);border-left:3px solid var(--shu);font-size:12px}
+  .fatal-h{color:var(--shu);font-weight:700;margin-bottom:6px}
+  .result{margin-top:14px;padding:12px;background:rgba(95,168,92,.1);border-left:3px solid var(--ok);font-size:13px;color:var(--ok)}
+  .pending{color:rgba(244,233,201,.5);font-style:italic}
+  footer{text-align:center;padding:24px;color:rgba(244,233,201,.4);font-size:11px;
+         border-top:1px solid var(--border);margin-top:24px}
+</style>
+</head>
+<body>
+<header>
+  <div class="h-title mincho">言 霊 の み 予 想 実 験</div>
+  <div class="h-sub mincho">KOTODAMA-ONLY EXPERIMENT v1</div>
+  <div class="h-rule">ルール：前走インタビュー＋厩舎の話の2ページのみで4頭picks</div>
+  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+</header>
+<main id="races"></main>
+<footer class="mincho">⛩ UG 競馬ワイド神宮 ／ 言霊実験室 ⛩</footer>
+
+<script>
+const FILES = ['data/kotodama-test/2026-05-03.json'];
+const MARK_CLASS = {'◎':'mark','○':'mark','▲':'mark dou','△':'mark dou'};
+
+async function load(){
+  const races = [];
+  for (const f of FILES){
+    try{
+      const r = await fetch(f+'?_='+Date.now());
+      const d = await r.json();
+      d.races.forEach(race => races.push(race));
+    }catch(e){console.error(e)}
+  }
+  render(races);
+}
+
+function render(races){
+  const root = document.getElementById('races');
+  root.innerHTML = races.map(r => `
+    <div class="race">
+      <div class="race-header">
+        <div class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}</div>
+        <div class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</div>
+      </div>
+      <table class="picks-table">
+        <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>言霊評価</th></tr>
+        ${r.picks.map(p => `
+        <tr>
+          <td class="${MARK_CLASS[p.mark]||'mark'}">${p.mark}</td>
+          <td class="name">${p.num}番<br>${p.name}<span class="grade">${p.kotodamaGrade}</span></td>
+          <td>${p.jockey}</td>
+          <td>${p.trainer}</td>
+          <td class="comment">${p.comment}</td>
+        </tr>`).join('')}
+      </table>
+      ${r.fatalWords && r.fatalWords.length ? `
+      <div class="fatal">
+        <div class="fatal-h">⚠ 致命ワード検出</div>
+        ${r.fatalWords.map(f => `<div>・${f.horse}：「${f.word}」 → ${f.type}</div>`).join('')}
+      </div>` : ''}
+      <details>
+        <summary>監視リスト（B〜D級）</summary>
+        ${r.watchList ? Object.entries(r.watchList).map(([g,hs])=>`
+          <div style="margin-top:8px"><strong>${g}級</strong>: ${hs.join('・')}</div>
+        `).join('') : ''}
+      </details>
+      ${r.result ? `
+      <div class="result">
+        <strong>結果</strong>: ${r.result.summary || JSON.stringify(r.result)}
+      </div>` : '<div class="result pending">結果待ち</div>'}
+    </div>
+  `).join('');
+}
+load();
+</script>
+</body>
+</html>
