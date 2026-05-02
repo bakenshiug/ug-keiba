@@ -25,6 +25,17 @@ GRADE_RANK = {'S': 5, 'A': 4, 'B': 3, 'C': 2, 'D': 1}
 
 GODS = ['seiryu', 'suzaku', 'byakko', 'genbu']
 
+# 神宮の重み（2026-05-05〜）：青龍（言霊）×3.0 = 4神スコアの50%。
+# ニック発案「神宮の本質は言霊」哲学の制度化。
+# 真実×意志（前走真実×厩舎意志×特記）が最も結果直結率が高いとの実証。
+# 履歴: 2026-04 初期(全1.0) → 2026-05-03 (青龍×1.5) → 2026-05-05 (青龍×3.0)
+GOD_WEIGHT = {
+    'seiryu': 3.0,
+    'suzaku': 1.0,
+    'byakko': 1.0,
+    'genbu':  1.0,
+}
+
 GOD_LABEL = {
     'seiryu': '青龍', 'suzaku': '朱雀', 'byakko': '白虎', 'genbu': '玄武',
 }
@@ -64,13 +75,18 @@ def grade_score(g):
     return GRADE_RANK.get(g, 0)
 
 
+def weighted_grade_score(horse, god):
+    """神別重み付きgradeスコア（青龍×1.5）"""
+    return grade_score(get_god_grade(horse, god)) * GOD_WEIGHT.get(god, 1.0)
+
+
 def total_other_grade_score(horse, exclude_god):
-    """他神gradeの合計（タイブレーク用）"""
-    return sum(grade_score(get_god_grade(horse, g)) for g in GODS if g != exclude_god)
+    """他神gradeの重み付き合計（タイブレーク用）"""
+    return sum(weighted_grade_score(horse, g) for g in GODS if g != exclude_god)
 
 
 def rank_for_god(horses, god):
-    """各神のgradeランキング。タイブレーク=他神grade合計（高い順）"""
+    """各神のgradeランキング。タイブレーク=他神重み付き合計（高い順）"""
     return sorted(
         horses,
         key=lambda h: (
@@ -81,8 +97,8 @@ def rank_for_god(horses, god):
 
 
 def kirin_score(horse):
-    """4神grade合算スコア（麒麟選定用）"""
-    return sum(grade_score(get_god_grade(horse, g)) for g in GODS)
+    """4神grade合算スコア（麒麟選定用・青龍×1.5重み付き）"""
+    return sum(weighted_grade_score(horse, g) for g in GODS)
 
 
 def pick_kirin(horses):
