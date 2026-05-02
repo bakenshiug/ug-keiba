@@ -65,7 +65,7 @@
         "gate": "1",
         "name": "ダノンセンチュリー",
         "ninki": "2",
-        "odds": "5.0",
+        "odds": "4.4",
         "sire": "フィエールマン",
         "bms": "Lope de Vega",
         "jockey": "レーン",
@@ -113,7 +113,7 @@
         "gate": "5",
         "name": "フリームファクシ",
         "ninki": "16",
-        "odds": "88.1",
+        "odds": "142.8",
         "sire": "ルーラーシップ",
         "bms": "スペシャルウィーク",
         "jockey": "佐々木大輔",
@@ -160,8 +160,8 @@
         "num": "11",
         "gate": "6",
         "name": "アサカラキング",
-        "ninki": "11",
-        "odds": "39.4",
+        "ninki": "10",
+        "odds": "23.7",
         "sire": "キズナ",
         "bms": "キングヘイロー",
         "jockey": "戸崎圭",
@@ -208,8 +208,8 @@
         "num": "18",
         "gate": "8",
         "name": "ヤブサメ",
-        "ninki": "3",
-        "odds": "6.0",
+        "ninki": "4",
+        "odds": "9.8",
         "sire": "ファインニードル",
         "bms": "グラスワンダー",
         "jockey": "武豊",
@@ -251,6 +251,382 @@
       ],
       "score": 16,
       "inPicks": true
+    },
+    "result": {
+      "fetched": "2026-05-02T18:58:34",
+      "raceId": "202605020311",
+      "horses": [
+        {
+          "rank": "1",
+          "gate": "8",
+          "num": "16",
+          "name": "ワールズエンド",
+          "sexAge": "牡5",
+          "kinryo": "57.0",
+          "jockey": "津村",
+          "time": "1:18.9",
+          "finalNinki": "3",
+          "finalOdds": "5.4",
+          "last3F": "",
+          "trainer": "池添",
+          "weight": "470(+2)"
+        },
+        {
+          "rank": "2",
+          "gate": "3",
+          "num": "6",
+          "name": "セフィロ",
+          "sexAge": "牝6",
+          "kinryo": "55.0",
+          "jockey": "三浦",
+          "time": "1:18.9",
+          "finalNinki": "14",
+          "finalOdds": "80.6",
+          "last3F": "32.6",
+          "trainer": "菊沢",
+          "weight": "474(+4)"
+        },
+        {
+          "rank": "3",
+          "gate": "7",
+          "num": "14",
+          "name": "マイネルチケット",
+          "sexAge": "牡4",
+          "kinryo": "57.0",
+          "jockey": "横山武",
+          "time": "1:19.2",
+          "finalNinki": "7",
+          "finalOdds": "16.2",
+          "last3F": "",
+          "trainer": "宮",
+          "weight": "470(-14)"
+        },
+        {
+          "rank": "4",
+          "gate": "4",
+          "num": "7",
+          "name": "ラケマーダ",
+          "sexAge": "牡6",
+          "kinryo": "57.0",
+          "jockey": "原",
+          "time": "1:19.4",
+          "finalNinki": "18",
+          "finalOdds": "305.9",
+          "last3F": "",
+          "trainer": "千田",
+          "weight": "502(-8)"
+        },
+        {
+          "rank": "5",
+          "gate": "2",
+          "num": "4",
+          "name": "シリウスコルト",
+          "sexAge": "牡5",
+          "kinryo": "57.0",
+          "jockey": "田辺",
+          "time": "1:19.4",
+          "finalNinki": "11",
+          "finalOdds": "45.3",
+          "last3F": "",
+          "trainer": "田中勝",
+          "weight": "494(-8)"
+        },
+        {
+          "rank": "6",
+          "gate": "5",
+          "num": "10",
+          "name": "キープカルム",
+          "sexAge": "牡5",
+          "kinryo": "57.0",
+          "jockey": "荻野極",
+          "time": "1:19.5",
+          "finalNinki": "6",
+          "finalOdds": "15.1",
+          "last3F": "32.6",
+          "trainer": "中竹",
+          "weight": "496(-10)"
+        },
+        {
+          "rank": "7",
+          "gate": "3",
+          "num": "5",
+          "name": "ワイドラトゥール",
+          "sexAge": "牝5",
+          "kinryo": "55.0",
+          "jockey": "西塚",
+          "time": "1:19.5",
+          "finalNinki": "8",
+          "finalOdds": "21.8",
+          "last3F": "",
+          "trainer": "藤原",
+          "weight": "446(+4)"
+        },
+        {
+          "rank": "8",
+          "gate": "7",
+          "num": "13",
+          "name": "ファンダム",
+          "sexAge": "牡4",
+          "kinryo": "57.0",
+          "jockey": "ルメー",
+          "time": "1:19.5",
+          "finalNinki": "1",
+          "finalOdds": "3.3",
+          "last3F": "",
+          "trainer": "辻",
+          "weight": "480(-4)"
+        },
+        {
+          "rank": "9",
+          "gate": "1",
+          "num": "2",
+          "name": "ダノンセンチュリー",
+          "sexAge": "牡4",
+          "kinryo": "57.0",
+          "jockey": "レーン",
+          "time": "1:19.5",
+          "finalNinki": "2",
+          "finalOdds": "4.4",
+          "last3F": "",
+          "trainer": "萩原",
+          "weight": "460(0)"
+        },
+        {
+          "rank": "10",
+          "gate": "8",
+          "num": "18",
+          "name": "ヤブサメ",
+          "sexAge": "牡5",
+          "kinryo": "57.0",
+          "jockey": "武豊",
+          "time": "1:19.6",
+          "finalNinki": "4",
+          "finalOdds": "9.8",
+          "last3F": "",
+          "trainer": "石橋",
+          "weight": "492(-10)"
+        },
+        {
+          "rank": "11",
+          "gate": "1",
+          "num": "1",
+          "name": "レッドシュヴェルト",
+          "sexAge": "牡6",
+          "kinryo": "57.0",
+          "jockey": "横山和",
+          "time": "1:19.7",
+          "finalNinki": "15",
+          "finalOdds": "122.7",
+          "last3F": "",
+          "trainer": "尾関",
+          "weight": "476(+4)"
+        },
+        {
+          "rank": "12",
+          "gate": "2",
+          "num": "3",
+          "name": "カンチェンジュンガ",
+          "sexAge": "牡6",
+          "kinryo": "58.0",
+          "jockey": "ディー",
+          "time": "1:19.7",
+          "finalNinki": "13",
+          "finalOdds": "60.1",
+          "last3F": "32.6",
+          "trainer": "庄野",
+          "weight": "494(-10)"
+        },
+        {
+          "rank": "13",
+          "gate": "4",
+          "num": "8",
+          "name": "ララマセラシオン",
+          "sexAge": "牡5",
+          "kinryo": "57.0",
+          "jockey": "菅原明",
+          "time": "1:19.7",
+          "finalNinki": "12",
+          "finalOdds": "46.7",
+          "last3F": "",
+          "trainer": "大竹",
+          "weight": "534(+4)"
+        },
+        {
+          "rank": "14",
+          "gate": "5",
+          "num": "9",
+          "name": "フリームファクシ",
+          "sexAge": "牡6",
+          "kinryo": "57.0",
+          "jockey": "佐々木",
+          "time": "1:19.8",
+          "finalNinki": "16",
+          "finalOdds": "142.8",
+          "last3F": "",
+          "trainer": "須貝",
+          "weight": "514(-6)"
+        },
+        {
+          "rank": "15",
+          "gate": "8",
+          "num": "17",
+          "name": "ダノンマッキンリー",
+          "sexAge": "牡5",
+          "kinryo": "57.0",
+          "jockey": "高杉",
+          "time": "1:19.8",
+          "finalNinki": "9",
+          "finalOdds": "23.4",
+          "last3F": "",
+          "trainer": "藤原",
+          "weight": "476(+4)"
+        },
+        {
+          "rank": "16",
+          "gate": "6",
+          "num": "12",
+          "name": "ウイントワイライト",
+          "sexAge": "牝4",
+          "kinryo": "55.0",
+          "jockey": "横山典",
+          "time": "1:19.8",
+          "finalNinki": "5",
+          "finalOdds": "12.0",
+          "last3F": "",
+          "trainer": "西園翔",
+          "weight": "454(+4)"
+        },
+        {
+          "rank": "17",
+          "gate": "7",
+          "num": "15",
+          "name": "レイベリング",
+          "sexAge": "牡6",
+          "kinryo": "57.0",
+          "jockey": "石橋脩",
+          "time": "1:20.1",
+          "finalNinki": "17",
+          "finalOdds": "198.5",
+          "last3F": "",
+          "trainer": "鹿戸",
+          "weight": "486(-2)"
+        },
+        {
+          "rank": "18",
+          "gate": "6",
+          "num": "11",
+          "name": "アサカラキング",
+          "sexAge": "牡6",
+          "kinryo": "57.0",
+          "jockey": "戸崎圭",
+          "time": "1:20.6",
+          "finalNinki": "10",
+          "finalOdds": "23.7",
+          "last3F": "",
+          "trainer": "斎藤誠",
+          "weight": "530(+4)"
+        }
+      ],
+      "payouts": {
+        "tan": [
+          {
+            "combo": [
+              "16"
+            ],
+            "amount": 540,
+            "ninki": 3
+          }
+        ],
+        "fuku": [
+          {
+            "combo": [
+              "16",
+              "6",
+              "14"
+            ],
+            "amount": 270,
+            "ninki": 3
+          }
+        ],
+        "wakuren": [
+          {
+            "combo": [
+              "3",
+              "8"
+            ],
+            "amount": 2380,
+            "ninki": 10
+          }
+        ],
+        "umaren": [
+          {
+            "combo": [
+              "6",
+              "16"
+            ],
+            "amount": 24590,
+            "ninki": 64
+          }
+        ],
+        "wide": [
+          {
+            "combo": [
+              "6",
+              "16"
+            ],
+            "amount": 5120,
+            "ninki": 59
+          },
+          {
+            "combo": [
+              "14",
+              "16"
+            ],
+            "amount": 1260,
+            "ninki": 11
+          },
+          {
+            "combo": [
+              "6",
+              "14"
+            ],
+            "amount": 8090,
+            "ninki": 74
+          }
+        ],
+        "umatan": [
+          {
+            "combo": [
+              "16",
+              "6"
+            ],
+            "amount": 31360,
+            "ninki": 92
+          }
+        ],
+        "sanrenpuku": [
+          {
+            "combo": [
+              "6",
+              "14",
+              "16"
+            ],
+            "amount": 49890,
+            "ninki": 159
+          }
+        ],
+        "sanrentan": [
+          {
+            "combo": [
+              "16",
+              "6",
+              "14"
+            ],
+            "amount": 286950,
+            "ninki": 851
+          }
+        ]
+      }
     }
   },
   "horses": [
