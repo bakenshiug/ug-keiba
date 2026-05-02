@@ -251,6 +251,277 @@
       ],
       "score": 15,
       "inPicks": true
+    },
+    "result": {
+      "fetched": "2026-05-02T18:54:09",
+      "raceId": "202605020310",
+      "horses": [
+        {
+          "rank": "1",
+          "gate": "8",
+          "num": "11",
+          "name": "カナルサンマルタン",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "ルメー",
+          "time": "1:45.6",
+          "finalNinki": "2",
+          "finalOdds": "4.2",
+          "last3F": "",
+          "trainer": "宮田",
+          "weight": "448(0)"
+        },
+        {
+          "rank": "2",
+          "gate": "6",
+          "num": "6",
+          "name": "モートンアイランド",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "レーン",
+          "time": "1:45.7",
+          "finalNinki": "3",
+          "finalOdds": "4.9",
+          "last3F": "",
+          "trainer": "手塚久",
+          "weight": "446(+12)"
+        },
+        {
+          "rank": "3",
+          "gate": "2",
+          "num": "2",
+          "name": "ドナルンバ",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "荻野極",
+          "time": "1:46.2",
+          "finalNinki": "4",
+          "finalOdds": "6.5",
+          "last3F": "",
+          "trainer": "上原佑",
+          "weight": "468(-4)"
+        },
+        {
+          "rank": "4",
+          "gate": "7",
+          "num": "9",
+          "name": "サムシングスイート",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "横山武",
+          "time": "1:46.2",
+          "finalNinki": "5",
+          "finalOdds": "8.6",
+          "last3F": "33.8",
+          "trainer": "伊藤大",
+          "weight": "488(-6)"
+        },
+        {
+          "rank": "5",
+          "gate": "4",
+          "num": "4",
+          "name": "アストリル",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "田辺",
+          "time": "1:46.4",
+          "finalNinki": "7",
+          "finalOdds": "30.4",
+          "last3F": "33.8",
+          "trainer": "鈴木慎",
+          "weight": "448(+10)"
+        },
+        {
+          "rank": "6",
+          "gate": "8",
+          "num": "10",
+          "name": "ミツカネベネラ",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "横山和",
+          "time": "1:46.5",
+          "finalNinki": "11",
+          "finalOdds": "59.1",
+          "last3F": "",
+          "trainer": "鈴木伸",
+          "weight": "436(-6)"
+        },
+        {
+          "rank": "7",
+          "gate": "7",
+          "num": "8",
+          "name": "アルバンヌ",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "津村",
+          "time": "1:46.5",
+          "finalNinki": "1",
+          "finalOdds": "2.8",
+          "last3F": "33.8",
+          "trainer": "田中博",
+          "weight": "488(+24)"
+        },
+        {
+          "rank": "8",
+          "gate": "3",
+          "num": "3",
+          "name": "ベルサンローラン",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "石橋脩",
+          "time": "1:46.8",
+          "finalNinki": "9",
+          "finalOdds": "40.7",
+          "last3F": "",
+          "trainer": "清水久",
+          "weight": "450(+2)"
+        },
+        {
+          "rank": "9",
+          "gate": "1",
+          "num": "1",
+          "name": "レディーゴール",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "菅原明",
+          "time": "1:47.1",
+          "finalNinki": "8",
+          "finalOdds": "39.4",
+          "last3F": "",
+          "trainer": "斎藤誠",
+          "weight": "462(+6)"
+        },
+        {
+          "rank": "10",
+          "gate": "5",
+          "num": "5",
+          "name": "サフランルージュ",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "野中",
+          "time": "1:47.7",
+          "finalNinki": "10",
+          "finalOdds": "46.6",
+          "last3F": "",
+          "trainer": "室井",
+          "weight": "404(+4)"
+        },
+        {
+          "rank": "11",
+          "gate": "6",
+          "num": "7",
+          "name": "ラヴィニール",
+          "sexAge": "牝3",
+          "kinryo": "55.0",
+          "jockey": "ディー",
+          "time": "1:47.9",
+          "finalNinki": "6",
+          "finalOdds": "14.9",
+          "last3F": "",
+          "trainer": "武英",
+          "weight": "452(-8)"
+        }
+      ],
+      "payouts": {
+        "tan": [
+          {
+            "combo": [
+              "11"
+            ],
+            "amount": 420,
+            "ninki": 2
+          }
+        ],
+        "fuku": [
+          {
+            "combo": [
+              "11",
+              "6",
+              "2"
+            ],
+            "amount": 150,
+            "ninki": 2
+          }
+        ],
+        "wakuren": [
+          {
+            "combo": [
+              "6",
+              "8"
+            ],
+            "amount": 590,
+            "ninki": 3
+          }
+        ],
+        "umaren": [
+          {
+            "combo": [
+              "6",
+              "11"
+            ],
+            "amount": 870,
+            "ninki": 3
+          }
+        ],
+        "wide": [
+          {
+            "combo": [
+              "6",
+              "11"
+            ],
+            "amount": 340,
+            "ninki": 3
+          },
+          {
+            "combo": [
+              "2",
+              "11"
+            ],
+            "amount": 500,
+            "ninki": 5
+          },
+          {
+            "combo": [
+              "2",
+              "6"
+            ],
+            "amount": 560,
+            "ninki": 8
+          }
+        ],
+        "umatan": [
+          {
+            "combo": [
+              "11",
+              "6"
+            ],
+            "amount": 1580,
+            "ninki": 4
+          }
+        ],
+        "sanrenpuku": [
+          {
+            "combo": [
+              "2",
+              "6",
+              "11"
+            ],
+            "amount": 2020,
+            "ninki": 5
+          }
+        ],
+        "sanrentan": [
+          {
+            "combo": [
+              "11",
+              "6",
+              "2"
+            ],
+            "amount": 7780,
+            "ninki": 12
+          }
+        ]
+      }
     }
   },
   "kirinScore": {
