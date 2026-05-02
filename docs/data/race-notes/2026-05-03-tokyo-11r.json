@@ -23,7 +23,240 @@
   "dataStatus": "scoring",
   "logicVersion": "v3-kirin",
   "presentation": {
-    "raceId": "202605020411"
+    "raceId": "202605020411",
+    "horses": [
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "A",
+        "rankInGod": 6,
+        "kirinMark": true,
+        "kirinScore": 4,
+        "totalScore": 21.0,
+        "mark": "🐉",
+        "markLabel": "総合1位",
+        "num": "15",
+        "gate": "8",
+        "name": "ショウグンマサムネ",
+        "ninki": "10",
+        "odds": "25.7",
+        "sire": "スワーヴリチャード",
+        "bms": "ジャングルポケット",
+        "jockey": "荻野極",
+        "trainer": "佐藤悠(栗)",
+        "gaikyu": "NFしがらき",
+        "prevName": "大寒桜賞 1勝",
+        "prevFinish": "2",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "A",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "C",
+            "label": "朱雀（速眼）",
+            "soku": "C",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "A",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "S",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": ""
+      },
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "A",
+        "rankInGod": 5,
+        "kirinMark": false,
+        "kirinScore": 3,
+        "totalScore": 19.0,
+        "mark": "🐉",
+        "markLabel": "総合2位",
+        "num": "10",
+        "gate": "6",
+        "name": "エーデルゼーレ",
+        "ninki": "2",
+        "odds": "6.0",
+        "sire": "コントレイル",
+        "bms": "Curlin",
+        "jockey": "佐々木",
+        "trainer": "堀(美)",
+        "gaikyu": "山元トレセン",
+        "prevName": "3歳未勝利",
+        "prevFinish": "1",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "A",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "A",
+            "label": "朱雀（速眼）",
+            "soku": "B",
+            "gan": "S"
+          },
+          {
+            "t": "byakko",
+            "g": "C",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": ""
+      },
+      {
+        "god": "genbu",
+        "godLabel": "玄武",
+        "godEmoji": "🐢",
+        "godGrade": "S",
+        "rankInGod": 2,
+        "kirinMark": false,
+        "kirinScore": 4,
+        "totalScore": 18.5,
+        "mark": "🐢",
+        "markLabel": "総合3位",
+        "num": "13",
+        "gate": "7",
+        "name": "ジャスティンシカゴ",
+        "ninki": "8",
+        "odds": "17.8",
+        "sire": "スワーヴリチャード",
+        "bms": "キングカメハメハ",
+        "jockey": "原",
+        "trainer": "宮田(美)",
+        "gaikyu": "NF天栄",
+        "prevName": "フリージア 1勝",
+        "prevFinish": "2",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "C",
+            "label": "朱雀（速眼）",
+            "soku": "C",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "B",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "S",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": ""
+      },
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "B",
+        "rankInGod": 12,
+        "kirinMark": false,
+        "kirinScore": 4,
+        "totalScore": 16.5,
+        "mark": "🐉",
+        "markLabel": "総合4位",
+        "num": "14",
+        "gate": "8",
+        "name": "ミッキージャンプ",
+        "ninki": "14",
+        "odds": "73.5",
+        "sire": "サートゥルナーリア",
+        "bms": "E Dubai",
+        "jockey": "菅原明",
+        "trainer": "池江(栗)",
+        "gaikyu": "NFしがらき",
+        "prevName": "3歳未勝利",
+        "prevFinish": "1",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "C",
+            "label": "朱雀（速眼）",
+            "soku": "C",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "C",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": ""
+      }
+    ],
+    "kirin": {
+      "names": [
+        "ショウグンマサムネ"
+      ],
+      "score": 21.0,
+      "inPicks": true
+    },
+    "pickStrategy": "total-rank-top4",
+    "pickNote": "プリンシパルS過去5年大荒れの傾向に対応。神宮総合TOP4で人気バイアス排除",
+    "bets": {
+      "strategy": "wide-umaren",
+      "wide": {
+        "horses": [
+          "ショウグンマサムネ",
+          "エーデルゼーレ",
+          "ジャスティンシカゴ",
+          "ミッキージャンプ"
+        ],
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
+      },
+      "umaren": {
+        "horses": [
+          "ショウグンマサムネ",
+          "エーデルゼーレ",
+          "ジャスティンシカゴ",
+          "ミッキージャンプ"
+        ],
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
+      },
+      "totalSpend": 1200
+    }
   },
   "horses": [
     {
@@ -56,6 +289,55 @@
           "preTokkiGrade": "B",
           "interpretation": "特記なし（重適性△のみ）"
         }
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "D",
+          "sav": {
+            "value": 27,
+            "grade": "D"
+          },
+          "st": {
+            "value": 38,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 44,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 15,
+            "grade": "D"
+          },
+          "avg": 1.0
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "hc7": 2.0,
+        "shiba_hc": 2.0,
+        "redCount": 0,
+        "peak_sp": 76,
+        "reason": "peak76・中間"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "gaikyu": "阿見トレセン",
+        "gaikyu_grade": "B",
+        "pere_book_w": 2,
+        "pere_book_p": 6,
+        "pere_book_t": 2,
+        "pere_book_o": 20,
+        "pere_book_runs": 30,
+        "pere_book_sanchaku_pct": 33,
+        "derby_blood_bonus": 0,
+        "score": 1,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -99,6 +381,55 @@
           "preTokkiGrade": "A",
           "interpretation": "瞬発力青＋ダート×"
         }
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "D",
+          "sav": {
+            "value": 39,
+            "grade": "D"
+          },
+          "st": {
+            "value": 43,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 49,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 14,
+            "grade": "D"
+          },
+          "avg": 1.0
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "hc7": 3.5,
+        "shiba_hc": 3.4,
+        "redCount": 0,
+        "peak_sp": 73,
+        "reason": "peak73・能力不足"
+      },
+      "courseDataGrade": {
+        "grade": "S",
+        "gaikyu": "NFしがらき",
+        "gaikyu_grade": "S",
+        "pere_book_w": 2,
+        "pere_book_p": 0,
+        "pere_book_t": 1,
+        "pere_book_o": 3,
+        "pere_book_runs": 6,
+        "pere_book_sanchaku_pct": 50,
+        "derby_blood_bonus": 1,
+        "score": 6,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -137,6 +468,55 @@
           "preTokkiGrade": "A",
           "interpretation": "渋馬場・スタミナ向き"
         }
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "sav": {
+            "value": 65,
+            "grade": "B"
+          },
+          "st": {
+            "value": 50,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 61,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 2,
+            "grade": "S"
+          },
+          "avg": 2.5
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "hc7": 5.8,
+        "shiba_hc": 3.5,
+        "redCount": 1,
+        "peak_sp": 77,
+        "reason": "★赤+peak77・勝ちパターン合致"
+      },
+      "courseDataGrade": {
+        "grade": "D",
+        "gaikyu": "自厩舎(中4週)",
+        "gaikyu_grade": "—",
+        "pere_book_w": 0,
+        "pere_book_p": 0,
+        "pere_book_t": 0,
+        "pere_book_o": 1,
+        "pere_book_runs": 1,
+        "pere_book_sanchaku_pct": 0,
+        "derby_blood_bonus": 0,
+        "score": -2,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -180,6 +560,55 @@
           "preTokkiGrade": "B",
           "interpretation": "上がり遅＋腰甘い"
         }
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 74,
+            "grade": "B"
+          },
+          "st": {
+            "value": 50,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 56,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 5,
+            "grade": "A"
+          },
+          "avg": 2.25
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "hc7": 9.3,
+        "shiba_hc": 9.3,
+        "redCount": 0,
+        "peak_sp": 77,
+        "reason": "peak77・中間"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "gaikyu": "NFしがらき",
+        "gaikyu_grade": "S",
+        "pere_book_w": 8,
+        "pere_book_p": 4,
+        "pere_book_t": 5,
+        "pere_book_o": 24,
+        "pere_book_runs": 41,
+        "pere_book_sanchaku_pct": 41,
+        "derby_blood_bonus": 1,
+        "score": 5,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -218,6 +647,55 @@
           "preTokkiGrade": "A",
           "interpretation": "軟らかい馬場OK"
         }
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 58,
+            "grade": "C"
+          },
+          "st": {
+            "value": 50,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 56,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 4,
+            "grade": "A"
+          },
+          "avg": 2.0
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "hc7": 2.4,
+        "shiba_hc": 2.4,
+        "redCount": 0,
+        "peak_sp": 79,
+        "reason": "peak79・中間"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "gaikyu": "NF天栄",
+        "gaikyu_grade": "S",
+        "pere_book_w": 1,
+        "pere_book_p": 2,
+        "pere_book_t": 0,
+        "pere_book_o": 8,
+        "pere_book_runs": 11,
+        "pere_book_sanchaku_pct": 27,
+        "derby_blood_bonus": 0,
+        "score": 2,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -256,6 +734,55 @@
           "preTokkiGrade": "A",
           "interpretation": "消耗戦OKだが腰甘"
         }
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 45,
+            "grade": "D"
+          },
+          "st": {
+            "value": 45,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 56,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 8,
+            "grade": "B"
+          },
+          "avg": 1.5
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "hc7": 13.0,
+        "shiba_hc": 13.0,
+        "redCount": 0,
+        "peak_sp": 76,
+        "reason": "HC13.0・パターン大幅外"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "gaikyu": "自厩舎(中2週)",
+        "gaikyu_grade": "—",
+        "pere_book_w": 2,
+        "pere_book_p": 1,
+        "pere_book_t": 1,
+        "pere_book_o": 4,
+        "pere_book_runs": 8,
+        "pere_book_sanchaku_pct": 50,
+        "derby_blood_bonus": 0,
+        "score": 2,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -299,6 +826,55 @@
           "preTokkiGrade": "C",
           "interpretation": "メンタル弱め"
         }
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "sav": {
+            "value": 91,
+            "grade": "S"
+          },
+          "st": {
+            "value": 44,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 57,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 9,
+            "grade": "B"
+          },
+          "avg": 2.5
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "hc7": 7.0,
+        "shiba_hc": 7.0,
+        "redCount": 0,
+        "peak_sp": 74,
+        "reason": "peak74・能力不足"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "gaikyu": "NFしがらき",
+        "gaikyu_grade": "S",
+        "pere_book_w": 13,
+        "pere_book_p": 10,
+        "pere_book_t": 11,
+        "pere_book_o": 42,
+        "pere_book_runs": 76,
+        "pere_book_sanchaku_pct": 44,
+        "derby_blood_bonus": 1,
+        "score": 5,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -342,6 +918,55 @@
           "preTokkiGrade": "B",
           "interpretation": "腰甘さ警戒"
         }
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 61,
+            "grade": "B"
+          },
+          "st": {
+            "value": 49,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 54,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 6,
+            "grade": "A"
+          },
+          "avg": 2.25
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "hc7": 4.0,
+        "shiba_hc": 4.0,
+        "redCount": 1,
+        "peak_sp": 80,
+        "reason": "★赤+peak80・勝ちパターン合致"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "gaikyu": "自厩舎(中4週)",
+        "gaikyu_grade": "—",
+        "pere_book_w": 5,
+        "pere_book_p": 3,
+        "pere_book_t": 3,
+        "pere_book_o": 24,
+        "pere_book_runs": 35,
+        "pere_book_sanchaku_pct": 31,
+        "derby_blood_bonus": 1,
+        "score": 1,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -380,6 +1005,55 @@
           "preTokkiGrade": "B",
           "interpretation": "上がり遅＋腰甘い"
         }
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "D",
+          "sav": {
+            "value": 36,
+            "grade": "D"
+          },
+          "st": {
+            "value": 43,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 50,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 13,
+            "grade": "C"
+          },
+          "avg": 1.25
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "hc7": 7.8,
+        "shiba_hc": 7.8,
+        "redCount": 0,
+        "peak_sp": 83,
+        "reason": "peak83・地力上位"
+      },
+      "courseDataGrade": {
+        "grade": "D",
+        "gaikyu": "キャニオンF土山",
+        "gaikyu_grade": "B",
+        "pere_book_w": 0,
+        "pere_book_p": 0,
+        "pere_book_t": 0,
+        "pere_book_o": 2,
+        "pere_book_runs": 2,
+        "pere_book_sanchaku_pct": 0,
+        "derby_blood_bonus": 0,
+        "score": -1,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -423,6 +1097,56 @@
           "preTokkiGrade": "A",
           "interpretation": "腰甘さ警戒"
         }
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "B",
+          "sav": {
+            "value": 63,
+            "grade": "B"
+          },
+          "st": {
+            "value": 52,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 57,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 3,
+            "grade": "S"
+          },
+          "avg": 2.5
+        },
+        "gan": {
+          "grade": "S",
+          "comment": "「あ、全然変わってる。驚いた」「重賞で戦えるイメージ」(成長＋重賞級認定)",
+          "source": "弥永ch"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "hc7": 4.7,
+        "shiba_hc": 4.7,
+        "redCount": 0,
+        "peak_sp": 75,
+        "reason": "peak75・中間"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "gaikyu": "山元トレセン",
+        "gaikyu_grade": "B",
+        "pere_book_w": 2,
+        "pere_book_p": 0,
+        "pere_book_t": 1,
+        "pere_book_o": 3,
+        "pere_book_runs": 6,
+        "pere_book_sanchaku_pct": 50,
+        "derby_blood_bonus": 1,
+        "score": 4,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -466,6 +1190,56 @@
           "preTokkiGrade": "B",
           "interpretation": "スローOK"
         }
+      },
+      "suzakuGrade": {
+        "grade": "B",
+        "soku": {
+          "grade": "B",
+          "sav": {
+            "value": 86,
+            "grade": "S"
+          },
+          "st": {
+            "value": 57,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 66,
+            "grade": "C"
+          },
+          "tenkai": {
+            "value": 1,
+            "grade": "S"
+          },
+          "avg": 3.25
+        },
+        "gan": {
+          "grade": "B",
+          "comment": "「オープン条件ぐらいのところはたどり着く」（控えめ評価）",
+          "source": "弥永ch"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "S",
+        "hc7": 8.3,
+        "shiba_hc": 8.3,
+        "redCount": 0,
+        "peak_sp": 86,
+        "reason": "peak86・絶対能力S級"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "gaikyu": "エスティF小見川",
+        "gaikyu_grade": "A",
+        "pere_book_w": 10,
+        "pere_book_p": 14,
+        "pere_book_t": 3,
+        "pere_book_o": 48,
+        "pere_book_runs": 75,
+        "pere_book_sanchaku_pct": 36,
+        "derby_blood_bonus": 0,
+        "score": 2,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -504,6 +1278,55 @@
           "preTokkiGrade": "B",
           "interpretation": "腰甘さ警戒"
         }
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 74,
+            "grade": "B"
+          },
+          "st": {
+            "value": 51,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 47,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 11,
+            "grade": "C"
+          },
+          "avg": 1.75
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "hc7": 4.5,
+        "shiba_hc": 4.5,
+        "redCount": 0,
+        "peak_sp": 83,
+        "reason": "peak83・地力上位"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "gaikyu": "チャンピオンヒルズ",
+        "gaikyu_grade": "A",
+        "pere_book_w": 0,
+        "pere_book_p": 0,
+        "pere_book_t": 1,
+        "pere_book_o": 3,
+        "pere_book_runs": 4,
+        "pere_book_sanchaku_pct": 25,
+        "derby_blood_bonus": 0,
+        "score": 0,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -552,6 +1375,55 @@
           "preTokkiGrade": "B",
           "interpretation": "特記なし（中立）"
         }
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 76,
+            "grade": "A"
+          },
+          "st": {
+            "value": 56,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 45,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 7,
+            "grade": "B"
+          },
+          "avg": 2.25
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "hc7": 2.3,
+        "shiba_hc": 2.3,
+        "redCount": 0,
+        "peak_sp": 84,
+        "reason": "peak84・地力上位"
+      },
+      "courseDataGrade": {
+        "grade": "S",
+        "gaikyu": "NF天栄",
+        "gaikyu_grade": "S",
+        "pere_book_w": 5,
+        "pere_book_p": 2,
+        "pere_book_t": 3,
+        "pere_book_o": 7,
+        "pere_book_runs": 17,
+        "pere_book_sanchaku_pct": 58,
+        "derby_blood_bonus": 1,
+        "score": 6,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -600,6 +1472,55 @@
           "preTokkiGrade": "B",
           "interpretation": "一本調子（操縦性難）"
         }
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 58,
+            "grade": "C"
+          },
+          "st": {
+            "value": 49,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 49,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 12,
+            "grade": "C"
+          },
+          "avg": 1.5
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "hc7": 3.8,
+        "shiba_hc": 1.7,
+        "redCount": 0,
+        "peak_sp": 76,
+        "reason": "peak76・中間"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "gaikyu": "NFしがらき",
+        "gaikyu_grade": "S",
+        "pere_book_w": 6,
+        "pere_book_p": 2,
+        "pere_book_t": 1,
+        "pere_book_o": 15,
+        "pere_book_runs": 24,
+        "pere_book_sanchaku_pct": 37,
+        "derby_blood_bonus": 1,
+        "score": 4,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     },
     {
@@ -643,6 +1564,55 @@
           "preTokkiGrade": "A",
           "interpretation": "根性赤＋腰甘いも勝ち越し"
         }
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 82,
+            "grade": "A"
+          },
+          "st": {
+            "value": 53,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 45,
+            "grade": "D"
+          },
+          "tenkai": {
+            "value": 10,
+            "grade": "C"
+          },
+          "avg": 2.0
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "hc7": 4.3,
+        "shiba_hc": 4.3,
+        "redCount": 1,
+        "peak_sp": 84,
+        "reason": "★赤+peak84・パターン合致+地力"
+      },
+      "courseDataGrade": {
+        "grade": "S",
+        "gaikyu": "NFしがらき",
+        "gaikyu_grade": "S",
+        "pere_book_w": 5,
+        "pere_book_p": 2,
+        "pere_book_t": 3,
+        "pere_book_o": 7,
+        "pere_book_runs": 17,
+        "pere_book_sanchaku_pct": 58,
+        "derby_blood_bonus": 1,
+        "score": 6,
+        "note": "競馬ブック東京芝2000m父×コース成績(過去3年122R) + 外厩 + 名門血統"
       }
     }
   ],
