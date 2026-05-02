@@ -35,7 +35,7 @@
         "kirinScore": 4,
         "totalScore": 21.0,
         "mark": "🐉",
-        "markLabel": "総合1位",
+        "markLabel": "神宮1番",
         "num": "15",
         "gate": "8",
         "name": "ショウグンマサムネ",
@@ -75,55 +75,6 @@
         "comment": "大寒桜賞2着・浜中『直線はいい脚』。陣営『左回りで良さが出た。直線の長い東京は合う』。父スワーヴR×NFしがらき・東京2000m父産駒58.8%の鉄板血統。10人気は神宮的に最も美味しい"
       },
       {
-        "god": "seiryu",
-        "godLabel": "青龍",
-        "godEmoji": "🐉",
-        "godGrade": "A",
-        "rankInGod": 5,
-        "kirinMark": false,
-        "kirinScore": 3,
-        "totalScore": 19.0,
-        "mark": "🐉",
-        "markLabel": "総合2位",
-        "num": "10",
-        "gate": "6",
-        "name": "エーデルゼーレ",
-        "ninki": "2",
-        "odds": "6.0",
-        "sire": "コントレイル",
-        "bms": "Curlin",
-        "jockey": "佐々木",
-        "trainer": "堀(美)",
-        "gaikyu": "山元トレセン",
-        "prevName": "3歳未勝利",
-        "prevFinish": "1",
-        "badges": [
-          {
-            "t": "seiryu",
-            "g": "A",
-            "label": "青龍（言霊）"
-          },
-          {
-            "t": "suzaku",
-            "g": "A",
-            "label": "朱雀（速眼）",
-            "soku": "B",
-            "gan": "S"
-          },
-          {
-            "t": "byakko",
-            "g": "C",
-            "label": "白虎（ラップ）"
-          },
-          {
-            "t": "genbu",
-            "g": "A",
-            "label": "玄武（地脈）"
-          }
-        ],
-        "comment": "鋭い差し切り（内ラチ1頭分のスペースから）＋堀厩舎『前向きさ出て好レース期待』。コントレイル産駒×山元トレセン。前走後の成長著しい・2人気6.0倍"
-      },
-      {
         "god": "genbu",
         "godLabel": "玄武",
         "godEmoji": "🐢",
@@ -133,7 +84,7 @@
         "kirinScore": 4,
         "totalScore": 18.5,
         "mark": "🐢",
-        "markLabel": "総合3位",
+        "markLabel": "神宮2番",
         "num": "13",
         "gate": "7",
         "name": "ジャスティンシカゴ",
@@ -176,13 +127,62 @@
         "god": "seiryu",
         "godLabel": "青龍",
         "godEmoji": "🐉",
+        "godGrade": "A",
+        "rankInGod": 2,
+        "kirinMark": false,
+        "kirinScore": 2,
+        "totalScore": 15.0,
+        "mark": "🐉",
+        "markLabel": "神宮3番",
+        "num": "3",
+        "gate": "2",
+        "name": "トーセンブリラーレ",
+        "ninki": "6",
+        "odds": "13.3",
+        "sire": "トーセンレーヴ",
+        "bms": "アグネスデジタル",
+        "jockey": "長浜",
+        "trainer": "小笠(美)",
+        "gaikyu": "自厩舎(中4週)",
+        "prevName": "3歳未勝利",
+        "prevFinish": "1",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "A",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "B",
+            "label": "朱雀（速眼）",
+            "soku": "B",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "B",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "D",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走未勝利『ラスト2ハロン11.8→11.3の加速ラップで3馬身半圧勝』。長浜『文句のない競馬』。父トーセンレーヴはこのレース勝ち馬・伝統あり。麒麟+2＋言霊4位の伏兵"
+      },
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
         "godGrade": "B",
         "rankInGod": 12,
         "kirinMark": false,
         "kirinScore": 4,
         "totalScore": 16.5,
         "mark": "🐉",
-        "markLabel": "総合4位",
+        "markLabel": "神宮4番",
         "num": "14",
         "gate": "8",
         "name": "ミッキージャンプ",
@@ -229,15 +229,15 @@
       "score": 21.0,
       "inPicks": true
     },
-    "pickStrategy": "total-rank-top4",
-    "pickNote": "プリンシパルS過去5年大荒れの傾向に対応。神宮総合TOP4で人気バイアス排除",
+    "pickStrategy": "manual-anti-bias",
+    "pickNote": "2人気エーデルゼーレ→6人気トーセンブリラーレに入替。言霊A（前走3馬身半圧勝＋父コース勝ち伝統）を活かす穴狙いpicks",
     "bets": {
       "strategy": "wide-umaren",
       "wide": {
         "horses": [
           "ショウグンマサムネ",
-          "エーデルゼーレ",
           "ジャスティンシカゴ",
+          "トーセンブリラーレ",
           "ミッキージャンプ"
         ],
         "perPoint": 100,
@@ -247,8 +247,8 @@
       "umaren": {
         "horses": [
           "ショウグンマサムネ",
-          "エーデルゼーレ",
           "ジャスティンシカゴ",
+          "トーセンブリラーレ",
           "ミッキージャンプ"
         ],
         "perPoint": 100,
