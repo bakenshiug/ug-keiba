@@ -1,0 +1,699 @@
+{
+  "race": {
+    "name": "プリンシパルS",
+    "grade": "L",
+    "date": "2026-05-03",
+    "venue": "東京",
+    "surface": "芝",
+    "distance": 2000,
+    "course": "左",
+    "startTime": "15:25",
+    "numHorses": 15,
+    "weather": "",
+    "baba": "",
+    "round": 2,
+    "day": 4,
+    "category": "サラ系3歳 オープン (国際) (指) 馬齢"
+  },
+  "raceTitle": {
+    "main": "プリンシパルS",
+    "sub": "ダービートライアル",
+    "desc": "─ 東京芝2000m・1〜3着に日本ダービー優先出走権 ─"
+  },
+  "dataStatus": "scoring",
+  "logicVersion": "v3-kirin",
+  "presentation": {
+    "raceId": "202605020411"
+  },
+  "horses": [
+    {
+      "num": 1,
+      "gate": 1,
+      "name": "ベルウッドクレド",
+      "jockey": "大野",
+      "trainer": "辻(美)",
+      "sire": "シルバーステート",
+      "broodmareSire": "Candy Ride",
+      "prevName": "3歳新馬",
+      "prevFinish": "1",
+      "kirinPt": 0,
+      "kirinFactors": [],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "新馬1着・好仕上がり「危なげない内容」「伸びしろあり」",
+        "stableWill": "中立「これから良くなる馬」「どこまでやれるか」",
+        "keyword": "新馬1着のみ・陣営慎重",
+        "tokki": {
+          "tokki1": "—",
+          "tokki2": "—",
+          "tokki3": "—",
+          "tokkiScores": [
+            0,
+            0,
+            0
+          ],
+          "tokkiTotal": 0,
+          "preTokkiGrade": "B",
+          "interpretation": "特記なし（重適性△のみ）"
+        }
+      }
+    },
+    {
+      "num": 2,
+      "gate": 2,
+      "name": "レッドラージャ",
+      "jockey": "西塚",
+      "trainer": "友道(栗)",
+      "sire": "コントレイル",
+      "broodmareSire": "Giant's Causeway",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "kirinPt": 3,
+      "kirinFactors": [
+        {
+          "key": "prev_mishōri_win",
+          "label": "前走未勝利1着（毎年2-3着に絡む）",
+          "pt": 2
+        },
+        {
+          "key": "meimon_yaku",
+          "label": "名門厩舎（友道）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "未勝利1着「相手にも恵まれて快勝」「内モタれを立て直し粘り込みを捩じ伏せた」",
+        "stableWill": "強気「広いコースが合う」「ひと息入れて力もつけてきた」「楽しみ」",
+        "keyword": "前走快勝＋友道厩舎強気",
+        "tokki": {
+          "tokki1": "ダート×",
+          "tokki2": "瞬発力×(青)",
+          "tokki3": "ブ効果○",
+          "tokkiScores": [
+            -1,
+            -1,
+            1
+          ],
+          "tokkiTotal": -1,
+          "preTokkiGrade": "A",
+          "interpretation": "瞬発力青＋ダート×"
+        }
+      }
+    },
+    {
+      "num": 3,
+      "gate": 2,
+      "name": "トーセンブリラーレ",
+      "jockey": "長浜",
+      "trainer": "小笠(美)",
+      "sire": "トーセンレーヴ",
+      "broodmareSire": "アグネスデジタル",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "kirinPt": 2,
+      "kirinFactors": [
+        {
+          "key": "prev_mishōri_win",
+          "label": "前走未勝利1着（毎年2-3着に絡む）",
+          "pt": 2
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "未勝利1着「ラスト2ハロン11.8→11.3の加速ラップで3馬身半差圧勝」",
+        "stableWill": "強気「強い勝ち方」「父もこのレースを勝っています」「相手強化に対応できれば」",
+        "keyword": "前走圧勝3馬身半＋父コース実績",
+        "tokki": {
+          "tokki1": "腰甘い(青)",
+          "tokki2": "渋馬場○",
+          "tokki3": "上が掛○",
+          "tokkiScores": [
+            -1,
+            1,
+            1
+          ],
+          "tokkiTotal": 1,
+          "preTokkiGrade": "A",
+          "interpretation": "渋馬場・スタミナ向き"
+        }
+      }
+    },
+    {
+      "num": 4,
+      "gate": 3,
+      "name": "ヘイジュード",
+      "jockey": "浜中",
+      "trainer": "堀(美)",
+      "sire": "キタサンブラック",
+      "broodmareSire": "Congaree",
+      "prevName": "3歳未勝利",
+      "prevFinish": "2",
+      "kirinPt": 2,
+      "kirinFactors": [
+        {
+          "key": "meimon_yaku",
+          "label": "名門厩舎（堀）",
+          "pt": 1
+        },
+        {
+          "key": "sanchaku_atari_chichi",
+          "label": "父産駒3着内率34%（キタサンB）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "C",
+        "prevTruth": "未勝利2着「ぴったり並んでゴール、僅かに届かず」「すぐにチャンスがきそう」",
+        "stableWill": "中立「終いで気を抜くのでブリンカー着用」「効果はありそうで悪影響もありそう」",
+        "keyword": "惜敗＋ブリンカー試行（効果半信半疑）",
+        "tokki": {
+          "tokki1": "上が速×",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "—",
+          "tokkiScores": [
+            -1,
+            -1,
+            0
+          ],
+          "tokkiTotal": -2,
+          "preTokkiGrade": "B",
+          "interpretation": "上がり遅＋腰甘い"
+        }
+      }
+    },
+    {
+      "num": 5,
+      "gate": 3,
+      "name": "ウィロークリーク",
+      "jockey": "田辺",
+      "trainer": "中舘(美)",
+      "sire": "ラブリーデイ",
+      "broodmareSire": "フレンチデピュティ",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "kirinPt": 2,
+      "kirinFactors": [
+        {
+          "key": "prev_mishōri_win",
+          "label": "前走未勝利1着（毎年2-3着に絡む）",
+          "pt": 2
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "未勝利1着「外からまとめて差し切った」「距離も軟らかい馬場もぴったり」(ルメール)",
+        "stableWill": "強気「順調」「血統馬らしく成長」「現時点でも差のない競馬はできる」",
+        "keyword": "前走差し切り＋陣営「差はない」",
+        "tokki": {
+          "tokki1": "完歩小さ",
+          "tokki2": "軟ら芝○",
+          "tokki3": "腰甘い(青)",
+          "tokkiScores": [
+            0,
+            1,
+            -1
+          ],
+          "tokkiTotal": 0,
+          "preTokkiGrade": "A",
+          "interpretation": "軟らかい馬場OK"
+        }
+      }
+    },
+    {
+      "num": 6,
+      "gate": 4,
+      "name": "マイネルクオリア",
+      "jockey": "松岡",
+      "trainer": "田村(美)",
+      "sire": "ベンバトル",
+      "broodmareSire": "アグネスデジタル",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "kirinPt": 2,
+      "kirinFactors": [
+        {
+          "key": "prev_mishōri_win",
+          "label": "前走未勝利1着（毎年2-3着に絡む）",
+          "pt": 2
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "未勝利1着「能力は高い」「粗削り」「エンジン速い」",
+        "stableWill": "強気「能力は高い」「東京は合いそう」「楽しみ」",
+        "keyword": "陣営強気「能力高い」「東京合う」",
+        "tokki": {
+          "tokki1": "上が掛○",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "—",
+          "tokkiScores": [
+            1,
+            -1,
+            0
+          ],
+          "tokkiTotal": 0,
+          "preTokkiGrade": "A",
+          "interpretation": "消耗戦OKだが腰甘"
+        }
+      }
+    },
+    {
+      "num": 7,
+      "gate": 4,
+      "name": "ヴィサージュ",
+      "jockey": "横山典",
+      "trainer": "大久保(栗)",
+      "sire": "エピファネイア",
+      "broodmareSire": "キングカメハメハ",
+      "prevName": "(休養明)",
+      "prevFinish": "",
+      "kirinPt": 0,
+      "kirinFactors": [
+        {
+          "key": "yasumiake",
+          "label": "休養明け（プリンシパルSは仕上がり重視）",
+          "pt": -1
+        },
+        {
+          "key": "sanchaku_atari_chichi",
+          "label": "父産駒3着内率34%（エピファネイア）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "C",
+        "prevTruth": "2025/10新馬1着「能力を感じます」「上がり33.6優秀」（半年以上前）",
+        "stableWill": "慎重「青葉賞除外」「骨折明け」「攻めを積む毎に良くなっています」「ここでいい競馬ができれば」",
+        "keyword": "骨折明け・休養半年以上",
+        "tokki": {
+          "tokki1": "恐がり",
+          "tokki2": "大トビ",
+          "tokki3": "—",
+          "tokkiScores": [
+            -1,
+            0,
+            0
+          ],
+          "tokkiTotal": -1,
+          "preTokkiGrade": "C",
+          "interpretation": "メンタル弱め"
+        }
+      }
+    },
+    {
+      "num": 8,
+      "gate": 5,
+      "name": "ボンドマティーニ",
+      "jockey": "横山和",
+      "trainer": "安田(栗)",
+      "sire": "レイデオロ",
+      "broodmareSire": "ダイワメジャー",
+      "prevName": "大寒桜賞 1勝",
+      "prevFinish": "4",
+      "kirinPt": 4,
+      "kirinFactors": [
+        {
+          "key": "daiankzakura_kaeri",
+          "label": "大寒桜賞帰り（バジオウ・ダノンエアズロック型）",
+          "pt": 3
+        },
+        {
+          "key": "sanchaku_atari_chichi",
+          "label": "父産駒3着内率33%（レイデオロ）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "大寒桜賞4着「最後動けず一杯」「弾むような感じを作れず」「若さが前面」",
+        "stableWill": "課題認識「コーナリングに課題」「いい加速ができるよう、バランス良く」",
+        "keyword": "前走若さ全面＋陣営課題認識",
+        "tokki": {
+          "tokki1": "腰甘い(青)",
+          "tokki2": "—",
+          "tokki3": "—",
+          "tokkiScores": [
+            -1,
+            0,
+            0
+          ],
+          "tokkiTotal": -1,
+          "preTokkiGrade": "B",
+          "interpretation": "腰甘さ警戒"
+        }
+      }
+    },
+    {
+      "num": 9,
+      "gate": 5,
+      "name": "マテンロウゼロ",
+      "jockey": "石橋脩",
+      "trainer": "松永幹(栗)",
+      "sire": "リオンリオン",
+      "broodmareSire": "ハービンジャー",
+      "prevName": "ゆりかもめ 1勝",
+      "prevFinish": "4",
+      "kirinPt": 2,
+      "kirinFactors": [
+        {
+          "key": "prev_1shō_renta",
+          "label": "ゆりかもめS（1勝C 4着）",
+          "pt": 2
+        }
+      ],
+      "relComment": {
+        "grade": "C",
+        "prevTruth": "ゆりかもめ4着「ハナ立ちマイペース逃げ」「ラスト100mで苦しく」「自己条件なら走れる」",
+        "stableWill": "中立「2400mでも踏ん張れた」「2000mで勝っていますから、出たところで運べれば」",
+        "keyword": "2000m実績・自在性",
+        "tokki": {
+          "tokki1": "上が速×",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "—",
+          "tokkiScores": [
+            -1,
+            -1,
+            0
+          ],
+          "tokkiTotal": -2,
+          "preTokkiGrade": "B",
+          "interpretation": "上がり遅＋腰甘い"
+        }
+      }
+    },
+    {
+      "num": 10,
+      "gate": 6,
+      "name": "エーデルゼーレ",
+      "jockey": "佐々木",
+      "trainer": "堀(美)",
+      "sire": "コントレイル",
+      "broodmareSire": "Curlin",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "kirinPt": 3,
+      "kirinFactors": [
+        {
+          "key": "prev_mishōri_win",
+          "label": "前走未勝利1着（毎年2-3着に絡む）",
+          "pt": 2
+        },
+        {
+          "key": "meimon_yaku",
+          "label": "名門厩舎（堀）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "未勝利1着「内ラチ沿い1頭分のスペースから差し切った」「いい脚で伸びて」「これからの馬」「期待」",
+        "stableWill": "強気「ピリッとして気持ちが入ってきた」「前向きさが出て状態もいい」「好レースを期待」",
+        "keyword": "鋭い差し切り＋陣営最大強気",
+        "tokki": {
+          "tokki1": "腰甘い(青)",
+          "tokki2": "—",
+          "tokki3": "—",
+          "tokkiScores": [
+            -1,
+            0,
+            0
+          ],
+          "tokkiTotal": -1,
+          "preTokkiGrade": "A",
+          "interpretation": "腰甘さ警戒"
+        }
+      }
+    },
+    {
+      "num": 11,
+      "gate": 6,
+      "name": "オルフセン",
+      "jockey": "岩田康",
+      "trainer": "斎藤誠(美)",
+      "sire": "キズナ",
+      "broodmareSire": "Sea The Stars",
+      "prevName": "(休養明)",
+      "prevFinish": "",
+      "kirinPt": 0,
+      "kirinFactors": [
+        {
+          "key": "yasumiake",
+          "label": "休養明け（プリンシパルSは仕上がり重視）",
+          "pt": -1
+        },
+        {
+          "key": "sanchaku_atari_chichi",
+          "label": "父産駒3着内率35%（キズナ）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "ホープフルS6着「初の中山はこなしてくれた」「まだ良くなる馬」「期待」",
+        "stableWill": "中立「青葉賞除外」「再調整明け」「順調に仕上がり」「ここはクリアしてもらいたい」",
+        "keyword": "G1経験あり・順調",
+        "tokki": {
+          "tokki1": "P遅い○",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "—",
+          "tokkiScores": [
+            1,
+            -1,
+            0
+          ],
+          "tokkiTotal": 0,
+          "preTokkiGrade": "B",
+          "interpretation": "スローOK"
+        }
+      }
+    },
+    {
+      "num": 12,
+      "gate": 7,
+      "name": "メイショウハチコウ",
+      "jockey": "ディー",
+      "trainer": "牧浦(栗)",
+      "sire": "ロジャーバローズ",
+      "broodmareSire": "アグネスデジタル",
+      "prevName": "3歳1勝クラス",
+      "prevFinish": "1",
+      "kirinPt": 2,
+      "kirinFactors": [
+        {
+          "key": "prev_1shō_win",
+          "label": "前走1勝クラス1着（実力上昇中）",
+          "pt": 2
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "3歳1勝C 1着「ラスト1ハロンからスパッと切れて完勝」",
+        "stableWill": "条件付き「前向きな馬」「順調」「東京にうまく対応できるかどうか」",
+        "keyword": "前走完勝・東京未経験懸念",
+        "tokki": {
+          "tokki1": "腰甘い(青)",
+          "tokki2": "—",
+          "tokki3": "—",
+          "tokkiScores": [
+            -1,
+            0,
+            0
+          ],
+          "tokkiTotal": -1,
+          "preTokkiGrade": "B",
+          "interpretation": "腰甘さ警戒"
+        }
+      }
+    },
+    {
+      "num": 13,
+      "gate": 7,
+      "name": "ジャスティンシカゴ",
+      "jockey": "原",
+      "trainer": "宮田(美)",
+      "sire": "スワーヴリチャード",
+      "broodmareSire": "キングカメハメハ",
+      "prevName": "フリージア 1勝",
+      "prevFinish": "2",
+      "kirinPt": 4,
+      "kirinFactors": [
+        {
+          "key": "prev_1shō_renta",
+          "label": "フリージア2着（1勝C連対）",
+          "pt": 2
+        },
+        {
+          "key": "meimon_yaku",
+          "label": "名門厩舎（宮田）",
+          "pt": 1
+        },
+        {
+          "key": "sanchaku_atari_chichi",
+          "label": "父産駒3着内率31%（スワーヴR）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "フリージア2着「リズムを重視して、こういう形を選択」「踏ん張っています」「大トビで広いコースは合う」",
+        "stableWill": "致命『自分のリズムで運んで持ち味』『今回も自分のリズムで走れば好勝負が可能』",
+        "keyword": "致命ワード『自分のリズム優先』2回連発→B天井",
+        "tokki": {
+          "tokki1": "—",
+          "tokki2": "—",
+          "tokki3": "—",
+          "tokkiScores": [
+            0,
+            0,
+            0
+          ],
+          "tokkiTotal": 0,
+          "preTokkiGrade": "B",
+          "interpretation": "特記なし（中立）"
+        }
+      }
+    },
+    {
+      "num": 14,
+      "gate": 8,
+      "name": "ミッキージャンプ",
+      "jockey": "菅原明",
+      "trainer": "池江(栗)",
+      "sire": "サートゥルナーリア",
+      "broodmareSire": "E Dubai",
+      "prevName": "3歳未勝利",
+      "prevFinish": "1",
+      "kirinPt": 4,
+      "kirinFactors": [
+        {
+          "key": "prev_mishōri_win",
+          "label": "前走未勝利1着（毎年2-3着に絡む）",
+          "pt": 2
+        },
+        {
+          "key": "meimon_yaku",
+          "label": "名門厩舎（池江）",
+          "pt": 1
+        },
+        {
+          "key": "sanchaku_atari_chichi",
+          "label": "父産駒3着内率39%（サートゥル）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "未勝利1着「力が違ったという内容」「上でもやれそう」",
+        "stableWill": "中立「相手関係に少し恵まれた」「まだ成長段階」「ここでどれだけ動けるか」",
+        "keyword": "前走力差・陣営慎重",
+        "tokki": {
+          "tokki1": "一本調子",
+          "tokki2": "—",
+          "tokki3": "—",
+          "tokkiScores": [
+            -1,
+            0,
+            0
+          ],
+          "tokkiTotal": -1,
+          "preTokkiGrade": "B",
+          "interpretation": "一本調子（操縦性難）"
+        }
+      }
+    },
+    {
+      "num": 15,
+      "gate": 8,
+      "name": "ショウグンマサムネ",
+      "jockey": "荻野極",
+      "trainer": "佐藤悠(栗)",
+      "sire": "スワーヴリチャード",
+      "broodmareSire": "ジャングルポケット",
+      "prevName": "大寒桜賞 1勝",
+      "prevFinish": "2",
+      "kirinPt": 4,
+      "kirinFactors": [
+        {
+          "key": "daiankzakura_kaeri",
+          "label": "大寒桜賞2着（重賞TR連対）",
+          "pt": 3
+        },
+        {
+          "key": "sanchaku_atari_chichi",
+          "label": "父産駒3着内率31%（スワーヴR）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "大寒桜賞2着「直線はいい脚」「外へ持ち出し力強く伸びて勝ち馬に迫る」",
+        "stableWill": "強気「左回りで良さが出た」「直線の長い東京は合うと思います」",
+        "keyword": "差し詰め＋左回り適性＋東京合う",
+        "tokki": {
+          "tokki1": "根性有り(赤)",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "大トビ",
+          "tokkiScores": [
+            2,
+            -1,
+            0
+          ],
+          "tokkiTotal": 1,
+          "preTokkiGrade": "A",
+          "interpretation": "根性赤＋腰甘いも勝ち越し"
+        }
+      }
+    }
+  ],
+  "kirinScore": {
+    "factors": [
+      {
+        "key": "jyusho_tr_kaeri",
+        "label": "重賞TR凡走帰り（共同通信/ディープ/毎日杯等4-8着）",
+        "pt": 3
+      },
+      {
+        "key": "daiankzakura_kaeri",
+        "label": "大寒桜賞帰り（バジオウ・ダノンエアズロック型）",
+        "pt": 3
+      },
+      {
+        "key": "prev_mishōri_win",
+        "label": "前走未勝利1着（毎年2-3着に絡む）",
+        "pt": 2
+      },
+      {
+        "key": "prev_1shō_win",
+        "label": "前走1勝クラス1着（実力上昇中）",
+        "pt": 2
+      },
+      {
+        "key": "prev_1shō_renta",
+        "label": "フリージア・ゆりかもめ等1勝C連対",
+        "pt": 2
+      },
+      {
+        "key": "meimon_yaku",
+        "label": "名門厩舎（堀・友道・宮田・池江・木村）",
+        "pt": 1
+      },
+      {
+        "key": "sanchaku_atari_chichi",
+        "label": "父産駒3着内率30%以上",
+        "pt": 1
+      },
+      {
+        "key": "yasumiake",
+        "label": "休養明け（プリンシパルSは仕上がり重視）",
+        "pt": -1
+      },
+      {
+        "key": "prev_haisō_5plus",
+        "label": "前走5着以下大敗（重賞TR以外）",
+        "pt": -1
+      }
+    ],
+    "source": "プリンシパルS過去5年（2021-2025）傾向分析"
+  }
+}
