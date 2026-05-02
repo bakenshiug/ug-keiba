@@ -128,22 +128,22 @@
         "godLabel": "青龍",
         "godEmoji": "🐉",
         "godGrade": "A",
-        "rankInGod": 2,
+        "rankInGod": 1,
         "kirinMark": false,
-        "kirinScore": 2,
-        "totalScore": 15.0,
+        "kirinScore": 3,
+        "totalScore": 16.0,
         "mark": "🐉",
         "markLabel": "神宮3番",
-        "num": "3",
+        "num": "2",
         "gate": "2",
-        "name": "トーセンブリラーレ",
-        "ninki": "6",
-        "odds": "13.3",
-        "sire": "トーセンレーヴ",
-        "bms": "アグネスデジタル",
-        "jockey": "長浜",
-        "trainer": "小笠(美)",
-        "gaikyu": "自厩舎(中4週)",
+        "name": "レッドラージャ",
+        "ninki": "11",
+        "odds": "29.4",
+        "sire": "コントレイル",
+        "bms": "Giant's Causeway",
+        "jockey": "西塚",
+        "trainer": "友道(栗)",
+        "gaikyu": "NFしがらき",
         "prevName": "3歳未勝利",
         "prevFinish": "1",
         "badges": [
@@ -154,23 +154,23 @@
           },
           {
             "t": "suzaku",
-            "g": "B",
+            "g": "D",
             "label": "朱雀（速眼）",
-            "soku": "B",
+            "soku": "D",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "B",
+            "g": "D",
             "label": "白虎（ラップ）"
           },
           {
             "t": "genbu",
-            "g": "D",
+            "g": "S",
             "label": "玄武（地脈）"
           }
         ],
-        "comment": "前走未勝利『ラスト2ハロン11.8→11.3の加速ラップで3馬身半圧勝』。長浜『文句のない競馬』。父トーセンレーヴはこのレース勝ち馬・伝統あり。麒麟+2＋言霊4位の伏兵"
+        "comment": "前走未勝利1着『相手にも恵まれて快勝』。西塚『ちゃんと走ればいい競馬ができる』。父コントレイル×NFしがらき×友道厩舎の超名門。東京2000m父産駒3着内率50%。麒麟+3"
       },
       {
         "god": "seiryu",
@@ -229,15 +229,15 @@
       "score": 21.0,
       "inPicks": true
     },
-    "pickStrategy": "manual-anti-bias",
-    "pickNote": "2人気エーデルゼーレ→6人気トーセンブリラーレに入替。言霊A（前走3馬身半圧勝＋父コース勝ち伝統）を活かす穴狙いpicks",
+    "pickStrategy": "manual-anti-bias-v2",
+    "pickNote": "エーデル(2人気6.0倍)は来ないと判断。レッドラージャ(11人気29.4倍)復活。全員2桁人気級の超穴picks",
     "bets": {
       "strategy": "wide-umaren",
       "wide": {
         "horses": [
           "ショウグンマサムネ",
           "ジャスティンシカゴ",
-          "トーセンブリラーレ",
+          "レッドラージャ",
           "ミッキージャンプ"
         ],
         "perPoint": 100,
@@ -248,7 +248,7 @@
         "horses": [
           "ショウグンマサムネ",
           "ジャスティンシカゴ",
-          "トーセンブリラーレ",
+          "レッドラージャ",
           "ミッキージャンプ"
         ],
         "perPoint": 100,
