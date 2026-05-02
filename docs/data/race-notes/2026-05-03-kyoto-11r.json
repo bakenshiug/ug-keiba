@@ -36,9 +36,9 @@
       "wide": {
         "horses": [
           "アドマイヤテラ",
-          "ヘデントール",
           "クロワデュノール",
-          "マイネルカンパーナ"
+          "マイネルカンパーナ",
+          "アクアヴァーナル"
         ],
         "perPoint": 100,
         "points": 6,
@@ -47,9 +47,9 @@
       "umaren": {
         "horses": [
           "アドマイヤテラ",
-          "ヘデントール",
           "クロワデュノール",
-          "マイネルカンパーナ"
+          "マイネルカンパーナ",
+          "アクアヴァーナル"
         ],
         "perPoint": 100,
         "points": 6,
@@ -92,7 +92,7 @@
             "g": "S",
             "label": "朱雀（速眼）",
             "soku": "S",
-            "gan": "—"
+            "gan": "A"
           },
           {
             "t": "byakko",
@@ -111,62 +111,13 @@
         "god": "seiryu",
         "godLabel": "青龍",
         "godEmoji": "🐉",
-        "godGrade": "A",
-        "rankInGod": 4,
-        "kirinMark": false,
-        "kirinScore": 5,
-        "totalScore": 24.0,
-        "mark": "🐉",
-        "markLabel": "総合2位",
-        "num": "12",
-        "gate": "7",
-        "name": "ヘデントール",
-        "ninki": "3",
-        "odds": "5.2",
-        "sire": "ルーラーシップ",
-        "bms": "ステイゴールド",
-        "jockey": "ルメール",
-        "trainer": "木村(美)",
-        "gaikyu": "NF天栄",
-        "prevName": "京都記念 GII",
-        "prevFinish": "8",
-        "badges": [
-          {
-            "t": "seiryu",
-            "g": "A",
-            "label": "青龍（言霊）"
-          },
-          {
-            "t": "suzaku",
-            "g": "S",
-            "label": "朱雀（速眼）",
-            "soku": "S",
-            "gan": "—"
-          },
-          {
-            "t": "byakko",
-            "g": "B",
-            "label": "白虎（ラップ）"
-          },
-          {
-            "t": "genbu",
-            "g": "S",
-            "label": "玄武（地脈）"
-          }
-        ],
-        "comment": "前走休み明け参考外＋陣営強気＋前年覇者"
-      },
-      {
-        "god": "seiryu",
-        "godLabel": "青龍",
-        "godEmoji": "🐉",
         "godGrade": "S",
         "rankInGod": 2,
         "kirinMark": false,
         "kirinScore": 1,
         "totalScore": 19.5,
         "mark": "🐉",
-        "markLabel": "総合3位",
+        "markLabel": "総合2位",
         "num": "7",
         "gate": "4",
         "name": "クロワデュノール",
@@ -190,7 +141,7 @@
             "g": "S",
             "label": "朱雀（速眼）",
             "soku": "S",
-            "gan": "—"
+            "gan": "S"
           },
           {
             "t": "byakko",
@@ -215,7 +166,7 @@
         "kirinScore": 3,
         "totalScore": 18.5,
         "mark": "🐢",
-        "markLabel": "総合4位",
+        "markLabel": "総合3位",
         "num": "10",
         "gate": "6",
         "name": "マイネルカンパーナ",
@@ -239,7 +190,7 @@
             "g": "C",
             "label": "朱雀（速眼）",
             "soku": "C",
-            "gan": "—"
+            "gan": "C"
           },
           {
             "t": "byakko",
@@ -253,9 +204,59 @@
           }
         ],
         "comment": "陣営強気＋穴候補"
+      },
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "A",
+        "rankInGod": 3,
+        "kirinMark": false,
+        "kirinScore": 1,
+        "totalScore": 18.0,
+        "mark": "🐉",
+        "markLabel": "総合4位",
+        "num": "4",
+        "gate": "3",
+        "name": "アクアヴァーナル",
+        "ninki": "4",
+        "odds": "24.5",
+        "sire": "エピファネイア",
+        "bms": "ディープインパクト",
+        "jockey": "松山弘平",
+        "trainer": "四位(栗)",
+        "gaikyu": "NFしがらき",
+        "prevName": "阪神大賞典 GII",
+        "prevFinish": "2",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "A",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "A",
+            "label": "朱雀（速眼）",
+            "soku": "A",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "B",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "A",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": ""
       }
     ],
-    "pickStrategy": "total-rank-top4"
+    "pickStrategy": "manual-yaminaga-adjusted",
+    "pickNote": "ヘデントール→アクアヴァーナル入替（弥永「眼D」評価で総合スコア低下、次点アクアヴァーナル昇格）"
   },
   "horses": [
     {
@@ -511,8 +512,9 @@
           "avg": 5.0
         },
         "gan": {
-          "grade": "—",
-          "comment": "弥永ch未取得"
+          "grade": "A",
+          "comment": "「クロワとアドマの勝負楽しみ」（注目枠）",
+          "source": "弥永ch"
         }
       },
       "yugomiLapGrade": {
@@ -879,8 +881,9 @@
           "avg": 5.0
         },
         "gan": {
-          "grade": "—",
-          "comment": "弥永ch未取得"
+          "grade": "S",
+          "comment": "「本命」「相手大したことない」「黒バは抜けてる」",
+          "source": "弥永ch"
         }
       },
       "yugomiLapGrade": {
@@ -953,7 +956,7 @@
         ]
       },
       "suzakuGrade": {
-        "grade": "S",
+        "grade": "A",
         "soku": {
           "grade": "S",
           "sav": {
@@ -975,8 +978,9 @@
           "avg": 4.75
         },
         "gan": {
-          "grade": "—",
-          "comment": "弥永ch未取得"
+          "grade": "B",
+          "comment": "「興味ないけど一頭だけ気になる」「タフ」「距離は昔からそう」",
+          "source": "弥永ch"
         }
       },
       "yugomiLapGrade": {
@@ -1156,8 +1160,9 @@
           "avg": 2.25
         },
         "gan": {
-          "grade": "—",
-          "comment": "弥永ch未取得"
+          "grade": "C",
+          "comment": "「いつも通り」「もう十分」",
+          "source": "弥永ch"
         }
       },
       "yugomiLapGrade": {
@@ -1326,7 +1331,7 @@
         ]
       },
       "suzakuGrade": {
-        "grade": "S",
+        "grade": "B",
         "soku": {
           "grade": "S",
           "sav": {
@@ -1348,8 +1353,9 @@
           "avg": 5.0
         },
         "gan": {
-          "grade": "—",
-          "comment": "弥永ch未取得"
+          "grade": "D",
+          "comment": "「そんなに大したことない」「相手」（明確な低評価）",
+          "source": "弥永ch"
         }
       },
       "yugomiLapGrade": {
@@ -1540,8 +1546,9 @@
           "avg": 3.75
         },
         "gan": {
-          "grade": "—",
-          "comment": "弥永ch未取得"
+          "grade": "B",
+          "comment": "「初めて近くで見た」「本当に美人な馬」（取材枠）",
+          "source": "弥永ch"
         }
       },
       "yugomiLapGrade": {
