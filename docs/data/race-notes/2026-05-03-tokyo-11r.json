@@ -176,50 +176,50 @@
         "god": "seiryu",
         "godLabel": "青龍",
         "godEmoji": "🐉",
-        "godGrade": "B",
-        "rankInGod": 12,
+        "godGrade": "A",
+        "rankInGod": 2,
         "kirinMark": false,
-        "kirinScore": 4,
-        "totalScore": 16.5,
+        "kirinScore": 2,
+        "totalScore": 15.0,
         "mark": "🐉",
         "markLabel": "神宮4番",
-        "num": "14",
-        "gate": "8",
-        "name": "ミッキージャンプ",
-        "ninki": "14",
-        "odds": "73.5",
-        "sire": "サートゥルナーリア",
-        "bms": "E Dubai",
-        "jockey": "菅原明",
-        "trainer": "池江(栗)",
-        "gaikyu": "NFしがらき",
+        "num": "3",
+        "gate": "2",
+        "name": "トーセンブリラーレ",
+        "ninki": "6",
+        "odds": "13.3",
+        "sire": "トーセンレーヴ",
+        "bms": "アグネスデジタル",
+        "jockey": "長浜",
+        "trainer": "小笠(美)",
+        "gaikyu": "自厩舎(中4週)",
         "prevName": "3歳未勝利",
         "prevFinish": "1",
         "badges": [
           {
             "t": "seiryu",
-            "g": "B",
+            "g": "A",
             "label": "青龍（言霊）"
           },
           {
             "t": "suzaku",
-            "g": "C",
+            "g": "B",
             "label": "朱雀（速眼）",
-            "soku": "C",
+            "soku": "B",
             "gan": "—"
           },
           {
             "t": "byakko",
-            "g": "C",
+            "g": "B",
             "label": "白虎（ラップ）"
           },
           {
             "t": "genbu",
-            "g": "A",
+            "g": "D",
             "label": "玄武（地脈）"
           }
         ],
-        "comment": "池江厩舎×サートゥル産駒×NFしがらきの名門。未勝利1着『力が違った』。14人気73.5倍は伝説級の穴。麒麟+4の隠れた本命候補で4頭BOXの起爆剤"
+        "comment": "前走未勝利1着『ラスト2ハロン11.8→11.3の加速ラップで3馬身半圧勝』。長浜『文句のない競馬』。陣営『強い勝ち方』『父もこのレースを勝っています』。言霊純度MAXの伏兵"
       }
     ],
     "kirin": {
@@ -229,8 +229,8 @@
       "score": 21.0,
       "inPicks": true
     },
-    "pickStrategy": "manual-anti-bias-v2",
-    "pickNote": "エーデル(2人気6.0倍)は来ないと判断。レッドラージャ(11人気29.4倍)復活。全員2桁人気級の超穴picks",
+    "pickStrategy": "manual-kotodama-final",
+    "pickNote": "ミッキー(14人気)切ってトーセン(6人気)復活。言霊重視（青龍A 2頭）の中穴picks",
     "bets": {
       "strategy": "wide-umaren",
       "wide": {
@@ -238,7 +238,7 @@
           "ショウグンマサムネ",
           "ジャスティンシカゴ",
           "レッドラージャ",
-          "ミッキージャンプ"
+          "トーセンブリラーレ"
         ],
         "perPoint": 100,
         "points": 6,
@@ -249,7 +249,7 @@
           "ショウグンマサムネ",
           "ジャスティンシカゴ",
           "レッドラージャ",
-          "ミッキージャンプ"
+          "トーセンブリラーレ"
         ],
         "perPoint": 100,
         "points": 6,
