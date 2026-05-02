@@ -1,0 +1,1728 @@
+{
+  "race": {
+    "name": "天皇賞・春",
+    "grade": "G1",
+    "date": "2026-05-03",
+    "venue": "京都",
+    "surface": "芝",
+    "distance": 3200,
+    "course": "外3200m",
+    "startTime": "15:40",
+    "numHorses": 15,
+    "weather": "",
+    "baba": "",
+    "round": 3,
+    "day": 4,
+    "category": "サラ系4歳以上 オープン (国際)(指) 定量"
+  },
+  "raceTitle": {
+    "main": "天皇賞・春",
+    "sub": "4神麒麟合議",
+    "desc": "─ 京都芝3200m・春の大一番 ─"
+  },
+  "dataStatus": "scoring",
+  "logicVersion": "v3-kirin",
+  "presentation": {
+    "raceId": "202608030411",
+    "kirin": {
+      "names": [
+        "アドマイヤテラ"
+      ],
+      "score": 29.5,
+      "inPicks": true
+    },
+    "bets": {
+      "strategy": "wide-umaren",
+      "wide": {
+        "horses": [
+          "アドマイヤテラ",
+          "ヘデントール",
+          "クロワデュノール",
+          "マイネルカンパーナ"
+        ],
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
+      },
+      "umaren": {
+        "horses": [
+          "アドマイヤテラ",
+          "ヘデントール",
+          "クロワデュノール",
+          "マイネルカンパーナ"
+        ],
+        "perPoint": 100,
+        "points": 6,
+        "spend": 600
+      },
+      "totalSpend": 1200
+    },
+    "horses": [
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "S",
+        "rankInGod": 1,
+        "kirinMark": true,
+        "kirinScore": 7,
+        "totalScore": 29.5,
+        "mark": "🐉",
+        "markLabel": "総合1位",
+        "num": "3",
+        "gate": "2",
+        "name": "アドマイヤテラ",
+        "ninki": "2",
+        "odds": "3.0",
+        "sire": "レイデオロ",
+        "bms": "ハーツクライ",
+        "jockey": "武豊",
+        "trainer": "友道(栗)",
+        "gaikyu": "NFしがらき",
+        "prevName": "阪神大賞典 GII",
+        "prevFinish": "1",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "S",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "S",
+            "label": "朱雀（速眼）",
+            "soku": "S",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "S",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "S",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走完勝＋陣営最強気・本命S級"
+      },
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "A",
+        "rankInGod": 4,
+        "kirinMark": false,
+        "kirinScore": 5,
+        "totalScore": 24.0,
+        "mark": "🐉",
+        "markLabel": "総合2位",
+        "num": "12",
+        "gate": "7",
+        "name": "ヘデントール",
+        "ninki": "3",
+        "odds": "5.2",
+        "sire": "ルーラーシップ",
+        "bms": "ステイゴールド",
+        "jockey": "ルメール",
+        "trainer": "木村(美)",
+        "gaikyu": "NF天栄",
+        "prevName": "京都記念 GII",
+        "prevFinish": "8",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "A",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "S",
+            "label": "朱雀（速眼）",
+            "soku": "S",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "B",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "S",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "前走休み明け参考外＋陣営強気＋前年覇者"
+      },
+      {
+        "god": "seiryu",
+        "godLabel": "青龍",
+        "godEmoji": "🐉",
+        "godGrade": "S",
+        "rankInGod": 2,
+        "kirinMark": false,
+        "kirinScore": 1,
+        "totalScore": 19.5,
+        "mark": "🐉",
+        "markLabel": "総合3位",
+        "num": "7",
+        "gate": "4",
+        "name": "クロワデュノール",
+        "ninki": "1",
+        "odds": "1.8",
+        "sire": "キタサンブラック",
+        "bms": "Cape Cross",
+        "jockey": "北村友一",
+        "trainer": "斉藤崇(栗)",
+        "gaikyu": "自厩舎(調教◎量A)",
+        "prevName": "大阪杯 GI",
+        "prevFinish": "1",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "S",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "S",
+            "label": "朱雀（速眼）",
+            "soku": "S",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "B",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "B",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": ""
+      },
+      {
+        "god": "genbu",
+        "godLabel": "玄武",
+        "godEmoji": "🐢",
+        "godGrade": "S",
+        "rankInGod": 2,
+        "kirinMark": false,
+        "kirinScore": 3,
+        "totalScore": 18.5,
+        "mark": "🐢",
+        "markLabel": "総合4位",
+        "num": "10",
+        "gate": "6",
+        "name": "マイネルカンパーナ",
+        "ninki": "10",
+        "odds": "111.4",
+        "sire": "ゴールドシップ",
+        "bms": "Linamix",
+        "jockey": "津村明秀",
+        "trainer": "青木(美)",
+        "gaikyu": "ビッグレッドF",
+        "prevName": "ダイヤモンドS GIII",
+        "prevFinish": "7",
+        "badges": [
+          {
+            "t": "seiryu",
+            "g": "B",
+            "label": "青龍（言霊）"
+          },
+          {
+            "t": "suzaku",
+            "g": "C",
+            "label": "朱雀（速眼）",
+            "soku": "C",
+            "gan": "—"
+          },
+          {
+            "t": "byakko",
+            "g": "A",
+            "label": "白虎（ラップ）"
+          },
+          {
+            "t": "genbu",
+            "g": "S",
+            "label": "玄武（地脈）"
+          }
+        ],
+        "comment": "陣営強気＋穴候補"
+      }
+    ],
+    "pickStrategy": "total-rank-top4"
+  },
+  "horses": [
+    {
+      "num": 1,
+      "gate": 1,
+      "name": "ヴェルミセル",
+      "jockey": "鮫島駿",
+      "trainer": "吉村(栗)",
+      "sire": "ゴールドシップ",
+      "broodmareSire": "コンデュイット",
+      "prevName": "レッドシーターフH GII",
+      "prevFinish": "11",
+      "kirinPt": 0,
+      "kirinFactors": [],
+      "relComment": {
+        "grade": "D",
+        "prevTruth": "サウジ11着・前走コメント無し",
+        "stableWill": "弱気（『何かで助けがあれば』他力本願）",
+        "keyword": "G1で力差・他力本願コメント",
+        "tokki": {
+          "tokki1": "渋馬場○",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "—",
+          "tokkiScores": [
+            1,
+            -1,
+            0
+          ],
+          "tokkiTotal": 0,
+          "preTokkiGrade": "D",
+          "interpretation": "渋馬場OKだが腰の不安"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          92,
+          92,
+          88,
+          91
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 43,
+            "grade": "D"
+          },
+          "st": {
+            "value": 60,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 64,
+            "grade": "C"
+          },
+          "tenkai": {
+            "value": 11,
+            "grade": "C"
+          },
+          "avg": 1.5
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "hc7": 9.6,
+        "shiba_hc": 9.6,
+        "redCount": 0,
+        "peak_sp": 92,
+        "reason": "HC9.6・パターン大幅外",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "pere_avg_dist": 2053,
+        "gaikyu": "キャニオンF土山",
+        "gaikyu_grade": "B",
+        "interpretation": "長距離血統S級 / 外厩B",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "76.8"
+    },
+    {
+      "num": 2,
+      "gate": 2,
+      "name": "サンライズソレイユ",
+      "jockey": "池添謙一",
+      "trainer": "矢作(栗)",
+      "sire": "キズナ",
+      "broodmareSire": "Scat Daddy",
+      "prevName": "ドバイターフハンC OP",
+      "prevFinish": "11",
+      "kirinPt": 0,
+      "kirinFactors": [],
+      "relComment": {
+        "grade": "C",
+        "prevTruth": "直線で先頭窺うも『バッタリと止まった』",
+        "stableWill": "微妙（『乗りやすくなり過ぎ』）",
+        "keyword": "前走失速＋陣営半信半疑",
+        "tokki": {
+          "tokki1": "大トビ",
+          "tokki2": "スタミ○(赤)",
+          "tokki3": "揉れ弱い(青)",
+          "tokkiScores": [
+            0,
+            2,
+            -1
+          ],
+          "tokkiTotal": 1,
+          "preTokkiGrade": "C",
+          "interpretation": "スタミナ◎だが揉まれ弱い"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          92,
+          89,
+          91,
+          81
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 39,
+            "grade": "D"
+          },
+          "st": {
+            "value": 60,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 75,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 12,
+            "grade": "C"
+          },
+          "avg": 2.25
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "hc7": 4.3,
+        "shiba_hc": 4.3,
+        "redCount": 1,
+        "peak_sp": 92,
+        "reason": "★赤背景・peak92・勝ちパターン合致",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "pere_avg_dist": 1838,
+        "gaikyu": "自厩舎",
+        "gaikyu_grade": "—",
+        "interpretation": "外厩なし",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "191.3"
+    },
+    {
+      "num": 3,
+      "gate": 2,
+      "name": "アドマイヤテラ",
+      "jockey": "武豊",
+      "trainer": "友道(栗)",
+      "sire": "レイデオロ",
+      "broodmareSire": "ハーツクライ",
+      "prevName": "阪神大賞典 GII",
+      "prevFinish": "1",
+      "kirinPt": 7,
+      "kirinFactors": [
+        {
+          "key": "hanshin_daishoten_win",
+          "label": "阪神大賞典勝ち馬",
+          "pt": 3
+        },
+        {
+          "key": "kikka_link",
+          "label": "菊花賞3着以内リンク",
+          "pt": 2
+        },
+        {
+          "key": "chouryo_jyusho",
+          "label": "長距離重賞(3000m以上)実績",
+          "pt": 1
+        },
+        {
+          "key": "heartscry_bms",
+          "label": "ハーツクライ系母父（長距離適性）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "S",
+        "prevTruth": "阪神大賞典レコード完勝『パワーアップを感じる』(武豊)",
+        "stableWill": "強気『心身とも成長』『3200mに延びても大丈夫』『楽しみ』",
+        "keyword": "前走完勝＋陣営最強気・本命S級",
+        "tokki": {
+          "tokki1": "スタミ○(赤)",
+          "tokki2": "広馬場向",
+          "tokki3": "右モタレ",
+          "tokkiScores": [
+            2,
+            1,
+            -1
+          ],
+          "tokkiTotal": 2,
+          "preTokkiGrade": "S",
+          "interpretation": "スタミ赤＋広馬場京都向き"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          97,
+          91,
+          89,
+          97
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "S",
+          "sav": {
+            "value": 106,
+            "grade": "S"
+          },
+          "st": {
+            "value": 78,
+            "grade": "S"
+          },
+          "shiage": {
+            "value": 76,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 2,
+            "grade": "S"
+          },
+          "avg": 5.0
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "S",
+        "hc7": 3.3,
+        "shiba_hc": 3.3,
+        "redCount": 0,
+        "peak_sp": 97,
+        "reason": "peak97・絶対能力S級",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "S",
+        "pere_avg_dist": 1936,
+        "gaikyu": "NFしがらき",
+        "gaikyu_grade": "S",
+        "interpretation": "中長距離OK / 外厩S(NFしがらき)",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "3.0"
+    },
+    {
+      "num": 4,
+      "gate": 3,
+      "name": "アクアヴァーナル",
+      "jockey": "松山弘平",
+      "trainer": "四位(栗)",
+      "sire": "エピファネイア",
+      "broodmareSire": "ディープインパクト",
+      "prevName": "阪神大賞典 GII",
+      "prevFinish": "2",
+      "kirinPt": 1,
+      "kirinFactors": [
+        {
+          "key": "chouryo_jyusho",
+          "label": "長距離重賞(3000m以上)実績",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "阪神大賞典2着『力は出し切れた』+3キロ増で健闘",
+        "stableWill": "中立～強気『一戦毎に強くなる』『チャレンジャー精神』",
+        "keyword": "前走力出し切り＋陣営前向き",
+        "tokki": {
+          "tokki1": "折合○(赤)",
+          "tokki2": "ハナ拘ず",
+          "tokki3": "腰甘い(青)",
+          "tokkiScores": [
+            2,
+            0,
+            -1
+          ],
+          "tokkiTotal": 1,
+          "preTokkiGrade": "A",
+          "interpretation": "折合◎だが腰甘い"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          95,
+          84,
+          92,
+          95
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "sav": {
+            "value": 77,
+            "grade": "A"
+          },
+          "st": {
+            "value": 71,
+            "grade": "S"
+          },
+          "shiage": {
+            "value": 65,
+            "grade": "C"
+          },
+          "tenkai": {
+            "value": 5,
+            "grade": "A"
+          },
+          "avg": 3.75
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "hc7": 3.0,
+        "shiba_hc": 3.0,
+        "redCount": 0,
+        "peak_sp": 95,
+        "reason": "peak95・絶対能力高(パターン外)",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "pere_avg_dist": 1808,
+        "gaikyu": "NFしがらき",
+        "gaikyu_grade": "S",
+        "interpretation": "外厩S(NFしがらき)",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "24.5"
+    },
+    {
+      "num": 5,
+      "gate": 3,
+      "name": "ケイアイサンデラ",
+      "jockey": "藤懸貴徳",
+      "trainer": "小林(栗)",
+      "sire": "シルバーステート",
+      "broodmareSire": "エンパイアメーカー",
+      "prevName": "(休養明)",
+      "prevFinish": "",
+      "kirinPt": 0,
+      "kirinFactors": [],
+      "relComment": {
+        "grade": "D",
+        "prevTruth": "障害4歳上未勝利11着・コメント無し",
+        "stableWill": "中立『状態は良い』『鞍上も好感触』",
+        "keyword": "前走障害戦11着・力差大",
+        "tokki": {
+          "tokki1": "P速い×",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "—",
+          "tokkiScores": [
+            -1,
+            -1,
+            0
+          ],
+          "tokkiTotal": -2,
+          "preTokkiGrade": "C",
+          "interpretation": "ハイペース苦手＋腰不安"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          90,
+          70,
+          87,
+          79
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "D",
+        "soku": {
+          "grade": "D",
+          "sav": {
+            "value": 29,
+            "grade": "D"
+          },
+          "st": {
+            "value": 53,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 69,
+            "grade": "C"
+          },
+          "tenkai": {
+            "value": 15,
+            "grade": "D"
+          },
+          "avg": 1.25
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "hc7": 2.6,
+        "shiba_hc": 2.6,
+        "redCount": 0,
+        "peak_sp": 90,
+        "reason": "peak90・絶対能力不足",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "pere_avg_dist": 1720,
+        "gaikyu": "ドラゴンF",
+        "gaikyu_grade": "C",
+        "interpretation": "外厩C",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "229.2"
+    },
+    {
+      "num": 6,
+      "gate": 4,
+      "name": "エヒト",
+      "jockey": "川田将雅",
+      "trainer": "森秀(栗)",
+      "sire": "ルーラーシップ",
+      "broodmareSire": "ディープインパクト",
+      "prevName": "日経賞 GII",
+      "prevFinish": "4",
+      "kirinPt": 1,
+      "kirinFactors": [
+        {
+          "key": "chouryo_jyusho",
+          "label": "長距離重賞(3000m以上)実績",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "日経賞4着・末脚伸ばし浮上",
+        "stableWill": "やや弱気『もう少し気が入ってくれれば理想』",
+        "keyword": "9歳・気合不足懸念",
+        "tokki": {
+          "tokki1": "上が掛",
+          "tokki2": "芝軽い○",
+          "tokki3": "良脚長使(赤)",
+          "tokkiScores": [
+            -1,
+            1,
+            2
+          ],
+          "tokkiTotal": 2,
+          "preTokkiGrade": "C",
+          "interpretation": "9歳でも良脚長使えるのが救い"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          94,
+          86,
+          90,
+          92
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "sav": {
+            "value": 55,
+            "grade": "C"
+          },
+          "st": {
+            "value": 70,
+            "grade": "S"
+          },
+          "shiage": {
+            "value": 75,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 8,
+            "grade": "B"
+          },
+          "avg": 3.75
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "hc7": 6.6,
+        "shiba_hc": 6.6,
+        "redCount": 0,
+        "peak_sp": 94,
+        "reason": "peak94・中間",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "pere_avg_dist": 1869,
+        "gaikyu": "自厩舎(中4週)",
+        "gaikyu_grade": "—",
+        "interpretation": "中長距離OK / 外厩なし",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "130.9"
+    },
+    {
+      "num": 7,
+      "gate": 4,
+      "name": "クロワデュノール",
+      "jockey": "北村友一",
+      "trainer": "斉藤崇(栗)",
+      "sire": "キタサンブラック",
+      "broodmareSire": "Cape Cross",
+      "prevName": "大阪杯 GI",
+      "prevFinish": "1",
+      "kirinPt": 1,
+      "kirinFactors": [
+        {
+          "key": "osaka_hai_win",
+          "label": "大阪杯勝ち",
+          "pt": 1
+        },
+        {
+          "key": "no_3200",
+          "label": "3200m未経験",
+          "pt": -1
+        },
+        {
+          "key": "kitasan_blood",
+          "label": "キタサンブラック産駒（春天連覇血統）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "S",
+        "prevTruth": "大阪杯1着完勝『自分の中では主役』(北村友)『馬の力に全幅信頼』",
+        "stableWill": "条件付き『3-4角の坂下りを折り合ってリズム良く運べれば』",
+        "keyword": "前走完勝＋3200m未経験で慎重",
+        "tokki": {
+          "tokki1": "コーナ○(赤)",
+          "tokki2": "良脚長使(赤)",
+          "tokki3": "上が速○(赤)",
+          "tokkiScores": [
+            2,
+            2,
+            2
+          ],
+          "tokkiTotal": 6,
+          "preTokkiGrade": "A",
+          "interpretation": "全て赤！3200mと京都に完全合致"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          95,
+          93,
+          95,
+          94
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "S",
+          "sav": {
+            "value": 127,
+            "grade": "S"
+          },
+          "st": {
+            "value": 78,
+            "grade": "S"
+          },
+          "shiage": {
+            "value": 76,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 1,
+            "grade": "S"
+          },
+          "avg": 5.0
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "hc7": 3.0,
+        "shiba_hc": 3.0,
+        "redCount": 0,
+        "peak_sp": 95,
+        "reason": "peak95・絶対能力高(パターン外)",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "pere_avg_dist": 1806,
+        "gaikyu": "自厩舎(調教◎量A)",
+        "gaikyu_grade": "A",
+        "interpretation": "外厩A(自厩舎(調教◎量A))",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "1.8"
+    },
+    {
+      "num": 8,
+      "gate": 5,
+      "name": "シンエンペラー",
+      "jockey": "岩田望来",
+      "trainer": "矢作(栗)",
+      "sire": "Siyouni",
+      "broodmareSire": "Galileo",
+      "prevName": "ネオムターフC GI",
+      "prevFinish": "4",
+      "kirinPt": 0,
+      "kirinFactors": [
+        {
+          "key": "kyoto_jyusho",
+          "label": "京都重賞実績あり",
+          "pt": 1
+        },
+        {
+          "key": "no_3200",
+          "label": "3200m未経験",
+          "pt": -1
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "サウジ4着・コメント無し",
+        "stableWill": "致命『決してベストの距離ではない』+ 一発期待",
+        "keyword": "陣営距離否定→致命ワードでB天井",
+        "tokki": {
+          "tokki1": "P遅い○",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "スタミ○(赤)",
+          "tokkiScores": [
+            1,
+            -1,
+            2
+          ],
+          "tokkiTotal": 2,
+          "preTokkiGrade": "B",
+          "interpretation": "スロー歓迎＋スタミ赤"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          94,
+          94,
+          91,
+          88
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "S",
+          "sav": {
+            "value": 85,
+            "grade": "S"
+          },
+          "st": {
+            "value": 72,
+            "grade": "S"
+          },
+          "shiage": {
+            "value": 89,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 4,
+            "grade": "A"
+          },
+          "avg": 4.75
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "hc7": 5.3,
+        "shiba_hc": 5.3,
+        "redCount": 0,
+        "peak_sp": 94,
+        "reason": "peak94・中間",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "pere_avg_dist": 1607,
+        "gaikyu": "NFしがらき",
+        "gaikyu_grade": "S",
+        "interpretation": "距離不安 / 外厩S(NFしがらき)",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "30.9"
+    },
+    {
+      "num": 9,
+      "gate": 5,
+      "name": "プレシャスデイ",
+      "jockey": "吉村誠之助",
+      "trainer": "伊坂(美)",
+      "sire": "ニューイヤーズデイ",
+      "broodmareSire": "ルーラーシップ",
+      "prevName": "松籟S 3勝",
+      "prevFinish": "4",
+      "kirinPt": 0,
+      "kirinFactors": [],
+      "relComment": {
+        "grade": "D",
+        "prevTruth": "松籟S 4着『もうちょっと』",
+        "stableWill": "致命『胸を借りる立場』『ひとつでも上の着順』",
+        "keyword": "陣営降参『胸を借りる』致命ワード",
+        "tokki": {
+          "tokki1": "折合○",
+          "tokki2": "他馬気に",
+          "tokki3": "良脚長使(赤)",
+          "tokkiScores": [
+            1,
+            -1,
+            2
+          ],
+          "tokkiTotal": 2,
+          "preTokkiGrade": "D",
+          "interpretation": "良脚長使えるが他馬気にしがち"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          86,
+          66,
+          75,
+          85
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 38,
+            "grade": "D"
+          },
+          "st": {
+            "value": 60,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 75,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 14,
+            "grade": "D"
+          },
+          "avg": 2.0
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "hc7": 6.0,
+        "shiba_hc": 6.4,
+        "redCount": 0,
+        "peak_sp": 86,
+        "reason": "peak86・絶対能力不足",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "pere_avg_dist": 1527,
+        "gaikyu": "NF天栄",
+        "gaikyu_grade": "S",
+        "interpretation": "距離不安 / 超短距離血統(致命) / 外厩S(NF天栄)",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "214.2"
+    },
+    {
+      "num": 10,
+      "gate": 6,
+      "name": "マイネルカンパーナ",
+      "jockey": "津村明秀",
+      "trainer": "青木(美)",
+      "sire": "ゴールドシップ",
+      "broodmareSire": "Linamix",
+      "prevName": "ダイヤモンドS GIII",
+      "prevFinish": "7",
+      "kirinPt": 3,
+      "kirinFactors": [
+        {
+          "key": "light_weight_bull",
+          "label": "牡馬460kg未満（穴条件）",
+          "pt": 2
+        },
+        {
+          "key": "chouryo_jyusho",
+          "label": "長距離重賞(3000m以上)実績",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "ダイヤモンドS 7着・最後差詰め",
+        "stableWill": "強気『前めで運べれば面白い』『ここは一発狙う』",
+        "keyword": "陣営強気＋穴候補",
+        "tokki": {
+          "tokki1": "非力",
+          "tokki2": "小回向き",
+          "tokki3": "上が掛○(赤)",
+          "tokkiScores": [
+            -1,
+            0,
+            2
+          ],
+          "tokkiTotal": 1,
+          "preTokkiGrade": "B",
+          "interpretation": "非力でも消耗戦なら抜け目"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          92,
+          90,
+          92,
+          90
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 46,
+            "grade": "D"
+          },
+          "st": {
+            "value": 65,
+            "grade": "B"
+          },
+          "shiage": {
+            "value": 62,
+            "grade": "C"
+          },
+          "tenkai": {
+            "value": 9,
+            "grade": "B"
+          },
+          "avg": 2.25
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "hc7": 4.1,
+        "shiba_hc": 4.1,
+        "redCount": 1,
+        "peak_sp": 92,
+        "reason": "★赤背景・peak92・勝ちパターン合致",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "S",
+        "pere_avg_dist": 2053,
+        "gaikyu": "ビッグレッドF",
+        "gaikyu_grade": "A",
+        "interpretation": "長距離血統S級 / 外厩A(ビッグレッドF)",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "111.4"
+    },
+    {
+      "num": 11,
+      "gate": 6,
+      "name": "タガノデュード",
+      "jockey": "古川吉洋",
+      "trainer": "宮(栗)",
+      "sire": "ヤマカツエース",
+      "broodmareSire": "ハーツクライ",
+      "prevName": "大阪杯 GI",
+      "prevFinish": "4",
+      "kirinPt": 1,
+      "kirinFactors": [
+        {
+          "key": "heartscry_bms",
+          "label": "ハーツクライ系母父（長距離適性）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "B",
+        "prevTruth": "大阪杯4着・上がり最速『本格化』",
+        "stableWill": "致命『正直3200mは長い』『不思議はない』",
+        "keyword": "陣営距離否定→致命でB強制天井",
+        "tokki": {
+          "tokki1": "終い確実",
+          "tokki2": "荒馬場○",
+          "tokki3": "渋馬場○",
+          "tokkiScores": [
+            2,
+            1,
+            1
+          ],
+          "tokkiTotal": 4,
+          "preTokkiGrade": "B",
+          "interpretation": "終いと馬場適応性◎"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          93,
+          89,
+          93,
+          91
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "sav": {
+            "value": 73,
+            "grade": "B"
+          },
+          "st": {
+            "value": 73,
+            "grade": "S"
+          },
+          "shiage": {
+            "value": 80,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 6,
+            "grade": "A"
+          },
+          "avg": 4.25
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "C",
+        "hc7": 6.4,
+        "shiba_hc": 6.4,
+        "redCount": 0,
+        "peak_sp": 93,
+        "reason": "peak93・中間",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "C",
+        "pere_avg_dist": 1731,
+        "gaikyu": "自厩舎",
+        "gaikyu_grade": "—",
+        "interpretation": "外厩なし",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "46.5"
+    },
+    {
+      "num": 12,
+      "gate": 7,
+      "name": "ヘデントール",
+      "jockey": "ルメール",
+      "trainer": "木村(美)",
+      "sire": "ルーラーシップ",
+      "broodmareSire": "ステイゴールド",
+      "prevName": "京都記念 GII",
+      "prevFinish": "8",
+      "kirinPt": 5,
+      "kirinFactors": [
+        {
+          "key": "prev_winner",
+          "label": "前年覇者（連覇則）",
+          "pt": 3
+        },
+        {
+          "key": "kyoto_jyusho",
+          "label": "京都重賞実績あり",
+          "pt": 1
+        },
+        {
+          "key": "chouryo_jyusho",
+          "label": "長距離重賞(3000m以上)実績",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "京都記念8着『9カ月半ぶりで本調子になかった』(参考外)",
+        "stableWill": "強気『上積みあり』『質の高い調教』『頑張ってほしい』",
+        "keyword": "前走休み明け参考外＋陣営強気＋前年覇者",
+        "tokki": {
+          "tokki1": "良脚長使",
+          "tokki2": "腰甘い(青)",
+          "tokki3": "—",
+          "tokkiScores": [
+            2,
+            -1,
+            0
+          ],
+          "tokkiTotal": 1,
+          "preTokkiGrade": "A",
+          "interpretation": "脚使えるが腰甘さ警戒"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          95,
+          94,
+          95,
+          86
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "S",
+        "soku": {
+          "grade": "S",
+          "sav": {
+            "value": 85,
+            "grade": "S"
+          },
+          "st": {
+            "value": 79,
+            "grade": "S"
+          },
+          "shiage": {
+            "value": 76,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 3,
+            "grade": "S"
+          },
+          "avg": 5.0
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "B",
+        "hc7": 6.0,
+        "shiba_hc": 6.0,
+        "redCount": 0,
+        "peak_sp": 95,
+        "reason": "peak95・絶対能力高(パターン外)",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "S",
+        "pere_avg_dist": 1869,
+        "gaikyu": "NF天栄",
+        "gaikyu_grade": "S",
+        "interpretation": "中長距離OK / 外厩S(NF天栄)",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "5.2"
+    },
+    {
+      "num": 13,
+      "gate": 7,
+      "name": "ミステリーウェイ",
+      "jockey": "松本大輝",
+      "trainer": "小林(栗)",
+      "sire": "ジャスタウェイ",
+      "broodmareSire": "High Chaparral",
+      "prevName": "日経賞 GII",
+      "prevFinish": "14",
+      "kirinPt": 0,
+      "kirinFactors": [
+        {
+          "key": "chouryo_jyusho",
+          "label": "長距離重賞(3000m以上)実績",
+          "pt": 1
+        },
+        {
+          "key": "daihaihai",
+          "label": "前走14着以下大敗",
+          "pt": -1
+        }
+      ],
+      "relComment": {
+        "grade": "C",
+        "prevTruth": "日経賞14着大敗『自分の力を出し切れない』",
+        "stableWill": "条件付き『馬場は渋らない方がいい』",
+        "keyword": "前走大敗＋陣営条件付き",
+        "tokki": {
+          "tokki1": "ブ外効○",
+          "tokki2": "根性有り(赤)",
+          "tokki3": "気を抜く",
+          "tokkiScores": [
+            1,
+            2,
+            -1
+          ],
+          "tokkiTotal": 2,
+          "preTokkiGrade": "D",
+          "interpretation": "根性赤＋ブ外効くがムラ"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          91,
+          91,
+          86,
+          79
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 46,
+            "grade": "D"
+          },
+          "st": {
+            "value": 63,
+            "grade": "C"
+          },
+          "shiage": {
+            "value": 68,
+            "grade": "C"
+          },
+          "tenkai": {
+            "value": 10,
+            "grade": "C"
+          },
+          "avg": 1.75
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "hc7": 4.3,
+        "shiba_hc": 4.3,
+        "redCount": 1,
+        "peak_sp": 91,
+        "reason": "★赤背景・peak91・勝ちパターン合致",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "A",
+        "pere_avg_dist": 1850,
+        "gaikyu": "社台F鈴鹿",
+        "gaikyu_grade": "A",
+        "interpretation": "中長距離OK / 外厩A(社台F鈴鹿)",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "45.8"
+    },
+    {
+      "num": 14,
+      "gate": 8,
+      "name": "ホーエリート",
+      "jockey": "戸崎圭太",
+      "trainer": "田島(美)",
+      "sire": "ルーラーシップ",
+      "broodmareSire": "ステイゴールド",
+      "prevName": "ダイヤモンドS GIII",
+      "prevFinish": "5",
+      "kirinPt": 3,
+      "kirinFactors": [
+        {
+          "key": "chouryo_jyusho",
+          "label": "長距離重賞(3000m以上)実績",
+          "pt": 1
+        },
+        {
+          "key": "prev_winner_blood",
+          "label": "前年覇者と完全同配合（父ルーラー×母父ステゴ）",
+          "pt": 2
+        }
+      ],
+      "relComment": {
+        "grade": "C",
+        "prevTruth": "ダイヤモンドS5着『アブミが外れて追えず・参考外』『これからというところで』",
+        "stableWill": "強気『いい位置で流れに乗れれば結果はついてくる』",
+        "keyword": "前走完全に参考外＋陣営強気＋伏兵候補",
+        "tokki": {
+          "tokki1": "腰甘い(青)",
+          "tokki2": "脚外振走",
+          "tokki3": "高速場×",
+          "tokkiScores": [
+            -1,
+            -1,
+            -1
+          ],
+          "tokkiTotal": -3,
+          "preTokkiGrade": "A",
+          "interpretation": "高速馬場×が今日の良馬場で痛い"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          94,
+          90,
+          93,
+          91
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "A",
+        "soku": {
+          "grade": "A",
+          "sav": {
+            "value": 65,
+            "grade": "B"
+          },
+          "st": {
+            "value": 69,
+            "grade": "A"
+          },
+          "shiage": {
+            "value": 76,
+            "grade": "S"
+          },
+          "tenkai": {
+            "value": 7,
+            "grade": "B"
+          },
+          "avg": 3.75
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "A",
+        "hc7": 4.1,
+        "shiba_hc": 4.1,
+        "redCount": 1,
+        "peak_sp": 94,
+        "reason": "★赤背景・peak94・勝ちパターン合致",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "pere_avg_dist": 1869,
+        "gaikyu": "山元トレセン",
+        "gaikyu_grade": "B",
+        "interpretation": "中長距離OK / 外厩B",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "49.2"
+    },
+    {
+      "num": 15,
+      "gate": 8,
+      "name": "ヴェルテンベルク",
+      "jockey": "松若風馬",
+      "trainer": "宮本(栗)",
+      "sire": "キタサンブラック",
+      "broodmareSire": "フレンチデピュティ",
+      "prevName": "ダイヤモンドS GIII",
+      "prevFinish": "4",
+      "kirinPt": 2,
+      "kirinFactors": [
+        {
+          "key": "chouryo_jyusho",
+          "label": "長距離重賞(3000m以上)実績",
+          "pt": 1
+        },
+        {
+          "key": "kitasan_blood",
+          "label": "キタサンブラック産駒（春天連覇血統）",
+          "pt": 1
+        }
+      ],
+      "relComment": {
+        "grade": "A",
+        "prevTruth": "ダイヤモンドS4着『内枠で窮屈』『スタミナある』",
+        "stableWill": "やや強気『スタミナ豊富』『京都も合う』",
+        "keyword": "前走伸び＋陣営前向き",
+        "tokki": {
+          "tokki1": "阪神向き",
+          "tokki2": "併せ形○",
+          "tokki3": "根性有り(赤)",
+          "tokkiScores": [
+            0,
+            1,
+            2
+          ],
+          "tokkiTotal": 3,
+          "preTokkiGrade": "B",
+          "interpretation": "根性赤＋併せ形◎"
+        }
+      },
+      "lapFactors": {
+        "sp": [
+          92,
+          90,
+          92,
+          91
+        ]
+      },
+      "suzakuGrade": {
+        "grade": "C",
+        "soku": {
+          "grade": "C",
+          "sav": {
+            "value": 39,
+            "grade": "D"
+          },
+          "st": {
+            "value": 62,
+            "grade": "D"
+          },
+          "shiage": {
+            "value": 71,
+            "grade": "B"
+          },
+          "tenkai": {
+            "value": 13,
+            "grade": "C"
+          },
+          "avg": 1.75
+        },
+        "gan": {
+          "grade": "—",
+          "comment": "弥永ch未取得"
+        }
+      },
+      "yugomiLapGrade": {
+        "grade": "D",
+        "hc7": 8.6,
+        "shiba_hc": 8.6,
+        "redCount": 0,
+        "peak_sp": 92,
+        "reason": "HC8.6・パターン大幅外",
+        "pattern_target": "京都3200m 1着平均HC=4.0 / 2着4.4 / 3着4.9"
+      },
+      "courseDataGrade": {
+        "grade": "B",
+        "pere_avg_dist": 1806,
+        "gaikyu": "社台F鈴鹿",
+        "gaikyu_grade": "A",
+        "interpretation": "外厩A(社台F鈴鹿)",
+        "note": "京都3200mコースデータは集計2レースのみで採用せず。父距離適性＋外厩のみで採点"
+      },
+      "expectedOdds": "147.8"
+    }
+  ],
+  "kirinScore": {
+    "factors": [
+      {
+        "key": "hanshin_daishoten_win",
+        "label": "阪神大賞典勝ち馬",
+        "pt": 3
+      },
+      {
+        "key": "prev_winner",
+        "label": "前年覇者（連覇則）",
+        "pt": 3
+      },
+      {
+        "key": "kikka_link",
+        "label": "菊花賞3着以内リンク",
+        "pt": 2
+      },
+      {
+        "key": "light_weight_bull",
+        "label": "牡馬460kg未満（穴条件）",
+        "pt": 2
+      },
+      {
+        "key": "kyoto_jyusho",
+        "label": "京都重賞実績あり",
+        "pt": 1
+      },
+      {
+        "key": "chouryo_jyusho",
+        "label": "長距離重賞(3000m以上)実績",
+        "pt": 1
+      },
+      {
+        "key": "osaka_hai_win",
+        "label": "大阪杯勝ち",
+        "pt": 1
+      },
+      {
+        "key": "no_3200",
+        "label": "3200m未経験",
+        "pt": -1
+      },
+      {
+        "key": "daihaihai",
+        "label": "前走14着以下大敗",
+        "pt": -1
+      },
+      {
+        "key": "prev_winner_blood",
+        "label": "前年覇者と完全同配合（父ルーラー×母父ステゴ）",
+        "pt": 2
+      },
+      {
+        "key": "kitasan_blood",
+        "label": "キタサンブラック産駒（春天連覇血統）",
+        "pt": 1
+      },
+      {
+        "key": "heartscry_bms",
+        "label": "ハーツクライ系母父（長距離適性）",
+        "pt": 1
+      }
+    ],
+    "source": "神宮の戒律三カ条（過去10年天皇賞・春傾向分析）"
+  }
+}
