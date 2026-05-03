@@ -1234,6 +1234,60 @@ a{color:inherit;}
 }
 </style>
 
+<!-- ══ 絵馬殿（言霊神宮バナーの上） ══ -->
+<section class="section" id="emaden-section" style="margin-bottom:0">
+  <div class="emaden-board">
+    <div class="emaden-h mincho">
+      <span class="emaden-icon">🧧</span>
+      <span class="emaden-title">絵 馬 殿</span>
+      <span class="emaden-sub">EMADEN ─ 今週の高回収率レース TOP3</span>
+    </div>
+    <div class="emaden-list" id="emaden-list">
+      <div class="emaden-loading mincho">⛩ 神託読込中…</div>
+    </div>
+    <div class="emaden-legend mincho">🔥🔥🔥 1000%超 ／ 🔥🔥 500%超 ／ 🎯 300%超</div>
+  </div>
+</section>
+
+<style>
+.emaden-board{max-width:780px;margin:0 auto;padding:24px 28px;
+              background:linear-gradient(135deg,#fff6e8 0%,#fff0d0 100%);
+              border:2px solid var(--gold,#c9a84c);border-radius:12px;
+              box-shadow:0 4px 16px rgba(201,168,76,.2)}
+.emaden-h{text-align:center;margin-bottom:18px;display:flex;align-items:center;
+          justify-content:center;gap:10px;flex-wrap:wrap}
+.emaden-icon{font-size:24px}
+.emaden-title{font-size:22px;color:var(--shu);font-weight:700;letter-spacing:.4em}
+.emaden-sub{font-size:11px;color:var(--ink-soft);letter-spacing:.15em;font-weight:600;
+            display:block;width:100%}
+.emaden-list{display:grid;gap:10px}
+.emaden-row{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;
+            padding:14px 16px;background:#fff;
+            border:1px solid rgba(212,175,55,.4);border-radius:8px;
+            box-shadow:0 1px 4px rgba(212,175,55,.1)}
+.emaden-rank{font-size:28px;text-align:center;line-height:1}
+.emaden-info{font-size:13px}
+.emaden-race{font-weight:700;color:var(--ink);font-size:14px;font-family:'Shippori Mincho',serif}
+.emaden-meta{font-size:11px;color:var(--ink-soft);margin-top:4px}
+.emaden-meta b{color:var(--shu);font-weight:700}
+.emaden-rec{font-size:22px;font-weight:900;color:#b8860b;font-family:'Inter',sans-serif;
+            text-shadow:0 1px 0 rgba(255,255,255,.4)}
+.emaden-rec small{display:block;font-size:10px;font-weight:400;color:var(--ink-soft);
+                  letter-spacing:.04em;margin-top:2px;text-shadow:none}
+.emaden-legend{text-align:center;font-size:11px;color:var(--ink-soft);
+               letter-spacing:.15em;margin-top:14px;padding-top:12px;
+               border-top:1px dashed rgba(212,175,55,.4)}
+.emaden-loading{text-align:center;padding:30px;color:var(--ink-soft);font-style:italic}
+@media(max-width:600px){
+  .emaden-board{padding:18px 16px}
+  .emaden-title{font-size:18px;letter-spacing:.3em}
+  .emaden-row{grid-template-columns:36px 1fr auto;gap:10px;padding:12px}
+  .emaden-rank{font-size:22px}
+  .emaden-race{font-size:12.5px}
+  .emaden-rec{font-size:18px}
+}
+</style>
+
 <!-- ══ 言霊神宮バナー ══ -->
 <section class="section" id="kotodama-jinja-banner" style="margin-bottom:0">
   <a href="kotodama-test.html" class="kotodama-banner">
@@ -1740,6 +1794,26 @@ drawBtn.addEventListener('click', () => {
       const totInv = all.reduce((s,r) => s + r.result.betting.investTotal, 0);
       const totPay = all.reduce((s,r) => s + r.result.betting.payoutTotal, 0);
       const rec = totInv ? (totPay/totInv*100) : 0;
+
+      // 絵馬殿 TOP3（言霊神宮バナー上のカード）
+      const RANK_EMOJI = ['🥇','🥈','🥉'];
+      const sortedAll = all.slice().sort((a,b) => b.result.betting.recovery - a.result.betting.recovery);
+      const top3 = sortedAll.slice(0,3);
+      const elEmaden = document.getElementById('emaden-list');
+      if (elEmaden && top3.length){
+        elEmaden.innerHTML = top3.map((r,i) => {
+          const win = r.result.horses[0];
+          const rec = r.result.betting.recovery;
+          return `<div class="emaden-row">
+            <div class="emaden-rank">${RANK_EMOJI[i]}</div>
+            <div class="emaden-info">
+              <div class="emaden-race">${r.venue}${r.raceNum} ${r.raceName||''}</div>
+              <div class="emaden-meta">${r.date.replace(/^\d{4}-/,'').replace('-','/')} ／ <b>${win.name}</b>(${win.finalNinki}人気) ／ 投資¥${r.result.betting.investTotal.toLocaleString()} → 払戻¥${r.result.betting.payoutTotal.toLocaleString()}</div>
+            </div>
+            <div class="emaden-rec">${rec}%<small>回収率</small></div>
+          </div>`;
+        }).join('');
+      }
 
       // 速報帯：高回収率 TOP5（流れるバナー）
       const sorted = all.slice().sort((a,b) => b.result.betting.recovery - a.result.betting.recovery);
