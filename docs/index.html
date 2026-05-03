@@ -1203,23 +1203,24 @@ a{color:inherit;}
 
 <style>
 .ticker-bar{display:flex;align-items:center;
-            background:linear-gradient(90deg,#1A1A1A 0%,#2c1f12 100%);
-            border-top:2px solid var(--kin);border-bottom:2px solid var(--kin);
-            color:#FBF7EE;overflow:hidden;height:46px;position:relative}
-.ticker-label{flex-shrink:0;background:var(--shu);color:#fff;
+            background:linear-gradient(90deg,var(--shu) 0%,var(--shu-dk,#7A1E1E) 100%);
+            border-top:1px solid var(--kin);border-bottom:1px solid var(--kin);
+            color:var(--paper,#FBF7EE);overflow:hidden;height:46px;position:relative}
+.ticker-label{flex-shrink:0;background:rgba(0,0,0,.25);color:var(--kin);
               padding:0 18px;height:100%;display:flex;align-items:center;
               font-size:13px;font-weight:700;letter-spacing:.25em;
-              border-right:2px solid var(--kin);
-              box-shadow:2px 0 8px rgba(0,0,0,.3);z-index:2}
+              border-right:1px solid var(--kin);
+              box-shadow:2px 0 8px rgba(0,0,0,.2);z-index:2}
 .ticker-track{flex:1;overflow:hidden;position:relative}
 .ticker-content{display:inline-block;white-space:nowrap;
                 padding-left:100%;
-                font-size:14px;letter-spacing:.06em;color:#FBF7EE;
+                font-size:14px;letter-spacing:.06em;color:var(--paper,#FBF7EE);
                 animation:ticker-scroll 60s linear infinite}
 .ticker-content .gold{color:var(--kin);font-weight:700}
-.ticker-content .fire{color:#ff8a3d;font-weight:700;font-size:16px;margin:0 4px}
-.ticker-content .sep{color:var(--shu);margin:0 18px;font-size:11px;letter-spacing:.4em}
-.ticker-content .pct{color:var(--kin);font-weight:900;font-size:16px}
+.ticker-content .fire{color:#ffd34d;font-weight:700;font-size:16px;margin:0 4px}
+.ticker-content .sep{color:var(--kin);margin:0 18px;font-size:11px;letter-spacing:.4em;opacity:.7}
+.ticker-content .pct{color:#fff;font-weight:900;font-size:16px;
+                     text-shadow:0 0 6px rgba(255,255,255,.4)}
 @keyframes ticker-scroll{
   0%   {transform:translate3d(0,0,0)}
   100% {transform:translate3d(-100%,0,0)}
