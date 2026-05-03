@@ -146,7 +146,7 @@
     <div class="cover-quote-attr mincho">── 御 祭 神　ギ ー ニ ョ 大 神 ──</div>
   </div>
 
-  <p class="cover-meta mincho" style="margin-top:60px">2026 年 5 月 編 集　／　Version 2.0（7.5h ロング配信対応）</p>
+  <p class="cover-meta mincho" style="margin-top:60px">2026 年 5 月 編 集　／　Version 2.1（SUNO 800曲BGM運用追加）</p>
 </div>
 
 
@@ -165,7 +165,8 @@
     <li>第六章　OBS 音声フィルター（神宮推奨パラメータ）</li>
     <li>第七章　ツイキャス連携・プレミアム加入</li>
     <li>第八章　配信フォーマット（<b>7.5時間 ロング構成</b>）</li>
-    <li>第九章　<b>ロング配信の臨場感技術</b>（言葉実況・BGM・参加企画）</li>
+    <li>第九章　<b>ロング配信の臨場感技術</b>（言葉実況・BGM・参加企画）<br>
+        　　　　／　<b>OBSでSUNO音源を流す技術</b>（メディアソース・VLC・シーン切替）</li>
     <li>第十章　<b>体調管理＆機材ロング対応</b></li>
     <li>第十一章　神主ニック キャラ設定とトークTips</li>
     <li>第十二章　法的注意・自己責任表記</li>
@@ -630,25 +631,190 @@
     <li>ハズレ時も「あ〜致命ワード正解やったわw」とエンタメ化</li>
   </ul>
 
-  <h2 class="section-h">② BGM時間帯切替</h2>
+  <h2 class="section-h">② BGM時間帯切替（SUNO自作800曲ライブラリ活用）</h2>
 
+  <p>神主ニックは<b>SUNO で 800曲作成済み</b>のミュージシャンスキル保持者。
+  著作権完全クリア＆オリジナル＝<b>配信BANリスクゼロ＋差別化MAX</b>。
+  既存ジャンル（Lo-Fi HipHop / テクノ / NINTENDO Core / ハウス / シティポップ / ボサノバ）を
+  時間帯に振り分け、神社系は追加生成して埋める。</p>
+
+  <h3 class="sub-h">時間帯別 ジャンル割当</h3>
   <table>
-    <tr><th>時間帯</th><th>BGMジャンル</th><th>狙い</th></tr>
-    <tr><td>09:00-12:00 朝</td><td>雅楽・神社系</td><td>厳かな神宮感</td></tr>
-    <tr><td>12:00-15:00 昼</td><td>アコースティック・和ロック</td><td>賑わい感・継続感</td></tr>
-    <tr><td>15:00-15:40 メイン</td><td>太鼓・盛り上げ系</td><td>緊張感MAX</td></tr>
-    <tr><td>15:40-16:30 夕</td><td>雅楽（落ち着き）</td><td>締めの厳粛感</td></tr>
+    <tr><th>時間帯</th><th>SUNOジャンル割当</th><th>狙い</th></tr>
+    <tr><td>09:00-12:00 朝の神事</td><td>神社系（要追加）／ボサノバ</td><td>厳かな神宮感・心静かに</td></tr>
+    <tr><td>12:00-15:00 午後の参拝</td><td>シティポップ／ハウス／ボサノバ</td><td>賑わい感・継続テンション</td></tr>
+    <tr><td>15:00-15:40 メイン神事</td><td>テクノ／NINTENDO Core</td><td>緊張感MAX・盛り上げ</td></tr>
+    <tr><td>15:40-16:30 夕の神事</td><td>Lo-Fi HipHop／神社系</td><td>余韻・締めの厳粛感</td></tr>
   </table>
 
+  <h3 class="sub-h">SUNO 神社系サウンド プロンプト集</h3>
+
+  <div class="box">
+    <p><b>朝の神事用（雅楽）</b></p>
+    <div class="box-code">
+calm traditional Japanese shrine music,
+koto and shakuhachi flute,
+peaceful morning ambience, gentle bells,
+instrumental, no vocals, atmospheric,
+sacred temple, 90 BPM
+    </div>
+
+    <p style="margin-top:14px"><b>メイン神事用（盛り上げ太鼓）</b></p>
+    <div class="box-code">
+epic Japanese taiko drums,
+intense battle music, ceremonial rhythm,
+traditional festival, building tension,
+instrumental, no vocals, 130 BPM
+    </div>
+
+    <p style="margin-top:14px"><b>夕の神事用（しっとり）</b></p>
+    <div class="box-code">
+serene Japanese koto melody,
+evening shrine ambience, contemplative,
+healing, meditative, soft bells,
+instrumental, no vocals, 70 BPM
+    </div>
+
+    <p style="margin-top:14px"><b>ジングル用（5-10秒）</b></p>
+    <div class="box-code">
+Japanese shrine bell chime,
+single short fanfare, ceremonial,
+brief, no vocals, 5-10 seconds
+    </div>
+  </div>
+
   <div class="box-tip">
-    <h4>🎵 著作権フリーBGM サイト</h4>
+    <h4>🎶 ジングル種類オススメ</h4>
     <ul style="margin-top:6px">
-      <li><b>DOVA-SYNDROME</b>：和風BGM豊富・商用OK</li>
-      <li><b>甘茶の音楽工房</b>：神社系あり・クレジット推奨</li>
-      <li><b>魔王魂</b>：和風・太鼓系</li>
-      <li><b>YouTube オーディオライブラリ</b>：完全無料・商用OK</li>
+      <li>「次のレース〜」予告ジングル（3秒）</li>
+      <li>「致命ワード検出！」警告ジングル（2秒）</li>
+      <li>「神宮★レベル発表！」ファンファーレ（4秒）</li>
+      <li>「🎯的中！」勝利ジングル（5秒）</li>
+      <li>「🏴ハズレ…」落胆ジングル（3秒）</li>
+      <li>「🧧ご祝儀レース発表！」大ファンファーレ（8秒）</li>
     </ul>
-    <p style="margin-top:6px">→ 検索ワード「雅楽」「和風」「神社」「太鼓」</p>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第九章の続き：OBSでBGM再生 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 九 章 つ づ き</span>
+  <h1 class="chapter-title">OBSでSUNO音源を流す技術</h1>
+
+  <p>SUNO音源を MP3 ダウンロード → Mac内のフォルダ整理 → OBSで再生する流れ。
+  方法AとB の2種、神宮的にはBがオススメ。</p>
+
+  <h2 class="section-h">音源フォルダ整理（推奨）</h2>
+  <div class="box-code">
+~/Music/UG-Jingu-BGM/
+├── 01_morning_shrine/    <span class="comment"># 朝の神事 30曲</span>
+├── 02_afternoon/          <span class="comment"># 午後 30曲</span>
+├── 03_main/               <span class="comment"># メイン神事 10曲</span>
+├── 04_evening/            <span class="comment"># 夕の神事 30曲</span>
+└── 05_jingles/            <span class="comment"># ジングル 10種</span>
+  </div>
+
+  <h2 class="section-h">【方法A】OBS メディアソース（シンプル）</h2>
+
+  <ol>
+    <li>OBS → ソース → 「+」→<b>「メディアソース」</b>追加</li>
+    <li>設定:
+      <div class="box-code">
+名前:           <span class="key">朝の神事BGM</span>
+ローカルファイル: <span class="key">~/Music/UG-Jingu-BGM/01_morning_shrine/track01.mp3</span>
+ループ:         <span class="key">✅ ON</span>
+音声出力をモニター: <span class="key">なし</span>（配信に乗せる）
+      </div>
+    </li>
+    <li>音声ミキサーで音量を <b>-15dB</b> に下げる</li>
+  </ol>
+
+  <p><b>メリット</b>: シンプル・即動く<br>
+  <b>デメリット</b>: 1ファイル1ソース、複数曲ローテは手動</p>
+
+  <h2 class="section-h">【方法B】VLCビデオソース（プレイリスト・神宮推奨）</h2>
+
+  <p>30曲を勝手にシャッフル＆ループ再生してくれる神機能。</p>
+
+  <ol>
+    <li><b>VLC Media Player インストール</b>（無料）<br>
+        <code>https://www.videolan.org/vlc/</code></li>
+    <li>OBS → ソース → 「+」→<b>「VLCビデオソース」</b>追加</li>
+    <li>設定:
+      <div class="box-code">
+名前:        <span class="key">朝の神事プレイリスト</span>
+プレイリスト: <span class="key">~/Music/UG-Jingu-BGM/01_morning_shrine/</span>
+            （フォルダ全体追加）
+ループ:      <span class="key">✅</span>
+シャッフル:  <span class="key">✅</span>（飽き防止）
+      </div>
+    </li>
+  </ol>
+
+  <p><b>メリット</b>: 30曲を勝手にシャッフル再生・飽きさせない<br>
+  <b>デメリット</b>: VLCインストール要</p>
+
+  <h2 class="section-h">シーン切替で時間帯BGM自動切替（神技）</h2>
+
+  <p>OBSシーンを<b>時間帯ごと</b>に作り、ニックは時間帯切替時にシーン切替ボタンを押すだけ。</p>
+
+  <div class="box">
+    <pre style="font-family:'Shippori Mincho',serif;font-size:12px;line-height:1.85">
+シーン1: 「<b>朝の神事</b>」
+  - ブラウザ: live.html
+  - 顔小窓
+  - VLCソース: 朝プレイリスト（神社系/ボサノバ）
+
+シーン2: 「<b>午後の参拝</b>」
+  - 上記同じ
+  - VLCソース: 午後プレイリスト（シティポップ/ハウス）
+
+シーン3: 「<b>メイン神事</b>」
+  - 上記同じ
+  - VLCソース: メインプレイリスト（テクノ/NINTENDO Core）
+
+シーン4: 「<b>夕の神事</b>」
+  - 上記同じ
+  - VLCソース: 夕プレイリスト（Lo-Fi HipHop/神社系）
+
+シーン5: 「<b>ジングル発火</b>」（一時切替）
+  - 全シーンと同じソース＋ジングル音声
+    </pre>
+  </div>
+
+  <p>12時/15時/16時で<b>シーン切替ボタンポチッ</b>するだけで自動でBGM変わる。</p>
+
+  <h2 class="section-h">音声ミキサー設定（神宮推奨バランス）</h2>
+
+  <div class="box-code">
+マイク（Fifine）:    <span class="key">-3dB ～ 0dB</span>（メイン）
+BGM（メディア/VLC）: <span class="key">-15dB ～ -20dB</span>（控えめ）
+ジングル:            <span class="key">-10dB</span>（少し目立たせ）
+  </div>
+
+  <p>視聴者には「マイクの声がメイン、BGMはふんわり背景」というプロのバランスに。</p>
+
+  <div class="box-warn">
+    <h4>⚠ よくある失敗</h4>
+    <ul style="margin-top:6px">
+      <li>BGMを大きくしすぎてマイクの声が埋もれる → 必ず-15dB以下</li>
+      <li>「音声出力をモニター」=「モニターと出力」にすると<b>自分のイヤホンに二重で再生</b>される<br>→ 必ず<b>「なし」</b>または「出力のみ」</li>
+      <li>VLCインストール後、OBSでVLCソースが選択肢に出ない<br>→ OBS再起動で解決</li>
+    </ul>
+  </div>
+
+  <h2 class="section-h">OBS音声詳細設定</h2>
+  <p>OBS → 設定 → 音声 → 詳細設定:</p>
+  <div class="box-code">
+グローバル音声デバイス:
+  デスクトップ音声: <span class="key">既定</span>（Mac全体の音を拾う）
+  マイク音声1:     <span class="key">Fifine Microphone</span>
+
+詳細プロパティ → モニタリング:
+  マイク:  <span class="key">モニタリングOFF</span>
+  BGM:    <span class="key">モニタリングOFF</span>
   </div>
 
   <h2 class="section-h">③ 視聴者参加企画</h2>
@@ -1015,7 +1181,7 @@
 </main>
 
 <div class="doc-footer">
-  ⛩ U G 競 馬 神 宮　／　言 霊 神 宮 L I V E 配 信 マ ニ ュ ア ル　Version 2.0（7.5h ロング配信対応）<br>
+  ⛩ U G 競 馬 神 宮　／　言 霊 神 宮 L I V E 配 信 マ ニ ュ ア ル　Version 2.1（SUNO 800曲BGM運用追加）<br>
   2026 年 5 月編集　／　神主ニック 専 用　／　無断配布禁止
 </div>
 
