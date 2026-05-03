@@ -197,7 +197,7 @@ function venueBoard(name, s){
   return `
     <div class="vb">
       <div class="vb-h mincho">${name}</div>
-      <div class="vb-total ${s.totalRecovery>=100?'win':''}">${s.totalRecovery}%</div>
+      <div class="vb-total ${s.totalRecovery>=100?'win':''}"><span style="font-size:12px;color:var(--ink-soft);font-weight:400;letter-spacing:.1em;margin-right:6px">回収率</span>${s.totalRecovery}%</div>
       <div class="vb-meta">${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</div>
       <table class="vb-table">
         <tr><th>券種</th><th style="text-align:right">的中率</th><th style="text-align:right">回収率</th></tr>
