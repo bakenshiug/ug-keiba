@@ -76,21 +76,43 @@
                  padding-left:20px;border-left:5px solid #c9a84c;line-height:1.6}
 
   /* ===========================================
-     Vol2：回収率101.5%
+     Vol2：新潟日曜12鞍 回収率223%
      =========================================== */
-  .v2{background:radial-gradient(circle at 70% 30%,#fff6e8 0%,#FBF7EE 50%,#F0EADB 100%)}
-  .v2 .ginyo-img{left:60px;bottom:60px;width:340px;transform:scaleX(-1)}
-  .v2 .number-area{
-    position:absolute;right:80px;top:140px;text-align:right;
+  .v2{background:linear-gradient(135deg,#fff8d4 0%,#fff0a3 30%,#ffe673 70%,#f4d03f 100%);
+      position:relative}
+  .v2::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 15% 80%, rgba(255,255,255,.6) 0%, transparent 30%),
+      radial-gradient(circle at 85% 20%, rgba(255,255,255,.5) 0%, transparent 25%);
   }
-  .v2 .label-top{font-size:24px;color:#a44a3f;letter-spacing:.25em;font-weight:700;margin-bottom:8px}
-  .v2 .big-num{font-family:'Inter',sans-serif;font-size:200px;font-weight:900;color:#a44a3f;
-               line-height:1;text-shadow:6px 6px 0 #c9a84c,8px 8px 30px rgba(164,74,63,.3)}
-  .v2 .big-num .pct{font-size:80px;vertical-align:top;margin-left:8px}
-  .v2 .label-bot{font-size:32px;color:#2c1f12;margin-top:14px;letter-spacing:.06em;line-height:1.5;font-weight:700}
-  .v2 .badge{display:inline-block;padding:8px 22px;background:#c9a84c;color:#2c1f12;
-             border-radius:6px;font-size:18px;font-weight:900;letter-spacing:.15em;
-             font-family:'Shippori Mincho',serif;margin-top:18px}
+  .v2 .ginyo-meadow{position:absolute;left:0;bottom:0;width:560px;height:auto;
+                    filter:drop-shadow(0 10px 24px rgba(0,0,0,.25));z-index:2}
+  .v2 .number-area{
+    position:absolute;right:60px;top:130px;text-align:right;z-index:3;
+  }
+  .v2 .label-top{font-size:24px;color:#a44a3f;letter-spacing:.25em;font-weight:900;
+                 margin-bottom:8px;
+                 text-shadow:0 2px 0 rgba(255,255,255,.5)}
+  .v2 .label-top .accent{color:#1F4D2E;font-size:30px}
+  .v2 .big-num{font-family:'Inter',sans-serif;font-size:220px;font-weight:900;color:#a44a3f;
+               line-height:.95;
+               text-shadow:
+                 6px 6px 0 #fff,
+                 8px 8px 0 #c9a84c,
+                 10px 10px 0 #8B7530,
+                 14px 14px 30px rgba(0,0,0,.3)}
+  .v2 .big-num .pct{font-size:90px;vertical-align:top;margin-left:8px}
+  .v2 .label-bot{font-size:30px;color:#2c1f12;margin-top:18px;letter-spacing:.06em;line-height:1.45;font-weight:900;
+                 text-shadow:0 2px 0 rgba(255,255,255,.5)}
+  .v2 .label-bot em{color:#a44a3f;font-style:normal}
+  .v2 .badges{margin-top:20px;display:flex;gap:8px;justify-content:flex-end}
+  .v2 .badge{display:inline-block;padding:8px 18px;background:#1F4D2E;color:#fff;
+             border-radius:6px;font-size:15px;font-weight:900;letter-spacing:.12em;
+             font-family:'Shippori Mincho',serif;
+             box-shadow:0 3px 0 rgba(0,0,0,.2)}
+  .v2 .badge.alt{background:#a44a3f}
+  .v2 .header-bar{background:linear-gradient(90deg,#1F4D2E 0%,#2c5e3a 100%);z-index:5}
 
   /* ===========================================
      Vol3：妙味マス
@@ -200,23 +222,25 @@
 </div>
 
 <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<div class="vol-label">VOL.2 — 回収率101.5%出た件</div>
+<div class="vol-label">VOL.2 — 新潟日曜12鞍 回収率223％</div>
 <div class="preview-wrap">
 <div class="thumb v2">
-  <div class="washi-bg"></div>
   <div class="header-bar">
     <div class="brand">⛩ U G 競 馬 神 宮 <span>／ 開 発 日 記</span></div>
     <div class="vol-badge">VOL. 02</div>
   </div>
+  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ駆け出し">
   <div class="number-area">
-    <div class="label-top">【検証】言霊オンリー全36R</div>
-    <div class="big-num">101.5<span class="pct">%</span></div>
-    <div class="label-bot">うちの神宮、<br>初運用で回収率超え。</div>
-    <div class="badge">複勝率 88.9%</div>
+    <div class="label-top">【検証】<span class="accent">新潟◎ 日曜12鞍</span></div>
+    <div class="big-num">223<span class="pct">%</span></div>
+    <div class="label-bot">ウチのニックが、<br><em>新潟◎で爆発</em>した件。</div>
+    <div class="badges">
+      <div class="badge">複勝率 75.0%</div>
+      <div class="badge alt">11/12R 的中</div>
+    </div>
   </div>
-  <img src="slides/img/giinyo-daijin.png" class="ginyo-img" alt="ギーニョ">
   <div class="footer-bar">
-    <span>⛩</span> 5/3 全36レース・144頭picks 実証データ <span>⛩</span>
+    <span>⛩</span> 言霊オンリー × 新潟12レース 神慮の場 <span>⛩</span>
   </div>
 </div>
 </div>
