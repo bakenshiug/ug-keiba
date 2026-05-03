@@ -1735,30 +1735,29 @@ drawBtn.addEventListener('click', () => {
           }
         });
       });
+      // 賽銭と神恩 集計（先に計算）
+      const totInv = all.reduce((s,r) => s + r.result.betting.investTotal, 0);
+      const totPay = all.reduce((s,r) => s + r.result.betting.payoutTotal, 0);
+      const rec = totInv ? (totPay/totInv*100) : 0;
+
       // 速報帯：高回収率 TOP5（流れるバナー）
       const sorted = all.slice().sort((a,b) => b.result.betting.recovery - a.result.betting.recovery);
       const tickerTop = sorted.slice(0,5);
       const elTicker = document.getElementById('ticker-content');
       if (elTicker && tickerTop.length){
-        const fmtFire = rec => rec >= 1000 ? '🔥🔥🔥' : rec >= 500 ? '🔥🔥' : rec >= 300 ? '🎯' : '⛩';
+        const fmtFire = r2 => r2 >= 1000 ? '🔥🔥🔥' : r2 >= 500 ? '🔥🔥' : r2 >= 300 ? '🎯' : '⛩';
         const items = tickerTop.map(r => {
           const win = r.result.horses[0];
-          const rec = r.result.betting.recovery;
-          return `<span class="fire">${fmtFire(rec)}</span>${r.venue}${r.raceNum} ${r.raceName||''} ／ <span class="gold">${win.name}</span>(${win.finalNinki}人気) ／ 回収率<span class="pct">${rec}%</span>`;
+          const r2 = r.result.betting.recovery;
+          return `<span class="fire">${fmtFire(r2)}</span>${r.venue}${r.raceNum} ${r.raceName||''} ／ <span class="gold">${win.name}</span>(${win.finalNinki}人気) ／ 回収率<span class="pct">${r2}%</span>`;
         });
         // 末尾に総合と次回予告
-        const totRec = totInv ? (totPay/totInv*100).toFixed(1) : '—';
-        items.push(`<span class="fire">⛩</span>言霊神宮 総合回収率<span class="pct">${totRec}%</span>`);
+        items.push(`<span class="fire">⛩</span>言霊神宮 総合回収率<span class="pct">${rec.toFixed(1)}%</span>`);
         items.push(`<span class="fire">📅</span>次回 5/10 NHKマイルC週 ─ 言霊×外厩 神宮★マトリクス初運用`);
         // ループで途切れない様に2回繰り返し
         const html = items.join('<span class="sep">⛩</span>') + '<span class="sep">⛩</span>' + items.join('<span class="sep">⛩</span>');
         elTicker.innerHTML = html;
       }
-
-      // 賽銭と神恩 集計
-      const totInv = all.reduce((s,r) => s + r.result.betting.investTotal, 0);
-      const totPay = all.reduce((s,r) => s + r.result.betting.payoutTotal, 0);
-      const rec = totInv ? (totPay/totInv*100) : 0;
       const dateList = [...dates].sort();
       const fmtDate = ds => {
         const m = ds.match(/^\d{4}-(\d{2})-(\d{2})$/);
