@@ -78,18 +78,22 @@
   /* 結果反映 */
   .pop{display:inline-block;padding:2px 7px;background:#eee;color:#555;
        font-size:10px;border-radius:3px;font-weight:600}
-  .finish{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;font-weight:700;font-size:12px;
-          border-radius:5px;color:#fff;background:#999;letter-spacing:.03em}
-  .finish.r1{background:linear-gradient(135deg,#f4d03f 0%,#d4af37 50%,#b8860b 100%);
-             box-shadow:0 0 12px rgba(212,175,55,.7),inset 0 1px 0 rgba(255,255,255,.4);
-             color:#3a2a00;text-shadow:0 1px 0 rgba(255,255,255,.4);
+  /* 着外：薄いアウトラインで「絡まなかった」感を表現 */
+  .finish{display:inline-flex;align-items:center;gap:3px;padding:2px 9px;font-weight:600;font-size:11px;
+          border-radius:5px;color:#888;background:#fff;border:1px dashed #ccc;letter-spacing:.03em}
+  .finish.r1{background:linear-gradient(135deg,#fff4b8 0%,#f4d03f 35%,#d4af37 70%,#b8860b 100%);
+             box-shadow:0 0 14px rgba(212,175,55,.8),inset 0 1px 0 rgba(255,255,255,.5);
+             color:#3a2a00;text-shadow:0 1px 0 rgba(255,255,255,.5);border:none;
+             font-weight:700;font-size:12px;padding:3px 10px;
              animation:pulseGold 1.6s ease-in-out infinite}
-  .finish.r2{background:linear-gradient(135deg,#d8d8d8 0%,#a8a8a8 50%,#888 100%);
-             box-shadow:0 0 8px rgba(150,150,150,.6),inset 0 1px 0 rgba(255,255,255,.3);
-             color:#2a2a2a;text-shadow:0 1px 0 rgba(255,255,255,.4)}
-  .finish.r3{background:linear-gradient(135deg,#d49a6a 0%,#a87544 50%,#7a4f25 100%);
-             box-shadow:0 0 8px rgba(168,117,68,.6),inset 0 1px 0 rgba(255,255,255,.25);
-             color:#3a1f00;text-shadow:0 1px 0 rgba(255,200,150,.3)}
+  .finish.r2{background:linear-gradient(135deg,#fafafa 0%,#c8d4dc 40%,#8ea0ac 100%);
+             box-shadow:0 0 10px rgba(142,160,172,.7),inset 0 1px 0 rgba(255,255,255,.6);
+             color:#1a2530;text-shadow:0 1px 0 rgba(255,255,255,.5);border:none;
+             font-weight:700;font-size:12px;padding:3px 10px}
+  .finish.r3{background:linear-gradient(135deg,#f5b78a 0%,#d49a6a 40%,#a16235 100%);
+             box-shadow:0 0 10px rgba(168,117,68,.7),inset 0 1px 0 rgba(255,255,255,.4);
+             color:#3a1f00;text-shadow:0 1px 0 rgba(255,220,180,.4);border:none;
+             font-weight:700;font-size:12px;padding:3px 10px}
   @keyframes pulseGold{
     0%,100%{box-shadow:0 0 12px rgba(212,175,55,.7),inset 0 1px 0 rgba(255,255,255,.4)}
     50%   {box-shadow:0 0 22px rgba(212,175,55,1),inset 0 1px 0 rgba(255,255,255,.5)}
