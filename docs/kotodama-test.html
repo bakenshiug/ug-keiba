@@ -50,6 +50,16 @@
   .pending{color:rgba(244,233,201,.5);font-style:italic}
   footer{text-align:center;padding:24px;color:rgba(244,233,201,.4);font-size:11px;
          border-top:1px solid var(--border);margin-top:24px}
+  /* タブ */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+        max-width:920px;margin:24px auto 0;padding:0 16px}
+  .tab{padding:10px 20px;background:var(--paper);color:rgba(244,233,201,.7);
+       border:1px solid var(--border);border-radius:6px;cursor:pointer;
+       font-family:'Shippori Mincho',serif;font-size:13px;letter-spacing:.12em;
+       transition:all .2s ease}
+  .tab:hover{border-color:var(--gold);color:var(--gold)}
+  .tab.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
+  .tab-count{font-size:11px;opacity:.8;margin-left:6px}
 </style>
 </head>
 <body>
@@ -59,6 +69,7 @@
   <div class="h-rule">全レース予想公開中</div>
   <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
 </header>
+<div class="tabs" id="tabs"></div>
 <main id="races"></main>
 <footer class="mincho">⛩ UG 競馬ワイド神宮 ／ 言霊実験室 ⛩</footer>
 
@@ -66,19 +77,57 @@
 const FILES = ['data/kotodama-test/2026-05-03.json'];
 const MARK_CLASS = {'◎':'mark','○':'mark','▲':'mark dou','△':'mark dou'};
 
+// 曜日表示
+const DOW = ['日','月','火','水','木','金','土'];
+function fmtDate(dateStr){
+  const d = new Date(dateStr);
+  return `${d.getMonth()+1}/${d.getDate()}(${DOW[d.getDay()]})`;
+}
+
+let ALL_RACES = [];
+let CURRENT_TAB = '';
+
 async function load(){
-  const races = [];
   for (const f of FILES){
     try{
       const r = await fetch(f+'?_='+Date.now());
       const d = await r.json();
-      d.races.forEach(race => races.push(race));
+      d.races.forEach(race => ALL_RACES.push(race));
     }catch(e){console.error(e)}
   }
-  render(races);
+  buildTabs();
+  render();
 }
 
-function render(races){
+function buildTabs(){
+  // 日付×場でグルーピング
+  const groups = new Map();
+  ALL_RACES.forEach(r => {
+    const key = `${r.date}|${r.venue}`;
+    if (!groups.has(key)) groups.set(key, {date:r.date,venue:r.venue,count:0});
+    groups.get(key).count++;
+  });
+  const tabs = [...groups.values()];
+  if (tabs.length === 0) return;
+  CURRENT_TAB = `${tabs[0].date}|${tabs[0].venue}`;
+  const tabsEl = document.getElementById('tabs');
+  tabsEl.innerHTML = tabs.map(t => {
+    const key = `${t.date}|${t.venue}`;
+    const active = key === CURRENT_TAB ? 'active' : '';
+    return `<button class="tab ${active}" data-key="${key}">${fmtDate(t.date)} ${t.venue}<span class="tab-count">${t.count}R</span></button>`;
+  }).join('');
+  tabsEl.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      CURRENT_TAB = btn.dataset.key;
+      tabsEl.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.key === CURRENT_TAB));
+      render();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+}
+
+function render(){
+  const races = ALL_RACES.filter(r => `${r.date}|${r.venue}` === CURRENT_TAB);
   const root = document.getElementById('races');
   root.innerHTML = races.map(r => `
     <div class="race">
