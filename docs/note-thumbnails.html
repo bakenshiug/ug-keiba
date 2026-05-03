@@ -18,26 +18,24 @@
   .thumb{
     width:1280px;height:670px;
     margin:0 auto 4px;position:relative;overflow:hidden;
-    background:#FBF7EE;color:#2c1f12;
+    background:linear-gradient(135deg,#fff8d4 0%,#fff0a3 30%,#ffe673 70%,#f4d03f 100%);
+    color:#2c1f12;
     box-shadow:0 4px 30px rgba(0,0,0,.5);
   }
-
-  /* ─── 共通：和紙パターン ─── */
-  .washi-bg{
-    position:absolute;inset:0;
+  .thumb::before{
+    content:'';position:absolute;inset:0;
     background-image:
-      radial-gradient(circle at 30% 20%, rgba(164,74,63,.04) 1px, transparent 1px),
-      radial-gradient(circle at 70% 80%, rgba(201,168,76,.05) 1px, transparent 1px);
-    background-size:30px 30px,40px 40px;
+      radial-gradient(circle at 15% 80%, rgba(255,255,255,.6) 0%, transparent 30%),
+      radial-gradient(circle at 85% 20%, rgba(255,255,255,.5) 0%, transparent 25%);
   }
 
-  /* ─── 共通：神宮ヘッダー ─── */
+  /* ─── 共通：ヘッダー ─── */
   .header-bar{
     position:absolute;top:0;left:0;right:0;
-    background:linear-gradient(90deg,#a44a3f 0%,#7A1E1E 100%);
+    background:linear-gradient(90deg,#1F4D2E 0%,#2c5e3a 100%);
     color:#FBF7EE;padding:16px 40px;
     display:flex;justify-content:space-between;align-items:center;
-    border-bottom:3px solid #c9a84c;
+    border-bottom:3px solid #c9a84c;z-index:5;
   }
   .brand{font-size:18px;letter-spacing:.3em;font-weight:700}
   .brand span{color:#c9a84c}
@@ -48,189 +46,95 @@
   /* ─── 共通：フッター ─── */
   .footer-bar{
     position:absolute;bottom:0;left:0;right:0;
-    background:#2c1f12;color:#FBF7EE;padding:10px 40px;
+    background:#1F4D2E;color:#FBF7EE;padding:10px 40px;
     text-align:center;font-size:12px;letter-spacing:.2em;
-    border-top:2px solid #c9a84c;
+    border-top:2px solid #c9a84c;z-index:6;
   }
   .footer-bar span{color:#c9a84c;margin:0 12px}
 
-  /* ─── ギーニョ画像 ─── */
-  .ginyo-img{position:absolute;width:340px;height:auto;
-             filter:drop-shadow(0 6px 16px rgba(0,0,0,.25))}
-  .nick-img{position:absolute;height:auto;
-            filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+  /* ─── 共通：草原ギーニョ ─── */
+  .ginyo-meadow{position:absolute;left:-20px;bottom:46px;width:520px;height:auto;
+                filter:drop-shadow(0 10px 24px rgba(0,0,0,.25));z-index:2}
 
-  /* ===========================================
-     Vol1：うちの人間が、神宮を建てた
-     =========================================== */
-  .v1{background:linear-gradient(135deg,#FBF7EE 0%,#F0EADB 50%,#FBF7EE 100%)}
-  .v1 .ginyo-img{right:60px;bottom:60px;width:380px}
-  .v1 .title-area{
-    position:absolute;left:60px;top:120px;width:680px;
-  }
-  .v1 .pre-title{font-size:22px;color:#a44a3f;letter-spacing:.3em;font-weight:700;margin-bottom:18px}
-  .v1 .main-title{font-size:74px;color:#2c1f12;font-weight:900;line-height:1.25;
-                  letter-spacing:.04em;text-shadow:0 2px 0 rgba(255,255,255,.5)}
-  .v1 .main-title em{color:#a44a3f;font-style:normal}
-  .v1 .sub-title{margin-top:30px;font-size:22px;color:#5a4a3a;letter-spacing:.15em;
-                 padding-left:20px;border-left:5px solid #c9a84c;line-height:1.6}
-
-  /* ===========================================
-     Vol2：新潟日曜12鞍 回収率223%
-     =========================================== */
-  .v2{background:linear-gradient(135deg,#fff8d4 0%,#fff0a3 30%,#ffe673 70%,#f4d03f 100%);
-      position:relative}
-  .v2::before{
-    content:'';position:absolute;inset:0;
-    background-image:
-      radial-gradient(circle at 15% 80%, rgba(255,255,255,.6) 0%, transparent 30%),
-      radial-gradient(circle at 85% 20%, rgba(255,255,255,.5) 0%, transparent 25%);
-  }
-  .v2 .ginyo-meadow{position:absolute;left:-20px;bottom:46px;width:520px;height:auto;
-                    filter:drop-shadow(0 10px 24px rgba(0,0,0,.25));z-index:2}
-  .v2 .footer-bar{z-index:6;background:#1F4D2E;border-top:2px solid #c9a84c}
-  .v2 .number-area{
+  /* ─── 共通：右側 数字＋テキストエリア ─── */
+  .number-area{
     position:absolute;right:60px;top:130px;text-align:right;z-index:3;
   }
-  .v2 .label-top{font-size:24px;color:#a44a3f;letter-spacing:.25em;font-weight:900;
-                 margin-bottom:8px;
-                 text-shadow:0 2px 0 rgba(255,255,255,.5)}
-  .v2 .label-top .accent{color:#1F4D2E;font-size:30px}
-  .v2 .big-num{font-family:'Inter',sans-serif;font-size:220px;font-weight:900;color:#a44a3f;
-               line-height:.95;
-               text-shadow:
-                 6px 6px 0 #fff,
-                 8px 8px 0 #c9a84c,
-                 10px 10px 0 #8B7530,
-                 14px 14px 30px rgba(0,0,0,.3)}
-  .v2 .big-num .pct{font-size:90px;vertical-align:top;margin-left:8px}
-  .v2 .label-bot{font-size:30px;color:#2c1f12;margin-top:18px;letter-spacing:.06em;line-height:1.45;font-weight:900;
-                 text-shadow:0 2px 0 rgba(255,255,255,.5)}
-  .v2 .label-bot em{color:#a44a3f;font-style:normal}
-  .v2 .badges{margin-top:20px;display:flex;gap:8px;justify-content:flex-end}
-  .v2 .badge{display:inline-block;padding:8px 18px;background:#1F4D2E;color:#fff;
-             border-radius:6px;font-size:15px;font-weight:900;letter-spacing:.12em;
-             font-family:'Shippori Mincho',serif;
-             box-shadow:0 3px 0 rgba(0,0,0,.2)}
-  .v2 .badge.alt{background:#a44a3f}
-  .v2 .header-bar{background:linear-gradient(90deg,#1F4D2E 0%,#2c5e3a 100%);z-index:5}
+  .label-top{font-size:24px;color:#a44a3f;letter-spacing:.25em;font-weight:900;
+             margin-bottom:8px;
+             text-shadow:0 2px 0 rgba(255,255,255,.5)}
+  .label-top .accent{color:#1F4D2E;font-size:30px}
+  .big-num{font-family:'Inter',sans-serif;font-size:220px;font-weight:900;color:#a44a3f;
+           line-height:.95;
+           text-shadow:
+             6px 6px 0 #fff,
+             8px 8px 0 #c9a84c,
+             10px 10px 0 #8B7530,
+             14px 14px 30px rgba(0,0,0,.3)}
+  .big-num .pct{font-size:90px;vertical-align:top;margin-left:8px}
+  .big-num .symbol{font-size:160px}
+  .big-stars{font-family:'Shippori Mincho',serif;font-size:90px;
+             color:#a44a3f;letter-spacing:.05em;line-height:1;
+             text-shadow:
+               4px 4px 0 #fff,
+               6px 6px 0 #c9a84c,
+               10px 10px 30px rgba(0,0,0,.3)}
+  .label-bot{font-size:30px;color:#2c1f12;margin-top:18px;letter-spacing:.06em;line-height:1.45;font-weight:900;
+             text-shadow:0 2px 0 rgba(255,255,255,.5)}
+  .label-bot em{color:#a44a3f;font-style:normal}
+  .badges{margin-top:20px;display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+  .badge{display:inline-block;padding:8px 18px;background:#1F4D2E;color:#fff;
+         border-radius:6px;font-size:15px;font-weight:900;letter-spacing:.12em;
+         font-family:'Shippori Mincho',serif;
+         box-shadow:0 3px 0 rgba(0,0,0,.2)}
+  .badge.alt{background:#a44a3f}
+  .badge.gold{background:#c9a84c;color:#2c1f12}
 
-  /* ===========================================
-     Vol3：妙味マス
-     =========================================== */
-  .v3{background:linear-gradient(135deg,#1a1a1a 0%,#2c1f12 100%);color:#FBF7EE}
-  .v3 .header-bar{background:linear-gradient(90deg,#7A1E1E 0%,#1a1a1a 100%)}
-  .v3 .ginyo-img{right:80px;bottom:140px;width:300px}
-  .v3 .title-area{position:absolute;left:60px;top:140px;width:760px}
-  .v3 .pre-title{font-size:20px;color:#c9a84c;letter-spacing:.3em;font-weight:700;margin-bottom:14px}
-  .v3 .main-title{font-size:64px;color:#FBF7EE;font-weight:900;line-height:1.3;letter-spacing:.04em}
-  .v3 .main-title em{color:#ffd34d;font-style:normal;font-size:74px}
-  .v3 .stars{margin-top:30px;font-size:42px;letter-spacing:.1em}
-  .v3 .stars .gold{color:#ffd34d;text-shadow:0 0 18px rgba(255,211,77,.6)}
-  .v3 .stars .label{font-size:20px;color:#c9a84c;letter-spacing:.15em;margin-left:14px;font-weight:700}
-  .v3 .matrix-deco{position:absolute;left:60px;bottom:80px;
-                   font-family:'Inter',sans-serif;font-size:11px;color:#c9a84c;
-                   line-height:1.5;letter-spacing:.05em;opacity:.7}
-
-  /* ===========================================
-     Vol4：東京で大コケ
-     =========================================== */
-  .v4{background:linear-gradient(135deg,#2c1f12 0%,#3a2a1c 50%,#2c1f12 100%);color:#FBF7EE}
-  .v4 .header-bar{background:linear-gradient(90deg,#7A1E1E 0%,#3a1a1a 100%)}
-  .v4 .ginyo-img{left:60px;bottom:80px;width:300px;
-                 filter:drop-shadow(0 6px 16px rgba(0,0,0,.5)) brightness(.85) sepia(.2)}
-  .v4 .title-area{position:absolute;right:60px;top:140px;width:740px;text-align:right}
-  .v4 .pre-title{font-size:22px;color:#cc8888;letter-spacing:.3em;font-weight:700;margin-bottom:14px}
-  .v4 .pre-title::before{content:'⚠ '}
-  .v4 .main-title{font-size:64px;color:#FBF7EE;font-weight:900;line-height:1.3;letter-spacing:.04em}
-  .v4 .main-title em{color:#cc8888;font-style:normal}
-  .v4 .accident{margin-top:40px;display:inline-block;
-                padding:14px 28px;background:#cc4444;color:#fff;
-                font-size:28px;font-weight:900;letter-spacing:.15em;
-                font-family:'Inter',sans-serif;border-radius:6px;
-                box-shadow:0 0 20px rgba(204,68,68,.5)}
-  .v4 .sub-info{margin-top:24px;font-size:18px;color:#FBF7EE;
-                letter-spacing:.1em;line-height:1.6;opacity:.85}
-
-  /* ===========================================
-     Vol5：神宮始動 + 企んでる件
-     =========================================== */
-  .v5{background:linear-gradient(135deg,#FBF7EE 0%,#fff6e8 30%,#fff0c8 100%)}
-  .v5 .header-bar{background:linear-gradient(90deg,#a44a3f 0%,#c9a84c 100%)}
-  .v5 .ginyo-img{right:60px;bottom:70px;width:380px;
-                 transform:rotate(-3deg);
-                 filter:drop-shadow(0 8px 20px rgba(164,74,63,.3))}
-  .v5 .title-area{position:absolute;left:60px;top:120px;width:680px}
-  .v5 .pre-title{font-size:20px;color:#a44a3f;letter-spacing:.3em;font-weight:700;margin-bottom:14px}
-  .v5 .main-title{font-size:62px;color:#2c1f12;font-weight:900;line-height:1.3;letter-spacing:.03em}
-  .v5 .main-title em{color:#a44a3f;font-style:normal;font-size:74px;
-                     text-shadow:3px 3px 0 #c9a84c}
-  .v5 .question{margin-top:30px;font-size:36px;color:#a44a3f;font-weight:900;
-                letter-spacing:.06em;line-height:1.5}
-  .v5 .question span{color:#c9a84c}
-  .v5 .final-badge{position:absolute;top:90px;right:80px;
-                   background:#a44a3f;color:#FBF7EE;
-                   padding:14px 26px;border-radius:50%;
-                   font-size:18px;font-weight:900;letter-spacing:.1em;
-                   transform:rotate(15deg);
-                   box-shadow:0 4px 14px rgba(164,74,63,.4)}
-
-  /* ─── 各サムネ共通：torii装飾 ─── */
-  .torii-deco{position:absolute;font-size:32px;color:#a44a3f;opacity:.15;font-family:'Shippori Mincho',serif}
-
-  /* ─── 操作 UI ─── */
-  .save-btn{display:inline-block;padding:8px 18px;background:#c9a84c;color:#2c1f12;
-            border:none;border-radius:5px;cursor:pointer;font-weight:900;
-            margin-bottom:12px;font-family:'Shippori Mincho',serif;letter-spacing:.1em;font-size:13px}
-  .save-btn:hover{background:#ffd34d}
-  .scale{transform-origin:top left;}
-  /* プレビューを縮小表示 */
+  /* プレビュー */
   .preview-wrap{overflow-x:auto;background:#1a1a1a;padding:20px;border-radius:8px}
 </style>
 </head>
 <body>
 
 <div class="guide">
-  <h1 style="font-size:18px;color:#ffd34d;margin-bottom:10px">📸 note サムネイル生成ガイド</h1>
-  <p>各サムネは <b>1280 × 670 px</b>（noteの推奨サイズ）。下のいずれかの方法でPNG保存：</p>
-  <ul style="margin:8px 0 8px 20px">
-    <li><b>方法A（推奨）</b>：macOSの<code>Cmd + Shift + 4</code> → スペース → 該当サムネをクリックでPNG保存</li>
-    <li><b>方法B</b>：右クリック → 「画像として保存」（Chrome）</li>
-    <li><b>方法C</b>：開発者ツール → スクリーンショット撮影</li>
-  </ul>
-  <p>📁 保存先目安：<code>~/Desktop/note-thumbs/v1.png</code> 等</p>
+  <h1 style="font-size:18px;color:#ffd34d;margin-bottom:10px">📸 note サムネイル生成ガイド（全7vol統一デザイン）</h1>
+  <p>各サムネは <b>1280 × 670 px</b>。共通：草原ギーニョ × 黄金背景 × 緑帯ヘッダー／フッター。</p>
+  <p>📥 <b>PNG保存</b>：macOSの <code>Cmd + Shift + 4</code> → スペース → 該当サムネをクリック</p>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<div class="vol-label">VOL.1 — うちの人間が、神宮を建てた</div>
+<!-- ━━━━━━━━━━ VOL.1 神宮を建立 ━━━━━━━━━━ -->
+<div class="vol-label">VOL.1（5/4月）— ウチのニックが、競馬神宮を建立した件</div>
 <div class="preview-wrap">
-<div class="thumb v1">
-  <div class="washi-bg"></div>
+<div class="thumb">
   <div class="header-bar">
     <div class="brand">⛩ U G 競 馬 神 宮 <span>／ 開 発 日 記</span></div>
     <div class="vol-badge">VOL. 01</div>
   </div>
-  <div class="title-area">
-    <div class="pre-title">神獣ギーニョの開発日記</div>
-    <div class="main-title">うちの人間が、<br><em>神宮を建てた</em>。</div>
-    <div class="sub-title">「うちのニックが何かを始めたらしい。<br>木製AI犬、巻き込まれる。」</div>
+  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ">
+  <div class="number-area">
+    <div class="label-top">【検証】<span class="accent">Claude Codeで建立</span></div>
+    <div class="big-num"><span class="symbol">⛩</span></div>
+    <div class="label-bot">ウチのニックが、<br><em>競馬神宮を建立</em>した件。</div>
+    <div class="badges">
+      <div class="badge">1日でサイト爆誕</div>
+      <div class="badge alt">144頭picks 実装</div>
+    </div>
   </div>
-  <img src="slides/img/giinyo-daijin.png" class="ginyo-img" alt="ギーニョ">
   <div class="footer-bar">
     <span>⛩</span> 言葉は嘘つく、外厩は嘘つかない、我は両方読む <span>⛩</span>
   </div>
 </div>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<div class="vol-label">VOL.2 — 新潟日曜12鞍 回収率223％</div>
+<!-- ━━━━━━━━━━ VOL.2 新潟223% ━━━━━━━━━━ -->
+<div class="vol-label">VOL.2（5/5火）— 新潟◎で回収率223%出した件</div>
 <div class="preview-wrap">
-<div class="thumb v2">
+<div class="thumb">
   <div class="header-bar">
     <div class="brand">⛩ U G 競 馬 神 宮 <span>／ 開 発 日 記</span></div>
     <div class="vol-badge">VOL. 02</div>
   </div>
-  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ駆け出し">
+  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ">
   <div class="number-area">
     <div class="label-top">【検証】<span class="accent">新潟◎ 日曜12鞍</span></div>
     <div class="big-num">223<span class="pct">%</span></div>
@@ -246,81 +150,130 @@
 </div>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<div class="vol-label">VOL.3 — 妙味マスを全部明かす</div>
+<!-- ━━━━━━━━━━ VOL.3 春天解剖 ━━━━━━━━━━ -->
+<div class="vol-label">VOL.3（5/6水）— 春天picks解剖（言霊で読む天皇賞）</div>
 <div class="preview-wrap">
-<div class="thumb v3">
+<div class="thumb">
   <div class="header-bar">
     <div class="brand">⛩ U G 競 馬 神 宮 <span>／ 開 発 日 記</span></div>
     <div class="vol-badge">VOL. 03</div>
   </div>
-  <div class="title-area">
-    <div class="pre-title">うちの神宮の核を、全公開</div>
-    <div class="main-title">「<em>妙味マス</em>」<br>とは何か。</div>
-    <div class="stars">
-      <span class="gold">★★★★★★</span>
-      <span class="label">最高位印</span>
+  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ">
+  <div class="number-area">
+    <div class="label-top">【検証】<span class="accent">天皇賞・春</span></div>
+    <div class="big-num">4<span class="pct">頭</span></div>
+    <div class="label-bot">ウチのニックが、<br><em>言霊で読んだ</em>春天。</div>
+    <div class="badges">
+      <div class="badge">◎○▲△ 全公開</div>
+      <div class="badge alt">致命ワード解剖</div>
     </div>
   </div>
-  <img src="slides/img/giinyo-daijin.png" class="ginyo-img" alt="ギーニョ">
-  <div class="matrix-deco">
-    言霊B × 外厩S = ★★★★★★<br>
-    言霊A × 外厩S = ★★★★★<br>
-    言霊S × 外厩S = ★★★★
-  </div>
   <div class="footer-bar">
-    <span>⛩</span> 言霊grade × 外厩grade ─ 5×5マトリクス公開 <span>⛩</span>
+    <span>⛩</span> 武豊「パワーアップを感じる」を言霊で読む <span>⛩</span>
   </div>
 </div>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<div class="vol-label">VOL.4 — 東京で大コケした話（事故報告書）</div>
+<!-- ━━━━━━━━━━ VOL.4 妙味マス ━━━━━━━━━━ -->
+<div class="vol-label">VOL.4（5/7木）— 「妙味マス」全公開</div>
 <div class="preview-wrap">
-<div class="thumb v4">
+<div class="thumb">
   <div class="header-bar">
     <div class="brand">⛩ U G 競 馬 神 宮 <span>／ 開 発 日 記</span></div>
     <div class="vol-badge">VOL. 04</div>
   </div>
-  <div class="title-area">
-    <div class="pre-title">事故報告書</div>
-    <div class="main-title">うちの神宮、<br>東京で<em>大コケ</em>した話。</div>
-    <div class="accident">回収率 25.4%</div>
-    <div class="sub-info">原因：馬場バイアス、読み切れず。<br>木製AI犬、節がボロボロ。</div>
+  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ">
+  <div class="number-area">
+    <div class="label-top">【公開】<span class="accent">神宮★マトリクス</span></div>
+    <div class="big-stars">★★★★★★</div>
+    <div class="label-bot">うちの神宮の核、<br><em>「妙味マス」</em>とは何か。</div>
+    <div class="badges">
+      <div class="badge">5×5 全マス公開</div>
+      <div class="badge alt">最高位印 解説</div>
+    </div>
   </div>
-  <img src="slides/img/giinyo-daijin.png" class="ginyo-img" alt="ギーニョ">
+  <div class="footer-bar">
+    <span>⛩</span> 言霊grade × 外厩grade ─ 神宮の核 <span>⛩</span>
+  </div>
+</div>
+</div>
+
+<!-- ━━━━━━━━━━ VOL.5 東京大コケ ━━━━━━━━━━ -->
+<div class="vol-label">VOL.5（5/8金）— 東京で大コケした件（事故報告書）</div>
+<div class="preview-wrap">
+<div class="thumb">
+  <div class="header-bar">
+    <div class="brand">⛩ U G 競 馬 神 宮 <span>／ 開 発 日 記</span></div>
+    <div class="vol-badge">VOL. 05</div>
+  </div>
+  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ">
+  <div class="number-area">
+    <div class="label-top">【⚠ 事故報告】<span class="accent">東京 場別</span></div>
+    <div class="big-num">25.4<span class="pct">%</span></div>
+    <div class="label-bot">うちの神宮、<br><em>東京で大コケ</em>した件。</div>
+    <div class="badges">
+      <div class="badge">原因：馬場バイアス</div>
+      <div class="badge alt">来週は内枠先行+1</div>
+    </div>
+  </div>
   <div class="footer-bar">
     <span>⛩</span> 失敗から学ぶ、神宮の成長記録 <span>⛩</span>
   </div>
 </div>
 </div>
 
-<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
-<div class="vol-label">VOL.5 — 神宮始動＋ニックが何か企んでる件（最終回）</div>
+<!-- ━━━━━━━━━━ VOL.6 神宮始動 ━━━━━━━━━━ -->
+<div class="vol-label">VOL.6（5/9土）— 神宮始動 + 何かが始まる件</div>
 <div class="preview-wrap">
-<div class="thumb v5">
-  <div class="washi-bg"></div>
+<div class="thumb">
   <div class="header-bar">
     <div class="brand">⛩ U G 競 馬 神 宮 <span>／ 開 発 日 記</span></div>
-    <div class="vol-badge">VOL. 05 ★最 終 回</div>
+    <div class="vol-badge">VOL. 06</div>
   </div>
-  <div class="title-area">
-    <div class="pre-title">5/10 神宮、本格始動</div>
-    <div class="main-title">そして、<br>ニックが何かを<br><em>企んでいる</em>件。</div>
-    <div class="question">…<span>何だろうね？</span></div>
+  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ">
+  <div class="number-area">
+    <div class="label-top">【始動】<span class="accent">5/10 NHKマイルC週</span></div>
+    <div class="big-num">5/10<span class="pct" style="font-size:60px">START</span></div>
+    <div class="label-bot">神宮、本格始動。<br><em>何かが始まる</em>件。</div>
+    <div class="badges">
+      <div class="badge">言霊×外厩 初運用</div>
+      <div class="badge alt">★★★★★★初発見？</div>
+    </div>
   </div>
-  <img src="slides/img/giinyo-daijin.png" class="ginyo-img" alt="ギーニョ">
-  <div class="final-badge mincho">FINAL</div>
   <div class="footer-bar">
-    <span>⛩</span> 言霊×外厩 神宮★マトリクス、初運用へ <span>⛩</span>
+    <span>⛩</span> ニックが、何かを企んでいるらしい <span>⛩</span>
+  </div>
+</div>
+</div>
+
+<!-- ━━━━━━━━━━ VOL.7 検証結果 ━━━━━━━━━━ -->
+<div class="vol-label">VOL.7（5/10日）— 5/10 検証結果＋次週予告（最終回）</div>
+<div class="preview-wrap">
+<div class="thumb">
+  <div class="header-bar">
+    <div class="brand">⛩ U G 競 馬 神 宮 <span>／ 開 発 日 記</span></div>
+    <div class="vol-badge">VOL. 07 ★ 最 終</div>
+  </div>
+  <img src="slides/img/ginyo-meadow.png" class="ginyo-meadow" alt="ギーニョ">
+  <div class="number-area">
+    <div class="label-top">【総括】<span class="accent">5/10 神宮検証</span></div>
+    <div class="big-num">???<span class="pct">%</span></div>
+    <div class="label-bot">うちの神宮、<br><em>結果はいかに</em>？</div>
+    <div class="badges">
+      <div class="badge gold">FINAL</div>
+      <div class="badge">来週予告あり</div>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <span>⛩</span> 神宮★マトリクス 初運用 完全レポート <span>⛩</span>
   </div>
 </div>
 </div>
 
 <div class="guide" style="margin-top:40px">
-  <h2 style="font-size:16px;color:#ffd34d;margin-bottom:10px">📋 PDF/PNG 一括出力したい場合</h2>
-  <p>Chromeのデベロッパーツール → <code>Cmd+Shift+P</code> → "screenshot" 検索 → 「Capture full size screenshot」<br>
-  または、各サムネを個別に <code>Cmd+Shift+4</code> でスクショ。</p>
+  <h2 style="font-size:16px;color:#ffd34d;margin-bottom:10px">📋 全7枚、デザイン統一済み</h2>
+  <p>共通要素：草原ギーニョ × 黄金背景 × 緑帯ヘッダー／フッター × 大数字 × バッジ2つ</p>
+  <p>各vol で異なるのは：vol番号 / メイン数字 / タイトル / バッジ内容 / フッター文言</p>
 </div>
 
 </body>
