@@ -134,6 +134,23 @@
   details.summary-d{margin-top:14px}
   details.summary-d summary{padding:8px;background:var(--paper-deep);border-radius:4px;
                             color:var(--shu);font-weight:700;font-size:12px;letter-spacing:.15em}
+  /* ご祝儀レース */
+  .goshugi{margin-top:14px;padding:14px;background:linear-gradient(135deg,#fff6e8 0%,#fff0d0 100%);
+           border:2px solid var(--gold);border-radius:8px;
+           box-shadow:0 2px 10px rgba(201,168,76,.3)}
+  .goshugi-h{text-align:center;color:#b8860b;font-weight:700;font-size:14px;
+             letter-spacing:.2em;margin-bottom:10px;
+             text-shadow:0 1px 0 rgba(255,255,255,.5)}
+  .goshugi-list{display:grid;gap:8px}
+  .goshugi-row{display:grid;grid-template-columns:36px 1fr auto auto;gap:10px;
+               align-items:center;padding:10px 12px;background:#fff;
+               border:1px solid rgba(212,175,55,.4);border-radius:6px}
+  .goshugi-rank{font-size:22px;text-align:center}
+  .goshugi-name{font-weight:700;color:var(--ink);font-size:13px}
+  .goshugi-name .gn-meta{color:var(--ink-soft);font-size:11px;font-weight:400;margin-left:6px}
+  .goshugi-rec{font-size:18px;font-weight:700;color:#b8860b;
+               text-shadow:0 1px 0 rgba(255,255,255,.4)}
+  .goshugi-pay{font-size:11px;color:var(--ink-soft)}
   .sb-learn{text-align:center;margin-top:14px;padding:8px;background:var(--bg-soft);
             border-radius:4px;color:var(--ink-soft);font-size:11px;font-style:italic}
   /* 各レース結果 */
@@ -245,6 +262,36 @@ function renderSummary(){
         </div>
       </details>
       <div class="sb-learn">🔬 ベスト馬券種分析学習中...</div>
+      ${renderGoshugi()}
+    </div>`;
+}
+
+function renderGoshugi(){
+  const RANK_EMOJI = ['🥇','🥈','🥉','🎖','🎖','🎖','🎖','🎖','🎖'];
+  const hits = ALL_RACES
+    .filter(r => r.result && r.result.betting && r.result.betting.recovery >= 300)
+    .map(r => ({
+      venue: r.venue, raceNum: r.raceNum, raceName: r.raceName,
+      rec: r.result.betting.recovery,
+      pay: r.result.betting.payoutTotal,
+      inv: r.result.betting.investTotal,
+    }))
+    .sort((a,b) => b.rec - a.rec);
+  if (hits.length === 0) return '';
+  return `
+    <div class="goshugi">
+      <div class="goshugi-h mincho">🧧 日曜日のご祝儀レース 🧧</div>
+      <div class="goshugi-list">
+        ${hits.map((h,i) => `
+          <div class="goshugi-row">
+            <div class="goshugi-rank">${RANK_EMOJI[i]||'🎖'}</div>
+            <div class="goshugi-name">
+              ${h.venue}${h.raceNum} ${h.raceName}
+              <span class="gn-meta">投資¥${h.inv.toLocaleString()} → 払戻¥${h.pay.toLocaleString()}</span>
+            </div>
+            <div class="goshugi-rec">${h.rec}%</div>
+          </div>`).join('')}
+      </div>
     </div>`;
 }
 
