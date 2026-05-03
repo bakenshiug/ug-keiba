@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>⛩ 言霊神宮 LIVE 配信マニュアル｜神主ニック専用</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#FAFAFA; --bg-soft:#F5F2EB; --paper:#FBF7EE; --paper-deep:#F0EADB;
+    --ink:#2c1f12; --ink-soft:#5a4a3a;
+    --shu:#a44a3f; --shu-dk:#7A1E1E;
+    --gold:#c9a84c; --gold-dk:#b8860b;
+    --ok:#5fa85c;
+    --border:rgba(164,74,63,.25);
+  }
+  body{background:var(--bg);color:var(--ink);
+       font-family:'Noto Sans JP',sans-serif;line-height:1.75;font-size:13px}
+  .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.04em}
+
+  /* ── 表紙 ── */
+  .cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+         align-items:center;text-align:center;padding:60px 40px;
+         background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
+         border-bottom:3px double var(--shu);page-break-after:always}
+  .cover-torii{font-size:80px;color:var(--shu);margin-bottom:20px;line-height:1}
+  .cover-title{font-size:42px;color:var(--shu);font-weight:700;letter-spacing:.3em;margin-bottom:10px}
+  .cover-sub{font-size:18px;color:var(--ink-soft);letter-spacing:.2em;margin-bottom:40px}
+  .cover-meta{font-size:13px;color:var(--gold-dk);letter-spacing:.15em;font-weight:700;margin-top:20px}
+  .cover-ornament{font-size:24px;color:var(--gold);letter-spacing:1em;margin:30px 0}
+  .cover-quote{margin-top:60px;padding:24px;background:rgba(255,255,255,.5);
+               border:1px solid var(--gold);border-radius:8px;max-width:520px;
+               font-family:'Shippori Mincho',serif;font-size:14px;color:var(--ink);line-height:2}
+  .cover-quote-attr{margin-top:14px;font-size:11px;color:var(--ink-soft);letter-spacing:.2em}
+
+  /* ── 通常ページ ── */
+  main{max-width:780px;margin:0 auto;padding:30px 40px}
+  .chapter{padding:30px 0;page-break-inside:avoid}
+  .chapter-num{display:inline-block;background:var(--shu);color:#fff;
+               font-family:'Shippori Mincho',serif;padding:4px 14px;border-radius:4px;
+               font-size:11px;letter-spacing:.3em;margin-bottom:12px;font-weight:700}
+  h1.chapter-title{font-family:'Shippori Mincho',serif;font-size:26px;color:var(--shu);
+                   font-weight:700;letter-spacing:.15em;border-bottom:2px solid var(--shu);
+                   padding-bottom:10px;margin-bottom:20px}
+  h2.section-h{font-family:'Shippori Mincho',serif;font-size:18px;color:var(--shu-dk);
+               font-weight:700;letter-spacing:.1em;margin:24px 0 10px;
+               padding-left:14px;border-left:4px solid var(--gold)}
+  h3.sub-h{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--ink);
+           font-weight:700;margin:18px 0 8px}
+  p{margin:8px 0;line-height:1.85}
+  ul,ol{margin:10px 0 10px 24px;line-height:1.85}
+  li{margin:4px 0}
+  strong,b{color:var(--shu);font-weight:700}
+  code{background:var(--paper-deep);color:var(--shu-dk);padding:2px 6px;
+       border-radius:3px;font-family:'SF Mono',Menlo,monospace;font-size:12px}
+
+  /* ── 表 ── */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12px}
+  th{background:var(--paper-deep);color:var(--shu);font-weight:700;
+     padding:8px;text-align:left;border:1px solid var(--border)}
+  td{padding:8px;border:1px solid var(--border);vertical-align:top}
+  td.c{text-align:center}
+
+  /* ── ボックス ── */
+  .box{background:var(--paper);border:1px solid var(--border);border-radius:6px;
+       padding:14px 18px;margin:12px 0}
+  .box-warn{background:rgba(164,74,63,.08);border-left:4px solid var(--shu);padding:14px 18px;border-radius:4px;margin:12px 0}
+  .box-warn h4{color:var(--shu);font-weight:700;margin-bottom:6px;font-size:13px}
+  .box-tip{background:rgba(95,168,92,.08);border-left:4px solid var(--ok);padding:14px 18px;border-radius:4px;margin:12px 0}
+  .box-tip h4{color:#2d5530;font-weight:700;margin-bottom:6px;font-size:13px}
+  .box-code{background:#1A1A1A;color:#FBF7EE;padding:14px 18px;border-radius:6px;
+            font-family:'SF Mono',Menlo,monospace;font-size:12px;line-height:1.7;
+            margin:12px 0;overflow-x:auto}
+  .box-code .comment{color:#8B7530}
+  .box-code .key{color:#a8d4ff}
+
+  /* ── チェックリスト ── */
+  .checklist{background:var(--bg-soft);border:1px solid var(--border);border-radius:6px;
+             padding:18px 22px;margin:12px 0}
+  .checklist h4{font-family:'Shippori Mincho',serif;color:var(--shu);font-size:14px;
+                font-weight:700;letter-spacing:.1em;margin-bottom:10px}
+  .checklist ul{list-style:none;margin-left:0}
+  .checklist li{padding:5px 0 5px 26px;position:relative;font-size:12.5px}
+  .checklist li::before{content:'☐';position:absolute;left:0;color:var(--shu);
+                        font-size:16px;font-weight:700}
+
+  /* ── 鳥居区切り ── */
+  .torii-sep{text-align:center;color:var(--shu);font-size:14px;letter-spacing:1em;
+             margin:30px 0 20px;font-family:'Shippori Mincho',serif}
+  .torii-sep::before,.torii-sep::after{content:'─';color:var(--gold);margin:0 14px}
+
+  /* ── 結び ── */
+  .musubi{background:#1A1A1A;color:#FBF7EE;border:2px solid var(--gold);
+          border-radius:10px;padding:30px 26px;margin:40px 0;text-align:center}
+  .musubi-text{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--gold);
+               line-height:2;letter-spacing:.06em}
+  .musubi-attr{margin-top:16px;font-size:11px;color:rgba(251,247,238,.55);letter-spacing:.2em}
+
+  /* ── フッター ── */
+  .doc-footer{text-align:center;padding:30px 20px;color:var(--ink-soft);
+              font-size:10px;letter-spacing:.15em;border-top:1px solid var(--border);
+              margin-top:40px;background:var(--paper-deep)}
+
+  /* ── 印刷向け ── */
+  @media print{
+    body{background:#fff;font-size:11px}
+    .cover{min-height:auto;page-break-after:always}
+    .chapter{page-break-inside:avoid}
+    h1.chapter-title{page-break-after:avoid}
+    .no-print{display:none !important}
+    .box-code{background:#f0f0f0;color:#000;border:1px solid #ccc}
+    .musubi{background:#f0f0f0;color:#000;border:2px solid #888}
+    .musubi-text{color:#444}
+  }
+  @page{size:A4;margin:18mm 14mm}
+
+  /* ── 印刷ボタン（画面のみ） ── */
+  .print-btn{position:fixed;bottom:20px;right:20px;padding:14px 24px;
+             background:var(--shu);color:#fff;border:none;border-radius:8px;
+             font-family:'Shippori Mincho',serif;font-size:14px;font-weight:700;
+             letter-spacing:.15em;cursor:pointer;box-shadow:0 4px 12px rgba(164,74,63,.3);
+             z-index:1000}
+  .print-btn:hover{background:var(--shu-dk)}
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print mincho" onclick="window.print()">📄 PDF保存（Cmd+P）</button>
+
+<!-- ══ 表紙 ══ -->
+<div class="cover">
+  <div class="cover-torii mincho">⛩</div>
+  <h1 class="cover-title mincho">言　霊　神　宮</h1>
+  <h2 class="cover-title mincho" style="font-size:26px;letter-spacing:.4em;margin-top:8px">L  I  V  E</h2>
+  <p class="cover-sub mincho">配 信 マ ニ ュ ア ル</p>
+  <div class="cover-ornament mincho">⛩ 🐉 🐅 🦒 ⛩</div>
+  <p class="cover-meta mincho">神主ニック 専 用</p>
+  <p class="cover-meta mincho" style="margin-top:6px;color:var(--ink-soft)">Fifine ダイナミックマイク × OBS × ツイキャス</p>
+
+  <div class="cover-quote">
+    「言葉は嘘つく、外厩は嘘つかない、我は両方読む」<br>
+    <small style="font-size:11px">中央競馬 全レース、選ばれし神馬四頭を照らす</small>
+    <div class="cover-quote-attr mincho">── 御 祭 神　ギ ー ニ ョ 大 神 ──</div>
+  </div>
+
+  <p class="cover-meta mincho" style="margin-top:60px">2026 年 5 月 編 集　／　Version 1.0</p>
+</div>
+
+
+<main>
+
+<!-- ══ 目次 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">序</span>
+  <h1 class="chapter-title">目　次</h1>
+  <ol style="font-family:'Shippori Mincho',serif;font-size:14px;line-height:2.2">
+    <li>第一章　神宮配信の世界観と方針</li>
+    <li>第二章　機材紹介（Fifine マイク・Mac・OBS）</li>
+    <li>第三章　マイクセットアップ</li>
+    <li>第四章　OBS インストール＆基本設定</li>
+    <li>第五章　OBS シーン構成（神主ニック式）</li>
+    <li>第六章　OBS 音声フィルター（神宮推奨パラメータ）</li>
+    <li>第七章　ツイキャス連携・ストリームキー発行</li>
+    <li>第八章　配信フォーマット（30分構成）</li>
+    <li>第九章　神主ニック キャラ設定とトークTips</li>
+    <li>第十章　法的注意・自己責任表記</li>
+    <li>第十一章　配信前チェックリスト</li>
+    <li>第十二章　トラブルシューティング</li>
+    <li>結　言霊神宮 LIVE の哲学</li>
+  </ol>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第一章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 一 章</span>
+  <h1 class="chapter-title">神宮配信の世界観と方針</h1>
+
+  <h2 class="section-h">なぜ配信するのか</h2>
+  <p>UG競馬神宮の言霊×外厩予想ロジックを、リアルタイムで解説しながら配信することで以下を実現する。</p>
+  <ul>
+    <li><b>無料コンテンツで実績作り</b>：的中数を視覚的に積み上げ、信頼を獲得</li>
+    <li><b>note ¥200 → ¥500 段階値上げ</b>への導線</li>
+    <li><b>神宮ブランドの確立</b>：「正体不明の神主が言霊で読む」という独自ジャンル</li>
+    <li><b>アーカイブが資産化</b>：配信ごとに過去ログが蓄積</li>
+  </ul>
+
+  <h2 class="section-h">配信ターゲット</h2>
+  <ul>
+    <li>競馬予想を「データ × ストーリー」で楽しみたい層</li>
+    <li>本命党より<b>穴党</b>（人気薄ピックを重視する層）</li>
+    <li>神宮の世界観・キャラ性に共感する層</li>
+  </ul>
+
+  <h2 class="section-h">配信スタイル方針</h2>
+  <ul>
+    <li><b>「検証してみた」系</b>：自分も実際に張りながら結果を見せる</li>
+    <li><b>断言を避ける</b>：「神託」「御託宣」のフレーバーで法的回避</li>
+    <li><b>サングラス＋帽子で正体不明感</b>：神秘性UP・身バレ回避</li>
+    <li><b>30分×2枠</b>でテンポよく</li>
+  </ul>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第二章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 二 章</span>
+  <h1 class="chapter-title">機 材 紹 介</h1>
+
+  <h2 class="section-h">Fifine マイク（推定 K688 / AM8）</h2>
+  <p>底面に <b>XLR + USB-C + 3.5mm ヘッドホン端子</b> を備えるダイナミックマイク。<br>
+  Shure SM7B のクローン的存在で、コスパ最強。</p>
+
+  <table>
+    <tr><th>項目</th><th>仕様・特徴</th></tr>
+    <tr><td>形式</td><td>ダイナミックマイク</td></tr>
+    <tr><td>接続</td><td>USB-C 直挿し（Mac対応）／ XLR（IF経由）</td></tr>
+    <tr><td>サンプルレート</td><td>48 kHz / 24bit</td></tr>
+    <tr><td>指向性</td><td>カーディオイド（単一指向性）</td></tr>
+    <tr><td>ヘッドホン端子</td><td>3.5mm（ゼロレイテンシ・モニタリング可）</td></tr>
+    <tr><td>強み</td><td>環境音を拾いにくい・近接効果で太い声</td></tr>
+  </table>
+
+  <div class="box-tip">
+    <h4>💡 神宮ポイント</h4>
+    <p>ダイナミックマイクは、コンデンサーマイクと違って<b>部屋の反響や生活音をほぼ拾わない</b>。
+    エアコンの音、家族の足音、PCファン音などが配信に乗らない＝<b>神宮の静寂感</b>を保てる神アイテム。</p>
+  </div>
+
+  <h2 class="section-h">Mac（既存）</h2>
+  <p>OBS は Mac 公式版で問題なし。M1 以降のチップなら配信中の動画エンコード負荷もラクラク。</p>
+
+  <h2 class="section-h">OBS Studio（無料・公式）</h2>
+  <p><code>https://obsproject.com/</code> よりダウンロード。
+  ライブ配信・録画両方できるオープンソース。</p>
+
+  <h2 class="section-h">任意：Webカメラ（顔出し用）</h2>
+  <p>サングラス＋帽子の神主ニックスタイルで顔出し配信予定。
+  Mac内蔵カメラでもOK、外付けなら Logicool C920 等で十分。</p>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第三章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 三 章</span>
+  <h1 class="chapter-title">マイクセットアップ</h1>
+
+  <h2 class="section-h">Step 1: 物理接続</h2>
+  <ol>
+    <li><b>USB-C ケーブル</b>でMacに直接接続</li>
+    <li>マイクの<b>正面ロゴ「fifine」が自分側</b>を向くよう設置</li>
+    <li>任意：3.5mm ヘッドホンをマイク底面に挿す（モニタリング用）</li>
+  </ol>
+
+  <h2 class="section-h">Step 2: Mac サウンド設定</h2>
+  <div class="box-code">
+<span class="comment"># システム設定 → サウンド → 入力</span>
+入力デバイス: <span class="key">Fifine Microphone</span> を選択
+入力レベル:   メーターが中盤に来るよう調整（喋ってチェック）
+
+<span class="comment"># システム設定 → サウンド → 出力（ヘッドホン使用時）</span>
+出力デバイス: <span class="key">Fifine Microphone</span>（マイク経由のヘッドホンモニタリング）
+  </div>
+
+  <h2 class="section-h">Step 3: マイクポジション</h2>
+  <ul>
+    <li>顔から<b>拳1個分（約 10cm）</b>離す</li>
+    <li>真上向きにせず、<b>口元にやや向ける</b></li>
+    <li>「ポ」「パ」「バ」の破裂音は口を斜めにズラして発音</li>
+    <li>フォームウィンドスクリーン（黒いスポンジ）が付属＝ポップガード代わり</li>
+  </ul>
+
+  <div class="box-warn">
+    <h4>⚠ よくある失敗</h4>
+    <ul style="margin-top:6px">
+      <li>マイクが遠い → 声が薄く、エコー混入</li>
+      <li>マイクの真上で話す → 高音抜けが悪い</li>
+      <li>USB-C 半挿し → 認識不安定 ※ 奥までしっかり挿す</li>
+    </ul>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第四章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 四 章</span>
+  <h1 class="chapter-title">OBS インストール＆基本設定</h1>
+
+  <h2 class="section-h">Step 1: ダウンロード</h2>
+  <p><code>https://obsproject.com/ja</code> にアクセス → macOS 版をダウンロード → インストール</p>
+
+  <h2 class="section-h">Step 2: 自動構成ウィザード</h2>
+  <p>初回起動時に自動構成ウィザードが表示される。以下を選択：</p>
+  <ul>
+    <li>使用目的：<b>配信を最適化する</b></li>
+    <li>映像設定：<b>1920×1080 / 30fps</b>（ツイキャス無料枠は720pでも可、まず1080pで設定）</li>
+    <li>サービス：「カスタム…」を選択（ツイキャス用RTMP後で設定）</li>
+  </ul>
+
+  <h2 class="section-h">Step 3: 出力設定</h2>
+  <div class="box-code">
+<span class="comment"># 設定 → 出力 → 配信</span>
+エンコーダー:    <span class="key">Apple VT H264 ハードウェアエンコーダ</span>
+ビットレート:    <span class="key">3500 Kbps</span>（720pなら2500、1080pなら3500-4500）
+キーフレーム間隔: <span class="key">2</span>
+
+<span class="comment"># 設定 → 音声</span>
+サンプルレート: <span class="key">48 kHz</span>
+チャンネル:    <span class="key">ステレオ</span>
+マイク音声:    <span class="key">Fifine Microphone</span>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第五章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 五 章</span>
+  <h1 class="chapter-title">OBS シーン構成（神主ニック式）</h1>
+
+  <h2 class="section-h">推奨レイアウト</h2>
+  <div class="box">
+    <pre style="font-family:'SF Mono',Menlo,monospace;font-size:11px;line-height:1.6">
+┌──────────────────────────────────────────┐
+│  [メイン画面 70%]                          │
+│  live.html （フルスクリーン表示）         │
+│  ⛩ 言霊神宮 LIVE                          │
+│                                            │
+│  ◎ ブルーサーマル A 1人気 1着🎯           │
+│  ○ ...                                     │
+├──────────────────────────────────────────┤
+│  [ニック顔小窓 20%] [神宮ロゴ] [告知欄]    │
+│   🕶👒                ⛩         note ¥200  │
+└──────────────────────────────────────────┘
+    </pre>
+  </div>
+
+  <h2 class="section-h">追加するソース（順番に）</h2>
+  <ol>
+    <li><b>ブラウザソース</b>
+      <ul>
+        <li>URL: <code>https://bakenshiug.github.io/ug-keiba/live.html</code></li>
+        <li>幅 1920 / 高 1080</li>
+        <li>「カスタムフレームレート」OFF</li>
+      </ul>
+    </li>
+    <li><b>映像キャプチャデバイス</b>（Webカメラ）
+      <ul>
+        <li>デバイス: FaceTime HD カメラ or 外付け</li>
+        <li>右下に小さく配置（縮小してドラッグ）</li>
+      </ul>
+    </li>
+    <li><b>イメージ</b>（神宮ロゴ・任意）
+      <ul>
+        <li>透過PNG（後で素材作成）</li>
+      </ul>
+    </li>
+    <li><b>テキスト（GDI+）</b>
+      <ul>
+        <li>「note ¥200 公開中」など告知</li>
+        <li>フォント：Shippori Mincho 推奨</li>
+      </ul>
+    </li>
+    <li><b>音声入力キャプチャ</b>
+      <ul>
+        <li>デバイス: <b>Fifine Microphone</b></li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第六章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 六 章</span>
+  <h1 class="chapter-title">OBS 音声フィルター（神宮推奨）</h1>
+
+  <p>OBS の「音声入力キャプチャ」を右クリック →「フィルタ」を開き、以下4種を順番に追加。</p>
+
+  <h2 class="section-h">① ノイズ抑制</h2>
+  <div class="box-code">
+方法: <span class="key">RNNoise (高品質)</span>
+  </div>
+  <p>エアコン音・PCファン音をAIで除去。神宮の静寂感UP。</p>
+
+  <h2 class="section-h">② ノイズゲート</h2>
+  <div class="box-code">
+クローズしきい値: <span class="key">-45 dB</span>
+オープンしきい値: <span class="key">-35 dB</span>
+アタック時間:     <span class="key">25 ms</span>
+リリース時間:     <span class="key">150 ms</span>
+  </div>
+  <p>喋っていない時は完全無音。生活音漏れ防止。</p>
+
+  <h2 class="section-h">③ コンプレッサー</h2>
+  <div class="box-code">
+比率:        <span class="key">4 : 1</span>
+しきい値:    <span class="key">-18 dB</span>
+アタック:    <span class="key">6 ms</span>
+リリース:    <span class="key">60 ms</span>
+出力ゲイン:  <span class="key">+3 dB</span>
+  </div>
+  <p>大声/小声の音量差を均す。神主の落ち着いた語り口を均一化。</p>
+
+  <h2 class="section-h">④ ゲイン（必要に応じて）</h2>
+  <div class="box-code">
++3 ～ +6 dB
+  </div>
+  <p>全体的に小さければ持ち上げ。OBSメーターが<b>緑〜黄ゾーン</b>に収まればOK。
+  赤に振り切らないよう注意（音割れ）。</p>
+
+  <div class="box-tip">
+    <h4>💡 配信前テスト</h4>
+    <p>OBSの「録画」ボタンで30秒テスト録画 → 再生して以下を確認：</p>
+    <ul style="margin-top:6px">
+      <li>声量適正か</li>
+      <li>無音時にホワイトノイズなしか</li>
+      <li>環境音漏れていないか</li>
+    </ul>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第七章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 七 章</span>
+  <h1 class="chapter-title">ツイキャス連携・ストリームキー発行</h1>
+
+  <h2 class="section-h">Step 1: ツイキャスログイン</h2>
+  <p><code>https://twitcasting.tv/</code> にアクセス → ログイン</p>
+
+  <h2 class="section-h">Step 2: ライブ配信(PC) ページへ</h2>
+  <p>マイページ →「ツール」→「ライブ配信(PC)」</p>
+
+  <h2 class="section-h">Step 3: ストリームキー発行</h2>
+  <p>「ストリームキーを発行」ボタンをクリック → 表示されたキーをコピー</p>
+
+  <h2 class="section-h">Step 4: OBSに設定</h2>
+  <div class="box-code">
+<span class="comment"># OBS 設定 → 配信</span>
+サービス: <span class="key">カスタム…</span>
+サーバー: <span class="key">rtmp://lap1.twitcasting.tv/live</span>
+ストリームキー: <span class="key">（発行されたキーを貼り付け）</span>
+  </div>
+
+  <div class="box-warn">
+    <h4>⚠ ストリームキーは絶対に他人に教えない</h4>
+    <p>キーがあれば誰でも自分のチャンネルで配信できてしまう。
+    SNSで誤公開しないよう注意。漏れたら即「キー再発行」で無効化。</p>
+  </div>
+
+  <h2 class="section-h">Step 5: 配信開始</h2>
+  <ol>
+    <li>OBS 右下「<b>配信開始</b>」をクリック</li>
+    <li>ツイキャス側で配信が始まったか確認</li>
+    <li>視聴者URLをSNSで共有</li>
+  </ol>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第八章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 八 章</span>
+  <h1 class="chapter-title">配信フォーマット（30分構成）</h1>
+
+  <p>ツイキャス無料枠は1配信30分。神宮的には30分×2枠が黄金パターン。</p>
+
+  <table>
+    <tr><th style="width:80px">時間</th><th>パート</th><th>内容</th></tr>
+    <tr><td class="c">3分</td><td>オープニング</td><td>
+      ⛩「参拝ありがとうございます、神主ニックです」<br>
+      今日の神託（メインG1紹介）<br>
+      ⚠ 自己責任注意書き
+    </td></tr>
+    <tr><td class="c">20分</td><td>メイン解説</td><td>
+      重賞2-3レース深掘り<br>
+      ・<code>live.html</code> 表示しながら4頭picks紹介<br>
+      ・◎の根拠：陣営の強気ワード朗読<br>
+      ・致命ワード解説：「これ来ないやつw」<br>
+      ・外厩バッジ説明：「天栄入りは要警戒」<br>
+      ・神宮★マトリクス検証
+    </td></tr>
+    <tr><td class="c">5分</td><td>質疑応答</td><td>
+      コメ拾い：「○○って馬どう？」→ 言霊チェック<br>
+      投げ銭返し：「ありがとうございます〜」
+    </td></tr>
+    <tr><td class="c">2分</td><td>エンディング</td><td>
+      「全picks・回収率は note ¥200 で公開中（先行価格）」<br>
+      「アーカイブ残ります」<br>
+      「次回は○○G1の前夜に」<br>
+      ⛩「神宮の御加護を」
+    </td></tr>
+  </table>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第九章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 九 章</span>
+  <h1 class="chapter-title">神主ニック キャラ設定とトークTips</h1>
+
+  <h2 class="section-h">キャラ設定</h2>
+  <table>
+    <tr><th style="width:120px">項目</th><th>設定</th></tr>
+    <tr><td>名前</td><td>神主 ニック</td></tr>
+    <tr><td>所属</td><td>UG競馬神宮</td></tr>
+    <tr><td>御祭神</td><td>ギーニョ大神</td></tr>
+    <tr><td>外見</td><td>サングラス＋帽子（正体不明感）</td></tr>
+    <tr><td>口調</td><td>落ち着いた語り口・「〜やで」「〜ですわ」混じり</td></tr>
+    <tr><td>専門</td><td>言霊（コメント）×外厩（仕上がり）二軸予想</td></tr>
+    <tr><td>世界観</td><td>「神宮の神主が言霊で穴を見抜く」</td></tr>
+  </table>
+
+  <h2 class="section-h">トークTips（Fifine活用）</h2>
+  <ul>
+    <li><b>マイクから一定距離キープ</b>：顔を動かしすぎない（音量変動防止）</li>
+    <li><b>破裂音は口を斜めに</b>：「ポ」「パ」「バ」</li>
+    <li><b>語尾を伸ばし気味</b>：「これ来ますね〜⛩」で太い声に</li>
+    <li><b>ヘッドホンモニター必須</b>：配信中の自分の声を聞きながら音量自己調整</li>
+    <li><b>沈黙OK</b>：神主っぽく「フム…」と考える間を入れる</li>
+  </ul>
+
+  <h2 class="section-h">トーク禁止フレーズ（配信BAN対策）</h2>
+  <div class="box-warn">
+    <h4>❌ 使ってはいけない言葉</h4>
+    <ul style="margin-top:6px">
+      <li>「絶対勝てる」「100%的中」「儲かる」</li>
+      <li>「これ買えば借金返せる」</li>
+      <li>「親に内緒で」「未成年でも」</li>
+      <li>馬券の代理購入を匂わす発言</li>
+    </ul>
+  </div>
+
+  <h2 class="section-h">代わりに使う言葉（神宮言語）</h2>
+  <div class="box-tip">
+    <h4>✅ 神宮的言い回し</h4>
+    <ul style="margin-top:6px">
+      <li>「神託では◎です」（断言回避）</li>
+      <li>「神宮の見立てとしては」（主観強調）</li>
+      <li>「自己責任で参拝してくださいね」</li>
+      <li>「言霊が告げております」（オカルト調で逃げる）</li>
+    </ul>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第十章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 十 章</span>
+  <h1 class="chapter-title">法的注意・自己責任表記</h1>
+
+  <h2 class="section-h">必須記載文（配信概要欄＋冒頭口頭）</h2>
+  <div class="box">
+    <p style="font-size:12px;line-height:1.9">
+    ※ 本配信は競馬予想を娯楽として楽しむためのコンテンツです。<br>
+    ※ 馬券購入は20歳以上・自己責任でお願いします。<br>
+    ※ 的中・利益を保証するものではありません。<br>
+    ※ 未成年者の視聴・投票は禁止されています。<br>
+    ※ 依存症の相談は「ギャンブル等依存症対策」窓口へ。
+    </p>
+  </div>
+
+  <h2 class="section-h">守るべき3原則</h2>
+  <ol>
+    <li><b>断言を避ける</b>：「絶対」「必ず」NG</li>
+    <li><b>代理購入NG</b>：他人の馬券を買う/売る匂わせも禁止</li>
+    <li><b>未成年配慮</b>：20歳以上の自己責任を明記</li>
+  </ol>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第十一章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 十 一 章</span>
+  <h1 class="chapter-title">配信前チェックリスト</h1>
+
+  <div class="checklist">
+    <h4>機材チェック</h4>
+    <ul>
+      <li>Fifine USB-C で Mac 接続</li>
+      <li>Mac サウンド設定で Fifine 選択・入力レベル調整</li>
+      <li>ヘッドホンを Fifine 3.5mm に接続（モニター用）</li>
+      <li>Webカメラ動作確認（顔出し時）</li>
+      <li>サングラス・帽子装着</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>OBS チェック</h4>
+    <ul>
+      <li>ブラウザソースで <code>live.html</code> 表示確認</li>
+      <li>顔小窓のサイズ・位置調整</li>
+      <li>音声フィルター 4種設定済み</li>
+      <li>30秒テスト録画 → 音量/音質確認</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>ツイキャス チェック</h4>
+    <ul>
+      <li>ストリームキー発行済み</li>
+      <li>OBS 配信設定貼り付け済み</li>
+      <li>配信タイトル決定（例「⛩言霊×外厩 検証 #1 NHKマイル週」）</li>
+      <li>概要欄に自己責任注意書き記載</li>
+      <li>note URL 概要欄に記載</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>コンテンツ準備</h4>
+    <ul>
+      <li>当日の重賞ピック確認（live.html 該当レース）</li>
+      <li>解説する2-3レースを決めておく</li>
+      <li>致命ワード持ち馬を事前にメモ</li>
+      <li>note ¥200 告知文を手元に</li>
+    </ul>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 第十二章 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 十 二 章</span>
+  <h1 class="chapter-title">トラブルシューティング</h1>
+
+  <table>
+    <tr><th>症状</th><th>対処</th></tr>
+    <tr><td>マイク音が出ない</td><td>
+      ① USB-C 抜き差し<br>
+      ② Mac サウンド設定で Fifine 選択確認<br>
+      ③ OBS 音声入力キャプチャのデバイス再選択
+    </td></tr>
+    <tr><td>音が小さい</td><td>
+      ① マイクに近づく（10cm以内）<br>
+      ② OBS ゲインフィルター +3〜6dB<br>
+      ③ Mac サウンド入力レベル上げる
+    </td></tr>
+    <tr><td>ハウリングする</td><td>
+      ① ヘッドホン使ってない → 必ずヘッドホンで配信<br>
+      ② スピーカー音量下げる<br>
+      ③ マイクとスピーカーの距離を取る
+    </td></tr>
+    <tr><td>配信が重い・カクつく</td><td>
+      ① OBS 出力ビットレート下げる（3500→2500）<br>
+      ② 解像度 1080p → 720p に変更<br>
+      ③ 不要アプリ全終了
+    </td></tr>
+    <tr><td>ツイキャスに繋がらない</td><td>
+      ① ストリームキー再発行<br>
+      ② サーバーURL再確認 <code>rtmp://lap1.twitcasting.tv/live</code><br>
+      ③ Wi-Fi 切替・再起動
+    </td></tr>
+    <tr><td>live.html が表示されない</td><td>
+      ① OBS ブラウザソース「ソースを更新」ボタン<br>
+      ② URLが正しいか確認<br>
+      ③ ネット接続確認
+    </td></tr>
+  </table>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ══ 結 ══ -->
+<div class="chapter">
+  <span class="chapter-num mincho">結</span>
+  <h1 class="chapter-title">言霊神宮 LIVE の哲学</h1>
+
+  <p>
+  配信は単なる予想紹介ではない。<br>
+  <b>「言葉は嘘つく、外厩は嘘つかない、我は両方読む」</b>──この哲学を、
+  毎週の配信で<b>視聴者と一緒に検証していく</b>営みである。</p>
+
+  <p>勝った週は喜び、負けた週は反省し、すべて<b>アーカイブに残す</b>。
+  それが信頼となり、神宮の御利益帳に積み上がっていく。</p>
+
+  <p>神主ニックは予想者ではなく、<b>言霊を読む媒介者</b>である。
+  視聴者は信者ではなく、<b>共に検証する参拝者</b>である。</p>
+
+  <p>5/10、最初の参拝者を迎える準備を整えよ。</p>
+
+  <div class="musubi">
+    <p class="musubi-text">
+      複勝にて守り、<br>
+      3連単にて攻むべし。<br>
+      二神の声、揃いし時に<br>
+      麒麟は降臨す。<br>
+      <br>
+      ⛩ 神 宮 の 御 加 護 を ⛩
+    </p>
+    <p class="musubi-attr mincho">── 御 祭 神　ギ ー ニ ョ 大 神 ──</p>
+  </div>
+</div>
+
+</main>
+
+<div class="doc-footer">
+  ⛩ U G 競 馬 神 宮　／　言 霊 神 宮 L I V E 配 信 マ ニ ュ ア ル　Version 1.0<br>
+  2026 年 5 月編集　／　神主ニック 専 用　／　無断配布禁止
+</div>
+
+</body>
+</html>
