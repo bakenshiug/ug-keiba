@@ -54,15 +54,696 @@
         }
       ],
       "watchList": {
-        "B": ["ルンベーラ","フレンチブラッサム","ディープマウンテン","イデアクリスタル"],
-        "C": ["ウォータースパウト","キャルキュラス","グレープレモネード","アジャイブ","ライヴマルガリータ","メリティス"],
-        "D": ["マウンテンドーター"]
+        "B": [
+          "ルンベーラ",
+          "フレンチブラッサム",
+          "ディープマウンテン",
+          "イデアクリスタル"
+        ],
+        "C": [
+          "ウォータースパウト",
+          "キャルキュラス",
+          "グレープレモネード",
+          "アジャイブ",
+          "ライヴマルガリータ",
+          "メリティス"
+        ],
+        "D": [
+          "マウンテンドーター"
+        ]
       },
       "fatalWords": [
-        {"horse":"マウンテンドーター","word":"晩稲のタイプ","type":"D固定"},
-        {"horse":"メリティス","word":"アテにはならない","type":"陣営自己否定"},
-        {"horse":"ライヴマルガリータ","word":"距離はギリギリ","type":"距離不安"}
+        {
+          "horse": "マウンテンドーター",
+          "word": "晩稲のタイプ",
+          "type": "D固定"
+        },
+        {
+          "horse": "メリティス",
+          "word": "アテにはならない",
+          "type": "陣営自己否定"
+        },
+        {
+          "horse": "ライヴマルガリータ",
+          "word": "距離はギリギリ",
+          "type": "距離不安"
+        }
       ],
+      "result": null
+    },
+    {
+      "raceId": "202602040402",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "2R",
+      "raceName": "3歳未勝利",
+      "category": "未勝利",
+      "surface": "ダート",
+      "distance": 1400,
+      "numHorses": 16,
+      "startTime": "10:20",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 11,
+          "name": "ライカ",
+          "jockey": "大野拓",
+          "trainer": "杉浦",
+          "kotodamaGrade": "A",
+          "comment": "前走2着・騎手「今まで乗った中で一番リズムが良かった」記者「次走も上位候補」陣営「東京1400m終い伸びる」「連闘問題ない」"
+        },
+        {
+          "mark": "○",
+          "num": 10,
+          "name": "レイズレガシー",
+          "jockey": "横山武",
+          "trainer": "高柳瑞",
+          "kotodamaGrade": "A",
+          "comment": "前走6着「距離が長かった」距離短縮プラス＋陣営「未勝利を勝つ力はあります」"
+        },
+        {
+          "mark": "▲",
+          "num": 7,
+          "name": "ブルーミーティア",
+          "jockey": "菅原明",
+          "trainer": "鈴木伸",
+          "kotodamaGrade": "A",
+          "comment": "陣営「東京1400mが合う」明示＋記者「左回りの方がいい」"
+        },
+        {
+          "mark": "△",
+          "num": 4,
+          "name": "キーチジャステン",
+          "jockey": "長浜鴻",
+          "trainer": "千葉",
+          "kotodamaGrade": "A",
+          "comment": "新馬・陣営「能力を感じます」「いきなり好レースに持ち込めるかも」"
+        }
+      ],
+      "watchList": {
+        "B": [
+          "マッシブショット",
+          "キタノドンカルロ",
+          "レピュニット",
+          "ハピナスター",
+          "レオスキーム",
+          "プリプリプリン",
+          "ネオシューマン",
+          "イントゥゴールデン"
+        ],
+        "C": [
+          "エメラルファイン",
+          "セツナサ",
+          "マイネルテオドロス"
+        ],
+        "D": [
+          "リトルコリンズ"
+        ]
+      },
+      "fatalWords": [
+        {
+          "horse": "リトルコリンズ",
+          "word": "成長待ち・パワーアップ必要",
+          "type": "D固定"
+        }
+      ],
+      "result": null
+    },
+    {
+      "raceId": "202602040403",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "3R",
+      "raceName": "3歳未勝利",
+      "category": "未勝利",
+      "surface": "ダート",
+      "distance": 1600,
+      "numHorses": 12,
+      "startTime": "10:50",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 12,
+          "name": "マサッチェハマー",
+          "jockey": "ディー",
+          "trainer": "伊藤大",
+          "kotodamaGrade": "A",
+          "comment": "前走2着・記者「未勝利ならいつでも勝てる力はある」陣営「そろそろ順番が回ってきても」+ブリンカー試行"
+        },
+        {
+          "mark": "○",
+          "num": 11,
+          "name": "トワイライトビュー",
+          "jockey": "原優介",
+          "trainer": "篠島",
+          "kotodamaGrade": "A",
+          "comment": "騎手「東京のワンターンのような助走距離が長くなるコースはプラス」記者「次走は更にやれる」"
+        },
+        {
+          "mark": "▲",
+          "num": 6,
+          "name": "スティールヴォーグ",
+          "jockey": "田辺裕",
+          "trainer": "田村",
+          "kotodamaGrade": "A",
+          "comment": "前走3着「中身の濃い3着」陣営「中山はパスしてここに備えていました」「安定している」"
+        },
+        {
+          "mark": "△",
+          "num": 4,
+          "name": "シャインネージュ",
+          "jockey": "石橋脩",
+          "trainer": "小野次",
+          "kotodamaGrade": "B",
+          "comment": "初戦最後に差を詰めた・陣営「東京の1600mならもう少しやれていい」"
+        }
+      ],
+      "watchList": {
+        "B": [
+          "クラージュスター",
+          "カウガールハット",
+          "カシマライフウ"
+        ],
+        "C": [
+          "モズエムブイピー",
+          "タマモブレイキン",
+          "アーデントアイ",
+          "スターツトゥデイ",
+          "タイガーゲイト"
+        ]
+      },
+      "fatalWords": [
+        {
+          "horse": "タイガーゲイト",
+          "word": "自分のリズム",
+          "type": "準致命"
+        },
+        {
+          "horse": "モズエムブイピー",
+          "word": "操縦性に課題、まだ粗削り",
+          "type": "C級"
+        }
+      ],
+      "result": null
+    },
+    {
+      "raceId": "202602040404",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "4R",
+      "raceName": "3歳未勝利",
+      "category": "未勝利",
+      "surface": "芝",
+      "distance": 1600,
+      "numHorses": 18,
+      "startTime": "11:20",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 3,
+          "name": "フリーヤ",
+          "jockey": "横山武",
+          "trainer": "鈴木伸",
+          "kotodamaGrade": "A",
+          "comment": "前走2着・記者「素質十分」陣営◎「あの走りなら東京の方が合うし、勝ち負けを期待」"
+        },
+        {
+          "mark": "○",
+          "num": 4,
+          "name": "ワッフル",
+          "jockey": "柴田大",
+          "trainer": "室井",
+          "kotodamaGrade": "A",
+          "comment": "前走山藤賞4着(格上挑戦)・陣営◎「勝ち負けに」"
+        },
+        {
+          "mark": "▲",
+          "num": 6,
+          "name": "ベアサナエチャン",
+          "jockey": "大野拓",
+          "trainer": "杉浦",
+          "kotodamaGrade": "A",
+          "comment": "前走4着「落鉄影響」陣営「楽に行ければどういう位置でも流れ乗れる」"
+        },
+        {
+          "mark": "△",
+          "num": 12,
+          "name": "ビップマリク",
+          "jockey": "吉田豊",
+          "trainer": "高柳瑞",
+          "kotodamaGrade": "B",
+          "comment": "初ブリンカー＋記者「きっかけになりそう」陣営「あとひと押しが利けば」"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [],
+      "result": null
+    },
+    {
+      "raceId": "202602040405",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "5R",
+      "raceName": "3歳未勝利",
+      "category": "未勝利",
+      "surface": "芝",
+      "distance": 1800,
+      "numHorses": 15,
+      "startTime": "12:10",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 10,
+          "name": "オープンザパンドラ",
+          "jockey": "ディー",
+          "trainer": "小椋",
+          "kotodamaGrade": "A",
+          "comment": "前走3着・騎手「最後もよく伸びてくれた」陣営「収穫があった」"
+        },
+        {
+          "mark": "○",
+          "num": 1,
+          "name": "オメガディコン",
+          "jockey": "岩田康",
+          "trainer": "浅利",
+          "kotodamaGrade": "A",
+          "comment": "騎手「力は秘めていると思う」陣営「スムーズなレースができれば違う」"
+        },
+        {
+          "mark": "▲",
+          "num": 2,
+          "name": "イルミナジーティー",
+          "jockey": "佐々木大",
+          "trainer": "西園翔",
+          "kotodamaGrade": "A",
+          "comment": "陣営「決め手のある馬、コース替わり良い」「ワンターンもいい材料」「巻き返し」"
+        },
+        {
+          "mark": "△",
+          "num": 4,
+          "name": "トランスマーレ",
+          "jockey": "横山武",
+          "trainer": "高柳瑞",
+          "kotodamaGrade": "B",
+          "comment": "陣営「マイルでは切れ不足→距離を延ばしてみます」距離延長プラス"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [],
+      "result": null
+    },
+    {
+      "raceId": "202602040406",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "6R",
+      "raceName": "3歳1勝クラス",
+      "category": "1勝C",
+      "surface": "ダート",
+      "distance": 1400,
+      "numHorses": 16,
+      "startTime": "12:40",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 8,
+          "name": "トヨサカエ",
+          "jockey": "吉田豊",
+          "trainer": "高橋文",
+          "kotodamaGrade": "A",
+          "comment": "前走未勝利完勝「最後も余力」記者「昇級しても通用」陣営「クラスが上がっても能力的に通用。楽しみ」"
+        },
+        {
+          "mark": "○",
+          "num": 14,
+          "name": "フルミネブル",
+          "jockey": "ディー",
+          "trainer": "千葉",
+          "kotodamaGrade": "A",
+          "comment": "前走2着「相手が強過ぎた」陣営◎「成長が感じられる、改めて期待」"
+        },
+        {
+          "mark": "▲",
+          "num": 11,
+          "name": "ベルゼビュート",
+          "jockey": "荻野極",
+          "trainer": "高木登",
+          "kotodamaGrade": "A",
+          "comment": "前走勝ち「ポテンシャル高い」陣営「クラスが上がってもまずまずやれる」"
+        },
+        {
+          "mark": "△",
+          "num": 7,
+          "name": "リフレックス",
+          "jockey": "三浦皇",
+          "trainer": "金成",
+          "kotodamaGrade": "A",
+          "comment": "前走3着「いいレース」陣営「この条件がベスト、ここを目標に調整」"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [
+        {
+          "horse": "アースインハマー",
+          "word": "精神的に幼過ぎて余裕がない",
+          "type": "D級"
+        },
+        {
+          "horse": "パータリプトラ",
+          "word": "気難しい、集中力足らない",
+          "type": "D級"
+        }
+      ],
+      "result": null
+    },
+    {
+      "raceId": "202602040407",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "7R",
+      "raceName": "4歳上1勝クラス",
+      "category": "1勝C",
+      "surface": "ダート",
+      "distance": 1600,
+      "numHorses": 15,
+      "startTime": "13:10",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 11,
+          "name": "マテンロウノカゼ",
+          "jockey": "横山典",
+          "trainer": "昆",
+          "kotodamaGrade": "A",
+          "comment": "前走3着「平地でも十分にやれる」陣営「現級そのうち突破できそう」"
+        },
+        {
+          "mark": "○",
+          "num": 7,
+          "name": "スクレイピング",
+          "jockey": "岩田康",
+          "trainer": "尾関",
+          "kotodamaGrade": "A",
+          "comment": "去勢効果＋陣営「オープン馬相手に手応え優勢、頑張ってくれそう」"
+        },
+        {
+          "mark": "▲",
+          "num": 10,
+          "name": "レッドベルダンス",
+          "jockey": "嶋田純",
+          "trainer": "手塚久",
+          "kotodamaGrade": "B",
+          "comment": "前走6着・陣営「東京に替わって距離短縮で集中力が続けば、脚抜きのいい馬場向き」"
+        },
+        {
+          "mark": "△",
+          "num": 9,
+          "name": "コーシューパンジャ",
+          "jockey": "長浜鴻",
+          "trainer": "相沢",
+          "kotodamaGrade": "B",
+          "comment": "陣営「減量騎手起用、嵌まれば」"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [
+        {
+          "horse": "カルフ",
+          "word": "自分のリズム",
+          "type": "準致命"
+        }
+      ],
+      "result": null
+    },
+    {
+      "raceId": "202602040408",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "8R",
+      "raceName": "4歳上2勝クラス",
+      "category": "2勝C",
+      "surface": "芝",
+      "distance": 1600,
+      "numHorses": 9,
+      "startTime": "13:40",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 3,
+          "name": "ウィンターベル",
+          "jockey": "ディー",
+          "trainer": "太田",
+          "kotodamaGrade": "A",
+          "comment": "前走5着「昇級戦悪くない」陣営「成長、状態安定、クラス慣れも見込める」"
+        },
+        {
+          "mark": "○",
+          "num": 4,
+          "name": "ダノンエンブレム",
+          "jockey": "荻野極",
+          "trainer": "宮田",
+          "kotodamaGrade": "A",
+          "comment": "前走「参考外」陣営「絞り直し、折り合い重視で1列後ろ」立て直し"
+        },
+        {
+          "mark": "▲",
+          "num": 1,
+          "name": "アージェント",
+          "jockey": "木幡巧",
+          "trainer": "黒岩",
+          "kotodamaGrade": "A",
+          "comment": "陣営「去勢効果で体軽くなり、心身両面で走りの質改善」"
+        },
+        {
+          "mark": "△",
+          "num": 2,
+          "name": "コムユンプリュム",
+          "jockey": "佐々木大",
+          "trainer": "鹿戸雄",
+          "kotodamaGrade": "B",
+          "comment": "陣営「通用の力はある、折り合って運べれば」"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [],
+      "result": null
+    },
+    {
+      "raceId": "202602040409",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "9R",
+      "raceName": "府中ステークス",
+      "category": "3勝C",
+      "surface": "芝",
+      "distance": 2000,
+      "numHorses": 18,
+      "startTime": "14:15",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 5,
+          "name": "アスクセクシーモア",
+          "jockey": "岩田康",
+          "trainer": "福永",
+          "kotodamaGrade": "A",
+          "comment": "前走3着・武豊「距離はこれくらいが合う」陣営◎「2000mに延びて良さが出た、同じ条件でいい走り期待」"
+        },
+        {
+          "mark": "○",
+          "num": 4,
+          "name": "フクノブルーレイク",
+          "jockey": "松岡正",
+          "trainer": "竹内",
+          "kotodamaGrade": "A",
+          "comment": "前走4着「皐月賞後遺症から解放」陣営「グン良くなった、次は成績上がる」"
+        },
+        {
+          "mark": "▲",
+          "num": 11,
+          "name": "ヴァリディシームス",
+          "jockey": "ディー",
+          "trainer": "福永",
+          "kotodamaGrade": "A",
+          "comment": "前走15着も4角躓きアクシデント、陣営◎「度外視していい、ダメージなし、改めて」"
+        },
+        {
+          "mark": "△",
+          "num": 12,
+          "name": "ホウオウアートマン",
+          "jockey": "田辺裕",
+          "trainer": "荒木",
+          "kotodamaGrade": "A",
+          "comment": "前走5着「昇級戦悪くない」陣営「東京コース勝ち鞍、持続力勝負タイプ」"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [],
+      "result": null
+    },
+    {
+      "raceId": "202602040410",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "10R",
+      "raceName": "ブリリアントS",
+      "category": "L",
+      "surface": "ダート",
+      "distance": 2100,
+      "numHorses": 16,
+      "startTime": "14:50",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 8,
+          "name": "クールミラボー",
+          "jockey": "横山武",
+          "trainer": "寺島",
+          "kotodamaGrade": "A",
+          "comment": "前走3着「立ち回り完璧」陣営「ここ目標、一番実績ある条件」"
+        },
+        {
+          "mark": "○",
+          "num": 5,
+          "name": "ゼットリアン",
+          "jockey": "団野大",
+          "trainer": "高島",
+          "kotodamaGrade": "A",
+          "comment": "前走4着「順番変わる」陣営◎「この舞台はオープンで②③ぴったり、東京が合う」"
+        },
+        {
+          "mark": "▲",
+          "num": 9,
+          "name": "ハギノサステナブル",
+          "jockey": "高杉吏",
+          "trainer": "高野",
+          "kotodamaGrade": "A",
+          "comment": "前走4着・陣営「東京2100m合う、力量通じる」"
+        },
+        {
+          "mark": "△",
+          "num": 4,
+          "name": "ロードプレジール",
+          "jockey": "岩田康",
+          "trainer": "佐藤悠",
+          "kotodamaGrade": "B",
+          "comment": "陣営「2100mプラス、左回り気分良く走れる」"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [],
+      "result": null
+    },
+    {
+      "raceId": "202605020411",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "11R",
+      "raceName": "プリンシパルS",
+      "category": "L(ダービーTR)",
+      "surface": "芝",
+      "distance": 2000,
+      "numHorses": 15,
+      "startTime": "15:25",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 15,
+          "name": "ショウグンマサムネ",
+          "jockey": "荻野極",
+          "trainer": "佐藤悠",
+          "kotodamaGrade": "A",
+          "comment": "大寒桜賞2着・陣営「左回りで良さが出た。直線の長い東京は合う」"
+        },
+        {
+          "mark": "○",
+          "num": 13,
+          "name": "ジャスティンシカゴ",
+          "jockey": "原",
+          "trainer": "宮田",
+          "kotodamaGrade": "B",
+          "comment": "フリージア2着「大トビで広いコース合う」※致命「自分のリズム優先」B天井"
+        },
+        {
+          "mark": "▲",
+          "num": 2,
+          "name": "レッドラージャ",
+          "jockey": "西塚",
+          "trainer": "友道",
+          "kotodamaGrade": "A",
+          "comment": "前走未勝利1着・陣営「広いコース合う、力もつけてきた、楽しみ」"
+        },
+        {
+          "mark": "△",
+          "num": 3,
+          "name": "トーセンブリラーレ",
+          "jockey": "長浜",
+          "trainer": "小笠",
+          "kotodamaGrade": "A",
+          "comment": "未勝利「ラスト2F加速ラップで3馬身半圧勝」陣営「強い勝ち方、父もこのレース勝ち馬、相手強化に対応できれば」"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [
+        {
+          "horse": "ジャスティンシカゴ",
+          "word": "自分のリズム優先（2回連発）",
+          "type": "B天井"
+        }
+      ],
+      "result": null
+    },
+    {
+      "raceId": "202602040412",
+      "date": "2026-05-03",
+      "venue": "東京",
+      "raceNum": "12R",
+      "raceName": "4歳上2勝クラス",
+      "category": "2勝C",
+      "surface": "ダート",
+      "distance": 1300,
+      "numHorses": 13,
+      "startTime": "16:10",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 6,
+          "name": "ルーフオブヘヴン",
+          "jockey": "佐々木大",
+          "trainer": "武藤",
+          "kotodamaGrade": "A",
+          "comment": "前走2着・陣営◎「クラスにメド立てた、稽古充実一途、今なら脚使える」"
+        },
+        {
+          "mark": "○",
+          "num": 4,
+          "name": "ベンダバール",
+          "jockey": "国分恭",
+          "trainer": "牧浦",
+          "kotodamaGrade": "A",
+          "comment": "前走2着・記者「このクラスでも決め手は通じる」"
+        },
+        {
+          "mark": "▲",
+          "num": 12,
+          "name": "シルフズミスチーフ",
+          "jockey": "荻野極",
+          "trainer": "兼武",
+          "kotodamaGrade": "A",
+          "comment": "前走1勝C完勝・記者「立ち回り上手、昇級しても大崩れせず走れる」"
+        },
+        {
+          "mark": "△",
+          "num": 13,
+          "name": "アイアムイチバン",
+          "jockey": "横山武",
+          "trainer": "奥平雅",
+          "kotodamaGrade": "B",
+          "comment": "前走4着・陣営「メド立つ内容、この距離でも大丈夫」"
+        }
+      ],
+      "watchList": {},
+      "fatalWords": [],
       "result": null
     }
   ]
