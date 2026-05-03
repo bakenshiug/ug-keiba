@@ -8,58 +8,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0d0a06;--ink:#f4e9c9;--shu:#c8473a;--gold:#c9a84c;
-    --paper:#1a130a;--border:rgba(201,168,76,.4);--ok:#5fa85c;
+    --bg:#FAFAFA;--bg-soft:#F5F2EB;--paper:#FBF7EE;--paper-deep:#F0EADB;
+    --ink:#2c1f12;--ink-soft:#5a4a3a;--shu:#a44a3f;--gold:#c9a84c;
+    --border:rgba(164,74,63,.25);--ok:#5fa85c;
   }
   *{box-sizing:border-box}
   body{margin:0;padding:0;background:var(--bg);color:var(--ink);
        font-family:'Noto Sans JP',sans-serif;line-height:1.7}
   .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.05em}
-  header{padding:32px 16px 24px;text-align:center;border-bottom:1px solid var(--border)}
-  .h-title{font-size:28px;color:var(--gold);font-weight:700;letter-spacing:.2em}
-  .h-sub{font-size:13px;color:rgba(244,233,201,.6);margin-top:8px;letter-spacing:.15em}
-  .h-rule{font-size:12px;color:var(--shu);margin-top:12px}
+  header{padding:32px 16px 24px;text-align:center;
+         background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
+         border-bottom:1px solid var(--border)}
+  .h-title{font-size:28px;color:var(--shu);font-weight:700;letter-spacing:.4em}
+  .h-sub{font-size:13px;color:var(--ink-soft);margin-top:8px;letter-spacing:.15em}
+  .h-rule{font-size:13px;color:var(--shu);margin-top:12px;font-weight:700}
   .home-link{display:inline-block;margin-top:14px;padding:6px 16px;
-             border:1px solid var(--gold);color:var(--gold);text-decoration:none;
-             font-size:12px;letter-spacing:.2em}
-  .home-link:hover{background:var(--gold);color:var(--bg)}
+             border:1px solid var(--shu);color:var(--shu);text-decoration:none;
+             font-size:12px;letter-spacing:.2em;border-radius:4px}
+  .home-link:hover{background:var(--shu);color:#fff}
   main{max-width:920px;margin:0 auto;padding:24px 16px}
   .race{margin-bottom:32px;padding:20px;border:1px solid var(--border);
-        background:var(--paper);border-radius:6px}
+        background:var(--paper);border-radius:8px;
+        box-shadow:0 1px 6px rgba(164,74,63,.08)}
   .race-header{display:flex;justify-content:space-between;align-items:baseline;
                border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:14px}
-  .race-name{font-size:18px;color:var(--gold);font-weight:700}
-  .race-meta{font-size:12px;color:rgba(244,233,201,.6)}
+  .race-name{font-size:18px;color:var(--shu);font-weight:700}
+  .race-meta{font-size:12px;color:var(--ink-soft)}
   .picks-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
-  .picks-table th{background:rgba(201,168,76,.1);padding:8px;text-align:left;
-                  color:var(--gold);border-bottom:1px solid var(--border)}
-  .picks-table td{padding:10px 8px;border-bottom:1px dashed rgba(201,168,76,.2);
-                  vertical-align:top}
-  .mark{font-size:18px;font-weight:700;color:var(--shu);width:30px}
-  .mark.dou{color:#c9a84c}
+  .picks-table th{background:var(--paper-deep);padding:8px;text-align:left;
+                  color:var(--shu);border-bottom:1px solid var(--border);font-weight:700}
+  .picks-table td{padding:10px 8px;border-bottom:1px dashed var(--border);
+                  vertical-align:top;color:var(--ink)}
+  .mark{font-size:20px;font-weight:700;color:var(--shu);width:30px;text-align:center}
+  .mark.dou{color:#b8902f}
   .name{font-weight:700;color:var(--ink);width:120px}
-  .grade{display:inline-block;padding:2px 8px;background:var(--gold);color:var(--bg);
+  .grade{display:inline-block;padding:2px 8px;background:var(--shu);color:#fff;
          font-weight:700;font-size:11px;border-radius:3px;margin-left:6px}
-  .comment{color:rgba(244,233,201,.85);font-size:12px;line-height:1.6}
-  details{margin-top:14px;padding:10px;background:rgba(0,0,0,.2);border-radius:4px}
-  summary{cursor:pointer;color:var(--gold);font-size:12px;letter-spacing:.1em}
-  details ul{margin:8px 0 0;padding-left:18px;font-size:12px;color:rgba(244,233,201,.7)}
-  .fatal{margin-top:10px;padding:10px;background:rgba(200,71,58,.1);border-left:3px solid var(--shu);font-size:12px}
+  .comment{color:var(--ink-soft);font-size:12px;line-height:1.6}
+  details{margin-top:14px;padding:10px;background:var(--bg-soft);border-radius:4px;
+          border:1px solid var(--border)}
+  summary{cursor:pointer;color:var(--shu);font-size:12px;letter-spacing:.1em;font-weight:700}
+  details ul{margin:8px 0 0;padding-left:18px;font-size:12px;color:var(--ink-soft)}
+  .fatal{margin-top:10px;padding:10px;background:rgba(164,74,63,.08);
+         border-left:3px solid var(--shu);font-size:12px;color:var(--ink)}
   .fatal-h{color:var(--shu);font-weight:700;margin-bottom:6px}
-  .result{margin-top:14px;padding:12px;background:rgba(95,168,92,.1);border-left:3px solid var(--ok);font-size:13px;color:var(--ok)}
-  .pending{color:rgba(244,233,201,.5);font-style:italic}
-  footer{text-align:center;padding:24px;color:rgba(244,233,201,.4);font-size:11px;
-         border-top:1px solid var(--border);margin-top:24px}
+  .result{margin-top:14px;padding:12px;background:rgba(95,168,92,.1);
+          border-left:3px solid var(--ok);font-size:13px;color:#2d5530;font-weight:700}
+  .pending{color:var(--ink-soft);font-style:italic;font-weight:400;
+           background:var(--bg-soft);border-left-color:var(--border)}
+  footer{text-align:center;padding:24px;color:var(--ink-soft);font-size:11px;
+         border-top:1px solid var(--border);margin-top:24px;background:var(--paper-deep)}
   /* タブ */
   .tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
         max-width:920px;margin:24px auto 0;padding:0 16px}
-  .tab{padding:10px 20px;background:var(--paper);color:rgba(244,233,201,.7);
+  .tab{padding:10px 20px;background:var(--paper);color:var(--ink-soft);
        border:1px solid var(--border);border-radius:6px;cursor:pointer;
        font-family:'Shippori Mincho',serif;font-size:13px;letter-spacing:.12em;
        transition:all .2s ease}
-  .tab:hover{border-color:var(--gold);color:var(--gold)}
-  .tab.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
-  .tab-count{font-size:11px;opacity:.8;margin-left:6px}
+  .tab:hover{border-color:var(--shu);color:var(--shu)}
+  .tab.active{background:var(--shu);color:#fff;border-color:var(--shu);font-weight:700}
+  .tab-count{font-size:11px;opacity:.85;margin-left:6px}
 </style>
 </head>
 <body>
