@@ -1193,6 +1193,46 @@ a{color:inherit;}
   <p class="hero-caption">「言葉は嘘つく、外厩は嘘つかない、我は両方読む」</p>
 </section>
 
+<!-- ══ 速報帯：高回収率レース流れるバナー ══ -->
+<div class="ticker-bar" id="ticker-bar">
+  <div class="ticker-label mincho">⛩ 速 報</div>
+  <div class="ticker-track" id="ticker-track">
+    <div class="ticker-content mincho" id="ticker-content">読込中…</div>
+  </div>
+</div>
+
+<style>
+.ticker-bar{display:flex;align-items:center;
+            background:linear-gradient(90deg,#1A1A1A 0%,#2c1f12 100%);
+            border-top:2px solid var(--kin);border-bottom:2px solid var(--kin);
+            color:#FBF7EE;overflow:hidden;height:46px;position:relative}
+.ticker-label{flex-shrink:0;background:var(--shu);color:#fff;
+              padding:0 18px;height:100%;display:flex;align-items:center;
+              font-size:13px;font-weight:700;letter-spacing:.25em;
+              border-right:2px solid var(--kin);
+              box-shadow:2px 0 8px rgba(0,0,0,.3);z-index:2}
+.ticker-track{flex:1;overflow:hidden;position:relative}
+.ticker-content{display:inline-block;white-space:nowrap;
+                padding-left:100%;
+                font-size:14px;letter-spacing:.06em;color:#FBF7EE;
+                animation:ticker-scroll 60s linear infinite}
+.ticker-content .gold{color:var(--kin);font-weight:700}
+.ticker-content .fire{color:#ff8a3d;font-weight:700;font-size:16px;margin:0 4px}
+.ticker-content .sep{color:var(--shu);margin:0 18px;font-size:11px;letter-spacing:.4em}
+.ticker-content .pct{color:var(--kin);font-weight:900;font-size:16px}
+@keyframes ticker-scroll{
+  0%   {transform:translate3d(0,0,0)}
+  100% {transform:translate3d(-100%,0,0)}
+}
+.ticker-bar:hover .ticker-content{animation-play-state:paused}
+@media(max-width:600px){
+  .ticker-bar{height:40px}
+  .ticker-label{padding:0 12px;font-size:11px;letter-spacing:.18em}
+  .ticker-content{font-size:12px;animation-duration:50s}
+  .ticker-content .pct{font-size:14px}
+}
+</style>
+
 <!-- ══ 言霊神宮バナー ══ -->
 <section class="section" id="kotodama-jinja-banner" style="margin-bottom:0">
   <a href="kotodama-test.html" class="kotodama-banner">
@@ -1558,88 +1598,6 @@ a{color:inherit;}
   </div>
 </section>
 
-<!-- ══ 配信暦（HOSO REKI）══ -->
-<section class="section">
-  <h2 class="section-title mincho">配 信 暦</h2>
-  <p class="section-subtitle">HOSO REKI ─ 神主ニックの参拝日和</p>
-  <div class="hoso-board">
-    <table class="hoso-table">
-      <thead>
-        <tr><th>週</th><th>メイン重賞</th><th>土曜</th><th>日曜</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="hoso-week mincho">5/10-11</td>
-          <td class="hoso-race">NHKマイルC</td>
-          <td class="hoso-off">休神</td>
-          <td class="hoso-on">⛩ 14:00-16:30 配信予定</td>
-        </tr>
-        <tr>
-          <td class="hoso-week mincho">5/17-18</td>
-          <td class="hoso-race">ヴィクトリアM</td>
-          <td class="hoso-off">休神</td>
-          <td class="hoso-on">⛩ 14:00-16:30 配信予定</td>
-        </tr>
-        <tr>
-          <td class="hoso-week mincho">5/24-25</td>
-          <td class="hoso-race">オークス</td>
-          <td class="hoso-off">休神</td>
-          <td class="hoso-on">⛩ 14:00-16:30 配信予定</td>
-        </tr>
-        <tr>
-          <td class="hoso-week mincho">5/31-6/1</td>
-          <td class="hoso-race">日本ダービー</td>
-          <td class="hoso-off">休神</td>
-          <td class="hoso-on">⛩ 13:00-16:30 特別神事</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="hoso-note">
-      ※ 配信プラットフォーム：ツイキャス（@nick_jingu 予定）<br>
-      ※ サイトの言霊神宮（全36R picks）は配信日問わず<b>毎週末自動更新</b><br>
-      ※ 配信予定は変更の場合あり。最新情報は神宮トップページにて告知
-    </p>
-  </div>
-</section>
-
-<style>
-.hoso-board{max-width:760px;margin:0 auto;background:var(--paper);
-            border:1px solid rgba(201,169,97,.4);border-radius:8px;padding:20px;
-            box-shadow:0 2px 8px rgba(155,45,48,.06)}
-.hoso-table{width:100%;border-collapse:collapse;font-size:13px}
-.hoso-table th{background:var(--kin);color:#fff;padding:10px 8px;
-               font-family:'Shippori Mincho',serif;letter-spacing:.15em;
-               font-weight:700;text-align:center;font-size:12px}
-.hoso-table td{padding:12px 8px;border-bottom:1px dashed rgba(201,169,97,.3);
-               text-align:center;font-family:'Shippori Mincho',serif}
-.hoso-table tr:last-child td{border-bottom:none}
-.hoso-week{font-weight:700;color:var(--shu);font-size:14px}
-.hoso-race{color:var(--sumi);font-weight:700}
-.hoso-off{color:rgba(26,26,26,.4);font-size:12px;font-style:italic}
-.hoso-on{color:var(--midori);font-weight:700;font-size:12px;
-         background:rgba(31,77,46,.08);border-radius:4px}
-.hoso-note{margin-top:14px;padding:12px;background:rgba(201,169,97,.08);
-           border-radius:4px;font-size:11px;color:rgba(26,26,26,.65);
-           line-height:1.7;text-align:center;letter-spacing:.04em}
-.hoso-note b{color:var(--shu);font-weight:700}
-@media(max-width:600px){
-  .hoso-table{font-size:11px}
-  .hoso-table th,.hoso-table td{padding:8px 4px}
-  .hoso-week{font-size:12px}
-}
-</style>
-
-<!-- ══ 絵馬殿（言霊神宮 高回収率TOP3）══ -->
-<section class="section">
-  <h2 class="section-title mincho">絵 馬 殿</h2>
-  <p class="section-subtitle">EMADEN ─ 言霊神宮 今週の高回収率レース TOP3</p>
-  <div class="honou-wrap">
-    <div class="honou-list" id="honou-list-kotodama"></div>
-  </div>
-  <p style="text-align:center;font-size:11px;color:var(--ink-soft);margin-top:14px;letter-spacing:.1em">
-    🔥🔥🔥 1000%超 ／ 🔥🔥 500%超 ／ 🎯 300%超
-  </p>
-</section>
 
 <!-- ══ 境内看板 ══ -->
 <section class="section paper-bg">
@@ -1777,12 +1735,25 @@ drawBtn.addEventListener('click', () => {
           }
         });
       });
-      // 絵馬殿 TOP3
-      const top3 = all
-        .sort((a,b) => b.result.betting.recovery - a.result.betting.recovery)
-        .slice(0,3);
-      const elEma = document.getElementById('honou-list-kotodama');
-      if (elEma && top3.length) elEma.innerHTML = top3.map(buildCard).join('');
+      // 速報帯：高回収率 TOP5（流れるバナー）
+      const sorted = all.slice().sort((a,b) => b.result.betting.recovery - a.result.betting.recovery);
+      const tickerTop = sorted.slice(0,5);
+      const elTicker = document.getElementById('ticker-content');
+      if (elTicker && tickerTop.length){
+        const fmtFire = rec => rec >= 1000 ? '🔥🔥🔥' : rec >= 500 ? '🔥🔥' : rec >= 300 ? '🎯' : '⛩';
+        const items = tickerTop.map(r => {
+          const win = r.result.horses[0];
+          const rec = r.result.betting.recovery;
+          return `<span class="fire">${fmtFire(rec)}</span>${r.venue}${r.raceNum} ${r.raceName||''} ／ <span class="gold">${win.name}</span>(${win.finalNinki}人気) ／ 回収率<span class="pct">${rec}%</span>`;
+        });
+        // 末尾に総合と次回予告
+        const totRec = totInv ? (totPay/totInv*100).toFixed(1) : '—';
+        items.push(`<span class="fire">⛩</span>言霊神宮 総合回収率<span class="pct">${totRec}%</span>`);
+        items.push(`<span class="fire">📅</span>次回 5/10 NHKマイルC週 ─ 言霊×外厩 神宮★マトリクス初運用`);
+        // ループで途切れない様に2回繰り返し
+        const html = items.join('<span class="sep">⛩</span>') + '<span class="sep">⛩</span>' + items.join('<span class="sep">⛩</span>');
+        elTicker.innerHTML = html;
+      }
 
       // 賽銭と神恩 集計
       const totInv = all.reduce((s,r) => s + r.result.betting.investTotal, 0);
