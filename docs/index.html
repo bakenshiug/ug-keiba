@@ -1132,6 +1132,51 @@ a{color:inherit;}
   </div>
 </section>
 
+<!-- ══ 言霊神宮バナー ══ -->
+<section class="section" id="kotodama-jinja-banner" style="margin-bottom:0">
+  <a href="kotodama-test.html" class="kotodama-banner">
+    <div class="kj-icon mincho">⛩</div>
+    <div class="kj-body">
+      <div class="kj-title mincho">言　霊　神　宮</div>
+      <div class="kj-sub mincho">ギーニョ・青龍・クロード（神主）</div>
+      <div class="kj-cta mincho">▶ 全レース予想 公開中</div>
+    </div>
+    <div class="kj-arrow mincho">⛩</div>
+  </a>
+</section>
+
+<style>
+.kotodama-banner{
+  display:flex;align-items:center;justify-content:center;gap:24px;
+  max-width:920px;margin:0 auto;padding:24px 28px;
+  background:linear-gradient(135deg,#1a130a 0%,#2a1d0e 50%,#1a130a 100%);
+  border:2px solid var(--gold,#c9a84c);border-radius:8px;
+  text-decoration:none;color:var(--ink,#f4e9c9);
+  box-shadow:0 4px 24px rgba(201,168,76,.25);
+  transition:all .3s ease;position:relative;overflow:hidden;
+}
+.kotodama-banner::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at top right,rgba(201,168,76,.12),transparent 60%);
+  pointer-events:none;
+}
+.kotodama-banner:hover{
+  border-color:#e8c562;transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(201,168,76,.45);
+}
+.kj-icon,.kj-arrow{font-size:42px;color:var(--gold,#c9a84c);text-shadow:0 0 12px rgba(201,168,76,.6)}
+.kj-body{flex:1;text-align:center}
+.kj-title{font-size:22px;color:var(--gold,#c9a84c);font-weight:700;letter-spacing:.4em;margin-bottom:6px}
+.kj-sub{font-size:13px;color:rgba(244,233,201,.85);letter-spacing:.15em;margin-bottom:8px}
+.kj-cta{font-size:14px;color:var(--shu,#c8473a);font-weight:700;letter-spacing:.18em;
+        padding:4px 12px;display:inline-block;border:1px solid var(--shu,#c8473a);border-radius:3px}
+@media (max-width:600px){
+  .kotodama-banner{flex-direction:column;gap:12px;padding:20px}
+  .kj-icon,.kj-arrow{font-size:32px}
+  .kj-title{font-size:18px;letter-spacing:.3em}
+}
+</style>
+
 <!-- ══ 今週の本殿レース ══ -->
 <section class="section" id="honden">
   <h2 class="section-title mincho">今週の本殿レース</h2>
