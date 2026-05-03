@@ -1358,32 +1358,23 @@ a{color:inherit;}
 
 </section>
 
-<!-- ══ 賽銭 / 神恩倍率 ══ -->
+<!-- ══ 賽銭 / 神恩倍率（言霊神宮 動的集計）══ -->
 <section class="section dark-bg">
   <div class="section-inner">
     <h2 class="section-title mincho">賽 銭 と 神 恩</h2>
-    <p class="section-subtitle">OFFERING & BLESSING RATIO</p>
+    <p class="section-subtitle" id="saisen-period">OFFERING & BLESSING RATIO</p>
     <div class="saisen">
       <div class="saisen-item">
-        <div class="saisen-label mincho">本日の奉納金</div>
-        <div class="saisen-value mincho">¥2,400</div>
-        <div class="saisen-note">3鞍 × 800円（単勝1点・複勝1点・ワイド4頭BOX 6点）</div>
+        <div class="saisen-label mincho">今週の奉納金</div>
+        <div class="saisen-value mincho" id="saisen-invest">計測中</div>
+        <div class="saisen-note" id="saisen-invest-note">読み込み中…</div>
       </div>
       <div class="saisen-item">
         <div class="saisen-label mincho">神恩倍率</div>
-        <div class="saisen-value mincho">計測中</div>
-        <div class="saisen-note">今週分は斎行後に算出・ご利益帳に記帳</div>
+        <div class="saisen-value mincho" id="saisen-recovery">計測中</div>
+        <div class="saisen-note" id="saisen-recovery-note">読み込み中…</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ══ 奉納歌（激走キャッチログ）══ -->
-<section class="section">
-  <h2 class="section-title mincho">奉 納 歌</h2>
-  <p class="section-subtitle">HONOU-UTA ─ 神主ギーニョが拾い上げし激走の記録</p>
-  <div class="honou-wrap">
-    <div class="honou-list" id="honou-list-2"></div>
   </div>
 </section>
 
@@ -1513,17 +1504,53 @@ drawBtn.addEventListener('click', () => {
   Promise.all(KOTODAMA_FILES.map(f => fetch(f+'?_='+Date.now()).then(r => r.json()).catch(()=>null)))
     .then(arr => {
       const all = [];
+      const dates = new Set();
       arr.forEach(d => {
         if (!d || !d.races) return;
         d.races.forEach(r => {
-          if (r.result && r.result.betting) all.push(r);
+          if (r.result && r.result.betting) {
+            all.push(r);
+            if (r.date) dates.add(r.date);
+          }
         });
       });
+      // 絵馬殿 TOP3
       const top3 = all
         .sort((a,b) => b.result.betting.recovery - a.result.betting.recovery)
         .slice(0,3);
-      const el = document.getElementById('honou-list-kotodama');
-      if (el && top3.length) el.innerHTML = top3.map(buildCard).join('');
+      const elEma = document.getElementById('honou-list-kotodama');
+      if (elEma && top3.length) elEma.innerHTML = top3.map(buildCard).join('');
+
+      // 賽銭と神恩 集計
+      const totInv = all.reduce((s,r) => s + r.result.betting.investTotal, 0);
+      const totPay = all.reduce((s,r) => s + r.result.betting.payoutTotal, 0);
+      const rec = totInv ? (totPay/totInv*100) : 0;
+      const dateList = [...dates].sort();
+      const fmtDate = ds => {
+        const m = ds.match(/^\d{4}-(\d{2})-(\d{2})$/);
+        if (!m) return ds;
+        const dow = ['日','月','火','水','木','金','土'];
+        const d = new Date(ds);
+        return `${+m[1]}/${+m[2]}(${dow[d.getDay()]})`;
+      };
+      const periodText = dateList.length === 1
+        ? `今週は ${fmtDate(dateList[0])} のみ`
+        : `${fmtDate(dateList[0])} 〜 ${fmtDate(dateList[dateList.length-1])} 集計`;
+      const elPeriod = document.getElementById('saisen-period');
+      if (elPeriod) elPeriod.textContent = `OFFERING & BLESSING RATIO ─ ${periodText}`;
+
+      const elInv = document.getElementById('saisen-invest');
+      const elInvN = document.getElementById('saisen-invest-note');
+      if (elInv) elInv.textContent = '¥' + totInv.toLocaleString();
+      if (elInvN) elInvN.textContent = `${all.length}鞍 × ¥6,000（七券種BOX）`;
+
+      const elRec = document.getElementById('saisen-recovery');
+      const elRecN = document.getElementById('saisen-recovery-note');
+      if (elRec) {
+        elRec.textContent = rec.toFixed(1) + '%';
+        elRec.style.color = rec >= 100 ? '#d4af37' : '';
+      }
+      if (elRecN) elRecN.textContent = `払戻 ¥${totPay.toLocaleString()} ／ 投資 ¥${totInv.toLocaleString()}`;
     });
 })();
 </script>
