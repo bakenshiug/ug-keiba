@@ -93,6 +93,11 @@
     /* テーブルをブロック化 */
     .picks-table,.picks-table tbody{display:block;width:100%}
     .picks-table thead{display:none}
+    /* テーブルヘッダ行（<tr><th>印</th>...）をモバイルで非表示 */
+    .picks-table tr:has(th){display:none !important}
+    /* 馬券絡み行の金サイドバー削除（モバイルではグリッドレイアウトで不要） */
+    .picks-table tr.hit-row td.name{padding-left:0 !important}
+    .picks-table tr.hit-row td.name::before{display:none !important}
     .picks-table tr{
       display:grid;
       grid-template-columns:42px 1fr;
