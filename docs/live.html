@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>⛩ 言霊神宮 LIVE（神主専用）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#FAFAFA; --bg-soft:#F5F2EB; --paper:#FBF7EE; --paper-deep:#F0EADB;
+    --ink:#2c1f12; --ink-soft:#5a4a3a;
+    --shu:#a44a3f; --shu-dk:#7A1E1E;
+    --gold:#c9a84c; --gold-dk:#b8860b;
+    --ok:#5fa85c; --border:rgba(164,74,63,.25);
+  }
+  body{background:var(--bg);color:var(--ink);
+       font-family:'Noto Sans JP',sans-serif;line-height:1.6;
+       overflow-x:hidden;min-height:100vh}
+  .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.05em}
+  .num{font-family:'Inter',sans-serif;font-weight:900}
+
+  /* ── トップバー ── */
+  .topbar{position:sticky;top:0;z-index:100;
+          background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
+          border-bottom:2px solid var(--shu);padding:14px 28px;
+          display:flex;justify-content:space-between;align-items:center;
+          box-shadow:0 2px 10px rgba(164,74,63,.1)}
+  .brand{font-size:22px;color:var(--shu);font-weight:700;letter-spacing:.3em}
+  .brand small{font-size:11px;color:var(--gold-dk);letter-spacing:.2em;margin-left:10px}
+  .nav-info{display:flex;gap:16px;align-items:center}
+  .counter{font-family:'Inter',sans-serif;font-weight:900;font-size:20px;color:var(--shu)}
+  .counter small{font-size:13px;color:var(--ink-soft);font-weight:400;margin-left:4px}
+  .venue-pills{display:flex;gap:6px}
+  .venue-pill{padding:6px 14px;background:#fff;border:1px solid var(--border);
+              border-radius:5px;cursor:pointer;font-size:13px;color:var(--ink-soft);
+              font-family:'Shippori Mincho',serif;letter-spacing:.1em}
+  .venue-pill.active{background:var(--shu);color:#fff;border-color:var(--shu);font-weight:700}
+
+  /* ── メイン1画面 ── */
+  main{max-width:1700px;margin:0 auto;padding:30px 40px 100px}
+
+  .race-card{background:var(--paper);border:1px solid var(--border);border-radius:14px;
+             padding:36px 44px;box-shadow:0 4px 20px rgba(164,74,63,.1)}
+
+  .race-h{border-bottom:2px solid var(--shu);padding-bottom:18px;margin-bottom:28px;
+          display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:16px}
+  .race-title{font-size:42px;color:var(--shu);font-weight:700;letter-spacing:.05em}
+  .race-meta-big{font-size:22px;color:var(--ink-soft);font-weight:700}
+
+  /* ── picks 大型カード（4頭縦並び）── */
+  .picks{display:grid;grid-template-columns:1fr;gap:18px}
+  .pick{display:grid;grid-template-columns:80px 1fr 280px;gap:24px;
+        padding:22px 26px;background:#fff;border:1px solid var(--border);
+        border-radius:10px;align-items:center}
+  .pick.hit{background:linear-gradient(90deg,rgba(212,175,55,.15) 0%,rgba(212,175,55,.03) 100%);
+            border-color:var(--gold);box-shadow:0 0 16px rgba(212,175,55,.3)}
+  .pick-mark{font-size:64px;font-weight:900;color:var(--shu);text-align:center;line-height:1}
+  .pick-mark.dou{color:#b8902f}
+  .pick-info{display:flex;flex-direction:column;gap:8px}
+  .pick-row1{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .num-badge{display:inline-flex;align-items:center;justify-content:center;
+             min-width:48px;height:42px;padding:0 12px;background:#fff;
+             border:2px solid var(--border);border-radius:6px;
+             font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:var(--shu)}
+  .horse-name{font-family:'Shippori Mincho',serif;font-size:34px;font-weight:700;color:var(--ink);letter-spacing:.04em}
+  .grade-badge{display:inline-block;padding:4px 12px;background:var(--shu);color:#fff;
+               font-weight:900;font-size:16px;border-radius:5px;letter-spacing:.05em}
+  .pop-badge{display:inline-block;padding:4px 12px;background:#eee;color:#555;
+             font-size:14px;border-radius:5px;font-weight:700}
+  .finish-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;
+                font-weight:900;font-size:18px;border-radius:6px;color:#fff;background:#999;letter-spacing:.05em}
+  .finish-badge.r1{background:linear-gradient(135deg,#fff4b8,#f4d03f 50%,#b8860b);
+                   color:#3a2a00;text-shadow:0 1px 0 rgba(255,255,255,.5);
+                   box-shadow:0 0 16px rgba(212,175,55,.7);
+                   animation:pulseGold 1.6s ease-in-out infinite}
+  .finish-badge.r2{background:linear-gradient(135deg,#fafafa,#c8d4dc 50%,#8ea0ac);color:#1a2530}
+  .finish-badge.r3{background:linear-gradient(135deg,#f5b78a,#d49a6a 50%,#a16235);color:#3a1f00}
+  .finish-badge.lose{background:#fff;color:#888;border:1.5px dashed #ccc;font-weight:600}
+  @keyframes pulseGold{
+    0%,100%{box-shadow:0 0 14px rgba(212,175,55,.7)}
+    50%   {box-shadow:0 0 26px rgba(212,175,55,1)}
+  }
+  .hit-mark{display:inline-block;font-size:22px;animation:bounce 1.4s ease-in-out infinite}
+  @keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%   {transform:translateY(-3px)}
+  }
+  .pick-row2{display:flex;gap:18px;color:var(--ink-soft);font-size:16px}
+  .pick-row2 span{font-weight:700}
+  .pick-comment{font-size:18px;color:var(--ink);line-height:1.7;
+                background:var(--bg-soft);padding:14px 16px;border-radius:6px;
+                border-left:3px solid var(--shu)}
+
+  /* ── 致命ワード ── */
+  .fatal-box{margin-top:24px;padding:16px 22px;background:rgba(164,74,63,.08);
+             border-left:5px solid var(--shu);border-radius:6px;font-size:17px;line-height:1.8}
+  .fatal-h{color:var(--shu);font-weight:900;font-size:19px;margin-bottom:8px}
+
+  /* ── 結果 ── */
+  .result-box{margin-top:24px;padding:18px 22px;background:rgba(95,168,92,.12);
+              border-left:5px solid var(--ok);border-radius:6px;font-size:20px;
+              color:#2d5530;font-weight:900}
+  .result-box.lose{background:rgba(0,0,0,.04);border-left-color:#999;color:#666}
+  .betting-grid{margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:14px;font-weight:400;color:var(--ink-soft)}
+  .betting-grid div{padding:8px 10px;background:#fff;border-radius:5px}
+  .betting-grid div.hit{background:rgba(95,168,92,.15);color:#2d5530;font-weight:700}
+  .betting-grid .total{grid-column:1/-1;background:var(--shu);color:#fff;font-weight:900;text-align:center;font-size:16px}
+
+  /* ── 下部ナビ ── */
+  .footer-nav{position:fixed;bottom:0;left:0;right:0;
+              background:rgba(251,247,238,.96);border-top:2px solid var(--shu);
+              padding:14px 28px;display:flex;justify-content:space-between;align-items:center;
+              backdrop-filter:blur(8px);box-shadow:0 -2px 10px rgba(164,74,63,.1);z-index:100}
+  .nav-btn{padding:12px 26px;background:var(--paper);border:2px solid var(--shu);
+           color:var(--shu);font-family:'Shippori Mincho',serif;font-size:16px;
+           font-weight:700;letter-spacing:.15em;border-radius:6px;cursor:pointer;
+           transition:all .15s ease}
+  .nav-btn:hover{background:var(--shu);color:#fff}
+  .nav-btn:disabled{opacity:.3;cursor:not-allowed;background:var(--paper);color:var(--shu)}
+  .nav-hint{font-size:12px;color:var(--ink-soft);letter-spacing:.1em}
+  .nav-hint kbd{background:#fff;border:1px solid var(--border);border-radius:3px;
+                padding:2px 6px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700}
+
+  .loading{text-align:center;padding:80px;font-size:24px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand mincho">⛩ 言 霊 神 宮 <small>LIVE 神主専用</small></div>
+  <div class="nav-info">
+    <div class="venue-pills" id="venue-pills"></div>
+    <div class="counter" id="counter">— / —<small>R</small></div>
+  </div>
+</div>
+
+<main id="main">
+  <div class="loading mincho">⛩ 神託読込中…</div>
+</main>
+
+<div class="footer-nav">
+  <button class="nav-btn mincho" id="prev-btn">◀ 前のレース</button>
+  <div class="nav-hint">
+    <kbd>←</kbd> <kbd>→</kbd> でレース送り ／ <kbd>1</kbd> 東京 ／ <kbd>2</kbd> 京都 ／ <kbd>3</kbd> 新潟
+  </div>
+  <button class="nav-btn mincho" id="next-btn">次のレース ▶</button>
+</div>
+
+<script>
+// JSON取得元（GitHub Pages 公開URL ─ ローカルfile://でも読める）
+const FILES = [
+  'https://bakenshiug.github.io/ug-keiba/data/kotodama-test/2026-05-03.json',
+];
+const KIND_LABEL = {
+  tan:'単勝', fuku:'複勝', wide:'ワイドBOX', umaren:'馬連BOX',
+  umatan:'馬単BOX', sanrenpuku:'3連複BOX', sanrentan:'3連単BOX'
+};
+const MARK_CLASS = {'◎':'','○':'','▲':'dou','△':'dou'};
+const VENUE_ORDER = ['東京','京都','新潟','中山','阪神','中京','福島','小倉','札幌','函館'];
+
+let ALL_RACES = [];
+let CURRENT_VENUE = '';
+let CURRENT_INDEX = 0;
+
+async function load(){
+  for (const f of FILES){
+    try{
+      const r = await fetch(f+'?_='+Date.now());
+      const d = await r.json();
+      d.races.forEach(race => ALL_RACES.push(race));
+    }catch(e){console.error(e)}
+  }
+  if (!ALL_RACES.length) {
+    document.getElementById('main').innerHTML = '<div class="loading">⚠ データ読込失敗。Wi-Fi確認してね。</div>';
+    return;
+  }
+  // 場ピル
+  const venues = [...new Set(ALL_RACES.map(r => r.venue))]
+    .sort((a,b)=>(VENUE_ORDER.indexOf(a)<0?99:VENUE_ORDER.indexOf(a)) - (VENUE_ORDER.indexOf(b)<0?99:VENUE_ORDER.indexOf(b)));
+  CURRENT_VENUE = venues[0];
+  const pillEl = document.getElementById('venue-pills');
+  pillEl.innerHTML = venues.map(v => `<button class="venue-pill" data-venue="${v}">${v}</button>`).join('');
+  pillEl.querySelectorAll('.venue-pill').forEach(b => {
+    b.addEventListener('click', () => {
+      CURRENT_VENUE = b.dataset.venue;
+      CURRENT_INDEX = 0;
+      render();
+    });
+  });
+  render();
+}
+
+function venueRaces(){
+  return ALL_RACES.filter(r => r.venue === CURRENT_VENUE);
+}
+
+function render(){
+  const races = venueRaces();
+  const r = races[CURRENT_INDEX];
+  if (!r) return;
+
+  // 場ピルアクティブ
+  document.querySelectorAll('.venue-pill').forEach(b => b.classList.toggle('active', b.dataset.venue === CURRENT_VENUE));
+  // カウンター
+  document.getElementById('counter').innerHTML = `${CURRENT_INDEX+1} / ${races.length}<small>R</small>`;
+
+  // ナビボタン
+  document.getElementById('prev-btn').disabled = CURRENT_INDEX === 0;
+  document.getElementById('next-btn').disabled = CURRENT_INDEX === races.length-1;
+
+  document.getElementById('main').innerHTML = `
+    <div class="race-card">
+      <div class="race-h">
+        <div class="race-title mincho">${r.venue}${r.raceNum} ${r.raceName}</div>
+        <div class="race-meta-big mincho">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</div>
+      </div>
+      <div class="picks">
+        ${r.picks.map(p => {
+          const rk = p.finalRank ? Number(p.finalRank) : null;
+          const inMoney = rk && rk>=1 && rk<=3;
+          const rkCls = rk===1?'r1':rk===2?'r2':rk===3?'r3':'lose';
+          const finBadge = rk
+            ? `<span class="finish-badge ${rkCls}">${rk}着${inMoney?'<span class="hit-mark">🎯</span>':''}</span>`
+            : '';
+          return `
+          <div class="pick ${inMoney?'hit':''}">
+            <div class="pick-mark mincho ${MARK_CLASS[p.mark]||''}">${p.mark}</div>
+            <div class="pick-info">
+              <div class="pick-row1">
+                <span class="num-badge">${p.num}</span>
+                <span class="horse-name">${p.name}</span>
+                <span class="grade-badge">${p.kotodamaGrade}</span>
+                ${p.finalNinki ? `<span class="pop-badge">${p.finalNinki}人気</span>` : ''}
+                ${finBadge}
+              </div>
+              <div class="pick-row2">
+                <span>騎 ${p.jockey}</span>
+                <span>厩 ${p.trainer}</span>
+              </div>
+            </div>
+            <div class="pick-comment">${p.comment}</div>
+          </div>`;
+        }).join('')}
+      </div>
+      ${r.fatalWords && r.fatalWords.length ? `
+      <div class="fatal-box">
+        <div class="fatal-h">⚠ 致命ワード検出</div>
+        ${r.fatalWords.map(f => `<div>・<b>${f.horse}</b>：「${f.word}」 → ${f.type}</div>`).join('')}
+      </div>` : ''}
+      ${r.result && r.result.betting ? `
+      <div class="result-box ${r.result.betting.payoutTotal===0?'lose':''}">
+        ${r.result.summary || ''}
+        <div class="betting-grid">
+          ${Object.entries(r.result.betting.invest).map(([k,inv])=>{
+            const pay = r.result.betting.payout[k]||0;
+            const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
+            return `<div class="${pay>0?'hit':''}">${KIND_LABEL[k]||k}: ¥${pay.toLocaleString()}/${inv.toLocaleString()} (${rec}%)</div>`;
+          }).join('')}
+          <div class="total">合計 ¥${r.result.betting.payoutTotal.toLocaleString()} / ¥${r.result.betting.investTotal.toLocaleString()} ＝ 回収率 ${r.result.betting.recovery}%</div>
+        </div>
+      </div>` : ''}
+    </div>
+  `;
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+document.getElementById('prev-btn').addEventListener('click', () => {
+  if (CURRENT_INDEX > 0) { CURRENT_INDEX--; render(); }
+});
+document.getElementById('next-btn').addEventListener('click', () => {
+  if (CURRENT_INDEX < venueRaces().length-1) { CURRENT_INDEX++; render(); }
+});
+
+// キーボードショートカット
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft' && CURRENT_INDEX > 0) { CURRENT_INDEX--; render(); }
+  else if (e.key === 'ArrowRight' && CURRENT_INDEX < venueRaces().length-1) { CURRENT_INDEX++; render(); }
+  else if (['1','2','3','4','5','6','7','8','9'].includes(e.key)) {
+    const idx = parseInt(e.key)-1;
+    const venues = [...document.querySelectorAll('.venue-pill')].map(b=>b.dataset.venue);
+    if (venues[idx]) { CURRENT_VENUE = venues[idx]; CURRENT_INDEX = 0; render(); }
+  }
+});
+
+load();
+</script>
+</body>
+</html>
