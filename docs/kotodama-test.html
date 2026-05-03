@@ -37,14 +37,21 @@
   .picks-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
   .picks-table th{background:var(--paper-deep);padding:8px;text-align:left;
                   color:var(--shu);border-bottom:1px solid var(--border);font-weight:700}
-  .picks-table td{padding:10px 8px;border-bottom:1px dashed var(--border);
-                  vertical-align:top;color:var(--ink)}
-  .mark{font-size:20px;font-weight:700;color:var(--shu);width:30px;text-align:center}
+  .picks-table td{padding:12px 8px;border-bottom:1px dashed var(--border);
+                  vertical-align:middle;color:var(--ink)}
+  .picks-table td.jockey-c,.picks-table td.trainer-c{font-size:12px;color:var(--ink-soft);width:70px}
+  .mark{font-size:22px;font-weight:700;color:var(--shu);width:36px;text-align:center;vertical-align:middle}
   .mark.dou{color:#b8902f}
-  .name{font-weight:700;color:var(--ink);width:120px}
-  .grade{display:inline-block;padding:2px 8px;background:var(--shu);color:#fff;
-         font-weight:700;font-size:11px;border-radius:3px;margin-left:6px}
-  .comment{color:var(--ink-soft);font-size:12px;line-height:1.6}
+  .name{font-weight:700;color:var(--ink);width:160px}
+  .name-row1{display:flex;align-items:center;gap:6px;flex-wrap:wrap;line-height:1.3}
+  .name-num{display:inline-block;min-width:28px;padding:2px 6px;background:#fff;
+            border:1px solid var(--border);border-radius:3px;font-size:11px;
+            color:var(--ink-soft);font-weight:700;text-align:center}
+  .name-text{font-size:14px;font-weight:700;color:var(--ink)}
+  .name-row2{display:flex;align-items:center;gap:5px;margin-top:6px;flex-wrap:wrap}
+  .grade{display:inline-block;padding:2px 7px;background:var(--shu);color:#fff;
+         font-weight:700;font-size:10px;border-radius:3px;letter-spacing:.05em}
+  .comment{color:var(--ink-soft);font-size:12px;line-height:1.65}
   details{margin-top:14px;padding:10px;background:var(--bg-soft);border-radius:4px;
           border:1px solid var(--border)}
   summary{cursor:pointer;color:var(--shu);font-size:12px;letter-spacing:.1em;font-weight:700}
@@ -69,11 +76,10 @@
   .tab.active{background:var(--shu);color:#fff;border-color:var(--shu);font-weight:700}
   .tab-count{font-size:11px;opacity:.85;margin-left:6px}
   /* 結果反映 */
-  .pop{display:inline-block;padding:1px 6px;background:#eee;color:#555;
-       font-size:10px;border-radius:3px;margin-left:4px;font-weight:400}
-  .finish{display:inline-block;padding:4px 10px;font-weight:700;font-size:14px;
-          border-radius:5px;margin-left:6px;color:#fff;background:#999;
-          letter-spacing:.05em;vertical-align:middle}
+  .pop{display:inline-block;padding:2px 7px;background:#eee;color:#555;
+       font-size:10px;border-radius:3px;font-weight:600}
+  .finish{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;font-weight:700;font-size:12px;
+          border-radius:5px;color:#fff;background:#999;letter-spacing:.03em}
   .finish.r1{background:linear-gradient(135deg,#f4d03f 0%,#d4af37 50%,#b8860b 100%);
              box-shadow:0 0 12px rgba(212,175,55,.7),inset 0 1px 0 rgba(255,255,255,.4);
              color:#3a2a00;text-shadow:0 1px 0 rgba(255,255,255,.4);
@@ -88,17 +94,17 @@
     0%,100%{box-shadow:0 0 12px rgba(212,175,55,.7),inset 0 1px 0 rgba(255,255,255,.4)}
     50%   {box-shadow:0 0 22px rgba(212,175,55,1),inset 0 1px 0 rgba(255,255,255,.5)}
   }
-  .hit-mark{display:inline-block;font-size:18px;margin-left:6px;vertical-align:middle;
-            animation:bounce 1.4s ease-in-out infinite}
+  .hit-mark{display:inline-block;font-size:14px;animation:bounce 1.4s ease-in-out infinite}
   @keyframes bounce{
     0%,100%{transform:translateY(0)}
-    50%   {transform:translateY(-3px)}
+    50%   {transform:translateY(-2px)}
   }
   /* 馬券絡み行のハイライト */
-  tr.hit-row td{background:linear-gradient(90deg,rgba(212,175,55,.10) 0%,rgba(212,175,55,.03) 100%)}
-  tr.hit-row td.name{position:relative}
-  tr.hit-row td.name::before{content:'';position:absolute;left:0;top:8px;bottom:8px;
-                              width:3px;background:var(--gold);border-radius:2px}
+  tr.hit-row td{background:linear-gradient(90deg,rgba(212,175,55,.12) 0%,rgba(212,175,55,.02) 100%)}
+  tr.hit-row td.name{position:relative;padding-left:14px}
+  tr.hit-row td.name::before{content:'';position:absolute;left:4px;top:12px;bottom:12px;
+                              width:3px;background:linear-gradient(180deg,var(--gold) 0%,#b8860b 100%);
+                              border-radius:2px}
   /* 回収率ボード */
   .summary-board{max-width:920px;margin:0 auto 20px;padding:18px;
                  background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
@@ -337,16 +343,27 @@ function render(){
           const rk = p.finalRank ? Number(p.finalRank) : null;
           const inMoney = rk && rk>=1 && rk<=3;
           const rkCls = rk===1?'r1':rk===2?'r2':rk===3?'r3':'';
-          const hitMark = inMoney ? `<span class="hit-mark">🎯</span>` : '';
-          const finBadge = rk ? `<span class="finish ${rkCls}">${rk}着</span>${hitMark}` : '';
+          const finBadge = rk
+            ? `<span class="finish ${rkCls}">${rk}着${inMoney?'<span class="hit-mark">🎯</span>':''}</span>`
+            : '';
           const popBadge = p.finalNinki ? `<span class="pop">${p.finalNinki}人気</span>` : '';
           const trCls = inMoney ? 'hit-row' : '';
           return `
         <tr class="${trCls}">
           <td class="${MARK_CLASS[p.mark]||'mark'}">${p.mark}</td>
-          <td class="name">${p.num}番<br>${p.name}<span class="grade">${p.kotodamaGrade}</span>${popBadge}${finBadge}</td>
-          <td>${p.jockey}</td>
-          <td>${p.trainer}</td>
+          <td class="name">
+            <div class="name-row1">
+              <span class="name-num">${p.num}</span>
+              <span class="name-text">${p.name}</span>
+            </div>
+            <div class="name-row2">
+              <span class="grade">${p.kotodamaGrade}</span>
+              ${popBadge}
+              ${finBadge}
+            </div>
+          </td>
+          <td class="jockey-c">${p.jockey}</td>
+          <td class="trainer-c">${p.trainer}</td>
           <td class="comment">${p.comment}</td>
         </tr>`;
         }).join('')}
