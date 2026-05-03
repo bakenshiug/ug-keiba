@@ -92,6 +92,25 @@
   .sb-kind .k-rec{font-size:18px;color:var(--shu);font-weight:700;margin-top:2px}
   .sb-kind .k-rec.win{color:var(--ok)}
   .sb-kind .k-amt{color:var(--ink-soft);font-size:10px;margin-top:2px}
+  .sb-kind .k-hit{color:var(--ink-soft);font-size:10px;margin-top:2px}
+  .sb-kind .k-hit.win{color:var(--ok);font-weight:700}
+  .venue-boards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:14px}
+  .vb{background:#fff;border:1px solid var(--border);border-radius:6px;padding:10px}
+  .vb-h{font-size:13px;color:var(--shu);font-weight:700;text-align:center;
+        padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:8px;letter-spacing:.15em}
+  .vb-total{text-align:center;font-size:18px;color:var(--shu);font-weight:700;margin:4px 0}
+  .vb-total.win{color:var(--ok)}
+  .vb-meta{text-align:center;font-size:10px;color:var(--ink-soft);margin-bottom:6px}
+  .vb-table{width:100%;font-size:10.5px;border-collapse:collapse}
+  .vb-table th{text-align:left;color:var(--ink-soft);font-weight:400;padding:2px 3px;border-bottom:1px dashed var(--border)}
+  .vb-table td{padding:3px;border-bottom:1px dashed var(--border)}
+  .vb-table .v-rec{text-align:right;font-weight:700;color:var(--shu)}
+  .vb-table .v-rec.win{color:var(--ok)}
+  .vb-table .v-hit{text-align:right;color:var(--ink-soft);font-size:10px}
+  .vb-table .v-hit.win{color:var(--ok);font-weight:700}
+  details.summary-d{margin-top:14px}
+  details.summary-d summary{padding:8px;background:var(--paper-deep);border-radius:4px;
+                            color:var(--shu);font-weight:700;font-size:12px;letter-spacing:.15em}
   .sb-learn{text-align:center;margin-top:14px;padding:8px;background:var(--bg-soft);
             border-radius:4px;color:var(--ink-soft);font-size:11px;font-style:italic}
   /* 各レース結果 */
@@ -151,16 +170,39 @@ async function load(){
   render();
 }
 
+function venueBoard(name, s){
+  return `
+    <div class="vb">
+      <div class="vb-h mincho">${name}</div>
+      <div class="vb-total ${s.totalRecovery>=100?'win':''}">${s.totalRecovery}%</div>
+      <div class="vb-meta">${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</div>
+      <table class="vb-table">
+        <tr><th>券種</th><th style="text-align:right">的中率</th><th style="text-align:right">回収率</th></tr>
+        ${Object.entries(s.byKind).map(([k,v])=>`
+          <tr>
+            <td>${KIND_LABEL[k]||k}</td>
+            <td class="v-hit ${v.hitRate>=50?'win':''}">${v.hit}/${v.races} (${v.hitRate}%)</td>
+            <td class="v-rec ${v.recovery>=100?'win':''}">${v.recovery}%</td>
+          </tr>`).join('')}
+      </table>
+    </div>`;
+}
+
 function renderSummary(){
   const el = document.getElementById('summary-board');
   if (!SUMMARY) { el.innerHTML = ''; return; }
   const s = SUMMARY;
-  const totalCls = s.totalRecovery >= 100 ? 'win' : '';
+  const venueOrder = ['東京','京都','新潟','中山','阪神','中京','福島','小倉','札幌','函館'];
+  const venues = Object.entries(s.byVenue || {}).sort((a,b)=>{
+    const ai = venueOrder.indexOf(a[0]), bi = venueOrder.indexOf(b[0]);
+    return (ai<0?99:ai) - (bi<0?99:bi);
+  });
   el.innerHTML = `
     <div class="summary-board">
-      <div class="sb-title mincho">⛩ 言霊神宮 全レース回収率</div>
-      <div class="sb-total" style="${s.totalRecovery>=100?'color:var(--ok)':''}">
-        ${s.totalRecovery}% <small>(${s.racesWithResult}R / 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()})</small>
+      <div class="sb-title mincho">⛩ 言霊神宮 日曜全36R 集計</div>
+      <div class="sb-total ${s.totalRecovery>=100?'win':''}">
+        総合回収率 ${s.totalRecovery}%
+        <small>${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</small>
       </div>
       <div class="sb-meta">各レース4頭 × 7券種BOX購入（1Rあたり60点6,000円）</div>
       <div class="sb-kinds">
@@ -168,10 +210,17 @@ function renderSummary(){
           <div class="sb-kind">
             <div class="k-name">${KIND_LABEL[k]||k}</div>
             <div class="k-rec ${v.recovery>=100?'win':''}">${v.recovery}%</div>
+            <div class="k-hit ${v.hitRate>=50?'win':''}">的中${v.hit}/${v.races} (${v.hitRate}%)</div>
             <div class="k-amt">¥${v.payout.toLocaleString()} / ¥${v.invest.toLocaleString()}</div>
           </div>
         `).join('')}
       </div>
+      <details class="summary-d" open>
+        <summary>場別 集計（東京 / 京都 / 新潟）</summary>
+        <div class="venue-boards">
+          ${venues.map(([v,sv])=>venueBoard(v, sv)).join('')}
+        </div>
+      </details>
       <div class="sb-learn">🔬 ベスト馬券種分析学習中...</div>
     </div>`;
 }

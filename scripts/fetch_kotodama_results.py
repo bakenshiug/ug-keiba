@@ -299,27 +299,49 @@ def main():
 
     # 全体集計
     target = [r for r in d['races'] if r.get('result')]
-    if target:
-        tot_inv = sum(r['result']['betting']['investTotal'] for r in target)
-        tot_pay = sum(r['result']['betting']['payoutTotal'] for r in target)
-        # 券種別集計
-        kinds = ['tan','fuku','wide','umaren','umatan','sanrenpuku','sanrentan']
-        per = {k: {'inv':0,'pay':0} for k in kinds}
-        for r in target:
+    kinds = ['tan','fuku','wide','umaren','umatan','sanrenpuku','sanrentan']
+
+    def aggregate(races):
+        per = {k: {'inv':0,'pay':0,'hit':0,'races':0} for k in kinds}
+        tot_inv = tot_pay = 0
+        race_hit = 0
+        for r in races:
             b = r['result']['betting']
+            tot_inv += b['investTotal']
+            tot_pay += b['payoutTotal']
+            if b['payoutTotal'] > 0: race_hit += 1
             for k in kinds:
-                per[k]['inv'] += b['invest'].get(k,0)
-                per[k]['pay'] += b['payout'].get(k,0)
-        d['summary'] = {
-            'updated': datetime.now().isoformat(timespec='seconds'),
-            'racesWithResult': len(target),
+                inv = b['invest'].get(k,0)
+                pay = b['payout'].get(k,0)
+                per[k]['inv'] += inv
+                per[k]['pay'] += pay
+                if inv > 0: per[k]['races'] += 1
+                if pay > 0: per[k]['hit'] += 1
+        return {
+            'racesWithResult': len(races),
+            'racesHit': race_hit,
+            'raceHitRate': round(race_hit/len(races)*100,1) if races else 0,
             'totalInvest': tot_inv,
             'totalPayout': tot_pay,
             'totalRecovery': round(tot_pay/tot_inv*100,1) if tot_inv else 0,
-            'byKind': {k: {'invest': per[k]['inv'], 'payout': per[k]['pay'],
-                            'recovery': round(per[k]['pay']/per[k]['inv']*100,1) if per[k]['inv'] else 0}
-                        for k in kinds},
+            'byKind': {k: {
+                'invest': per[k]['inv'], 'payout': per[k]['pay'],
+                'recovery': round(per[k]['pay']/per[k]['inv']*100,1) if per[k]['inv'] else 0,
+                'hit': per[k]['hit'], 'races': per[k]['races'],
+                'hitRate': round(per[k]['hit']/per[k]['races']*100,1) if per[k]['races'] else 0,
+            } for k in kinds},
         }
+
+    if target:
+        all_summary = aggregate(target)
+        all_summary['updated'] = datetime.now().isoformat(timespec='seconds')
+        # 場別集計
+        venues = {}
+        for r in target:
+            v = r['venue']
+            venues.setdefault(v, []).append(r)
+        all_summary['byVenue'] = {v: aggregate(rs) for v, rs in venues.items()}
+        d['summary'] = all_summary
 
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(d, f, ensure_ascii=False, indent=2)
