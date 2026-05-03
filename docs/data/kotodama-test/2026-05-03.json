@@ -23,7 +23,10 @@
           "jockey": "岩田康",
           "trainer": "加藤和",
           "kotodamaGrade": "A",
-          "comment": "陣営「東京で3着良績」「びっしり追える鞍上も合う」「変わり身に期待」← 距離・コース・鞍上の三拍子陣営強気"
+          "comment": "陣営「東京で3着良績」「びっしり追える鞍上も合う」「変わり身に期待」← 距離・コース・鞍上の三拍子陣営強気",
+          "finalRank": "10",
+          "finalNinki": "9",
+          "finalOdds": "28.5"
         },
         {
           "mark": "○",
@@ -32,7 +35,10 @@
           "jockey": "原優介",
           "trainer": "池上和",
           "kotodamaGrade": "A",
-          "comment": "陣営「東京のマイルはプラスに出そう」騎手「ワンターンの方が向きそう」← コース変わりの上昇明示"
+          "comment": "陣営「東京のマイルはプラスに出そう」騎手「ワンターンの方が向きそう」← コース変わりの上昇明示",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "2.5"
         },
         {
           "mark": "▲",
@@ -41,7 +47,10 @@
           "jockey": "大野拓",
           "trainer": "田村",
           "kotodamaGrade": "A",
-          "comment": "騎手「自分のリズムで終始走り切れた」陣営「東京コース合っていそう」← 前走内容良＋東京適性"
+          "comment": "騎手「自分のリズムで終始走り切れた」陣営「東京コース合っていそう」← 前走内容良＋東京適性",
+          "finalRank": "8",
+          "finalNinki": "10",
+          "finalOdds": "41.0"
         },
         {
           "mark": "△",
@@ -50,7 +59,10 @@
           "jockey": "横山和",
           "trainer": "奥村武",
           "kotodamaGrade": "A",
-          "comment": "騎手「ひとつずつ良くなっている」陣営「もともと1800mは長い→1ハロン詰まるのはプラス」← 距離短縮プラス＋成長"
+          "comment": "騎手「ひとつずつ良くなっている」陣営「もともと1800mは長い→1ハロン詰まるのはプラス」← 距離短縮プラス＋成長",
+          "finalRank": "2",
+          "finalNinki": "4",
+          "finalOdds": "9.1"
         }
       ],
       "watchList": {
@@ -89,7 +101,171 @@
           "type": "距離不安"
         }
       ],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:34",
+        "netkeibaRaceId": "202605020401",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "13",
+            "name": "ブルーサーマル",
+            "finalNinki": "1",
+            "finalOdds": "2.5"
+          },
+          {
+            "rank": "2",
+            "num": "3",
+            "name": "エフハリスト",
+            "finalNinki": "4",
+            "finalOdds": "9.1"
+          },
+          {
+            "rank": "3",
+            "num": "4",
+            "name": "キャルキュラス",
+            "finalNinki": "3",
+            "finalOdds": "6.5"
+          },
+          {
+            "rank": "4",
+            "num": "7",
+            "name": "フレンチブラッサム",
+            "finalNinki": "8",
+            "finalOdds": "20.9"
+          },
+          {
+            "rank": "5",
+            "num": "15",
+            "name": "メリティス",
+            "finalNinki": "5",
+            "finalOdds": "10.5"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 250
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 120
+            },
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 210
+            },
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 200
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "2",
+                "7"
+              ],
+              "amount": 450
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "3",
+                "13"
+              ],
+              "amount": 960
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "3",
+                "13"
+              ],
+              "amount": 400
+            },
+            {
+              "combo": [
+                "4",
+                "13"
+              ],
+              "amount": 460
+            },
+            {
+              "combo": [
+                "3",
+                "4"
+              ],
+              "amount": 1130
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "13",
+                "3"
+              ],
+              "amount": 1640
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "4",
+                "13"
+              ],
+              "amount": 2620
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "13",
+                "3",
+                "4"
+              ],
+              "amount": 10490
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 250,
+            "fuku": 330,
+            "wide": 400,
+            "umaren": 960,
+            "umatan": 1640,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 3580,
+          "recovery": 59.7
+        },
+        "summary": "1着 13番 ブルーサーマル (1人気) | 回収率 59.7%"
+      }
     },
     {
       "raceId": "202602040402",
@@ -110,7 +286,10 @@
           "jockey": "大野拓",
           "trainer": "杉浦",
           "kotodamaGrade": "A",
-          "comment": "前走2着・騎手「今まで乗った中で一番リズムが良かった」記者「次走も上位候補」陣営「東京1400m終い伸びる」「連闘問題ない」"
+          "comment": "前走2着・騎手「今まで乗った中で一番リズムが良かった」記者「次走も上位候補」陣営「東京1400m終い伸びる」「連闘問題ない」",
+          "finalRank": "4",
+          "finalNinki": "1",
+          "finalOdds": "2.6"
         },
         {
           "mark": "○",
@@ -119,7 +298,10 @@
           "jockey": "横山武",
           "trainer": "高柳瑞",
           "kotodamaGrade": "A",
-          "comment": "前走6着「距離が長かった」距離短縮プラス＋陣営「未勝利を勝つ力はあります」"
+          "comment": "前走6着「距離が長かった」距離短縮プラス＋陣営「未勝利を勝つ力はあります」",
+          "finalRank": "7",
+          "finalNinki": "4",
+          "finalOdds": "5.9"
         },
         {
           "mark": "▲",
@@ -128,7 +310,10 @@
           "jockey": "菅原明",
           "trainer": "鈴木伸",
           "kotodamaGrade": "A",
-          "comment": "陣営「東京1400mが合う」明示＋記者「左回りの方がいい」"
+          "comment": "陣営「東京1400mが合う」明示＋記者「左回りの方がいい」",
+          "finalRank": "3",
+          "finalNinki": "3",
+          "finalOdds": "5.7"
         },
         {
           "mark": "△",
@@ -137,7 +322,10 @@
           "jockey": "長浜鴻",
           "trainer": "千葉",
           "kotodamaGrade": "A",
-          "comment": "新馬・陣営「能力を感じます」「いきなり好レースに持ち込めるかも」"
+          "comment": "新馬・陣営「能力を感じます」「いきなり好レースに持ち込めるかも」",
+          "finalRank": "10",
+          "finalNinki": "6",
+          "finalOdds": "17.9"
         }
       ],
       "watchList": {
@@ -167,7 +355,171 @@
           "type": "D固定"
         }
       ],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:34",
+        "netkeibaRaceId": "202605020402",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "5",
+            "name": "レピュニット",
+            "finalNinki": "2",
+            "finalOdds": "4.6"
+          },
+          {
+            "rank": "2",
+            "num": "13",
+            "name": "プリプリプリン",
+            "finalNinki": "11",
+            "finalOdds": "70.0"
+          },
+          {
+            "rank": "3",
+            "num": "7",
+            "name": "ブルーミーティア",
+            "finalNinki": "3",
+            "finalOdds": "5.7"
+          },
+          {
+            "rank": "4",
+            "num": "11",
+            "name": "ライカ",
+            "finalNinki": "1",
+            "finalOdds": "2.6"
+          },
+          {
+            "rank": "5",
+            "num": "14",
+            "name": "マイネルテオドロス",
+            "finalNinki": "8",
+            "finalOdds": "30.3"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 460
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 170
+            },
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 1450
+            },
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 240
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "3",
+                "7"
+              ],
+              "amount": 4840
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "5",
+                "13"
+              ],
+              "amount": 27840
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "5",
+                "13"
+              ],
+              "amount": 5500
+            },
+            {
+              "combo": [
+                "5",
+                "7"
+              ],
+              "amount": 610
+            },
+            {
+              "combo": [
+                "7",
+                "13"
+              ],
+              "amount": 9200
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "5",
+                "13"
+              ],
+              "amount": 39980
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "7",
+                "13"
+              ],
+              "amount": 40160
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "5",
+                "13",
+                "7"
+              ],
+              "amount": 469090
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 240,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 240,
+          "recovery": 4.0
+        },
+        "summary": "1着 5番 レピュニット (2人気) | 回収率 4.0%"
+      }
     },
     {
       "raceId": "202602040403",
@@ -188,7 +540,10 @@
           "jockey": "ディー",
           "trainer": "伊藤大",
           "kotodamaGrade": "A",
-          "comment": "前走2着・記者「未勝利ならいつでも勝てる力はある」陣営「そろそろ順番が回ってきても」+ブリンカー試行"
+          "comment": "前走2着・記者「未勝利ならいつでも勝てる力はある」陣営「そろそろ順番が回ってきても」+ブリンカー試行",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "2.3"
         },
         {
           "mark": "○",
@@ -197,7 +552,10 @@
           "jockey": "原優介",
           "trainer": "篠島",
           "kotodamaGrade": "A",
-          "comment": "騎手「東京のワンターンのような助走距離が長くなるコースはプラス」記者「次走は更にやれる」"
+          "comment": "騎手「東京のワンターンのような助走距離が長くなるコースはプラス」記者「次走は更にやれる」",
+          "finalRank": "4",
+          "finalNinki": "6",
+          "finalOdds": "12.4"
         },
         {
           "mark": "▲",
@@ -206,7 +564,10 @@
           "jockey": "田辺裕",
           "trainer": "田村",
           "kotodamaGrade": "A",
-          "comment": "前走3着「中身の濃い3着」陣営「中山はパスしてここに備えていました」「安定している」"
+          "comment": "前走3着「中身の濃い3着」陣営「中山はパスしてここに備えていました」「安定している」",
+          "finalRank": "2",
+          "finalNinki": "2",
+          "finalOdds": "3.4"
         },
         {
           "mark": "△",
@@ -215,7 +576,10 @@
           "jockey": "石橋脩",
           "trainer": "小野次",
           "kotodamaGrade": "B",
-          "comment": "初戦最後に差を詰めた・陣営「東京の1600mならもう少しやれていい」"
+          "comment": "初戦最後に差を詰めた・陣営「東京の1600mならもう少しやれていい」",
+          "finalRank": "10",
+          "finalNinki": "11",
+          "finalOdds": "196.0"
         }
       ],
       "watchList": {
@@ -244,7 +608,171 @@
           "type": "C級"
         }
       ],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:34",
+        "netkeibaRaceId": "202605020403",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "12",
+            "name": "マサッチェハマー",
+            "finalNinki": "1",
+            "finalOdds": "2.3"
+          },
+          {
+            "rank": "2",
+            "num": "6",
+            "name": "スティールヴォーグ",
+            "finalNinki": "2",
+            "finalOdds": "3.4"
+          },
+          {
+            "rank": "3",
+            "num": "8",
+            "name": "カシマライフウ",
+            "finalNinki": "3",
+            "finalOdds": "6.9"
+          },
+          {
+            "rank": "4",
+            "num": "11",
+            "name": "トワイライトビュー",
+            "finalNinki": "6",
+            "finalOdds": "12.4"
+          },
+          {
+            "rank": "5",
+            "num": "10",
+            "name": "スターツトゥデイ",
+            "finalNinki": "5",
+            "finalOdds": "7.9"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 230
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "6"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "8"
+              ],
+              "amount": 140
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "5",
+                "8"
+              ],
+              "amount": 250
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "6",
+                "12"
+              ],
+              "amount": 290
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "6",
+                "12"
+              ],
+              "amount": 140
+            },
+            {
+              "combo": [
+                "8",
+                "12"
+              ],
+              "amount": 250
+            },
+            {
+              "combo": [
+                "6",
+                "8"
+              ],
+              "amount": 290
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "12",
+                "6"
+              ],
+              "amount": 460
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "6",
+                "8",
+                "12"
+              ],
+              "amount": 560
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "12",
+                "6",
+                "8"
+              ],
+              "amount": 1770
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 230,
+            "fuku": 220,
+            "wide": 140,
+            "umaren": 290,
+            "umatan": 460,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 1340,
+          "recovery": 22.3
+        },
+        "summary": "1着 12番 マサッチェハマー (1人気) | 回収率 22.3%"
+      }
     },
     {
       "raceId": "202602040404",
@@ -265,7 +793,10 @@
           "jockey": "横山武",
           "trainer": "鈴木伸",
           "kotodamaGrade": "A",
-          "comment": "前走2着・記者「素質十分」陣営◎「あの走りなら東京の方が合うし、勝ち負けを期待」"
+          "comment": "前走2着・記者「素質十分」陣営◎「あの走りなら東京の方が合うし、勝ち負けを期待」",
+          "finalRank": "4",
+          "finalNinki": "1",
+          "finalOdds": "2.0"
         },
         {
           "mark": "○",
@@ -274,7 +805,10 @@
           "jockey": "柴田大",
           "trainer": "室井",
           "kotodamaGrade": "A",
-          "comment": "前走山藤賞4着(格上挑戦)・陣営◎「勝ち負けに」"
+          "comment": "前走山藤賞4着(格上挑戦)・陣営◎「勝ち負けに」",
+          "finalRank": "18",
+          "finalNinki": "10",
+          "finalOdds": "43.1"
         },
         {
           "mark": "▲",
@@ -283,7 +817,10 @@
           "jockey": "大野拓",
           "trainer": "杉浦",
           "kotodamaGrade": "A",
-          "comment": "前走4着「落鉄影響」陣営「楽に行ければどういう位置でも流れ乗れる」"
+          "comment": "前走4着「落鉄影響」陣営「楽に行ければどういう位置でも流れ乗れる」",
+          "finalRank": "5",
+          "finalNinki": "2",
+          "finalOdds": "4.7"
         },
         {
           "mark": "△",
@@ -292,12 +829,179 @@
           "jockey": "吉田豊",
           "trainer": "高柳瑞",
           "kotodamaGrade": "B",
-          "comment": "初ブリンカー＋記者「きっかけになりそう」陣営「あとひと押しが利けば」"
+          "comment": "初ブリンカー＋記者「きっかけになりそう」陣営「あとひと押しが利けば」",
+          "finalRank": "7",
+          "finalNinki": "4",
+          "finalOdds": "13.8"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:35",
+        "netkeibaRaceId": "202605020404",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "1",
+            "name": "モントゥリエ",
+            "finalNinki": "6",
+            "finalOdds": "23.0"
+          },
+          {
+            "rank": "2",
+            "num": "17",
+            "name": "レヴェランジェ",
+            "finalNinki": "3",
+            "finalOdds": "6.1"
+          },
+          {
+            "rank": "3",
+            "num": "2",
+            "name": "ダイヤテソーロ",
+            "finalNinki": "8",
+            "finalOdds": "27.3"
+          },
+          {
+            "rank": "4",
+            "num": "3",
+            "name": "フリーヤ",
+            "finalNinki": "1",
+            "finalOdds": "2.0"
+          },
+          {
+            "rank": "5",
+            "num": "6",
+            "name": "ベアサナエチャン",
+            "finalNinki": "2",
+            "finalOdds": "4.7"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "1"
+              ],
+              "amount": 2300
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "1"
+              ],
+              "amount": 720
+            },
+            {
+              "combo": [
+                "17"
+              ],
+              "amount": 270
+            },
+            {
+              "combo": [
+                "2"
+              ],
+              "amount": 710
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "1",
+                "8"
+              ],
+              "amount": 3570
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "1",
+                "17"
+              ],
+              "amount": 7290
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "1",
+                "17"
+              ],
+              "amount": 2540
+            },
+            {
+              "combo": [
+                "1",
+                "2"
+              ],
+              "amount": 6510
+            },
+            {
+              "combo": [
+                "2",
+                "17"
+              ],
+              "amount": 2080
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "1",
+                "17"
+              ],
+              "amount": 16600
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "1",
+                "2",
+                "17"
+              ],
+              "amount": 47020
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "1",
+                "17",
+                "2"
+              ],
+              "amount": 203430
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 0,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 0,
+          "recovery": 0.0
+        },
+        "summary": "1着 1番 モントゥリエ (6人気) | 回収率 0.0%"
+      }
     },
     {
       "raceId": "202602040405",
@@ -318,7 +1022,10 @@
           "jockey": "ディー",
           "trainer": "小椋",
           "kotodamaGrade": "A",
-          "comment": "前走3着・騎手「最後もよく伸びてくれた」陣営「収穫があった」"
+          "comment": "前走3着・騎手「最後もよく伸びてくれた」陣営「収穫があった」",
+          "finalRank": "7",
+          "finalNinki": "1",
+          "finalOdds": "3.9"
         },
         {
           "mark": "○",
@@ -327,7 +1034,10 @@
           "jockey": "岩田康",
           "trainer": "浅利",
           "kotodamaGrade": "A",
-          "comment": "騎手「力は秘めていると思う」陣営「スムーズなレースができれば違う」"
+          "comment": "騎手「力は秘めていると思う」陣営「スムーズなレースができれば違う」",
+          "finalRank": "1",
+          "finalNinki": "3",
+          "finalOdds": "5.1"
         },
         {
           "mark": "▲",
@@ -336,7 +1046,10 @@
           "jockey": "佐々木大",
           "trainer": "西園翔",
           "kotodamaGrade": "A",
-          "comment": "陣営「決め手のある馬、コース替わり良い」「ワンターンもいい材料」「巻き返し」"
+          "comment": "陣営「決め手のある馬、コース替わり良い」「ワンターンもいい材料」「巻き返し」",
+          "finalRank": "4",
+          "finalNinki": "5",
+          "finalOdds": "7.3"
         },
         {
           "mark": "△",
@@ -345,12 +1058,179 @@
           "jockey": "横山武",
           "trainer": "高柳瑞",
           "kotodamaGrade": "B",
-          "comment": "陣営「マイルでは切れ不足→距離を延ばしてみます」距離延長プラス"
+          "comment": "陣営「マイルでは切れ不足→距離を延ばしてみます」距離延長プラス",
+          "finalRank": "2",
+          "finalNinki": "2",
+          "finalOdds": "4.3"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:35",
+        "netkeibaRaceId": "202605020405",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "1",
+            "name": "オメガディコン",
+            "finalNinki": "3",
+            "finalOdds": "5.1"
+          },
+          {
+            "rank": "2",
+            "num": "4",
+            "name": "トランスマーレ",
+            "finalNinki": "2",
+            "finalOdds": "4.3"
+          },
+          {
+            "rank": "3",
+            "num": "6",
+            "name": "ユマハム",
+            "finalNinki": "4",
+            "finalOdds": "7.0"
+          },
+          {
+            "rank": "4",
+            "num": "2",
+            "name": "イルミナジーティー",
+            "finalNinki": "5",
+            "finalOdds": "7.3"
+          },
+          {
+            "rank": "5",
+            "num": "11",
+            "name": "アラムベイ",
+            "finalNinki": "6",
+            "finalOdds": "10.5"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "1"
+              ],
+              "amount": 510
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "1"
+              ],
+              "amount": 170
+            },
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 190
+            },
+            {
+              "combo": [
+                "6"
+              ],
+              "amount": 220
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "1",
+                "3"
+              ],
+              "amount": 760
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "1",
+                "4"
+              ],
+              "amount": 1070
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "1",
+                "4"
+              ],
+              "amount": 460
+            },
+            {
+              "combo": [
+                "1",
+                "6"
+              ],
+              "amount": 570
+            },
+            {
+              "combo": [
+                "4",
+                "6"
+              ],
+              "amount": 660
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "1",
+                "4"
+              ],
+              "amount": 2320
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "1",
+                "4",
+                "6"
+              ],
+              "amount": 2540
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "1",
+                "4",
+                "6"
+              ],
+              "amount": 13590
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 510,
+            "fuku": 360,
+            "wide": 460,
+            "umaren": 1070,
+            "umatan": 2320,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 4720,
+          "recovery": 78.7
+        },
+        "summary": "1着 1番 オメガディコン (3人気) | 回収率 78.7%"
+      }
     },
     {
       "raceId": "202602040406",
@@ -371,7 +1251,10 @@
           "jockey": "吉田豊",
           "trainer": "高橋文",
           "kotodamaGrade": "A",
-          "comment": "前走未勝利完勝「最後も余力」記者「昇級しても通用」陣営「クラスが上がっても能力的に通用。楽しみ」"
+          "comment": "前走未勝利完勝「最後も余力」記者「昇級しても通用」陣営「クラスが上がっても能力的に通用。楽しみ」",
+          "finalRank": "4",
+          "finalNinki": "2",
+          "finalOdds": "5.2"
         },
         {
           "mark": "○",
@@ -380,7 +1263,10 @@
           "jockey": "ディー",
           "trainer": "千葉",
           "kotodamaGrade": "A",
-          "comment": "前走2着「相手が強過ぎた」陣営◎「成長が感じられる、改めて期待」"
+          "comment": "前走2着「相手が強過ぎた」陣営◎「成長が感じられる、改めて期待」",
+          "finalRank": "16",
+          "finalNinki": "1",
+          "finalOdds": "1.9"
         },
         {
           "mark": "▲",
@@ -389,7 +1275,10 @@
           "jockey": "荻野極",
           "trainer": "高木登",
           "kotodamaGrade": "A",
-          "comment": "前走勝ち「ポテンシャル高い」陣営「クラスが上がってもまずまずやれる」"
+          "comment": "前走勝ち「ポテンシャル高い」陣営「クラスが上がってもまずまずやれる」",
+          "finalRank": "3",
+          "finalNinki": "5",
+          "finalOdds": "13.5"
         },
         {
           "mark": "△",
@@ -398,7 +1287,10 @@
           "jockey": "三浦皇",
           "trainer": "金成",
           "kotodamaGrade": "A",
-          "comment": "前走3着「いいレース」陣営「この条件がベスト、ここを目標に調整」"
+          "comment": "前走3着「いいレース」陣営「この条件がベスト、ここを目標に調整」",
+          "finalRank": "1",
+          "finalNinki": "3",
+          "finalOdds": "8.3"
         }
       ],
       "watchList": {},
@@ -414,7 +1306,171 @@
           "type": "D級"
         }
       ],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:35",
+        "netkeibaRaceId": "202605020406",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "7",
+            "name": "リフレックス",
+            "finalNinki": "3",
+            "finalOdds": "8.3"
+          },
+          {
+            "rank": "2",
+            "num": "15",
+            "name": "チームユートピア",
+            "finalNinki": "9",
+            "finalOdds": "48.1"
+          },
+          {
+            "rank": "3",
+            "num": "11",
+            "name": "ベルゼビュート",
+            "finalNinki": "5",
+            "finalOdds": "13.5"
+          },
+          {
+            "rank": "4",
+            "num": "8",
+            "name": "トヨサカエ",
+            "finalNinki": "2",
+            "finalOdds": "5.2"
+          },
+          {
+            "rank": "5",
+            "num": "9",
+            "name": "グラティアム",
+            "finalNinki": "6",
+            "finalOdds": "20.6"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 830
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 370
+            },
+            {
+              "combo": [
+                "15"
+              ],
+              "amount": 1310
+            },
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 490
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "8"
+              ],
+              "amount": 4130
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "7",
+                "15"
+              ],
+              "amount": 15270
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "7",
+                "15"
+              ],
+              "amount": 3320
+            },
+            {
+              "combo": [
+                "7",
+                "11"
+              ],
+              "amount": 1880
+            },
+            {
+              "combo": [
+                "11",
+                "15"
+              ],
+              "amount": 7460
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "7",
+                "15"
+              ],
+              "amount": 25400
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "7",
+                "11",
+                "15"
+              ],
+              "amount": 89140
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "7",
+                "15",
+                "11"
+              ],
+              "amount": 480300
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 830,
+            "fuku": 860,
+            "wide": 1880,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 3570,
+          "recovery": 59.5
+        },
+        "summary": "1着 7番 リフレックス (3人気) | 回収率 59.5%"
+      }
     },
     {
       "raceId": "202602040407",
@@ -435,7 +1491,10 @@
           "jockey": "横山典",
           "trainer": "昆",
           "kotodamaGrade": "A",
-          "comment": "前走3着「平地でも十分にやれる」陣営「現級そのうち突破できそう」"
+          "comment": "前走3着「平地でも十分にやれる」陣営「現級そのうち突破できそう」",
+          "finalRank": "7",
+          "finalNinki": "1",
+          "finalOdds": "3.4"
         },
         {
           "mark": "○",
@@ -444,7 +1503,10 @@
           "jockey": "岩田康",
           "trainer": "尾関",
           "kotodamaGrade": "A",
-          "comment": "去勢効果＋陣営「オープン馬相手に手応え優勢、頑張ってくれそう」"
+          "comment": "去勢効果＋陣営「オープン馬相手に手応え優勢、頑張ってくれそう」",
+          "finalRank": "3",
+          "finalNinki": "2",
+          "finalOdds": "4.5"
         },
         {
           "mark": "▲",
@@ -453,7 +1515,10 @@
           "jockey": "嶋田純",
           "trainer": "手塚久",
           "kotodamaGrade": "B",
-          "comment": "前走6着・陣営「東京に替わって距離短縮で集中力が続けば、脚抜きのいい馬場向き」"
+          "comment": "前走6着・陣営「東京に替わって距離短縮で集中力が続けば、脚抜きのいい馬場向き」",
+          "finalRank": "1",
+          "finalNinki": "5",
+          "finalOdds": "7.5"
         },
         {
           "mark": "△",
@@ -462,7 +1527,10 @@
           "jockey": "長浜鴻",
           "trainer": "相沢",
           "kotodamaGrade": "B",
-          "comment": "陣営「減量騎手起用、嵌まれば」"
+          "comment": "陣営「減量騎手起用、嵌まれば」",
+          "finalRank": "5",
+          "finalNinki": "4",
+          "finalOdds": "6.5"
         }
       ],
       "watchList": {},
@@ -473,7 +1541,171 @@
           "type": "準致命"
         }
       ],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:35",
+        "netkeibaRaceId": "202605020407",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "10",
+            "name": "レッドベルダンス",
+            "finalNinki": "5",
+            "finalOdds": "7.5"
+          },
+          {
+            "rank": "2",
+            "num": "12",
+            "name": "ミスティマウンテン",
+            "finalNinki": "8",
+            "finalOdds": "18.0"
+          },
+          {
+            "rank": "3",
+            "num": "7",
+            "name": "スクレイピング",
+            "finalNinki": "2",
+            "finalOdds": "4.5"
+          },
+          {
+            "rank": "4",
+            "num": "14",
+            "name": "ビービーバザーク",
+            "finalNinki": "3",
+            "finalOdds": "5.4"
+          },
+          {
+            "rank": "5",
+            "num": "9",
+            "name": "コーシューパンジャ",
+            "finalNinki": "4",
+            "finalOdds": "6.5"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 750
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 240
+            },
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 340
+            },
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 200
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "6",
+                "7"
+              ],
+              "amount": 1820
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "10",
+                "12"
+              ],
+              "amount": 5420
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "10",
+                "12"
+              ],
+              "amount": 1390
+            },
+            {
+              "combo": [
+                "7",
+                "10"
+              ],
+              "amount": 760
+            },
+            {
+              "combo": [
+                "7",
+                "12"
+              ],
+              "amount": 1650
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "10",
+                "12"
+              ],
+              "amount": 9620
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "7",
+                "10",
+                "12"
+              ],
+              "amount": 7250
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "10",
+                "12",
+                "7"
+              ],
+              "amount": 53010
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 750,
+            "fuku": 440,
+            "wide": 760,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 1950,
+          "recovery": 32.5
+        },
+        "summary": "1着 10番 レッドベルダンス (5人気) | 回収率 32.5%"
+      }
     },
     {
       "raceId": "202602040408",
@@ -494,7 +1726,10 @@
           "jockey": "ディー",
           "trainer": "太田",
           "kotodamaGrade": "A",
-          "comment": "前走5着「昇級戦悪くない」陣営「成長、状態安定、クラス慣れも見込める」"
+          "comment": "前走5着「昇級戦悪くない」陣営「成長、状態安定、クラス慣れも見込める」",
+          "finalRank": "6",
+          "finalNinki": "2",
+          "finalOdds": "4.1"
         },
         {
           "mark": "○",
@@ -503,7 +1738,10 @@
           "jockey": "荻野極",
           "trainer": "宮田",
           "kotodamaGrade": "A",
-          "comment": "前走「参考外」陣営「絞り直し、折り合い重視で1列後ろ」立て直し"
+          "comment": "前走「参考外」陣営「絞り直し、折り合い重視で1列後ろ」立て直し",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "2.8"
         },
         {
           "mark": "▲",
@@ -512,7 +1750,10 @@
           "jockey": "木幡巧",
           "trainer": "黒岩",
           "kotodamaGrade": "A",
-          "comment": "陣営「去勢効果で体軽くなり、心身両面で走りの質改善」"
+          "comment": "陣営「去勢効果で体軽くなり、心身両面で走りの質改善」",
+          "finalRank": "3",
+          "finalNinki": "6",
+          "finalOdds": "18.0"
         },
         {
           "mark": "△",
@@ -521,12 +1762,179 @@
           "jockey": "佐々木大",
           "trainer": "鹿戸雄",
           "kotodamaGrade": "B",
-          "comment": "陣営「通用の力はある、折り合って運べれば」"
+          "comment": "陣営「通用の力はある、折り合って運べれば」",
+          "finalRank": "4",
+          "finalNinki": "3",
+          "finalOdds": "5.0"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:36",
+        "netkeibaRaceId": "202605020408",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "4",
+            "name": "ダノンエンブレム",
+            "finalNinki": "1",
+            "finalOdds": "2.8"
+          },
+          {
+            "rank": "2",
+            "num": "7",
+            "name": "コンテネレッツア",
+            "finalNinki": "5",
+            "finalOdds": "7.2"
+          },
+          {
+            "rank": "3",
+            "num": "1",
+            "name": "アージェント",
+            "finalNinki": "6",
+            "finalOdds": "18.0"
+          },
+          {
+            "rank": "4",
+            "num": "2",
+            "name": "コムユンプリュム",
+            "finalNinki": "3",
+            "finalOdds": "5.0"
+          },
+          {
+            "rank": "5",
+            "num": "5",
+            "name": "ウインルピナス",
+            "finalNinki": "7",
+            "finalOdds": "20.4"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 280
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 140
+            },
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 170
+            },
+            {
+              "combo": [
+                "1"
+              ],
+              "amount": 360
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 1040
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 730
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 310
+            },
+            {
+              "combo": [
+                "1",
+                "4"
+              ],
+              "amount": 930
+            },
+            {
+              "combo": [
+                "1",
+                "7"
+              ],
+              "amount": 1580
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 1350
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "1",
+                "4",
+                "7"
+              ],
+              "amount": 4380
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "4",
+                "7",
+                "1"
+              ],
+              "amount": 14670
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 280,
+            "fuku": 500,
+            "wide": 930,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 1710,
+          "recovery": 28.5
+        },
+        "summary": "1着 4番 ダノンエンブレム (1人気) | 回収率 28.5%"
+      }
     },
     {
       "raceId": "202602040409",
@@ -547,7 +1955,10 @@
           "jockey": "岩田康",
           "trainer": "福永",
           "kotodamaGrade": "A",
-          "comment": "前走3着・武豊「距離はこれくらいが合う」陣営◎「2000mに延びて良さが出た、同じ条件でいい走り期待」"
+          "comment": "前走3着・武豊「距離はこれくらいが合う」陣営◎「2000mに延びて良さが出た、同じ条件でいい走り期待」",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "5.0"
         },
         {
           "mark": "○",
@@ -556,7 +1967,10 @@
           "jockey": "松岡正",
           "trainer": "竹内",
           "kotodamaGrade": "A",
-          "comment": "前走4着「皐月賞後遺症から解放」陣営「グン良くなった、次は成績上がる」"
+          "comment": "前走4着「皐月賞後遺症から解放」陣営「グン良くなった、次は成績上がる」",
+          "finalRank": "5",
+          "finalNinki": "5",
+          "finalOdds": "9.7"
         },
         {
           "mark": "▲",
@@ -565,7 +1979,10 @@
           "jockey": "ディー",
           "trainer": "福永",
           "kotodamaGrade": "A",
-          "comment": "前走15着も4角躓きアクシデント、陣営◎「度外視していい、ダメージなし、改めて」"
+          "comment": "前走15着も4角躓きアクシデント、陣営◎「度外視していい、ダメージなし、改めて」",
+          "finalRank": "8",
+          "finalNinki": "7",
+          "finalOdds": "11.7"
         },
         {
           "mark": "△",
@@ -574,12 +1991,179 @@
           "jockey": "田辺裕",
           "trainer": "荒木",
           "kotodamaGrade": "A",
-          "comment": "前走5着「昇級戦悪くない」陣営「東京コース勝ち鞍、持続力勝負タイプ」"
+          "comment": "前走5着「昇級戦悪くない」陣営「東京コース勝ち鞍、持続力勝負タイプ」",
+          "finalRank": "7",
+          "finalNinki": "8",
+          "finalOdds": "13.0"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:36",
+        "netkeibaRaceId": "202605020409",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "5",
+            "name": "アスクセクシーモア",
+            "finalNinki": "1",
+            "finalOdds": "5.0"
+          },
+          {
+            "rank": "2",
+            "num": "17",
+            "name": "ユキワリザクラ",
+            "finalNinki": "6",
+            "finalOdds": "9.9"
+          },
+          {
+            "rank": "3",
+            "num": "7",
+            "name": "キャントウェイト",
+            "finalNinki": "14",
+            "finalOdds": "50.6"
+          },
+          {
+            "rank": "4",
+            "num": "9",
+            "name": "キュクヌス",
+            "finalNinki": "9",
+            "finalOdds": "19.1"
+          },
+          {
+            "rank": "5",
+            "num": "4",
+            "name": "フクノブルーレイク",
+            "finalNinki": "5",
+            "finalOdds": "9.7"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 500
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 220
+            },
+            {
+              "combo": [
+                "17"
+              ],
+              "amount": 290
+            },
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 1400
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "3",
+                "8"
+              ],
+              "amount": 1400
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "5",
+                "17"
+              ],
+              "amount": 2380
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "5",
+                "17"
+              ],
+              "amount": 1030
+            },
+            {
+              "combo": [
+                "5",
+                "7"
+              ],
+              "amount": 3830
+            },
+            {
+              "combo": [
+                "7",
+                "17"
+              ],
+              "amount": 6930
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "5",
+                "17"
+              ],
+              "amount": 4440
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "7",
+                "17"
+              ],
+              "amount": 35360
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "5",
+                "17",
+                "7"
+              ],
+              "amount": 124110
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 500,
+            "fuku": 220,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 720,
+          "recovery": 12.0
+        },
+        "summary": "1着 5番 アスクセクシーモア (1人気) | 回収率 12.0%"
+      }
     },
     {
       "raceId": "202602040410",
@@ -600,7 +2184,10 @@
           "jockey": "横山武",
           "trainer": "寺島",
           "kotodamaGrade": "A",
-          "comment": "前走3着「立ち回り完璧」陣営「ここ目標、一番実績ある条件」"
+          "comment": "前走3着「立ち回り完璧」陣営「ここ目標、一番実績ある条件」",
+          "finalRank": "8",
+          "finalNinki": "1",
+          "finalOdds": "4.7"
         },
         {
           "mark": "○",
@@ -609,7 +2196,10 @@
           "jockey": "団野大",
           "trainer": "高島",
           "kotodamaGrade": "A",
-          "comment": "前走4着「順番変わる」陣営◎「この舞台はオープンで②③ぴったり、東京が合う」"
+          "comment": "前走4着「順番変わる」陣営◎「この舞台はオープンで②③ぴったり、東京が合う」",
+          "finalRank": "9",
+          "finalNinki": "2",
+          "finalOdds": "5.1"
         },
         {
           "mark": "▲",
@@ -618,7 +2208,10 @@
           "jockey": "高杉吏",
           "trainer": "高野",
           "kotodamaGrade": "A",
-          "comment": "前走4着・陣営「東京2100m合う、力量通じる」"
+          "comment": "前走4着・陣営「東京2100m合う、力量通じる」",
+          "finalRank": "5",
+          "finalNinki": "4",
+          "finalOdds": "6.0"
         },
         {
           "mark": "△",
@@ -627,12 +2220,208 @@
           "jockey": "岩田康",
           "trainer": "佐藤悠",
           "kotodamaGrade": "B",
-          "comment": "陣営「2100mプラス、左回り気分良く走れる」"
+          "comment": "陣営「2100mプラス、左回り気分良く走れる」",
+          "finalRank": "6",
+          "finalNinki": "10",
+          "finalOdds": "35.2"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:36",
+        "netkeibaRaceId": "202605020410",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "14",
+            "name": "タイトニット",
+            "finalNinki": "3",
+            "finalOdds": "5.5"
+          },
+          {
+            "rank": "2",
+            "num": "7",
+            "name": "アムールドパリ",
+            "finalNinki": "14",
+            "finalOdds": "112.5"
+          },
+          {
+            "rank": "2",
+            "num": "15",
+            "name": "レッドプロフェシー",
+            "finalNinki": "9",
+            "finalOdds": "17.0"
+          },
+          {
+            "rank": "4",
+            "num": "6",
+            "name": "ピカピカサンダー",
+            "finalNinki": "7",
+            "finalOdds": "15.8"
+          },
+          {
+            "rank": "5",
+            "num": "9",
+            "name": "ハギノサステナブル",
+            "finalNinki": "4",
+            "finalOdds": "6.0"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "14"
+              ],
+              "amount": 550
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "14"
+              ],
+              "amount": 300
+            },
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 2210
+            },
+            {
+              "combo": [
+                "15"
+              ],
+              "amount": 470
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 890
+            },
+            {
+              "combo": [
+                "7",
+                "8"
+              ],
+              "amount": 800
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "7",
+                "14"
+              ],
+              "amount": 20790
+            },
+            {
+              "combo": [
+                "14",
+                "15"
+              ],
+              "amount": 1870
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "7",
+                "14"
+              ],
+              "amount": 12990
+            },
+            {
+              "combo": [
+                "14",
+                "15"
+              ],
+              "amount": 1400
+            },
+            {
+              "combo": [
+                "7",
+                "15"
+              ],
+              "amount": 18070
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "14",
+                "7"
+              ],
+              "amount": 33310
+            },
+            {
+              "combo": [
+                "14",
+                "15"
+              ],
+              "amount": 3070
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "7",
+                "14",
+                "15"
+              ],
+              "amount": 153440
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "14",
+                "7",
+                "15"
+              ],
+              "amount": 389670
+            },
+            {
+              "combo": [
+                "14",
+                "15",
+                "7"
+              ],
+              "amount": 280230
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 0,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 0,
+          "recovery": 0.0
+        },
+        "summary": "1着 14番 タイトニット (3人気) | 回収率 0.0%"
+      }
     },
     {
       "raceId": "202605020411",
@@ -653,7 +2442,10 @@
           "jockey": "荻野極",
           "trainer": "佐藤悠",
           "kotodamaGrade": "A",
-          "comment": "前走大寒桜賞2着・浜中『直線はいい脚』陣営『左回りで良さが出た、直線の長い東京は合う』"
+          "comment": "前走大寒桜賞2着・浜中『直線はいい脚』陣営『左回りで良さが出た、直線の長い東京は合う』",
+          "finalRank": "8",
+          "finalNinki": "9",
+          "finalOdds": "21.2"
         },
         {
           "mark": "○",
@@ -662,7 +2454,10 @@
           "jockey": "長浜",
           "trainer": "小笠",
           "kotodamaGrade": "A",
-          "comment": "前走未勝利1着『ラスト2F11.8→11.3の加速ラップで3馬身半圧勝』陣営『強い勝ち方、父もこのレースを勝っています』"
+          "comment": "前走未勝利1着『ラスト2F11.8→11.3の加速ラップで3馬身半圧勝』陣営『強い勝ち方、父もこのレースを勝っています』",
+          "finalRank": "6",
+          "finalNinki": "7",
+          "finalOdds": "18.4"
         },
         {
           "mark": "▲",
@@ -671,7 +2466,10 @@
           "jockey": "佐々木",
           "trainer": "堀",
           "kotodamaGrade": "A",
-          "comment": "前走『内ラチ1頭分のスペースから差し切った』陣営『ピリッとして気持ちが入ってきた、前向きさが出て好レース期待』"
+          "comment": "前走『内ラチ1頭分のスペースから差し切った』陣営『ピリッとして気持ちが入ってきた、前向きさが出て好レース期待』",
+          "finalRank": "3",
+          "finalNinki": "2",
+          "finalOdds": "6.0"
         },
         {
           "mark": "△",
@@ -680,7 +2478,10 @@
           "jockey": "田辺",
           "trainer": "中舘",
           "kotodamaGrade": "A",
-          "comment": "前走未勝利1着・ルメール『距離も軟らかい馬場もぴったり』陣営『血統馬らしく成長、現時点でも差のない競馬ができる』"
+          "comment": "前走未勝利1着・ルメール『距離も軟らかい馬場もぴったり』陣営『血統馬らしく成長、現時点でも差のない競馬ができる』",
+          "finalRank": "4",
+          "finalNinki": "6",
+          "finalOdds": "13.1"
         }
       ],
       "watchList": {},
@@ -691,7 +2492,171 @@
           "type": "B天井"
         }
       ],
-      "result": null,
+      "result": {
+        "fetched": "2026-05-03T19:57:36",
+        "netkeibaRaceId": "202605020411",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "12",
+            "name": "メイショウハチコウ",
+            "finalNinki": "10",
+            "finalOdds": "26.3"
+          },
+          {
+            "rank": "2",
+            "num": "13",
+            "name": "ジャスティンシカゴ",
+            "finalNinki": "5",
+            "finalOdds": "12.5"
+          },
+          {
+            "rank": "3",
+            "num": "10",
+            "name": "エーデルゼーレ",
+            "finalNinki": "2",
+            "finalOdds": "6.0"
+          },
+          {
+            "rank": "4",
+            "num": "5",
+            "name": "ウィロークリーク",
+            "finalNinki": "6",
+            "finalOdds": "13.1"
+          },
+          {
+            "rank": "5",
+            "num": "2",
+            "name": "レッドラージャ",
+            "finalNinki": "13",
+            "finalOdds": "54.8"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 2630
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 750
+            },
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 360
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 240
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "7",
+                "7"
+              ],
+              "amount": 11900
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "12",
+                "13"
+              ],
+              "amount": 13950
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "12",
+                "13"
+              ],
+              "amount": 4070
+            },
+            {
+              "combo": [
+                "10",
+                "12"
+              ],
+              "amount": 2900
+            },
+            {
+              "combo": [
+                "10",
+                "13"
+              ],
+              "amount": 1410
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "12",
+                "13"
+              ],
+              "amount": 31200
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "10",
+                "12",
+                "13"
+              ],
+              "amount": 32990
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "12",
+                "13",
+                "10"
+              ],
+              "amount": 273600
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 240,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 240,
+          "recovery": 4.0
+        },
+        "summary": "1着 12番 メイショウハチコウ (10人気) | 回収率 4.0%"
+      },
       "note": "純粋な言霊のみで判定（4神総合スコアやniko判断除外、青龍grade＋陣営コメント強度のみ）"
     },
     {
@@ -713,7 +2678,10 @@
           "jockey": "佐々木大",
           "trainer": "武藤",
           "kotodamaGrade": "A",
-          "comment": "前走2着・陣営◎「クラスにメド立てた、稽古充実一途、今なら脚使える」"
+          "comment": "前走2着・陣営◎「クラスにメド立てた、稽古充実一途、今なら脚使える」",
+          "finalRank": "7",
+          "finalNinki": "2",
+          "finalOdds": "5.3"
         },
         {
           "mark": "○",
@@ -722,7 +2690,10 @@
           "jockey": "国分恭",
           "trainer": "牧浦",
           "kotodamaGrade": "A",
-          "comment": "前走2着・記者「このクラスでも決め手は通じる」"
+          "comment": "前走2着・記者「このクラスでも決め手は通じる」",
+          "finalRank": "5",
+          "finalNinki": "5",
+          "finalOdds": "8.7"
         },
         {
           "mark": "▲",
@@ -731,7 +2702,10 @@
           "jockey": "荻野極",
           "trainer": "兼武",
           "kotodamaGrade": "A",
-          "comment": "前走1勝C完勝・記者「立ち回り上手、昇級しても大崩れせず走れる」"
+          "comment": "前走1勝C完勝・記者「立ち回り上手、昇級しても大崩れせず走れる」",
+          "finalRank": "4",
+          "finalNinki": "4",
+          "finalOdds": "7.6"
         },
         {
           "mark": "△",
@@ -740,12 +2714,179 @@
           "jockey": "横山武",
           "trainer": "奥平雅",
           "kotodamaGrade": "B",
-          "comment": "前走4着・陣営「メド立つ内容、この距離でも大丈夫」"
+          "comment": "前走4着・陣営「メド立つ内容、この距離でも大丈夫」",
+          "finalRank": "3",
+          "finalNinki": "3",
+          "finalOdds": "5.9"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:37",
+        "netkeibaRaceId": "202605020412",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "5",
+            "name": "エイプリルインパリ",
+            "finalNinki": "1",
+            "finalOdds": "2.7"
+          },
+          {
+            "rank": "2",
+            "num": "10",
+            "name": "アルジェンタージョ",
+            "finalNinki": "8",
+            "finalOdds": "24.3"
+          },
+          {
+            "rank": "3",
+            "num": "13",
+            "name": "アイアムイチバン",
+            "finalNinki": "3",
+            "finalOdds": "5.9"
+          },
+          {
+            "rank": "4",
+            "num": "12",
+            "name": "シルフズミスチーフ",
+            "finalNinki": "4",
+            "finalOdds": "7.6"
+          },
+          {
+            "rank": "5",
+            "num": "4",
+            "name": "ベンダバール",
+            "finalNinki": "5",
+            "finalOdds": "8.7"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 270
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 140
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 440
+            },
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 240
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 1160
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "5",
+                "10"
+              ],
+              "amount": 2710
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "5",
+                "10"
+              ],
+              "amount": 900
+            },
+            {
+              "combo": [
+                "5",
+                "13"
+              ],
+              "amount": 450
+            },
+            {
+              "combo": [
+                "10",
+                "13"
+              ],
+              "amount": 2020
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "5",
+                "10"
+              ],
+              "amount": 3800
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "10",
+                "13"
+              ],
+              "amount": 4720
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "5",
+                "10",
+                "13"
+              ],
+              "amount": 24790
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 240,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 240,
+          "recovery": 4.0
+        },
+        "summary": "1着 5番 エイプリルインパリ (1人気) | 回収率 4.0%"
+      }
     },
     {
       "raceId": "202603000401",
@@ -766,7 +2907,10 @@
           "jockey": "幸英明",
           "trainer": "佐藤悠",
           "kotodamaGrade": "A",
-          "comment": "前走2着・記者「すぐに勝てる力ある」陣営「京都も問題ない」"
+          "comment": "前走2着・記者「すぐに勝てる力ある」陣営「京都も問題ない」",
+          "finalRank": "4",
+          "finalNinki": "1",
+          "finalOdds": "2.8"
         },
         {
           "mark": "○",
@@ -775,7 +2919,10 @@
           "jockey": "鮫島良",
           "trainer": "河嶋",
           "kotodamaGrade": "A",
-          "comment": "前走2着・騎手「すぐにチャンスがくる」"
+          "comment": "前走2着・騎手「すぐにチャンスがくる」",
+          "finalRank": "2",
+          "finalNinki": "2",
+          "finalOdds": "3.5"
         },
         {
           "mark": "▲",
@@ -784,7 +2931,10 @@
           "jockey": "酒井学",
           "trainer": "西村",
           "kotodamaGrade": "A",
-          "comment": "前走4着・記者「内容はグンと良化、次はもっと良くなる」"
+          "comment": "前走4着・記者「内容はグンと良化、次はもっと良くなる」",
+          "finalRank": "15",
+          "finalNinki": "5",
+          "finalOdds": "23.9"
         },
         {
           "mark": "△",
@@ -793,12 +2943,179 @@
           "jockey": "池添謙",
           "trainer": "宮地",
           "kotodamaGrade": "B",
-          "comment": "前走5着・記者「1400mはベスト」陣営「集中して走れた」"
+          "comment": "前走5着・記者「1400mはベスト」陣営「集中して走れた」",
+          "finalRank": "10",
+          "finalNinki": "11",
+          "finalOdds": "92.1"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:37",
+        "netkeibaRaceId": "202608030401",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "9",
+            "name": "ピカラ",
+            "finalNinki": "3",
+            "finalOdds": "3.5"
+          },
+          {
+            "rank": "2",
+            "num": "10",
+            "name": "プリンセスアツコ",
+            "finalNinki": "2",
+            "finalOdds": "3.5"
+          },
+          {
+            "rank": "3",
+            "num": "5",
+            "name": "メリオルヴィア",
+            "finalNinki": "10",
+            "finalOdds": "64.1"
+          },
+          {
+            "rank": "4",
+            "num": "6",
+            "name": "スマッシング",
+            "finalNinki": "1",
+            "finalOdds": "2.8"
+          },
+          {
+            "rank": "5",
+            "num": "16",
+            "name": "シエーナカラー",
+            "finalNinki": "7",
+            "finalOdds": "26.9"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "9"
+              ],
+              "amount": 350
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "9"
+              ],
+              "amount": 180
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 150
+            },
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 1200
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "5",
+                "5"
+              ],
+              "amount": 570
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "9",
+                "10"
+              ],
+              "amount": 630
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "9",
+                "10"
+              ],
+              "amount": 320
+            },
+            {
+              "combo": [
+                "5",
+                "9"
+              ],
+              "amount": 2670
+            },
+            {
+              "combo": [
+                "5",
+                "10"
+              ],
+              "amount": 2980
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "9",
+                "10"
+              ],
+              "amount": 1180
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "9",
+                "10"
+              ],
+              "amount": 9750
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "9",
+                "10",
+                "5"
+              ],
+              "amount": 34260
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 150,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 150,
+          "recovery": 2.5
+        },
+        "summary": "1着 9番 ピカラ (3人気) | 回収率 2.5%"
+      }
     },
     {
       "raceId": "202603000402",
@@ -819,7 +3136,10 @@
           "jockey": "菱田裕",
           "trainer": "松永幹",
           "kotodamaGrade": "A",
-          "comment": "前走3着「大崩れしない」陣営◎「堅実、もう決めたい」"
+          "comment": "前走3着「大崩れしない」陣営◎「堅実、もう決めたい」",
+          "finalRank": "9",
+          "finalNinki": "1",
+          "finalOdds": "4.1"
         },
         {
           "mark": "○",
@@ -828,7 +3148,10 @@
           "jockey": "戸崎圭",
           "trainer": "荒木",
           "kotodamaGrade": "A",
-          "comment": "記者「これを使って変わりそう」陣営「上積みを感じる」"
+          "comment": "記者「これを使って変わりそう」陣営「上積みを感じる」",
+          "finalRank": "2",
+          "finalNinki": "4",
+          "finalOdds": "5.5"
         },
         {
           "mark": "▲",
@@ -837,7 +3160,10 @@
           "jockey": "岩田望",
           "trainer": "奥村豊",
           "kotodamaGrade": "B",
-          "comment": "叩き上昇・陣営「内容は良くなっている」"
+          "comment": "叩き上昇・陣営「内容は良くなっている」",
+          "finalRank": "8",
+          "finalNinki": "2",
+          "finalOdds": "4.5"
         },
         {
           "mark": "△",
@@ -846,12 +3172,179 @@
           "jockey": "幸英明",
           "trainer": "高橋忠",
           "kotodamaGrade": "B",
-          "comment": "陣営「ダートスタート1900mに替えて」"
+          "comment": "陣営「ダートスタート1900mに替えて」",
+          "finalRank": "4",
+          "finalNinki": "3",
+          "finalOdds": "5.2"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:37",
+        "netkeibaRaceId": "202608030402",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "12",
+            "name": "メイショウサッソウ",
+            "finalNinki": "8",
+            "finalOdds": "24.1"
+          },
+          {
+            "rank": "2",
+            "num": "4",
+            "name": "アスクハッピーマン",
+            "finalNinki": "4",
+            "finalOdds": "5.5"
+          },
+          {
+            "rank": "3",
+            "num": "9",
+            "name": "グランワールド",
+            "finalNinki": "6",
+            "finalOdds": "7.1"
+          },
+          {
+            "rank": "4",
+            "num": "7",
+            "name": "クリノリキオー",
+            "finalNinki": "3",
+            "finalOdds": "5.2"
+          },
+          {
+            "rank": "5",
+            "num": "5",
+            "name": "ポップアップ",
+            "finalNinki": "7",
+            "finalOdds": "20.6"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 2410
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 550
+            },
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 220
+            },
+            {
+              "combo": [
+                "9"
+              ],
+              "amount": 290
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "8"
+              ],
+              "amount": 850
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "4",
+                "12"
+              ],
+              "amount": 11240
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "4",
+                "12"
+              ],
+              "amount": 3100
+            },
+            {
+              "combo": [
+                "9",
+                "12"
+              ],
+              "amount": 3070
+            },
+            {
+              "combo": [
+                "4",
+                "9"
+              ],
+              "amount": 1000
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "12",
+                "4"
+              ],
+              "amount": 28700
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "4",
+                "9",
+                "12"
+              ],
+              "amount": 27630
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "12",
+                "4",
+                "9"
+              ],
+              "amount": 267650
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 220,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 220,
+          "recovery": 3.7
+        },
+        "summary": "1着 12番 メイショウサッソウ (8人気) | 回収率 3.7%"
+      }
     },
     {
       "raceId": "202603000403",
@@ -872,7 +3365,10 @@
           "jockey": "武豊",
           "trainer": "千田",
           "kotodamaGrade": "A",
-          "comment": "武豊・前走2着「素質ある」陣営◎「絞れて距離延長良、叩き上積み」"
+          "comment": "武豊・前走2着「素質ある」陣営◎「絞れて距離延長良、叩き上積み」",
+          "finalRank": "9",
+          "finalNinki": "1",
+          "finalOdds": "2.0"
         },
         {
           "mark": "○",
@@ -881,7 +3377,10 @@
           "jockey": "北村友",
           "trainer": "松下",
           "kotodamaGrade": "A",
-          "comment": "前走3着・レーン「直線狭くなったのが残念」陣営「惜しい競馬、ひと押し」"
+          "comment": "前走3着・レーン「直線狭くなったのが残念」陣営「惜しい競馬、ひと押し」",
+          "finalRank": "6",
+          "finalNinki": "2",
+          "finalOdds": "4.3"
         },
         {
           "mark": "▲",
@@ -890,7 +3389,10 @@
           "jockey": "松山弘",
           "trainer": "上野",
           "kotodamaGrade": "A",
-          "comment": "前走2着・松山「順番すぐ回ってくる」"
+          "comment": "前走2着・松山「順番すぐ回ってくる」",
+          "finalRank": "2",
+          "finalNinki": "3",
+          "finalOdds": "6.5"
         },
         {
           "mark": "△",
@@ -899,12 +3401,179 @@
           "jockey": "幸英明",
           "trainer": "高橋忠",
           "kotodamaGrade": "A",
-          "comment": "記者「グン内容良化、適条件見つかった」陣営「1800m良さ出た」"
+          "comment": "記者「グン内容良化、適条件見つかった」陣営「1800m良さ出た」",
+          "finalRank": "3",
+          "finalNinki": "7",
+          "finalOdds": "23.7"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:37",
+        "netkeibaRaceId": "202608030403",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "14",
+            "name": "レザーアンドレース",
+            "finalNinki": "9",
+            "finalOdds": "66.5"
+          },
+          {
+            "rank": "2",
+            "num": "5",
+            "name": "コイタマチャン",
+            "finalNinki": "3",
+            "finalOdds": "6.5"
+          },
+          {
+            "rank": "3",
+            "num": "10",
+            "name": "オヤツノジカン",
+            "finalNinki": "7",
+            "finalOdds": "23.7"
+          },
+          {
+            "rank": "4",
+            "num": "3",
+            "name": "ミリオンアップ",
+            "finalNinki": "10",
+            "finalOdds": "128.5"
+          },
+          {
+            "rank": "5",
+            "num": "12",
+            "name": "プルーフリーディン",
+            "finalNinki": "6",
+            "finalOdds": "14.0"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "14"
+              ],
+              "amount": 6650
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "14"
+              ],
+              "amount": 1030
+            },
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 210
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 450
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "3",
+                "8"
+              ],
+              "amount": 770
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "5",
+                "14"
+              ],
+              "amount": 26770
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "5",
+                "14"
+              ],
+              "amount": 4970
+            },
+            {
+              "combo": [
+                "10",
+                "14"
+              ],
+              "amount": 9870
+            },
+            {
+              "combo": [
+                "5",
+                "10"
+              ],
+              "amount": 1200
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "14",
+                "5"
+              ],
+              "amount": 52500
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "10",
+                "14"
+              ],
+              "amount": 100610
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "14",
+                "5",
+                "10"
+              ],
+              "amount": 857420
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 660,
+            "wide": 1200,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 1860,
+          "recovery": 31.0
+        },
+        "summary": "1着 14番 レザーアンドレース (9人気) | 回収率 31.0%"
+      }
     },
     {
       "raceId": "202603000404",
@@ -925,7 +3594,10 @@
           "jockey": "レーン",
           "trainer": "友道",
           "kotodamaGrade": "A",
-          "comment": "レーン・前走2着「もうひと押し」陣営「2400m歓迎、使う毎に力をつけている」"
+          "comment": "レーン・前走2着「もうひと押し」陣営「2400m歓迎、使う毎に力をつけている」",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "2.2"
         },
         {
           "mark": "○",
@@ -934,7 +3606,10 @@
           "jockey": "松山弘",
           "trainer": "寺田",
           "kotodamaGrade": "A",
-          "comment": "前走3着「最後まで脚使った」陣営「使いながら良化、距離対応できそう」"
+          "comment": "前走3着「最後まで脚使った」陣営「使いながら良化、距離対応できそう」",
+          "finalRank": "9",
+          "finalNinki": "4",
+          "finalOdds": "7.9"
         },
         {
           "mark": "▲",
@@ -943,7 +3618,10 @@
           "jockey": "北村友",
           "trainer": "小栗",
           "kotodamaGrade": "A",
-          "comment": "前走3着「精神面落ち着いた」陣営「京都に戻るのはいい」"
+          "comment": "前走3着「精神面落ち着いた」陣営「京都に戻るのはいい」",
+          "finalRank": "5",
+          "finalNinki": "5",
+          "finalOdds": "10.0"
         },
         {
           "mark": "△",
@@ -952,12 +3630,179 @@
           "jockey": "幸英明",
           "trainer": "清水久",
           "kotodamaGrade": "B",
-          "comment": "前走4着「力はある」陣営「2400mこなせる」"
+          "comment": "前走4着「力はある」陣営「2400mこなせる」",
+          "finalRank": "10",
+          "finalNinki": "7",
+          "finalOdds": "35.0"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:38",
+        "netkeibaRaceId": "202608030404",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "11",
+            "name": "マジョレルブルー",
+            "finalNinki": "1",
+            "finalOdds": "2.2"
+          },
+          {
+            "rank": "2",
+            "num": "3",
+            "name": "シートゥサミット",
+            "finalNinki": "6",
+            "finalOdds": "14.0"
+          },
+          {
+            "rank": "3",
+            "num": "7",
+            "name": "ダノンミッドナイト",
+            "finalNinki": "3",
+            "finalOdds": "5.0"
+          },
+          {
+            "rank": "4",
+            "num": "8",
+            "name": "パーヴォ",
+            "finalNinki": "2",
+            "finalOdds": "4.5"
+          },
+          {
+            "rank": "5",
+            "num": "10",
+            "name": "ヴィラジョヴィス",
+            "finalNinki": "5",
+            "finalOdds": "10.0"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 220
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 280
+            },
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 160
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "3",
+                "8"
+              ],
+              "amount": 1440
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "3",
+                "11"
+              ],
+              "amount": 1740
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "3",
+                "11"
+              ],
+              "amount": 570
+            },
+            {
+              "combo": [
+                "7",
+                "11"
+              ],
+              "amount": 250
+            },
+            {
+              "combo": [
+                "3",
+                "7"
+              ],
+              "amount": 960
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "11",
+                "3"
+              ],
+              "amount": 2320
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "7",
+                "11"
+              ],
+              "amount": 1840
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "11",
+                "3",
+                "7"
+              ],
+              "amount": 8780
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 220,
+            "fuku": 110,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 330,
+          "recovery": 5.5
+        },
+        "summary": "1着 11番 マジョレルブルー (1人気) | 回収率 5.5%"
+      }
     },
     {
       "raceId": "202603000405",
@@ -978,7 +3823,10 @@
           "jockey": "武豊",
           "trainer": "千田",
           "kotodamaGrade": "A",
-          "comment": "武豊・前走3着「能力ある」陣営◎「いい感じで帰厩、距離延長でレースしやすい」"
+          "comment": "武豊・前走3着「能力ある」陣営◎「いい感じで帰厩、距離延長でレースしやすい」",
+          "finalRank": "4",
+          "finalNinki": "3",
+          "finalOdds": "4.8"
         },
         {
           "mark": "○",
@@ -987,7 +3835,10 @@
           "jockey": "戸崎圭",
           "trainer": "鈴木孝",
           "kotodamaGrade": "A",
-          "comment": "前走2着・記者「この好走は本物」陣営「実戦で力出せた」"
+          "comment": "前走2着・記者「この好走は本物」陣営「実戦で力出せた」",
+          "finalRank": "10",
+          "finalNinki": "4",
+          "finalOdds": "5.5"
         },
         {
           "mark": "▲",
@@ -996,7 +3847,10 @@
           "jockey": "岩田望",
           "trainer": "四位",
           "kotodamaGrade": "A",
-          "comment": "前走4着・四位「1800mで良さ出た」陣営「奥がありそう、放牧で成長」"
+          "comment": "前走4着・四位「1800mで良さ出た」陣営「奥がありそう、放牧で成長」",
+          "finalRank": "8",
+          "finalNinki": "1",
+          "finalOdds": "3.1"
         },
         {
           "mark": "△",
@@ -1005,12 +3859,179 @@
           "jockey": "幸英明",
           "trainer": "石橋",
           "kotodamaGrade": "B",
-          "comment": "前走6着「寄られる不利」記者「外からよく伸び」"
+          "comment": "前走6着「寄られる不利」記者「外からよく伸び」",
+          "finalRank": "2",
+          "finalNinki": "6",
+          "finalOdds": "12.2"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:38",
+        "netkeibaRaceId": "202608030405",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "9",
+            "name": "オックスアイ",
+            "finalNinki": "7",
+            "finalOdds": "21.6"
+          },
+          {
+            "rank": "2",
+            "num": "8",
+            "name": "メイショウショカツ",
+            "finalNinki": "6",
+            "finalOdds": "12.2"
+          },
+          {
+            "rank": "3",
+            "num": "5",
+            "name": "スノースケープ",
+            "finalNinki": "2",
+            "finalOdds": "3.5"
+          },
+          {
+            "rank": "4",
+            "num": "7",
+            "name": "ラミエルノムスコ",
+            "finalNinki": "3",
+            "finalOdds": "4.8"
+          },
+          {
+            "rank": "5",
+            "num": "2",
+            "name": "テンダーワーズ",
+            "finalNinki": "9",
+            "finalOdds": "126.1"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "9"
+              ],
+              "amount": 2160
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "9"
+              ],
+              "amount": 370
+            },
+            {
+              "combo": [
+                "8"
+              ],
+              "amount": 280
+            },
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 170
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "7",
+                "7"
+              ],
+              "amount": 5190
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "8",
+                "9"
+              ],
+              "amount": 6860
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "8",
+                "9"
+              ],
+              "amount": 1870
+            },
+            {
+              "combo": [
+                "5",
+                "9"
+              ],
+              "amount": 1390
+            },
+            {
+              "combo": [
+                "5",
+                "8"
+              ],
+              "amount": 950
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "9",
+                "8"
+              ],
+              "amount": 16560
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "8",
+                "9"
+              ],
+              "amount": 10640
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "9",
+                "8",
+                "5"
+              ],
+              "amount": 117320
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 280,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 280,
+          "recovery": 4.7
+        },
+        "summary": "1着 9番 オックスアイ (7人気) | 回収率 4.7%"
+      }
     },
     {
       "raceId": "202603000406",
@@ -1031,7 +4052,10 @@
           "jockey": "ルメール",
           "trainer": "寺島",
           "kotodamaGrade": "A",
-          "comment": "ルメール・前走完勝「9ヶ月半ぶりでも能力の違い、上のクラスでも」"
+          "comment": "ルメール・前走完勝「9ヶ月半ぶりでも能力の違い、上のクラスでも」",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "2.2"
         },
         {
           "mark": "○",
@@ -1040,7 +4064,10 @@
           "jockey": "酒井学",
           "trainer": "河嶋",
           "kotodamaGrade": "A",
-          "comment": "前走完勝「力は十分」陣営「勝ちっぷり良かった、いい雰囲気」"
+          "comment": "前走完勝「力は十分」陣営「勝ちっぷり良かった、いい雰囲気」",
+          "finalRank": "11",
+          "finalNinki": "9",
+          "finalOdds": "89.3"
         },
         {
           "mark": "▲",
@@ -1049,7 +4076,10 @@
           "jockey": "松山弘",
           "trainer": "宮",
           "kotodamaGrade": "A",
-          "comment": "昇級戦3着・陣営「即通用、揉まれずに運べればチャンス」"
+          "comment": "昇級戦3着・陣営「即通用、揉まれずに運べればチャンス」",
+          "finalRank": "8",
+          "finalNinki": "3",
+          "finalOdds": "6.9"
         },
         {
           "mark": "△",
@@ -1058,12 +4088,179 @@
           "jockey": "津村明",
           "trainer": "栗田徹",
           "kotodamaGrade": "A",
-          "comment": "前走完勝「危なげなし」陣営「いい勝ち方」"
+          "comment": "前走完勝「危なげなし」陣営「いい勝ち方」",
+          "finalRank": "14",
+          "finalNinki": "8",
+          "finalOdds": "84.8"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:38",
+        "netkeibaRaceId": "202608030406",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "3",
+            "name": "ゼロヴィジビリティ",
+            "finalNinki": "1",
+            "finalOdds": "2.2"
+          },
+          {
+            "rank": "2",
+            "num": "12",
+            "name": "ヘリテージブルーム",
+            "finalNinki": "4",
+            "finalOdds": "9.5"
+          },
+          {
+            "rank": "3",
+            "num": "11",
+            "name": "ハグレジョー",
+            "finalNinki": "2",
+            "finalOdds": "3.2"
+          },
+          {
+            "rank": "4",
+            "num": "5",
+            "name": "マーゴットサンズ",
+            "finalNinki": "5",
+            "finalOdds": "12.2"
+          },
+          {
+            "rank": "5",
+            "num": "2",
+            "name": "プレダトゥール",
+            "finalNinki": "10",
+            "finalOdds": "97.2"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 220
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 200
+            },
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 140
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "2",
+                "6"
+              ],
+              "amount": 320
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "3",
+                "12"
+              ],
+              "amount": 1110
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "3",
+                "12"
+              ],
+              "amount": 440
+            },
+            {
+              "combo": [
+                "3",
+                "11"
+              ],
+              "amount": 260
+            },
+            {
+              "combo": [
+                "11",
+                "12"
+              ],
+              "amount": 460
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "3",
+                "12"
+              ],
+              "amount": 1380
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "11",
+                "12"
+              ],
+              "amount": 1400
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "3",
+                "12",
+                "11"
+              ],
+              "amount": 5000
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 220,
+            "fuku": 110,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 330,
+          "recovery": 5.5
+        },
+        "summary": "1着 3番 ゼロヴィジビリティ (1人気) | 回収率 5.5%"
+      }
     },
     {
       "raceId": "202603000407",
@@ -1084,7 +4281,10 @@
           "jockey": "ルメール",
           "trainer": "斉藤崇",
           "kotodamaGrade": "A",
-          "comment": "ルメール・前走1着「強い内容」陣営◎「楽しみ、1ハロン延長問題なし」"
+          "comment": "ルメール・前走1着「強い内容」陣営◎「楽しみ、1ハロン延長問題なし」",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "1.4"
         },
         {
           "mark": "○",
@@ -1093,7 +4293,10 @@
           "jockey": "吉村誠",
           "trainer": "清水久",
           "kotodamaGrade": "A",
-          "comment": "前走7着「盛り返す脚」陣営「3角ゴチャつき不利、スムーズなら」"
+          "comment": "前走7着「盛り返す脚」陣営「3角ゴチャつき不利、スムーズなら」",
+          "finalRank": "6",
+          "finalNinki": "5",
+          "finalOdds": "22.8"
         },
         {
           "mark": "▲",
@@ -1102,7 +4305,10 @@
           "jockey": "レーン",
           "trainer": "寺田",
           "kotodamaGrade": "B",
-          "comment": "陣営「京都に替わるのはプラス、輸送時間短い方がいい」"
+          "comment": "陣営「京都に替わるのはプラス、輸送時間短い方がいい」",
+          "finalRank": "2",
+          "finalNinki": "2",
+          "finalOdds": "3.5"
         },
         {
           "mark": "△",
@@ -1111,12 +4317,170 @@
           "jockey": "松若風",
           "trainer": "畑",
           "kotodamaGrade": "B",
-          "comment": "陣営「操縦性が上がっている、2000mも守備範囲」"
+          "comment": "陣営「操縦性が上がっている、2000mも守備範囲」",
+          "finalRank": "3",
+          "finalNinki": "4",
+          "finalOdds": "19.4"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:38",
+        "netkeibaRaceId": "202608030407",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "7",
+            "name": "タンテドヴィーヴル",
+            "finalNinki": "1",
+            "finalOdds": "1.4"
+          },
+          {
+            "rank": "2",
+            "num": "4",
+            "name": "サラコスティ",
+            "finalNinki": "2",
+            "finalOdds": "3.5"
+          },
+          {
+            "rank": "3",
+            "num": "5",
+            "name": "レイデラティエラ",
+            "finalNinki": "4",
+            "finalOdds": "19.4"
+          },
+          {
+            "rank": "4",
+            "num": "2",
+            "name": "ヴェストラン",
+            "finalNinki": "8",
+            "finalOdds": "145.5"
+          },
+          {
+            "rank": "5",
+            "num": "6",
+            "name": "ジェロニモス",
+            "finalNinki": "3",
+            "finalOdds": "7.1"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 140
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 160
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 230
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 160
+            },
+            {
+              "combo": [
+                "5",
+                "7"
+              ],
+              "amount": 420
+            },
+            {
+              "combo": [
+                "4",
+                "5"
+              ],
+              "amount": 520
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "7",
+                "4"
+              ],
+              "amount": 340
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "4",
+                "5",
+                "7"
+              ],
+              "amount": 750
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "7",
+                "4",
+                "5"
+              ],
+              "amount": 1960
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 140,
+            "fuku": 380,
+            "wide": 1100,
+            "umaren": 230,
+            "umatan": 340,
+            "sanrenpuku": 750,
+            "sanrentan": 1960
+          },
+          "investTotal": 6000,
+          "payoutTotal": 4900,
+          "recovery": 81.7
+        },
+        "summary": "1着 7番 タンテドヴィーヴル (1人気) | 回収率 81.7%"
+      }
     },
     {
       "raceId": "202603000408",
@@ -1137,7 +4501,10 @@
           "jockey": "川田将",
           "trainer": "金折",
           "kotodamaGrade": "A",
-          "comment": "前走2着「力出し切った」陣営「ノド手術効果出ている、好レースを」"
+          "comment": "前走2着「力出し切った」陣営「ノド手術効果出ている、好レースを」",
+          "finalRank": "8",
+          "finalNinki": "1",
+          "finalOdds": "3.6"
         },
         {
           "mark": "○",
@@ -1146,7 +4513,10 @@
           "jockey": "松若風",
           "trainer": "河嶋",
           "kotodamaGrade": "A",
-          "comment": "前走1勝C完勝「強い馬の王道の競馬」陣営「楽しみ」"
+          "comment": "前走1勝C完勝「強い馬の王道の競馬」陣営「楽しみ」",
+          "finalRank": "2",
+          "finalNinki": "2",
+          "finalOdds": "5.0"
         },
         {
           "mark": "▲",
@@ -1155,7 +4525,10 @@
           "jockey": "幸英明",
           "trainer": "中尾秀",
           "kotodamaGrade": "A",
-          "comment": "前走5着「あとワンパンチ」陣営「好調維持、京都との相性悪くない」"
+          "comment": "前走5着「あとワンパンチ」陣営「好調維持、京都との相性悪くない」",
+          "finalRank": "7",
+          "finalNinki": "4",
+          "finalOdds": "5.9"
         },
         {
           "mark": "△",
@@ -1164,7 +4537,10 @@
           "jockey": "北村友",
           "trainer": "飯田祐",
           "kotodamaGrade": "B",
-          "comment": "前走4着・陣営「1200mでもいい、上積み」※「自分のリズム」B天井"
+          "comment": "前走4着・陣営「1200mでもいい、上積み」※「自分のリズム」B天井",
+          "finalRank": "10",
+          "finalNinki": "9",
+          "finalOdds": "27.9"
         }
       ],
       "watchList": {},
@@ -1175,7 +4551,171 @@
           "type": "準致命"
         }
       ],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:39",
+        "netkeibaRaceId": "202608030408",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "11",
+            "name": "アタリダイキチ",
+            "finalNinki": "12",
+            "finalOdds": "59.9"
+          },
+          {
+            "rank": "2",
+            "num": "8",
+            "name": "サディーク",
+            "finalNinki": "2",
+            "finalOdds": "5.0"
+          },
+          {
+            "rank": "3",
+            "num": "5",
+            "name": "ブルボンクイーン",
+            "finalNinki": "10",
+            "finalOdds": "30.2"
+          },
+          {
+            "rank": "4",
+            "num": "6",
+            "name": "バシレウスシチー",
+            "finalNinki": "11",
+            "finalOdds": "31.4"
+          },
+          {
+            "rank": "5",
+            "num": "3",
+            "name": "メイショウミリオレ",
+            "finalNinki": "5",
+            "finalOdds": "10.4"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 5990
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 1120
+            },
+            {
+              "combo": [
+                "8"
+              ],
+              "amount": 210
+            },
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 720
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "5",
+                "6"
+              ],
+              "amount": 5600
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "8",
+                "11"
+              ],
+              "amount": 14700
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "8",
+                "11"
+              ],
+              "amount": 3930
+            },
+            {
+              "combo": [
+                "5",
+                "11"
+              ],
+              "amount": 18360
+            },
+            {
+              "combo": [
+                "5",
+                "8"
+              ],
+              "amount": 2460
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "11",
+                "8"
+              ],
+              "amount": 33710
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "8",
+                "11"
+              ],
+              "amount": 103950
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "11",
+                "8",
+                "5"
+              ],
+              "amount": 585940
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 210,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 210,
+          "recovery": 3.5
+        },
+        "summary": "1着 11番 アタリダイキチ (12人気) | 回収率 3.5%"
+      }
     },
     {
       "raceId": "202603000409",
@@ -1196,7 +4736,10 @@
           "jockey": "松山弘",
           "trainer": "赤池",
           "kotodamaGrade": "A",
-          "comment": "前走1勝C完勝「いい勝ち方」陣営「上積みあり、大崩れしないタイプ、スタートさえ決まれば」"
+          "comment": "前走1勝C完勝「いい勝ち方」陣営「上積みあり、大崩れしないタイプ、スタートさえ決まれば」",
+          "finalRank": "1",
+          "finalNinki": "2",
+          "finalOdds": "5.0"
         },
         {
           "mark": "○",
@@ -1205,7 +4748,10 @@
           "jockey": "鮫島駿",
           "trainer": "茶木",
           "kotodamaGrade": "A",
-          "comment": "前走2着「強い競馬」陣営「叩いて状態上向き、京都はレースしやすい」"
+          "comment": "前走2着「強い競馬」陣営「叩いて状態上向き、京都はレースしやすい」",
+          "finalRank": "2",
+          "finalNinki": "1",
+          "finalOdds": "1.5"
         },
         {
           "mark": "▲",
@@ -1214,7 +4760,10 @@
           "jockey": "鮫島良",
           "trainer": "河嶋",
           "kotodamaGrade": "B",
-          "comment": "前走4着「距離合っている」陣営「自分の競馬を」※B天井"
+          "comment": "前走4着「距離合っている」陣営「自分の競馬を」※B天井",
+          "finalRank": "3",
+          "finalNinki": "5",
+          "finalOdds": "11.9"
         },
         {
           "mark": "△",
@@ -1223,7 +4772,10 @@
           "jockey": "幸英明",
           "trainer": "安達",
           "kotodamaGrade": "B",
-          "comment": "前走5着「気持ち前向き、すぐ卒業できそう」"
+          "comment": "前走5着「気持ち前向き、すぐ卒業できそう」",
+          "finalRank": "4",
+          "finalNinki": "4",
+          "finalOdds": "11.8"
         }
       ],
       "watchList": {},
@@ -1234,7 +4786,171 @@
           "type": "準致命"
         }
       ],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:39",
+        "netkeibaRaceId": "202608030409",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "6",
+            "name": "レヴァンテシチー",
+            "finalNinki": "2",
+            "finalOdds": "5.0"
+          },
+          {
+            "rank": "2",
+            "num": "8",
+            "name": "サンライズバレット",
+            "finalNinki": "1",
+            "finalOdds": "1.5"
+          },
+          {
+            "rank": "3",
+            "num": "3",
+            "name": "ジョータルマエ",
+            "finalNinki": "5",
+            "finalOdds": "11.9"
+          },
+          {
+            "rank": "4",
+            "num": "2",
+            "name": "バトンインディ",
+            "finalNinki": "4",
+            "finalOdds": "11.8"
+          },
+          {
+            "rank": "5",
+            "num": "5",
+            "name": "テーオーライマン",
+            "finalNinki": "3",
+            "finalOdds": "5.4"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "6"
+              ],
+              "amount": 500
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "6"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "8"
+              ],
+              "amount": 100
+            },
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 160
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "6",
+                "8"
+              ],
+              "amount": 240
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "6",
+                "8"
+              ],
+              "amount": 250
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "6",
+                "8"
+              ],
+              "amount": 150
+            },
+            {
+              "combo": [
+                "3",
+                "6"
+              ],
+              "amount": 430
+            },
+            {
+              "combo": [
+                "3",
+                "8"
+              ],
+              "amount": 230
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "6",
+                "8"
+              ],
+              "amount": 780
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "6",
+                "8"
+              ],
+              "amount": 510
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "6",
+                "8",
+                "3"
+              ],
+              "amount": 3690
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 500,
+            "fuku": 370,
+            "wide": 810,
+            "umaren": 250,
+            "umatan": 780,
+            "sanrenpuku": 510,
+            "sanrentan": 3690
+          },
+          "investTotal": 6000,
+          "payoutTotal": 6910,
+          "recovery": 115.2
+        },
+        "summary": "1着 6番 レヴァンテシチー (2人気) | 回収率 115.2%"
+      }
     },
     {
       "raceId": "202603000410",
@@ -1255,7 +4971,10 @@
           "jockey": "吉村誠",
           "trainer": "羽月",
           "kotodamaGrade": "A",
-          "comment": "前走1着「上のクラスでも差ない」陣営「楽しみ」"
+          "comment": "前走1着「上のクラスでも差ない」陣営「楽しみ」",
+          "finalRank": "5",
+          "finalNinki": "5",
+          "finalOdds": "13.1"
         },
         {
           "mark": "○",
@@ -1264,7 +4983,10 @@
           "jockey": "レーン",
           "trainer": "西園翔",
           "kotodamaGrade": "A",
-          "comment": "レーン・前走2着「すぐにチャンス」陣営「昇級戦で既にメド立った、楽しみ」"
+          "comment": "レーン・前走2着「すぐにチャンス」陣営「昇級戦で既にメド立った、楽しみ」",
+          "finalRank": "9",
+          "finalNinki": "2",
+          "finalOdds": "4.3"
         },
         {
           "mark": "▲",
@@ -1273,7 +4995,10 @@
           "jockey": "秋山稔",
           "trainer": "高野",
           "kotodamaGrade": "A",
-          "comment": "前走1着「鮮やかな差し切り」陣営「昇級戦も同じ競馬をするだけ」"
+          "comment": "前走1着「鮮やかな差し切り」陣営「昇級戦も同じ競馬をするだけ」",
+          "finalRank": "8",
+          "finalNinki": "18",
+          "finalOdds": "141.2"
         },
         {
           "mark": "△",
@@ -1282,12 +5007,179 @@
           "jockey": "戸崎圭",
           "trainer": "佐藤悠",
           "kotodamaGrade": "A",
-          "comment": "前走4着「内容良かった、どんな競馬でも対応」陣営「収穫」"
+          "comment": "前走4着「内容良かった、どんな競馬でも対応」陣営「収穫」",
+          "finalRank": "10",
+          "finalNinki": "7",
+          "finalOdds": "20.8"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:39",
+        "netkeibaRaceId": "202608030410",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "3",
+            "name": "ルシード",
+            "finalNinki": "1",
+            "finalOdds": "2.8"
+          },
+          {
+            "rank": "2",
+            "num": "2",
+            "name": "サウスバンク",
+            "finalNinki": "4",
+            "finalOdds": "11.6"
+          },
+          {
+            "rank": "3",
+            "num": "4",
+            "name": "レッドエヴァンス",
+            "finalNinki": "3",
+            "finalOdds": "4.6"
+          },
+          {
+            "rank": "4",
+            "num": "8",
+            "name": "ドゥアムール",
+            "finalNinki": "11",
+            "finalOdds": "53.2"
+          },
+          {
+            "rank": "5",
+            "num": "16",
+            "name": "ディアドコス",
+            "finalNinki": "5",
+            "finalOdds": "13.1"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 280
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 150
+            },
+            {
+              "combo": [
+                "2"
+              ],
+              "amount": 240
+            },
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 170
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "1",
+                "2"
+              ],
+              "amount": 780
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "2",
+                "3"
+              ],
+              "amount": 1590
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "2",
+                "3"
+              ],
+              "amount": 590
+            },
+            {
+              "combo": [
+                "3",
+                "4"
+              ],
+              "amount": 350
+            },
+            {
+              "combo": [
+                "2",
+                "4"
+              ],
+              "amount": 1040
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "3",
+                "2"
+              ],
+              "amount": 2780
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "2",
+                "3",
+                "4"
+              ],
+              "amount": 2370
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "3",
+                "2",
+                "4"
+              ],
+              "amount": 10890
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 0,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 0,
+          "recovery": 0.0
+        },
+        "summary": "1着 3番 ルシード (1人気) | 回収率 0.0%"
+      }
     },
     {
       "raceId": "202608030411",
@@ -1308,7 +5200,10 @@
           "jockey": "武豊",
           "trainer": "友道",
           "kotodamaGrade": "S",
-          "comment": "武豊『パワーアップを感じる』前走阪神大賞典レコード完勝・陣営最強気『心身ともに成長、3200mに延びても大丈夫、楽しみ』"
+          "comment": "武豊『パワーアップを感じる』前走阪神大賞典レコード完勝・陣営最強気『心身ともに成長、3200mに延びても大丈夫、楽しみ』",
+          "finalRank": "3",
+          "finalNinki": "2",
+          "finalOdds": "3.0"
         },
         {
           "mark": "○",
@@ -1317,7 +5212,10 @@
           "jockey": "北村友",
           "trainer": "斉藤崇",
           "kotodamaGrade": "S",
-          "comment": "北村友『自分の中ではクロワデュノールが主役』前走大阪杯1着完勝『馬の力に全幅の信頼』陣営『リズム良く運べれば』"
+          "comment": "北村友『自分の中ではクロワデュノールが主役』前走大阪杯1着完勝『馬の力に全幅の信頼』陣営『リズム良く運べれば』",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "1.8"
         },
         {
           "mark": "▲",
@@ -1326,7 +5224,10 @@
           "jockey": "ルメール",
           "trainer": "木村",
           "kotodamaGrade": "A",
-          "comment": "前年覇者・前走京都記念『9ヶ月半ぶりで本調子になかった』陣営『上積みあり、質の高い調教、ゆったり長く走るのが得意、頑張ってほしい』"
+          "comment": "前年覇者・前走京都記念『9ヶ月半ぶりで本調子になかった』陣営『上積みあり、質の高い調教、ゆったり長く走るのが得意、頑張ってほしい』",
+          "finalRank": "5",
+          "finalNinki": "3",
+          "finalOdds": "5.0"
         },
         {
           "mark": "△",
@@ -1335,7 +5236,10 @@
           "jockey": "松山",
           "trainer": "四位",
           "kotodamaGrade": "A",
-          "comment": "前走阪神大賞典2着・坂井瑠『力は出し切ってくれた』陣営『一戦毎に強くなってきている、チャレンジャーの気持ち』"
+          "comment": "前走阪神大賞典2着・坂井瑠『力は出し切ってくれた』陣営『一戦毎に強くなってきている、チャレンジャーの気持ち』",
+          "finalRank": "4",
+          "finalNinki": "4",
+          "finalOdds": "26.4"
         }
       ],
       "watchList": {},
@@ -1351,7 +5255,171 @@
           "type": "B天井"
         }
       ],
-      "result": null,
+      "result": {
+        "fetched": "2026-05-03T19:57:39",
+        "netkeibaRaceId": "202608030411",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "7",
+            "name": "クロワデュノール",
+            "finalNinki": "1",
+            "finalOdds": "1.8"
+          },
+          {
+            "rank": "2",
+            "num": "15",
+            "name": "ヴェルテンベルク",
+            "finalNinki": "12",
+            "finalOdds": "208.4"
+          },
+          {
+            "rank": "3",
+            "num": "3",
+            "name": "アドマイヤテラ",
+            "finalNinki": "2",
+            "finalOdds": "3.0"
+          },
+          {
+            "rank": "4",
+            "num": "4",
+            "name": "アクアヴァーナル",
+            "finalNinki": "4",
+            "finalOdds": "26.4"
+          },
+          {
+            "rank": "5",
+            "num": "12",
+            "name": "ヘデントール",
+            "finalNinki": "3",
+            "finalOdds": "5.0"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 180
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "15"
+              ],
+              "amount": 940
+            },
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 120
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "8"
+              ],
+              "amount": 2530
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "7",
+                "15"
+              ],
+              "amount": 18240
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "7",
+                "15"
+              ],
+              "amount": 3640
+            },
+            {
+              "combo": [
+                "3",
+                "7"
+              ],
+              "amount": 170
+            },
+            {
+              "combo": [
+                "3",
+                "15"
+              ],
+              "amount": 3490
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "7",
+                "15"
+              ],
+              "amount": 20000
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "7",
+                "15"
+              ],
+              "amount": 10370
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "7",
+                "15",
+                "3"
+              ],
+              "amount": 70630
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 180,
+            "fuku": 230,
+            "wide": 170,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 580,
+          "recovery": 9.7
+        },
+        "summary": "1着 7番 クロワデュノール (1人気) | 回収率 9.7%"
+      },
       "note": "純粋な言霊のみで判定（4神総合スコアや人気・オッズ・他神除外、青龍grade＋陣営コメント強度のみ）"
     },
     {
@@ -1373,7 +5441,10 @@
           "jockey": "太宰啓",
           "trainer": "昆",
           "kotodamaGrade": "A",
-          "comment": "障害帰り平地3着「このクラスでもやれそう」陣営「相手なりに走れる、好勝負期待」"
+          "comment": "障害帰り平地3着「このクラスでもやれそう」陣営「相手なりに走れる、好勝負期待」",
+          "finalRank": "1",
+          "finalNinki": "4",
+          "finalOdds": "7.1"
         },
         {
           "mark": "○",
@@ -1382,7 +5453,10 @@
           "jockey": "松山弘",
           "trainer": "西園翔",
           "kotodamaGrade": "A",
-          "comment": "前走2着「メド立った」陣営「ワンターン合う、状態上向き」"
+          "comment": "前走2着「メド立った」陣営「ワンターン合う、状態上向き」",
+          "finalRank": "10",
+          "finalNinki": "1",
+          "finalOdds": "4.1"
         },
         {
           "mark": "▲",
@@ -1391,7 +5465,10 @@
           "jockey": "川須栄",
           "trainer": "浜田",
           "kotodamaGrade": "A",
-          "comment": "前走1着・陣営「京都の方が合う、軽ハンデうまく噛み合えば」"
+          "comment": "前走1着・陣営「京都の方が合う、軽ハンデうまく噛み合えば」",
+          "finalRank": "14",
+          "finalNinki": "11",
+          "finalOdds": "28.8"
         },
         {
           "mark": "△",
@@ -1400,12 +5477,179 @@
           "jockey": "鮫島駿",
           "trainer": "杉山晴",
           "kotodamaGrade": "A",
-          "comment": "前走1着「逃げ差し自在、相手なりに走れそう」"
+          "comment": "前走1着「逃げ差し自在、相手なりに走れそう」",
+          "finalRank": "2",
+          "finalNinki": "7",
+          "finalOdds": "17.9"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:40",
+        "netkeibaRaceId": "202608030412",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "13",
+            "name": "ハワイアンタイム",
+            "finalNinki": "4",
+            "finalOdds": "7.1"
+          },
+          {
+            "rank": "2",
+            "num": "10",
+            "name": "スニーカースキル",
+            "finalNinki": "7",
+            "finalOdds": "17.9"
+          },
+          {
+            "rank": "3",
+            "num": "16",
+            "name": "ヤマニンアストロン",
+            "finalNinki": "3",
+            "finalOdds": "5.5"
+          },
+          {
+            "rank": "4",
+            "num": "5",
+            "name": "ハクサンアイリス",
+            "finalNinki": "2",
+            "finalOdds": "4.6"
+          },
+          {
+            "rank": "5",
+            "num": "8",
+            "name": "サンダーバース",
+            "finalNinki": "15",
+            "finalOdds": "74.6"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 710
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 250
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 420
+            },
+            {
+              "combo": [
+                "16"
+              ],
+              "amount": 220
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "5",
+                "7"
+              ],
+              "amount": 3240
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "10",
+                "13"
+              ],
+              "amount": 7890
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "10",
+                "13"
+              ],
+              "amount": 2320
+            },
+            {
+              "combo": [
+                "13",
+                "16"
+              ],
+              "amount": 950
+            },
+            {
+              "combo": [
+                "10",
+                "16"
+              ],
+              "amount": 1920
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "13",
+                "10"
+              ],
+              "amount": 13420
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "10",
+                "13",
+                "16"
+              ],
+              "amount": 12420
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "13",
+                "10",
+                "16"
+              ],
+              "amount": 85310
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 710,
+            "fuku": 670,
+            "wide": 2320,
+            "umaren": 7890,
+            "umatan": 13420,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 25010,
+          "recovery": 416.8
+        },
+        "summary": "1着 13番 ハワイアンタイム (4人気) | 回収率 416.8%"
+      }
     },
     {
       "raceId": "202601070201",
@@ -1426,7 +5670,10 @@
           "jockey": "富田暁",
           "trainer": "牧",
           "kotodamaGrade": "A",
-          "comment": "前走4着「初戦から力を見せた」陣営「使って芯入った、上積み見込める、引き続き期待」"
+          "comment": "前走4着「初戦から力を見せた」陣営「使って芯入った、上積み見込める、引き続き期待」",
+          "finalRank": "2",
+          "finalNinki": "1",
+          "finalOdds": "3.0"
         },
         {
           "mark": "○",
@@ -1435,7 +5682,10 @@
           "jockey": "上里直",
           "trainer": "奥村武",
           "kotodamaGrade": "A",
-          "comment": "前走4着「いい内容」陣営「ゆったり走らせた方がいい、芝2000mに使う」"
+          "comment": "前走4着「いい内容」陣営「ゆったり走らせた方がいい、芝2000mに使う」",
+          "finalRank": "7",
+          "finalNinki": "6",
+          "finalOdds": "14.4"
         },
         {
           "mark": "▲",
@@ -1444,7 +5694,10 @@
           "jockey": "横山琉",
           "trainer": "高橋忠",
           "kotodamaGrade": "A",
-          "comment": "陣営「ゆったり運べる距離いい、開幕週馬場いい、レースぶり良くなっている」"
+          "comment": "陣営「ゆったり運べる距離いい、開幕週馬場いい、レースぶり良くなっている」",
+          "finalRank": "1",
+          "finalNinki": "5",
+          "finalOdds": "8.4"
         },
         {
           "mark": "△",
@@ -1453,12 +5706,179 @@
           "jockey": "丸山元",
           "trainer": "森一誠",
           "kotodamaGrade": "B",
-          "comment": "前走「左に張る」リングハミ＋左回り改善試行「流れひとつで好レース」"
+          "comment": "前走「左に張る」リングハミ＋左回り改善試行「流れひとつで好レース」",
+          "finalRank": "9",
+          "finalNinki": "2",
+          "finalOdds": "4.0"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:40",
+        "netkeibaRaceId": "202604010201",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "16",
+            "name": "オモイヲノセテ",
+            "finalNinki": "5",
+            "finalOdds": "8.4"
+          },
+          {
+            "rank": "2",
+            "num": "1",
+            "name": "オートカリテ",
+            "finalNinki": "1",
+            "finalOdds": "3.0"
+          },
+          {
+            "rank": "3",
+            "num": "10",
+            "name": "マサハヤルージュ",
+            "finalNinki": "12",
+            "finalOdds": "63.9"
+          },
+          {
+            "rank": "4",
+            "num": "12",
+            "name": "キコリータ",
+            "finalNinki": "3",
+            "finalOdds": "5.5"
+          },
+          {
+            "rank": "5",
+            "num": "4",
+            "name": "フィールライクユー",
+            "finalNinki": "13",
+            "finalOdds": "65.2"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "16"
+              ],
+              "amount": 840
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "16"
+              ],
+              "amount": 230
+            },
+            {
+              "combo": [
+                "1"
+              ],
+              "amount": 150
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 1250
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "1",
+                "8"
+              ],
+              "amount": 1110
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "1",
+                "16"
+              ],
+              "amount": 1340
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "1",
+                "16"
+              ],
+              "amount": 480
+            },
+            {
+              "combo": [
+                "10",
+                "16"
+              ],
+              "amount": 7280
+            },
+            {
+              "combo": [
+                "1",
+                "10"
+              ],
+              "amount": 3380
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "16",
+                "1"
+              ],
+              "amount": 3710
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "1",
+                "10",
+                "16"
+              ],
+              "amount": 27990
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "16",
+                "1",
+                "10"
+              ],
+              "amount": 167150
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 840,
+            "fuku": 380,
+            "wide": 480,
+            "umaren": 1340,
+            "umatan": 3710,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 6750,
+          "recovery": 112.5
+        },
+        "summary": "1着 16番 オモイヲノセテ (5人気) | 回収率 112.5%"
+      }
     },
     {
       "raceId": "202601070202",
@@ -1479,7 +5899,10 @@
           "jockey": "富田暁",
           "trainer": "武英",
           "kotodamaGrade": "A",
-          "comment": "前走2着「すぐに順番が来る」陣営◎「もう何とか」"
+          "comment": "前走2着「すぐに順番が来る」陣営◎「もう何とか」",
+          "finalRank": "7",
+          "finalNinki": "1",
+          "finalOdds": "2.5"
         },
         {
           "mark": "○",
@@ -1488,7 +5911,10 @@
           "jockey": "石神道",
           "trainer": "勢司",
           "kotodamaGrade": "A",
-          "comment": "前走2着「頑張ってくれた」陣営◎「結果を出したい、減量騎手＋平坦の新潟」"
+          "comment": "前走2着「頑張ってくれた」陣営◎「結果を出したい、減量騎手＋平坦の新潟」",
+          "finalRank": "2",
+          "finalNinki": "2",
+          "finalOdds": "3.3"
         },
         {
           "mark": "▲",
@@ -1497,7 +5923,10 @@
           "jockey": "丸山元",
           "trainer": "清水",
           "kotodamaGrade": "A",
-          "comment": "前走2着「すぐ順番」陣営「1200m合う、新潟でも前走と同じレース」"
+          "comment": "前走2着「すぐ順番」陣営「1200m合う、新潟でも前走と同じレース」",
+          "finalRank": "1",
+          "finalNinki": "3",
+          "finalOdds": "4.1"
         },
         {
           "mark": "△",
@@ -1506,12 +5935,179 @@
           "jockey": "上里直",
           "trainer": "伊藤",
           "kotodamaGrade": "A",
-          "comment": "前走3着「強気の競馬」陣営「平坦の新潟合う、スタート決まれば楽しみ」"
+          "comment": "前走3着「強気の競馬」陣営「平坦の新潟合う、スタート決まれば楽しみ」",
+          "finalRank": "5",
+          "finalNinki": "5",
+          "finalOdds": "13.2"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:40",
+        "netkeibaRaceId": "202604010202",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "13",
+            "name": "エコロボルト",
+            "finalNinki": "3",
+            "finalOdds": "4.1"
+          },
+          {
+            "rank": "2",
+            "num": "10",
+            "name": "ミスタートントン",
+            "finalNinki": "2",
+            "finalOdds": "3.3"
+          },
+          {
+            "rank": "3",
+            "num": "12",
+            "name": "ヘヴンズドライブ",
+            "finalNinki": "7",
+            "finalOdds": "60.5"
+          },
+          {
+            "rank": "4",
+            "num": "8",
+            "name": "ナムラソラン",
+            "finalNinki": "4",
+            "finalOdds": "7.6"
+          },
+          {
+            "rank": "5",
+            "num": "6",
+            "name": "スカット",
+            "finalNinki": "5",
+            "finalOdds": "13.2"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 410
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "13"
+              ],
+              "amount": 180
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 170
+            },
+            {
+              "combo": [
+                "12"
+              ],
+              "amount": 960
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "6",
+                "7"
+              ],
+              "amount": 790
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "10",
+                "13"
+              ],
+              "amount": 820
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "10",
+                "13"
+              ],
+              "amount": 350
+            },
+            {
+              "combo": [
+                "12",
+                "13"
+              ],
+              "amount": 2400
+            },
+            {
+              "combo": [
+                "10",
+                "12"
+              ],
+              "amount": 2400
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "13",
+                "10"
+              ],
+              "amount": 1490
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "10",
+                "12",
+                "13"
+              ],
+              "amount": 8810
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "13",
+                "10",
+                "12"
+              ],
+              "amount": 27660
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 410,
+            "fuku": 350,
+            "wide": 350,
+            "umaren": 820,
+            "umatan": 1490,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 3420,
+          "recovery": 57.0
+        },
+        "summary": "1着 13番 エコロボルト (3人気) | 回収率 57.0%"
+      }
     },
     {
       "raceId": "202601070203",
@@ -1532,7 +6128,10 @@
           "jockey": "丹内祐",
           "trainer": "高木登",
           "kotodamaGrade": "A",
-          "comment": "前走3着「チャンスあり」陣営◎「能力あり、すぐに順番が回ってくる、楽しみ」"
+          "comment": "前走3着「チャンスあり」陣営◎「能力あり、すぐに順番が回ってくる、楽しみ」",
+          "finalRank": "2",
+          "finalNinki": "1",
+          "finalOdds": "3.2"
         },
         {
           "mark": "○",
@@ -1541,7 +6140,10 @@
           "jockey": "石川裕",
           "trainer": "奥村武",
           "kotodamaGrade": "A",
-          "comment": "前走2着「内容確実に上がってきた」陣営◎「まともに走れば順番」"
+          "comment": "前走2着「内容確実に上がってきた」陣営◎「まともに走れば順番」",
+          "finalRank": "11",
+          "finalNinki": "3",
+          "finalOdds": "4.1"
         },
         {
           "mark": "▲",
@@ -1550,7 +6152,10 @@
           "jockey": "石神道",
           "trainer": "天間",
           "kotodamaGrade": "A",
-          "comment": "前走3着「ラストまで頑張った」陣営「左回りの方がスムーズ」"
+          "comment": "前走3着「ラストまで頑張った」陣営「左回りの方がスムーズ」",
+          "finalRank": "1",
+          "finalNinki": "7",
+          "finalOdds": "21.1"
         },
         {
           "mark": "△",
@@ -1559,12 +6164,179 @@
           "jockey": "田山旺",
           "trainer": "新谷",
           "kotodamaGrade": "A",
-          "comment": "前走2着「順番回ってくる」陣営「もうメンバーひとつ」"
+          "comment": "前走2着「順番回ってくる」陣営「もうメンバーひとつ」",
+          "finalRank": "3",
+          "finalNinki": "2",
+          "finalOdds": "3.8"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:40",
+        "netkeibaRaceId": "202604010203",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "14",
+            "name": "カシノスパーク",
+            "finalNinki": "7",
+            "finalOdds": "21.1"
+          },
+          {
+            "rank": "2",
+            "num": "6",
+            "name": "コイオステソーロ",
+            "finalNinki": "1",
+            "finalOdds": "3.2"
+          },
+          {
+            "rank": "3",
+            "num": "3",
+            "name": "タロ",
+            "finalNinki": "2",
+            "finalOdds": "3.8"
+          },
+          {
+            "rank": "4",
+            "num": "11",
+            "name": "ボールドタワー",
+            "finalNinki": "4",
+            "finalOdds": "7.9"
+          },
+          {
+            "rank": "5",
+            "num": "10",
+            "name": "サマーナジュム",
+            "finalNinki": "8",
+            "finalOdds": "26.4"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "14"
+              ],
+              "amount": 2110
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "14"
+              ],
+              "amount": 330
+            },
+            {
+              "combo": [
+                "6"
+              ],
+              "amount": 150
+            },
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 150
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "8"
+              ],
+              "amount": 3290
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "6",
+                "14"
+              ],
+              "amount": 3510
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "6",
+                "14"
+              ],
+              "amount": 1040
+            },
+            {
+              "combo": [
+                "3",
+                "14"
+              ],
+              "amount": 1050
+            },
+            {
+              "combo": [
+                "3",
+                "6"
+              ],
+              "amount": 280
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "14",
+                "6"
+              ],
+              "amount": 10380
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "6",
+                "14"
+              ],
+              "amount": 3200
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "14",
+                "6",
+                "3"
+              ],
+              "amount": 42160
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 2110,
+            "fuku": 630,
+            "wide": 2370,
+            "umaren": 3510,
+            "umatan": 10380,
+            "sanrenpuku": 3200,
+            "sanrentan": 42160
+          },
+          "investTotal": 6000,
+          "payoutTotal": 64360,
+          "recovery": 1072.7
+        },
+        "summary": "1着 14番 カシノスパーク (7人気) | 回収率 1072.7%"
+      }
     },
     {
       "raceId": "202601070204",
@@ -1585,7 +6357,10 @@
           "jockey": "上野翔",
           "trainer": "千葉",
           "kotodamaGrade": "A",
-          "comment": "陣営◎「飛越上手で安定感、平地の動きもいい、障害戦で開花」"
+          "comment": "陣営◎「飛越上手で安定感、平地の動きもいい、障害戦で開花」",
+          "finalRank": "3",
+          "finalNinki": "7",
+          "finalOdds": "16.3"
         },
         {
           "mark": "○",
@@ -1594,7 +6369,10 @@
           "jockey": "伴啓太",
           "trainer": "高柳瑞",
           "kotodamaGrade": "A",
-          "comment": "陣営「飛越がうまくセンスありそう、仕上がりいい」"
+          "comment": "陣営「飛越がうまくセンスありそう、仕上がりいい」",
+          "finalRank": "7",
+          "finalNinki": "5",
+          "finalOdds": "9.1"
         },
         {
           "mark": "▲",
@@ -1603,7 +6381,10 @@
           "jockey": "草野太",
           "trainer": "松永康",
           "kotodamaGrade": "A",
-          "comment": "陣営「飛越上手、練習毎にトモに力ついた」"
+          "comment": "陣営「飛越上手、練習毎にトモに力ついた」",
+          "finalRank": "中止",
+          "finalNinki": "11",
+          "finalOdds": "49.6"
         },
         {
           "mark": "△",
@@ -1612,12 +6393,179 @@
           "jockey": "坂口智",
           "trainer": "手塚久",
           "kotodamaGrade": "B",
-          "comment": "陣営「飛越問題ない、障害素質あり」"
+          "comment": "陣営「飛越問題ない、障害素質あり」",
+          "finalRank": "2",
+          "finalNinki": "6",
+          "finalOdds": "12.0"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:41",
+        "netkeibaRaceId": "202604010204",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "5",
+            "name": "コレペティトール",
+            "finalNinki": "1",
+            "finalOdds": "3.1"
+          },
+          {
+            "rank": "2",
+            "num": "11",
+            "name": "キャネル",
+            "finalNinki": "6",
+            "finalOdds": "12.0"
+          },
+          {
+            "rank": "3",
+            "num": "10",
+            "name": "サングラデーション",
+            "finalNinki": "7",
+            "finalOdds": "16.3"
+          },
+          {
+            "rank": "4",
+            "num": "9",
+            "name": "フォルガイル",
+            "finalNinki": "2",
+            "finalOdds": "4.6"
+          },
+          {
+            "rank": "5",
+            "num": "13",
+            "name": "ランフォースマイル",
+            "finalNinki": "8",
+            "finalOdds": "30.3"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 310
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 160
+            },
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 310
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 400
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "7"
+              ],
+              "amount": 870
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "5",
+                "11"
+              ],
+              "amount": 1600
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "5",
+                "11"
+              ],
+              "amount": 700
+            },
+            {
+              "combo": [
+                "5",
+                "10"
+              ],
+              "amount": 860
+            },
+            {
+              "combo": [
+                "10",
+                "11"
+              ],
+              "amount": 2180
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "5",
+                "11"
+              ],
+              "amount": 2650
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "10",
+                "11"
+              ],
+              "amount": 6570
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "5",
+                "11",
+                "10"
+              ],
+              "amount": 23460
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 710,
+            "wide": 2180,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 2890,
+          "recovery": 48.2
+        },
+        "summary": "1着 5番 コレペティトール (1人気) | 回収率 48.2%"
+      }
     },
     {
       "raceId": "202601070205",
@@ -1638,7 +6586,10 @@
           "jockey": "菊沢一",
           "trainer": "平岩",
           "kotodamaGrade": "A",
-          "comment": "前走5着「凄くいい脚、新しい一面、これからが楽しみ」陣営「新潟外回りで末脚生かせれば」"
+          "comment": "前走5着「凄くいい脚、新しい一面、これからが楽しみ」陣営「新潟外回りで末脚生かせれば」",
+          "finalRank": "1",
+          "finalNinki": "4",
+          "finalOdds": "7.7"
         },
         {
           "mark": "○",
@@ -1647,7 +6598,10 @@
           "jockey": "小沢大",
           "trainer": "松永康",
           "kotodamaGrade": "A",
-          "comment": "記者「直線の長い新潟いい」陣営「じっくり行って終いを生かす」"
+          "comment": "記者「直線の長い新潟いい」陣営「じっくり行って終いを生かす」",
+          "finalRank": "9",
+          "finalNinki": "7",
+          "finalOdds": "18.3"
         },
         {
           "mark": "▲",
@@ -1656,7 +6610,10 @@
           "jockey": "杉原誠",
           "trainer": "高野",
           "kotodamaGrade": "A",
-          "comment": "陣営「芝中距離ベスト、外回り歓迎、左回りも問題ない」"
+          "comment": "陣営「芝中距離ベスト、外回り歓迎、左回りも問題ない」",
+          "finalRank": "8",
+          "finalNinki": "8",
+          "finalOdds": "22.0"
         },
         {
           "mark": "△",
@@ -1665,12 +6622,179 @@
           "jockey": "斎藤新",
           "trainer": "牧浦",
           "kotodamaGrade": "B",
-          "comment": "前走3着「もったいなかった」陣営「最後は脚を使った、体を維持して」"
+          "comment": "前走3着「もったいなかった」陣営「最後は脚を使った、体を維持して」",
+          "finalRank": "5",
+          "finalNinki": "2",
+          "finalOdds": "4.5"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:41",
+        "netkeibaRaceId": "202604010205",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "11",
+            "name": "ワールドブレイヴ",
+            "finalNinki": "4",
+            "finalOdds": "7.7"
+          },
+          {
+            "rank": "2",
+            "num": "9",
+            "name": "ルーリングクラス",
+            "finalNinki": "3",
+            "finalOdds": "5.0"
+          },
+          {
+            "rank": "3",
+            "num": "5",
+            "name": "ジワタネホ",
+            "finalNinki": "9",
+            "finalOdds": "27.0"
+          },
+          {
+            "rank": "4",
+            "num": "3",
+            "name": "ラップトップ",
+            "finalNinki": "6",
+            "finalOdds": "17.9"
+          },
+          {
+            "rank": "5",
+            "num": "2",
+            "name": "モンロワイヤル",
+            "finalNinki": "2",
+            "finalOdds": "4.5"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 770
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 210
+            },
+            {
+              "combo": [
+                "9"
+              ],
+              "amount": 240
+            },
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 880
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "6",
+                "7"
+              ],
+              "amount": 2180
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "9",
+                "11"
+              ],
+              "amount": 2130
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "9",
+                "11"
+              ],
+              "amount": 740
+            },
+            {
+              "combo": [
+                "5",
+                "11"
+              ],
+              "amount": 3290
+            },
+            {
+              "combo": [
+                "5",
+                "9"
+              ],
+              "amount": 2530
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "11",
+                "9"
+              ],
+              "amount": 5260
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "5",
+                "9",
+                "11"
+              ],
+              "amount": 17090
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "11",
+                "9",
+                "5"
+              ],
+              "amount": 111970
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 770,
+            "fuku": 210,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 980,
+          "recovery": 16.3
+        },
+        "summary": "1着 11番 ワールドブレイヴ (4人気) | 回収率 16.3%"
+      }
     },
     {
       "raceId": "202601070206",
@@ -1691,7 +6815,10 @@
           "jockey": "舟山瑠",
           "trainer": "手塚久",
           "kotodamaGrade": "A",
-          "comment": "前走障害帰り2着・陣営◎「変わらず状態いい、ホライゾネット付きブリンカー」"
+          "comment": "前走障害帰り2着・陣営◎「変わらず状態いい、ホライゾネット付きブリンカー」",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "2.6"
         },
         {
           "mark": "○",
@@ -1700,7 +6827,10 @@
           "jockey": "河原田菜",
           "trainer": "今野",
           "kotodamaGrade": "A",
-          "comment": "前走6着「いいレース」陣営「左回りはプラス、前進を」"
+          "comment": "前走6着「いいレース」陣営「左回りはプラス、前進を」",
+          "finalRank": "11",
+          "finalNinki": "7",
+          "finalOdds": "14.4"
         },
         {
           "mark": "▲",
@@ -1709,7 +6839,10 @@
           "jockey": "石神道",
           "trainer": "水野",
           "kotodamaGrade": "B",
-          "comment": "陣営「左回りの方が行きっぷりいい、ひと押しあれば」"
+          "comment": "陣営「左回りの方が行きっぷりいい、ひと押しあれば」",
+          "finalRank": "3",
+          "finalNinki": "3",
+          "finalOdds": "8.1"
         },
         {
           "mark": "△",
@@ -1718,12 +6851,179 @@
           "jockey": "水沼元",
           "trainer": "上原博",
           "kotodamaGrade": "B",
-          "comment": "陣営「自在性、大崩れしなくなった、あとひと押し」"
+          "comment": "陣営「自在性、大崩れしなくなった、あとひと押し」",
+          "finalRank": "7",
+          "finalNinki": "4",
+          "finalOdds": "8.4"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:41",
+        "netkeibaRaceId": "202604010206",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "10",
+            "name": "ラストレガシー",
+            "finalNinki": "1",
+            "finalOdds": "2.6"
+          },
+          {
+            "rank": "2",
+            "num": "3",
+            "name": "ワンダーウィルク",
+            "finalNinki": "11",
+            "finalOdds": "65.3"
+          },
+          {
+            "rank": "3",
+            "num": "8",
+            "name": "コスモシェルベット",
+            "finalNinki": "3",
+            "finalOdds": "8.1"
+          },
+          {
+            "rank": "4",
+            "num": "4",
+            "name": "トーアケルキラ",
+            "finalNinki": "2",
+            "finalOdds": "4.3"
+          },
+          {
+            "rank": "5",
+            "num": "9",
+            "name": "ヤマカツレオン",
+            "finalNinki": "13",
+            "finalOdds": "131.2"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 260
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 160
+            },
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 850
+            },
+            {
+              "combo": [
+                "8"
+              ],
+              "amount": 280
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "3",
+                "7"
+              ],
+              "amount": 4790
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "3",
+                "10"
+              ],
+              "amount": 5600
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "3",
+                "10"
+              ],
+              "amount": 1900
+            },
+            {
+              "combo": [
+                "8",
+                "10"
+              ],
+              "amount": 620
+            },
+            {
+              "combo": [
+                "3",
+                "8"
+              ],
+              "amount": 3970
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "10",
+                "3"
+              ],
+              "amount": 8420
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "8",
+                "10"
+              ],
+              "amount": 13230
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "10",
+                "3",
+                "8"
+              ],
+              "amount": 67740
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 260,
+            "fuku": 440,
+            "wide": 620,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 1320,
+          "recovery": 22.0
+        },
+        "summary": "1着 10番 ラストレガシー (1人気) | 回収率 22.0%"
+      }
     },
     {
       "raceId": "202601070207",
@@ -1744,7 +7044,10 @@
           "jockey": "菊沢一",
           "trainer": "斎藤",
           "kotodamaGrade": "A",
-          "comment": "前走5着「終いを生かす競馬が板に」陣営「鞍上手が合う、流れに乗りつつ終いを生かせれば」"
+          "comment": "前走5着「終いを生かす競馬が板に」陣営「鞍上手が合う、流れに乗りつつ終いを生かせれば」",
+          "finalRank": "10",
+          "finalNinki": "4",
+          "finalOdds": "7.7"
         },
         {
           "mark": "○",
@@ -1753,7 +7056,10 @@
           "jockey": "舟山瑠",
           "trainer": "金折",
           "kotodamaGrade": "A",
-          "comment": "陣営「勝っている新潟コースに替わる、前進期待」"
+          "comment": "陣営「勝っている新潟コースに替わる、前進期待」",
+          "finalRank": "15",
+          "finalNinki": "8",
+          "finalOdds": "16.3"
         },
         {
           "mark": "▲",
@@ -1762,7 +7068,10 @@
           "jockey": "和田陽",
           "trainer": "田代",
           "kotodamaGrade": "A",
-          "comment": "記者「前走より進展あり」陣営「力ある、開幕週馬場歓迎、流れに乗れれば」"
+          "comment": "記者「前走より進展あり」陣営「力ある、開幕週馬場歓迎、流れに乗れれば」",
+          "finalRank": "14",
+          "finalNinki": "6",
+          "finalOdds": "13.8"
         },
         {
           "mark": "△",
@@ -1771,12 +7080,179 @@
           "jockey": "武藤雅",
           "trainer": "勢司",
           "kotodamaGrade": "B",
-          "comment": "陣営「もともと1400mで勝っている、収穫があった」"
+          "comment": "陣営「もともと1400mで勝っている、収穫があった」",
+          "finalRank": "8",
+          "finalNinki": "9",
+          "finalOdds": "16.6"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:41",
+        "netkeibaRaceId": "202604010207",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "1",
+            "name": "メランジェ",
+            "finalNinki": "3",
+            "finalOdds": "7.6"
+          },
+          {
+            "rank": "2",
+            "num": "9",
+            "name": "ルージュベルベット",
+            "finalNinki": "11",
+            "finalOdds": "28.8"
+          },
+          {
+            "rank": "3",
+            "num": "11",
+            "name": "ユメシバイ",
+            "finalNinki": "2",
+            "finalOdds": "6.0"
+          },
+          {
+            "rank": "4",
+            "num": "7",
+            "name": "ラヴスコール",
+            "finalNinki": "5",
+            "finalOdds": "12.3"
+          },
+          {
+            "rank": "5",
+            "num": "10",
+            "name": "キタノクニカラ",
+            "finalNinki": "12",
+            "finalOdds": "43.0"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "1"
+              ],
+              "amount": 760
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "1"
+              ],
+              "amount": 250
+            },
+            {
+              "combo": [
+                "9"
+              ],
+              "amount": 580
+            },
+            {
+              "combo": [
+                "11"
+              ],
+              "amount": 200
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "1",
+                "5"
+              ],
+              "amount": 7510
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "1",
+                "9"
+              ],
+              "amount": 12430
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "1",
+                "9"
+              ],
+              "amount": 3510
+            },
+            {
+              "combo": [
+                "1",
+                "11"
+              ],
+              "amount": 890
+            },
+            {
+              "combo": [
+                "9",
+                "11"
+              ],
+              "amount": 2470
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "1",
+                "9"
+              ],
+              "amount": 18460
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "1",
+                "9",
+                "11"
+              ],
+              "amount": 19200
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "1",
+                "9",
+                "11"
+              ],
+              "amount": 170780
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 0,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 0,
+          "recovery": 0.0
+        },
+        "summary": "1着 1番 メランジェ (3人気) | 回収率 0.0%"
+      }
     },
     {
       "raceId": "202601070208",
@@ -1797,7 +7273,10 @@
           "jockey": "舟山瑠",
           "trainer": "古賀慎",
           "kotodamaGrade": "A",
-          "comment": "前走6着「悲観する内容ではない」陣営◎「開幕週ここ目標、新潟相性、巻き返し期待」"
+          "comment": "前走6着「悲観する内容ではない」陣営◎「開幕週ここ目標、新潟相性、巻き返し期待」",
+          "finalRank": "8",
+          "finalNinki": "1",
+          "finalOdds": "3.7"
         },
         {
           "mark": "○",
@@ -1806,7 +7285,10 @@
           "jockey": "田山旺",
           "trainer": "宮田",
           "kotodamaGrade": "A",
-          "comment": "前走未勝利完勝「立ち回り完璧」陣営「昇級でも通用しそう」"
+          "comment": "前走未勝利完勝「立ち回り完璧」陣営「昇級でも通用しそう」",
+          "finalRank": "4",
+          "finalNinki": "3",
+          "finalOdds": "6.7"
         },
         {
           "mark": "▲",
@@ -1815,7 +7297,10 @@
           "jockey": "小沢大",
           "trainer": "田代",
           "kotodamaGrade": "A",
-          "comment": "前走3着・陣営「終いの脚しっかり、安定感、ワンターンも問題ない」"
+          "comment": "前走3着・陣営「終いの脚しっかり、安定感、ワンターンも問題ない」",
+          "finalRank": "1",
+          "finalNinki": "2",
+          "finalOdds": "3.8"
         },
         {
           "mark": "△",
@@ -1824,12 +7309,179 @@
           "jockey": "遠藤汰",
           "trainer": "伊藤",
           "kotodamaGrade": "B",
-          "comment": "陣営「左回り、開幕週の綺麗な馬場、条件はベスト」"
+          "comment": "陣営「左回り、開幕週の綺麗な馬場、条件はベスト」",
+          "finalRank": "9",
+          "finalNinki": "9",
+          "finalOdds": "31.9"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:41",
+        "netkeibaRaceId": "202604010208",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "4",
+            "name": "マドモアゼルアスク",
+            "finalNinki": "2",
+            "finalOdds": "3.8"
+          },
+          {
+            "rank": "2",
+            "num": "6",
+            "name": "マイネルアレス",
+            "finalNinki": "4",
+            "finalOdds": "6.9"
+          },
+          {
+            "rank": "3",
+            "num": "5",
+            "name": "ナムラブーニン",
+            "finalNinki": "8",
+            "finalOdds": "15.8"
+          },
+          {
+            "rank": "4",
+            "num": "9",
+            "name": "サトノシャルレーヌ",
+            "finalNinki": "3",
+            "finalOdds": "6.7"
+          },
+          {
+            "rank": "5",
+            "num": "11",
+            "name": "グランツローゼ",
+            "finalNinki": "12",
+            "finalOdds": "177.3"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 380
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 150
+            },
+            {
+              "combo": [
+                "6"
+              ],
+              "amount": 210
+            },
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 350
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "5"
+              ],
+              "amount": 900
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "4",
+                "6"
+              ],
+              "amount": 1050
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "4",
+                "6"
+              ],
+              "amount": 410
+            },
+            {
+              "combo": [
+                "4",
+                "5"
+              ],
+              "amount": 950
+            },
+            {
+              "combo": [
+                "5",
+                "6"
+              ],
+              "amount": 1410
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "4",
+                "6"
+              ],
+              "amount": 1760
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "4",
+                "5",
+                "6"
+              ],
+              "amount": 4590
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "4",
+                "6",
+                "5"
+              ],
+              "amount": 16120
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 380,
+            "fuku": 150,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 530,
+          "recovery": 8.8
+        },
+        "summary": "1着 4番 マドモアゼルアスク (2人気) | 回収率 8.8%"
+      }
     },
     {
       "raceId": "202601070209",
@@ -1850,7 +7502,10 @@
           "jockey": "丹内祐",
           "trainer": "牧浦",
           "kotodamaGrade": "A",
-          "comment": "前走2着「中身濃い、すぐ順番」陣営「新潟相性、ひと押しを」"
+          "comment": "前走2着「中身濃い、すぐ順番」陣営「新潟相性、ひと押しを」",
+          "finalRank": "1",
+          "finalNinki": "1",
+          "finalOdds": "2.0"
         },
         {
           "mark": "○",
@@ -1859,7 +7514,10 @@
           "jockey": "杉原誠",
           "trainer": "栗田徹",
           "kotodamaGrade": "A",
-          "comment": "前走1着・陣営「体調いい、昇級でも牝馬同士なら」"
+          "comment": "前走1着・陣営「体調いい、昇級でも牝馬同士なら」",
+          "finalRank": "11",
+          "finalNinki": "8",
+          "finalOdds": "33.1"
         },
         {
           "mark": "▲",
@@ -1868,7 +7526,10 @@
           "jockey": "中井裕",
           "trainer": "三津谷",
           "kotodamaGrade": "A",
-          "comment": "前走3着・陣営「好調維持、状態的に楽しみ」"
+          "comment": "前走3着・陣営「好調維持、状態的に楽しみ」",
+          "finalRank": "7",
+          "finalNinki": "6",
+          "finalOdds": "21.4"
         },
         {
           "mark": "△",
@@ -1877,12 +7538,179 @@
           "jockey": "斎藤新",
           "trainer": "斎藤誠",
           "kotodamaGrade": "B",
-          "comment": "陣営「前向きさ出て状態上向き、得意の左回り」"
+          "comment": "陣営「前向きさ出て状態上向き、得意の左回り」",
+          "finalRank": "2",
+          "finalNinki": "2",
+          "finalOdds": "4.6"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:42",
+        "netkeibaRaceId": "202604010209",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "4",
+            "name": "レイバックスピン",
+            "finalNinki": "1",
+            "finalOdds": "2.0"
+          },
+          {
+            "rank": "2",
+            "num": "3",
+            "name": "コンアフェット",
+            "finalNinki": "2",
+            "finalOdds": "4.6"
+          },
+          {
+            "rank": "3",
+            "num": "8",
+            "name": "ステアハート",
+            "finalNinki": "3",
+            "finalOdds": "4.8"
+          },
+          {
+            "rank": "4",
+            "num": "2",
+            "name": "メイショウリリー",
+            "finalNinki": "10",
+            "finalOdds": "65.5"
+          },
+          {
+            "rank": "5",
+            "num": "10",
+            "name": "サイモンコーラル",
+            "finalNinki": "11",
+            "finalOdds": "141.7"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 200
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 110
+            },
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 130
+            },
+            {
+              "combo": [
+                "8"
+              ],
+              "amount": 140
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "3",
+                "4"
+              ],
+              "amount": 440
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "3",
+                "4"
+              ],
+              "amount": 450
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "3",
+                "4"
+              ],
+              "amount": 180
+            },
+            {
+              "combo": [
+                "4",
+                "8"
+              ],
+              "amount": 230
+            },
+            {
+              "combo": [
+                "3",
+                "8"
+              ],
+              "amount": 440
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "4",
+                "3"
+              ],
+              "amount": 700
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "4",
+                "8"
+              ],
+              "amount": 670
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "4",
+                "3",
+                "8"
+              ],
+              "amount": 2280
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 200,
+            "fuku": 240,
+            "wide": 180,
+            "umaren": 450,
+            "umatan": 700,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 1770,
+          "recovery": 29.5
+        },
+        "summary": "1着 4番 レイバックスピン (1人気) | 回収率 29.5%"
+      }
     },
     {
       "raceId": "202601070210",
@@ -1903,7 +7731,10 @@
           "jockey": "舟山瑠",
           "trainer": "横田",
           "kotodamaGrade": "A",
-          "comment": "前走3着「芝でもやれそう」陣営◎「直線競馬は試したかった条件、楽しみ」"
+          "comment": "前走3着「芝でもやれそう」陣営◎「直線競馬は試したかった条件、楽しみ」",
+          "finalRank": "2",
+          "finalNinki": "3",
+          "finalOdds": "5.3"
         },
         {
           "mark": "○",
@@ -1912,7 +7743,10 @@
           "jockey": "丸山元",
           "trainer": "矢野英",
           "kotodamaGrade": "A",
-          "comment": "陣営「直線競馬は現級では能力上位、ハンデも悪くない」"
+          "comment": "陣営「直線競馬は現級では能力上位、ハンデも悪くない」",
+          "finalRank": "16",
+          "finalNinki": "9",
+          "finalOdds": "23.1"
         },
         {
           "mark": "▲",
@@ -1921,7 +7755,10 @@
           "jockey": "杉原誠",
           "trainer": "武市",
           "kotodamaGrade": "A",
-          "comment": "陣営「集中力に課題ある馬なのでむしろプラス、楽しみ」"
+          "comment": "陣営「集中力に課題ある馬なのでむしろプラス、楽しみ」",
+          "finalRank": "7",
+          "finalNinki": "16",
+          "finalOdds": "128.3"
         },
         {
           "mark": "△",
@@ -1930,12 +7767,179 @@
           "jockey": "富田暁",
           "trainer": "畑",
           "kotodamaGrade": "A",
-          "comment": "武豊・前走3着「力を示した」陣営「もともとスピード勝っている、千直を試す」"
+          "comment": "武豊・前走3着「力を示した」陣営「もともとスピード勝っている、千直を試す」",
+          "finalRank": "6",
+          "finalNinki": "2",
+          "finalOdds": "4.9"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:42",
+        "netkeibaRaceId": "202604010210",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "16",
+            "name": "カウンターセブン",
+            "finalNinki": "1",
+            "finalOdds": "3.0"
+          },
+          {
+            "rank": "2",
+            "num": "8",
+            "name": "ハニーローリエ",
+            "finalNinki": "3",
+            "finalOdds": "5.3"
+          },
+          {
+            "rank": "3",
+            "num": "7",
+            "name": "イスラコラソン",
+            "finalNinki": "8",
+            "finalOdds": "18.4"
+          },
+          {
+            "rank": "4",
+            "num": "13",
+            "name": "ラトルシェ",
+            "finalNinki": "6",
+            "finalOdds": "14.1"
+          },
+          {
+            "rank": "5",
+            "num": "15",
+            "name": "スペルキャスター",
+            "finalNinki": "4",
+            "finalOdds": "9.3"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "16"
+              ],
+              "amount": 300
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "16"
+              ],
+              "amount": 130
+            },
+            {
+              "combo": [
+                "8"
+              ],
+              "amount": 170
+            },
+            {
+              "combo": [
+                "7"
+              ],
+              "amount": 400
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "4",
+                "8"
+              ],
+              "amount": 540
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "8",
+                "16"
+              ],
+              "amount": 750
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "8",
+                "16"
+              ],
+              "amount": 370
+            },
+            {
+              "combo": [
+                "7",
+                "16"
+              ],
+              "amount": 990
+            },
+            {
+              "combo": [
+                "7",
+                "8"
+              ],
+              "amount": 1460
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "16",
+                "8"
+              ],
+              "amount": 1170
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "7",
+                "8",
+                "16"
+              ],
+              "amount": 4440
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "16",
+                "8",
+                "7"
+              ],
+              "amount": 11970
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 0,
+            "fuku": 170,
+            "wide": 0,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 170,
+          "recovery": 2.8
+        },
+        "summary": "1着 16番 カウンターセブン (1人気) | 回収率 2.8%"
+      }
     },
     {
       "raceId": "202601070211",
@@ -1956,7 +7960,10 @@
           "jockey": "石川裕",
           "trainer": "尾形和",
           "kotodamaGrade": "A",
-          "comment": "前走3着「このクラスでも順番」陣営◎「十分勝負になる、勝ちたい」"
+          "comment": "前走3着「このクラスでも順番」陣営◎「十分勝負になる、勝ちたい」",
+          "finalRank": "2",
+          "finalNinki": "1",
+          "finalOdds": "4.3"
         },
         {
           "mark": "○",
@@ -1965,7 +7972,10 @@
           "jockey": "斎藤新",
           "trainer": "斎藤助手",
           "kotodamaGrade": "A",
-          "comment": "陣営◎「かなりいい状態、力負けではない、改めて期待」"
+          "comment": "陣営◎「かなりいい状態、力負けではない、改めて期待」",
+          "finalRank": "1",
+          "finalNinki": "8",
+          "finalOdds": "14.3"
         },
         {
           "mark": "▲",
@@ -1974,7 +7984,10 @@
           "jockey": "丹内祐",
           "trainer": "斎藤誠",
           "kotodamaGrade": "A",
-          "comment": "前走5着「よく頑張った」陣営「新潟で新馬勝ち、スムーズに先手」"
+          "comment": "前走5着「よく頑張った」陣営「新潟で新馬勝ち、スムーズに先手」",
+          "finalRank": "4",
+          "finalNinki": "2",
+          "finalOdds": "5.2"
         },
         {
           "mark": "△",
@@ -1983,12 +7996,179 @@
           "jockey": "ゴンサル",
           "trainer": "伊藤",
           "kotodamaGrade": "B",
-          "comment": "陣営「オープン特別でもやれる手応え、左回り問題ない」"
+          "comment": "陣営「オープン特別でもやれる手応え、左回り問題ない」",
+          "finalRank": "3",
+          "finalNinki": "6",
+          "finalOdds": "11.9"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:42",
+        "netkeibaRaceId": "202604010211",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "4",
+            "name": "ブレーザー",
+            "finalNinki": "8",
+            "finalOdds": "14.3"
+          },
+          {
+            "rank": "2",
+            "num": "10",
+            "name": "ユキマル",
+            "finalNinki": "1",
+            "finalOdds": "4.3"
+          },
+          {
+            "rank": "3",
+            "num": "3",
+            "name": "ショウナンアビアス",
+            "finalNinki": "6",
+            "finalOdds": "11.9"
+          },
+          {
+            "rank": "4",
+            "num": "2",
+            "name": "ポールセン",
+            "finalNinki": "2",
+            "finalOdds": "5.2"
+          },
+          {
+            "rank": "5",
+            "num": "8",
+            "name": "サンライズパスカル",
+            "finalNinki": "7",
+            "finalOdds": "12.4"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 1430
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 400
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 200
+            },
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 350
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "3",
+                "6"
+              ],
+              "amount": 1940
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "4",
+                "10"
+              ],
+              "amount": 2690
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "4",
+                "10"
+              ],
+              "amount": 990
+            },
+            {
+              "combo": [
+                "3",
+                "4"
+              ],
+              "amount": 1860
+            },
+            {
+              "combo": [
+                "3",
+                "10"
+              ],
+              "amount": 1050
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "4",
+                "10"
+              ],
+              "amount": 6250
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "4",
+                "10"
+              ],
+              "amount": 8630
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "4",
+                "10",
+                "3"
+              ],
+              "amount": 52690
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 1430,
+            "fuku": 950,
+            "wide": 3900,
+            "umaren": 2690,
+            "umatan": 6250,
+            "sanrenpuku": 8630,
+            "sanrentan": 52690
+          },
+          "investTotal": 6000,
+          "payoutTotal": 76540,
+          "recovery": 1275.7
+        },
+        "summary": "1着 4番 ブレーザー (8人気) | 回収率 1275.7%"
+      }
     },
     {
       "raceId": "202601070212",
@@ -2009,7 +8189,10 @@
           "jockey": "亀田温",
           "trainer": "友道",
           "kotodamaGrade": "A",
-          "comment": "前走3着「慣れてくれば1200mでも」陣営◎「いい走りを期待、状態いい」"
+          "comment": "前走3着「慣れてくれば1200mでも」陣営◎「いい走りを期待、状態いい」",
+          "finalRank": "1",
+          "finalNinki": "2",
+          "finalOdds": "2.7"
         },
         {
           "mark": "○",
@@ -2018,7 +8201,10 @@
           "jockey": "吉田隼",
           "trainer": "池内",
           "kotodamaGrade": "A",
-          "comment": "前走3着「能力ある、乗り手と噛み合うように」陣営「同様パフォーマンスでチャンス」"
+          "comment": "前走3着「能力ある、乗り手と噛み合うように」陣営「同様パフォーマンスでチャンス」",
+          "finalRank": "3",
+          "finalNinki": "5",
+          "finalOdds": "17.9"
         },
         {
           "mark": "▲",
@@ -2027,7 +8213,10 @@
           "jockey": "ゴンサル",
           "trainer": "茶木",
           "kotodamaGrade": "A",
-          "comment": "前走2着「あと一歩」陣営「左回りは合うのでチャンスはあるはず」"
+          "comment": "前走2着「あと一歩」陣営「左回りは合うのでチャンスはあるはず」",
+          "finalRank": "6",
+          "finalNinki": "1",
+          "finalOdds": "2.6"
         },
         {
           "mark": "△",
@@ -2036,12 +8225,223 @@
           "jockey": "長岡禎",
           "trainer": "中村",
           "kotodamaGrade": "B",
-          "comment": "陣営「左回りの方がいい、うまく立ち回れば通用してもいい馬」"
+          "comment": "陣営「左回りの方がいい、うまく立ち回れば通用してもいい馬」",
+          "finalRank": "5",
+          "finalNinki": "4",
+          "finalOdds": "10.0"
         }
       ],
       "watchList": {},
       "fatalWords": [],
-      "result": null
+      "result": {
+        "fetched": "2026-05-03T19:57:42",
+        "netkeibaRaceId": "202604010212",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "3",
+            "name": "タケルハーロック",
+            "finalNinki": "2",
+            "finalOdds": "2.7"
+          },
+          {
+            "rank": "2",
+            "num": "10",
+            "name": "リッキースタイル",
+            "finalNinki": "3",
+            "finalOdds": "5.9"
+          },
+          {
+            "rank": "3",
+            "num": "4",
+            "name": "バルジール",
+            "finalNinki": "5",
+            "finalOdds": "17.9"
+          },
+          {
+            "rank": "4",
+            "num": "11",
+            "name": "スーパーバイザー",
+            "finalNinki": "6",
+            "finalOdds": "18.1"
+          },
+          {
+            "rank": "5",
+            "num": "9",
+            "name": "ワンウェイトゥヘル",
+            "finalNinki": "4",
+            "finalOdds": "10.0"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 270
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "3"
+              ],
+              "amount": 140
+            },
+            {
+              "combo": [
+                "10"
+              ],
+              "amount": 190
+            },
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 280
+            }
+          ],
+          "wakuren": [
+            {
+              "combo": [
+                "2",
+                "6"
+              ],
+              "amount": 650
+            }
+          ],
+          "umaren": [
+            {
+              "combo": [
+                "3",
+                "10"
+              ],
+              "amount": 830
+            }
+          ],
+          "wide": [
+            {
+              "combo": [
+                "3",
+                "10"
+              ],
+              "amount": 370
+            },
+            {
+              "combo": [
+                "3",
+                "4"
+              ],
+              "amount": 630
+            },
+            {
+              "combo": [
+                "4",
+                "10"
+              ],
+              "amount": 1080
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "3",
+                "10"
+              ],
+              "amount": 1460
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "combo": [
+                "3",
+                "4",
+                "10"
+              ],
+              "amount": 3680
+            }
+          ],
+          "sanrentan": [
+            {
+              "combo": [
+                "3",
+                "10",
+                "4"
+              ],
+              "amount": 12450
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "tan": 400,
+            "fuku": 400,
+            "wide": 600,
+            "umaren": 600,
+            "umatan": 1200,
+            "sanrenpuku": 400,
+            "sanrentan": 2400
+          },
+          "payout": {
+            "tan": 270,
+            "fuku": 420,
+            "wide": 630,
+            "umaren": 0,
+            "umatan": 0,
+            "sanrenpuku": 0,
+            "sanrentan": 0
+          },
+          "investTotal": 6000,
+          "payoutTotal": 1320,
+          "recovery": 22.0
+        },
+        "summary": "1着 3番 タケルハーロック (2人気) | 回収率 22.0%"
+      }
     }
-  ]
+  ],
+  "summary": {
+    "updated": "2026-05-03T19:57:42",
+    "racesWithResult": 36,
+    "totalInvest": 216000,
+    "totalPayout": 219140,
+    "totalRecovery": 101.5,
+    "byKind": {
+      "tan": {
+        "invest": 14400,
+        "payout": 11990,
+        "recovery": 83.3
+      },
+      "fuku": {
+        "invest": 14400,
+        "payout": 11690,
+        "recovery": 81.2
+      },
+      "wide": {
+        "invest": 21600,
+        "payout": 20880,
+        "recovery": 96.7
+      },
+      "umaren": {
+        "invest": 21600,
+        "payout": 19500,
+        "recovery": 90.3
+      },
+      "umatan": {
+        "invest": 43200,
+        "payout": 41490,
+        "recovery": 96.0
+      },
+      "sanrenpuku": {
+        "invest": 14400,
+        "payout": 13090,
+        "recovery": 90.9
+      },
+      "sanrentan": {
+        "invest": 86400,
+        "payout": 100500,
+        "recovery": 116.3
+      }
+    }
+  }
 }

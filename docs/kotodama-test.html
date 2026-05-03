@@ -68,6 +68,41 @@
   .tab:hover{border-color:var(--shu);color:var(--shu)}
   .tab.active{background:var(--shu);color:#fff;border-color:var(--shu);font-weight:700}
   .tab-count{font-size:11px;opacity:.85;margin-left:6px}
+  /* 結果反映 */
+  .pop{display:inline-block;padding:1px 6px;background:#eee;color:#555;
+       font-size:10px;border-radius:3px;margin-left:4px;font-weight:400}
+  .finish{display:inline-block;padding:2px 7px;font-weight:700;font-size:11px;
+          border-radius:3px;margin-left:4px;color:#fff;background:#999}
+  .finish.r1{background:#d4af37}
+  .finish.r2{background:#7a7a7a}
+  .finish.r3{background:#a87544}
+  /* 回収率ボード */
+  .summary-board{max-width:920px;margin:0 auto 20px;padding:18px;
+                 background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
+                 border:2px solid var(--shu);border-radius:8px}
+  .sb-title{font-size:14px;color:var(--shu);font-weight:700;letter-spacing:.2em;
+            text-align:center;margin-bottom:10px}
+  .sb-total{text-align:center;font-size:28px;color:var(--shu);font-weight:700;margin:6px 0}
+  .sb-total small{font-size:12px;color:var(--ink-soft);font-weight:400;margin-left:8px}
+  .sb-meta{text-align:center;font-size:11px;color:var(--ink-soft);margin-bottom:12px}
+  .sb-kinds{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+  .sb-kind{background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px;
+           text-align:center;font-size:11px}
+  .sb-kind .k-name{color:var(--ink-soft);font-size:10px;letter-spacing:.1em}
+  .sb-kind .k-rec{font-size:18px;color:var(--shu);font-weight:700;margin-top:2px}
+  .sb-kind .k-rec.win{color:var(--ok)}
+  .sb-kind .k-amt{color:var(--ink-soft);font-size:10px;margin-top:2px}
+  .sb-learn{text-align:center;margin-top:14px;padding:8px;background:var(--bg-soft);
+            border-radius:4px;color:var(--ink-soft);font-size:11px;font-style:italic}
+  /* 各レース結果 */
+  .race-betting{margin-top:12px;padding:10px;background:#fff;
+                border:1px dashed var(--border);border-radius:4px;font-size:12px}
+  .rb-row{display:flex;justify-content:space-between;align-items:center;
+          padding:3px 0;color:var(--ink-soft)}
+  .rb-row .rb-amt{color:var(--ink);font-weight:700}
+  .rb-row.hit .rb-amt{color:var(--ok)}
+  .rb-total{margin-top:6px;padding-top:6px;border-top:1px solid var(--border);
+            font-weight:700;color:var(--shu);font-size:13px}
 </style>
 </head>
 <body>
@@ -77,6 +112,7 @@
   <div class="h-rule">全レース予想公開中</div>
   <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
 </header>
+<div id="summary-board"></div>
 <div class="tabs" id="tabs"></div>
 <main id="races"></main>
 <footer class="mincho">⛩ UG 競馬ワイド神宮 ／ 言霊実験室 ⛩</footer>
@@ -93,7 +129,13 @@ function fmtDate(dateStr){
 }
 
 let ALL_RACES = [];
+let SUMMARY = null;
 let CURRENT_TAB = '';
+
+const KIND_LABEL = {
+  tan:'単勝', fuku:'複勝', wide:'ワイドBOX', umaren:'馬連BOX',
+  umatan:'馬単BOX', sanrenpuku:'3連複BOX', sanrentan:'3連単BOX'
+};
 
 async function load(){
   for (const f of FILES){
@@ -101,10 +143,37 @@ async function load(){
       const r = await fetch(f+'?_='+Date.now());
       const d = await r.json();
       d.races.forEach(race => ALL_RACES.push(race));
+      if (d.summary) SUMMARY = d.summary;
     }catch(e){console.error(e)}
   }
+  renderSummary();
   buildTabs();
   render();
+}
+
+function renderSummary(){
+  const el = document.getElementById('summary-board');
+  if (!SUMMARY) { el.innerHTML = ''; return; }
+  const s = SUMMARY;
+  const totalCls = s.totalRecovery >= 100 ? 'win' : '';
+  el.innerHTML = `
+    <div class="summary-board">
+      <div class="sb-title mincho">⛩ 言霊神宮 全レース回収率</div>
+      <div class="sb-total" style="${s.totalRecovery>=100?'color:var(--ok)':''}">
+        ${s.totalRecovery}% <small>(${s.racesWithResult}R / 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()})</small>
+      </div>
+      <div class="sb-meta">各レース4頭 × 7券種BOX購入（1Rあたり60点6,000円）</div>
+      <div class="sb-kinds">
+        ${Object.entries(s.byKind).map(([k,v])=>`
+          <div class="sb-kind">
+            <div class="k-name">${KIND_LABEL[k]||k}</div>
+            <div class="k-rec ${v.recovery>=100?'win':''}">${v.recovery}%</div>
+            <div class="k-amt">¥${v.payout.toLocaleString()} / ¥${v.invest.toLocaleString()}</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="sb-learn">🔬 ベスト馬券種分析学習中...</div>
+    </div>`;
 }
 
 function buildTabs(){
@@ -145,14 +214,20 @@ function render(){
       </div>
       <table class="picks-table">
         <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>言霊評価</th></tr>
-        ${r.picks.map(p => `
+        ${r.picks.map(p => {
+          const rk = p.finalRank ? Number(p.finalRank) : null;
+          const rkCls = rk===1?'r1':rk===2?'r2':rk===3?'r3':'';
+          const finBadge = rk ? `<span class="finish ${rkCls}">${rk}着</span>` : '';
+          const popBadge = p.finalNinki ? `<span class="pop">${p.finalNinki}人気</span>` : '';
+          return `
         <tr>
           <td class="${MARK_CLASS[p.mark]||'mark'}">${p.mark}</td>
-          <td class="name">${p.num}番<br>${p.name}<span class="grade">${p.kotodamaGrade}</span></td>
+          <td class="name">${p.num}番<br>${p.name}<span class="grade">${p.kotodamaGrade}</span>${popBadge}${finBadge}</td>
           <td>${p.jockey}</td>
           <td>${p.trainer}</td>
           <td class="comment">${p.comment}</td>
-        </tr>`).join('')}
+        </tr>`;
+        }).join('')}
       </table>
       ${r.fatalWords && r.fatalWords.length ? `
       <div class="fatal">
@@ -167,8 +242,18 @@ function render(){
       </details>
       ${r.result ? `
       <div class="result">
-        <strong>結果</strong>: ${r.result.summary || JSON.stringify(r.result)}
-      </div>` : '<div class="result pending">結果待ち</div>'}
+        <strong>結果</strong>: ${r.result.summary || ''}
+      </div>
+      ${r.result.betting ? `
+      <div class="race-betting">
+        ${Object.entries(r.result.betting.invest).map(([k,inv])=>{
+          const pay = r.result.betting.payout[k]||0;
+          const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
+          const hit = pay>0 ? 'hit' : '';
+          return `<div class="rb-row ${hit}"><span>${KIND_LABEL[k]||k}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
+        }).join('')}
+        <div class="rb-row rb-total"><span>合計</span><span>¥${r.result.betting.payoutTotal.toLocaleString()} / ¥${r.result.betting.investTotal.toLocaleString()} (${r.result.betting.recovery}%)</span></div>
+      </div>` : ''}` : '<div class="result pending">結果待ち</div>'}
     </div>
   `).join('');
 }
