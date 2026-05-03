@@ -1090,19 +1090,82 @@ a{color:inherit;}
 </style>
 </head>
 <body>
-<!-- ═════ AI試験運用バナー（全ページ共通） ═════ -->
-<div class="ai-trial-banner">
-  <div class="ai-trial-banner-text">
-    <span class="ai-trial-icon">🤖</span>神 宮 、 A I で 全 レ ー ス 採 点 へ 拡 張 中 。 試 運 転 故 、 神 託 に 粗 あ り 。 <strong>さ れ ど 人 気 は 嘘 つ け ど 、 構 造 は 嘘 つ か ぬ 。</strong>
-    <span class="ai-trial-author">─ ギ ー ニ ョ 修 行 中 の 一 文 ─</span>
-  </div>
-</div>
-
-
-<!-- ══ 季節の挨拶 ══ -->
-<div class="kisetsu-bar">
+<!-- ══ 季節の挨拶（動的更新） ══ -->
+<div class="kisetsu-bar" id="kisetsu-bar">
   令和八年 五月 <span class="sep">│</span> 薫風の候 <span class="sep">│</span> 天皇賞・春 斎行週
 </div>
+<script>
+(function(){
+  // 月→候マップ
+  const KOU = {
+    1:'新春の候', 2:'立春の候', 3:'早春の候',
+    4:'桜花の候', 5:'薫風の候', 6:'梅雨の候',
+    7:'盛夏の候', 8:'立秋の候', 9:'初秋の候',
+    10:'金木犀の候', 11:'晩秋の候', 12:'歳末の候'
+  };
+  const KAN_NUM = ['〇','一','二','三','四','五','六','七','八','九','十','十一','十二'];
+  // 主要重賞カレンダー（その週の代表レース。日付=日曜のYYYY-MM-DD）
+  const RACE_CAL = [
+    ['2026-05-03','天皇賞・春'],
+    ['2026-05-10','NHKマイルC'],
+    ['2026-05-17','ヴィクトリアM'],
+    ['2026-05-24','オークス'],
+    ['2026-05-31','日本ダービー'],
+    ['2026-06-07','安田記念'],
+    ['2026-06-14','エプソムC'],
+    ['2026-06-21','ユニコーンS'],
+    ['2026-06-28','宝塚記念'],
+    ['2026-07-05','CBC賞'],
+    ['2026-07-12','七夕賞'],
+    ['2026-07-19','函館記念'],
+    ['2026-07-26','クイーンS'],
+    ['2026-08-02','アイビスSD'],
+    ['2026-08-09','レパードS'],
+    ['2026-08-16','札幌記念'],
+    ['2026-08-23','北九州記念'],
+    ['2026-08-30','新潟記念'],
+    ['2026-09-06','京成杯AH'],
+    ['2026-09-13','セントウルS'],
+    ['2026-09-20','ローズS'],
+    ['2026-09-27','スプリンターズS'],
+    ['2026-10-04','毎日王冠'],
+    ['2026-10-11','京都大賞典'],
+    ['2026-10-18','秋華賞'],
+    ['2026-10-25','菊花賞'],
+    ['2026-11-01','天皇賞・秋'],
+    ['2026-11-08','エリザベス女王杯'],
+    ['2026-11-15','マイルCS'],
+    ['2026-11-22','ジャパンC'],
+    ['2026-11-29','チャンピオンズC'],
+    ['2026-12-06','阪神JF'],
+    ['2026-12-13','朝日杯FS'],
+    ['2026-12-20','有馬記念'],
+    ['2026-12-27','ホープフルS'],
+  ];
+  function findRace(today){
+    // todayと同週(月-日)に該当するレースを返す
+    const t = new Date(today);
+    // 今週の日曜日を計算
+    const sun = new Date(t);
+    sun.setDate(t.getDate() + (7 - t.getDay()) % 7);
+    const sunStr = sun.toISOString().slice(0,10);
+    const found = RACE_CAL.find(([d]) => d === sunStr);
+    if (found) return found[1];
+    // なければ次のレース
+    const next = RACE_CAL.find(([d]) => d >= today);
+    return next ? next[1] : '';
+  }
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const m = today.getMonth() + 1;
+  const reiwa = yyyy - 2018; // 2019=令和元年
+  const todayStr = today.toISOString().slice(0,10);
+  const race = findRace(todayStr);
+  const txt = `令和${KAN_NUM[reiwa]}年 ${KAN_NUM[m]}月 <span class="sep">│</span> ${KOU[m]} <span class="sep">│</span> ${race ? race + ' 斎行週' : '斎行待ち'}`;
+  const el = document.getElementById('kisetsu-bar');
+  if (el) el.innerHTML = txt;
+})();
+</script>
 
 <!-- ══ ヘッダー ══ -->
 <header class="header">
