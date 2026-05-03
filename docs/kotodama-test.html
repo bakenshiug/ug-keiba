@@ -31,9 +31,18 @@
         background:var(--paper);border-radius:8px;
         box-shadow:0 1px 6px rgba(164,74,63,.08)}
   .race-header{display:flex;justify-content:space-between;align-items:baseline;
-               border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:14px}
+               border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:14px;
+               flex-wrap:wrap;gap:8px}
   .race-name{font-size:18px;color:var(--shu);font-weight:700}
   .race-meta{font-size:12px;color:var(--ink-soft)}
+  /* 他場ジャンプ */
+  .cross-jump{display:flex;gap:6px;flex-wrap:wrap;width:100%;margin-top:4px}
+  .cross-jump-label{font-size:10px;color:var(--ink-soft);letter-spacing:.1em;align-self:center;margin-right:4px}
+  .cj-btn{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;
+          background:#fff;border:1px solid var(--border);border-radius:4px;
+          font-size:11px;color:var(--shu);cursor:pointer;letter-spacing:.05em;
+          font-family:'Shippori Mincho',serif;text-decoration:none;transition:all .15s ease}
+  .cj-btn:hover{background:var(--shu);color:#fff;border-color:var(--shu)}
   .picks-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
   .picks-table th{background:var(--paper-deep);padding:8px;text-align:left;
                   color:var(--shu);border-bottom:1px solid var(--border);font-weight:700}
@@ -335,11 +344,22 @@ function buildTabs(){
 function render(){
   const races = ALL_RACES.filter(r => `${r.date}|${r.venue}` === CURRENT_TAB);
   const root = document.getElementById('races');
-  root.innerHTML = races.map(r => `
-    <div class="race">
+  root.innerHTML = races.map(r => {
+    // 他場の同じR
+    const others = ALL_RACES.filter(x =>
+      x.date === r.date && x.venue !== r.venue && x.raceNum === r.raceNum
+    );
+    const crossJump = others.length ? `
+      <div class="cross-jump">
+        <span class="cross-jump-label mincho">同${r.raceNum} ▶</span>
+        ${others.map(o => `<button class="cj-btn" data-jump-key="${o.date}|${o.venue}" data-jump-rnum="${o.raceNum}">${o.venue}${o.raceNum}</button>`).join('')}
+      </div>` : '';
+    return `
+    <div class="race" data-rnum="${r.raceNum}">
       <div class="race-header">
         <div class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}</div>
         <div class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</div>
+        ${crossJump}
       </div>
       <table class="picks-table">
         <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>言霊評価</th></tr>
@@ -398,7 +418,25 @@ function render(){
         <div class="rb-row rb-total"><span>合計</span><span>¥${r.result.betting.payoutTotal.toLocaleString()} / ¥${r.result.betting.investTotal.toLocaleString()} (${r.result.betting.recovery}%)</span></div>
       </div>` : ''}` : '<div class="result pending">結果待ち</div>'}
     </div>
-  `).join('');
+  `;
+  }).join('');
+
+  // 他場ジャンプ ボタンのイベント
+  root.querySelectorAll('.cj-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.jumpKey;
+      const rnum = btn.dataset.jumpRnum;
+      CURRENT_TAB = key;
+      const tabsEl = document.getElementById('tabs');
+      tabsEl.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.key === CURRENT_TAB));
+      render();
+      // 同じR番号にスクロール
+      requestAnimationFrame(() => {
+        const target = document.querySelector(`.race[data-rnum="${rnum}"]`);
+        if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  });
 }
 load();
 </script>
