@@ -1397,6 +1397,49 @@ a{color:inherit;}
       </div>
     </div>
 
+    <!-- 買い目戦略の発見（◎軸流し） -->
+    <div class="shinju-bake">
+      <h3 class="bake-h mincho">💰 買い目戦略の発見：◎軸流しが、神宮の正解だった件</h3>
+      <p class="bake-lead">
+        旧戦略（4頭BOX購入・1Rあたり¥6,000）と、
+        新戦略（単複◎1点＋◎軸3頭流し・1Rあたり¥3,500）を
+        全36レースで比較検証した結果──
+      </p>
+      <table class="bake-table">
+        <tr>
+          <th>戦略</th>
+          <th>1R投資</th>
+          <th>総投資</th>
+          <th>総払戻</th>
+          <th>回収率</th>
+        </tr>
+        <tr>
+          <td class="bake-name">旧（4頭BOX）</td>
+          <td>¥6,000</td>
+          <td>¥216,000</td>
+          <td>¥219,140</td>
+          <td class="bake-rec">101.5%</td>
+        </tr>
+        <tr class="bake-win">
+          <td class="bake-name">新（◎軸流し）<span class="bake-badge">★神宮採用</span></td>
+          <td>¥3,500</td>
+          <td>¥126,000</td>
+          <td>¥184,370</td>
+          <td class="bake-rec win">146.3%</td>
+        </tr>
+      </table>
+      <p class="bake-conclusion">
+        投資額を <b>42%カット</b>しながら、回収率は <b>+44.8pt</b> 向上。
+        <strong class="mincho">◎を信じる馬券道</strong>が、神宮★との相性を予感させる。
+      </p>
+      <p class="bake-detail">
+        場別では <b>新潟348.5%</b>（◎複勝率75%が爆発）、
+        <b>京都85.9%</b>（馬連232%/馬単202%）。
+        <b>東京4.6%</b>は◎単独依存で壊滅したが、馬場補正で来週リベンジ。
+      </p>
+      <a href="kotodama-test.html" class="bake-link mincho">⛩ 言霊神宮で詳細を見る ▶</a>
+    </div>
+
     <!-- 来週の構え -->
     <div class="shinju-kamae">
       <h3 class="kamae-h mincho">⚡ 来週への構え（5/10 NHKマイル週）</h3>
@@ -1449,6 +1492,66 @@ a{color:inherit;}
 .mitate-body strong{display:inline-block;color:var(--shu);font-weight:700;
                     font-size:14px;letter-spacing:.05em;margin-bottom:4px}
 .mitate-body b{color:var(--shu);font-weight:700}
+
+.shinju-bake{
+  background:linear-gradient(135deg,#1a1a1a 0%,#2c1f12 100%);
+  color:#FBF7EE;
+  border:2px solid var(--gold,#c9a84c);border-radius:10px;
+  padding:22px 26px;margin-bottom:18px;
+  box-shadow:0 0 24px rgba(201,168,76,.25),inset 0 0 30px rgba(201,168,76,.05);
+  position:relative;overflow:hidden;
+}
+.shinju-bake::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 30% 20%,rgba(201,168,76,.18),transparent 40%),
+             radial-gradient(circle at 70% 80%,rgba(164,74,63,.12),transparent 40%);
+}
+.bake-h{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--gold,#c9a84c);
+        font-weight:700;letter-spacing:.08em;margin-bottom:12px;text-align:center;
+        text-shadow:0 0 10px rgba(201,168,76,.6);position:relative;z-index:1}
+.bake-lead{font-size:12.5px;line-height:1.85;color:rgba(251,247,238,.85);
+           margin-bottom:14px;text-align:center;position:relative;z-index:1}
+.bake-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12.5px;
+            position:relative;z-index:1;font-family:'Inter',sans-serif}
+.bake-table th{background:rgba(201,168,76,.18);color:var(--gold,#c9a84c);
+               padding:8px 6px;text-align:center;font-weight:700;font-size:11px;
+               border-bottom:1px solid rgba(201,168,76,.3);letter-spacing:.05em}
+.bake-table td{padding:10px 6px;text-align:center;color:#FBF7EE;
+               border-bottom:1px solid rgba(201,168,76,.12)}
+.bake-table .bake-name{text-align:left;padding-left:10px;font-family:'Shippori Mincho',serif;font-weight:700}
+.bake-table .bake-rec{font-weight:900;font-size:16px;color:rgba(251,247,238,.85)}
+.bake-table .bake-rec.win{color:var(--gold,#c9a84c);text-shadow:0 0 12px rgba(201,168,76,.8)}
+.bake-table tr.bake-win{background:rgba(201,168,76,.08)}
+.bake-table tr.bake-win .bake-name{color:var(--gold,#c9a84c)}
+.bake-badge{display:inline-block;margin-left:6px;padding:2px 8px;
+            background:var(--gold,#c9a84c);color:#1a1a1a;font-family:'Shippori Mincho',serif;
+            font-size:10px;font-weight:900;border-radius:3px;letter-spacing:.1em}
+.bake-conclusion{font-size:13px;line-height:1.85;color:#FBF7EE;
+                 margin-top:14px;text-align:center;position:relative;z-index:1;
+                 padding:12px;background:rgba(201,168,76,.1);border-radius:6px;
+                 border:1px dashed rgba(201,168,76,.3)}
+.bake-conclusion b{color:var(--gold,#c9a84c);font-weight:900;text-shadow:0 0 6px rgba(201,168,76,.6)}
+.bake-conclusion strong{color:var(--gold,#c9a84c);font-weight:700;letter-spacing:.1em}
+.bake-detail{font-size:11.5px;line-height:1.85;color:rgba(251,247,238,.7);
+             margin-top:10px;text-align:center;position:relative;z-index:1}
+.bake-detail b{color:var(--gold,#c9a84c);font-weight:700}
+.bake-link{display:inline-block;margin-top:14px;padding:10px 22px;
+           background:rgba(201,168,76,.15);border:1px solid var(--gold,#c9a84c);
+           color:var(--gold,#c9a84c);text-decoration:none;border-radius:6px;
+           font-size:12px;font-weight:700;letter-spacing:.15em;
+           position:relative;z-index:1;
+           display:block;width:fit-content;margin:14px auto 0;
+           text-shadow:0 0 6px rgba(201,168,76,.5);
+           transition:all .2s ease}
+.bake-link:hover{background:var(--gold,#c9a84c);color:#1a1a1a;text-shadow:none}
+@media(max-width:600px){
+  .shinju-bake{padding:18px 14px}
+  .bake-h{font-size:13px}
+  .bake-table{font-size:11px}
+  .bake-table th,.bake-table td{padding:6px 4px}
+  .bake-table .bake-rec{font-size:14px}
+  .bake-conclusion{font-size:12px}
+}
 
 .shinju-kamae{
   background:rgba(201,168,76,.08);
