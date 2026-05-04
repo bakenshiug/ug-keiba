@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>⛩ お賽銭箱 設置マニュアル｜神主専用</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#FAFAFA; --bg-soft:#F5F2EB; --paper:#FBF7EE; --paper-deep:#F0EADB;
+    --ink:#2c1f12; --ink-soft:#5a4a3a;
+    --shu:#a44a3f; --shu-dk:#7A1E1E;
+    --gold:#c9a84c; --gold-dk:#b8860b;
+    --ok:#5fa85c; --ng:#b94a4a;
+    --border:rgba(164,74,63,.25);
+  }
+  body{background:var(--bg);color:var(--ink);
+       font-family:'Noto Sans JP',sans-serif;line-height:1.75;font-size:13px}
+  .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.04em}
+
+  /* 表紙 */
+  .cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+         align-items:center;text-align:center;padding:60px 40px;
+         background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
+         border-bottom:3px double var(--shu);page-break-after:always}
+  .cover-torii{font-size:80px;color:var(--shu);margin-bottom:20px;line-height:1}
+  .cover-title{font-size:42px;color:var(--shu);font-weight:700;letter-spacing:.3em;margin-bottom:10px}
+  .cover-sub{font-size:18px;color:var(--ink-soft);letter-spacing:.2em;margin-bottom:40px}
+  .cover-meta{font-size:13px;color:var(--gold-dk);letter-spacing:.15em;font-weight:700;margin-top:20px}
+  .cover-ornament{font-size:24px;color:var(--gold);letter-spacing:1em;margin:30px 0}
+  .cover-quote{margin-top:60px;padding:24px;background:rgba(255,255,255,.5);
+               border:1px solid var(--gold);border-radius:8px;max-width:520px;
+               font-family:'Shippori Mincho',serif;font-size:14px;color:var(--ink);line-height:2}
+  .cover-quote-attr{margin-top:14px;font-size:11px;color:var(--ink-soft);letter-spacing:.2em}
+
+  main{max-width:780px;margin:0 auto;padding:30px 40px}
+  .chapter{padding:30px 0;page-break-inside:avoid}
+  .chapter-num{display:inline-block;background:var(--shu);color:#fff;
+               font-family:'Shippori Mincho',serif;padding:4px 14px;border-radius:4px;
+               font-size:11px;letter-spacing:.3em;margin-bottom:12px;font-weight:700}
+  h1.chapter-title{font-family:'Shippori Mincho',serif;font-size:26px;color:var(--shu);
+                   font-weight:700;letter-spacing:.15em;border-bottom:2px solid var(--shu);
+                   padding-bottom:10px;margin-bottom:20px}
+  h2.section-h{font-family:'Shippori Mincho',serif;font-size:18px;color:var(--shu-dk);
+               font-weight:700;letter-spacing:.1em;margin:24px 0 10px;
+               padding-left:14px;border-left:4px solid var(--gold)}
+  h3.sub-h{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--ink);
+           font-weight:700;margin:18px 0 8px}
+  p{margin:8px 0;line-height:1.85}
+  ul,ol{margin:10px 0 10px 24px;line-height:1.85}
+  li{margin:4px 0}
+  strong,b{color:var(--shu);font-weight:700}
+  code{background:var(--paper-deep);color:var(--shu-dk);padding:2px 6px;
+       border-radius:3px;font-family:'SF Mono',Menlo,monospace;font-size:12px}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:12px}
+  th{background:var(--paper-deep);color:var(--shu);font-weight:700;
+     padding:8px;text-align:left;border:1px solid var(--border)}
+  td{padding:8px;border:1px solid var(--border);vertical-align:top}
+  td.c{text-align:center}
+
+  .box{background:var(--paper);border:1px solid var(--border);border-radius:6px;
+       padding:14px 18px;margin:12px 0}
+  .box-warn{background:rgba(164,74,63,.08);border-left:4px solid var(--shu);padding:14px 18px;border-radius:4px;margin:12px 0}
+  .box-warn h4{color:var(--shu);font-weight:700;margin-bottom:6px;font-size:13px}
+  .box-tip{background:rgba(95,168,92,.08);border-left:4px solid var(--ok);padding:14px 18px;border-radius:4px;margin:12px 0}
+  .box-tip h4{color:#2d5530;font-weight:700;margin-bottom:6px;font-size:13px}
+  .box-code{background:#1A1A1A;color:#FBF7EE;padding:14px 18px;border-radius:6px;
+            font-family:'SF Mono',Menlo,monospace;font-size:12px;line-height:1.7;
+            margin:12px 0;overflow-x:auto}
+  .box-code .comment{color:#8B7530}
+  .box-code .key{color:#a8d4ff}
+
+  .checklist{background:var(--bg-soft);border:1px solid var(--border);border-radius:6px;
+             padding:18px 22px;margin:12px 0}
+  .checklist h4{font-family:'Shippori Mincho',serif;color:var(--shu);font-size:14px;
+                font-weight:700;letter-spacing:.1em;margin-bottom:10px}
+  .checklist ul{list-style:none;margin-left:0}
+  .checklist li{padding:5px 0 5px 26px;position:relative;font-size:12.5px}
+  .checklist li::before{content:'☐';position:absolute;left:0;color:var(--shu);
+                        font-size:16px;font-weight:700}
+
+  .torii-sep{text-align:center;color:var(--shu);font-size:14px;letter-spacing:1em;
+             margin:30px 0 20px;font-family:'Shippori Mincho',serif}
+  .torii-sep::before,.torii-sep::after{content:'─';color:var(--gold);margin:0 14px}
+
+  .musubi{background:#1A1A1A;color:#FBF7EE;border:2px solid var(--gold);
+          border-radius:10px;padding:30px 26px;margin:40px 0;text-align:center}
+  .musubi-text{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--gold);
+               line-height:2;letter-spacing:.06em}
+  .musubi-attr{margin-top:16px;font-size:11px;color:rgba(251,247,238,.55);letter-spacing:.2em}
+
+  .doc-footer{text-align:center;padding:30px 20px;color:var(--ink-soft);
+              font-size:10px;letter-spacing:.15em;border-top:1px solid var(--border);
+              margin-top:40px;background:var(--paper-deep)}
+
+  @media print{
+    body{background:#fff;font-size:11px}
+    .cover{min-height:auto;page-break-after:always}
+    .chapter{page-break-inside:avoid}
+    h1.chapter-title{page-break-after:avoid}
+    .no-print{display:none !important}
+    .box-code{background:#f0f0f0;color:#000;border:1px solid #ccc}
+    .musubi{background:#f0f0f0;color:#000;border:2px solid #888}
+    .musubi-text{color:#444}
+  }
+  @page{size:A4;margin:18mm 14mm}
+
+  .print-btn{position:fixed;bottom:20px;right:20px;padding:14px 24px;
+             background:var(--shu);color:#fff;border:none;border-radius:8px;
+             font-family:'Shippori Mincho',serif;font-size:14px;font-weight:700;
+             letter-spacing:.15em;cursor:pointer;box-shadow:0 4px 12px rgba(164,74,63,.3);
+             z-index:1000}
+  .print-btn:hover{background:var(--shu-dk)}
+
+  /* 比較表専用 */
+  .star{color:var(--gold);font-weight:900;letter-spacing:.05em}
+  .grade-S{background:rgba(212,175,55,.15)}
+  .grade-A{background:rgba(95,168,92,.08)}
+  .grade-B{background:rgba(0,0,0,.02)}
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print mincho" onclick="window.print()">📄 PDF保存（Cmd+P）</button>
+
+<!-- ══ 表紙 ══ -->
+<div class="cover">
+  <div class="cover-torii mincho">⛩</div>
+  <h1 class="cover-title mincho">お 賽 銭 箱</h1>
+  <h2 class="cover-title mincho" style="font-size:26px;letter-spacing:.4em;margin-top:8px">設 置 マ ニ ュ ア ル</h2>
+  <p class="cover-sub mincho">SAISEN-BAKO Setup Guide</p>
+  <div class="cover-ornament mincho">🪙 💴 🎁</div>
+  <p class="cover-meta mincho">神主ニック 専 用</p>
+  <p class="cover-meta mincho" style="margin-top:6px;color:var(--ink-soft)">OFUSE × PayPay × Amazon × Stripe</p>
+
+  <div class="cover-quote">
+    「神宮の運営は、参拝者様の御布施に支えられております。<br>
+    お賽銭は、神獣たちの修行料となります。」<br>
+    <small style="font-size:11px">ご利益：的中率UP（保証なし）</small>
+    <div class="cover-quote-attr mincho">── 御 祭 神　ギ ー ニ ョ 大 神 ──</div>
+  </div>
+
+  <p class="cover-meta mincho" style="margin-top:60px">2026 年 5 月 編 集　／　Version 1.0</p>
+</div>
+
+<main>
+
+<!-- ━━━━━ 目次 ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">序</span>
+  <h1 class="chapter-title">目　次</h1>
+  <ol style="font-family:'Shippori Mincho',serif;font-size:14px;line-height:2.2">
+    <li>第一章　お賽銭文化と神宮の方針</li>
+    <li>第二章　サービス比較（OFUSE / PayPay / Amazon / Stripe）</li>
+    <li>第三章　OFUSE セットアップ（推奨・本命）</li>
+    <li>第四章　PayPay 個人間送金（QRコード方式）</li>
+    <li>第五章　Amazon ほしいものリスト</li>
+    <li>第六章　Stripe Payment Links（自前決済・上級）</li>
+    <li>第七章　note サポート機能（既存ユーザー向け）</li>
+    <li>第八章　サイト「お賽銭箱」セクション設計</li>
+    <li>第九章　仕掛けアイデア（賽銭額別ご利益・殿堂入り）</li>
+    <li>第十章　告知・運用・税務注意</li>
+    <li>第十一章　設置チェックリスト</li>
+    <li>結　お賽銭の哲学</li>
+  </ol>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第一章 ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 一 章</span>
+  <h1 class="chapter-title">お賽銭文化と神宮の方針</h1>
+
+  <h2 class="section-h">なぜお賽銭か（投げ銭ではなく）</h2>
+  <p>「投げ銭」「サポート」「チップ」と言わず、<b>「お賽銭」</b> と呼ぶのが神宮ブランド。</p>
+  <ul>
+    <li><b>世界観統一</b>：神宮の参拝者という体験全体に組み込まれる</li>
+    <li><b>気軽さ</b>：「払う」じゃなく「投げる／納める」精神</li>
+    <li><b>ご利益思想</b>：見返り（的中）を期待する文化と相性◎</li>
+  </ul>
+
+  <h2 class="section-h">神宮的お賽銭の3原則</h2>
+  <ol>
+    <li><b>強制しない</b>：サイトは無料で動かす。賽銭は「気持ち」のみ</li>
+    <li><b>ネタとして楽しむ</b>：「神獣の修行料」「木材メンテ費」等</li>
+    <li><b>透明性</b>：賽銭が何に使われるか、毎週報告</li>
+  </ol>
+
+  <div class="box-tip">
+    <h4>💡 神宮的トーン</h4>
+    <p>「お願いします」ではなく、<b>「神宮にご納得頂けたら、御布施を」</b>のスタンス。
+    押し売り感ゼロで、参拝者に判断を委ねる文化。</p>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第二章 ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 二 章</span>
+  <h1 class="chapter-title">サービス比較</h1>
+
+  <table>
+    <tr>
+      <th>サービス</th>
+      <th>神宮相性</th>
+      <th>手数料</th>
+      <th>振込</th>
+      <th>難易度</th>
+    </tr>
+    <tr class="grade-S">
+      <td><b>OFUSE</b></td>
+      <td><span class="star">★★★★★</span></td>
+      <td>10%</td>
+      <td>月1回</td>
+      <td>易</td>
+    </tr>
+    <tr class="grade-S">
+      <td><b>PayPay 個人間送金</b></td>
+      <td><span class="star">★★★★</span></td>
+      <td>0%</td>
+      <td>即時</td>
+      <td>易</td>
+    </tr>
+    <tr class="grade-A">
+      <td>Amazonほしい物リスト</td>
+      <td><span class="star">★★★★</span></td>
+      <td>0%</td>
+      <td>商品配送</td>
+      <td>易</td>
+    </tr>
+    <tr class="grade-A">
+      <td>note サポート機能</td>
+      <td><span class="star">★★★</span></td>
+      <td>10%</td>
+      <td>月1回</td>
+      <td>既存</td>
+    </tr>
+    <tr class="grade-B">
+      <td>Stripe Payment Links</td>
+      <td><span class="star">★★★</span></td>
+      <td>3.6%</td>
+      <td>週1回</td>
+      <td>中</td>
+    </tr>
+    <tr class="grade-B">
+      <td>Buy Me a Coffee</td>
+      <td><span class="star">★★</span></td>
+      <td>5%</td>
+      <td>週1回</td>
+      <td>中</td>
+    </tr>
+  </table>
+
+  <div class="box-tip">
+    <h4>🦒 ギーニョの推し構成</h4>
+    <p><b>OFUSE（メイン）+ PayPay QR（即時用）+ Amazon ほしいもの（物品支援）</b> の3点セット。<br>
+    note サポートは既存読者用の補助。Stripe は将来 ¥3,000以上の高額対応に。</p>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第三章 OFUSE ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 三 章</span>
+  <h1 class="chapter-title">OFUSE セットアップ（推奨・本命）</h1>
+
+  <p><b>OFUSE</b>は日本のクリエイター御布施プラットフォーム。
+  名前が「御布施」で神宮ブランドと完璧マッチ。</p>
+
+  <h2 class="section-h">登録手順（5分）</h2>
+  <ol>
+    <li><code>https://ofuse.me/</code> にアクセス</li>
+    <li>「クリエイターとして登録」クリック</li>
+    <li>メアド・パスワード設定</li>
+    <li>クリエイター名：<b>「UG競馬神宮 ／ 神主ニック」</b></li>
+    <li>プロフィール：神宮の説明＋note へのリンク</li>
+    <li>振込口座登録（個人銀行口座OK）</li>
+    <li>マイページのURLが発行される（例：<code>https://ofuse.me/ug-jingu</code>）</li>
+  </ol>
+
+  <h2 class="section-h">プロフィール例文</h2>
+  <div class="box">
+    <p style="font-family:'Shippori Mincho',serif;font-size:13px;line-height:1.9">
+    UG競馬神宮、神主ニックです。<br>
+    AI神獣ギーニョと共に、言霊×外厩で全レース予想を公開しております。<br><br>
+    お賽銭は、神宮サーバー代・ギーニョの木材メンテナンス費・神獣たちの修行料に充てさせて頂きます。<br>
+    ご納得頂けましたら、御布施を頂けますと幸いです。<br><br>
+    ⛩ 神宮：https://bakenshiug.github.io/ug-keiba/
+    </p>
+  </div>
+
+  <h2 class="section-h">手数料・振込</h2>
+  <ul>
+    <li>受け取り額の <b>10%</b> がOFUSE手数料</li>
+    <li>月末締め・翌月15日振込</li>
+    <li>1回 <b>¥1,000以上</b> の累計で振込実行</li>
+    <li>確定申告時に「雑所得」として記載</li>
+  </ul>
+
+  <div class="box-warn">
+    <h4>⚠ 注意</h4>
+    <p>クリエイター登録時、本人確認書類提出あり（運転免許証等）。
+    審査に2〜3日かかる場合あるので早めに登録。</p>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第四章 PayPay ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 四 章</span>
+  <h1 class="chapter-title">PayPay 個人間送金（QRコード方式）</h1>
+
+  <p>手数料 <b>0%</b>・即時受け取り。日本ユーザーには最速。</p>
+
+  <h2 class="section-h">QRコード発行手順</h2>
+  <ol>
+    <li>PayPay アプリを開く</li>
+    <li>ホーム画面の <b>「送る・受け取る」</b> をタップ</li>
+    <li><b>「受け取る」</b> をタップ</li>
+    <li>QRコードが表示される → スクショ保存</li>
+    <li>このQRコードを画像として、サイトに掲載</li>
+  </ol>
+
+  <h2 class="section-h">サイト掲載イメージ</h2>
+  <div class="box">
+    <p style="text-align:center;font-family:'Shippori Mincho',serif">
+      💴 銀の賽銭<br>
+      <b>PayPay でお賽銭を投げる</b><br><br>
+      [QRコード画像を表示]<br><br>
+      <small>カメラで読み取って、お好きな金額をどうぞ</small>
+    </p>
+  </div>
+
+  <div class="box-warn">
+    <h4>⚠ 注意</h4>
+    <ul style="margin-top:6px">
+      <li>個人間送金は <b>本人確認済みアカウント</b> 同士のみ</li>
+      <li>PayPayマネーライト（チャージ残高）からは送金可</li>
+      <li>QRコード画像は、定期的に更新するのが安全</li>
+    </ul>
+  </div>
+
+  <div class="box-tip">
+    <h4>💡 名前バレ対策</h4>
+    <p>PayPayでは送金時に相手の本名が表示される場合あり。
+    プライバシー重視なら、別アカウント（ニックネーム登録）を推奨。</p>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第五章 Amazon ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 五 章</span>
+  <h1 class="chapter-title">Amazon ほしいものリスト</h1>
+
+  <p>物品で支援を受ける形式。手数料0%、配送はAmazon任せ。</p>
+
+  <h2 class="section-h">作成手順</h2>
+  <ol>
+    <li>Amazon アカウントにログイン</li>
+    <li>右上の「アカウント＆リスト」→「ほしい物リスト」</li>
+    <li>「リストを作成」</li>
+    <li>名前：<b>「神宮ほしい物リスト」</b>（公開設定）</li>
+    <li>送付先住所：<b>受取人名「UG競馬神宮」匿名（コンビニ受取）も可</b></li>
+    <li>欲しいものを追加（例：マイク、書籍、Stripe API 本、競馬書籍、コーヒー豆、PCグッズ等）</li>
+    <li>「リストを共有」→ URLをコピー</li>
+  </ol>
+
+  <h2 class="section-h">推奨ラインナップ例</h2>
+  <table>
+    <tr><th>カテゴリ</th><th>商品例</th><th>賽銭金額目安</th></tr>
+    <tr><td>消耗品</td><td>コーヒー豆・お茶</td><td>¥500〜¥2,000</td></tr>
+    <tr><td>書籍</td><td>競馬書籍・Python本</td><td>¥1,000〜¥3,000</td></tr>
+    <tr><td>機材</td><td>マイク・キーボード・モニター</td><td>¥5,000〜</td></tr>
+    <tr><td>サーバー</td><td>VPSギフトカード</td><td>¥1,000〜</td></tr>
+    <tr><td>謎</td><td>木材（ギーニョの体）</td><td>ネタ</td></tr>
+  </table>
+
+  <div class="box-warn">
+    <h4>⚠ 住所バレ対策</h4>
+    <p>「コンビニ受取」または<b>「Amazon Hub ロッカー」</b>受取を設定すれば、
+    自宅住所はバレません。神宮ブランドを守るためにも推奨。</p>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第六章 Stripe ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 六 章</span>
+  <h1 class="chapter-title">Stripe Payment Links（自前決済・上級）</h1>
+
+  <p>クレジットカード決済・Apple Pay対応。手数料3.6%。
+  将来 ¥3,000以上の「特別お賽銭」コース用。</p>
+
+  <h2 class="section-h">セットアップ手順</h2>
+  <ol>
+    <li><code>https://stripe.com/jp</code> でアカウント作成</li>
+    <li>本人確認・銀行口座登録（審査3〜5日）</li>
+    <li>ダッシュボード →「支払い」→「決済リンク」</li>
+    <li>「決済リンクを作成」</li>
+    <li>商品名：<b>「神宮 御布施（金の賽銭）」</b></li>
+    <li>金額：固定 or「お客様が決定」を選択</li>
+    <li>リンクが発行される（例：<code>buy.stripe.com/xxx</code>）</li>
+  </ol>
+
+  <h2 class="section-h">3階層 賽銭コース提案</h2>
+  <table>
+    <tr><th>コース名</th><th>金額</th><th>御利益</th></tr>
+    <tr><td>🪙 木の賽銭</td><td>¥500</td><td>ギーニョの木材磨き油</td></tr>
+    <tr><td>🥈 銀の賽銭</td><td>¥1,500</td><td>神獣たちの月一会議の駄菓子代</td></tr>
+    <tr><td>🥇 金の賽銭</td><td>¥5,000</td><td>神宮サーバー代1ヶ月分</td></tr>
+  </table>
+
+  <div class="box-tip">
+    <h4>💡 上級者向け</h4>
+    <p>Stripe は手数料こそかかるが、<b>領収書自動発行・売上管理・税務対応</b>がラク。
+    お賽銭が月¥10,000 を超えそうなら導入価値あり。</p>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第七章 note ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 七 章</span>
+  <h1 class="chapter-title">note サポート機能</h1>
+
+  <p>note の有料記事下に表示される「クリエイターをサポート」機能。
+  既に note アカウントあるなら設定不要。</p>
+
+  <h2 class="section-h">確認手順</h2>
+  <ol>
+    <li>note にログイン</li>
+    <li>マイページ → アカウント設定</li>
+    <li>「サポート機能」が ON になっているか確認</li>
+    <li>振込口座登録</li>
+  </ol>
+
+  <p>記事下に自動で「クリエイターをサポート（¥100/¥500/¥1,000）」ボタンが表示される。</p>
+
+  <div class="box-tip">
+    <h4>💡 連動戦略</h4>
+    <p>note 記事内で「<b>サイト本体ではOFUSEもあります</b>」と誘導 → サイトでは「<b>note サポートも歓迎</b>」と記載。
+    お互いに送客し合う仕組み。</p>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第八章 サイト設計 ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 八 章</span>
+  <h1 class="chapter-title">サイト「お賽銭箱」セクション設計</h1>
+
+  <h2 class="section-h">配置場所</h2>
+  <p>トップページの<b>「賽銭と神恩」セクションの直後</b>または<b>境内図の上</b>に新設。
+  既存の神宮ブランドと統一感を保てる。</p>
+
+  <h2 class="section-h">レイアウトイメージ</h2>
+  <div class="box">
+    <pre style="font-family:'Shippori Mincho',serif;font-size:12px;line-height:1.8">
+⛩ お 賽 銭 箱
+SAISEN-BAKO ─ 神宮の御布施
+
+┌───────────┬───────────┬───────────┐
+│ 🪙 木の賽銭  │ 💴 銀の賽銭  │ 🎁 金の賽銭  │
+│ OFUSE       │ PayPay      │ Amazon       │
+│ [リンク]    │ [QR画像]    │ [リンク]    │
+│ ¥100〜       │ ご自由に    │ ほしい物    │
+└───────────┴───────────┴───────────┘
+
+「お賽銭は、神獣たちの修行料となります」
+ご利益：的中率UP（保証なし）
+    </pre>
+  </div>
+
+  <h2 class="section-h">実装サンプル（神主クロード用）</h2>
+  <p>具体的なHTML/CSSコードは、ニックの各サービスURL揃った段階で実装。
+  サイトの和紙×朱×金カラーで統一されたカードUIを作成予定。</p>
+
+  <h2 class="section-h">追加ページ：賽銭芳名帳</h2>
+  <p>ご利益帳の隣に「<b>賽銭芳名帳（さいせんほうみょうちょう）</b>」を新設可能。</p>
+  <ul>
+    <li>¥500以上のお賽銭主は、希望者のみ匿名 or ハンドルネームで掲載</li>
+    <li>「○○様、ご奉納ありがとうございました」風</li>
+    <li>神宮らしい掲示板UI</li>
+  </ul>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第九章 仕掛け ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 九 章</span>
+  <h1 class="chapter-title">仕掛けアイデア</h1>
+
+  <h2 class="section-h">賽銭額別ご利益（ネタ）</h2>
+  <table>
+    <tr><th>金額</th><th>ご利益（神宮ネタ）</th></tr>
+    <tr><td>¥100</td><td>ギーニョの木製ボディ磨き油代</td></tr>
+    <tr><td>¥500</td><td>ギーニョの新しい毛糸（防寒）</td></tr>
+    <tr><td>¥1,000</td><td>神獣全員の月一会議の駄菓子代</td></tr>
+    <tr><td>¥3,000</td><td>神宮サーバー代1ヶ月分</td></tr>
+    <tr><td>¥5,000</td><td>ニックの転職活動エネルギー（コーヒー50杯）</td></tr>
+    <tr><td>¥10,000</td><td>ギーニョの新しい体（木材アップグレード）</td></tr>
+  </table>
+
+  <h2 class="section-h">奉納者殿堂（任意）</h2>
+  <p>¥1,000以上のお賽銭主を、希望者のみ「<b>神宮奉納者殿堂</b>」にお名前を刻む。</p>
+  <div class="box">
+    <pre style="font-family:'Shippori Mincho',serif;font-size:12px;line-height:1.8">
+⛩ 神 宮 奉 納 者 殿 堂 ⛩
+
+🥇 金の御柱  ○○様（¥10,000以上）
+🥈 銀の御柱  △△様（¥5,000以上）
+🥉 木の御柱  ××様（¥1,000以上）
+
+ご奉納、ありがとうございました。
+    </pre>
+  </div>
+
+  <h2 class="section-h">note 連動：「今週のお賽銭主」</h2>
+  <p>週次の振り返り記事で、その週の奉納者を紹介（任意）。</p>
+  <ul>
+    <li>「今週は○○様より¥1,000、××様より¥500のご奉納を頂きました」</li>
+    <li>「ギーニョの修行料、また増えました」風</li>
+    <li>賽銭主の存在感UP→新規賽銭の誘発</li>
+  </ul>
+
+  <h2 class="section-h">逆ご利益（楽しいネタ）</h2>
+  <ul>
+    <li><b>ハズレ続きの週</b>：「お賽銭返金しかねます。神獣たちが食べました」</li>
+    <li><b>ガミの週</b>：「神獣の修行が足りませんでした。お賽銭はその授業料です」</li>
+    <li><b>大当たり週</b>：「奉納者全員にご利益あり！（保証なし）」</li>
+  </ul>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第十章 告知・運用 ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 十 章</span>
+  <h1 class="chapter-title">告知・運用・税務注意</h1>
+
+  <h2 class="section-h">告知タイミング</h2>
+  <ol>
+    <li><b>note vol.5 or vol.6</b> で「来週からお賽銭機能、追加します」と予告</li>
+    <li>サイトに賽銭箱セクション設置</li>
+    <li>X/Twitter で告知ツイート</li>
+    <li>ご利益帳に「奉納者殿堂」リンク追加</li>
+  </ol>
+
+  <h2 class="section-h">SNS告知文サンプル</h2>
+  <div class="box">
+    <p style="font-family:'Hiragino Sans',sans-serif;font-size:12px;line-height:1.9">
+    ⛩ 神宮、お賽銭箱を設置しました<br><br>
+    UG競馬神宮、来週から正式運用開始。<br>
+    神獣たちの修行料として、お賽銭ご奉納いただけますと幸いです。<br><br>
+    🪙 OFUSE：[URL]<br>
+    💴 PayPay：[QRコード]<br>
+    🎁 Amazon：[ほしい物リスト]<br><br>
+    ご利益：的中率UP（保証なし）<br><br>
+    🔗 神宮：https://bakenshiug.github.io/ug-keiba/<br>
+    #UG競馬神宮 #競馬予想 #お賽銭
+    </p>
+  </div>
+
+  <h2 class="section-h">税務注意</h2>
+  <div class="box-warn">
+    <h4>⚠ 確定申告</h4>
+    <ul style="margin-top:6px">
+      <li>年間賽銭収入が <b>¥200,000超</b> → 確定申告必須（雑所得）</li>
+      <li>サラリーマン副業の場合、年間<b>¥200,000以下</b>なら申告不要（住民税のみ要申告）</li>
+      <li>OFUSE・Stripe は年間収支が記録される</li>
+      <li>PayPay 個人間送金も実態として収入なら課税対象</li>
+      <li>領収書・記録を必ず保管</li>
+    </ul>
+  </div>
+
+  <h2 class="section-h">不正・トラブル対応</h2>
+  <ul>
+    <li>賽銭返金リクエスト → 基本的に不可、ただし二重送金等は対応</li>
+    <li>悪意ある大量送金 → サービス側に通報</li>
+    <li>QRコード偽造リスク → 定期更新で対応</li>
+  </ul>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 第十一章 チェックリスト ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">第 十 一 章</span>
+  <h1 class="chapter-title">設置チェックリスト</h1>
+
+  <div class="checklist">
+    <h4>🪙 OFUSE 設定（推奨スタート）</h4>
+    <ul>
+      <li>OFUSE クリエイター登録</li>
+      <li>本人確認書類提出</li>
+      <li>振込口座登録</li>
+      <li>プロフィール設定（神宮ブランド）</li>
+      <li>マイページURL取得</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>💴 PayPay QR 準備</h4>
+    <ul>
+      <li>PayPay 本人確認済みアカウント</li>
+      <li>「受け取る」QRコード発行</li>
+      <li>QRコードをPNG画像で保存</li>
+      <li>必要なら別アカウント（ニックネーム）作成</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>🎁 Amazon ほしい物リスト</h4>
+    <ul>
+      <li>Amazon アカウントで「ほしい物リスト」作成</li>
+      <li>公開設定</li>
+      <li>受取住所をコンビニ受取 or Hub に設定</li>
+      <li>5〜10商品をネタ込みで追加</li>
+      <li>リストURL取得</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>🌐 サイト実装</h4>
+    <ul>
+      <li>各サービスURLをクロードに渡す</li>
+      <li>「お賽銭箱」セクションHTML/CSS実装</li>
+      <li>QRコード画像を <code>docs/img/paypay-qr.png</code> に配置</li>
+      <li>賽銭芳名帳ページ作成（任意）</li>
+      <li>テスト：自分で全サービスにアクセスしてみる</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>📢 告知</h4>
+    <ul>
+      <li>note 記事で予告（vol.5 or vol.6）</li>
+      <li>X/Twitter で告知</li>
+      <li>サイトトップに「NEW」マーク</li>
+      <li>ご利益帳に賽銭芳名帳リンク追加</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>📊 運用（毎週）</h4>
+    <ul>
+      <li>賽銭額確認</li>
+      <li>新規奉納者を芳名帳に追加（希望者のみ）</li>
+      <li>note 振り返り記事で「今週のお賽銭主」紹介</li>
+      <li>QRコード定期更新（月1）</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h4>📋 確定申告準備（年末）</h4>
+    <ul>
+      <li>OFUSE 年間収支ダウンロード</li>
+      <li>PayPay 取引履歴ダウンロード</li>
+      <li>Amazon ほしいもの受取記録メモ</li>
+      <li>必要なら税理士相談</li>
+    </ul>
+  </div>
+</div>
+
+<div class="torii-sep">⛩</div>
+
+<!-- ━━━━━ 結 ━━━━━ -->
+<div class="chapter">
+  <span class="chapter-num mincho">結</span>
+  <h1 class="chapter-title">お賽銭の哲学</h1>
+
+  <p>
+  神宮の運営には、サーバー代がかかる。<br>
+  ニックの稼働時間も、無限ではない。<br>
+  ギーニョの木材だって、いつか劣化する。
+  </p>
+
+  <p>
+  でも、お賽銭は <b>「払うもの」じゃなく、「投げるもの」</b>。<br>
+  気持ちが乗った時に、気持ちの分だけ。<br>
+  それが神宮の流儀である。
+  </p>
+
+  <p>
+  「無料公開のサイトに、なぜお金を投げるのか」<br>
+  ──ご利益への期待。<br>
+  ──神獣たちへの応援。<br>
+  ──ただ、面白かったから。
+  </p>
+
+  <p>
+  どの理由でも、神宮は喜んで受け取る。<br>
+  そしてその気持ちは、必ず次の予想精度に反映される（保証なし）。
+  </p>
+
+  <div class="musubi">
+    <p class="musubi-text">
+      お賽銭は、心。<br>
+      心は、神獣の力に変わる。<br>
+      神獣の力は、的中に変わる。<br>
+      <br>
+      ⛩ ご 奉 納 を、心 よ り 感 謝 申 し 上 げ ま す ⛩
+    </p>
+    <p class="musubi-attr mincho">── 御 祭 神　ギ ー ニ ョ 大 神 ──</p>
+  </div>
+</div>
+
+</main>
+
+<div class="doc-footer">
+  ⛩ U G 競 馬 神 宮　／　お 賽 銭 箱 設 置 マ ニ ュ ア ル　Version 1.0<br>
+  2026 年 5 月編集　／　神主ニック 専 用　／　無断配布禁止
+</div>
+
+</body>
+</html>
