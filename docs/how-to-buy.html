@@ -82,6 +82,46 @@
   .soroban-row.total{font-weight:900;color:var(--shu);font-size:16px;padding-top:10px;margin-top:6px;
                      border-top:2px solid var(--shu)}
 
+  /* ── 二参拝道（並列） ── */
+  .nidou-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media (max-width:780px){.nidou-grid{grid-template-columns:1fr}}
+  .nidou-col{background:var(--paper);border:1px solid rgba(201,169,97,.4);border-radius:14px;
+             padding:18px;display:flex;flex-direction:column;gap:10px}
+  .nidou-col.axis{border:2px solid var(--kin);
+                  background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 100%);
+                  box-shadow:0 0 14px rgba(201,168,76,.25)}
+  .nidou-h{text-align:center;font-family:'Shippori Mincho',serif;font-weight:900;
+           font-size:15px;color:var(--shu);letter-spacing:.1em;
+           padding-bottom:10px;border-bottom:2px solid var(--shu)}
+  .nidou-col.axis .nidou-h{color:var(--kin-dk);border-bottom-color:var(--kin)}
+  .nidou-h small{display:block;font-size:11px;color:rgba(26,26,26,.55);font-weight:600;
+                 letter-spacing:.05em;margin-top:4px;font-family:'Inter',sans-serif}
+  .nidou-row{display:grid;grid-template-columns:1fr auto;gap:10px;font-size:12.5px;
+             padding:6px 4px;border-bottom:1px dashed rgba(201,169,97,.25)}
+  .nidou-row:last-child{border:none}
+  .nidou-row .label{font-family:'Shippori Mincho',serif;font-weight:700;color:var(--ink)}
+  .nidou-row .label small{display:block;font-size:9px;color:rgba(26,26,26,.5);font-weight:400;
+                          letter-spacing:.05em;font-family:'Inter',sans-serif}
+  .nidou-row .pts{font-family:'Inter',sans-serif;font-weight:900;text-align:right;color:var(--shu)}
+  .nidou-col.axis .nidou-row .pts{color:var(--kin-dk)}
+  .nidou-row .pts small{display:block;font-size:9px;font-weight:400;color:rgba(26,26,26,.5);letter-spacing:.05em}
+  .nidou-total{display:grid;grid-template-columns:1fr auto;gap:10px;
+               background:#fff;border-radius:6px;padding:10px 12px;margin-top:6px;
+               border:1px solid var(--kin);font-family:'Shippori Mincho',serif;font-weight:900;
+               box-shadow:0 1px 4px rgba(155,45,48,.08)}
+  .nidou-total .pts{font-family:'Inter',sans-serif;font-weight:900;font-size:18px;color:var(--shu);text-align:right}
+  .nidou-col.axis .nidou-total .pts{color:var(--kin-dk)}
+  .nidou-result{margin-top:10px;padding:12px;background:rgba(201,169,97,.1);
+                border-radius:6px;text-align:center;font-family:'Shippori Mincho',serif}
+  .nidou-result .num{font-family:'Inter',sans-serif;font-size:28px;font-weight:900;color:var(--shu)}
+  .nidou-col.axis .nidou-result .num{color:var(--kin-dk)}
+  .nidou-result .num.win{color:#1F4D2E}
+  .nidou-result .lbl{font-size:11px;color:rgba(26,26,26,.6);font-weight:600;letter-spacing:.1em;margin-top:4px}
+  .nidou-badge{display:inline-block;padding:3px 10px;background:linear-gradient(135deg,#f4d03f,#b8860b);
+               color:#3a2a00;font-family:'Shippori Mincho',serif;font-size:10px;font-weight:900;
+               border-radius:3px;letter-spacing:.1em;margin-left:6px;
+               box-shadow:0 1px 3px rgba(184,134,11,.4)}
+
   /* ── 実証データ ─── */
   .proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
   .proof-card{background:var(--paper);border:1px solid rgba(201,169,97,.4);border-radius:12px;
@@ -189,111 +229,65 @@
   </div>
 
   <!-- 鳥居 -->
-  <div class="torii-sep"><span class="torii-mark">🎴 七 券 種 の 神 託 🎴</span></div>
+  <div class="torii-sep"><span class="torii-mark">🎴 二 つ の 参 拝 道 🎴</span></div>
 
-  <!-- 4. 七券種 -->
+  <!-- 4. 二参拝道（並列） -->
   <p class="text-xs text-center" style="color:rgba(26,26,26,.7);line-height:1.7">
-    神宮★降順で<b>四頭</b>を選定し、七券種BOXを撃つ。<br>
-    1Rあたり <b class="num" style="color:#9B2D30">60点 ¥6,000</b>。
+    神宮★降順で<b>四頭</b>を選定。馬券道は<b>二つ</b>。<br>
+    広く構える<b style="color:#9B2D30">「BOX道」</b>か、◎を信じる<b style="color:#8B7530">「軸流し道」</b>か。<br>
+    どちらも、参拝者が選べばよい。
   </p>
 
-  <div class="space-y-3">
+  <div class="nidou-grid">
 
-    <div class="ken-card">
-      <div class="ken-icon">☀</div>
-      <div>
-        <div class="ken-name">単勝 4点</div>
-        <div class="ken-meta">TAN-SHO ／ 4頭</div>
+    <!-- 左：BOX道 -->
+    <div class="nidou-col">
+      <div class="nidou-h">
+        単複4頭購入＆4頭BOX購入<br>
+        <small>BOX-DO ／ 広く構える道</small>
       </div>
-      <div class="ken-rec" style="color:#8B7530">¥400<small>4 × 100</small></div>
-      <p class="ken-desc">本命を1頭に絞らず、4頭それぞれに撃つ。妙味マスから1着が出れば配当大。</p>
-    </div>
-
-    <div class="ken-card">
-      <div class="ken-icon">🌿</div>
-      <div>
-        <div class="ken-name">複勝 4点 <span style="font-size:11px;color:#1F4D2E">守りの主柱</span></div>
-        <div class="ken-meta">FUKU-SHO ／ 4頭</div>
+      <div class="nidou-row"><span class="label">☀ 単勝 4点<small>4頭それぞれ</small></span><span class="pts">¥400<small>4 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🌿 複勝 4点<small>守りの主柱</small></span><span class="pts">¥400<small>4 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🤝 ワイドBOX 6点<small>4C2</small></span><span class="pts">¥600<small>6 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🔗 馬連BOX 6点<small>4C2</small></span><span class="pts">¥600<small>6 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🎯 馬単BOX 12点<small>4P2</small></span><span class="pts">¥1,200<small>12 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🌊 3連複BOX 4点<small>4C3</small></span><span class="pts">¥400<small>4 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🔥 3連単BOX 24点<small>4P3</small></span><span class="pts">¥2,400<small>24 × 100</small></span></div>
+      <div class="nidou-total"><span>合計 60点</span><span class="pts">¥6,000</span></div>
+      <div class="nidou-result">
+        <div class="num win">101.5%</div>
+        <div class="lbl">5/3 全36R 総合回収率</div>
       </div>
-      <div class="ken-rec" style="color:#1F4D2E">¥400<small>4 × 100</small></div>
-      <p class="ken-desc">神宮の<b>最後の砦</b>。複勝的中率<b class="num">88.9%</b>を死守する基盤。攻めすぎて崩すべからず。</p>
-    </div>
-
-    <div class="ken-card">
-      <div class="ken-icon">🤝</div>
-      <div>
-        <div class="ken-name">ワイドBOX 6点</div>
-        <div class="ken-meta">WIDE BOX ／ 4C2</div>
-      </div>
-      <div class="ken-rec" style="color:#9B2D30">¥600<small>6 × 100</small></div>
-      <p class="ken-desc">2頭の共鳴を6通り。複勝の上位互換。3着以内2頭で着実に拾う。</p>
-    </div>
-
-    <div class="ken-card">
-      <div class="ken-icon">🔗</div>
-      <div>
-        <div class="ken-name">馬連BOX 6点</div>
-        <div class="ken-meta">UMAREN BOX ／ 4C2</div>
-      </div>
-      <div class="ken-rec" style="color:#9B2D30">¥600<small>6 × 100</small></div>
-      <p class="ken-desc">1-2着の組合せ6通り。妙味マス絡みで配当跳ねる。</p>
-    </div>
-
-    <div class="ken-card">
-      <div class="ken-icon">🎯</div>
-      <div>
-        <div class="ken-name">馬単BOX 12点</div>
-        <div class="ken-meta">UMATAN BOX ／ 4P2</div>
-      </div>
-      <div class="ken-rec" style="color:#9B2D30">¥1,200<small>12 × 100</small></div>
-      <p class="ken-desc">1着→2着の順序まで指定12通り。中堅の柱。</p>
-    </div>
-
-    <div class="ken-card">
-      <div class="ken-icon">🌊</div>
-      <div>
-        <div class="ken-name">3連複BOX 4点</div>
-        <div class="ken-meta">SANRENPUKU BOX ／ 4C3</div>
-      </div>
-      <div class="ken-rec" style="color:#9B2D30">¥400<small>4 × 100</small></div>
-      <p class="ken-desc">3着以内の3頭組合せ。少点数で大配当の可能性を残す。</p>
-    </div>
-
-    <div class="ken-card win" style="position:relative">
-      <div class="ken-icon" style="background:linear-gradient(135deg,#fff4b8,#f4d03f);border-color:var(--gold)">🔥</div>
-      <div>
-        <div class="ken-name">3連単BOX 24点 <span class="win-badge">5/3 勝者</span></div>
-        <div class="ken-meta">SANRENTAN BOX ／ 4P3</div>
-      </div>
-      <div class="ken-rec" style="color:var(--kin-dk)">¥2,400<small>24 × 100</small></div>
-      <p class="ken-desc">
-        <b>2026-05-03 言霊神宮 36R運用にて回収率 116.3% で7券種中トップを制覇。</b>
-        妙味マス絡みで爆発した時の破壊力は他の追随を許さず。<br>
-        <b style="color:#7A1E1E">来週以降、★★★★★以上の3頭BOX 6点（¥600）への縮小実験</b>を開始。
-        投資¥2,400→¥600で爆発係数4倍を狙う。
+      <p class="text-[10px] text-center" style="color:rgba(26,26,26,.6);line-height:1.7">
+        広く張って取りこぼし最小化。<br>
+        絡み率高いが投資額大。
       </p>
     </div>
 
-  </div>
+    <!-- 右：◎軸流し道 -->
+    <div class="nidou-col axis">
+      <div class="nidou-h">
+        ★単複◎1点購入＆◎軸流し購入<br>
+        <small>JIKU-NAGASHI-DO ／ ◎を信じる道</small>
+      </div>
+      <div class="nidou-row"><span class="label">☀ 単勝◎ 1点<small>本命のみ</small></span><span class="pts">¥100<small>1 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🌿 複勝◎ 1点<small>本命のみ</small></span><span class="pts">¥100<small>1 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🤝 ワイド ◎-相手3頭<small>軸流し</small></span><span class="pts">¥300<small>3 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🔗 馬連 ◎-相手3頭<small>軸流し</small></span><span class="pts">¥300<small>3 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🎯 馬単 ◎-相手3頭マルチ<small>軸流し</small></span><span class="pts">¥600<small>6 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🌊 3連複 ◎-相手3頭<small>軸流し</small></span><span class="pts">¥300<small>3 × 100</small></span></div>
+      <div class="nidou-row"><span class="label">🔥 3連単 ◎-相手3頭マルチ<small>軸流し</small></span><span class="pts">¥1,800<small>18 × 100</small></span></div>
+      <div class="nidou-total"><span>合計 35点 <span class="nidou-badge">★神宮採用</span></span><span class="pts">¥3,500</span></div>
+      <div class="nidou-result">
+        <div class="num win">146.3%</div>
+        <div class="lbl">5/3 全36R 総合回収率</div>
+      </div>
+      <p class="text-[10px] text-center" style="color:rgba(26,26,26,.6);line-height:1.7">
+        投資<b>42%カット</b>で回収率<b>+44.8pt</b>UP。<br>
+        ◎の精度が直接効く戦略。
+      </p>
+    </div>
 
-  <!-- 鳥居 -->
-  <div class="torii-sep"><span class="torii-mark">🧮 神殿の算盤 🧮</span></div>
-
-  <!-- 5. 算盤 -->
-  <div class="soroban">
-    <p class="text-xs text-center font-bold mb-3" style="color:#9B2D30;letter-spacing:.1em">⛩ 1レースあたりの奉納額 ⛩</p>
-    <div class="soroban-row"><span>単勝 4点</span><span class="num">¥400</span></div>
-    <div class="soroban-row"><span>複勝 4点</span><span class="num">¥400</span></div>
-    <div class="soroban-row"><span>ワイドBOX 6点</span><span class="num">¥600</span></div>
-    <div class="soroban-row"><span>馬連BOX 6点</span><span class="num">¥600</span></div>
-    <div class="soroban-row"><span>馬単BOX 12点</span><span class="num">¥1,200</span></div>
-    <div class="soroban-row"><span>3連複BOX 4点</span><span class="num">¥400</span></div>
-    <div class="soroban-row"><span>3連単BOX 24点</span><span class="num">¥2,400</span></div>
-    <div class="soroban-row total"><span>合計 60点</span><span class="num">¥6,000</span></div>
-    <p class="text-[10px] text-center mt-3" style="color:rgba(26,26,26,.6);line-height:1.6">
-      36レース全て撃てば<b class="num">¥216,000</b>。<br>
-      但し<b>致命ワード持ち馬の混入レース</b>は見送り推奨。
-    </p>
   </div>
 
   <!-- 鳥居 -->
@@ -307,13 +301,13 @@
   <div class="proof-grid">
     <div class="proof-card">
       <div class="proof-num win">101.5%</div>
-      <div class="proof-label">総合回収率</div>
+      <div class="proof-label">BOX道 回収率</div>
       <div class="proof-meta">投資¥216,000 / 払戻¥219,140</div>
     </div>
     <div class="proof-card">
-      <div class="proof-num">88.9%</div>
-      <div class="proof-label">レース的中率</div>
-      <div class="proof-meta">36R中 32R的中</div>
+      <div class="proof-num win" style="color:#b8860b">146.3%</div>
+      <div class="proof-label">★軸流し道 回収率</div>
+      <div class="proof-meta">投資¥126,000 / 払戻¥184,370</div>
     </div>
     <div class="proof-card">
       <div class="proof-num win">116.3%</div>
@@ -333,10 +327,16 @@
   <!-- 7. 結び -->
   <div class="musubi">
     <p class="kotoba text-center">
-      複勝にて守り、<br>
-      3連単にて攻むべし。<br>
-      二神の声、揃いし時に<br>
-      麒麟は降臨す。
+      BOX道は広く構え、<br>
+      軸流し道は◎を信ず。<br>
+      参拝者よ、己の道を選べ。<br>
+      <br>
+      <small style="font-size:13px;color:rgba(201,169,97,.85)">
+        ── 神宮の構想 ──<br>
+        将来、レース毎に<b style="color:#C9A961">BOX</b>か<b style="color:#C9A961">軸流し</b>かを神獣が指定する日が来る。<br>
+        あるいは、<b style="color:#C9A961">軸流しに徹する</b>のも一つの参拝の形。<br>
+        どちらも、神宮はお迎えする。
+      </small>
     </p>
     <p class="text-[10px] text-center mt-5" style="color:rgba(251,247,238,.55);letter-spacing:.15em">
       ── 御祭神 ギーニョ大神 ──
