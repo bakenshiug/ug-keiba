@@ -104,6 +104,28 @@
   footer a{color:var(--shu);text-decoration:none;font-weight:700;margin:0 8px}
 
   .loading{text-align:center;color:var(--ink-soft);padding:40px;font-style:italic}
+
+  /* 戦略並列 */
+  .strategy-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+  @media (max-width:900px){.strategy-grid{grid-template-columns:1fr}}
+  .strategy-col{display:flex;flex-direction:column;gap:0}
+  .strategy-h{text-align:center;font-size:13px;color:var(--shu);font-weight:700;
+              letter-spacing:.12em;padding:8px 12px;margin-bottom:0;
+              background:var(--paper-deep);border-radius:6px 6px 0 0;
+              border:1px solid var(--border);border-bottom:none}
+  .strategy-col.axis .strategy-h{color:var(--gold-dk);background:#fff6e8;
+                                  border-color:var(--gold)}
+  .strategy-col > .kpi-board,
+  .strategy-col > .kind-board,
+  .strategy-col > .by-grid{margin:0;border-radius:0 0 10px 10px}
+  .strategy-col.axis .axis-board{border:2px solid var(--gold);
+                                  background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 100%);
+                                  box-shadow:0 0 14px rgba(201,168,76,.25)}
+  .strategy-col.axis .by-grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .strategy-col .by-grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .strategy-col.axis .axis-card{border:1px solid var(--gold);
+                                 background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 100%)}
+  .strategy-col.axis .axis-card .by-h{color:var(--gold-dk)}
 </style>
 </head>
 <body>
@@ -119,28 +141,62 @@
 
   <!-- KPIサマリー -->
   <h2 class="sec-title mincho">神 恩 倍 率　累 計</h2>
-  <p class="sec-sub mincho">CUMULATIVE STATS</p>
-  <div class="kpi-board">
-    <div class="kpi-grid">
-      <div class="kpi-card hi">
-        <div class="kpi-label">総合回収率</div>
-        <div class="kpi-value gold" id="kpi-recovery">—</div>
-        <div class="kpi-detail" id="kpi-recovery-d">読み込み中…</div>
+  <p class="sec-sub mincho">CUMULATIVE STATS ─ 二戦略 並列比較</p>
+
+  <div class="strategy-grid">
+    <div class="strategy-col">
+      <div class="strategy-h mincho">単複4頭購入＆4頭BOX購入</div>
+      <div class="kpi-board">
+        <div class="kpi-grid">
+          <div class="kpi-card hi">
+            <div class="kpi-label">総合回収率</div>
+            <div class="kpi-value gold" id="kpi-recovery">—</div>
+            <div class="kpi-detail" id="kpi-recovery-d">読み込み中…</div>
+          </div>
+          <div class="kpi-card hi">
+            <div class="kpi-label">レース的中率</div>
+            <div class="kpi-value" id="kpi-hitrate">—</div>
+            <div class="kpi-detail" id="kpi-hitrate-d">複勝以上の的中</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">累計投資</div>
+            <div class="kpi-value" id="kpi-invest" style="color:var(--ink)">—</div>
+            <div class="kpi-detail">七券種BOX</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">累計払戻</div>
+            <div class="kpi-value" id="kpi-payout" style="color:var(--ink)">—</div>
+            <div class="kpi-detail" id="kpi-net">—</div>
+          </div>
+        </div>
       </div>
-      <div class="kpi-card hi">
-        <div class="kpi-label">レース的中率</div>
-        <div class="kpi-value" id="kpi-hitrate">—</div>
-        <div class="kpi-detail" id="kpi-hitrate-d">複勝以上の的中</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">累計投資</div>
-        <div class="kpi-value" id="kpi-invest" style="color:var(--ink)">—</div>
-        <div class="kpi-detail">七券種BOX</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">累計払戻</div>
-        <div class="kpi-value" id="kpi-payout" style="color:var(--ink)">—</div>
-        <div class="kpi-detail" id="kpi-net">—</div>
+    </div>
+
+    <div class="strategy-col axis">
+      <div class="strategy-h mincho">★単複◎1点購入＆◎軸流し購入</div>
+      <div class="kpi-board axis-board">
+        <div class="kpi-grid">
+          <div class="kpi-card hi">
+            <div class="kpi-label">総合回収率</div>
+            <div class="kpi-value gold" id="kpi-recovery-a">—</div>
+            <div class="kpi-detail" id="kpi-recovery-ad">読み込み中…</div>
+          </div>
+          <div class="kpi-card hi">
+            <div class="kpi-label">レース的中率</div>
+            <div class="kpi-value" id="kpi-hitrate-a">—</div>
+            <div class="kpi-detail" id="kpi-hitrate-ad">複勝以上の的中</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">累計投資</div>
+            <div class="kpi-value" id="kpi-invest-a" style="color:var(--ink)">—</div>
+            <div class="kpi-detail">◎軸流し（35点）</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">累計払戻</div>
+            <div class="kpi-value" id="kpi-payout-a" style="color:var(--ink)">—</div>
+            <div class="kpi-detail" id="kpi-net-a">—</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -148,26 +204,60 @@
   <!-- 券種別 -->
   <h2 class="sec-title mincho">七 券 種 別　成 績</h2>
   <p class="sec-sub mincho">BY BET TYPE</p>
-  <div class="kind-board">
-    <table class="kind-table" id="kind-table">
-      <thead>
-        <tr><th>券種</th><th class="r">的中率</th><th class="r">投資</th><th class="r">払戻</th><th class="r">回収率</th></tr>
-      </thead>
-      <tbody id="kind-tbody"><tr><td colspan="5" class="loading">読み込み中…</td></tr></tbody>
-    </table>
+  <div class="strategy-grid">
+    <div class="strategy-col">
+      <div class="strategy-h mincho">単複4頭購入＆4頭BOX購入</div>
+      <div class="kind-board">
+        <table class="kind-table" id="kind-table">
+          <thead>
+            <tr><th>券種</th><th class="r">的中率</th><th class="r">投資</th><th class="r">払戻</th><th class="r">回収率</th></tr>
+          </thead>
+          <tbody id="kind-tbody"><tr><td colspan="5" class="loading">読み込み中…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="strategy-col axis">
+      <div class="strategy-h mincho">★単複◎1点購入＆◎軸流し購入</div>
+      <div class="kind-board axis-board">
+        <table class="kind-table">
+          <thead>
+            <tr><th>券種</th><th class="r">的中率</th><th class="r">投資</th><th class="r">払戻</th><th class="r">回収率</th></tr>
+          </thead>
+          <tbody id="kind-tbody-a"><tr><td colspan="5" class="loading">読み込み中…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <!-- 場別 / 週別 -->
   <h2 class="sec-title mincho">場 別 ・ 週 別</h2>
   <p class="sec-sub mincho">BY VENUE & WEEK</p>
-  <div class="by-grid">
-    <div class="by-card">
-      <div class="by-h mincho">場 別 回 収 率</div>
-      <div id="by-venue"><div class="loading">読み込み中…</div></div>
+  <div class="strategy-grid">
+    <div class="strategy-col">
+      <div class="strategy-h mincho">単複4頭購入＆4頭BOX購入</div>
+      <div class="by-grid">
+        <div class="by-card">
+          <div class="by-h mincho">場 別 回 収 率</div>
+          <div id="by-venue"><div class="loading">読み込み中…</div></div>
+        </div>
+        <div class="by-card">
+          <div class="by-h mincho">週 別 回 収 率</div>
+          <div id="by-week"><div class="loading">読み込み中…</div></div>
+        </div>
+      </div>
     </div>
-    <div class="by-card">
-      <div class="by-h mincho">週 別 回 収 率</div>
-      <div id="by-week"><div class="loading">読み込み中…</div></div>
+    <div class="strategy-col axis">
+      <div class="strategy-h mincho">★単複◎1点購入＆◎軸流し購入</div>
+      <div class="by-grid">
+        <div class="by-card axis-card">
+          <div class="by-h mincho">場 別 回 収 率</div>
+          <div id="by-venue-a"><div class="loading">読み込み中…</div></div>
+        </div>
+        <div class="by-card axis-card">
+          <div class="by-h mincho">週 別 回 収 率</div>
+          <div id="by-week-a"><div class="loading">読み込み中…</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -200,9 +290,52 @@
     tan:'単勝', fuku:'複勝', wide:'ワイドBOX', umaren:'馬連BOX',
     umatan:'馬単BOX', sanrenpuku:'3連複BOX', sanrentan:'3連単BOX'
   };
+  const AXIS_KIND_LABEL = {
+    tan:'単勝◎', fuku:'複勝◎', wide:'ワイド流', umaren:'馬連流',
+    umatan:'馬単流マ', sanrenpuku:'3連複流', sanrentan:'3連単流マ'
+  };
+  const AXIS_INVEST = {tan:100,fuku:100,wide:300,umaren:300,umatan:600,sanrenpuku:300,sanrentan:1800};
   const KINDS = ['tan','fuku','wide','umaren','umatan','sanrenpuku','sanrentan'];
   const VENUE_ORDER = ['東京','京都','新潟','中山','阪神','中京','福島','小倉','札幌','函館'];
   const fmt = n => '¥' + (n||0).toLocaleString();
+
+  // ◎軸流し計算
+  function calcAxis(race){
+    const picks = race.picks || [];
+    const payouts = race.result && race.result.payouts;
+    if (picks.length<4 || !payouts) return null;
+    const axis = String(parseInt(picks[0].num,10));
+    const aite = picks.slice(1,4).map(p => String(parseInt(p.num,10)));
+    const invest = {...AXIS_INVEST};
+    const payout = {tan:0,fuku:0,wide:0,umaren:0,umatan:0,sanrenpuku:0,sanrentan:0};
+    (payouts.tan||[]).forEach(p => { if ((p.combo||[]).includes(axis)) payout.tan += p.amount||0; });
+    (payouts.fuku||[]).forEach(p => { if ((p.combo||[]).includes(axis)) payout.fuku += p.amount||0; });
+    ['wide','umaren'].forEach(k => {
+      (payouts[k]||[]).forEach(p => {
+        const c=p.combo||[]; if (!c.includes(axis)) return;
+        const other = c.filter(x => x!==axis);
+        if (other.some(o => aite.includes(o))) payout[k] += p.amount||0;
+      });
+    });
+    (payouts.umatan||[]).forEach(p => {
+      const c=p.combo||[]; if (c.length<2 || !c.includes(axis)) return;
+      const other = c.filter(x => x!==axis);
+      if (other.some(o => aite.includes(o))) payout.umatan += p.amount||0;
+    });
+    (payouts.sanrenpuku||[]).forEach(p => {
+      const c=p.combo||[]; if (!c.includes(axis)) return;
+      const other = c.filter(x => x!==axis);
+      if (other.length>=2 && aite.includes(other[0]) && aite.includes(other[1])) payout.sanrenpuku += p.amount||0;
+    });
+    (payouts.sanrentan||[]).forEach(p => {
+      const c=p.combo||[]; if (c.length<3 || !c.includes(axis)) return;
+      const other = c.filter(x => x!==axis);
+      if (other.length>=2 && aite.includes(other[0]) && aite.includes(other[1])) payout.sanrentan += p.amount||0;
+    });
+    const inv = Object.values(invest).reduce((a,b)=>a+b,0);
+    const pay = Object.values(payout).reduce((a,b)=>a+b,0);
+    return {invest,payout,investTotal:inv,payoutTotal:pay,recovery:inv?pay/inv*100:0};
+  }
 
   Promise.all(FILES.map(f => fetch(f+'?_='+Date.now()).then(r => r.ok ? r.json() : null).catch(()=>null)))
     .then(arr => {
@@ -215,11 +348,17 @@
         document.getElementById('kpi-recovery').textContent = '集計待ち';
         return;
       }
-      // 累計
+      // 累計（旧BOX）
       let totInv=0, totPay=0, hit=0;
       const perKind = {}; KINDS.forEach(k => perKind[k] = {inv:0,pay:0,hit:0,races:0});
       const perVenue = {};
       const perWeek = {};
+      // 累計（◎軸流し）
+      let totInvA=0, totPayA=0, hitA=0;
+      const perKindA = {}; KINDS.forEach(k => perKindA[k] = {inv:0,pay:0,hit:0,races:0});
+      const perVenueA = {};
+      const perWeekA = {};
+
       all.forEach(r => {
         const b = r.result.betting;
         totInv += b.investTotal; totPay += b.payoutTotal;
@@ -238,6 +377,24 @@
         perWeek[wk] = perWeek[wk] || {inv:0,pay:0,races:0,hit:0};
         perWeek[wk].inv += b.investTotal; perWeek[wk].pay += b.payoutTotal;
         perWeek[wk].races++; if (b.payoutTotal>0) perWeek[wk].hit++;
+
+        // ◎軸流し
+        const a = calcAxis(r);
+        if (!a) return;
+        totInvA += a.investTotal; totPayA += a.payoutTotal;
+        if (a.payoutTotal > 0) hitA++;
+        KINDS.forEach(k => {
+          const inv = a.invest[k]||0, pay = a.payout[k]||0;
+          perKindA[k].inv += inv; perKindA[k].pay += pay;
+          if (inv>0) perKindA[k].races++;
+          if (pay>0) perKindA[k].hit++;
+        });
+        perVenueA[v] = perVenueA[v] || {inv:0,pay:0,races:0,hit:0};
+        perVenueA[v].inv += a.investTotal; perVenueA[v].pay += a.payoutTotal;
+        perVenueA[v].races++; if (a.payoutTotal>0) perVenueA[v].hit++;
+        perWeekA[wk] = perWeekA[wk] || {inv:0,pay:0,races:0,hit:0};
+        perWeekA[wk].inv += a.investTotal; perWeekA[wk].pay += a.payoutTotal;
+        perWeekA[wk].races++; if (a.payoutTotal>0) perWeekA[wk].hit++;
       });
 
       const totRec = totInv ? (totPay/totInv*100) : 0;
@@ -284,6 +441,53 @@
       const weeks = Object.entries(perWeek).sort((a,b)=>a[0]>b[0]?-1:1);
       const dow = ['日','月','火','水','木','金','土'];
       document.getElementById('by-week').innerHTML = weeks.map(([d,s])=>{
+        const rec = s.inv ? (s.pay/s.inv*100) : 0;
+        const dt = new Date(d);
+        const lbl = `${dt.getMonth()+1}/${dt.getDate()}(${dow[dt.getDay()]})`;
+        return `<div class="by-row"><span>${lbl} <small style="color:var(--ink-soft)">${s.hit}/${s.races}R</small></span><span class="v ${rec>=100?'win':''}">${rec.toFixed(1)}%</span></div>`;
+      }).join('');
+
+      // ─── ◎軸流し版 描画 ───
+      const totRecA = totInvA ? (totPayA/totInvA*100) : 0;
+      const hitRateA = all.length ? (hitA/all.length*100) : 0;
+      const elRecA = document.getElementById('kpi-recovery-a');
+      elRecA.innerHTML = totRecA.toFixed(1) + '<span class="kpi-unit">%</span>';
+      if (totRecA >= 100) elRecA.classList.add('gold');
+      document.getElementById('kpi-recovery-ad').textContent = `${all.length}R対象`;
+      document.getElementById('kpi-hitrate-a').innerHTML = hitRateA.toFixed(1) + '<span class="kpi-unit">%</span>';
+      document.getElementById('kpi-hitrate-ad').textContent = `${hitA}/${all.length}R 的中`;
+      document.getElementById('kpi-invest-a').textContent = fmt(totInvA);
+      document.getElementById('kpi-payout-a').textContent = fmt(totPayA);
+      const netA = totPayA - totInvA;
+      document.getElementById('kpi-net-a').innerHTML = (netA >= 0 ? '+' : '') + fmt(netA) + (netA >= 0 ? '<span style="color:var(--ok);font-weight:700"> 神恩</span>' : '<span style="color:var(--ng);font-weight:700"> 修行</span>');
+
+      // 券種別（軸）
+      document.getElementById('kind-tbody-a').innerHTML = KINDS.map(k => {
+        const v = perKindA[k];
+        const rec = v.inv ? (v.pay/v.inv*100) : 0;
+        const hr = v.races ? (v.hit/v.races*100) : 0;
+        return `<tr>
+          <td class="kind-name">${AXIS_KIND_LABEL[k]}</td>
+          <td class="r v-hit ${hr>=50?'win':''}">${v.hit}/${v.races} (${hr.toFixed(1)}%)</td>
+          <td class="r">${fmt(v.inv)}</td>
+          <td class="r">${fmt(v.pay)}</td>
+          <td class="r v-rec ${rec>=100?'win':''}">${rec.toFixed(1)}%</td>
+        </tr>`;
+      }).join('');
+
+      // 場別（軸）
+      const venuesA = Object.entries(perVenueA).sort((a,b)=>{
+        const ai=VENUE_ORDER.indexOf(a[0]), bi=VENUE_ORDER.indexOf(b[0]);
+        return (ai<0?99:ai)-(bi<0?99:bi);
+      });
+      document.getElementById('by-venue-a').innerHTML = venuesA.map(([v,s])=>{
+        const rec = s.inv ? (s.pay/s.inv*100) : 0;
+        return `<div class="by-row"><span>${v} <small style="color:var(--ink-soft)">${s.hit}/${s.races}R</small></span><span class="v ${rec>=100?'win':''}">${rec.toFixed(1)}%</span></div>`;
+      }).join('');
+
+      // 週別（軸）
+      const weeksA = Object.entries(perWeekA).sort((a,b)=>a[0]>b[0]?-1:1);
+      document.getElementById('by-week-a').innerHTML = weeksA.map(([d,s])=>{
         const rec = s.inv ? (s.pay/s.inv*100) : 0;
         const dt = new Date(d);
         const lbl = `${dt.getMonth()+1}/${dt.getDate()}(${dow[dt.getDay()]})`;
