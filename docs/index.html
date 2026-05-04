@@ -1743,25 +1743,65 @@ a{color:inherit;}
 
 </section>
 
-<!-- ══ 賽銭 / 神恩倍率（言霊神宮 動的集計）══ -->
+<!-- ══ 賽銭 / 神恩倍率（言霊神宮 動的集計・二戦略並列）══ -->
 <section class="section dark-bg">
   <div class="section-inner">
     <h2 class="section-title mincho">賽 銭 と 神 恩</h2>
-    <p class="section-subtitle" id="saisen-period">OFFERING & BLESSING RATIO</p>
-    <div class="saisen">
-      <div class="saisen-item">
-        <div class="saisen-label mincho">今週の奉納金</div>
-        <div class="saisen-value mincho" id="saisen-invest">計測中</div>
-        <div class="saisen-note" id="saisen-invest-note">読み込み中…</div>
+    <p class="section-subtitle" id="saisen-period">OFFERING & BLESSING RATIO ─ 二戦略 並列比較</p>
+
+    <div class="saisen-strategy-grid">
+      <!-- BOX道 -->
+      <div class="saisen-col">
+        <div class="saisen-col-h mincho">単複4頭購入＆4頭BOX購入</div>
+        <div class="saisen">
+          <div class="saisen-item">
+            <div class="saisen-label mincho">今週の奉納金</div>
+            <div class="saisen-value mincho" id="saisen-invest">計測中</div>
+            <div class="saisen-note" id="saisen-invest-note">読み込み中…</div>
+          </div>
+          <div class="saisen-item">
+            <div class="saisen-label mincho">神恩倍率（トータル回収率）</div>
+            <div class="saisen-value mincho" id="saisen-recovery">計測中</div>
+            <div class="saisen-note" id="saisen-recovery-note">読み込み中…</div>
+          </div>
+        </div>
       </div>
-      <div class="saisen-item">
-        <div class="saisen-label mincho">神恩倍率（トータル回収率）</div>
-        <div class="saisen-value mincho" id="saisen-recovery">計測中</div>
-        <div class="saisen-note" id="saisen-recovery-note">読み込み中…</div>
+
+      <!-- ◎軸流し道 -->
+      <div class="saisen-col axis">
+        <div class="saisen-col-h mincho">★単複◎1点購入＆◎軸流し購入</div>
+        <div class="saisen">
+          <div class="saisen-item axis">
+            <div class="saisen-label mincho">今週の奉納金</div>
+            <div class="saisen-value mincho" id="saisen-invest-a">計測中</div>
+            <div class="saisen-note" id="saisen-invest-note-a">読み込み中…</div>
+          </div>
+          <div class="saisen-item axis">
+            <div class="saisen-label mincho">神恩倍率（トータル回収率）</div>
+            <div class="saisen-value mincho" id="saisen-recovery-a">計測中</div>
+            <div class="saisen-note" id="saisen-recovery-note-a">読み込み中…</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+.saisen-strategy-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:1100px;margin:0 auto}
+@media(max-width:780px){.saisen-strategy-grid{grid-template-columns:1fr}}
+.saisen-col{display:flex;flex-direction:column;gap:0}
+.saisen-col-h{text-align:center;font-size:13px;color:rgba(201,169,97,.85);font-weight:700;
+              letter-spacing:.12em;padding:10px 12px;margin-bottom:14px;
+              background:rgba(0,0,0,.25);border:1px solid rgba(201,169,97,.3);
+              border-radius:6px}
+.saisen-col.axis .saisen-col-h{color:#ffd34d;background:rgba(212,175,55,.12);
+                                border-color:rgba(212,175,55,.5);
+                                box-shadow:0 0 12px rgba(212,175,55,.2)}
+.saisen-col.axis .saisen-item{border-color:rgba(212,175,55,.5);
+                               box-shadow:0 0 14px rgba(212,175,55,.2)}
+.saisen-col.axis .saisen-item .saisen-value{color:#ffd34d}
+</style>
 
 
 <!-- ══ 境内看板 ══ -->
@@ -1969,6 +2009,63 @@ drawBtn.addEventListener('click', () => {
         elRec.style.color = rec >= 100 ? '#d4af37' : '';
       }
       if (elRecN) elRecN.textContent = `払戻 ¥${totPay.toLocaleString()} ／ 投資 ¥${totInv.toLocaleString()}`;
+
+      // ─── ◎軸流し版 集計＆描画 ───
+      const AXIS_INVEST = {tan:100,fuku:100,wide:300,umaren:300,umatan:600,sanrenpuku:300,sanrentan:1800};
+      function calcAxis(race){
+        const picks = race.picks || [];
+        const payouts = race.result && race.result.payouts;
+        if (picks.length<4 || !payouts) return null;
+        const axis = String(parseInt(picks[0].num,10));
+        const aite = picks.slice(1,4).map(p => String(parseInt(p.num,10)));
+        const invest = {...AXIS_INVEST};
+        const payout = {tan:0,fuku:0,wide:0,umaren:0,umatan:0,sanrenpuku:0,sanrentan:0};
+        (payouts.tan||[]).forEach(p => { if ((p.combo||[]).includes(axis)) payout.tan += p.amount||0; });
+        (payouts.fuku||[]).forEach(p => { if ((p.combo||[]).includes(axis)) payout.fuku += p.amount||0; });
+        ['wide','umaren'].forEach(k => {
+          (payouts[k]||[]).forEach(p => {
+            const c=p.combo||[]; if (!c.includes(axis)) return;
+            const other = c.filter(x => x!==axis);
+            if (other.some(o => aite.includes(o))) payout[k] += p.amount||0;
+          });
+        });
+        (payouts.umatan||[]).forEach(p => {
+          const c=p.combo||[]; if (c.length<2 || !c.includes(axis)) return;
+          const other = c.filter(x => x!==axis);
+          if (other.some(o => aite.includes(o))) payout.umatan += p.amount||0;
+        });
+        (payouts.sanrenpuku||[]).forEach(p => {
+          const c=p.combo||[]; if (!c.includes(axis)) return;
+          const other = c.filter(x => x!==axis);
+          if (other.length>=2 && aite.includes(other[0]) && aite.includes(other[1])) payout.sanrenpuku += p.amount||0;
+        });
+        (payouts.sanrentan||[]).forEach(p => {
+          const c=p.combo||[]; if (c.length<3 || !c.includes(axis)) return;
+          const other = c.filter(x => x!==axis);
+          if (other.length>=2 && aite.includes(other[0]) && aite.includes(other[1])) payout.sanrentan += p.amount||0;
+        });
+        const inv = Object.values(invest).reduce((a,b)=>a+b,0);
+        const pay = Object.values(payout).reduce((a,b)=>a+b,0);
+        return {investTotal:inv, payoutTotal:pay};
+      }
+      let axisInv=0, axisPay=0;
+      all.forEach(r => {
+        const a = calcAxis(r);
+        if (!a) return;
+        axisInv += a.investTotal; axisPay += a.payoutTotal;
+      });
+      const axisRec = axisInv ? (axisPay/axisInv*100) : 0;
+      const elInvA = document.getElementById('saisen-invest-a');
+      const elInvNA = document.getElementById('saisen-invest-note-a');
+      if (elInvA) elInvA.textContent = '¥' + axisInv.toLocaleString();
+      if (elInvNA) elInvNA.textContent = `${all.length}鞍 × ¥3,500（◎軸流し35点）`;
+      const elRecA = document.getElementById('saisen-recovery-a');
+      const elRecNA = document.getElementById('saisen-recovery-note-a');
+      if (elRecA) {
+        elRecA.textContent = axisRec.toFixed(1) + '%';
+        if (axisRec >= 100) elRecA.style.color = '#ffd34d';
+      }
+      if (elRecNA) elRecNA.textContent = `払戻 ¥${axisPay.toLocaleString()} ／ 投資 ¥${axisInv.toLocaleString()}`;
     });
 })();
 </script>
