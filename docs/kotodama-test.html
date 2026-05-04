@@ -191,51 +191,21 @@
   .summary-board{max-width:920px;margin:0 auto 20px;padding:18px;
                  background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
                  border:2px solid var(--shu);border-radius:8px}
-  /* ネオン版（◎軸流し用） */
+  /* ◎軸流し版：BOX版と同じデザイン、囲み枠だけ金色＋ネオングロー */
   .summary-board.neon{
-    background:linear-gradient(135deg,#1a1a1a 0%,#2c1f12 50%,#1a1a1a 100%);
     border:2px solid var(--gold);
-    box-shadow:0 0 24px rgba(201,168,76,.5),inset 0 0 30px rgba(201,168,76,.08);
-    color:#FBF7EE;
-    position:relative;overflow:hidden;
+    box-shadow:0 0 18px rgba(201,168,76,.45),0 0 36px rgba(201,168,76,.18);
+    position:relative;
   }
-  .summary-board.neon::before{
-    content:'';position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(circle at 30% 20%,rgba(201,168,76,.18),transparent 40%),
-               radial-gradient(circle at 70% 80%,rgba(164,74,63,.15),transparent 40%);
-  }
-  .summary-board.neon .sb-title{color:var(--gold);text-shadow:0 0 10px rgba(201,168,76,.8),0 0 20px rgba(201,168,76,.4);
-                                animation:neonPulse 2s ease-in-out infinite}
-  .summary-board.neon .sb-total{color:var(--gold);text-shadow:0 0 12px rgba(201,168,76,.7);font-size:32px}
-  .summary-board.neon .sb-total.win{color:#fff;text-shadow:0 0 14px rgba(255,255,255,.8),0 0 28px rgba(201,168,76,.6)}
-  .summary-board.neon .sb-total small{color:rgba(251,247,238,.7)}
-  .summary-board.neon .sb-meta{color:rgba(251,247,238,.65)}
-  .summary-board.neon .sb-kind{background:rgba(0,0,0,.35);border:1px solid rgba(201,168,76,.4);
-                                box-shadow:inset 0 0 8px rgba(201,168,76,.06)}
-  .summary-board.neon .sb-kind .k-name{color:var(--gold)}
-  .summary-board.neon .sb-kind .k-rec{color:#FBF7EE;text-shadow:0 0 6px rgba(201,168,76,.5)}
-  .summary-board.neon .sb-kind .k-rec.win{color:var(--gold);text-shadow:0 0 12px rgba(201,168,76,.9),0 0 18px rgba(201,168,76,.5)}
-  .summary-board.neon .sb-kind .k-hit{color:rgba(251,247,238,.55)}
-  .summary-board.neon .sb-kind .k-hit.win{color:var(--gold);text-shadow:0 0 6px rgba(201,168,76,.6)}
-  .summary-board.neon .sb-kind .k-amt{color:rgba(251,247,238,.5)}
-  .summary-board.neon details.summary-d summary{background:rgba(164,74,63,.4);color:var(--gold);
-                                                 box-shadow:0 0 8px rgba(201,168,76,.3)}
-  .summary-board.neon .vb{background:rgba(0,0,0,.3);border:1px solid rgba(201,168,76,.3)}
-  .summary-board.neon .vb-h{color:var(--gold);text-shadow:0 0 6px rgba(201,168,76,.5);border-bottom-color:rgba(201,168,76,.3)}
-  .summary-board.neon .vb-total{color:#FBF7EE}
-  .summary-board.neon .vb-total.win{color:var(--gold);text-shadow:0 0 10px rgba(201,168,76,.8)}
-  .summary-board.neon .vb-total span{color:rgba(251,247,238,.7) !important}
-  .summary-board.neon .vb-meta{color:rgba(251,247,238,.55)}
-  .summary-board.neon .vb-table th{color:rgba(251,247,238,.55);border-bottom-color:rgba(201,168,76,.2)}
-  .summary-board.neon .vb-table td{border-bottom-color:rgba(201,168,76,.15);color:#FBF7EE}
-  .summary-board.neon .vb-table .v-rec{color:#FBF7EE}
-  .summary-board.neon .vb-table .v-rec.win{color:var(--gold);text-shadow:0 0 6px rgba(201,168,76,.6)}
-  .summary-board.neon .vb-table .v-hit{color:rgba(251,247,238,.55)}
-  .summary-board.neon .vb-table .v-hit.win{color:var(--gold);text-shadow:0 0 4px rgba(201,168,76,.5)}
+  .summary-board.neon .sb-title{color:var(--gold-dk,#b8860b);
+                                text-shadow:0 0 8px rgba(201,168,76,.5)}
+  .summary-board.neon .sb-total{color:var(--gold-dk,#b8860b)}
+  .summary-board.neon .sb-total.win{color:var(--ok)}
   @keyframes neonPulse{
-    0%,100%{text-shadow:0 0 10px rgba(201,168,76,.8),0 0 20px rgba(201,168,76,.4)}
-    50%   {text-shadow:0 0 14px rgba(201,168,76,1),0 0 30px rgba(201,168,76,.7)}
+    0%,100%{box-shadow:0 0 18px rgba(201,168,76,.45),0 0 36px rgba(201,168,76,.18)}
+    50%   {box-shadow:0 0 24px rgba(201,168,76,.7),0 0 48px rgba(201,168,76,.3)}
   }
+  .summary-board.neon{animation:neonPulse 2.4s ease-in-out infinite}
   .sb-title{font-size:14px;color:var(--shu);font-weight:700;letter-spacing:.2em;
             text-align:center;margin-bottom:10px}
   .sb-total{text-align:center;font-size:28px;color:var(--shu);font-weight:700;margin:6px 0}
@@ -478,7 +448,7 @@ function renderSummaryAxis(){
           ${venues.map(([v,sv])=>venueBoardAxis(v,sv)).join('')}
         </div>
       </details>
-      <div class="sb-learn" style="background:rgba(0,0,0,.4);color:rgba(251,247,238,.6);border:1px dashed rgba(201,168,76,.3)">🔬 ベスト馬券種分析学習中... ／ ◎軸流しは投資効率重視型</div>
+      <div class="sb-learn">🔬 ベスト馬券種分析学習中... ／ ◎軸流しは投資効率重視型</div>
     </div>`;
 }
 
