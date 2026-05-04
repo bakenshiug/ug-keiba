@@ -256,15 +256,26 @@
   .goshugi-pay{font-size:11px;color:var(--ink-soft)}
   .sb-learn{text-align:center;margin-top:14px;padding:8px;background:var(--bg-soft);
             border-radius:4px;color:var(--ink-soft);font-size:11px;font-style:italic}
-  /* 各レース結果 */
-  .race-betting{margin-top:12px;padding:10px;background:#fff;
-                border:1px dashed var(--border);border-radius:4px;font-size:12px}
+  /* 各レース結果（2カラム並列） */
+  .race-betting-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  @media (max-width:700px){.race-betting-pair{grid-template-columns:1fr}}
+  .race-betting{padding:10px;background:#fff;
+                border:1px dashed var(--border);border-radius:6px;font-size:12px}
+  .race-betting.axis{border:2px solid var(--gold);
+                     background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 100%);
+                     box-shadow:0 0 10px rgba(201,168,76,.2)}
+  .rb-head{font-family:'Shippori Mincho',serif;font-size:11px;color:var(--shu);
+           font-weight:700;letter-spacing:.08em;
+           padding-bottom:6px;margin-bottom:6px;border-bottom:1px dashed var(--border);text-align:center}
+  .race-betting.axis .rb-head{color:#b8860b}
+  .race-betting.axis .rb-head::before{content:'★ '}
   .rb-row{display:flex;justify-content:space-between;align-items:center;
           padding:3px 0;color:var(--ink-soft)}
   .rb-row .rb-amt{color:var(--ink);font-weight:700}
   .rb-row.hit .rb-amt{color:var(--ok)}
   .rb-total{margin-top:6px;padding-top:6px;border-top:1px solid var(--border);
             font-weight:700;color:var(--shu);font-size:13px}
+  .race-betting.axis .rb-total{color:#b8860b;border-top-color:rgba(201,168,76,.5)}
 </style>
 </head>
 <body>
@@ -630,16 +641,35 @@ function render(){
       <div class="result">
         <strong>結果</strong>: ${r.result.summary || ''}
       </div>
-      ${r.result.betting ? `
-      <div class="race-betting">
-        ${Object.entries(r.result.betting.invest).map(([k,inv])=>{
-          const pay = r.result.betting.payout[k]||0;
-          const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
-          const hit = pay>0 ? 'hit' : '';
-          return `<div class="rb-row ${hit}"><span>${KIND_LABEL[k]||k}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
-        }).join('')}
-        <div class="rb-row rb-total"><span>合計</span><span>¥${r.result.betting.payoutTotal.toLocaleString()} / ¥${r.result.betting.investTotal.toLocaleString()} (${r.result.betting.recovery}%)</span></div>
-      </div>` : ''}` : '<div class="result pending">結果待ち</div>'}
+      ${r.result.betting ? (() => {
+        // 旧BOX
+        const boxBet = r.result.betting;
+        const boxHTML = `
+          <div class="race-betting">
+            <div class="rb-head">単複4頭購入＆4頭BOX購入</div>
+            ${Object.entries(boxBet.invest).map(([k,inv])=>{
+              const pay = boxBet.payout[k]||0;
+              const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
+              const hit = pay>0 ? 'hit' : '';
+              return `<div class="rb-row ${hit}"><span>${KIND_LABEL[k]||k}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
+            }).join('')}
+            <div class="rb-row rb-total"><span>合計</span><span>¥${boxBet.payoutTotal.toLocaleString()} / ¥${boxBet.investTotal.toLocaleString()} (${boxBet.recovery}%)</span></div>
+          </div>`;
+        // 新◎軸流し
+        const axisBet = calcAxis(r);
+        const axisHTML = axisBet ? `
+          <div class="race-betting axis">
+            <div class="rb-head">単複◎1点購入＆◎軸流し購入</div>
+            ${Object.entries(axisBet.invest).map(([k,inv])=>{
+              const pay = axisBet.payout[k]||0;
+              const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
+              const hit = pay>0 ? 'hit' : '';
+              return `<div class="rb-row ${hit}"><span>${AXIS_KIND_LABEL[k]||k}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
+            }).join('')}
+            <div class="rb-row rb-total"><span>合計</span><span>¥${axisBet.payoutTotal.toLocaleString()} / ¥${axisBet.investTotal.toLocaleString()} (${axisBet.recovery}%)</span></div>
+          </div>` : '';
+        return `<div class="race-betting-pair">${boxHTML}${axisHTML}</div>`;
+      })() : ''}` : '<div class="result pending">結果待ち</div>'}
     </div>
   `;
   }).join('');
