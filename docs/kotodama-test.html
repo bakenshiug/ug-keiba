@@ -191,6 +191,51 @@
   .summary-board{max-width:920px;margin:0 auto 20px;padding:18px;
                  background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
                  border:2px solid var(--shu);border-radius:8px}
+  /* ネオン版（◎軸流し用） */
+  .summary-board.neon{
+    background:linear-gradient(135deg,#1a1a1a 0%,#2c1f12 50%,#1a1a1a 100%);
+    border:2px solid var(--gold);
+    box-shadow:0 0 24px rgba(201,168,76,.5),inset 0 0 30px rgba(201,168,76,.08);
+    color:#FBF7EE;
+    position:relative;overflow:hidden;
+  }
+  .summary-board.neon::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(circle at 30% 20%,rgba(201,168,76,.18),transparent 40%),
+               radial-gradient(circle at 70% 80%,rgba(164,74,63,.15),transparent 40%);
+  }
+  .summary-board.neon .sb-title{color:var(--gold);text-shadow:0 0 10px rgba(201,168,76,.8),0 0 20px rgba(201,168,76,.4);
+                                animation:neonPulse 2s ease-in-out infinite}
+  .summary-board.neon .sb-total{color:var(--gold);text-shadow:0 0 12px rgba(201,168,76,.7);font-size:32px}
+  .summary-board.neon .sb-total.win{color:#fff;text-shadow:0 0 14px rgba(255,255,255,.8),0 0 28px rgba(201,168,76,.6)}
+  .summary-board.neon .sb-total small{color:rgba(251,247,238,.7)}
+  .summary-board.neon .sb-meta{color:rgba(251,247,238,.65)}
+  .summary-board.neon .sb-kind{background:rgba(0,0,0,.35);border:1px solid rgba(201,168,76,.4);
+                                box-shadow:inset 0 0 8px rgba(201,168,76,.06)}
+  .summary-board.neon .sb-kind .k-name{color:var(--gold)}
+  .summary-board.neon .sb-kind .k-rec{color:#FBF7EE;text-shadow:0 0 6px rgba(201,168,76,.5)}
+  .summary-board.neon .sb-kind .k-rec.win{color:var(--gold);text-shadow:0 0 12px rgba(201,168,76,.9),0 0 18px rgba(201,168,76,.5)}
+  .summary-board.neon .sb-kind .k-hit{color:rgba(251,247,238,.55)}
+  .summary-board.neon .sb-kind .k-hit.win{color:var(--gold);text-shadow:0 0 6px rgba(201,168,76,.6)}
+  .summary-board.neon .sb-kind .k-amt{color:rgba(251,247,238,.5)}
+  .summary-board.neon details.summary-d summary{background:rgba(164,74,63,.4);color:var(--gold);
+                                                 box-shadow:0 0 8px rgba(201,168,76,.3)}
+  .summary-board.neon .vb{background:rgba(0,0,0,.3);border:1px solid rgba(201,168,76,.3)}
+  .summary-board.neon .vb-h{color:var(--gold);text-shadow:0 0 6px rgba(201,168,76,.5);border-bottom-color:rgba(201,168,76,.3)}
+  .summary-board.neon .vb-total{color:#FBF7EE}
+  .summary-board.neon .vb-total.win{color:var(--gold);text-shadow:0 0 10px rgba(201,168,76,.8)}
+  .summary-board.neon .vb-total span{color:rgba(251,247,238,.7) !important}
+  .summary-board.neon .vb-meta{color:rgba(251,247,238,.55)}
+  .summary-board.neon .vb-table th{color:rgba(251,247,238,.55);border-bottom-color:rgba(201,168,76,.2)}
+  .summary-board.neon .vb-table td{border-bottom-color:rgba(201,168,76,.15);color:#FBF7EE}
+  .summary-board.neon .vb-table .v-rec{color:#FBF7EE}
+  .summary-board.neon .vb-table .v-rec.win{color:var(--gold);text-shadow:0 0 6px rgba(201,168,76,.6)}
+  .summary-board.neon .vb-table .v-hit{color:rgba(251,247,238,.55)}
+  .summary-board.neon .vb-table .v-hit.win{color:var(--gold);text-shadow:0 0 4px rgba(201,168,76,.5)}
+  @keyframes neonPulse{
+    0%,100%{text-shadow:0 0 10px rgba(201,168,76,.8),0 0 20px rgba(201,168,76,.4)}
+    50%   {text-shadow:0 0 14px rgba(201,168,76,1),0 0 30px rgba(201,168,76,.7)}
+  }
   .sb-title{font-size:14px;color:var(--shu);font-weight:700;letter-spacing:.2em;
             text-align:center;margin-bottom:10px}
   .sb-total{text-align:center;font-size:28px;color:var(--shu);font-weight:700;margin:6px 0}
@@ -260,6 +305,7 @@
   <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
 </header>
 <div id="summary-board"></div>
+<div id="summary-board-axis"></div>
 <div class="tabs" id="tabs"></div>
 <main id="races"></main>
 <footer class="mincho">⛩ UG 競馬神宮 ／ 言霊実験室 ⛩</footer>
@@ -294,8 +340,146 @@ async function load(){
     }catch(e){console.error(e)}
   }
   renderSummary();
+  renderSummaryAxis();
   buildTabs();
   render();
+}
+
+// ◎軸流し戦略の計算
+const AXIS_INVEST = {tan:100,fuku:100,wide:300,umaren:300,umatan:600,sanrenpuku:300,sanrentan:1800};
+const AXIS_KIND_LABEL = {tan:'単勝◎',fuku:'複勝◎',wide:'ワイド流',umaren:'馬連流',umatan:'馬単流マ',sanrenpuku:'3連複流',sanrentan:'3連単流マ'};
+
+function calcAxis(race){
+  const picks = race.picks || [];
+  const payouts = race.result && race.result.payouts;
+  if (picks.length < 4 || !payouts) return null;
+  const axis = String(parseInt(picks[0].num,10));
+  const aite = picks.slice(1,4).map(p => String(parseInt(p.num,10)));
+  const invest = {...AXIS_INVEST};
+  const payout = {tan:0,fuku:0,wide:0,umaren:0,umatan:0,sanrenpuku:0,sanrentan:0};
+  // 単勝
+  (payouts.tan||[]).forEach(p => { if ((p.combo||[]).includes(axis)) payout.tan += p.amount||0; });
+  // 複勝
+  (payouts.fuku||[]).forEach(p => { if ((p.combo||[]).includes(axis)) payout.fuku += p.amount||0; });
+  // ワイド・馬連 ◎軸-相手3頭
+  ['wide','umaren'].forEach(k => {
+    (payouts[k]||[]).forEach(p => {
+      const c = p.combo||[]; if (!c.includes(axis)) return;
+      const other = c.filter(x => x!==axis);
+      if (other.some(o => aite.includes(o))) payout[k] += p.amount||0;
+    });
+  });
+  // 馬単マルチ
+  (payouts.umatan||[]).forEach(p => {
+    const c = p.combo||[]; if (c.length<2 || !c.includes(axis)) return;
+    const other = c.filter(x => x!==axis);
+    if (other.some(o => aite.includes(o))) payout.umatan += p.amount||0;
+  });
+  // 3連複
+  (payouts.sanrenpuku||[]).forEach(p => {
+    const c = p.combo||[]; if (!c.includes(axis)) return;
+    const other = c.filter(x => x!==axis);
+    if (other.length>=2 && aite.includes(other[0]) && aite.includes(other[1])) payout.sanrenpuku += p.amount||0;
+  });
+  // 3連単マルチ
+  (payouts.sanrentan||[]).forEach(p => {
+    const c = p.combo||[]; if (c.length<3 || !c.includes(axis)) return;
+    const other = c.filter(x => x!==axis);
+    if (other.length>=2 && aite.includes(other[0]) && aite.includes(other[1])) payout.sanrentan += p.amount||0;
+  });
+  const investTotal = Object.values(invest).reduce((a,b)=>a+b,0);
+  const payoutTotal = Object.values(payout).reduce((a,b)=>a+b,0);
+  return {invest,payout,investTotal,payoutTotal,recovery:investTotal?Math.round(payoutTotal/investTotal*1000)/10:0};
+}
+
+function aggregateAxis(races){
+  const KINDS = Object.keys(AXIS_INVEST);
+  const per = {}; KINDS.forEach(k => per[k]={inv:0,pay:0,hit:0,races:0});
+  let totInv=0, totPay=0, hit=0;
+  races.forEach(r => {
+    const b = calcAxis(r); if (!b) return;
+    totInv += b.investTotal; totPay += b.payoutTotal;
+    if (b.payoutTotal>0) hit++;
+    KINDS.forEach(k => {
+      per[k].inv += b.invest[k]; per[k].pay += b.payout[k];
+      if (b.invest[k]>0) per[k].races++;
+      if (b.payout[k]>0) per[k].hit++;
+    });
+  });
+  const n = races.filter(r => calcAxis(r)).length;
+  return {
+    racesWithResult:n, racesHit:hit, raceHitRate:n?Math.round(hit/n*1000)/10:0,
+    totalInvest:totInv, totalPayout:totPay,
+    totalRecovery:totInv?Math.round(totPay/totInv*1000)/10:0,
+    byKind: Object.fromEntries(KINDS.map(k => [k,{
+      invest:per[k].inv, payout:per[k].pay,
+      recovery:per[k].inv?Math.round(per[k].pay/per[k].inv*1000)/10:0,
+      hit:per[k].hit, races:per[k].races,
+      hitRate:per[k].races?Math.round(per[k].hit/per[k].races*1000)/10:0,
+    }])),
+  };
+}
+
+function venueBoardAxis(name, s){
+  return `
+    <div class="vb">
+      <div class="vb-h mincho">${name}</div>
+      <div class="vb-total ${s.totalRecovery>=100?'win':''}"><span style="font-size:12px;font-weight:400;letter-spacing:.1em;margin-right:6px">回収率</span>${s.totalRecovery}%</div>
+      <div class="vb-meta">${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</div>
+      <table class="vb-table">
+        <tr><th>券種</th><th style="text-align:right">的中率</th><th style="text-align:right">回収率</th></tr>
+        ${Object.entries(s.byKind).map(([k,v])=>`
+          <tr>
+            <td>${AXIS_KIND_LABEL[k]||k}</td>
+            <td class="v-hit ${v.hitRate>=50?'win':''}">${v.hit}/${v.races} (${v.hitRate}%)</td>
+            <td class="v-rec ${v.recovery>=100?'win':''}">${v.recovery}%</td>
+          </tr>`).join('')}
+      </table>
+    </div>`;
+}
+
+function renderSummaryAxis(){
+  const el = document.getElementById('summary-board-axis');
+  if (!el) return;
+  const races = ALL_RACES.filter(r => r.result && r.result.payouts);
+  if (!races.length) { el.innerHTML = ''; return; }
+  // 全体
+  const all = aggregateAxis(races);
+  // 場別
+  const venueOrder = ['東京','京都','新潟','中山','阪神','中京','福島','小倉','札幌','函館'];
+  const byV = {};
+  races.forEach(r => { (byV[r.venue]=byV[r.venue]||[]).push(r); });
+  const venues = Object.entries(byV).sort((a,b)=>{
+    const ai=venueOrder.indexOf(a[0]), bi=venueOrder.indexOf(b[0]);
+    return (ai<0?99:ai)-(bi<0?99:bi);
+  }).map(([v,rs]) => [v, aggregateAxis(rs)]);
+
+  el.innerHTML = `
+    <div class="summary-board neon">
+      <div class="sb-title mincho">⛩ 言霊神宮 日曜全36R 集計　単勝/複勝◎1点購入&◎1頭軸流しの場合</div>
+      <div class="sb-total ${all.totalRecovery>=100?'win':''}">
+        総合回収率 ${all.totalRecovery}%
+        <small>${all.racesHit}/${all.racesWithResult}R的中 (${all.raceHitRate}%) ／ 投資¥${all.totalInvest.toLocaleString()} 払戻¥${all.totalPayout.toLocaleString()}</small>
+      </div>
+      <div class="sb-meta">単勝◎/複勝◎/ワイド・馬連・3連複は◎軸→相手3頭流し／馬単・3連単はマルチ（1Rあたり35点 ¥3,500）</div>
+      <div class="sb-kinds">
+        ${Object.entries(all.byKind).map(([k,v])=>`
+          <div class="sb-kind">
+            <div class="k-name">${AXIS_KIND_LABEL[k]||k}</div>
+            <div class="k-rec ${v.recovery>=100?'win':''}">${v.recovery}%</div>
+            <div class="k-hit ${v.hitRate>=50?'win':''}">的中${v.hit}/${v.races} (${v.hitRate}%)</div>
+            <div class="k-amt">¥${v.payout.toLocaleString()} / ¥${v.invest.toLocaleString()}</div>
+          </div>
+        `).join('')}
+      </div>
+      <details class="summary-d" open>
+        <summary>場別 集計（東京 / 京都 / 新潟）</summary>
+        <div class="venue-boards">
+          ${venues.map(([v,sv])=>venueBoardAxis(v,sv)).join('')}
+        </div>
+      </details>
+      <div class="sb-learn" style="background:rgba(0,0,0,.4);color:rgba(251,247,238,.6);border:1px dashed rgba(201,168,76,.3)">🔬 ベスト馬券種分析学習中... ／ ◎軸流しは投資効率重視型</div>
+    </div>`;
 }
 
 function venueBoard(name, s){
@@ -327,7 +511,7 @@ function renderSummary(){
   });
   el.innerHTML = `
     <div class="summary-board">
-      <div class="sb-title mincho">⛩ 言霊神宮 日曜全36R 集計</div>
+      <div class="sb-title mincho">⛩ 言霊神宮 日曜全36R 集計　単勝/複勝4頭購入&全馬券種4頭BOX購入の場合</div>
       <div class="sb-total ${s.totalRecovery>=100?'win':''}">
         総合回収率 ${s.totalRecovery}%
         <small>${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</small>
