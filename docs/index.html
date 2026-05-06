@@ -1288,6 +1288,19 @@ a{color:inherit;}
 }
 </style>
 
+<!-- ══ 重賞天満宮バナー ══ -->
+<section class="section" id="juushou-banner" style="margin-bottom:14px">
+  <a href="entries.html" class="kotodama-banner juushou-style">
+    <div class="kj-icon mincho">📜</div>
+    <div class="kj-body">
+      <div class="kj-title mincho">重　賞　天　満　宮</div>
+      <div class="kj-sub mincho">我、今週末の重賞を展望す</div>
+      <div class="kj-cta mincho">▶ 重賞展望 公開中</div>
+    </div>
+    <div class="kj-arrow mincho">📜</div>
+  </a>
+</section>
+
 <!-- ══ 言霊神宮バナー ══ -->
 <section class="section" id="kotodama-jinja-banner" style="margin-bottom:0">
   <a href="kotodama-test.html" class="kotodama-banner">
@@ -1321,6 +1334,23 @@ a{color:inherit;}
   box-shadow:0 6px 20px rgba(164,74,63,.28);
 }
 .kj-icon,.kj-arrow{font-size:42px;color:var(--shu,#a44a3f)}
+/* 重賞天満宮 — 金枠ベース */
+.kotodama-banner.juushou-style{
+  border-color:var(--gold,#c9a84c);
+  background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 50%,#fff8e8 100%);
+  box-shadow:0 0 16px rgba(201,168,76,.3),0 2px 12px rgba(184,134,11,.15);
+}
+.kotodama-banner.juushou-style:hover{
+  border-color:#b8860b;
+  box-shadow:0 0 24px rgba(201,168,76,.5),0 6px 20px rgba(184,134,11,.28);
+}
+.kotodama-banner.juushou-style::before{
+  background:radial-gradient(circle at top right,rgba(184,134,11,.2),transparent 60%);
+}
+.kotodama-banner.juushou-style .kj-icon,
+.kotodama-banner.juushou-style .kj-arrow{color:var(--gold-dk,#b8860b)}
+.kotodama-banner.juushou-style .kj-title{color:var(--gold-dk,#b8860b)}
+.kotodama-banner.juushou-style .kj-cta{background:var(--gold-dk,#b8860b)}
 .kj-body{flex:1;text-align:center}
 .kj-title{font-size:22px;color:var(--shu,#a44a3f);font-weight:700;letter-spacing:.4em;margin-bottom:6px}
 .kj-sub{font-size:13px;color:#5a4a3a;letter-spacing:.15em;margin-bottom:10px}
