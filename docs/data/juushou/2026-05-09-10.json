@@ -1,0 +1,101 @@
+{
+  "weekend": "2026-05-09 / 5-10",
+  "races": [
+    {
+      "id": "epsom",
+      "date": "2026-05-09",
+      "weekday": "土",
+      "name": "第43回 エプソムカップ",
+      "grade": "G3",
+      "venue": "東京",
+      "course": "芝1800m（左）",
+      "category": "4歳以上オープン・別定",
+      "kakoUrl": "https://p.keibabook.co.jp/cyuou/kako/202602040511",
+      "history": [
+        {"year":2016,"date":"6.12","venue":"東京","going":"曇・良","horses":18,"first":{"num":18,"name":"ルージュバック","sex":"牝4","kg":54,"jockey":"戸崎","time":"1.46.2","passing":"8 9 9 9","pop":1,"weight":452,"trainer":"大竹"},"second":{"num":16,"name":"フルーキー","sex":"牡6","pop":3},"third":{"num":13,"name":"マイネルミラノ","sex":"牡6","pop":6}},
+        {"year":2017,"date":"6.11","venue":"東京","going":"曇・良","horses":18,"first":{"num":12,"name":"ダッシングブレイズ","sex":"牡5","kg":56,"jockey":"浜中","time":"1.45.9","passing":"5 6 2 3","pop":5,"weight":500,"trainer":"吉村"},"second":{"num":10,"name":"アストラエンブレム","sex":"牡4","pop":1},"third":{"num":7,"name":"マイネルハニー","sex":"牡4","pop":6}},
+        {"year":2018,"date":"6.10","venue":"東京","going":"雨・重","horses":16,"first":{"num":16,"name":"サトノアーサー","sex":"牡4","kg":56,"jockey":"戸崎","time":"1.47.4","passing":"3 5 6 6","pop":2,"weight":480,"trainer":"池江寿"},"second":{"num":6,"name":"ハクサンルドルフ","sex":"牡5","pop":4},"third":{"num":5,"name":"グリュイエール","sex":"牡6","pop":5}},
+        {"year":2019,"date":"6.9","venue":"東京","going":"雨・稍重","horses":13,"first":{"num":9,"name":"レイエンダ","sex":"牡4","kg":56,"jockey":"ルメール","time":"1.49.1","passing":"2 2 2 2","pop":5,"weight":486,"trainer":"藤沢和"},"second":{"num":6,"name":"サラキア","sex":"牝4","pop":7},"third":{"num":4,"name":"ソーグリッタリング","sex":"牡5","pop":1}},
+        {"year":2020,"date":"6.14","venue":"東京","going":"曇・不良","horses":18,"first":{"num":6,"name":"ダイワキャグニー","sex":"牡6","kg":56,"jockey":"内田博","time":"1.47.7","passing":"3 2 2 2","pop":9,"weight":500,"trainer":"菊沢"},"second":{"num":1,"name":"ソーグリッタリング","sex":"牡6","pop":5},"third":{"num":18,"name":"トーラスジェミニ","sex":"牡4","pop":18}},
+        {"year":2021,"date":"6.13","venue":"東京","going":"曇・良","horses":18,"first":{"num":15,"name":"ザダル","sex":"牡5","kg":56,"jockey":"石橋脩","time":"1.45.1","passing":"10 8 9 8","pop":3,"weight":504,"trainer":"大竹"},"second":{"num":13,"name":"サトノフラッグ","sex":"牡4","pop":6},"third":{"num":7,"name":"ファルコニア","sex":"牡4","pop":2}},
+        {"year":2022,"date":"6.12","venue":"東京","going":"晴・重","horses":12,"first":{"num":6,"name":"ノースブリッジ","sex":"牡4","kg":56,"jockey":"岩田康","time":"1.46.7","passing":"3 3 3 3","pop":4,"weight":492,"trainer":"奥村武"},"second":{"num":8,"name":"ガロアクリーク","sex":"牡5","pop":8},"third":{"num":5,"name":"ダーリントンホール","sex":"牡5","pop":2}},
+        {"year":2023,"date":"6.11","venue":"東京","going":"曇・稍重","horses":17,"first":{"num":15,"name":"ジャスティンカフェ","sex":"牡5","kg":57,"jockey":"横山和","time":"1.45.5","passing":"15 14 14 11","pop":1,"weight":504,"trainer":"安田翔"},"second":{"num":17,"name":"ルージュエヴァイユ","sex":"牝4","pop":7},"third":{"num":2,"name":"マテンロウスカイ","sex":"セ4","pop":4}},
+        {"year":2024,"date":"6.9","venue":"東京","going":"曇・良","horses":18,"first":{"num":6,"name":"レーベンスティール","sex":"牡4","kg":59,"jockey":"ルメール","time":"1.44.7","passing":"5 5 7 7","pop":1,"weight":482,"trainer":"田中博"},"second":{"num":17,"name":"ニシノスーベニア","sex":"牡5","pop":9},"third":{"num":10,"name":"シルトホルン","sex":"牡4","pop":7}},
+        {"year":2025,"date":"5.10","venue":"東京","going":"曇・稍重","horses":18,"first":{"num":16,"name":"セイウンハーデス","sex":"牡6","kg":57,"jockey":"幸英明","time":"1.43.9","passing":"6 7 8 8","pop":6,"weight":482,"trainer":"橋口慎"},"second":{"num":4,"name":"ドゥラドーレス","sex":"牡6","pop":1},"third":{"num":6,"name":"トーセンリョウ","sex":"牡6","pop":10}}
+      ],
+      "trends": [
+        {"label":"1番人気の信頼度","value":"3勝（2016/2023/2024）","weight":"middle"},
+        {"label":"4歳以上のオープン","value":"4歳:2勝、5歳:3勝、6歳:3勝、7歳以上:2勝","weight":"flat"},
+        {"label":"前走重賞","value":"GIII帰り（メイS、ダ卿CT、新潟大賞、京王杯SC等）が大半","weight":"high"},
+        {"label":"波乱度","value":"9人気1着（2020）、上位人気外も結構来る、8〜9人気2-3着多発","weight":"caution"},
+        {"label":"内外傾向","value":"近年は中〜外枠も走る、内枠縛りなし","weight":"flat"}
+      ]
+    },
+    {
+      "id": "kyoto-shimbun",
+      "date": "2026-05-09",
+      "weekday": "土",
+      "name": "第74回 京都新聞杯",
+      "grade": "G2",
+      "venue": "京都",
+      "course": "芝2200m（右外）",
+      "category": "3歳オープン・馬齢",
+      "kakoUrl": "https://p.keibabook.co.jp/cyuou/kako/202603000511",
+      "history": [
+        {"year":2016,"date":"5.7","venue":"京都","going":"晴・良","horses":14,"first":{"num":2,"name":"スマートオーディン","sex":"牡3","kg":56,"jockey":"戸崎","time":"2.12.6","passing":"13 12 12 9","pop":1,"weight":482,"trainer":"松田国"},"second":{"num":11,"name":"アグネスフォルテ","pop":9},"third":{"num":9,"name":"ロイカバード","pop":4}},
+        {"year":2017,"date":"5.6","venue":"京都","going":"曇・良","horses":12,"first":{"num":11,"name":"プラチナムバレット","sex":"牡3","kg":56,"jockey":"浜中","time":"2.15.2","passing":"7 8 7 9","pop":2,"weight":480,"trainer":"河内"},"second":{"num":3,"name":"サトノクロニクル","pop":1},"third":{"num":2,"name":"ダノンディスタンス","pop":6}},
+        {"year":2018,"date":"5.5","venue":"京都","going":"晴・良","horses":17,"first":{"num":13,"name":"ステイフーリッシュ","sex":"牡3","kg":56,"jockey":"藤岡佑","time":"2.11.0","passing":"2 2 2 2","pop":7,"weight":454,"trainer":"矢作"},"second":{"num":8,"name":"アドマイヤアルバ","pop":11},"third":{"num":15,"name":"シャルドネゴールド","pop":4}},
+        {"year":2019,"date":"5.4","venue":"京都","going":"晴・良","horses":14,"first":{"num":12,"name":"レッドジェニアル","sex":"牡3","kg":56,"jockey":"酒井学","time":"2.11.9","passing":"8 8 9 9","pop":11,"weight":480,"trainer":"高橋忠"},"second":{"num":3,"name":"ロジャーバローズ","pop":2},"third":{"num":6,"name":"サトノソロモン","pop":7}},
+        {"year":2020,"date":"5.9","venue":"京都","going":"曇・良","horses":13,"first":{"num":6,"name":"ディープボンド","sex":"牡3","kg":56,"jockey":"和田竜","time":"2.11.7","passing":"5 5 6 6","pop":4,"weight":482,"trainer":"大久龍"},"second":{"num":11,"name":"マンオブスピリット","pop":3},"third":{"num":10,"name":"ファルコニア","pop":2}},
+        {"year":2021,"date":"5.8","venue":"中京","going":"曇・良","horses":11,"first":{"num":10,"name":"レッドジェネシス","sex":"牡3","kg":56,"jockey":"川田","time":"2.11.2","passing":"8 8 8 5","pop":3,"weight":488,"trainer":"友道"},"second":{"num":4,"name":"ルペルカーリア","pop":1},"third":{"num":8,"name":"マカオンドール","pop":2}},
+        {"year":2022,"date":"5.7","venue":"中京","going":"晴・良","horses":12,"first":{"num":3,"name":"アスクワイルドモア","sex":"牡3","kg":56,"jockey":"岩田望","time":"2.09.5","passing":"9 8 9 6","pop":8,"weight":462,"trainer":"藤原英"},"second":{"num":11,"name":"ヴェローナシチー","pop":7},"third":{"num":9,"name":"ボルドグフーシュ","pop":5}},
+        {"year":2023,"date":"5.6","venue":"京都","going":"小雨・良","horses":12,"first":{"num":6,"name":"サトノグランツ","sex":"牡3","kg":56,"jockey":"川田","time":"2.14.1","passing":"5 5 6 5","pop":1,"weight":494,"trainer":"友道"},"second":{"num":7,"name":"ダノントルネード","pop":2},"third":{"num":12,"name":"リビアングラス","pop":7}},
+        {"year":2024,"date":"5.4","venue":"京都","going":"晴・良","horses":15,"first":{"num":1,"name":"ジューンテイク","sex":"牡3","kg":57,"jockey":"藤岡佑","time":"2.11.2","passing":"3 4 4 5","pop":8,"weight":486,"trainer":"武英"},"second":{"num":5,"name":"ウエストナウ","pop":5},"third":{"num":7,"name":"ヴェローチェエラ","pop":2}},
+        {"year":2025,"date":"5.10","venue":"京都","going":"曇・稍重","horses":10,"first":{"num":8,"name":"ショウヘイ","sex":"牡3","kg":57,"jockey":"川田将","time":"2.14.7","passing":"2 2 2 2","pop":5,"weight":456,"trainer":"友道"},"second":{"num":5,"name":"エムズ","pop":3},"third":{"num":7,"name":"デルアヴァー","pop":6}}
+      ],
+      "trends": [
+        {"label":"1番人気の信頼度","value":"2勝のみ（2016/2023）、 やや厳しい","weight":"middle"},
+        {"label":"波乱度","value":"11人気1着（2019）、8人気1着（2022/2024）、波乱多め","weight":"high"},
+        {"label":"友道厩舎","value":"3勝（2021/2023/2025）、近年圧倒","weight":"high"},
+        {"label":"川田騎手","value":"3勝（2021/2023/2025）、相性◎","weight":"high"},
+        {"label":"前走条件","value":"きさらぎ賞・若葉S・ゆきやなぎ賞・1勝クラス上がりが多い","weight":"middle"},
+        {"label":"内枠優勢","value":"馬番1〜8の勝利が大半、外枠は不利傾向","weight":"high"}
+      ]
+    },
+    {
+      "id": "nhk-mile",
+      "date": "2026-05-10",
+      "weekday": "日",
+      "name": "第31回 NHKマイルカップ",
+      "grade": "G1",
+      "venue": "東京",
+      "course": "芝1600m（左）",
+      "category": "3歳オープン・馬齢",
+      "kakoUrl": "https://p.keibabook.co.jp/cyuou/kako/202602040611",
+      "shoubuKurani": true,
+      "history": [
+        {"year":2016,"date":"5.8","venue":"東京","going":"晴・良","horses":18,"first":{"num":4,"name":"メジャーエンブレム","sex":"牝3","kg":55,"jockey":"ルメール","time":"1.32.8","passing":"1 1 1","pop":1,"weight":496,"trainer":"田村"},"second":{"num":5,"name":"ロードクエスト","pop":2},"third":{"num":18,"name":"レインボーライン","pop":12}},
+        {"year":2017,"date":"5.7","venue":"東京","going":"曇・良","horses":18,"first":{"num":16,"name":"アエロリット","sex":"牝3","kg":55,"jockey":"横山典","time":"1.32.3","passing":"5 2 2","pop":2,"weight":478,"trainer":"菊沢"},"second":{"num":14,"name":"リエノテソーロ","pop":13},"third":{"num":6,"name":"ボンセルヴィーソ","pop":6}},
+        {"year":2018,"date":"5.6","venue":"東京","going":"晴・良","horses":18,"first":{"num":11,"name":"ケイアイノーテック","sex":"牡3","kg":57,"jockey":"藤岡佑","time":"1.32.8","passing":"17 17 15","pop":6,"weight":456,"trainer":"平田"},"second":{"num":9,"name":"ギベオン","pop":2},"third":{"num":17,"name":"レッドヴェイロン","pop":9}},
+        {"year":2019,"date":"5.5","venue":"東京","going":"晴・良","horses":18,"first":{"num":17,"name":"アドマイヤマーズ","sex":"牡3","kg":57,"jockey":"Mデムー","time":"1.32.4","passing":"8 6 7","pop":2,"weight":472,"trainer":"友道"},"second":{"num":18,"name":"ケイデンスコール","pop":14},"third":{"num":10,"name":"カテドラル","pop":7}},
+        {"year":2020,"date":"5.10","venue":"東京","going":"晴・良","horses":18,"first":{"num":11,"name":"ラウダシオン","sex":"牡3","kg":57,"jockey":"Mデムー","time":"1.32.5","passing":"2 2 2","pop":9,"weight":494,"trainer":"斉藤崇"},"second":{"num":3,"name":"レシステンシア","pop":1},"third":{"num":6,"name":"ギルデッドミラー","pop":6}},
+        {"year":2021,"date":"5.9","venue":"東京","going":"晴・良","horses":18,"first":{"num":15,"name":"シュネルマイスター","sex":"牡3","kg":57,"jockey":"ルメール","time":"1.31.6","passing":"10 9 9","pop":2,"weight":480,"trainer":"手塚"},"second":{"num":10,"name":"ソングライン","pop":7},"third":{"num":8,"name":"グレナディアガーズ","pop":1}},
+        {"year":2022,"date":"5.8","venue":"東京","going":"曇・良","horses":18,"first":{"num":18,"name":"ダノンスコーピオン","sex":"牡3","kg":57,"jockey":"川田","time":"1.32.3","passing":"9 7 6","pop":4,"weight":460,"trainer":"安田隆"},"second":{"num":1,"name":"マテンロウオリオン","pop":3},"third":{"num":10,"name":"カワキタレブリー","pop":18}},
+        {"year":2023,"date":"5.7","venue":"東京","going":"雨・稍重","horses":17,"first":{"num":11,"name":"シャンパンカラー","sex":"牡3","kg":57,"jockey":"内田博","time":"1.33.8","passing":"14 12 13","pop":9,"weight":500,"trainer":"田中剛"},"second":{"num":3,"name":"ウンブライル","pop":8},"third":{"num":10,"name":"オオバンブルマイ","pop":3}},
+        {"year":2024,"date":"5.5","venue":"東京","going":"晴・良","horses":18,"first":{"num":16,"name":"ジャンタルマンタル","sex":"牡3","kg":57,"jockey":"川田将","time":"1.32.4","passing":"5 3 3","pop":2,"weight":492,"trainer":"高野"},"second":{"num":14,"name":"アスコリピチェーノ","pop":1},"third":{"num":6,"name":"ロジリオン","pop":10}},
+        {"year":2025,"date":"5.11","venue":"東京","going":"晴・良","horses":18,"first":{"num":11,"name":"パンジャタワー","sex":"牡3","kg":57,"jockey":"松山弘","time":"1.31.7","passing":"10 10 9","pop":9,"weight":480,"trainer":"橋口慎"},"second":{"num":10,"name":"マジックサンズ","pop":3},"third":{"num":3,"name":"チェルビアット","pop":12}}
+      ],
+      "trends": [
+        {"label":"1番人気の信頼度","value":"1勝のみ（2016 メジャーエンブレム）、人気馬は当てにならない","weight":"caution"},
+        {"label":"波乱度MAX","value":"9人気1着が3回（2020/2023/2025）、3連単100万円超3回","weight":"high"},
+        {"label":"馬番11の異常データ","value":"4勝（2018/2020/2023/2025）= 全勝鞍の40%","weight":"extreme"},
+        {"label":"牝馬の活躍","value":"3勝（2016 メジャー / 2017 アエロ / 2020 ラウダシオン牡だが2着レシス牝）","weight":"middle"},
+        {"label":"前走多様性","value":"桜花賞・NZT・ファルコンS・アーリンC・皐月賞・毎日杯と多彩","weight":"flat"},
+        {"label":"川田騎手","value":"2022 ダノンスコーピオン、2024 ジャンタル　近年強い","weight":"middle"},
+        {"label":"M.デムーロ","value":"2019/2020 連覇で安定","weight":"middle"},
+        {"label":"勝ちタイム","value":"良馬場 1.31.6〜1.32.8、稍重 1.33.8、馬場の影響あり","weight":"flat"}
+      ],
+      "shobu_note": "勝負鞍。馬番11の異常データ、9人気の波乱頻度、川田・ルメール・Mデムーロの好騎手。神宮的にも本気で挑む。"
+    }
+  ]
+}

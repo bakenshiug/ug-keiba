@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>重賞天満宮｜UG競馬神宮</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#FAFAFA; --bg-soft:#F5F2EB; --paper:#FBF7EE; --paper-deep:#F0EADB;
+    --ink:#2c1f12; --ink-soft:#5a4a3a;
+    --shu:#a44a3f; --shu-dk:#7A1E1E;
+    --gold:#c9a84c; --gold-dk:#b8860b;
+    --ok:#5fa85c; --border:rgba(164,74,63,.25);
+  }
+  body{background:var(--bg);color:var(--ink);
+       font-family:'Noto Sans JP',sans-serif;line-height:1.7;min-height:100vh}
+  .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.05em}
+  .num{font-family:'Inter',sans-serif;font-weight:900}
+
+  /* ── ヘッダー ── */
+  header{padding:32px 16px 24px;text-align:center;
+         background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 50%,#fff8e8 100%);
+         border-bottom:2px solid var(--gold)}
+  .h-title{font-size:32px;color:var(--gold-dk);font-weight:700;letter-spacing:.4em}
+  .h-sub{font-size:13px;color:var(--ink-soft);margin-top:8px;letter-spacing:.15em}
+  .h-rule{font-size:13px;color:var(--gold-dk);margin-top:12px;font-weight:700;letter-spacing:.15em}
+  .home-link{display:inline-block;margin-top:14px;padding:6px 16px;
+             border:1px solid var(--gold-dk);color:var(--gold-dk);text-decoration:none;
+             font-size:12px;letter-spacing:.2em;border-radius:4px}
+  .home-link:hover{background:var(--gold-dk);color:#fff}
+
+  main{max-width:920px;margin:0 auto;padding:24px 16px}
+
+  /* ── レースカード（大型） ── */
+  .race-card{margin-bottom:48px;background:var(--paper);
+             border:2px solid var(--gold);border-radius:14px;
+             box-shadow:0 4px 20px rgba(201,168,76,.18);overflow:hidden}
+  .race-card.shobu{border-color:var(--shu);
+                   box-shadow:0 0 24px rgba(164,74,63,.25),0 4px 20px rgba(164,74,63,.15);
+                   animation:shobupulse 2.6s ease-in-out infinite}
+  @keyframes shobupulse{
+    0%,100%{box-shadow:0 0 24px rgba(164,74,63,.25),0 4px 20px rgba(164,74,63,.15)}
+    50%   {box-shadow:0 0 36px rgba(164,74,63,.45),0 4px 20px rgba(164,74,63,.25)}
+  }
+  .race-head{background:linear-gradient(135deg,#fff6e8 0%,#fff5dc 100%);
+             padding:24px 28px;border-bottom:2px dashed var(--gold)}
+  .race-card.shobu .race-head{background:linear-gradient(135deg,#ffe8e8 0%,#fff5dc 100%);
+                              border-bottom-color:var(--shu)}
+  .race-grade{display:inline-block;padding:4px 12px;background:var(--shu);color:#fff;
+              border-radius:4px;font-weight:900;letter-spacing:.15em;font-size:13px;
+              margin-right:8px}
+  .race-card.shobu .race-grade{background:linear-gradient(135deg,#a44a3f,#7A1E1E)}
+  .race-shobu-badge{display:inline-block;padding:4px 12px;background:linear-gradient(135deg,#f4d03f,#b8860b);
+                    color:#3a2a00;border-radius:4px;font-weight:900;letter-spacing:.15em;font-size:12px;
+                    margin-left:6px;box-shadow:0 0 8px rgba(212,175,55,.5)}
+  .race-name{font-size:24px;color:var(--shu);font-weight:700;margin-top:8px;letter-spacing:.05em}
+  .race-meta{font-size:13px;color:var(--ink-soft);margin-top:8px;letter-spacing:.05em}
+  .race-meta .item{margin-right:14px}
+  .race-meta b{color:var(--ink)}
+
+  .race-body{padding:24px 28px}
+
+  /* ── トレンド分析 ── */
+  .sec-h{font-family:'Shippori Mincho',serif;font-size:16px;color:var(--shu);
+         font-weight:700;letter-spacing:.15em;margin:18px 0 12px;
+         padding-left:12px;border-left:4px solid var(--gold)}
+  .trend-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:600px){.trend-grid{grid-template-columns:1fr}}
+  .trend-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:12px 14px}
+  .trend-card.high{border-color:var(--gold);background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 100%);
+                   box-shadow:0 1px 4px rgba(201,168,76,.15)}
+  .trend-card.extreme{border-color:var(--shu);background:linear-gradient(135deg,#fff0e8 0%,#fff5dc 100%);
+                     box-shadow:0 0 12px rgba(164,74,63,.25)}
+  .trend-card.caution{border-color:#cc8888;background:rgba(204,136,136,.06)}
+  .trend-card.middle{border-color:rgba(201,168,76,.5)}
+  .trend-label{font-family:'Shippori Mincho',serif;font-size:13px;color:var(--shu);font-weight:700;
+               margin-bottom:5px;letter-spacing:.05em}
+  .trend-card.extreme .trend-label{color:var(--shu-dk)}
+  .trend-value{font-size:12.5px;color:var(--ink);line-height:1.7}
+
+  /* ── 過去10年テーブル ── */
+  .history-table{width:100%;border-collapse:collapse;font-size:12px;
+                 background:#fff;border-radius:6px;overflow:hidden;
+                 box-shadow:0 1px 6px rgba(155,45,48,.06)}
+  .history-table th{background:var(--shu);color:#fff;padding:8px 6px;
+                    font-weight:700;font-size:11px;letter-spacing:.05em;text-align:center}
+  .history-table td{padding:8px 6px;border-bottom:1px dashed var(--border);
+                    text-align:center;color:var(--ink)}
+  .history-table tr:last-child td{border-bottom:none}
+  .history-table .ht-year{font-family:'Inter',sans-serif;font-weight:900;color:var(--gold-dk)}
+  .history-table .ht-name{font-family:'Shippori Mincho',serif;font-weight:700;text-align:left;padding-left:8px}
+  .history-table .ht-pop{font-weight:700}
+  .history-table .ht-pop.win-pop{color:var(--shu-dk);background:rgba(212,175,55,.15)}
+  .history-table .ht-num{font-family:'Inter',sans-serif;font-weight:900;
+                         display:inline-block;min-width:24px;padding:2px 6px;
+                         background:var(--paper-deep);border-radius:3px;font-size:11px}
+  .history-table tr.popular-pop td{background:rgba(212,175,55,.06)}
+  .history-overflow{overflow-x:auto;margin-top:8px}
+
+  /* ── 参考リンク ── */
+  .ref-link{display:inline-block;margin-top:14px;padding:6px 14px;
+            background:var(--paper-deep);border:1px solid var(--border);
+            border-radius:4px;color:var(--shu);text-decoration:none;
+            font-size:11px;letter-spacing:.1em}
+  .ref-link:hover{background:var(--shu);color:#fff}
+
+  /* ── 勝負鞍 注釈 ── */
+  .shobu-note{background:linear-gradient(135deg,rgba(164,74,63,.08) 0%,rgba(212,175,55,.1) 100%);
+              border-left:5px solid var(--shu);
+              padding:14px 18px;border-radius:6px;margin-top:18px;
+              font-size:13px;line-height:1.85;color:var(--ink)}
+  .shobu-note b{color:var(--shu)}
+
+  /* ── ナビ ── */
+  .race-nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;
+            margin:0 auto 30px;max-width:780px;padding:0 16px}
+  .race-nav a{padding:10px 18px;background:var(--paper);
+              border:1px solid var(--gold);border-radius:6px;
+              color:var(--gold-dk);text-decoration:none;font-size:13px;font-weight:700;
+              font-family:'Shippori Mincho',serif;letter-spacing:.1em;transition:all .15s}
+  .race-nav a:hover{background:var(--gold-dk);color:#fff}
+  .race-nav a.shobu{background:linear-gradient(135deg,#fff6e8,#fff5dc);
+                    border-color:var(--shu);color:var(--shu-dk)}
+  .race-nav a.shobu:hover{background:var(--shu);color:#fff}
+
+  footer{text-align:center;padding:24px;color:var(--ink-soft);font-size:11px;
+         border-top:1px solid var(--border);margin-top:36px;background:var(--paper-deep)}
+  footer a{color:var(--shu);text-decoration:none;font-weight:700;margin:0 8px}
+
+  .loading{text-align:center;color:var(--ink-soft);padding:40px;font-style:italic}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-title mincho">重　賞　天　満　宮</div>
+  <div class="h-sub mincho">JUUSHOU TENMANGU ─ 我、今週末の重賞を展望す</div>
+  <div class="h-rule" id="weekend-label">読み込み中…</div>
+  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+</header>
+
+<main id="main">
+  <nav class="race-nav" id="race-nav"></nav>
+  <div id="races"><div class="loading">⛩ 過去10年データ読み込み中…</div></div>
+</main>
+
+<footer>
+  最終予想は <a href="kotodama-test.html">⛩ 言霊神宮</a> ／ 馬券道は <a href="how-to-buy.html">📋 通ずる道</a>
+</footer>
+
+<script>
+fetch('data/juushou/2026-05-09-10.json?_='+Date.now())
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById('weekend-label').textContent = `${d.weekend}（土日）の重賞展望`;
+
+    // ナビ
+    document.getElementById('race-nav').innerHTML = d.races.map(r =>
+      `<a href="#${r.id}" class="${r.shoubuKurani?'shobu':''}">${r.weekday} ${r.name}${r.shoubuKurani?' 🔥':''}</a>`
+    ).join('');
+
+    // レースカード
+    document.getElementById('races').innerHTML = d.races.map(r => {
+      const shobu = r.shoubuKurani;
+      // 過去10年テーブル
+      const histRows = r.history.map(h => {
+        const f = h.first;
+        const popClass = f.pop <= 3 ? '' : 'win-pop';
+        return `<tr>
+          <td class="ht-year">${h.year}</td>
+          <td>${h.date}</td>
+          <td>${h.venue}<br><small style="color:var(--ink-soft);font-size:10px">${h.going}</small></td>
+          <td><span class="ht-num">${f.num}</span></td>
+          <td class="ht-name">${f.name}<br><small style="color:var(--ink-soft);font-size:10px">${f.sex} / 騎${f.jockey} / 厩${f.trainer}</small></td>
+          <td class="ht-pop ${popClass}">${f.pop}</td>
+          <td>${f.time}</td>
+          <td>${f.weight}kg</td>
+        </tr>`;
+      }).join('');
+
+      // 1〜3着馬まとめ
+      const podiumRows = r.history.map(h => `
+        <tr>
+          <td class="ht-year">${h.year}</td>
+          <td>🥇 <b>${h.first.num}</b> ${h.first.name} (${h.first.pop}人気)</td>
+          <td>🥈 ${h.second.num} ${h.second.name} (${h.second.pop}人気)</td>
+          <td>🥉 ${h.third.num} ${h.third.name} (${h.third.pop}人気)</td>
+        </tr>`).join('');
+
+      // トレンド
+      const trendCards = r.trends.map(t => `
+        <div class="trend-card ${t.weight}">
+          <div class="trend-label">${t.label}</div>
+          <div class="trend-value">${t.value}</div>
+        </div>`).join('');
+
+      return `
+        <section class="race-card ${shobu?'shobu':''}" id="${r.id}">
+          <div class="race-head">
+            <div>
+              <span class="race-grade mincho">${r.grade}</span>
+              <span style="font-size:13px;color:var(--ink-soft);font-weight:700">${r.date.slice(5)}（${r.weekday}）</span>
+              ${shobu?'<span class="race-shobu-badge mincho">🔥 勝負鞍</span>':''}
+            </div>
+            <div class="race-name mincho">${r.name}</div>
+            <div class="race-meta">
+              <span class="item">📍 <b>${r.venue}</b></span>
+              <span class="item">🏇 <b>${r.course}</b></span>
+              <span class="item">${r.category}</span>
+            </div>
+          </div>
+          <div class="race-body">
+
+            <h3 class="sec-h mincho">📊 過去10年トレンド</h3>
+            <div class="trend-grid">${trendCards}</div>
+
+            <h3 class="sec-h mincho">📜 過去10年 1〜3着馬</h3>
+            <div class="history-overflow">
+              <table class="history-table">
+                <thead>
+                  <tr><th>年</th><th>1着</th><th>2着</th><th>3着</th></tr>
+                </thead>
+                <tbody>${podiumRows}</tbody>
+              </table>
+            </div>
+
+            <h3 class="sec-h mincho">🏇 過去10年 1着馬 詳細</h3>
+            <div class="history-overflow">
+              <table class="history-table">
+                <thead>
+                  <tr><th>年</th><th>月日</th><th>場/馬場</th><th>馬番</th><th>馬名</th><th>人気</th><th>タイム</th><th>馬体重</th></tr>
+                </thead>
+                <tbody>${histRows}</tbody>
+              </table>
+            </div>
+
+            ${shobu && r.shobu_note ? `
+            <div class="shobu-note">
+              <b>🔥 勝負鞍コメント</b><br>
+              ${r.shobu_note}
+            </div>` : ''}
+
+            <a class="ref-link" href="${r.kakoUrl}" target="_blank">📚 競馬ブック 過去一覧へ</a>
+          </div>
+        </section>`;
+    }).join('');
+  })
+  .catch(e => {
+    document.getElementById('races').innerHTML = '<div class="loading">⚠ データ読み込みに失敗しました</div>';
+    console.error(e);
+  });
+</script>
+</body>
+</html>
