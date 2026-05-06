@@ -31,8 +31,13 @@
         background:var(--paper);border-radius:8px;
         box-shadow:0 1px 6px rgba(164,74,63,.08);overflow:hidden}
   .race[open]{margin-bottom:24px}
-  .race.race-hit{border-color:var(--gold);
-                 box-shadow:0 0 12px rgba(201,168,76,.25),0 1px 6px rgba(164,74,63,.08)}
+  .race.race-win{border-color:var(--gold);
+                 box-shadow:0 0 16px rgba(201,168,76,.4),0 1px 6px rgba(164,74,63,.08);
+                 animation:racePulse 2.6s ease-in-out infinite}
+  @keyframes racePulse{
+    0%,100%{box-shadow:0 0 16px rgba(201,168,76,.4),0 1px 6px rgba(164,74,63,.08)}
+    50%   {box-shadow:0 0 26px rgba(201,168,76,.65),0 1px 6px rgba(164,74,63,.12)}
+  }
   .race-summary{padding:14px 18px;cursor:pointer;list-style:none;
                 display:flex;align-items:center;gap:10px;flex-wrap:wrap;
                 background:var(--paper);transition:background .15s ease}
@@ -44,8 +49,10 @@
   .race-summary .race-meta{font-size:11px;color:var(--ink-soft);flex-shrink:0}
   .race-hit-mark{display:inline-block;font-size:18px;margin-left:6px;
                  animation:bounce 1.4s ease-in-out infinite;vertical-align:middle}
-  .race.race-hit .race-summary{background:linear-gradient(90deg,rgba(212,175,55,.15) 0%,rgba(212,175,55,.04) 100%)}
-  .race.race-hit .race-summary .race-name{color:var(--shu-dk,#7A1E1E)}
+  .race.race-win .race-summary{background:linear-gradient(135deg,rgba(212,175,55,.22) 0%,rgba(212,175,55,.08) 50%,rgba(212,175,55,.18) 100%)}
+  .race.race-win .race-summary:hover{background:linear-gradient(135deg,rgba(212,175,55,.3) 0%,rgba(212,175,55,.12) 50%,rgba(212,175,55,.25) 100%)}
+  .race.race-win .race-summary .race-name{color:var(--shu-dk,#7A1E1E)}
+  .race.race-win .race-fold-icon{color:var(--gold-dk,#b8860b)}
   .race-body{padding:18px 20px 20px}
   .race-body .race-betting-pair,.race-body .picks-table{margin-top:0}
   /* 折り畳みサマリー（神宮ボード）*/
@@ -630,13 +637,18 @@ function render(){
         <span class="cross-jump-label mincho">同${r.raceNum} ▶</span>
         ${others.map(o => `<button class="cj-btn" data-jump-key="${o.date}|${o.venue}" data-jump-rnum="${o.raceNum}">${o.venue}${o.raceNum}</button>`).join('')}
       </div>` : '';
-    // 的中判定（pickの中で1-3着が居れば的中）
+    // 的中判定（pickの中で1-3着が居れば🎯マーク）
     const raceHit = (r.picks || []).some(p => {
       const rk = p.finalRank ? Number(p.finalRank) : null;
       return rk && rk>=1 && rk<=3;
     });
+    // 勝ちレース判定（BOXまたは◎軸流しのどちらかで回収率100%超 → 金グロー）
+    const boxRec = (r.result && r.result.betting) ? r.result.betting.recovery : 0;
+    const axisBetCheck = calcAxis(r);
+    const axisRec = axisBetCheck ? axisBetCheck.recovery : 0;
+    const raceWin = boxRec >= 100 || axisRec >= 100;
     return `
-    <details class="race ${raceHit?'race-hit':''}" data-rnum="${r.raceNum}">
+    <details class="race ${raceWin?'race-win':''}" data-rnum="${r.raceNum}">
       <summary class="race-summary">
         <span class="race-fold-icon">▶</span>
         <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}</span>
