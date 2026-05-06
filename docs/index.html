@@ -1415,17 +1415,17 @@ a{color:inherit;}
         </tr>
         <tr>
           <td class="bake-name">旧（4頭BOX）</td>
-          <td>¥6,000</td>
-          <td>¥216,000</td>
-          <td>¥219,140</td>
-          <td class="bake-rec">101.5%</td>
+          <td data-label="1R投資">¥6,000</td>
+          <td data-label="総投資">¥216,000</td>
+          <td data-label="総払戻">¥219,140</td>
+          <td class="bake-rec" data-label="回収率">101.5%</td>
         </tr>
         <tr class="bake-win">
           <td class="bake-name">新（◎軸流し）<span class="bake-badge">★神宮採用</span></td>
-          <td>¥3,500</td>
-          <td>¥126,000</td>
-          <td>¥184,370</td>
-          <td class="bake-rec win">146.3%</td>
+          <td data-label="1R投資">¥3,500</td>
+          <td data-label="総投資">¥126,000</td>
+          <td data-label="総払戻">¥184,370</td>
+          <td class="bake-rec win" data-label="回収率">146.3%</td>
         </tr>
       </table>
       <p class="bake-conclusion">
@@ -1551,13 +1551,47 @@ a{color:inherit;}
            transition:all .2s ease}
 .bake-link:hover{background:var(--shu-dk,#7A1E1E);transform:translateY(-1px);
                  box-shadow:0 5px 14px rgba(155,45,48,.35)}
-@media(max-width:600px){
-  .shinju-bake{padding:18px 14px}
-  .bake-h{font-size:13px}
-  .bake-table{font-size:11px}
-  .bake-table th,.bake-table td{padding:6px 4px}
-  .bake-table .bake-rec{font-size:14px}
-  .bake-conclusion{font-size:12px}
+@media(max-width:680px){
+  .shinju-bake{padding:18px 12px}
+  .bake-h{font-size:14px;line-height:1.5;letter-spacing:.04em}
+  .bake-lead{font-size:12px;line-height:1.7}
+  /* テーブル → カード型に変換 */
+  .bake-table,.bake-table tbody,.bake-table tr,.bake-table td{display:block;width:100%}
+  .bake-table thead{display:none}
+  .bake-table{background:transparent;box-shadow:none;border-radius:0}
+  .bake-table tr{
+    background:#fff;border:1px solid rgba(201,169,97,.4);border-radius:8px;
+    padding:14px 16px;margin-bottom:10px;
+    box-shadow:0 2px 6px rgba(155,45,48,.06);
+  }
+  .bake-table tr.bake-win{
+    border:2px solid var(--gold,#c9a84c);
+    background:linear-gradient(135deg,#fff6e8 0%,#fff5dc 100%);
+    box-shadow:0 0 12px rgba(201,168,76,.3);
+  }
+  .bake-table td{
+    padding:6px 0 !important;border:none !important;text-align:left;
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:13px;
+  }
+  .bake-table td::before{
+    content:attr(data-label);
+    color:var(--ink-soft);font-size:11px;font-weight:600;
+    letter-spacing:.05em;font-family:'Shippori Mincho',serif;
+  }
+  .bake-table td.bake-name{
+    text-align:left;padding:0 0 8px 0 !important;
+    border-bottom:1px dashed rgba(201,169,97,.3) !important;margin-bottom:6px;
+    font-size:15px;color:var(--shu);
+    flex-wrap:wrap;gap:6px;
+  }
+  .bake-table td.bake-name::before{content:''}
+  .bake-table tr.bake-win .bake-name{font-size:15px}
+  .bake-table .bake-rec{font-size:18px}
+  .bake-table .bake-rec.win{font-size:22px}
+  .bake-conclusion{font-size:12.5px;padding:12px}
+  .bake-detail{font-size:11.5px}
+  .bake-link{font-size:11px;letter-spacing:.1em;padding:10px 18px}
 }
 
 .shinju-kamae{
