@@ -125,6 +125,25 @@
                 padding:14px 18px;box-shadow:0 1px 4px rgba(155,45,48,.06)}
   .preview-card.mare{border:2px solid #d4528a;
                      background:linear-gradient(135deg,#fff5f8 0%,#fff 100%)}
+  /* 💥 爆穴候補 */
+  .preview-card.bakuana{border:2px solid var(--shu);
+                         background:linear-gradient(135deg,#fff0e8 0%,#fff8e8 100%);
+                         box-shadow:0 0 16px rgba(164,74,63,.3),0 1px 4px rgba(155,45,48,.1);
+                         animation:bakuanaPulse 2.4s ease-in-out infinite;
+                         position:relative}
+  @keyframes bakuanaPulse{
+    0%,100%{box-shadow:0 0 16px rgba(164,74,63,.3),0 1px 4px rgba(155,45,48,.1)}
+    50%   {box-shadow:0 0 24px rgba(164,74,63,.55),0 1px 4px rgba(155,45,48,.15)}
+  }
+  .preview-card.bakuana .pc-tag{background:linear-gradient(135deg,#a44a3f,#7A1E1E);color:#fff}
+  .preview-card.bakuana .pc-name{color:var(--shu-dk)}
+  .preview-card.bakuana::before{
+    content:'💥 爆穴';position:absolute;top:-10px;right:14px;
+    background:linear-gradient(135deg,#a44a3f,#7A1E1E);color:#fff;
+    padding:4px 12px;border-radius:4px;font-size:11px;font-weight:900;
+    letter-spacing:.15em;font-family:'Shippori Mincho',serif;
+    box-shadow:0 2px 8px rgba(164,74,63,.4)
+  }
   .pc-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
            padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed var(--border)}
   .pc-name{font-family:'Shippori Mincho',serif;font-size:17px;color:var(--shu);font-weight:700;letter-spacing:.05em}
@@ -275,18 +294,23 @@ fetch('data/juushou/2026-05-09-10.json?_='+Date.now())
               神宮独自の視点で再構成（出馬登録・動向は変動の可能性）
             </div>
             <div class="preview-grid">
-              ${r.previewHorses.map(h => `
-                <div class="preview-card ${h.sex && h.sex.startsWith('牝')?'mare':''}">
+              ${r.previewHorses.map(h => {
+                const isMare = h.sex && h.sex.startsWith('牝');
+                const isBakuana = h.summary && h.summary.includes('爆穴');
+                const cardCls = isBakuana ? 'bakuana' : (isMare ? 'mare' : '');
+                const tagText = isBakuana ? '💥 穴' : (isMare ? '🌸 牝馬' : '有力');
+                return `
+                <div class="preview-card ${cardCls}">
                   <div class="pc-head">
-                    <span class="pc-tag">${h.sex && h.sex.startsWith('牝')?'🌸 牝馬':'有力'}</span>
+                    <span class="pc-tag">${tagText}</span>
                     <span class="pc-name">${h.name}</span>
                     <span class="pc-meta"><b>${h.sex}</b> ／ ${h.kg}kg ／ 騎${h.jockey} ／ 厩${h.trainer}</span>
                     <span class="pc-summary">${h.summary || ''}</span>
                   </div>
                   <div class="pc-view">${h.shrine_view}</div>
                   ${h.watchpoint ? `<div class="pc-watch"><b>👁 注目点</b>${h.watchpoint}</div>` : ''}
-                </div>
-              `).join('')}
+                </div>`;
+              }).join('')}
             </div>` : ''}
 
           </div>
