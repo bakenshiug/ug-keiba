@@ -34,11 +34,12 @@
 
   main{max-width:920px;margin:0 auto;padding:24px 16px}
 
-  /* ── レースカード（大型） ── */
-  .race-card{margin-bottom:48px;background:var(--paper);
+  /* ── レースカード（折り畳み大型） ── */
+  details.race-card{margin-bottom:24px;background:var(--paper);
              border:2px solid var(--gold);border-radius:14px;
              box-shadow:0 4px 20px rgba(201,168,76,.18);overflow:hidden}
-  .race-card.shobu{border-color:var(--shu);
+  details.race-card[open]{margin-bottom:48px}
+  details.race-card.shobu{border-color:var(--shu);
                    box-shadow:0 0 24px rgba(164,74,63,.25),0 4px 20px rgba(164,74,63,.15);
                    animation:shobupulse 2.6s ease-in-out infinite}
   @keyframes shobupulse{
@@ -46,9 +47,20 @@
     50%   {box-shadow:0 0 36px rgba(164,74,63,.45),0 4px 20px rgba(164,74,63,.25)}
   }
   .race-head{background:linear-gradient(135deg,#fff6e8 0%,#fff5dc 100%);
-             padding:24px 28px;border-bottom:2px dashed var(--gold)}
-  .race-card.shobu .race-head{background:linear-gradient(135deg,#ffe8e8 0%,#fff5dc 100%);
+             padding:20px 26px;border-bottom:2px dashed var(--gold);
+             cursor:pointer;list-style:none;
+             display:flex;align-items:flex-start;gap:14px;
+             transition:background .15s ease}
+  .race-head::-webkit-details-marker{display:none}
+  .race-head:hover{background:linear-gradient(135deg,#fff0c8 0%,#ffe8c0 100%)}
+  details.race-card.shobu .race-head{background:linear-gradient(135deg,#ffe8e8 0%,#fff5dc 100%);
                               border-bottom-color:var(--shu)}
+  details.race-card.shobu .race-head:hover{background:linear-gradient(135deg,#ffd8d8 0%,#fff0c8 100%)}
+  .race-fold-icon{font-size:18px;color:var(--gold-dk);
+                  transition:transform .25s ease;flex-shrink:0;line-height:1.4}
+  details.race-card[open] .race-fold-icon{transform:rotate(90deg)}
+  details.race-card.shobu .race-fold-icon{color:var(--shu-dk)}
+  .race-head-body{flex:1}
   .race-grade{display:inline-block;padding:4px 12px;background:var(--shu);color:#fff;
               border-radius:4px;font-weight:900;letter-spacing:.15em;font-size:13px;
               margin-right:8px}
@@ -204,8 +216,20 @@ fetch('data/juushou/2026-05-09-10.json?_='+Date.now())
 
     // ナビ
     document.getElementById('race-nav').innerHTML = d.races.map(r =>
-      `<a href="#${r.id}" class="${r.shoubuKurani?'shobu':''}">${r.weekday} ${r.name}${r.shoubuKurani?' 🔥':''}</a>`
+      `<a href="#${r.id}" data-target="${r.id}" class="${r.shoubuKurani?'shobu':''}">${r.weekday} ${r.name}${r.shoubuKurani?' 🔥':''}</a>`
     ).join('');
+    // ナビクリック時に details を展開＋スクロール
+    document.querySelectorAll('#race-nav a[data-target]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const id = a.dataset.target;
+        const el = document.getElementById(id);
+        if (el) {
+          el.open = true;
+          requestAnimationFrame(() => el.scrollIntoView({behavior:'smooth', block:'start'}));
+        }
+      });
+    });
 
     // レースカード
     document.getElementById('races').innerHTML = d.races.map(r => {
@@ -243,20 +267,23 @@ fetch('data/juushou/2026-05-09-10.json?_='+Date.now())
         </div>`).join('');
 
       return `
-        <section class="race-card ${shobu?'shobu':''}" id="${r.id}">
-          <div class="race-head">
-            <div>
-              <span class="race-grade mincho">${r.grade}</span>
-              <span style="font-size:13px;color:var(--ink-soft);font-weight:700">${r.date.slice(5)}（${r.weekday}）</span>
-              ${shobu?'<span class="race-shobu-badge mincho">🔥 勝負鞍</span>':''}
+        <details class="race-card ${shobu?'shobu':''}" id="${r.id}" ${shobu?'open':''}>
+          <summary class="race-head">
+            <span class="race-fold-icon">▶</span>
+            <div class="race-head-body">
+              <div>
+                <span class="race-grade mincho">${r.grade}</span>
+                <span style="font-size:13px;color:var(--ink-soft);font-weight:700">${r.date.slice(5)}（${r.weekday}）</span>
+                ${shobu?'<span class="race-shobu-badge mincho">🔥 勝負鞍</span>':''}
+              </div>
+              <div class="race-name mincho">${r.name}</div>
+              <div class="race-meta">
+                <span class="item">📍 <b>${r.venue}</b></span>
+                <span class="item">🏇 <b>${r.course}</b></span>
+                <span class="item">${r.category}</span>
+              </div>
             </div>
-            <div class="race-name mincho">${r.name}</div>
-            <div class="race-meta">
-              <span class="item">📍 <b>${r.venue}</b></span>
-              <span class="item">🏇 <b>${r.course}</b></span>
-              <span class="item">${r.category}</span>
-            </div>
-          </div>
+          </summary>
           <div class="race-body">
 
             <h3 class="sec-h mincho">📊 過去10年トレンド</h3>
@@ -314,7 +341,7 @@ fetch('data/juushou/2026-05-09-10.json?_='+Date.now())
             </div>` : ''}
 
           </div>
-        </section>`;
+        </details>`;
     }).join('');
   })
   .catch(e => {
