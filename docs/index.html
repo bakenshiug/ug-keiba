@@ -1671,7 +1671,7 @@ a{color:inherit;}
         <div class="nenju-shinji mincho">花 神 事</div>
         <div class="nenju-race">桜花賞<br>皐月賞<br>天皇賞春</div>
       </div>
-      <div class="nenju-item current">
+      <div class="nenju-item">
         <div class="nenju-month mincho">五月</div>
         <div class="nenju-shinji mincho">五月大祭</div>
         <div class="nenju-race">NHKマイル<br>VM・オークス<br>ダービー</div>
@@ -1704,6 +1704,20 @@ a{color:inherit;}
     </div>
   </div>
 </section>
+<script>
+// 年中行事暦：今月を自動でcurrent化
+(function(){
+  const KAN = ['','一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+  // 7・8月は項目なしのため、最も近い月にフォールバック
+  const FALLBACK = {7:'六月', 8:'九月'};
+  const m = new Date().getMonth() + 1;
+  const target = FALLBACK[m] || KAN[m];
+  document.querySelectorAll('.nenju-item').forEach(it => {
+    const mo = it.querySelector('.nenju-month');
+    if (mo && mo.textContent.trim() === target) it.classList.add('current');
+  });
+})();
+</script>
 
 <!-- ══ 境内図 ══ -->
 <section class="section">
