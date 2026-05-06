@@ -27,9 +27,41 @@
              font-size:12px;letter-spacing:.2em;border-radius:4px}
   .home-link:hover{background:var(--shu);color:#fff}
   main{max-width:920px;margin:0 auto;padding:24px 16px}
-  .race{margin-bottom:32px;padding:20px;border:1px solid var(--border);
+  .race{margin-bottom:14px;padding:0;border:1px solid var(--border);
         background:var(--paper);border-radius:8px;
-        box-shadow:0 1px 6px rgba(164,74,63,.08)}
+        box-shadow:0 1px 6px rgba(164,74,63,.08);overflow:hidden}
+  .race[open]{margin-bottom:24px}
+  .race.race-hit{border-color:var(--gold);
+                 box-shadow:0 0 12px rgba(201,168,76,.25),0 1px 6px rgba(164,74,63,.08)}
+  .race-summary{padding:14px 18px;cursor:pointer;list-style:none;
+                display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+                background:var(--paper);transition:background .15s ease}
+  .race-summary:hover{background:var(--paper-deep)}
+  .race-summary::-webkit-details-marker{display:none}
+  .race-fold-icon{color:var(--shu);font-size:13px;transition:transform .2s ease;flex-shrink:0}
+  .race[open] .race-fold-icon{transform:rotate(90deg)}
+  .race-summary .race-name{font-size:16px;color:var(--shu);font-weight:700;flex:1;min-width:0}
+  .race-summary .race-meta{font-size:11px;color:var(--ink-soft);flex-shrink:0}
+  .race-hit-mark{display:inline-block;font-size:18px;margin-left:6px;
+                 animation:bounce 1.4s ease-in-out infinite;vertical-align:middle}
+  .race.race-hit .race-summary{background:linear-gradient(90deg,rgba(212,175,55,.15) 0%,rgba(212,175,55,.04) 100%)}
+  .race.race-hit .race-summary .race-name{color:var(--shu-dk,#7A1E1E)}
+  .race-body{padding:18px 20px 20px}
+  .race-body .race-betting-pair,.race-body .picks-table{margin-top:0}
+  /* 折り畳みサマリー（神宮ボード）*/
+  .summary-board.sb-fold{padding:0;overflow:hidden}
+  .summary-board.sb-fold > .sb-fold-summary{padding:18px;cursor:pointer;list-style:none;
+                                             text-align:center;transition:background .15s ease}
+  .summary-board.sb-fold > .sb-fold-summary::-webkit-details-marker{display:none}
+  .summary-board.sb-fold > .sb-fold-summary:hover{background:rgba(164,74,63,.04)}
+  .summary-board.sb-fold > *:not(.sb-fold-summary){padding-left:18px;padding-right:18px}
+  .summary-board.sb-fold > *:last-child{padding-bottom:18px}
+  .sb-fold-hint{font-size:11px;color:var(--ink-soft);letter-spacing:.2em;margin-top:6px;
+                opacity:.7;transition:opacity .2s ease}
+  .summary-board.sb-fold[open] .sb-fold-hint{opacity:0;height:0;margin:0;overflow:hidden}
+  .sb-total-detail{text-align:center;font-size:12px;color:var(--ink-soft);margin-bottom:10px}
+  .sb-total-detail.win{color:var(--ok)}
+  .sb-total-detail small{font-size:12px}
   .race-header{display:flex;justify-content:space-between;align-items:baseline;
                border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:14px;
                flex-wrap:wrap;gap:8px}
@@ -436,10 +468,15 @@ function renderSummaryAxis(){
   }).map(([v,rs]) => [v, aggregateAxis(rs)]);
 
   el.innerHTML = `
-    <div class="summary-board neon">
-      <div class="sb-title mincho">⛩ 言霊神宮 日曜全36R 集計　単勝/複勝◎1点購入&◎1頭軸流しの場合</div>
-      <div class="sb-total ${all.totalRecovery>=100?'win':''}">
-        総合回収率 ${all.totalRecovery}%
+    <details class="summary-board neon sb-fold">
+      <summary class="sb-fold-summary">
+        <div class="sb-title mincho">⛩ 言霊神宮 日曜全36R 集計　単勝/複勝◎1点購入&◎1頭軸流しの場合</div>
+        <div class="sb-total ${all.totalRecovery>=100?'win':''}">
+          総合回収率 ${all.totalRecovery}%
+        </div>
+        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開</div>
+      </summary>
+      <div class="sb-total-detail ${all.totalRecovery>=100?'win':''}">
         <small>${all.racesHit}/${all.racesWithResult}R的中 (${all.raceHitRate}%) ／ 投資¥${all.totalInvest.toLocaleString()} 払戻¥${all.totalPayout.toLocaleString()}</small>
       </div>
       <div class="sb-meta">単勝◎/複勝◎/ワイド・馬連・3連複は◎軸→相手3頭流し／馬単・3連単はマルチ（1Rあたり35点 ¥3,500）</div>
@@ -460,7 +497,7 @@ function renderSummaryAxis(){
         </div>
       </details>
       <div class="sb-learn">🔬 ベスト馬券種分析学習中... ／ ◎軸流しは投資効率重視型</div>
-    </div>`;
+    </details>`;
 }
 
 function venueBoard(name, s){
@@ -491,10 +528,15 @@ function renderSummary(){
     return (ai<0?99:ai) - (bi<0?99:bi);
   });
   el.innerHTML = `
-    <div class="summary-board">
-      <div class="sb-title mincho">⛩ 言霊神宮 日曜全36R 集計　単勝/複勝4頭購入&全馬券種4頭BOX購入の場合</div>
-      <div class="sb-total ${s.totalRecovery>=100?'win':''}">
-        総合回収率 ${s.totalRecovery}%
+    <details class="summary-board sb-fold">
+      <summary class="sb-fold-summary">
+        <div class="sb-title mincho">⛩ 言霊神宮 日曜全36R 集計　単勝/複勝4頭購入&全馬券種4頭BOX購入の場合</div>
+        <div class="sb-total ${s.totalRecovery>=100?'win':''}">
+          総合回収率 ${s.totalRecovery}%
+        </div>
+        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開</div>
+      </summary>
+      <div class="sb-total-detail ${s.totalRecovery>=100?'win':''}">
         <small>${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</small>
       </div>
       <div class="sb-meta">各レース4頭 × 7券種BOX購入（1Rあたり60点6,000円）</div>
@@ -516,7 +558,7 @@ function renderSummary(){
       </details>
       <div class="sb-learn">🔬 ベスト馬券種分析学習中...</div>
       ${renderGoshugi()}
-    </div>`;
+    </details>`;
 }
 
 function renderGoshugi(){
@@ -588,13 +630,20 @@ function render(){
         <span class="cross-jump-label mincho">同${r.raceNum} ▶</span>
         ${others.map(o => `<button class="cj-btn" data-jump-key="${o.date}|${o.venue}" data-jump-rnum="${o.raceNum}">${o.venue}${o.raceNum}</button>`).join('')}
       </div>` : '';
+    // 的中判定（pickの中で1-3着が居れば的中）
+    const raceHit = (r.picks || []).some(p => {
+      const rk = p.finalRank ? Number(p.finalRank) : null;
+      return rk && rk>=1 && rk<=3;
+    });
     return `
-    <div class="race" data-rnum="${r.raceNum}">
-      <div class="race-header">
-        <div class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}</div>
-        <div class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</div>
+    <details class="race ${raceHit?'race-hit':''}" data-rnum="${r.raceNum}">
+      <summary class="race-summary">
+        <span class="race-fold-icon">▶</span>
+        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}</span>
+        <span class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
+      </summary>
+      <div class="race-body">
         ${crossJump}
-      </div>
       <table class="picks-table">
         <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>言霊評価</th></tr>
         ${r.picks.map(p => {
@@ -670,23 +719,28 @@ function render(){
           </div>` : '';
         return `<div class="race-betting-pair">${boxHTML}${axisHTML}</div>`;
       })() : ''}` : '<div class="result pending">結果待ち</div>'}
-    </div>
+      </div>
+    </details>
   `;
   }).join('');
 
   // 他場ジャンプ ボタンのイベント
   root.querySelectorAll('.cj-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault(); e.stopPropagation();
       const key = btn.dataset.jumpKey;
       const rnum = btn.dataset.jumpRnum;
       CURRENT_TAB = key;
       const tabsEl = document.getElementById('tabs');
       tabsEl.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.key === CURRENT_TAB));
       render();
-      // 同じR番号にスクロール
+      // 同じR番号にスクロール＆展開
       requestAnimationFrame(() => {
         const target = document.querySelector(`.race[data-rnum="${rnum}"]`);
-        if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+        if (target) {
+          target.open = true;
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
       });
     });
   });
