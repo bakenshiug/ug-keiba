@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>言霊神宮｜UG競馬神宮</title>
+<title>言霊神宮アーカイブ 2026-05-03（天皇賞・春週） ｜ UG競馬神宮</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -333,12 +333,19 @@
 </style>
 </head>
 <body>
+<div style="background:linear-gradient(135deg,#f5f2eb,#fbf7ee);border-bottom:2px solid #8a7a3a;
+            padding:14px 20px;text-align:center;font-family:'Shippori Mincho',serif;letter-spacing:.05em">
+  📜 <b style="color:#7A1E1E">言霊神宮アーカイブ</b>
+  ｜ 2026-05-03（天皇賞・春週） 全レース picks
+  ｜ <a href="kotodama.html" style="color:#a44a3f;font-weight:700;text-decoration:underline">最新週へ戻る ▶</a>
+  ｜ <a href="kotodama-archive.html" style="color:#a44a3f;font-weight:700;text-decoration:underline">アーカイブ一覧 📚</a>
+</div>
+
 <header>
   <div class="h-title mincho">言　霊　神　宮</div>
   <div class="h-sub mincho">⛩ ギーニョ・青龍・クロード（神主）</div>
   <div class="h-rule">全レース予想公開中</div>
   <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
-  <a class="home-link mincho" href="kotodama-archive.html" style="margin-left:8px">📚 アーカイブ</a>
 </header>
 <div id="summary-board"></div>
 <div id="summary-board-axis"></div>
@@ -371,7 +378,7 @@ async function load(){
     try{
       const r = await fetch(f+'?_='+Date.now());
       const d = await r.json();
-      const paidDay = d.paidDay === true;
+      const paidDay = false; /* アーカイブ：全公開 */
       d.races.forEach(race => {
         if (paidDay) {
           const rn = parseInt(String(race.raceNum).replace('R',''), 10);

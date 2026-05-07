@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>言霊神宮アーカイブ ｜ UG競馬神宮</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#FAFAFA; --paper:#FBF7EE; --paper-deep:#F0EADB;
+    --ink:#2c1f12; --ink-soft:#5a4a3a;
+    --shu:#a44a3f; --shu-dk:#7A1E1E;
+    --gold:#c9a84c; --gold-dk:#b8860b;
+    --border:rgba(164,74,63,.25);
+  }
+  body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;line-height:1.7;min-height:100vh}
+  .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.05em}
+
+  header{padding:32px 16px 24px;text-align:center;
+         background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 50%,#fff8e8 100%);
+         border-bottom:2px solid var(--gold)}
+  .h-title{font-size:30px;color:var(--gold-dk);font-weight:700;letter-spacing:.4em}
+  .h-sub{font-size:13px;color:var(--ink-soft);margin-top:8px;letter-spacing:.15em}
+  .home-link{display:inline-block;margin-top:14px;padding:6px 16px;
+             border:1px solid var(--gold-dk);color:var(--gold-dk);text-decoration:none;
+             font-size:12px;letter-spacing:.2em;border-radius:4px}
+  .home-link:hover{background:var(--gold-dk);color:#fff}
+
+  main{max-width:920px;margin:0 auto;padding:32px 16px}
+
+  .archive-list{display:grid;gap:14px}
+  .archive-card{display:block;padding:24px 26px;background:var(--paper);
+                border:2px solid var(--border);border-radius:10px;
+                text-decoration:none;color:var(--ink);
+                transition:all .25s ease;position:relative;overflow:hidden}
+  .archive-card::before{content:"";position:absolute;inset:0;
+                        background:radial-gradient(circle at top right,rgba(201,168,76,.12),transparent 60%);
+                        pointer-events:none}
+  .archive-card:hover{border-color:var(--shu);transform:translateY(-2px);
+                      box-shadow:0 6px 20px rgba(164,74,63,.18)}
+  .ac-date{font-family:'Inter',sans-serif;font-size:24px;font-weight:900;color:var(--gold-dk);letter-spacing:.05em}
+  .ac-label{font-size:18px;color:var(--shu);font-weight:700;margin-top:6px;letter-spacing:.05em}
+  .ac-meta{font-size:12px;color:var(--ink-soft);margin-top:10px;letter-spacing:.05em}
+  .ac-meta b{color:var(--ink)}
+  .ac-arrow{position:absolute;right:24px;top:50%;transform:translateY(-50%);
+            font-size:24px;color:var(--shu);transition:transform .2s ease}
+  .archive-card:hover .ac-arrow{transform:translateY(-50%) translateX(4px)}
+
+  .empty-msg{text-align:center;padding:60px 20px;color:var(--ink-soft);font-style:italic}
+
+  footer{margin-top:60px;padding:24px 16px;text-align:center;
+         background:var(--paper-deep);border-top:1px solid var(--border);
+         font-size:12px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-title mincho">言霊神宮アーカイブ</div>
+  <div class="h-sub mincho">過去の予想記録 ─ 神宮の足跡</div>
+  <a href="kotodama.html" class="home-link mincho">最新週へ戻る ▶</a>
+</header>
+
+<main>
+  <div id="archive-list" class="archive-list">
+    <div class="empty-msg">読み込み中…</div>
+  </div>
+</main>
+
+<footer>
+  ⛩ UG競馬神宮 ｜ アーカイブは過去の予想・結果記録です
+</footer>
+
+<script>
+// アーカイブデータ：手動更新（新しい週から順に追加）
+const ARCHIVES = [
+  {
+    date: "2026-05-03",
+    label: "天皇賞・春週",
+    note: "全36R／東京・京都・新潟",
+    file: "archive-2026-05-03.html"
+  }
+  // 新しい週は先頭に追加
+];
+
+function renderArchives(){
+  const root = document.getElementById('archive-list');
+  if (!ARCHIVES.length){
+    root.innerHTML = '<div class="empty-msg">アーカイブはまだありません</div>';
+    return;
+  }
+  root.innerHTML = ARCHIVES.map(a => `
+    <a href="${a.file}" class="archive-card">
+      <div class="ac-date">${a.date}</div>
+      <div class="ac-label mincho">${a.label}</div>
+      <div class="ac-meta">${a.note}</div>
+      <span class="ac-arrow">▶</span>
+    </a>
+  `).join('');
+}
+
+renderArchives();
+</script>
+
+</body>
+</html>
