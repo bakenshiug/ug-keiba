@@ -1182,6 +1182,8 @@ a{color:inherit;}
     <a href="kotodama-test.html">参拝<small>SANPAI</small></a>
     <a href="#omikuji">感じる<small>OMIKUJI</small></a>
     <a href="goriyaku-cho.html">刻む<small>KIZAMU</small></a>
+    <a href="https://x.com/acekeiba_gaikyu" target="_blank" rel="noopener">𝕏<small>SOKUHŌ</small></a>
+    <a href="https://note.com/acekeiba_gaikyu" target="_blank" rel="noopener">📜<small>NOTE</small></a>
   </nav>
 </header>
 
@@ -1302,7 +1304,7 @@ a{color:inherit;}
 </section>
 
 <!-- ══ 言霊神宮バナー ══ -->
-<section class="section" id="kotodama-jinja-banner" style="margin-bottom:0">
+<section class="section" id="kotodama-jinja-banner" style="margin-bottom:14px">
   <a href="kotodama-test.html" class="kotodama-banner">
     <div class="kj-icon mincho">⛩</div>
     <div class="kj-body">
@@ -1313,6 +1315,33 @@ a{color:inherit;}
     <div class="kj-arrow mincho">⛩</div>
   </a>
 </section>
+
+<!-- ══ NOTE有料パックバナー ══ -->
+<section class="section" id="note-pack-banner" style="margin-bottom:0">
+  <a href="https://note.com/acekeiba_gaikyu" target="_blank" rel="noopener" class="kotodama-banner note-style">
+    <div class="kj-icon mincho">📜</div>
+    <div class="kj-body">
+      <div class="kj-title mincho">神　宮　Ｎ　Ｏ　Ｔ　Ｅ　パ　ッ　ク</div>
+      <div class="kj-sub mincho">日曜・全12R予想（東京 / 京都 / 新潟 各場別）</div>
+      <div class="kj-cta mincho">🎉 ローンチキャンペーン ¥200／場（通常 ¥800）</div>
+    </div>
+    <div class="kj-arrow mincho">📜</div>
+  </a>
+</section>
+
+<style>
+.kotodama-banner.note-style{
+  border-color:#2b6cb0;
+  background:linear-gradient(135deg,#fbf7ee 0%,#e8f0f8 100%);
+}
+.kotodama-banner.note-style:hover{
+  border-color:#1e4d80;
+  box-shadow:0 6px 20px rgba(43,108,176,.28);
+}
+.kotodama-banner.note-style .kj-icon,
+.kotodama-banner.note-style .kj-arrow{color:#2b6cb0}
+.kotodama-banner.note-style .kj-cta{color:#a44a3f;font-weight:700}
+</style>
 
 <style>
 .kotodama-banner{
@@ -1912,11 +1941,23 @@ a{color:inherit;}
     御祭神 ギーニョ大神<br>
     極式競馬新聞 神託の書
   </div>
+  <div class="footer-links">
+    <a href="https://x.com/acekeiba_gaikyu" target="_blank" rel="noopener" class="footer-link">𝕏 @acekeiba_gaikyu</a>
+    <a href="https://note.com/acekeiba_gaikyu" target="_blank" rel="noopener" class="footer-link">📜 神宮NOTE</a>
+  </div>
   <div class="footer-disclaim">
     ※ 本情報は参考目的です。投票は自己責任でお願いします。<br>
     ※ 当神宮は的中を保証するものではありません（小声）。負けたら神のせい、勝ったらギーニョの手柄。
   </div>
 </footer>
+<style>
+.footer-links{display:flex;justify-content:center;gap:24px;margin:18px 0 14px;flex-wrap:wrap}
+.footer-link{color:var(--shu-light,#d4a574);text-decoration:none;font-size:13px;
+             border:1px solid rgba(212,165,116,.4);padding:8px 16px;border-radius:4px;
+             transition:all .2s ease;letter-spacing:.05em}
+.footer-link:hover{color:#fff;border-color:var(--shu-light,#d4a574);
+                   background:rgba(212,165,116,.15)}
+</style>
 
 <script>
 const omikujiData = [

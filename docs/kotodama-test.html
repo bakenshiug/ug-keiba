@@ -53,6 +53,21 @@
   .race.race-win .race-summary:hover{background:linear-gradient(135deg,rgba(212,175,55,.3) 0%,rgba(212,175,55,.12) 50%,rgba(212,175,55,.25) 100%)}
   .race.race-win .race-summary .race-name{color:var(--shu-dk,#7A1E1E)}
   .race.race-win .race-fold-icon{color:var(--gold-dk,#b8860b)}
+  /* 🔒 有料ロック表示 */
+  .race.race-locked{border-color:#2b6cb0;border-style:dashed;opacity:.95}
+  .race.race-locked .race-summary{background:linear-gradient(135deg,rgba(43,108,176,.08) 0%,rgba(43,108,176,.03) 100%)}
+  .race.race-locked .race-fold-icon{color:#2b6cb0;font-size:18px}
+  .race.race-locked .race-name{color:#2b6cb0}
+  .lock-card{text-align:center;padding:28px 20px;background:linear-gradient(135deg,#fbf7ee 0%,#e8f0f8 100%);border-radius:8px}
+  .lock-icon{font-size:42px;margin-bottom:8px}
+  .lock-title{font-size:18px;font-weight:700;color:#2b6cb0;margin-bottom:12px}
+  .lock-desc{font-size:13px;color:var(--ink-soft);margin-bottom:14px;line-height:1.7}
+  .lock-price{font-size:15px;font-weight:700;color:var(--shu);margin-bottom:14px}
+  .lock-cta{display:inline-block;padding:12px 32px;background:#2b6cb0;color:#fff;
+            text-decoration:none;border-radius:6px;font-size:15px;font-weight:700;
+            transition:all .2s ease;letter-spacing:.05em}
+  .lock-cta:hover{background:#1e4d80;transform:translateY(-2px);box-shadow:0 4px 12px rgba(43,108,176,.3)}
+  .lock-note{font-size:11px;color:var(--ink-soft);margin-top:12px}
   .race-body{padding:18px 20px 20px}
   .race-body .race-betting-pair,.race-body .picks-table{margin-top:0}
   /* 折り畳みサマリー（神宮ボード）*/
@@ -355,7 +370,15 @@ async function load(){
     try{
       const r = await fetch(f+'?_='+Date.now());
       const d = await r.json();
-      d.races.forEach(race => ALL_RACES.push(race));
+      const paidDay = d.paidDay === true;
+      d.races.forEach(race => {
+        if (paidDay) {
+          const rn = parseInt(String(race.raceNum).replace('R',''), 10);
+          // 1-3R は無料、4R以降はロック
+          race._paidLocked = rn >= 4;
+        }
+        ALL_RACES.push(race);
+      });
       if (d.summary) SUMMARY = d.summary;
     }catch(e){console.error(e)}
   }
@@ -647,6 +670,30 @@ function render(){
     const axisBetCheck = calcAxis(r);
     const axisRec = axisBetCheck ? axisBetCheck.recovery : 0;
     const raceWin = boxRec >= 100 || axisRec >= 100;
+    // 🔒 有料ロック表示
+    if (r._paidLocked) {
+      return `
+      <details class="race race-locked" data-rnum="${r.raceNum}">
+        <summary class="race-summary">
+          <span class="race-fold-icon">🔒</span>
+          <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}</span>
+          <span class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
+        </summary>
+        <div class="race-body locked-body">
+          <div class="lock-card">
+            <div class="lock-icon">📜</div>
+            <div class="lock-title mincho">このレースは神宮NOTEパックで公開中</div>
+            <div class="lock-desc">
+              4R〜12Rは <b>${r.venue}競馬場パック</b> をご購入のお客様向けです。<br>
+              全12R picks＋推奨買い目（5券種）＋致命ワード検出馬リスト付き。
+            </div>
+            <div class="lock-price mincho">🎉 ローンチキャンペーン ¥200／場（通常 ¥800）</div>
+            <a href="https://note.com/acekeiba_gaikyu" target="_blank" rel="noopener" class="lock-cta mincho">▶ NOTE で購入する</a>
+            <div class="lock-note">📺 結果速報は X @acekeiba_gaikyu でリアタイ更新</div>
+          </div>
+        </div>
+      </details>`;
+    }
     return `
     <details class="race ${raceWin?'race-win':''}" data-rnum="${r.raceNum}">
       <summary class="race-summary">
