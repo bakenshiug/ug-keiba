@@ -347,6 +347,7 @@
   <div class="h-sub mincho">⛩ ギーニョ・青龍・クロード（神主）</div>
   <div class="h-rule">全レース予想公開中</div>
   <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+  <a class="home-link mincho" href="kotodama-archive.html" style="margin-left:8px">📚 アーカイブ</a>
 </header>
 <div id="summary-board"></div>
 <div id="summary-board-axis"></div>
@@ -743,17 +744,8 @@ function render(){
         </tr>`;
         }).join('')}
       </table>
-      ${r.fatalWords && r.fatalWords.length ? `
-      <div class="fatal">
-        <div class="fatal-h">⚠ 致命ワード検出</div>
-        ${r.fatalWords.map(f => `<div>・${f.horse}：「${f.word}」 → ${f.type}</div>`).join('')}
-      </div>` : ''}
-      <details>
-        <summary>監視リスト（B〜D級）</summary>
-        ${r.watchList ? Object.entries(r.watchList).map(([g,hs])=>`
-          <div style="margin-top:8px"><strong>${g}級</strong>: ${hs.join('・')}</div>
-        `).join('') : ''}
-      </details>
+      <!-- 致命ワード検出・監視リストは2026-05-09週から非表示（4頭picks専念） -->
+      <!-- データはJSONに保持・将来全頭出馬表形式採用時に再活用予定 -->
       ${r.result ? `
       <div class="result">
         <strong>結果</strong>: ${r.result.summary || ''}
