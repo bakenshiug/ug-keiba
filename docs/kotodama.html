@@ -688,12 +688,16 @@ function calcKirinLevel(pick){
 }
 function calcShobuLevel(race){
   const honmei = (race.picks||[]).find(p => p.mark==='◎');
-  if(!honmei || !['S','A+'].includes(honmei.kotodamaGrade)) return 0;
-  // 🧧🧧🧧 / 🧧🧧 は ◎=S のみ
-  if(honmei.kotodamaGrade === 'S'){
-    const highCount = (race.picks||[]).filter(p => ['S','A+'].includes(p.kotodamaGrade)).length;
-    if(highCount >= 3) return 3;
-    if(highCount >= 2) return 2;
+  if(!honmei) return 0;
+  const hg = honmei.kotodamaGrade;
+  const topStable = /ノーザン|チャンピオン/.test(honmei.gaikyuGrade||'');
+  // ◎=S/A+ かつ 外厩ノーザン/CH が最低条件
+  if(!['S','A+'].includes(hg) || !topStable) return 0;
+  // 🧧🧧🧧 / 🧧🧧 は ◎=S かつ 他のpicksにA+以上が2/3頭
+  if(hg === 'S'){
+    const othersHigh = (race.picks||[]).filter(p => p.mark!=='◎' && ['S','A+'].includes(p.kotodamaGrade)).length;
+    if(othersHigh >= 3) return 3;
+    if(othersHigh >= 2) return 2;
   }
   return 1;
 }
