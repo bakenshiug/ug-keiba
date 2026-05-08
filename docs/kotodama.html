@@ -136,6 +136,9 @@
   footer{text-align:center;padding:24px;color:var(--ink-soft);font-size:11px;
          border-top:1px solid var(--border);margin-top:24px;background:var(--paper-deep)}
   /* タブ */
+  .kotowaza{text-align:center;padding:10px 20px;margin:8px 16px 0;
+    font-size:13px;color:var(--ink-soft);letter-spacing:.06em;line-height:1.7;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
   .tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
         max-width:920px;margin:24px auto 0;padding:0 16px}
   .tab{padding:10px 20px;background:var(--paper);color:var(--ink-soft);
@@ -370,6 +373,7 @@
 </header>
 <div id="summary-board"></div>
 <div id="summary-board-axis"></div>
+<div id="kotowaza-board"></div>
 <div class="tabs" id="tabs"></div>
 <main id="races"></main>
 <footer class="mincho">⛩ UG 競馬神宮 ／ 言霊実験室 ⛩</footer>
@@ -413,8 +417,34 @@ async function load(){
   }
   renderSummary();
   renderSummaryAxis();
+  renderKotowaza();
   buildTabs();
   render();
+}
+
+const KOTOWAZA = [
+  '先週の借りは今日返す。それが神宮の流儀だ。',
+  '人気は感情、言霊は真実。',
+  '10番人気の陣営が「期待していた」と言う日が、最も美味しい。',
+  '外厩が語る。騎手が語る。陣営が語る。三つ揃えば鉄板だ。',
+  '◎が外れた日こそ、ロジックを疑わず己を疑え。',
+  '馬券は買う前が一番楽しい。だから真剣に選ぶ。',
+  'チャンピオンヒルズが動いた日は、神宮も動く。',
+  '致命ワードを見逃した者が、痛い目を見る。',
+  '言霊Sは◎に値する。それ以外は全部言い訳だ。',
+  '人気の盲点に、神宮の旗を立てる。',
+  '陣営が「楽しみ」と言った馬を、笑って切る者がいる。その馬券を拾うのが我々だ。',
+  '勝負鞍🧧が点灯した日、財布の口を開ける準備をしろ。',
+  '麒麟🦒は一日に何度も現れない。現れた時に迷うな。',
+  '前走の敗因が消えた時、その馬の本当の評価が始まる。',
+  '外厩ノーザン×言霊S。これ以上の根拠が必要か？',
+];
+
+function renderKotowaza(){
+  const el = document.getElementById('kotowaza-board');
+  if(!el) return;
+  const q = KOTOWAZA[Math.floor(Math.random() * KOTOWAZA.length)];
+  el.innerHTML = `<div class="kotowaza mincho">⛩ ${q}</div>`;
 }
 
 // ◎軸流し戦略の計算
