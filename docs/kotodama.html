@@ -688,10 +688,13 @@ function calcKirinLevel(pick){
 }
 function calcShobuLevel(race){
   const honmei = (race.picks||[]).find(p => p.mark==='◎');
-  if(!honmei || honmei.kotodamaGrade !== 'S') return 0;
-  const highCount = (race.picks||[]).filter(p => ['S','A+'].includes(p.kotodamaGrade)).length;
-  if(highCount >= 3) return 3;
-  if(highCount >= 2) return 2;
+  if(!honmei || !['S','A+'].includes(honmei.kotodamaGrade)) return 0;
+  // 🧧🧧🧧 / 🧧🧧 は ◎=S のみ
+  if(honmei.kotodamaGrade === 'S'){
+    const highCount = (race.picks||[]).filter(p => ['S','A+'].includes(p.kotodamaGrade)).length;
+    if(highCount >= 3) return 3;
+    if(highCount >= 2) return 2;
+  }
   return 1;
 }
 
