@@ -767,7 +767,8 @@ function render(){
           const ggClass = ggBase==='S'?'gg-s':ggBase==='A'?'gg-a':ggBase==='B'?'gg-b':'gg-zai';
           const trCls = inMoney ? 'hit-row' : '';
           const kirinLv = calcKirinLevel(p);
-          const kirinBadge = kirinLv > 0 ? `<span class="kirin-badge kirin-lv${kirinLv}">${'🦒'.repeat(kirinLv)}</span>` : '';
+          const kirinEmoji = ['','🦒','🦒🦒','🦒🦒🦒'][kirinLv] || '';
+          const kirinBadge = kirinLv > 0 ? `<span class="kirin-badge kirin-lv${kirinLv}">${kirinEmoji}</span>` : '';
           return `
         <tr class="${trCls}${kirinLv>0?' kirin-row':''}">
           <td class="${MARK_CLASS[p.mark]||'mark'}">${p.mark}</td>
