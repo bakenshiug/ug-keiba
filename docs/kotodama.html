@@ -237,6 +237,19 @@
     0%,100%{box-shadow:0 0 12px rgba(212,175,55,.7),inset 0 1px 0 rgba(255,255,255,.4)}
     50%   {box-shadow:0 0 22px rgba(212,175,55,1),inset 0 1px 0 rgba(255,255,255,.5)}
   }
+  /* 麒麟バッジ */
+  .kirin-badge{display:inline-flex;align-items:center;gap:2px;padding:2px 8px;
+    background:linear-gradient(135deg,#2d6a2d,#4a9e4a);color:#fff;
+    border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.05em;
+    box-shadow:0 0 8px rgba(60,150,60,.6);margin-left:4px;vertical-align:middle}
+  .kirin-row td{background:rgba(60,150,60,.05)}
+  /* 勝負鞍バッジ */
+  .shobu-badge{display:inline-block;margin-left:6px;font-size:14px;vertical-align:middle;
+    animation:shobupulse 1.8s ease-in-out infinite}
+  @keyframes shobupulse{
+    0%,100%{transform:scale(1);opacity:1}
+    50%{transform:scale(1.15);opacity:.85}
+  }
   .hit-mark{display:inline-block;font-size:14px;animation:bounce 1.4s ease-in-out infinite}
   @keyframes bounce{
     0%,100%{transform:translateY(0)}
@@ -655,8 +668,33 @@ function buildTabs(){
   });
 }
 
+function calcShrineStar(pick){
+  return (pick.shrineStar || '').split('★').length - 1;
+}
+function calcShobuLevel(race){
+  const honmei = (race.picks||[]).find(p => p.mark==='◎');
+  if(!honmei || honmei.kotodamaGrade !== 'S') return 0;
+  const highCount = (race.picks||[]).filter(p => ['S','A+'].includes(p.kotodamaGrade)).length;
+  if(highCount >= 3) return 3;
+  if(highCount >= 2) return 2;
+  return 1;
+}
+
 function render(){
   const races = ALL_RACES.filter(r => `${r.date}|${r.venue}` === CURRENT_TAB);
+
+  // 麒麟：当日全レースの◎の中でshrineStar最多の1頭
+  const dayRaces = ALL_RACES.filter(r => r.date === (races[0]||{}).date);
+  let kirinKey = null;
+  let maxStars = -1;
+  dayRaces.forEach(r => {
+    const honmei = (r.picks||[]).find(p => p.mark==='◎');
+    if(honmei){
+      const stars = calcShrineStar(honmei);
+      if(stars > maxStars){ maxStars = stars; kirinKey = `${r.venue}|${r.raceNum}|${honmei.name}`; }
+    }
+  });
+
   const root = document.getElementById('races');
   root.innerHTML = races.map(r => {
     // 他場の同じR
@@ -668,6 +706,10 @@ function render(){
         <span class="cross-jump-label mincho">同${r.raceNum} ▶</span>
         ${others.map(o => `<button class="cj-btn" data-jump-key="${o.date}|${o.venue}" data-jump-rnum="${o.raceNum}">${o.venue}${o.raceNum}</button>`).join('')}
       </div>` : '';
+    // 勝負鞍レベル
+    const shobuLevel = calcShobuLevel(r);
+    const shobuBadge = shobuLevel > 0
+      ? `<span class="shobu-badge">${'🧧'.repeat(shobuLevel)}</span>` : '';
     // 的中判定（pickの中で1-3着が居れば🎯マーク）
     const raceHit = (r.picks || []).some(p => {
       const rk = p.finalRank ? Number(p.finalRank) : null;
@@ -706,7 +748,7 @@ function render(){
     <details class="race ${raceWin?'race-win':''}" data-rnum="${r.raceNum}">
       <summary class="race-summary">
         <span class="race-fold-icon">▶</span>
-        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}</span>
+        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}</span>
         <span class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
       </summary>
       <div class="race-body">
@@ -728,13 +770,16 @@ function render(){
           const ggBase = ggMatch ? ggMatch[1] : '';
           const ggClass = ggBase==='S'?'gg-s':ggBase==='A'?'gg-a':ggBase==='B'?'gg-b':'gg-zai';
           const trCls = inMoney ? 'hit-row' : '';
+          const isKirin = kirinKey === `${r.venue}|${r.raceNum}|${p.name}`;
+          const kirinBadge = isKirin ? '<span class="kirin-badge">🦒麒麟</span>' : '';
           return `
-        <tr class="${trCls}">
+        <tr class="${trCls}${isKirin?' kirin-row':''}">
           <td class="${MARK_CLASS[p.mark]||'mark'}">${p.mark}</td>
           <td class="name">
             <div class="name-row1">
               <span class="name-num">${p.num}</span>
               <span class="name-text">${p.name}</span>
+              ${kirinBadge}
             </div>
             <div class="name-row2">
               <span class="grade">${p.kotodamaGrade}</span>
