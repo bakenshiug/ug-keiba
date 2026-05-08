@@ -40,14 +40,14 @@
     50%   {box-shadow:0 0 26px rgba(201,168,76,.65),0 1px 6px rgba(164,74,63,.12)}
   }
   .race-summary{padding:14px 18px;cursor:pointer;list-style:none;
-                display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+                display:flex;align-items:center;gap:6px;flex-wrap:wrap;
                 background:var(--paper);transition:background .15s ease}
   .race-summary:hover{background:var(--paper-deep)}
   .race-summary::-webkit-details-marker{display:none}
   .race-fold-icon{color:var(--shu);font-size:13px;transition:transform .2s ease;flex-shrink:0}
   .race[open] .race-fold-icon{transform:rotate(90deg)}
   .race-summary .race-name{font-size:16px;color:var(--shu);font-weight:700;flex:1;min-width:0}
-  .race-summary .race-meta{font-size:11px;color:var(--ink-soft);flex-shrink:0}
+  .race-summary .race-meta{font-size:11px;color:var(--ink-soft);width:100%;padding-left:22px;margin-top:2px}
   .race-hit-mark{display:inline-block;font-size:18px;margin-left:6px;
                  animation:bounce 1.4s ease-in-out infinite;vertical-align:middle}
   .race.race-win .race-summary{background:linear-gradient(135deg,rgba(212,175,55,.22) 0%,rgba(212,175,55,.08) 50%,rgba(212,175,55,.18) 100%)}
@@ -791,7 +791,7 @@ function render(){
     <details class="race ${raceWin?'race-win':''}" data-rnum="${r.raceNum}">
       <summary class="race-summary">
         <span class="race-fold-icon">▶</span>
-        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}</span>${shobuBadge}${kirinAppear}
+        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}${kirinAppear}</span>
         <span class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
       </summary>
       <div class="race-body">
