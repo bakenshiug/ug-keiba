@@ -552,7 +552,7 @@ function venueBoard(name, s){
 
 function renderSummary(){
   const el = document.getElementById('summary-board');
-  if (!SUMMARY) { el.innerHTML = ''; return; }
+  if (!SUMMARY || !SUMMARY.byKind || !SUMMARY.byVenue) { el.innerHTML = ''; return; }
   const s = SUMMARY;
   const venueOrder = ['東京','京都','新潟','中山','阪神','中京','福島','小倉','札幌','函館'];
   const venues = Object.entries(s.byVenue || {}).sort((a,b)=>{
