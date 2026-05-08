@@ -103,7 +103,13 @@
                   color:var(--shu);border-bottom:1px solid var(--border);font-weight:700}
   .picks-table td{padding:12px 8px;border-bottom:1px dashed var(--border);
                   vertical-align:middle;color:var(--ink)}
-  .picks-table td.jockey-c,.picks-table td.trainer-c{font-size:12px;color:var(--ink-soft);width:70px}
+  .picks-table td.jockey-c,.picks-table td.trainer-c{font-size:12px;color:var(--ink-soft);width:60px}
+  .picks-table td.gaikyu-c{font-size:11px;width:80px;text-align:center}
+  .gg-badge{display:inline-block;padding:2px 6px;border-radius:3px;font-weight:700;font-size:10px;letter-spacing:.03em;line-height:1.4}
+  .gg-badge.gg-s{background:linear-gradient(135deg,#d4af37,#f4cc4f);color:#3a2c0a;border:1px solid #b8901f}
+  .gg-badge.gg-a{background:linear-gradient(135deg,#c0c0c0,#e0e0e0);color:#333;border:1px solid #888}
+  .gg-badge.gg-b{background:linear-gradient(135deg,#cd7f32,#e09a4d);color:#fff;border:1px solid #8b5a1c}
+  .gg-badge.gg-zai{background:#f5f2eb;color:var(--ink-soft);border:1px solid var(--border)}
   .mark{font-size:22px;font-weight:700;color:var(--shu);width:36px;text-align:center;vertical-align:middle}
   .mark.dou{color:#b8902f}
   .name{font-weight:700;color:var(--ink);width:160px}
@@ -706,7 +712,7 @@ function render(){
       <div class="race-body">
         ${crossJump}
       <table class="picks-table">
-        <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>言霊評価</th></tr>
+        <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>外厩</th><th>言霊評価</th></tr>
         ${r.picks.map(p => {
           const rk = p.finalRank ? Number(p.finalRank) : null;
           const inMoney = rk && rk>=1 && rk<=3;
@@ -714,7 +720,13 @@ function render(){
           const finBadge = rk
             ? `<span class="finish ${rkCls}">${rk}着${inMoney?'<span class="hit-mark">🎯</span>':''}</span>`
             : '';
-          const popBadge = p.finalNinki ? `<span class="pop">${p.finalNinki}人気</span>` : '';
+          // 想定人気（finalNinkiが結果、ninkiPredが想定）
+          const ninkiDisplay = p.finalNinki || (p.ninkiPred ? `想定${p.ninkiPred}人気` : '');
+          const popBadge = ninkiDisplay ? `<span class="pop">${ninkiDisplay}</span>` : '';
+          // 外厩バッジ：S=金、A=銀、B=銅、在厩=灰
+          const ggMatch = (p.gaikyuGrade||'').match(/^(S|A|B|在厩)/);
+          const ggBase = ggMatch ? ggMatch[1] : '';
+          const ggClass = ggBase==='S'?'gg-s':ggBase==='A'?'gg-a':ggBase==='B'?'gg-b':'gg-zai';
           const trCls = inMoney ? 'hit-row' : '';
           return `
         <tr class="${trCls}">
@@ -732,6 +744,7 @@ function render(){
           </td>
           <td class="jockey-c">${p.jockey}</td>
           <td class="trainer-c">${p.trainer}</td>
+          <td class="gaikyu-c"><span class="gg-badge ${ggClass}">${p.gaikyuGrade||'-'}</span></td>
           <td class="comment">${p.comment}</td>
         </tr>`;
         }).join('')}
