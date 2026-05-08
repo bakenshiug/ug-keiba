@@ -186,7 +186,7 @@
     }
     /* 名前：右列1段目 */
     .picks-table td.name{
-      grid-column:2;grid-row:1;width:auto;
+      grid-column:2;grid-row:1;width:auto;min-width:0;
     }
     /* 騎手：右列2段目 */
     .picks-table td.jockey-c{
@@ -830,10 +830,10 @@ function render(){
             <div class="name-row1">
               <span class="name-num">${p.num}</span>
               <span class="name-text">${p.name}</span>
-              ${kirinBadge}
             </div>
             <div class="name-row2">
               <span class="grade">${p.kotodamaGrade}</span>
+              ${kirinBadge}
               ${popBadge}
               ${finBadge}
             </div>
