@@ -1744,8 +1744,8 @@
           "jockey": "西塚洸",
           "trainer": "高木",
           "kotodamaGrade": "A+",
-          "gaikyuGrade": "B（ノルマンディＦ小野）",
-          "shrineStar": "★★★",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★★（言霊A+・在厩）",
           "comment": "陣営「予定通り・力発揮できる舞台設定・楽しみ」 ← 陣営の目に嘘はない",
           "finalRank": "",
           "finalNinki": "2",
@@ -1753,20 +1753,6 @@
         },
         {
           "mark": "○",
-          "num": 7,
-          "name": "サトノラポール",
-          "jockey": "ゴンサ",
-          "trainer": "鹿戸",
-          "kotodamaGrade": "A",
-          "gaikyuGrade": "S（ノーザンＦ天栄）",
-          "shrineStar": "★★★★★",
-          "comment": "陣営「スムーズに運べればもう少しやれていい」← 前走のチグハグさを割引、本来の力が出れば",
-          "finalRank": "",
-          "finalNinki": "4",
-          "finalOdds": ""
-        },
-        {
-          "mark": "▲",
           "num": 6,
           "name": "スピアッジャローザ",
           "jockey": "横山琉",
@@ -1780,17 +1766,31 @@
           "finalOdds": ""
         },
         {
-          "mark": "△",
-          "num": 2,
-          "name": "ドーギッド",
-          "jockey": "古川奈",
-          "trainer": "矢作",
-          "kotodamaGrade": "B+",
-          "gaikyuGrade": "S（チャンピオンヒルズ）",
-          "shrineStar": "★★★★★★（妙味枠）",
-          "comment": "陣営「今の馬場も歓迎・これぐらいの距離フィット」 ← 言霊はB圏も相手次第で化ける",
+          "mark": "▲",
+          "num": 7,
+          "name": "サトノラポール",
+          "jockey": "ゴンサ",
+          "trainer": "鹿戸",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★（言霊A・在厩）",
+          "comment": "陣営「スムーズに運べればもう少しやれていい」← 前走のチグハグさを割引、本来の力が出れば",
           "finalRank": "",
-          "finalNinki": "5",
+          "finalNinki": "4",
+          "finalOdds": ""
+        },
+        {
+          "mark": "△",
+          "num": 12,
+          "name": "デビューフライト",
+          "jockey": "",
+          "trainer": "",
+          "kotodamaGrade": "B（推定）",
+          "gaikyuGrade": "S（ノーザンＦ天栄）",
+          "shrineStar": "★★★★★★（麒麟最上位）",
+          "comment": "外厩ノーザンF天栄帰り ← 言霊未知だが陣営の本気仕上げシグナル、麒麟最上位の妙味枠🦒",
+          "finalRank": "",
+          "finalNinki": "10",
           "finalOdds": ""
         }
       ],
@@ -1906,6 +1906,20 @@
             "grade": "B+",
             "jockey": "古川奈",
             "note": "厩舎○「今の馬場も歓迎・これぐらいの距離フィット」"
+          },
+          {
+            "num": 12,
+            "name": "デビューフライト",
+            "grade": "B（推定）",
+            "jockey": "",
+            "note": "外厩ノーザンF天栄、言霊未取得"
+          },
+          {
+            "num": 13,
+            "name": "ワールドキッス",
+            "grade": "B（推定）",
+            "jockey": "",
+            "note": "外厩大山ヒルズ、言霊未取得"
           }
         ]
       }
