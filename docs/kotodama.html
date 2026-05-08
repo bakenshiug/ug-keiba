@@ -721,7 +721,7 @@ function render(){
             ? `<span class="finish ${rkCls}">${rk}着${inMoney?'<span class="hit-mark">🎯</span>':''}</span>`
             : '';
           // 想定人気（finalNinkiが結果、ninkiPredが想定）
-          const ninkiDisplay = p.finalNinki || (p.ninkiPred ? `想定${p.ninkiPred}人気` : '');
+          const ninkiDisplay = p.finalNinki ? `${p.finalNinki}人気` : (p.ninkiPred ? `想定${p.ninkiPred}人気` : '');
           const popBadge = ninkiDisplay ? `<span class="pop">${ninkiDisplay}</span>` : '';
           // 外厩バッジ：S=金、A=銀、B=銅、在厩=灰
           const ggMatch = (p.gaikyuGrade||'').match(/^(S|A|B|在厩)/);
