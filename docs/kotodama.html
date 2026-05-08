@@ -238,11 +238,12 @@
     50%   {box-shadow:0 0 22px rgba(212,175,55,1),inset 0 1px 0 rgba(255,255,255,.5)}
   }
   /* 麒麟バッジ */
-  .kirin-badge{display:inline-flex;align-items:center;gap:2px;padding:2px 8px;
-    background:linear-gradient(135deg,#2d6a2d,#4a9e4a);color:#fff;
-    border-radius:3px;font-size:11px;font-weight:700;letter-spacing:.05em;
-    box-shadow:0 0 8px rgba(60,150,60,.6);margin-left:4px;vertical-align:middle}
-  .kirin-row td{background:rgba(60,150,60,.05)}
+  .kirin-badge{display:inline-block;margin-left:4px;vertical-align:middle;
+    font-size:13px;line-height:1}
+  .kirin-lv3{font-size:15px;filter:drop-shadow(0 0 4px rgba(60,180,60,.8))}
+  .kirin-lv2{font-size:14px;filter:drop-shadow(0 0 3px rgba(60,180,60,.5))}
+  .kirin-lv1{font-size:13px;opacity:.85}
+  .kirin-row td{background:rgba(60,150,60,.04)}
   /* 勝負鞍バッジ */
   .shobu-badge{display:inline-block;margin-left:6px;font-size:14px;vertical-align:middle;
     animation:shobupulse 1.8s ease-in-out infinite}
@@ -668,8 +669,15 @@ function buildTabs(){
   });
 }
 
-function calcShrineStar(pick){
-  return (pick.shrineStar || '').split('★').length - 1;
+function calcKirinLevel(pick){
+  const grade = pick.kotodamaGrade || '';
+  const gaikyu = pick.gaikyuGrade || '';
+  const isTopStable = /ノーザン|チャンピオン/.test(gaikyu);
+  if(!isTopStable) return 0;
+  if(grade === 'S')  return 3;
+  if(grade === 'A+') return 2;
+  if(grade === 'A')  return 1;
+  return 0;
 }
 function calcShobuLevel(race){
   const honmei = (race.picks||[]).find(p => p.mark==='◎');
@@ -682,18 +690,6 @@ function calcShobuLevel(race){
 
 function render(){
   const races = ALL_RACES.filter(r => `${r.date}|${r.venue}` === CURRENT_TAB);
-
-  // 麒麟：当日全レースの◎の中でshrineStar最多の1頭
-  const dayRaces = ALL_RACES.filter(r => r.date === (races[0]||{}).date);
-  let kirinKey = null;
-  let maxStars = -1;
-  dayRaces.forEach(r => {
-    const honmei = (r.picks||[]).find(p => p.mark==='◎');
-    if(honmei){
-      const stars = calcShrineStar(honmei);
-      if(stars > maxStars){ maxStars = stars; kirinKey = `${r.venue}|${r.raceNum}|${honmei.name}`; }
-    }
-  });
 
   const root = document.getElementById('races');
   root.innerHTML = races.map(r => {
@@ -770,10 +766,10 @@ function render(){
           const ggBase = ggMatch ? ggMatch[1] : '';
           const ggClass = ggBase==='S'?'gg-s':ggBase==='A'?'gg-a':ggBase==='B'?'gg-b':'gg-zai';
           const trCls = inMoney ? 'hit-row' : '';
-          const isKirin = kirinKey === `${r.venue}|${r.raceNum}|${p.name}`;
-          const kirinBadge = isKirin ? '<span class="kirin-badge">🦒麒麟</span>' : '';
+          const kirinLv = calcKirinLevel(p);
+          const kirinBadge = kirinLv > 0 ? `<span class="kirin-badge kirin-lv${kirinLv}">${'🦒'.repeat(kirinLv)}</span>` : '';
           return `
-        <tr class="${trCls}${isKirin?' kirin-row':''}">
+        <tr class="${trCls}${kirinLv>0?' kirin-row':''}">
           <td class="${MARK_CLASS[p.mark]||'mark'}">${p.mark}</td>
           <td class="name">
             <div class="name-row1">
