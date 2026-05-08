@@ -247,6 +247,13 @@
   /* 勝負鞍バッジ */
   .shobu-badge{display:inline-block;margin-left:6px;font-size:14px;vertical-align:middle;
     animation:shobupulse 1.8s ease-in-out infinite}
+  .shobu-label{display:inline-block;margin-left:3px;padding:1px 6px;
+    background:var(--shu);color:#fff;font-size:11px;font-weight:700;
+    border-radius:3px;vertical-align:middle;letter-spacing:.05em}
+  .kirin-appear{display:inline-block;margin-left:6px;padding:1px 7px;
+    background:linear-gradient(135deg,#2d6a2d,#4a9e4a);color:#fff;
+    font-size:11px;font-weight:700;border-radius:3px;vertical-align:middle;
+    letter-spacing:.05em}
   @keyframes shobupulse{
     0%,100%{transform:scale(1);opacity:1}
     50%{transform:scale(1.15);opacity:.85}
@@ -705,7 +712,10 @@ function render(){
     // 勝負鞍レベル
     const shobuLevel = calcShobuLevel(r);
     const shobuBadge = shobuLevel > 0
-      ? `<span class="shobu-badge">${'🧧'.repeat(shobuLevel)}</span>` : '';
+      ? `<span class="shobu-badge">${'🧧'.repeat(shobuLevel)}</span><span class="shobu-label">勝負鞍</span>` : '';
+    // 🦒出現バッジ（picks内に麒麟レベル1以上の馬が1頭でもいれば）
+    const hasKirin = (r.picks||[]).some(p => calcKirinLevel(p) > 0);
+    const kirinAppear = hasKirin ? `<span class="kirin-appear">🦒出現</span>` : '';
     // 的中判定（pickの中で1-3着が居れば🎯マーク）
     const raceHit = (r.picks || []).some(p => {
       const rk = p.finalRank ? Number(p.finalRank) : null;
@@ -744,7 +754,7 @@ function render(){
     <details class="race ${raceWin?'race-win':''}" data-rnum="${r.raceNum}">
       <summary class="race-summary">
         <span class="race-fold-icon">▶</span>
-        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}</span>
+        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}</span>${shobuBadge}${kirinAppear}
         <span class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
       </summary>
       <div class="race-body">
