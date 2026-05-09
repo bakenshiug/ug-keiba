@@ -727,9 +727,9 @@ function calcShobuLevel(race){
   const honmei = (race.picks||[]).find(p => p.mark==='◎');
   if(!honmei) return 0;
   const hg = honmei.kotodamaGrade;
-  const topStable = /ノーザン|チャンピオン/.test(honmei.gaikyuGrade||'');
-  // ◎=S/A+ かつ 外厩ノーザン/CH が最低条件
-  if(!['S','A+'].includes(hg) || !topStable) return 0;
+  const topStable = /ノーザン|チャンピオン|社台ファーム鈴鹿/.test(honmei.gaikyuGrade||'');
+  // ◎が外厩S級（ノーザン/CH/社台鈴鹿）= 勝負鞍🧧 最低条件
+  if(!topStable) return 0;
   // 🧧🧧🧧 / 🧧🧧 は ◎=S かつ 他のpicksにA+以上が2/3頭
   if(hg === 'S'){
     const othersHigh = (race.picks||[]).filter(p => p.mark!=='◎' && ['S','A+'].includes(p.kotodamaGrade)).length;
