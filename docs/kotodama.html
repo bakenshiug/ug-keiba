@@ -789,10 +789,16 @@ function render(){
         <span class="cross-jump-label mincho">同${r.raceNum} ▶</span>
         ${others.map(o => `<button class="cj-btn" data-jump-key="${o.date}|${o.venue}" data-jump-rnum="${o.raceNum}">${o.venue}${o.raceNum}</button>`).join('')}
       </div>` : '';
-    // 勝負鞍レベル
-    const shobuLevel = calcShobuLevel(r);
-    const shobuBadge = shobuLevel > 0
-      ? `<span class="shobu-badge">${'🧧'.repeat(shobuLevel)}</span><span class="shobu-label">勝負鞍</span>` : '';
+    // 勝負鞍バッジ（JSON shobuMark優先 → なければ自動判定）
+    let shobuBadge = '';
+    if (r.shobuMark) {
+      shobuBadge = `<span class="shobu-badge">${r.shobuMark}</span>`;
+    } else {
+      const shobuLevel = calcShobuLevel(r);
+      if (shobuLevel > 0) {
+        shobuBadge = `<span class="shobu-badge">${'🧧'.repeat(shobuLevel)}</span><span class="shobu-label">勝負鞍</span>`;
+      }
+    }
     // 🦒出現バッジ（picks内に麒麟レベル1以上の馬が1頭でもいれば）
     const hasKirin = (r.picks||[]).some(p => calcKirinLevel(p) > 0);
     const kirinAppear = hasKirin ? `<span class="kirin-appear">🦒出現</span>` : '';
