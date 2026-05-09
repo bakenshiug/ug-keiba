@@ -153,6 +153,8 @@
   .tab:hover{border-color:var(--shu);color:var(--shu)}
   .tab.active{background:var(--shu);color:#fff;border-color:var(--shu);font-weight:700}
   .tab-count{font-size:11px;opacity:.85;margin-left:6px}
+  .tabs-day-sep{width:100%;text-align:center;font-size:12px;font-weight:700;color:var(--shu);letter-spacing:.08em;padding:4px 0 2px;opacity:.85}
+  .tabs-day-sep:first-child{padding-top:0}
 
   /* ════════ スマホ版（≤700px）：テーブル → カード型レイアウト ════════ */
   @media (max-width:700px){
@@ -699,15 +701,24 @@ function buildTabs(){
     if (!groups.has(key)) groups.set(key, {date:r.date,venue:r.venue,count:0});
     groups.get(key).count++;
   });
-  const tabs = [...groups.values()];
-  if (tabs.length === 0) return;
-  CURRENT_TAB = `${tabs[0].date}|${tabs[0].venue}`;
+  // 日付降順（日曜が上）、同日は挿入順を維持
+  const allTabs = [...groups.values()].sort((a,b) => b.date.localeCompare(a.date));
+  if (allTabs.length === 0) return;
+  CURRENT_TAB = `${allTabs[0].date}|${allTabs[0].venue}`;
   const tabsEl = document.getElementById('tabs');
-  tabsEl.innerHTML = tabs.map(t => {
+  // 日付ごとにセパレータ行を挿入して改行
+  const datesSeen = [];
+  let html = '';
+  allTabs.forEach(t => {
+    if (!datesSeen.includes(t.date)) {
+      datesSeen.push(t.date);
+      html += `<div class="tabs-day-sep">${fmtDate(t.date)}</div>`;
+    }
     const key = `${t.date}|${t.venue}`;
     const active = key === CURRENT_TAB ? 'active' : '';
-    return `<button class="tab ${active}" data-key="${key}">${fmtDate(t.date)} ${t.venue}<span class="tab-count">${t.count}R</span></button>`;
-  }).join('');
+    html += `<button class="tab ${active}" data-key="${key}">${t.venue}<span class="tab-count">${t.count}R</span></button>`;
+  });
+  tabsEl.innerHTML = html;
   tabsEl.querySelectorAll('.tab').forEach(btn => {
     btn.addEventListener('click', () => {
       CURRENT_TAB = btn.dataset.key;
