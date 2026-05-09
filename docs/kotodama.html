@@ -397,8 +397,8 @@ const FILES = ['data/kotodama-test/2026-05-09-10.json'];
 const MARK_CLASS = {'◎':'mark','○':'mark','▲':'mark dou','△':'mark dou'};
 const MARK_ORDER = ['◎','○','▲','△'];
 
-// タイブレーク用スコア（言霊×3 + 上昇🔥×1）
-const GRADE_PTS = {'S':6,'A':5,'B+':4,'B':3,'B-':2,'C':1,'D':0};
+// タイブレーク用スコア（言霊グレード→🔥スコアの2段階ソート）
+const GRADE_PTS = {'S+':8,'S':7,'A+':6,'A':5,'B+':4,'B':3,'B-':2,'C':1,'D':0};
 function kotodamaScore(g){ return GRADE_PTS[g] ?? 0; }
 function fireScoreNum(s){
   if(!s) return 0;
@@ -406,22 +406,14 @@ function fireScoreNum(s){
   const m = s.match(/([+-]?\d+\.?\d*)/);
   return m ? parseFloat(m[1]) : 0;
 }
-function pickCompositeScore(p){
-  return kotodamaScore(p.kotodamaGrade) * 3 + fireScoreNum(p.gaikyuGrade);
-}
-// 同一言霊グレード内だけ🔥スコアで並び替え（グループ間の順序はオリジナル維持）
+// 第1ソート：言霊グレード降順、第2ソート（タイブレーク）：🔥スコア降順
 function reorderPicksByTiebreaker(picks){
-  const order = [];
-  const groups = {};
-  picks.forEach(p => {
-    const g = p.kotodamaGrade || '';
-    if (!(g in groups)) { order.push(g); groups[g] = []; }
-    groups[g].push(p);
+  return [...picks].sort((a,b) => {
+    const ga = kotodamaScore(a.kotodamaGrade);
+    const gb = kotodamaScore(b.kotodamaGrade);
+    if (ga !== gb) return gb - ga;
+    return fireScoreNum(b.gaikyuGrade) - fireScoreNum(a.gaikyuGrade);
   });
-  order.forEach(g => {
-    groups[g].sort((a,b) => fireScoreNum(b.gaikyuGrade) - fireScoreNum(a.gaikyuGrade));
-  });
-  return order.flatMap(g => groups[g]);
 }
 
 // 曜日表示
