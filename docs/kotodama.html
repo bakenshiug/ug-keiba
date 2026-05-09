@@ -110,6 +110,11 @@
   .gg-badge.gg-a{background:linear-gradient(135deg,#c0c0c0,#e0e0e0);color:#333;border:1px solid #888}
   .gg-badge.gg-b{background:linear-gradient(135deg,#cd7f32,#e09a4d);color:#fff;border:1px solid #8b5a1c}
   .gg-badge.gg-zai{background:#f5f2eb;color:var(--ink-soft);border:1px solid var(--border)}
+  .gg-badge.gg-fire3{background:linear-gradient(135deg,#ff4500,#ff6b00);color:#fff;border:1px solid #cc3300}
+  .gg-badge.gg-fire2{background:linear-gradient(135deg,#ff7b00,#ffaa00);color:#fff;border:1px solid #cc6000}
+  .gg-badge.gg-fire1{background:linear-gradient(135deg,#ffb800,#ffd44f);color:#333;border:1px solid #cc8800}
+  .gg-badge.gg-flat{background:#e8e8e8;color:#666;border:1px solid #bbb}
+  .gg-badge.gg-down{background:linear-gradient(135deg,#cc3333,#e05555);color:#fff;border:1px solid #aa1111}
   .mark{font-size:22px;font-weight:700;color:var(--shu);width:36px;text-align:center;vertical-align:middle}
   .mark.dou{color:#b8902f}
   .name{font-weight:700;color:var(--ink);min-width:220px;width:220px}
@@ -804,7 +809,7 @@ function render(){
       <div class="race-body">
         ${crossJump}
       <table class="picks-table">
-        <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>外厩</th><th>言霊評価</th></tr>
+        <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>${r.date >= '2026-05-10' ? '上昇🔥' : '外厩'}</th><th>言霊評価</th></tr>
         ${r.picks.map(p => {
           const rk = p.finalRank ? Number(p.finalRank) : null;
           const inMoney = rk && rk>=1 && rk<=3;
@@ -815,10 +820,21 @@ function render(){
           // 想定人気（finalNinkiが結果、ninkiPredが想定）
           const ninkiDisplay = p.finalNinki ? `${p.finalNinki}人気` : (p.ninkiPred ? `想定${p.ninkiPred}人気` : '');
           const popBadge = ninkiDisplay ? `<span class="pop">${ninkiDisplay}</span>` : '';
-          // 外厩バッジ：S=金、A=銀、B=銅、在厩=灰
-          const ggMatch = (p.gaikyuGrade||'').match(/^(S|A|B|在厩)/);
-          const ggBase = ggMatch ? ggMatch[1] : '';
-          const ggClass = ggBase==='S'?'gg-s':ggBase==='A'?'gg-a':ggBase==='B'?'gg-b':'gg-zai';
+          // 外厩/上昇🔥バッジ
+          const gaikyu = p.gaikyuGrade || '';
+          let ggClass;
+          if (gaikyu.includes('🔥')) {
+            const fc = (gaikyu.match(/🔥/g)||[]).length;
+            ggClass = fc>=3?'gg-fire3':fc>=2?'gg-fire2':'gg-fire1';
+          } else if (gaikyu.startsWith('↘')) {
+            ggClass = 'gg-down';
+          } else if (gaikyu.startsWith('→')) {
+            ggClass = 'gg-flat';
+          } else {
+            const ggMatch = gaikyu.match(/^(S|A|B|在厩)/);
+            const ggBase = ggMatch ? ggMatch[1] : '';
+            ggClass = ggBase==='S'?'gg-s':ggBase==='A'?'gg-a':ggBase==='B'?'gg-b':'gg-zai';
+          }
           const trCls = inMoney ? 'hit-row' : '';
           const kirinLv = calcKirinLevel(p);
           const kirinEmoji = ['','🦒','🦒🦒','🦒🦒🦒'][kirinLv] || '';
@@ -840,7 +856,7 @@ function render(){
           </td>
           <td class="jockey-c">${p.jockey}</td>
           <td class="trainer-c">${p.trainer}</td>
-          <td class="gaikyu-c"><span class="gg-badge ${ggClass}">${p.gaikyuGrade||'-'}</span></td>
+          <td class="gaikyu-c"><span class="gg-badge ${ggClass}">${gaikyu||'-'}</span></td>
           <td class="comment">${p.comment}</td>
         </tr>`;
         }).join('')}
