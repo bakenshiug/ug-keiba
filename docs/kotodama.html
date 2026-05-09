@@ -409,6 +409,20 @@ function fireScoreNum(s){
 function pickCompositeScore(p){
   return kotodamaScore(p.kotodamaGrade) * 3 + fireScoreNum(p.gaikyuGrade);
 }
+// 同一言霊グレード内だけ🔥スコアで並び替え（グループ間の順序はオリジナル維持）
+function reorderPicksByTiebreaker(picks){
+  const order = [];
+  const groups = {};
+  picks.forEach(p => {
+    const g = p.kotodamaGrade || '';
+    if (!(g in groups)) { order.push(g); groups[g] = []; }
+    groups[g].push(p);
+  });
+  order.forEach(g => {
+    groups[g].sort((a,b) => fireScoreNum(b.gaikyuGrade) - fireScoreNum(a.gaikyuGrade));
+  });
+  return order.flatMap(g => groups[g]);
+}
 
 // 曜日表示
 const DOW = ['日','月','火','水','木','金','土'];
@@ -835,9 +849,7 @@ function render(){
         ${crossJump}
       <table class="picks-table">
         <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>${r.date >= '2026-05-10' ? '上昇🔥' : '外厩'}</th><th>言霊評価</th></tr>
-        ${[...r.picks]
-          .sort((a,b) => pickCompositeScore(b) - pickCompositeScore(a))
-          .map((p, i) => {
+        ${reorderPicksByTiebreaker(r.picks).map((p, i) => {
           const dynMark = MARK_ORDER[i] ?? p.mark;
           const rk = p.finalRank ? Number(p.finalRank) : null;
           const inMoney = rk && rk>=1 && rk<=3;
