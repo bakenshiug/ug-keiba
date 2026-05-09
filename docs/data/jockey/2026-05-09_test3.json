@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "fetched_at": "2026-05-09",
+    "source": "JRDB joca.php",
+    "test_jockeys": 3,
+    "purpose": "150人スクリプト本番前のMVPテスト"
+  },
+  "jockeys": {
+    "j70234": {
+      "name": "Ｃ．ルメール",
+      "rank": 1,
+      "honnen": {"wins":67,"winRate":29.4,"plRate":47.8,"shRate":62.7,"g1":2,"g2":1,"g3":4,"turfWinRate":30.2,"dirtWinRate":28.4},
+      "sakunen": {"wins":140,"winRate":26.8,"g1":4,"g2":4,"g3":3},
+      "recent": {"w3":46.7,"w2":50,"w1":81.8},
+      "popularity": {
+        "1番人気": {"win":283,"pl":154,"sh":85,"winRate":39.6,"plRate":61.2,"shRate":73.1},
+        "2番人気": {"win":68,"pl":72,"sh":43,"winRate":21.9,"plRate":45.2,"shRate":59},
+        "3番人気": {"win":23,"pl":20,"sh":19,"winRate":15.9,"plRate":29.7,"shRate":42.8},
+        "4番人気": {"win":6,"pl":8,"sh":9,"winRate":8,"plRate":18.7,"shRate":30.7},
+        "5番人気": {"win":3,"pl":3,"sh":8,"winRate":6.7,"plRate":13.3,"shRate":31.1},
+        "10番人気以降": {"win":0,"pl":0,"sh":0,"winRate":0,"plRate":0,"shRate":0}
+      },
+      "classes": {"新馬":66.3,"未勝利":66.7,"1勝":62.1,"2勝":57.9,"3勝":55.6,"OP":47.8}
+    },
+    "j10512": {
+      "name": "川田将雅",
+      "rank": 5,
+      "honnen": {"wins":40,"winRate":23.5,"plRate":42.9,"shRate":51.8,"g1":0,"g2":2,"g3":3,"turfWinRate":23.9,"dirtWinRate":23.2},
+      "sakunen": {"wins":105,"winRate":20.5,"g1":2,"g2":5,"g3":3},
+      "recent": {"w3":20,"w2":100,"w1":54.5},
+      "popularity": {
+        "1番人気": {"win":183,"pl":116,"sh":60,"winRate":34.8,"plRate":56.8,"shRate":68.3},
+        "2番人気": {"win":58,"pl":59,"sh":45,"winRate":19.5,"plRate":39.3,"shRate":54.4},
+        "3番人気": {"win":25,"pl":19,"sh":17,"winRate":17.4,"plRate":30.6,"shRate":42.4},
+        "4番人気": {"win":12,"pl":18,"sh":9,"winRate":15,"plRate":37.5,"shRate":48.8},
+        "5番人気": {"win":5,"pl":2,"sh":2,"winRate":10,"plRate":14,"shRate":18},
+        "10番人気以降": {"win":0,"pl":1,"sh":0,"winRate":0,"plRate":10,"shRate":10}
+      },
+      "classes": {"新馬":55.6,"未勝利":55.3,"1勝":60.4,"2勝":59,"3勝":50.9,"OP":46.2}
+    },
+    "j10507": {
+      "name": "津村明秀",
+      "rank": 13,
+      "honnen": {"wins":24,"winRate":10.3,"plRate":20.5,"shRate":29.1,"g1":0,"g2":2,"g3":3,"turfWinRate":15.6,"dirtWinRate":3.8},
+      "sakunen": {"wins":51,"winRate":7.6,"g1":0,"g2":1,"g3":3},
+      "recent": {"w3":38.5,"w2":33.3,"w1":25},
+      "popularity": {
+        "1番人気": {"win":34,"pl":18,"sh":9,"winRate":34.7,"plRate":53.1,"shRate":62.2},
+        "2番人気": {"win":24,"pl":21,"sh":13,"winRate":21.4,"plRate":40.2,"shRate":51.8},
+        "3番人気": {"win":20,"pl":25,"sh":15,"winRate":12.9,"plRate":29,"shRate":38.7},
+        "4番人気": {"win":11,"pl":27,"sh":20,"winRate":7.2,"plRate":25,"shRate":38.2},
+        "5番人気": {"win":11,"pl":14,"sh":14,"winRate":8.6,"plRate":19.5,"shRate":30.5},
+        "10番人気以降": {"win":5,"pl":3,"sh":7,"winRate":1.6,"plRate":2.5,"shRate":4.7}
+      },
+      "classes": {"新馬":29.9,"未勝利":29.5,"1勝":22.2,"2勝":24.1,"3勝":21.9,"OP":19}
+    }
+  }
+}
