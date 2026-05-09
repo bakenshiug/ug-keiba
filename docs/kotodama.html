@@ -750,13 +750,13 @@ function buildTabs(){
 }
 
 function calcKirinLevel(pick){
+  // 麒麟v2: 言霊grade × 🔥スコアで判定（外厩依存を撤廃）
   const grade = pick.kotodamaGrade || '';
-  const gaikyu = pick.gaikyuGrade || '';
-  const isTopStable = /ノーザン|チャンピオン/.test(gaikyu);
-  if(!isTopStable) return 0;
-  if(grade === 'S')  return 3;
-  if(grade === 'A+') return 2;
-  if(grade === 'A')  return 1;
+  const fire = fireScoreNum(pick.gaikyuGrade || '');
+  if(grade === 'S+' || grade === 'S') return 3;
+  if(grade === 'A+' && fire >= 6.0) return 3;
+  if(grade === 'A+' && fire >= 5.0) return 2;
+  if(grade === 'A+' && fire >= 3.0) return 1;
   return 0;
 }
 function calcShobuLevel(race){
