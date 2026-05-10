@@ -427,18 +427,11 @@ async function renderJuushou(){
   const d = await loadMaster();
   const list = Object.values(d.jockeys).filter(j => j.recent.active).map(j => ({
     name: j.name, rank: j.rank, g1: j.g1, g2: j.g2, g3: j.g3, total: j.g1+j.g2+j.g3
-  })).filter(j => j.total > 0).sort((a,b) => b.g1*100+b.g2*10+b.g3 - (a.g1*100+a.g2*10+a.g3)).slice(0,10);
-  // also detect 川田型 (high winRate × G1=0)
-  const ipsuus = Object.values(d.jockeys).filter(j => j.recent.active && j.winRate >= 18 && j.g1 === 0).slice(0,5);
+  })).filter(j => j.total > 0).sort((a,b) => b.g1*100+b.g2*10+b.g3 - (a.g1*100+a.g2*10+a.g3)).slice(0,15);
   document.getElementById('juushou').innerHTML = `
-    <div class="juushou-cell">
-      <h4>🏆 本年重賞勝利TOP10</h4>
+    <div class="juushou-cell" style="grid-column:1/-1">
+      <h4>🏆 本年重賞勝利TOP15</h4>
       ${list.map((j,i) => `<div class="juushou-row"><span>${i+1}. ${j.name}</span><span class="juushou-cnt">G1:${j.g1} / G2:${j.g2} / G3:${j.g3}</span></div>`).join('')}
-    </div>
-    <div class="juushou-cell">
-      <h4>⚠️ G1ゼロ × 高勝率（イップス警戒）</h4>
-      ${ipsuus.map((j,i) => `<div class="juushou-row"><span>${i+1}. ${j.name}</span><span class="juushou-cnt">勝率${j.winRate}% / G1=0</span></div>`).join('')}
-      <div style="font-size:10px;color:#888;margin-top:8px;font-style:italic">「強い馬乗ってるのに勝てない」現象を機械検出</div>
     </div>`;
 }
 
