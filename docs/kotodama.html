@@ -380,6 +380,18 @@
             margin-bottom:6px;font-family:'Shippori Mincho',serif}
   .suzaku-sub{text-align:center;font-size:12px;color:#7a5448;margin-bottom:14px;letter-spacing:.05em}
   .suzaku-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  /* 縦：競馬場ごと */
+  .suzaku-venues{display:flex;flex-direction:column;gap:18px}
+  .suzaku-venue-group{}
+  .suzaku-venue-h{font-size:18px;font-weight:900;color:#a44a3f;text-align:center;
+                  letter-spacing:.3em;padding:8px 0;margin-bottom:8px;
+                  border-top:1px dashed rgba(196,84,49,.4);
+                  border-bottom:1px dashed rgba(196,84,49,.4);
+                  background:rgba(255,255,255,.4)}
+  .suzaku-venue-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:560px){
+    .suzaku-venue-row{grid-template-columns:1fr}
+  }
   .suzaku-cell{background:#fff;border:1px solid rgba(196,84,49,.3);border-radius:6px;padding:10px 12px}
   .suzaku-venue{font-size:14px;font-weight:900;color:#a44a3f;border-bottom:1px solid rgba(196,84,49,.2);
                 padding-bottom:5px;margin-bottom:7px;font-family:'Shippori Mincho',serif;
@@ -797,24 +809,35 @@ async function renderSuzaku(){
   try {
     const r = await fetch('data/jockey/2026-05-11_venue_top5.json?_='+Date.now());
     const d = await r.json();
-    // 来週開催候補場（簡易：今週開催と同じと仮定）
-    const targetVenues = ['東京芝','東京ダ','京都芝','京都ダ','新潟芝','新潟ダ'];
-    const cells = targetVenues.map(v => {
-      const list = d.venues[v] || [];
-      const rows = list.map((j,i) => `
-        <div class="suzaku-row">
-          <span class="suzaku-rank">${i+1}</span>
-          <span class="suzaku-name">${j.name}</span>
-          <span class="suzaku-rate">${j.shRate}%<span class="suzaku-n">(n${j.n})</span></span>
-        </div>`).join('');
-      const isFire = list[0] && list[0].shRate >= 50;
+    // 競馬場ごとにグループ化（東京 / 京都 / 新潟）→ 各場で芝・ダ横並び
+    const venueGroups = [
+      {name:'東京', surfaces:['東京芝','東京ダ']},
+      {name:'京都', surfaces:['京都芝','京都ダ']},
+      {name:'新潟', surfaces:['新潟芝','新潟ダ']},
+    ];
+    const cells = venueGroups.map(g => {
+      const surfaceCells = g.surfaces.map(v => {
+        const list = d.venues[v] || [];
+        const rows = list.map((j,i) => `
+          <div class="suzaku-row">
+            <span class="suzaku-rank">${i+1}</span>
+            <span class="suzaku-name">${j.name}</span>
+            <span class="suzaku-rate">${j.shRate}%<span class="suzaku-n">(n${j.n})</span></span>
+          </div>`).join('');
+        const isFire = list[0] && list[0].shRate >= 50;
+        return `
+          <div class="suzaku-cell">
+            <div class="suzaku-venue">
+              ${isFire ? '<span class="venue-fire">🔥</span>' : ''}
+              ${v}
+            </div>
+            ${rows}
+          </div>`;
+      }).join('');
       return `
-        <div class="suzaku-cell">
-          <div class="suzaku-venue">
-            ${isFire ? '<span class="venue-fire">🔥</span>' : ''}
-            ${v}
-          </div>
-          ${rows}
+        <div class="suzaku-venue-group">
+          <div class="suzaku-venue-h mincho">${g.name}</div>
+          <div class="suzaku-venue-row">${surfaceCells}</div>
         </div>`;
     }).join('');
     el.innerHTML = `
@@ -822,9 +845,9 @@ async function renderSuzaku(){
         <summary class="suzaku-fold-summary">
           <div class="suzaku-h"><span class="suzaku-tag">朱雀</span>騎手手綱神宮 ─ 来週の🔥騎手</div>
           <div class="suzaku-sub">UG競馬神宮｜競馬場別×芝ダート別 複勝率TOP5（n≥10）</div>
-          <div class="suzaku-fold-hint">▼ クリックで6場ランキング展開</div>
+          <div class="suzaku-fold-hint">▼ クリックで競馬場別ランキング展開</div>
         </summary>
-        <div class="suzaku-grid">${cells}</div>
+        <div class="suzaku-venues">${cells}</div>
         <div class="suzaku-foot">コンディション × 馬場読み × コース適性 ／ 朱雀の眼</div>
       </details>`;
   } catch(e) {
