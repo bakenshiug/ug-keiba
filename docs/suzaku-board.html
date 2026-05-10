@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>騎手手綱神宮｜UG競馬神宮</title>
-<meta name="description" content="朱雀の眼 ─ 競馬場×芝ダート別の好調騎手TOP5。通算+直近3週で見える最新の騎手調子。">
+<meta name="description" content="朱雀の眼 ─ 競馬場×芝ダート別の好調騎手TOP5・急上昇/急落ランキング・149人検索・直近トレンド可視化">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -12,12 +12,12 @@
   :root{
     --bg:#FAFAFA;--bg-soft:#F5F2EB;--paper:#FBF7EE;--paper-deep:#F0EADB;
     --ink:#2c1f12;--ink-soft:#5a4a3a;--shu:#a44a3f;--gold:#c9a84c;
-    --suzaku:#c95c3a;--border:rgba(164,74,63,.25);
+    --suzaku:#c95c3a;--ok:#5fa85c;--warn:#d97706;--bad:#a43a3a;
+    --border:rgba(164,74,63,.25);
   }
   *{box-sizing:border-box}
   body{margin:0;padding:0;background:var(--bg);color:var(--ink);
-       font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
-       line-height:1.6}
+       font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;line-height:1.6}
   .mincho{font-family:'Shippori Mincho',serif}
   header{background:linear-gradient(135deg,#fff5f0,#fbeae0);
          border-bottom:3px solid var(--suzaku);padding:24px 18px;text-align:center;
@@ -28,64 +28,116 @@
   .h-title{font-size:32px;font-weight:900;color:var(--shu);letter-spacing:.18em;
            font-family:'Shippori Mincho',serif;margin:0 0 6px}
   .h-sub{font-size:13px;color:#7a5448;letter-spacing:.08em;margin:0}
-  .h-fire{display:inline-block;animation:firePulse 2s ease-in-out infinite}
-  @keyframes firePulse{
-    0%,100%{filter:drop-shadow(0 0 4px rgba(196,84,49,.4))}
-    50%{filter:drop-shadow(0 0 10px rgba(196,84,49,.9))}
-  }
+  .h-fire{display:inline-block;animation:firePulse 2s infinite}
+  @keyframes firePulse{0%,100%{filter:drop-shadow(0 0 4px rgba(196,84,49,.4))}50%{filter:drop-shadow(0 0 10px rgba(196,84,49,.9))}}
   nav{padding:14px 18px;text-align:center;background:#fff;border-bottom:1px solid #eee}
   .home-link{display:inline-block;padding:6px 16px;color:var(--shu);text-decoration:none;
              border:1px solid var(--border);border-radius:4px;font-size:13px;letter-spacing:.05em;
              margin:0 4px;transition:all .2s ease}
   .home-link:hover{background:var(--shu);color:#fff;border-color:var(--shu)}
-  main{max-width:1100px;margin:0 auto;padding:24px 16px}
-  .intro{background:#fff;border:1px solid var(--border);border-radius:8px;padding:18px;
-         margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-  .intro h2{margin:0 0 8px;color:var(--shu);font-size:18px;font-family:'Shippori Mincho',serif;
-            letter-spacing:.1em}
-  .intro p{margin:6px 0;font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
-  .intro .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:12px}
-  .intro .legend span{padding:3px 8px;background:rgba(196,84,49,.05);border-radius:3px}
 
-  /* 競馬場グループ */
-  .venues-wrap{display:flex;flex-direction:column;gap:24px;margin-top:18px}
+  /* タブ */
+  .tabs{display:flex;gap:0;background:#fff;border-bottom:2px solid var(--suzaku);
+        position:sticky;top:0;z-index:10;overflow-x:auto;
+        box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .tab{flex:1;min-width:90px;padding:12px 10px;background:none;border:none;
+       font-size:13px;color:#7a5448;cursor:pointer;font-family:'Shippori Mincho',serif;
+       letter-spacing:.08em;font-weight:700;transition:all .2s ease;border-bottom:3px solid transparent;
+       white-space:nowrap}
+  .tab:hover{background:rgba(196,84,49,.05)}
+  .tab.active{color:var(--shu);border-bottom-color:var(--suzaku);background:#fff5f0}
+
+  main{max-width:1100px;margin:0 auto;padding:20px 16px}
+  .panel{display:none}
+  .panel.active{display:block;animation:fadeIn .3s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .intro{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px 18px;
+         margin-bottom:18px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+  .intro h2{margin:0 0 8px;color:var(--shu);font-size:16px;font-family:'Shippori Mincho',serif;letter-spacing:.1em}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:11px}
+  .legend span{padding:2px 8px;background:rgba(196,84,49,.05);border-radius:3px}
+
+  /* TOP5 venue ranking */
+  .venues-wrap{display:flex;flex-direction:column;gap:24px}
   .venue-group{background:linear-gradient(135deg,#fff5f0,#fbeae0);border:2px solid var(--suzaku);
-               border-radius:10px;padding:18px;box-shadow:0 4px 16px rgba(196,84,49,.15)}
-  .venue-h{font-size:22px;font-weight:900;color:var(--shu);text-align:center;letter-spacing:.4em;
-           padding:6px 0 14px;font-family:'Shippori Mincho',serif;
-           border-bottom:2px dashed rgba(196,84,49,.3);margin-bottom:14px}
-  .venue-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media (max-width:640px){
-    .venue-row{grid-template-columns:1fr}
-    .h-title{font-size:22px}
-  }
-
-  /* 場×サーフェスセル */
-  .cell{background:#fff;border:1px solid rgba(196,84,49,.3);border-radius:6px;padding:12px 14px}
-  .cell-h{font-size:15px;font-weight:900;color:var(--shu);border-bottom:1px solid rgba(196,84,49,.2);
-          padding-bottom:6px;margin-bottom:8px;font-family:'Shippori Mincho',serif;
+               border-radius:10px;padding:16px;box-shadow:0 4px 16px rgba(196,84,49,.12)}
+  .venue-h{font-size:20px;font-weight:900;color:var(--shu);text-align:center;letter-spacing:.4em;
+           padding:6px 0 12px;font-family:'Shippori Mincho',serif;
+           border-bottom:2px dashed rgba(196,84,49,.3);margin-bottom:12px}
+  .venue-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:640px){.venue-row{grid-template-columns:1fr}.h-title{font-size:22px}}
+  .cell{background:#fff;border:1px solid rgba(196,84,49,.3);border-radius:6px;padding:10px 12px}
+  .cell-h{font-size:14px;font-weight:900;color:var(--shu);border-bottom:1px solid rgba(196,84,49,.2);
+          padding-bottom:5px;margin-bottom:7px;font-family:'Shippori Mincho',serif;
           letter-spacing:.1em;display:flex;align-items:center;gap:6px}
   .cell-h .cf{font-size:13px;animation:firePulse 2s infinite}
-  .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:13px;
-       border-bottom:1px dashed rgba(0,0,0,.05);gap:8px}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;font-size:12px;
+       border-bottom:1px dashed rgba(0,0,0,.05);gap:6px}
   .row:last-child{border-bottom:none}
   .rank{width:18px;color:var(--shu);font-weight:900;flex-shrink:0}
-  .name{flex:1;color:var(--ink);font-weight:700;min-width:0}
+  .name{flex:1;color:var(--ink);font-weight:700;min-width:0;cursor:pointer;text-decoration:underline dotted #ccc;text-underline-offset:2px}
+  .name:hover{color:var(--suzaku)}
   .stats{display:flex;flex-direction:column;align-items:flex-end;gap:1px;flex-shrink:0}
   .rate{color:var(--shu);font-weight:900;font-family:'Inter',sans-serif;font-size:13px}
-  .recent{color:#1F4D2E;font-weight:700;font-size:11px;font-family:'Inter',sans-serif}
+  .recent{color:var(--ok);font-weight:700;font-size:11px;font-family:'Inter',sans-serif}
   .trend{margin-left:2px}
   .nsmall{color:#999;font-size:10px;margin-left:3px}
 
-  /* 将来エリア */
-  .future{margin-top:28px;background:#fff;border:1px dashed #ccc;border-radius:8px;padding:18px}
-  .future h3{margin:0 0 10px;color:var(--ink-soft);font-size:14px;letter-spacing:.1em;
-             font-family:'Shippori Mincho',serif}
-  .future ul{margin:0;padding-left:20px;font-size:12px;color:#888;line-height:1.8}
+  /* 急上昇/急落 */
+  .rank-list{background:#fff;border-radius:8px;border:1px solid var(--border);overflow:hidden}
+  .rank-row{display:grid;grid-template-columns:36px 1fr 1fr 1fr 70px;gap:6px;padding:10px 14px;
+            border-bottom:1px solid #f0f0f0;align-items:center;font-size:13px}
+  .rank-row:last-child{border-bottom:none}
+  .rank-row.rising .delta{color:var(--ok);font-weight:900}
+  .rank-row.falling .delta{color:var(--bad);font-weight:900}
+  .rank-row .nm{font-weight:700;cursor:pointer;text-decoration:underline dotted #ccc}
+  .rank-row .nm:hover{color:var(--suzaku)}
+  .rank-row .stat{font-family:'Inter',sans-serif;font-size:12px;color:#666;text-align:right}
+  .rank-row .delta{font-family:'Inter',sans-serif;font-size:14px;text-align:right}
+  .rank-h{display:grid;grid-template-columns:36px 1fr 1fr 1fr 70px;gap:6px;padding:8px 14px;
+          background:rgba(196,84,49,.05);font-size:11px;color:var(--ink-soft);font-weight:700;
+          letter-spacing:.05em;text-transform:uppercase}
+
+  /* 検索 */
+  .search-box{margin-bottom:14px}
+  .search-box input{width:100%;padding:14px 16px;font-size:16px;border:2px solid var(--border);
+                    border-radius:8px;background:#fff;font-family:inherit;
+                    transition:border-color .2s ease}
+  .search-box input:focus{outline:none;border-color:var(--suzaku);box-shadow:0 0 0 3px rgba(196,84,49,.1)}
+  .search-results{display:flex;flex-direction:column;gap:8px}
+  .jockey-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;
+               transition:all .2s ease;cursor:pointer}
+  .jockey-card:hover{border-color:var(--suzaku);box-shadow:0 4px 12px rgba(196,84,49,.15)}
+  .jc-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .jc-name{font-size:17px;font-weight:900;color:var(--shu);font-family:'Shippori Mincho',serif}
+  .jc-rank{font-size:11px;color:#888;background:#f5f2eb;padding:2px 8px;border-radius:3px}
+  .jc-summary{font-size:12px;color:var(--ink-soft);margin-top:4px;display:flex;gap:14px;flex-wrap:wrap}
+  .jc-summary span{padding:2px 0}
+  .jc-detail{margin-top:10px;padding-top:10px;border-top:1px dashed #eee;display:none}
+  .jc-detail.open{display:block}
+  .jc-section{margin-bottom:8px}
+  .jc-section-h{font-size:11px;color:var(--ink-soft);font-weight:700;letter-spacing:.1em;margin-bottom:4px}
+  .jc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:4px;font-size:11px}
+  .jc-stat{display:flex;justify-content:space-between;padding:3px 8px;background:#fbf7ee;border-radius:3px}
+  .jc-stat .v{font-weight:700;color:var(--shu)}
+
+  /* トレンドミニグラフ */
+  .trend-svg{display:inline-block;vertical-align:middle;margin-left:8px}
+
+  /* 重賞 */
+  .juushou-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .juushou-cell{background:#fff;border:1px solid var(--border);border-radius:6px;padding:12px}
+  .juushou-cell h4{margin:0 0 8px;font-size:14px;color:var(--shu);font-family:'Shippori Mincho',serif}
+  .juushou-row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px dashed #f0f0f0}
+  .juushou-row:last-child{border-bottom:none}
+  .juushou-cnt{font-weight:700;color:var(--shu)}
+
+  /* 週次ログ */
+  .weekly-placeholder{text-align:center;padding:40px 20px;color:#999;background:#fff;border:1px dashed #ccc;border-radius:8px}
 
   footer{text-align:center;padding:18px;color:#999;font-size:11px;letter-spacing:.1em;
-         font-family:'Shippori Mincho',serif;border-top:1px solid #eee;margin-top:30px;
-         background:#fbf7ee}
+         font-family:'Shippori Mincho',serif;border-top:1px solid #eee;margin-top:30px;background:#fbf7ee}
 </style>
 </head>
 <body>
@@ -101,44 +153,125 @@
   <a class="home-link mincho" href="juushou.html">📜 重賞天満宮</a>
 </nav>
 
+<div class="tabs" id="tabs">
+  <button class="tab active" data-tab="ranking">🔥 場別TOP5</button>
+  <button class="tab" data-tab="rising">🌟 急上昇</button>
+  <button class="tab" data-tab="falling">🌧 急落</button>
+  <button class="tab" data-tab="search">🔍 騎手検索</button>
+  <button class="tab" data-tab="juushou">🎯 重賞勝率</button>
+  <button class="tab" data-tab="weekly">📅 週次ログ</button>
+</div>
+
 <main>
-  <div class="intro">
-    <h2 class="mincho">📊 朱雀ランキングの読み方</h2>
-    <p><b>通算</b> = 本年累計の場別複勝率（n=サンプル数、信頼性の指標）</p>
-    <p><b>直近</b> = 直近3週の平均複勝率（今この瞬間の勢い）</p>
-    <p><b>抽出条件</b>：場別 n≥10 ∧ 直近3週で1鞍以上騎乗（引退・海外騎手は自動除外）</p>
-    <div class="legend">
-      <span>🔥 直近≥50%（爆発中）</span>
-      <span>↗︎ 直近≥35%（好調）</span>
-      <span>→ 直近≥20%（標準）</span>
-      <span>↘︎ 直近&lt;20%（低調）</span>
+  <!-- TAB: 場別TOP5 -->
+  <div class="panel active" data-panel="ranking">
+    <div class="intro">
+      <h2 class="mincho">📊 朱雀ランキングの読み方</h2>
+      <div><b>通算</b>＝本年累計の場別複勝率（n=サンプル数）／ <b>直近</b>＝直近3週の平均複勝率</div>
+      <div>抽出条件：場別 n≥10 ∧ 直近3週で1鞍以上騎乗（引退・海外騎手は自動除外）</div>
+      <div class="legend">
+        <span>🔥 直近≥50%</span>
+        <span>↗︎ 直近≥35%</span>
+        <span>→ 直近≥20%</span>
+        <span>↘︎ 直近&lt;20%</span>
+      </div>
+    </div>
+    <div id="venues" class="venues-wrap"></div>
+  </div>
+
+  <!-- TAB: 急上昇 -->
+  <div class="panel" data-panel="rising">
+    <div class="intro">
+      <h2 class="mincho">🌟 急上昇ランキング TOP10</h2>
+      <div>通算複勝率 → 直近3週平均で<b>大きく上昇</b>した騎手。今週狙うべき覚醒中ジョッキー。</div>
+      <div>条件：通算n≥10 ∧ 直近3週騎乗あり ∧ 通算複勝率≥10%</div>
+    </div>
+    <div class="rank-list">
+      <div class="rank-h"><span></span><span>騎手名</span><span style="text-align:right">通算→</span><span style="text-align:right">直近</span><span style="text-align:right">変化</span></div>
+      <div id="rising-list"></div>
     </div>
   </div>
 
-  <div id="venues" class="venues-wrap"></div>
+  <!-- TAB: 急落 -->
+  <div class="panel" data-panel="falling">
+    <div class="intro">
+      <h2 class="mincho">🌧 急落ランキング TOP10</h2>
+      <div>通算複勝率 → 直近3週平均で<b>大きく落ちた</b>騎手。スランプ・故障の早期発見。</div>
+      <div>条件：通算n≥10 ∧ 直近3週騎乗あり ∧ 通算複勝率≥10%</div>
+    </div>
+    <div class="rank-list">
+      <div class="rank-h"><span></span><span>騎手名</span><span style="text-align:right">通算→</span><span style="text-align:right">直近</span><span style="text-align:right">変化</span></div>
+      <div id="falling-list"></div>
+    </div>
+  </div>
 
-  <div class="future">
-    <h3>近日実装予定 🛠</h3>
-    <ul>
-      <li>🔍 騎手検索（149人全員の場別成績を瞬時表示）</li>
-      <li>📈 直近3週トレンドグラフ</li>
-      <li>🌧 急落ランキング（通算→直近で大きく落ちた騎手）</li>
-      <li>🌟 急上昇ランキング（覚醒中騎手）</li>
-      <li>🎯 G1/G2/G3別 重賞相性</li>
-      <li>📅 週次更新ログ「今週○○がブレイク」</li>
-      <li>💰 詳細スコア・予想連動エリア</li>
-    </ul>
+  <!-- TAB: 検索 -->
+  <div class="panel" data-panel="search">
+    <div class="intro">
+      <h2 class="mincho">🔍 騎手検索</h2>
+      <div>名前の一部でリアルタイム検索（149人対応）。カードクリックで詳細展開。</div>
+    </div>
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="騎手名（漢字・カタカナ）で検索…">
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+
+  <!-- TAB: 重賞勝率 -->
+  <div class="panel" data-panel="juushou">
+    <div class="intro">
+      <h2 class="mincho">🎯 重賞勝率（本年G1/G2/G3）</h2>
+      <div>本年の重賞勝利数 TOP10。神宮の独自視点：「実は重賞経験ゼロ」騎手も警戒対象。</div>
+    </div>
+    <div id="juushou" class="juushou-grid"></div>
+  </div>
+
+  <!-- TAB: 週次ログ -->
+  <div class="panel" data-panel="weekly">
+    <div class="intro">
+      <h2 class="mincho">📅 週次更新ログ</h2>
+      <div>「今週○○がブレイク」「××がランキング圏外へ」など神宮の動的記録。</div>
+    </div>
+    <div class="weekly-placeholder">
+      <div style="font-size:36px;margin-bottom:14px">📅</div>
+      <div style="font-size:14px;color:#666;line-height:2">来週の更新時から記録開始<br>毎週月曜の更新で、前週との変動を自動追跡します</div>
+    </div>
   </div>
 </main>
 
 <footer>⛩ UG 競馬神宮 ／ 朱雀ノ間 ⛩</footer>
 
 <script>
-async function render(){
+let DATA_VENUES = null;
+let DATA_MASTER = null;
+
+// === タブ切替 ===
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.querySelector(`.panel[data-panel="${t.dataset.tab}"]`).classList.add('active');
+  });
+});
+
+// === ミニトレンドSVG ===
+function trendSvg(w3, w2, w1) {
+  const max = Math.max(w1, w2, w3, 50);
+  const sx = (i) => 6 + i * 16;
+  const sy = (v) => 22 - (v / max) * 18;
+  const pts = [w3, w2, w1].map((v, i) => `${sx(i)},${sy(v)}`).join(' ');
+  return `<svg class="trend-svg" width="44" height="24" viewBox="0 0 44 24">
+    <polyline points="${pts}" fill="none" stroke="#c95c3a" stroke-width="1.5"/>
+    ${[w3, w2, w1].map((v, i) => `<circle cx="${sx(i)}" cy="${sy(v)}" r="1.8" fill="#c95c3a"/>`).join('')}
+  </svg>`;
+}
+
+// === 場別TOP5 ===
+async function renderRanking(){
   const r = await fetch('data/jockey/2026-05-11_venue_top5_enriched.json?_='+Date.now());
-  const d = await r.json();
-  // 全16場（来週開催想定の主要場+その他全場）
-  const venueGroups = [
+  DATA_VENUES = await r.json();
+  const groups = [
     {name:'東 京', surfaces:['東京芝','東京ダ']},
     {name:'京 都', surfaces:['京都芝','京都ダ']},
     {name:'新 潟', surfaces:['新潟芝','新潟ダ']},
@@ -148,34 +281,176 @@ async function render(){
     {name:'福 島', surfaces:['福島芝','福島ダ']},
     {name:'小 倉', surfaces:['小倉芝','小倉ダ']},
   ];
-  document.getElementById('venues').innerHTML = venueGroups.map(g => {
+  document.getElementById('venues').innerHTML = groups.map(g => {
     const cells = g.surfaces.map(v => {
-      const list = d.venues[v] || [];
-      if (!list.length) return `<div class="cell"><div class="cell-h">${v}</div><div style="color:#999;font-size:12px;text-align:center;padding:14px">データなし</div></div>`;
+      const list = DATA_VENUES.venues[v] || [];
+      if (!list.length) return `<div class="cell"><div class="cell-h">${v}</div><div style="color:#999;font-size:11px;text-align:center;padding:14px">データなし</div></div>`;
       const rows = list.map((j,i) => `
         <div class="row">
           <span class="rank">${i+1}</span>
-          <span class="name">${j.name}</span>
+          <span class="name" data-name="${j.name}">${j.name}${trendSvg(j.w3,j.w2,j.w1)}</span>
           <span class="stats">
             <span class="rate">通算 ${j.shRate}%<span class="nsmall">(n${j.n})</span></span>
             <span class="recent">直近 ${j.recentAvg}% <span class="trend">${j.trend}</span></span>
           </span>
         </div>`).join('');
       const isFire = list[0] && list[0].shRate >= 50;
-      return `
-        <div class="cell">
-          <div class="cell-h">${isFire ? '<span class="cf">🔥</span>' : ''}${v}</div>
-          ${rows}
-        </div>`;
+      return `<div class="cell"><div class="cell-h">${isFire?'<span class="cf">🔥</span>':''}${v}</div>${rows}</div>`;
     }).join('');
+    return `<div class="venue-group"><div class="venue-h mincho">${g.name}</div><div class="venue-row">${cells}</div></div>`;
+  }).join('');
+  // 名前クリックで検索タブへジャンプ
+  document.querySelectorAll('.name[data-name]').forEach(el => {
+    el.addEventListener('click', () => {
+      const name = el.dataset.name;
+      document.querySelector('.tab[data-tab="search"]').click();
+      document.getElementById('search-input').value = name;
+      doSearch();
+    });
+  });
+}
+
+// === マスター読込 ===
+async function loadMaster(){
+  if (DATA_MASTER) return DATA_MASTER;
+  const r = await fetch('data/jockey/2026-05-11_master149.json?_='+Date.now());
+  DATA_MASTER = await r.json();
+  return DATA_MASTER;
+}
+
+// === 急上昇・急落 ===
+async function renderRising(){
+  const d = await loadMaster();
+  document.getElementById('rising-list').innerHTML = d.rising.map((j,i) => `
+    <div class="rank-row rising">
+      <span class="rank">${i+1}</span>
+      <span class="nm" data-name="${j.name}">${j.name} <small style="color:#999;font-weight:400;font-size:10px">${j.rank}位</small></span>
+      <span class="stat">通算 ${j.shRate}%</span>
+      <span class="stat">直近 ${j.recentAvg}%</span>
+      <span class="delta">+${j.delta}%</span>
+    </div>`).join('');
+  attachNameClicks();
+}
+async function renderFalling(){
+  const d = await loadMaster();
+  document.getElementById('falling-list').innerHTML = d.falling.map((j,i) => `
+    <div class="rank-row falling">
+      <span class="rank">${i+1}</span>
+      <span class="nm" data-name="${j.name}">${j.name} <small style="color:#999;font-weight:400;font-size:10px">${j.rank}位</small></span>
+      <span class="stat">通算 ${j.shRate}%</span>
+      <span class="stat">直近 ${j.recentAvg}%</span>
+      <span class="delta">${j.delta}%</span>
+    </div>`).join('');
+  attachNameClicks();
+}
+
+function attachNameClicks(){
+  document.querySelectorAll('.nm[data-name]').forEach(el => {
+    el.addEventListener('click', () => {
+      const name = el.dataset.name;
+      document.querySelector('.tab[data-tab="search"]').click();
+      document.getElementById('search-input').value = name;
+      doSearch();
+    });
+  });
+}
+
+// === 検索 ===
+async function doSearch(){
+  const d = await loadMaster();
+  const q = document.getElementById('search-input').value.trim();
+  const res = document.getElementById('search-results');
+  if (!q) {
+    res.innerHTML = `<div style="color:#999;text-align:center;padding:20px;font-size:13px">騎手名を入力すると候補が表示されます（149人対応）</div>`;
+    return;
+  }
+  const matches = Object.values(d.jockeys).filter(j => j.name.includes(q)).slice(0,20);
+  if (!matches.length) {
+    res.innerHTML = `<div style="color:#999;text-align:center;padding:20px;font-size:13px">該当騎手なし</div>`;
+    return;
+  }
+  res.innerHTML = matches.map(j => {
+    const venues = j.venues ? Object.entries(j.venues).filter(([,v])=>v.n>=5).sort((a,b)=>b[1].shRate-a[1].shRate).slice(0,8) : [];
+    const venueHtml = venues.length ? `
+      <div class="jc-section">
+        <div class="jc-section-h">場別TOP（n≥5）</div>
+        <div class="jc-grid">
+          ${venues.map(([v,s])=>`<div class="jc-stat"><span>${v}</span><span class="v">${s.shRate}%<small style="color:#999;font-weight:400">(${s.n})</small></span></div>`).join('')}
+        </div>
+      </div>` : `<div style="font-size:11px;color:#999;padding:6px 0">場別データなし（リーディング50位以下）</div>`;
+    const popHtml = j.popularity ? `
+      <div class="jc-section">
+        <div class="jc-section-h">人気別複勝率</div>
+        <div class="jc-grid">
+          ${Object.entries(j.popularity).map(([k,v])=>`<div class="jc-stat"><span>${k}</span><span class="v">${v.shRate}%</span></div>`).join('')}
+        </div>
+      </div>` : '';
     return `
-      <div class="venue-group">
-        <div class="venue-h mincho">${g.name}</div>
-        <div class="venue-row">${cells}</div>
+      <div class="jockey-card" data-ccd="${j.ccd}">
+        <div class="jc-h">
+          <span class="jc-name">${j.name}</span>
+          <span class="jc-rank">#${j.rank} ${j.zoku}</span>
+        </div>
+        <div class="jc-summary">
+          <span><b>本年</b> ${j.wins}勝（勝率 ${j.winRate}% / 複 ${j.shRate}%）</span>
+          <span><b>G1/G2/G3</b> ${j.g1}/${j.g2}/${j.g3}</span>
+          <span><b>直近3週</b> 平均 ${j.recent.avg}% ${trendIcon(j.recent.avg)}${trendSvg(j.recent.w3,j.recent.w2,j.recent.w1)}</span>
+        </div>
+        <div class="jc-detail">
+          ${popHtml}
+          ${venueHtml}
+          <div class="jc-section">
+            <div class="jc-section-h">直近3週推移</div>
+            <div class="jc-grid">
+              <div class="jc-stat"><span>3週前</span><span class="v">${j.recent.w3}%</span></div>
+              <div class="jc-stat"><span>2週前</span><span class="v">${j.recent.w2}%</span></div>
+              <div class="jc-stat"><span>1週前</span><span class="v">${j.recent.w1}%</span></div>
+            </div>
+          </div>
+        </div>
       </div>`;
   }).join('');
+  res.querySelectorAll('.jockey-card').forEach(c => {
+    c.addEventListener('click', () => c.querySelector('.jc-detail').classList.toggle('open'));
+  });
 }
-render();
+function trendIcon(avg){
+  if (avg >= 50) return '🔥';
+  if (avg >= 35) return '↗︎';
+  if (avg >= 20) return '→';
+  if (avg > 0) return '↘︎';
+  return '✗';
+}
+
+// === 重賞勝率 ===
+async function renderJuushou(){
+  const d = await loadMaster();
+  const list = Object.values(d.jockeys).filter(j => j.recent.active).map(j => ({
+    name: j.name, rank: j.rank, g1: j.g1, g2: j.g2, g3: j.g3, total: j.g1+j.g2+j.g3
+  })).filter(j => j.total > 0).sort((a,b) => b.g1*100+b.g2*10+b.g3 - (a.g1*100+a.g2*10+a.g3)).slice(0,10);
+  // also detect 川田型 (high winRate × G1=0)
+  const ipsuus = Object.values(d.jockeys).filter(j => j.recent.active && j.winRate >= 18 && j.g1 === 0).slice(0,5);
+  document.getElementById('juushou').innerHTML = `
+    <div class="juushou-cell">
+      <h4>🏆 本年重賞勝利TOP10</h4>
+      ${list.map((j,i) => `<div class="juushou-row"><span>${i+1}. ${j.name}</span><span class="juushou-cnt">G1:${j.g1} / G2:${j.g2} / G3:${j.g3}</span></div>`).join('')}
+    </div>
+    <div class="juushou-cell">
+      <h4>⚠️ G1ゼロ × 高勝率（イップス警戒）</h4>
+      ${ipsuus.map((j,i) => `<div class="juushou-row"><span>${i+1}. ${j.name}</span><span class="juushou-cnt">勝率${j.winRate}% / G1=0</span></div>`).join('')}
+      <div style="font-size:10px;color:#888;margin-top:8px;font-style:italic">「強い馬乗ってるのに勝てない」現象を機械検出</div>
+    </div>`;
+}
+
+// === 初期化 ===
+renderRanking();
+document.querySelector('.tab[data-tab="rising"]').addEventListener('click', renderRising, {once:true});
+document.querySelector('.tab[data-tab="falling"]').addEventListener('click', renderFalling, {once:true});
+document.querySelector('.tab[data-tab="search"]').addEventListener('click', () => {
+  if (!document.getElementById('search-input').value) doSearch();
+}, {once:true});
+document.querySelector('.tab[data-tab="juushou"]').addEventListener('click', renderJuushou, {once:true});
+document.getElementById('search-input').addEventListener('input', doSearch);
 </script>
 </body>
 </html>
