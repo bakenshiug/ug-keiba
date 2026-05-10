@@ -360,6 +360,30 @@
   /* ご祝儀レース */
   .goshugi-empty{text-align:center;color:var(--ink-soft);font-size:13px;
                  padding:18px;font-style:italic;letter-spacing:.05em}
+  /* 🔥来週の朱雀騎手 */
+  .suzaku-board{margin:18px auto;max-width:920px;background:linear-gradient(135deg,#fff5f0,#fbeae0);
+                border:2px solid #c95c3a;border-radius:8px;padding:18px;
+                box-shadow:0 4px 16px rgba(196,84,49,.15)}
+  .suzaku-h{font-size:18px;font-weight:900;color:#a44a3f;text-align:center;letter-spacing:.1em;
+            margin-bottom:6px;font-family:'Shippori Mincho',serif}
+  .suzaku-sub{text-align:center;font-size:12px;color:#7a5448;margin-bottom:14px;letter-spacing:.05em}
+  .suzaku-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  .suzaku-cell{background:#fff;border:1px solid rgba(196,84,49,.3);border-radius:6px;padding:10px 12px}
+  .suzaku-venue{font-size:14px;font-weight:900;color:#a44a3f;border-bottom:1px solid rgba(196,84,49,.2);
+                padding-bottom:5px;margin-bottom:7px;font-family:'Shippori Mincho',serif;
+                letter-spacing:.08em;display:flex;align-items:center;gap:6px}
+  .suzaku-venue .venue-fire{font-size:13px}
+  .suzaku-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;
+              font-size:13px;border-bottom:1px dashed rgba(0,0,0,.05)}
+  .suzaku-row:last-child{border-bottom:none}
+  .suzaku-rank{width:18px;color:#a44a3f;font-weight:900}
+  .suzaku-name{flex:1;color:#2c1f12;font-weight:700}
+  .suzaku-rate{color:#a44a3f;font-weight:900;font-family:'Inter',sans-serif}
+  .suzaku-n{color:#999;font-size:10px;margin-left:4px}
+  .suzaku-tag{display:inline-block;padding:2px 8px;background:#a44a3f;color:#fff;font-size:10px;
+              border-radius:3px;margin-right:6px;vertical-align:middle;font-weight:700;letter-spacing:.1em}
+  .suzaku-foot{text-align:center;font-size:11px;color:#7a5448;margin-top:10px;letter-spacing:.05em;
+               font-style:italic}
   .goshugi{margin-top:14px;padding:14px;background:linear-gradient(135deg,#fff6e8 0%,#fff0d0 100%);
            border:2px solid var(--gold);border-radius:8px;
            box-shadow:0 2px 10px rgba(201,168,76,.3)}
@@ -410,6 +434,7 @@
 </header>
 <div id="summary-board"></div>
 <div id="summary-board-axis"></div>
+<div id="suzaku-board"></div>
 <div id="kotowaza-board"></div>
 <div class="tabs" id="tabs"></div>
 <main id="races"></main>
@@ -480,6 +505,7 @@ async function load(){
   }
   renderSummary();
   renderSummaryAxis();
+  renderSuzaku();
   renderKotowaza();
   buildTabs();
   render();
@@ -751,6 +777,44 @@ function renderSummary(){
       <div class="sb-learn">🔬 ベスト馬券種分析学習中...</div>
       ${renderGoshugi()}
     </details>`;
+}
+
+async function renderSuzaku(){
+  const el = document.getElementById('suzaku-board');
+  if (!el) return;
+  try {
+    const r = await fetch('data/jockey/2026-05-11_venue_top5.json?_='+Date.now());
+    const d = await r.json();
+    // 来週開催候補場（簡易：今週開催と同じと仮定）
+    const targetVenues = ['東京芝','東京ダ','京都芝','京都ダ','新潟芝','新潟ダ'];
+    const cells = targetVenues.map(v => {
+      const list = d.venues[v] || [];
+      const rows = list.map((j,i) => `
+        <div class="suzaku-row">
+          <span class="suzaku-rank">${i+1}</span>
+          <span class="suzaku-name">${j.name}</span>
+          <span class="suzaku-rate">${j.shRate}%<span class="suzaku-n">(n${j.n})</span></span>
+        </div>`).join('');
+      const isFire = list[0] && list[0].shRate >= 50;
+      return `
+        <div class="suzaku-cell">
+          <div class="suzaku-venue">
+            ${isFire ? '<span class="venue-fire">🔥</span>' : ''}
+            ${v}
+          </div>
+          ${rows}
+        </div>`;
+    }).join('');
+    el.innerHTML = `
+      <div class="suzaku-board">
+        <div class="suzaku-h"><span class="suzaku-tag">朱雀</span>来週の🔥騎手</div>
+        <div class="suzaku-sub">JRDB全149人 場×サーフェス別 複勝率TOP5（n≥10）</div>
+        <div class="suzaku-grid">${cells}</div>
+        <div class="suzaku-foot">UG競馬神宮｜コンディション×馬場読み×コース適性 ／ 朱雀の眼</div>
+      </div>`;
+  } catch(e) {
+    console.error('suzaku render error', e);
+  }
 }
 
 function renderGoshugi(){
