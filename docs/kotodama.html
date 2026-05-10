@@ -85,6 +85,27 @@
   .sb-total-detail{text-align:center;font-size:12px;color:var(--ink-soft);margin-bottom:10px}
   .sb-total-detail.win{color:var(--ok)}
   .sb-total-detail small{font-size:12px}
+  /* 土曜/日曜/トータル 3カラム */
+  .sb-tri{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:12px;margin:14px 0 10px;
+          padding:0 8px}
+  .sb-tri-cell{text-align:center;padding:14px 6px;border:1px solid var(--border);border-radius:8px;
+               background:rgba(255,255,255,.5);transition:transform .2s ease}
+  .sb-tri-cell:hover{transform:translateY(-2px)}
+  .sb-tri-cell.win{background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(244,204,79,.18));
+                   border-color:#d4af37;box-shadow:0 0 14px rgba(212,175,55,.25)}
+  .sb-tri-total{background:rgba(196,84,49,.06);border-color:rgba(196,84,49,.3)}
+  .sb-tri-total.win{background:linear-gradient(135deg,rgba(212,175,55,.18),rgba(244,204,79,.28));
+                    border-color:#d4af37;box-shadow:0 0 18px rgba(212,175,55,.4)}
+  .sb-tri-day{font-size:13px;color:var(--ink-soft);font-weight:700;letter-spacing:.15em;margin-bottom:4px;
+              font-family:'Shippori Mincho',serif}
+  .sb-tri-num{font-size:32px;font-weight:900;color:var(--shu);line-height:1.1;
+              font-family:'Inter',sans-serif}
+  .sb-tri-cell.win .sb-tri-num{color:#b8901f;text-shadow:0 0 8px rgba(212,175,55,.4)}
+  .sb-tri-meta{font-size:11px;color:var(--ink-soft);margin-top:4px;letter-spacing:.05em}
+  @media (max-width:560px){
+    .sb-tri{grid-template-columns:1fr;gap:8px}
+    .sb-tri-num{font-size:28px}
+  }
   .race-header{display:flex;justify-content:space-between;align-items:baseline;
                border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:14px;
                flex-wrap:wrap;gap:8px}
@@ -425,6 +446,9 @@ function fmtDate(dateStr){
 
 let ALL_RACES = [];
 let SUMMARY = null;
+let SUMMARY_SAT = null;
+let SUMMARY_SUN = null;
+let SUMMARY_TOTAL = null;
 let CURRENT_TAB = '';
 
 const KIND_LABEL = {
@@ -447,6 +471,9 @@ async function load(){
         ALL_RACES.push(race);
       });
       if (d.summary) SUMMARY = d.summary;
+      if (d.summarySaturday) SUMMARY_SAT = d.summarySaturday;
+      if (d.summarySunday) SUMMARY_SUN = d.summarySunday;
+      if (d.summaryTotal) SUMMARY_TOTAL = d.summaryTotal;
     }catch(e){console.error(e)}
   }
   renderSummary();
@@ -590,14 +617,36 @@ function renderSummaryAxis(){
     return (ai<0?99:ai)-(bi<0?99:bi);
   }).map(([v,rs]) => [v, aggregateAxis(rs)]);
 
+  // 土日別の◎軸集計
+  const satRaces = races.filter(r => r.date === '2026-05-09');
+  const sunRaces = races.filter(r => r.date === '2026-05-10');
+  const sat = aggregateAxis(satRaces);
+  const sun = aggregateAxis(sunRaces);
+  const tri = `
+    <div class="sb-tri">
+      <div class="sb-tri-cell ${sat.totalRecovery>=100?'win':''}">
+        <div class="sb-tri-day">土曜</div>
+        <div class="sb-tri-num">${sat.totalRecovery}%</div>
+        <div class="sb-tri-meta">${sat.racesHit}/${sat.racesWithResult}R的中</div>
+      </div>
+      <div class="sb-tri-cell ${sun.totalRecovery>=100?'win':''}">
+        <div class="sb-tri-day">日曜</div>
+        <div class="sb-tri-num">${sun.totalRecovery}%</div>
+        <div class="sb-tri-meta">${sun.racesHit}/${sun.racesWithResult}R的中</div>
+      </div>
+      <div class="sb-tri-cell sb-tri-total ${all.totalRecovery>=100?'win':''}">
+        <div class="sb-tri-day">土日トータル</div>
+        <div class="sb-tri-num">${all.totalRecovery}%</div>
+        <div class="sb-tri-meta">${all.racesHit}/${all.racesWithResult}R的中</div>
+      </div>
+    </div>`;
+
   el.innerHTML = `
     <details class="summary-board neon sb-fold">
       <summary class="sb-fold-summary">
-        <div class="sb-title mincho">⛩ 言霊神宮 土曜全36R 集計　単勝/複勝◎1点購入&◎1頭軸流しの場合</div>
-        <div class="sb-total ${all.totalRecovery>=100?'win':''}">
-          総合回収率 ${all.totalRecovery}%
-        </div>
-        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開</div>
+        <div class="sb-title mincho">⛩ 言霊神宮 土日72R 集計　単勝/複勝◎1点購入&◎1頭軸流しの場合</div>
+        ${tri}
+        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開（全72R合算）</div>
       </summary>
       <div class="sb-total-detail ${all.totalRecovery>=100?'win':''}">
         <small>${all.racesHit}/${all.racesWithResult}R的中 (${all.raceHitRate}%) ／ 投資¥${all.totalInvest.toLocaleString()} 払戻¥${all.totalPayout.toLocaleString()}</small>
@@ -650,14 +699,32 @@ function renderSummary(){
     const ai = venueOrder.indexOf(a[0]), bi = venueOrder.indexOf(b[0]);
     return (ai<0?99:ai) - (bi<0?99:bi);
   });
+  // 土日別BOX集計
+  const sat = SUMMARY_SAT, sun = SUMMARY_SUN, tot = SUMMARY_TOTAL || s;
+  const tri = (sat && sun) ? `
+    <div class="sb-tri">
+      <div class="sb-tri-cell ${sat.totalRecovery>=100?'win':''}">
+        <div class="sb-tri-day">土曜</div>
+        <div class="sb-tri-num">${sat.totalRecovery}%</div>
+        <div class="sb-tri-meta">${sat.racesHit}/${sat.racesWithResult}R的中</div>
+      </div>
+      <div class="sb-tri-cell ${sun.totalRecovery>=100?'win':''}">
+        <div class="sb-tri-day">日曜</div>
+        <div class="sb-tri-num">${sun.totalRecovery}%</div>
+        <div class="sb-tri-meta">${sun.racesHit}/${sun.racesWithResult}R的中</div>
+      </div>
+      <div class="sb-tri-cell sb-tri-total ${tot.totalRecovery>=100?'win':''}">
+        <div class="sb-tri-day">土日トータル</div>
+        <div class="sb-tri-num">${tot.totalRecovery}%</div>
+        <div class="sb-tri-meta">${tot.racesHit}/${tot.racesWithResult}R的中</div>
+      </div>
+    </div>` : `<div class="sb-total ${s.totalRecovery>=100?'win':''}">総合回収率 ${s.totalRecovery}%</div>`;
   el.innerHTML = `
     <details class="summary-board sb-fold">
       <summary class="sb-fold-summary">
-        <div class="sb-title mincho">⛩ 言霊神宮 土曜全36R 集計　単勝/複勝4頭購入&全馬券種4頭BOX購入の場合</div>
-        <div class="sb-total ${s.totalRecovery>=100?'win':''}">
-          総合回収率 ${s.totalRecovery}%
-        </div>
-        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開</div>
+        <div class="sb-title mincho">⛩ 言霊神宮 土日72R 集計　単勝/複勝4頭購入&全馬券種4頭BOX購入の場合</div>
+        ${tri}
+        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開（全72R合算）</div>
       </summary>
       <div class="sb-total-detail ${s.totalRecovery>=100?'win':''}">
         <small>${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</small>
