@@ -823,17 +823,12 @@ async function renderSuzaku(){
     ];
     const cells = venueGroups.map(g => {
       const surfaceCells = g.surfaces.map(v => {
-        const fullList = d.venues[v] || [];
-        // アクティブ騎手のみ表示
-        const list = fullList.filter(j => j.active !== false);
-        const inactive = fullList.filter(j => j.active === false);
-        let rank = 0;
-        const rows = list.map(j => {
-          rank++;
+        const list = d.venues[v] || [];
+        const rows = list.map((j, i) => {
           const trendBadge = j.trend ? `<span class="suzaku-trend">${j.trend}</span>` : '';
           return `
           <div class="suzaku-row">
-            <span class="suzaku-rank">${rank}</span>
+            <span class="suzaku-rank">${i+1}</span>
             <span class="suzaku-name">${j.name}</span>
             <span class="suzaku-stats">
               <span class="suzaku-rate">通算 ${j.shRate}%<span class="suzaku-n">(n${j.n})</span></span>
@@ -841,8 +836,6 @@ async function renderSuzaku(){
             </span>
           </div>`;
         }).join('');
-        const inactiveRows = inactive.length ? `
-          <div class="suzaku-inactive">✗ 除外: ${inactive.map(j=>j.name).join('、')}（直近3週騎乗なし）</div>` : '';
         const isFire = list[0] && list[0].shRate >= 50;
         return `
           <div class="suzaku-cell">
@@ -851,7 +844,6 @@ async function renderSuzaku(){
               ${v}
             </div>
             ${rows}
-            ${inactiveRows}
           </div>`;
       }).join('');
       return `
