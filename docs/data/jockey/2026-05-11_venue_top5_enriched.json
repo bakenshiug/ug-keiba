@@ -1,0 +1,924 @@
+{
+  "_meta": {
+    "fetched": "2026-05-11",
+    "source": "JRDB joca.php (149人完全DB)",
+    "criteria": "本年場別複勝率 (n>=10サンプル)",
+    "purpose": "来週の🔥騎手コーナー (朱雀)",
+    "enriched": "2026-05-11",
+    "note": "直近3週データ + アクティブフィルタ追加"
+  },
+  "venues": {
+    "東京芝": [
+      {
+        "name": "Ｃ．ルメール",
+        "shRate": 73.5,
+        "n": 49,
+        "w1": 60.0,
+        "w2": 81.8,
+        "w3": 50.0,
+        "recentAvg": 63.9,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "川田将雅",
+        "shRate": 54.5,
+        "n": 11,
+        "w1": 71.4,
+        "w2": 54.5,
+        "w3": 100.0,
+        "recentAvg": 75.3,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "戸崎圭太",
+        "shRate": 50,
+        "n": 32,
+        "w1": 83.3,
+        "w2": 25.0,
+        "w3": 30.8,
+        "recentAvg": 46.4,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "Ｄ．レーン",
+        "shRate": 47.8,
+        "n": 23,
+        "w1": 0.0,
+        "w2": 46.2,
+        "w3": 56.3,
+        "recentAvg": 34.2,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "武豊",
+        "shRate": 38.9,
+        "n": 18,
+        "w1": 23.1,
+        "w2": 50.0,
+        "w3": 60.0,
+        "recentAvg": 44.4,
+        "active": true,
+        "trend": "↗︎"
+      }
+    ],
+    "東京ダ": [
+      {
+        "name": "川田将雅",
+        "shRate": 80,
+        "n": 10,
+        "w1": 71.4,
+        "w2": 54.5,
+        "w3": 100.0,
+        "recentAvg": 75.3,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "Ｄ．レーン",
+        "shRate": 71.4,
+        "n": 14,
+        "w1": 0.0,
+        "w2": 46.2,
+        "w3": 56.3,
+        "recentAvg": 34.2,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "坂井瑠星",
+        "shRate": 53.3,
+        "n": 15,
+        "w1": 22.2,
+        "w2": 0.0,
+        "w3": 40.0,
+        "recentAvg": 20.7,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "Ｒ．キング",
+        "shRate": 51.6,
+        "n": 31,
+        "w1": 0.0,
+        "w2": 0.0,
+        "w3": 0.0,
+        "recentAvg": 0,
+        "active": false,
+        "trend": "✗"
+      },
+      {
+        "name": "Ｃ．ルメール",
+        "shRate": 50,
+        "n": 32,
+        "w1": 60.0,
+        "w2": 81.8,
+        "w3": 50.0,
+        "recentAvg": 63.9,
+        "active": true,
+        "trend": "🔥"
+      }
+    ],
+    "京都芝": [
+      {
+        "name": "川田将雅",
+        "shRate": 63.2,
+        "n": 38,
+        "w1": 71.4,
+        "w2": 54.5,
+        "w3": 100.0,
+        "recentAvg": 75.3,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "西村淳也",
+        "shRate": 40.7,
+        "n": 54,
+        "w1": 46.2,
+        "w2": 0.0,
+        "w3": 22.2,
+        "recentAvg": 22.8,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "北村友一",
+        "shRate": 37.7,
+        "n": 53,
+        "w1": 25.0,
+        "w2": 25.0,
+        "w3": 18.2,
+        "recentAvg": 22.7,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "武豊",
+        "shRate": 37,
+        "n": 46,
+        "w1": 23.1,
+        "w2": 50.0,
+        "w3": 60.0,
+        "recentAvg": 44.4,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "藤岡佑介",
+        "shRate": 36.8,
+        "n": 19,
+        "w1": 0.0,
+        "w2": 0.0,
+        "w3": 0.0,
+        "recentAvg": 0,
+        "active": false,
+        "trend": "✗"
+      }
+    ],
+    "京都ダ": [
+      {
+        "name": "川田将雅",
+        "shRate": 51.4,
+        "n": 37,
+        "w1": 71.4,
+        "w2": 54.5,
+        "w3": 100.0,
+        "recentAvg": 75.3,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "鮫島良太",
+        "shRate": 46.7,
+        "n": 15,
+        "w1": 50.0,
+        "w2": 100.0,
+        "w3": 0.0,
+        "recentAvg": 50.0,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "松山弘平",
+        "shRate": 45.8,
+        "n": 72,
+        "w1": 26.7,
+        "w2": 26.3,
+        "w3": 35.3,
+        "recentAvg": 29.4,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "武豊",
+        "shRate": 44.4,
+        "n": 54,
+        "w1": 23.1,
+        "w2": 50.0,
+        "w3": 60.0,
+        "recentAvg": 44.4,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "岩田望来",
+        "shRate": 41.6,
+        "n": 77,
+        "w1": 23.1,
+        "w2": 33.3,
+        "w3": 35.0,
+        "recentAvg": 30.5,
+        "active": true,
+        "trend": "→"
+      }
+    ],
+    "新潟芝": [
+      {
+        "name": "丹内祐次",
+        "shRate": 30,
+        "n": 10,
+        "w1": 16.7,
+        "w2": 31.6,
+        "w3": 22.2,
+        "recentAvg": 23.5,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "菊沢一樹",
+        "shRate": 29.4,
+        "n": 17,
+        "w1": 25.0,
+        "w2": 23.1,
+        "w3": 16.7,
+        "recentAvg": 21.6,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "Ｆ．ゴンサルベス",
+        "shRate": 28.6,
+        "n": 14,
+        "w1": 40.0,
+        "w2": 40.0,
+        "w3": 0.0,
+        "recentAvg": 26.7,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "丸山元気",
+        "shRate": 27.3,
+        "n": 11,
+        "w1": 0.0,
+        "w2": 41.7,
+        "w3": 27.3,
+        "recentAvg": 23.0,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "富田暁",
+        "shRate": 27.3,
+        "n": 11,
+        "w1": 33.3,
+        "w2": 14.3,
+        "w3": 25.0,
+        "recentAvg": 24.2,
+        "active": true,
+        "trend": "→"
+      }
+    ],
+    "新潟ダ": [
+      {
+        "name": "舟山瑠泉",
+        "shRate": 84.6,
+        "n": 13,
+        "w1": 66.7,
+        "w2": 38.5,
+        "w3": 31.3,
+        "recentAvg": 45.5,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "Ｆ．ゴンサルベス",
+        "shRate": 54.5,
+        "n": 11,
+        "w1": 40.0,
+        "w2": 40.0,
+        "w3": 0.0,
+        "recentAvg": 26.7,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "田山旺佑",
+        "shRate": 30,
+        "n": 10,
+        "w1": 15.8,
+        "w2": 22.2,
+        "w3": 35.7,
+        "recentAvg": 24.6,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "小沢大仁",
+        "shRate": 23.1,
+        "n": 13,
+        "w1": 0,
+        "w2": 0,
+        "w3": 0,
+        "recentAvg": 0,
+        "active": false,
+        "trend": "✗"
+      },
+      {
+        "name": "丸山元気",
+        "shRate": 20,
+        "n": 10,
+        "w1": 0.0,
+        "w2": 41.7,
+        "w3": 27.3,
+        "recentAvg": 23.0,
+        "active": true,
+        "trend": "→"
+      }
+    ],
+    "中山芝": [
+      {
+        "name": "Ｃ．ルメール",
+        "shRate": 69.2,
+        "n": 52,
+        "w1": 60.0,
+        "w2": 81.8,
+        "w3": 50.0,
+        "recentAvg": 63.9,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "戸崎圭太",
+        "shRate": 42,
+        "n": 69,
+        "w1": 83.3,
+        "w2": 25.0,
+        "w3": 30.8,
+        "recentAvg": 46.4,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "津村明秀",
+        "shRate": 39,
+        "n": 82,
+        "w1": 28.6,
+        "w2": 25.0,
+        "w3": 33.3,
+        "recentAvg": 29.0,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "岩田望来",
+        "shRate": 38.5,
+        "n": 13,
+        "w1": 23.1,
+        "w2": 33.3,
+        "w3": 35.0,
+        "recentAvg": 30.5,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "横山武史",
+        "shRate": 35.7,
+        "n": 70,
+        "w1": 18.2,
+        "w2": 35.3,
+        "w3": 17.6,
+        "recentAvg": 23.7,
+        "active": true,
+        "trend": "→"
+      }
+    ],
+    "中山ダ": [
+      {
+        "name": "Ｃ．ルメール",
+        "shRate": 62.7,
+        "n": 51,
+        "w1": 60.0,
+        "w2": 81.8,
+        "w3": 50.0,
+        "recentAvg": 63.9,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "西村淳也",
+        "shRate": 60,
+        "n": 15,
+        "w1": 46.2,
+        "w2": 0.0,
+        "w3": 22.2,
+        "recentAvg": 22.8,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "戸崎圭太",
+        "shRate": 59.4,
+        "n": 69,
+        "w1": 83.3,
+        "w2": 25.0,
+        "w3": 30.8,
+        "recentAvg": 46.4,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "岩田望来",
+        "shRate": 50,
+        "n": 12,
+        "w1": 23.1,
+        "w2": 33.3,
+        "w3": 35.0,
+        "recentAvg": 30.5,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "横山武史",
+        "shRate": 47.8,
+        "n": 92,
+        "w1": 18.2,
+        "w2": 35.3,
+        "w3": 17.6,
+        "recentAvg": 23.7,
+        "active": true,
+        "trend": "→"
+      }
+    ],
+    "阪神芝": [
+      {
+        "name": "岩田望来",
+        "shRate": 52.9,
+        "n": 51,
+        "w1": 23.1,
+        "w2": 33.3,
+        "w3": 35.0,
+        "recentAvg": 30.5,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "坂井瑠星",
+        "shRate": 51.2,
+        "n": 41,
+        "w1": 22.2,
+        "w2": 0.0,
+        "w3": 40.0,
+        "recentAvg": 20.7,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "川田将雅",
+        "shRate": 50,
+        "n": 24,
+        "w1": 71.4,
+        "w2": 54.5,
+        "w3": 100.0,
+        "recentAvg": 75.3,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "西村淳也",
+        "shRate": 45.7,
+        "n": 35,
+        "w1": 46.2,
+        "w2": 0.0,
+        "w3": 22.2,
+        "recentAvg": 22.8,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "武豊",
+        "shRate": 45,
+        "n": 40,
+        "w1": 23.1,
+        "w2": 50.0,
+        "w3": 60.0,
+        "recentAvg": 44.4,
+        "active": true,
+        "trend": "↗︎"
+      }
+    ],
+    "阪神ダ": [
+      {
+        "name": "坂井瑠星",
+        "shRate": 46,
+        "n": 50,
+        "w1": 22.2,
+        "w2": 0.0,
+        "w3": 40.0,
+        "recentAvg": 20.7,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "武豊",
+        "shRate": 45,
+        "n": 40,
+        "w1": 23.1,
+        "w2": 50.0,
+        "w3": 60.0,
+        "recentAvg": 44.4,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "岩田望来",
+        "shRate": 41.9,
+        "n": 74,
+        "w1": 23.1,
+        "w2": 33.3,
+        "w3": 35.0,
+        "recentAvg": 30.5,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "松山弘平",
+        "shRate": 41.7,
+        "n": 72,
+        "w1": 26.7,
+        "w2": 26.3,
+        "w3": 35.3,
+        "recentAvg": 29.4,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "西村淳也",
+        "shRate": 40.7,
+        "n": 54,
+        "w1": 46.2,
+        "w2": 0.0,
+        "w3": 22.2,
+        "recentAvg": 22.8,
+        "active": true,
+        "trend": "→"
+      }
+    ],
+    "中京芝": [
+      {
+        "name": "川田将雅",
+        "shRate": 61.5,
+        "n": 13,
+        "w1": 71.4,
+        "w2": 54.5,
+        "w3": 100.0,
+        "recentAvg": 75.3,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "松山弘平",
+        "shRate": 50,
+        "n": 10,
+        "w1": 26.7,
+        "w2": 26.3,
+        "w3": 35.3,
+        "recentAvg": 29.4,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "西村淳也",
+        "shRate": 50,
+        "n": 12,
+        "w1": 46.2,
+        "w2": 0.0,
+        "w3": 22.2,
+        "recentAvg": 22.8,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "三浦皇成",
+        "shRate": 40,
+        "n": 15,
+        "w1": 44.4,
+        "w2": 50.0,
+        "w3": 15.4,
+        "recentAvg": 36.6,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "舟山瑠泉",
+        "shRate": 38.5,
+        "n": 13,
+        "w1": 66.7,
+        "w2": 38.5,
+        "w3": 31.3,
+        "recentAvg": 45.5,
+        "active": true,
+        "trend": "↗︎"
+      }
+    ],
+    "中京ダ": [
+      {
+        "name": "高杉吏麒",
+        "shRate": 53.8,
+        "n": 13,
+        "w1": 25.0,
+        "w2": 13.3,
+        "w3": 40.0,
+        "recentAvg": 26.1,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "川田将雅",
+        "shRate": 50,
+        "n": 10,
+        "w1": 71.4,
+        "w2": 54.5,
+        "w3": 100.0,
+        "recentAvg": 75.3,
+        "active": true,
+        "trend": "🔥"
+      },
+      {
+        "name": "松山弘平",
+        "shRate": 40,
+        "n": 10,
+        "w1": 26.7,
+        "w2": 26.3,
+        "w3": 35.3,
+        "recentAvg": 29.4,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "舟山瑠泉",
+        "shRate": 35.7,
+        "n": 14,
+        "w1": 66.7,
+        "w2": 38.5,
+        "w3": 31.3,
+        "recentAvg": 45.5,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "浜中俊",
+        "shRate": 30.8,
+        "n": 13,
+        "w1": 50.0,
+        "w2": 0.0,
+        "w3": 62.5,
+        "recentAvg": 37.5,
+        "active": true,
+        "trend": "↗︎"
+      }
+    ],
+    "福島芝": [
+      {
+        "name": "舟山瑠泉",
+        "shRate": 46.2,
+        "n": 26,
+        "w1": 66.7,
+        "w2": 38.5,
+        "w3": 31.3,
+        "recentAvg": 45.5,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "杉原誠人",
+        "shRate": 45,
+        "n": 20,
+        "w1": 12.5,
+        "w2": 0.0,
+        "w3": 22.2,
+        "recentAvg": 11.6,
+        "active": true,
+        "trend": "↘︎"
+      },
+      {
+        "name": "丹内祐次",
+        "shRate": 39.3,
+        "n": 28,
+        "w1": 16.7,
+        "w2": 31.6,
+        "w3": 22.2,
+        "recentAvg": 23.5,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "松若風馬",
+        "shRate": 35,
+        "n": 20,
+        "w1": 7.7,
+        "w2": 33.3,
+        "w3": 16.7,
+        "recentAvg": 19.2,
+        "active": true,
+        "trend": "↘︎"
+      },
+      {
+        "name": "丸山元気",
+        "shRate": 33.3,
+        "n": 18,
+        "w1": 0.0,
+        "w2": 41.7,
+        "w3": 27.3,
+        "recentAvg": 23.0,
+        "active": true,
+        "trend": "→"
+      }
+    ],
+    "福島ダ": [
+      {
+        "name": "小林美駒",
+        "shRate": 57.9,
+        "n": 19,
+        "w1": 27.3,
+        "w2": 66.7,
+        "w3": 30.0,
+        "recentAvg": 41.3,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "西塚洸二",
+        "shRate": 50,
+        "n": 10,
+        "w1": 0.0,
+        "w2": 0.0,
+        "w3": 40.0,
+        "recentAvg": 13.3,
+        "active": true,
+        "trend": "↘︎"
+      },
+      {
+        "name": "富田暁",
+        "shRate": 40,
+        "n": 10,
+        "w1": 33.3,
+        "w2": 14.3,
+        "w3": 25.0,
+        "recentAvg": 24.2,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "斎藤新",
+        "shRate": 35.3,
+        "n": 17,
+        "w1": 8.3,
+        "w2": 25.0,
+        "w3": 28.6,
+        "recentAvg": 20.6,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "丹内祐次",
+        "shRate": 22.7,
+        "n": 22,
+        "w1": 16.7,
+        "w2": 31.6,
+        "w3": 22.2,
+        "recentAvg": 23.5,
+        "active": true,
+        "trend": "→"
+      }
+    ],
+    "小倉芝": [
+      {
+        "name": "藤岡佑介",
+        "shRate": 41.7,
+        "n": 12,
+        "w1": 0.0,
+        "w2": 0.0,
+        "w3": 0.0,
+        "recentAvg": 0,
+        "active": false,
+        "trend": "✗"
+      },
+      {
+        "name": "杉原誠人",
+        "shRate": 40,
+        "n": 10,
+        "w1": 12.5,
+        "w2": 0.0,
+        "w3": 22.2,
+        "recentAvg": 11.6,
+        "active": true,
+        "trend": "↘︎"
+      },
+      {
+        "name": "吉田隼人",
+        "shRate": 39.3,
+        "n": 28,
+        "w1": 50.0,
+        "w2": 33.3,
+        "w3": 42.9,
+        "recentAvg": 42.1,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "鮫島克駿",
+        "shRate": 37.9,
+        "n": 29,
+        "w1": 21.1,
+        "w2": 47.4,
+        "w3": 23.5,
+        "recentAvg": 30.7,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "西塚洸二",
+        "shRate": 36.1,
+        "n": 36,
+        "w1": 0.0,
+        "w2": 0.0,
+        "w3": 40.0,
+        "recentAvg": 13.3,
+        "active": true,
+        "trend": "↘︎"
+      }
+    ],
+    "小倉ダ": [
+      {
+        "name": "浜中俊",
+        "shRate": 45.5,
+        "n": 11,
+        "w1": 50.0,
+        "w2": 0.0,
+        "w3": 62.5,
+        "recentAvg": 37.5,
+        "active": true,
+        "trend": "↗︎"
+      },
+      {
+        "name": "富田暁",
+        "shRate": 42.9,
+        "n": 14,
+        "w1": 33.3,
+        "w2": 14.3,
+        "w3": 25.0,
+        "recentAvg": 24.2,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "丹内祐次",
+        "shRate": 38.5,
+        "n": 39,
+        "w1": 16.7,
+        "w2": 31.6,
+        "w3": 22.2,
+        "recentAvg": 23.5,
+        "active": true,
+        "trend": "→"
+      },
+      {
+        "name": "西塚洸二",
+        "shRate": 37.5,
+        "n": 16,
+        "w1": 0.0,
+        "w2": 0.0,
+        "w3": 40.0,
+        "recentAvg": 13.3,
+        "active": true,
+        "trend": "↘︎"
+      },
+      {
+        "name": "丸山元気",
+        "shRate": 31.6,
+        "n": 19,
+        "w1": 0.0,
+        "w2": 41.7,
+        "w3": 27.3,
+        "recentAvg": 23.0,
+        "active": true,
+        "trend": "→"
+      }
+    ]
+  }
+}
