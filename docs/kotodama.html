@@ -806,11 +806,11 @@ async function renderSuzaku(){
         </div>`;
     }).join('');
     el.innerHTML = `
-      <div class="suzaku-board">
-        <div class="suzaku-h"><span class="suzaku-tag">朱雀</span>来週の🔥騎手</div>
-        <div class="suzaku-sub">JRDB全149人 場×サーフェス別 複勝率TOP5（n≥10）</div>
+      <div class="suzaku-board" id="suzaku-board">
+        <div class="suzaku-h"><span class="suzaku-tag">朱雀</span>騎手手綱神宮 ─ 来週の🔥騎手</div>
+        <div class="suzaku-sub">UG競馬神宮｜JRDB全149人 場×サーフェス別 複勝率TOP5（n≥10）</div>
         <div class="suzaku-grid">${cells}</div>
-        <div class="suzaku-foot">UG競馬神宮｜コンディション×馬場読み×コース適性 ／ 朱雀の眼</div>
+        <div class="suzaku-foot">コンディション × 馬場読み × コース適性 ／ 朱雀の眼</div>
       </div>`;
   } catch(e) {
     console.error('suzaku render error', e);
