@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>騎手手綱神宮｜UG競馬神宮</title>
+<meta name="description" content="朱雀の眼 ─ 競馬場×芝ダート別の好調騎手TOP5。通算+直近3週で見える最新の騎手調子。">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAFA;--bg-soft:#F5F2EB;--paper:#FBF7EE;--paper-deep:#F0EADB;
+    --ink:#2c1f12;--ink-soft:#5a4a3a;--shu:#a44a3f;--gold:#c9a84c;
+    --suzaku:#c95c3a;--border:rgba(164,74,63,.25);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+       font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+       line-height:1.6}
+  .mincho{font-family:'Shippori Mincho',serif}
+  header{background:linear-gradient(135deg,#fff5f0,#fbeae0);
+         border-bottom:3px solid var(--suzaku);padding:24px 18px;text-align:center;
+         box-shadow:0 4px 18px rgba(196,84,49,.12)}
+  .h-tag{display:inline-block;padding:4px 14px;background:var(--suzaku);color:#fff;
+         font-size:13px;font-weight:900;letter-spacing:.25em;border-radius:4px;margin-bottom:10px;
+         font-family:'Shippori Mincho',serif}
+  .h-title{font-size:32px;font-weight:900;color:var(--shu);letter-spacing:.18em;
+           font-family:'Shippori Mincho',serif;margin:0 0 6px}
+  .h-sub{font-size:13px;color:#7a5448;letter-spacing:.08em;margin:0}
+  .h-fire{display:inline-block;animation:firePulse 2s ease-in-out infinite}
+  @keyframes firePulse{
+    0%,100%{filter:drop-shadow(0 0 4px rgba(196,84,49,.4))}
+    50%{filter:drop-shadow(0 0 10px rgba(196,84,49,.9))}
+  }
+  nav{padding:14px 18px;text-align:center;background:#fff;border-bottom:1px solid #eee}
+  .home-link{display:inline-block;padding:6px 16px;color:var(--shu);text-decoration:none;
+             border:1px solid var(--border);border-radius:4px;font-size:13px;letter-spacing:.05em;
+             margin:0 4px;transition:all .2s ease}
+  .home-link:hover{background:var(--shu);color:#fff;border-color:var(--shu)}
+  main{max-width:1100px;margin:0 auto;padding:24px 16px}
+  .intro{background:#fff;border:1px solid var(--border);border-radius:8px;padding:18px;
+         margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .intro h2{margin:0 0 8px;color:var(--shu);font-size:18px;font-family:'Shippori Mincho',serif;
+            letter-spacing:.1em}
+  .intro p{margin:6px 0;font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
+  .intro .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:12px}
+  .intro .legend span{padding:3px 8px;background:rgba(196,84,49,.05);border-radius:3px}
+
+  /* 競馬場グループ */
+  .venues-wrap{display:flex;flex-direction:column;gap:24px;margin-top:18px}
+  .venue-group{background:linear-gradient(135deg,#fff5f0,#fbeae0);border:2px solid var(--suzaku);
+               border-radius:10px;padding:18px;box-shadow:0 4px 16px rgba(196,84,49,.15)}
+  .venue-h{font-size:22px;font-weight:900;color:var(--shu);text-align:center;letter-spacing:.4em;
+           padding:6px 0 14px;font-family:'Shippori Mincho',serif;
+           border-bottom:2px dashed rgba(196,84,49,.3);margin-bottom:14px}
+  .venue-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:640px){
+    .venue-row{grid-template-columns:1fr}
+    .h-title{font-size:22px}
+  }
+
+  /* 場×サーフェスセル */
+  .cell{background:#fff;border:1px solid rgba(196,84,49,.3);border-radius:6px;padding:12px 14px}
+  .cell-h{font-size:15px;font-weight:900;color:var(--shu);border-bottom:1px solid rgba(196,84,49,.2);
+          padding-bottom:6px;margin-bottom:8px;font-family:'Shippori Mincho',serif;
+          letter-spacing:.1em;display:flex;align-items:center;gap:6px}
+  .cell-h .cf{font-size:13px;animation:firePulse 2s infinite}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:13px;
+       border-bottom:1px dashed rgba(0,0,0,.05);gap:8px}
+  .row:last-child{border-bottom:none}
+  .rank{width:18px;color:var(--shu);font-weight:900;flex-shrink:0}
+  .name{flex:1;color:var(--ink);font-weight:700;min-width:0}
+  .stats{display:flex;flex-direction:column;align-items:flex-end;gap:1px;flex-shrink:0}
+  .rate{color:var(--shu);font-weight:900;font-family:'Inter',sans-serif;font-size:13px}
+  .recent{color:#1F4D2E;font-weight:700;font-size:11px;font-family:'Inter',sans-serif}
+  .trend{margin-left:2px}
+  .nsmall{color:#999;font-size:10px;margin-left:3px}
+
+  /* 将来エリア */
+  .future{margin-top:28px;background:#fff;border:1px dashed #ccc;border-radius:8px;padding:18px}
+  .future h3{margin:0 0 10px;color:var(--ink-soft);font-size:14px;letter-spacing:.1em;
+             font-family:'Shippori Mincho',serif}
+  .future ul{margin:0;padding-left:20px;font-size:12px;color:#888;line-height:1.8}
+
+  footer{text-align:center;padding:18px;color:#999;font-size:11px;letter-spacing:.1em;
+         font-family:'Shippori Mincho',serif;border-top:1px solid #eee;margin-top:30px;
+         background:#fbf7ee}
+</style>
+</head>
+<body>
+<header>
+  <div class="h-tag">朱雀</div>
+  <h1 class="h-title mincho">騎　手　手　綱　神　宮</h1>
+  <p class="h-sub mincho">朱雀の眼 <span class="h-fire">🔥</span> 我、今週末の好調騎手に光を照らす</p>
+</header>
+
+<nav>
+  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+  <a class="home-link mincho" href="kotodama.html">⛩ 言霊神宮</a>
+  <a class="home-link mincho" href="juushou.html">📜 重賞天満宮</a>
+</nav>
+
+<main>
+  <div class="intro">
+    <h2 class="mincho">📊 朱雀ランキングの読み方</h2>
+    <p><b>通算</b> = 本年累計の場別複勝率（n=サンプル数、信頼性の指標）</p>
+    <p><b>直近</b> = 直近3週の平均複勝率（今この瞬間の勢い）</p>
+    <p><b>抽出条件</b>：場別 n≥10 ∧ 直近3週で1鞍以上騎乗（引退・海外騎手は自動除外）</p>
+    <div class="legend">
+      <span>🔥 直近≥50%（爆発中）</span>
+      <span>↗︎ 直近≥35%（好調）</span>
+      <span>→ 直近≥20%（標準）</span>
+      <span>↘︎ 直近&lt;20%（低調）</span>
+    </div>
+  </div>
+
+  <div id="venues" class="venues-wrap"></div>
+
+  <div class="future">
+    <h3>近日実装予定 🛠</h3>
+    <ul>
+      <li>🔍 騎手検索（149人全員の場別成績を瞬時表示）</li>
+      <li>📈 直近3週トレンドグラフ</li>
+      <li>🌧 急落ランキング（通算→直近で大きく落ちた騎手）</li>
+      <li>🌟 急上昇ランキング（覚醒中騎手）</li>
+      <li>🎯 G1/G2/G3別 重賞相性</li>
+      <li>📅 週次更新ログ「今週○○がブレイク」</li>
+      <li>💰 詳細スコア・予想連動エリア</li>
+    </ul>
+  </div>
+</main>
+
+<footer>⛩ UG 競馬神宮 ／ 朱雀ノ間 ⛩</footer>
+
+<script>
+async function render(){
+  const r = await fetch('data/jockey/2026-05-11_venue_top5_enriched.json?_='+Date.now());
+  const d = await r.json();
+  // 全16場（来週開催想定の主要場+その他全場）
+  const venueGroups = [
+    {name:'東 京', surfaces:['東京芝','東京ダ']},
+    {name:'京 都', surfaces:['京都芝','京都ダ']},
+    {name:'新 潟', surfaces:['新潟芝','新潟ダ']},
+    {name:'中 山', surfaces:['中山芝','中山ダ']},
+    {name:'阪 神', surfaces:['阪神芝','阪神ダ']},
+    {name:'中 京', surfaces:['中京芝','中京ダ']},
+    {name:'福 島', surfaces:['福島芝','福島ダ']},
+    {name:'小 倉', surfaces:['小倉芝','小倉ダ']},
+  ];
+  document.getElementById('venues').innerHTML = venueGroups.map(g => {
+    const cells = g.surfaces.map(v => {
+      const list = d.venues[v] || [];
+      if (!list.length) return `<div class="cell"><div class="cell-h">${v}</div><div style="color:#999;font-size:12px;text-align:center;padding:14px">データなし</div></div>`;
+      const rows = list.map((j,i) => `
+        <div class="row">
+          <span class="rank">${i+1}</span>
+          <span class="name">${j.name}</span>
+          <span class="stats">
+            <span class="rate">通算 ${j.shRate}%<span class="nsmall">(n${j.n})</span></span>
+            <span class="recent">直近 ${j.recentAvg}% <span class="trend">${j.trend}</span></span>
+          </span>
+        </div>`).join('');
+      const isFire = list[0] && list[0].shRate >= 50;
+      return `
+        <div class="cell">
+          <div class="cell-h">${isFire ? '<span class="cf">🔥</span>' : ''}${v}</div>
+          ${rows}
+        </div>`;
+    }).join('');
+    return `
+      <div class="venue-group">
+        <div class="venue-h mincho">${g.name}</div>
+        <div class="venue-row">${cells}</div>
+      </div>`;
+  }).join('');
+}
+render();
+</script>
+</body>
+</html>
