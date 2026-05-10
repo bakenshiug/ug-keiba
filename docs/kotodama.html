@@ -358,6 +358,8 @@
   details.summary-d summary{padding:8px;background:var(--paper-deep);border-radius:4px;
                             color:var(--shu);font-weight:700;font-size:12px;letter-spacing:.15em}
   /* ご祝儀レース */
+  .goshugi-empty{text-align:center;color:var(--ink-soft);font-size:13px;
+                 padding:18px;font-style:italic;letter-spacing:.05em}
   .goshugi{margin-top:14px;padding:14px;background:linear-gradient(135deg,#fff6e8 0%,#fff0d0 100%);
            border:2px solid var(--gold);border-radius:8px;
            box-shadow:0 2px 10px rgba(201,168,76,.3)}
@@ -753,8 +755,12 @@ function renderSummary(){
 
 function renderGoshugi(){
   const RANK_EMOJI = ['🥇','🥈','🥉','🎖','🎖','🎖','🎖','🎖','🎖'];
-  const hits = ALL_RACES
-    .filter(r => r.result && r.result.betting && r.result.betting.recovery >= 300)
+  const dayLabel = (date) => {
+    const d = new Date(date);
+    return ['日','月','火','水','木','金','土'][d.getDay()] + '曜日';
+  };
+  const collect = (date) => ALL_RACES
+    .filter(r => r.date === date && r.result && r.result.betting && r.result.betting.recovery >= 200)
     .map(r => ({
       venue: r.venue, raceNum: r.raceNum, raceName: r.raceName,
       rec: r.result.betting.recovery,
@@ -762,22 +768,33 @@ function renderGoshugi(){
       inv: r.result.betting.investTotal,
     }))
     .sort((a,b) => b.rec - a.rec);
-  if (hits.length === 0) return '';
-  return `
-    <div class="goshugi">
-      <div class="goshugi-h mincho">🧧 日曜日のご祝儀レース 🧧</div>
-      <div class="goshugi-list">
-        ${hits.map((h,i) => `
-          <div class="goshugi-row">
-            <div class="goshugi-rank">${RANK_EMOJI[i]||'🎖'}</div>
-            <div class="goshugi-name">
-              ${h.venue}${h.raceNum} ${h.raceName}
-              <span class="gn-meta">投資¥${h.inv.toLocaleString()} → 払戻¥${h.pay.toLocaleString()}</span>
-            </div>
-            <div class="goshugi-rec">${h.rec}%</div>
-          </div>`).join('')}
-      </div>
-    </div>`;
+  const dates = [...new Set(ALL_RACES.map(r => r.date))].sort();
+  const blocks = dates.map(date => {
+    const hits = collect(date);
+    if (!hits.length) {
+      return `
+        <div class="goshugi">
+          <div class="goshugi-h mincho">🧧 ${dayLabel(date)}のご祝儀レース 🧧</div>
+          <div class="goshugi-empty">該当レースなし（200%超）</div>
+        </div>`;
+    }
+    return `
+      <div class="goshugi">
+        <div class="goshugi-h mincho">🧧 ${dayLabel(date)}のご祝儀レース 🧧</div>
+        <div class="goshugi-list">
+          ${hits.map((h,i) => `
+            <div class="goshugi-row">
+              <div class="goshugi-rank">${RANK_EMOJI[i]||'🎖'}</div>
+              <div class="goshugi-name">
+                ${h.venue}${h.raceNum} ${h.raceName}
+                <span class="gn-meta">投資¥${h.inv.toLocaleString()} → 払戻¥${h.pay.toLocaleString()}</span>
+              </div>
+              <div class="goshugi-rec">${h.rec}%</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+  }).join('');
+  return blocks;
 }
 
 function buildTabs(){
