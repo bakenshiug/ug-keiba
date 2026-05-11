@@ -2134,7 +2134,9 @@ drawBtn.addEventListener('click', () => {
         });
         // 末尾に総合と次回予告
         items.push(`<span class="fire">⛩</span>言霊神宮 総合回収率<span class="pct">${rec.toFixed(1)}%</span>`);
-        items.push(`<span class="fire">📅</span>次回 5/10 NHKマイルC週 ─ 言霊×外厩 神宮★マトリクス初運用`);
+        // 🔥 騎手手綱神宮 建立速報
+        items.push(`<span class="fire">🔥</span><span class="gold">念願叶う！騎手手綱神宮 建立</span>🔥 全騎手データ網羅 ／ 人馬一体 ─ 我が神宮、好調騎手に光を照らす`);
+        items.push(`<span class="fire">📅</span>次回 5/17週 ─ 言霊 × 騎手手綱 二軸新運用`);
         // ループで途切れない様に2回繰り返し
         const html = items.join('<span class="sep">⛩</span>') + '<span class="sep">⛩</span>' + items.join('<span class="sep">⛩</span>');
         elTicker.innerHTML = html;
