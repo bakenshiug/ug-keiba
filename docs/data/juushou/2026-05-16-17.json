@@ -1,0 +1,214 @@
+{
+  "weekend": "2026-05-16 / 5-17",
+  "races": [
+    {
+      "id": "kyoto-high-jump",
+      "date": "2026-05-16",
+      "weekday": "土",
+      "name": "第28回 京都ハイジャンプ",
+      "grade": "JG2",
+      "venue": "京都",
+      "course": "芝3930m（右・障害）",
+      "category": "4歳以上オープン・別定",
+      "kakoUrl": "https://p.keibabook.co.jp/cyuou/kako/202603000708",
+      "trends": [
+        {"label": "1番人気の信頼度", "value": "5勝/10年・複勝率60%", "weight": "hi"},
+        {"label": "リピーター傾向", "value": "強し（タガノ・スズカ・テイエム）", "weight": "hi"},
+        {"label": "中京振替実績", "value": "2回（2021・2022）", "weight": ""},
+        {"label": "5-7歳の壁", "value": "8歳以上も警戒（オペラドン・タガノ）", "weight": ""}
+      ],
+      "history": [
+        {"year": 2016, "date": "5.28", "venue": "京都", "going": "曇・良", "horses": 13,
+          "first":  {"num": 2,  "name": "ニホンピロバロン",   "sex": "牡6", "kg": 60, "jockey": "高田",   "time": "4.27.4", "passing": "4 3 3 2", "pop": 1, "weight": 484, "trainer": "田所秀"},
+          "second": {"num": 10, "name": "サンライズロイヤル",   "sex": "牡7", "pop": 3},
+          "third":  {"num": 6,  "name": "ドリームセーリング", "sex": "牡9", "pop": 5}
+        },
+        {"year": 2017, "date": "5.27", "venue": "京都", "going": "晴・良", "horses": 11,
+          "first":  {"num": 8, "name": "マドリードカフェ", "sex": "牡6", "kg": 60, "jockey": "熊沢", "time": "4.32.2", "passing": "1 1 1 1", "pop": 1, "weight": 528, "trainer": "荒川"},
+          "second": {"num": 9, "name": "テイエムオペラドン", "sex": "牡8", "pop": 6},
+          "third":  {"num": 4, "name": "スズカプレスト",   "sex": "牡5", "pop": 3}
+        },
+        {"year": 2018, "date": "5.12", "venue": "京都", "going": "晴・良", "horses": 8,
+          "first":  {"num": 3, "name": "アスターサムソン", "sex": "セン5", "kg": 60, "jockey": "林満", "time": "4.33.8", "passing": "4 2 1 1", "pop": 2, "weight": 492, "trainer": "中竹"},
+          "second": {"num": 5, "name": "ルペールノエル",     "sex": "牡8",  "pop": 1},
+          "third":  {"num": 1, "name": "テイエムオペラドン", "sex": "牡9", "pop": 4}
+        },
+        {"year": 2019, "date": "5.11", "venue": "京都", "going": "晴・良", "horses": 10,
+          "first":  {"num": 7, "name": "シゲルヒノクニ",     "sex": "牡7", "kg": 60, "jockey": "植野",     "time": "4.32.2", "passing": "4 5 2 2", "pop": 8, "weight": 490, "trainer": "粕谷"},
+          "second": {"num": 1, "name": "ピエナクルーズ",     "sex": "牡6", "pop": 4},
+          "third":  {"num": 2, "name": "メイショウタンヅツ", "sex": "牡5", "pop": 5}
+        },
+        {"year": 2020, "date": "5.16", "venue": "京都", "going": "雨・重", "horses": 10,
+          "first":  {"num": 1, "name": "スズカプレスト",       "sex": "牡8",  "kg": 60, "jockey": "北沢",     "time": "4.43.9", "passing": "2 2 2 2", "pop": 5, "weight": 468, "trainer": "橋田"},
+          "second": {"num": 9, "name": "ラテールプロミーズ",   "sex": "セン7", "pop": 6},
+          "third":  {"num": 3, "name": "タガノエスプレッソ",   "sex": "牡8",  "pop": 2}
+        },
+        {"year": 2021, "date": "5.15", "venue": "中京", "going": "曇・良", "horses": 11,
+          "first":  {"num": 7,  "name": "マーニ",         "sex": "牡5", "kg": 60, "jockey": "三津谷", "time": "4.14.8", "passing": "3 3 1 1", "pop": 3, "weight": 458, "trainer": "鮫島"},
+          "second": {"num": 4,  "name": "トラスト",         "sex": "牡7", "pop": 2},
+          "third":  {"num": 11, "name": "スマートアペックス", "sex": "牡4", "pop": 1}
+        },
+        {"year": 2022, "date": "5.14", "venue": "中京", "going": "晴・重", "horses": 9,
+          "first":  {"num": 9, "name": "タガノエスプレッソ", "sex": "牡10", "kg": 60, "jockey": "石神", "time": "4.17.7", "passing": "1 1 1 1", "pop": 1, "weight": 468, "trainer": "五十嵐"},
+          "second": {"num": 5, "name": "ワーウルフ",         "sex": "牡5",  "pop": 6},
+          "third":  {"num": 8, "name": "ポルトラーノ",       "sex": "セン6", "pop": 3}
+        },
+        {"year": 2023, "date": "5.13", "venue": "京都", "going": "曇・良", "horses": 11,
+          "first":  {"num": 10, "name": "ダイシンクローバー", "sex": "セン7", "kg": 60, "jockey": "森一",     "time": "4.33.7", "passing": "3 3 4 2", "pop": 1, "weight": 488, "trainer": "安田隆"},
+          "second": {"num": 3,  "name": "トライフォーリアル", "sex": "セン6", "pop": 4},
+          "third":  {"num": 4,  "name": "ポルタフォリオ",     "sex": "牡5",   "pop": 6}
+        },
+        {"year": 2024, "date": "5.11", "venue": "京都", "going": "晴・良", "horses": 10,
+          "first":  {"num": 6, "name": "サンデイビス",     "sex": "牡6",  "kg": 60, "jockey": "上野翔",   "time": "4.31.0", "passing": "4 3 2 2", "pop": 6, "weight": 500, "trainer": "村田"},
+          "second": {"num": 3, "name": "ヴァリアメンテ",   "sex": "牡6",  "pop": 5},
+          "third":  {"num": 2, "name": "アサクサゲンキ",   "sex": "セン9", "pop": 2}
+        },
+        {"year": 2025, "date": "5.17", "venue": "京都", "going": "曇・不良", "horses": 10,
+          "first":  {"num": 5, "name": "アンクルブラック",     "sex": "牡5", "kg": 60, "jockey": "高田潤",   "time": "4.36.0", "passing": "5 6 2 2", "pop": 1, "weight": 478, "trainer": "高橋亮"},
+          "second": {"num": 8, "name": "レッドバロッサ",       "sex": "セン6", "pop": 2},
+          "third":  {"num": 3, "name": "メイショウアツイタ",   "sex": "牡7", "pop": 5}
+        }
+      ]
+    },
+    {
+      "id": "niigata-daishouten",
+      "date": "2026-05-16",
+      "weekday": "土",
+      "name": "第48回 新潟大賞典",
+      "grade": "G3",
+      "venue": "新潟",
+      "course": "芝2000m（左外）",
+      "category": "4歳以上オープン・ハンデ",
+      "kakoUrl": "https://p.keibabook.co.jp/cyuou/kako/202601070511",
+      "trends": [
+        {"label": "1番人気1着", "value": "0勝/10年（鬼門）", "weight": "hi"},
+        {"label": "ハンデ戦の妙味", "value": "7-10人気1着が7回", "weight": "hi"},
+        {"label": "穴の温床", "value": "二桁人気から3着内 5回", "weight": "hi"},
+        {"label": "5-7歳が中心", "value": "4歳1勝のみ（2019メールド）", "weight": ""}
+      ],
+      "history": [
+        {"year": 2016, "date": "5.8", "venue": "新潟", "going": "晴・良", "horses": 16,
+          "first":  {"num": 9,  "name": "パッションダンス",       "sex": "牡8", "kg": 57,   "jockey": "津村",     "time": "1.57.8", "passing": "3 3 3", "pop": 10, "weight": 518, "trainer": "友道"},
+          "second": {"num": 3,  "name": "フルーキー",             "sex": "牡6", "pop": 1},
+          "third":  {"num": 12, "name": "シャイニープリンス",     "sex": "牡6", "pop": 8}
+        },
+        {"year": 2017, "date": "5.7", "venue": "新潟", "going": "晴・稍重", "horses": 16,
+          "first":  {"num": 2,  "name": "サンデーウィザード", "sex": "牡5", "kg": 55, "jockey": "石橋脩", "time": "1.58.6", "passing": "6 6 6", "pop": 3, "weight": 450, "trainer": "大久龍"},
+          "second": {"num": 6,  "name": "マイネルフロスト",   "sex": "牡6", "pop": 11},
+          "third":  {"num": 11, "name": "メートルダール",     "sex": "牡4", "pop": 1}
+        },
+        {"year": 2018, "date": "5.6", "venue": "新潟", "going": "晴・良", "horses": 16,
+          "first":  {"num": 1,  "name": "スズカデヴィアス",     "sex": "牡7", "kg": 56.5, "jockey": "三浦", "time": "2.00.0", "passing": "6 8 6", "pop": 5, "weight": 512, "trainer": "橋田"},
+          "second": {"num": 14, "name": "ステイインシアトル",   "sex": "牡7", "pop": 9},
+          "third":  {"num": 2,  "name": "ナスノセイカン",       "sex": "牡6", "pop": 11}
+        },
+        {"year": 2019, "date": "4.29", "venue": "新潟", "going": "晴・良", "horses": 16,
+          "first":  {"num": 15, "name": "メールドグラース",   "sex": "牡4", "kg": 54,   "jockey": "レーン",   "time": "1.58.6", "passing": "6 8 8", "pop": 7, "weight": 478, "trainer": "清水久"},
+          "second": {"num": 1,  "name": "ミッキースワロー",   "sex": "牡5", "pop": 3},
+          "third":  {"num": 6,  "name": "ロシュフォール",     "sex": "牡4", "pop": 1}
+        },
+        {"year": 2020, "date": "5.10", "venue": "新潟", "going": "曇・良", "horses": 16,
+          "first":  {"num": 9,  "name": "トーセンスーリヤ",     "sex": "牡5", "kg": 54, "jockey": "横山和", "time": "1.58.6", "passing": "4 4 4", "pop": 10, "weight": 482, "trainer": "小野次"},
+          "second": {"num": 12, "name": "アトミックフォース",   "sex": "牡4", "pop": 7},
+          "third":  {"num": 14, "name": "プレシャスブルー",     "sex": "牡6", "pop": 14}
+        },
+        {"year": 2021, "date": "5.9", "venue": "新潟", "going": "晴・良", "horses": 14,
+          "first":  {"num": 2,  "name": "サンレイポケット",   "sex": "牡6", "kg": 55, "jockey": "鮫島駿", "time": "1.59.3", "passing": "11 11 10", "pop": 3, "weight": 472, "trainer": "高橋忠"},
+          "second": {"num": 10, "name": "ポタジェ",           "sex": "牡4", "pop": 1},
+          "third":  {"num": 14, "name": "サトノソルタス",     "sex": "牡6", "pop": 7}
+        },
+        {"year": 2022, "date": "5.8", "venue": "新潟", "going": "晴・良", "horses": 15,
+          "first":  {"num": 14, "name": "レッドガラン",       "sex": "牡7", "kg": 57.5, "jockey": "岩田康", "time": "1.57.7", "passing": "11 4 5", "pop": 7, "weight": 518, "trainer": "安田隆"},
+          "second": {"num": 8,  "name": "カイザーバローズ",   "sex": "牡4", "pop": 3},
+          "third":  {"num": 13, "name": "ヤシャマル",         "sex": "牡5", "pop": 5}
+        },
+        {"year": 2023, "date": "5.7", "venue": "新潟", "going": "雨・不良", "horses": 16,
+          "first":  {"num": 2,  "name": "カラテ",                 "sex": "牡7", "kg": 59, "jockey": "菅原明",   "time": "2.03.8", "passing": "4 5 5", "pop": 5, "weight": 534, "trainer": "辻野"},
+          "second": {"num": 6,  "name": "セイウンハーデス",       "sex": "牡4", "pop": 2},
+          "third":  {"num": 11, "name": "イクスプロージョン",     "sex": "牡5", "pop": 12}
+        },
+        {"year": 2024, "date": "5.5", "venue": "新潟", "going": "晴・良", "horses": 16,
+          "first":  {"num": 16, "name": "ヤマニンサルバム",   "sex": "牡5", "kg": 58, "jockey": "斎藤新", "time": "2.00.1", "passing": "1 1 1", "pop": 7, "weight": 504, "trainer": "中村"},
+          "second": {"num": 13, "name": "キングズパレス",     "sex": "牡5", "pop": 3},
+          "third":  {"num": 1,  "name": "ヨーホーレイク",     "sex": "牡6", "pop": 2}
+        },
+        {"year": 2025, "date": "5.17", "venue": "新潟", "going": "曇・稍重", "horses": 16,
+          "first":  {"num": 8,  "name": "シリウスコルト",     "sex": "牡4", "kg": 57, "jockey": "古川吉", "time": "2.00.5", "passing": "1 1 1", "pop": 8, "weight": 488, "trainer": "田中勝"},
+          "second": {"num": 14, "name": "サブマリーナ",       "sex": "牡4", "pop": 3},
+          "third":  {"num": 5,  "name": "ハピ",               "sex": "牡6", "pop": 10}
+        }
+      ]
+    },
+    {
+      "id": "victoria-mile",
+      "date": "2026-05-17",
+      "weekday": "日",
+      "name": "第21回 ヴィクトリアマイル",
+      "grade": "G1",
+      "venue": "東京",
+      "course": "芝1600m（左B）",
+      "category": "牝馬・4歳以上オープン・定量",
+      "kakoUrl": "https://p.keibabook.co.jp/cyuou/kako/202602040811",
+      "shoubuKurani": true,
+      "shobu_note": "牝馬G1の総決算。ルメール3勝・戸崎3着内3回の鉄板騎手×二桁人気1着2回（2024テンハッピー14人気・2017アドマイヤリード6人気の波乱）の<b>二極化G1</b>。馬体重460-490kgが軸ゾーン、500kg超は2022ファインルージュ・2025クイーンズウォークの2着止まりが目立つ。",
+      "trends": [
+        {"label": "ルメール騎乗", "value": "3勝（2017/2020/2021）", "weight": "hi"},
+        {"label": "二桁人気1着", "value": "2回（2017・2024）", "weight": "hi"},
+        {"label": "馬体重460-490kg", "value": "1着馬の7/10頭", "weight": ""},
+        {"label": "前走・阪神牝馬S組", "value": "好走多数（毎年複数頭が3着内）", "weight": "hi"}
+      ],
+      "history": [
+        {"year": 2016, "date": "5.15", "venue": "東京", "going": "晴・良", "horses": 18,
+          "first":  {"num": 13, "name": "ストレイトガール",       "sex": "牝7", "kg": 55, "jockey": "戸崎", "time": "1.31.5", "passing": "12 11 10", "pop": 7, "weight": 466, "trainer": "藤原英"},
+          "second": {"num": 10, "name": "ミッキークイーン",       "sex": "牝4", "pop": 1},
+          "third":  {"num": 15, "name": "ショウナンパンドラ",     "sex": "牝5", "pop": 2}
+        },
+        {"year": 2017, "date": "5.14", "venue": "東京", "going": "曇・稍重", "horses": 17,
+          "first":  {"num": 5,  "name": "アドマイヤリード",       "sex": "牝4", "kg": 55, "jockey": "ルメール", "time": "1.33.9", "passing": "12 12 7", "pop": 6, "weight": 422, "trainer": "須貝尚"},
+          "second": {"num": 10, "name": "デンコウアンジュ",       "sex": "牝4", "pop": 11},
+          "third":  {"num": 3,  "name": "ジュールポレール",       "sex": "牝4", "pop": 7}
+        },
+        {"year": 2018, "date": "5.13", "venue": "東京", "going": "雨・稍重", "horses": 18,
+          "first":  {"num": 4,  "name": "ジュールポレール",       "sex": "牝5", "kg": 55, "jockey": "幸",       "time": "1.32.3", "passing": "8 8 8", "pop": 8, "weight": 460, "trainer": "西園"},
+          "second": {"num": 16, "name": "リスグラシュー",         "sex": "牝4", "pop": 1},
+          "third":  {"num": 6,  "name": "レッドアヴァンセ",       "sex": "牝5", "pop": 7}
+        },
+        {"year": 2019, "date": "5.12", "venue": "東京", "going": "晴・良", "horses": 18,
+          "first":  {"num": 4,  "name": "ノームコア",             "sex": "牝4", "kg": 55, "jockey": "レーン",   "time": "1.30.5", "passing": "9 7 7", "pop": 5, "weight": 470, "trainer": "萩原"},
+          "second": {"num": 9,  "name": "プリモシーン",           "sex": "牝4", "pop": 4},
+          "third":  {"num": 3,  "name": "クロコスミア",           "sex": "牝6", "pop": 11}
+        },
+        {"year": 2020, "date": "5.17", "venue": "東京", "going": "晴・良", "horses": 16,
+          "first":  {"num": 12, "name": "アーモンドアイ",         "sex": "牝5", "kg": 55, "jockey": "ルメール", "time": "1.30.6", "passing": "6 4 4", "pop": 1, "weight": 486, "trainer": "国枝"},
+          "second": {"num": 18, "name": "サウンドキアラ",         "sex": "牝5", "pop": 4},
+          "third":  {"num": 16, "name": "ノームコア",             "sex": "牝5", "pop": 5}
+        },
+        {"year": 2021, "date": "5.16", "venue": "東京", "going": "曇・良", "horses": 18,
+          "first":  {"num": 6,  "name": "グランアレグリア",       "sex": "牝5", "kg": 55, "jockey": "ルメール", "time": "1.31.0", "passing": "10 9 10", "pop": 1, "weight": 498, "trainer": "藤沢和"},
+          "second": {"num": 8,  "name": "ランブリングアレー",     "sex": "牝5", "pop": 10},
+          "third":  {"num": 1,  "name": "マジックキャッスル",     "sex": "牝4", "pop": 5}
+        },
+        {"year": 2022, "date": "5.15", "venue": "東京", "going": "曇・良", "horses": 18,
+          "first":  {"num": 5,  "name": "ソダシ",                 "sex": "牝4", "kg": 55, "jockey": "吉田隼", "time": "1.32.2", "passing": "3 4 4", "pop": 4, "weight": 476, "trainer": "須貝尚"},
+          "second": {"num": 11, "name": "ファインルージュ",       "sex": "牝4", "pop": 3},
+          "third":  {"num": 7,  "name": "レシステンシア",         "sex": "牝5", "pop": 6}
+        },
+        {"year": 2023, "date": "5.14", "venue": "東京", "going": "小雨・良", "horses": 16,
+          "first":  {"num": 6,  "name": "ソングライン",           "sex": "牝5", "kg": 56, "jockey": "戸崎",   "time": "1.32.2", "passing": "10 8 6", "pop": 4, "weight": 488, "trainer": "林"},
+          "second": {"num": 16, "name": "ソダシ",                 "sex": "牝5", "pop": 3},
+          "third":  {"num": 2,  "name": "スターズオンアース",     "sex": "牝4", "pop": 1}
+        },
+        {"year": 2024, "date": "5.12", "venue": "東京", "going": "曇・良", "horses": 15,
+          "first":  {"num": 9,  "name": "テンハッピーローズ",     "sex": "牝6", "kg": 56, "jockey": "津村明", "time": "1.31.8", "passing": "11 10 8", "pop": 14, "weight": 458, "trainer": "高柳大"},
+          "second": {"num": 2,  "name": "フィアスプライド",       "sex": "牝6", "pop": 4},
+          "third":  {"num": 6,  "name": "マスクトディーヴァ",     "sex": "牝4", "pop": 1}
+        },
+        {"year": 2025, "date": "5.18", "venue": "東京", "going": "曇・良", "horses": 17,
+          "first":  {"num": 17, "name": "アスコリピチェーノ",     "sex": "牝4", "kg": 56, "jockey": "ルメール", "time": "1.32.1", "passing": "16 15 15", "pop": 1, "weight": 476, "trainer": "黒岩"},
+          "second": {"num": 16, "name": "クイーンズウォーク",     "sex": "牝4", "pop": 4},
+          "third":  {"num": 12, "name": "シランケド",             "sex": "牝5", "pop": 7}
+        }
+      ]
+    }
+  ]
+}
