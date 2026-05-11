@@ -410,7 +410,59 @@
 </div>
 </div>
 
-<!-- ━━━━━━━━━━ 固定サムネ：UG競馬神宮（ダンディ神主ver） ━━━━━━━━━━ -->
+<!-- ━━━━━━━━━━ 固定サムネ① かわいい系：ギーニョ黄色（軽い回・的中報告など） ━━━━━━━━━━ -->
+<style>
+  .cute-thumb{width:1200px;height:630px;position:relative;overflow:hidden;
+              background:linear-gradient(135deg,#FFF5C2 0%,#FFE89A 50%,#FFDA6E 100%);
+              border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.2);
+              display:flex;align-items:center;justify-content:center}
+  .cute-thumb::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;
+                      background:radial-gradient(circle,#FFF0A8 0%,transparent 70%);
+                      top:-100px;right:-80px;z-index:0}
+  .cute-thumb::after{content:'';position:absolute;width:240px;height:240px;border-radius:50%;
+                     background:radial-gradient(circle,#FFE070 0%,transparent 70%);
+                     bottom:-60px;left:80px;z-index:0}
+  .cute-inner{position:relative;z-index:2;display:flex;align-items:center;gap:50px}
+  .cute-chars{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .cute-chars img{width:180px;height:180px;object-fit:contain;
+                  filter:drop-shadow(4px 4px 0 rgba(0,0,0,.08))}
+  .cute-torii{font-size:80px;line-height:1;animation:gentle-float 3s ease-in-out infinite}
+  @keyframes gentle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .cute-text{text-align:left}
+  .cute-mini{font-family:'Shippori Mincho',serif;font-size:28px;color:#a44a3f;
+             font-weight:900;letter-spacing:.32em;margin-bottom:18px;
+             display:inline-block;background:#fff;padding:4px 18px;border-radius:30px;
+             box-shadow:2px 2px 0 #a44a3f}
+  .cute-title{font-family:'Shippori Mincho',serif;font-size:144px;line-height:.95;
+              font-weight:900;color:#2c1f12;letter-spacing:.04em;
+              text-shadow:4px 4px 0 #fff,7px 7px 0 #a44a3f,12px 12px 24px rgba(0,0,0,.15)}
+  .cute-title .accent{color:#a44a3f}
+  .cute-sub{font-family:'Shippori Mincho',serif;font-size:28px;color:#2c1f12;
+            font-weight:700;letter-spacing:.18em;margin-top:24px;
+            background:#fff;display:inline-block;padding:8px 22px;border-radius:6px;
+            box-shadow:3px 3px 0 #a44a3f}
+  .cute-credit{position:absolute;bottom:18px;right:24px;font-size:15px;color:#7a5c2e;
+               font-style:italic;font-weight:600;z-index:3}
+</style>
+<div class="vol-label" style="background:#c9a84c;color:#2c1f12">FIXED-A — かわいい系（軽い回・的中報告・速報向け）</div>
+<div class="preview-wrap">
+<div class="cute-thumb">
+  <div class="cute-inner">
+    <div class="cute-chars">
+      <img src="slides/img/ginyo-meadow.png" alt="ギーニョ">
+      <div class="cute-torii">⛩</div>
+    </div>
+    <div class="cute-text">
+      <div class="cute-mini">⛩ 神宮シリーズ</div>
+      <div class="cute-title">UG競馬<br><span class="accent">神宮</span></div>
+      <div class="cute-sub">⚡ Claude Code で全レース予想</div>
+    </div>
+  </div>
+  <div class="cute-credit">Photo by <b style="color:#a44a3f;font-style:normal">UG競馬神宮</b></div>
+</div>
+</div>
+
+<!-- ━━━━━━━━━━ 固定サムネ② 渋い系：ダンディ神主（真面目回・ロジック紹介向け） ━━━━━━━━━━ -->
 <style>
   .fixed-thumb{width:1200px;height:630px;position:relative;overflow:hidden;
                border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.3);
@@ -444,7 +496,7 @@
                 font-style:italic;font-weight:600;z-index:4;letter-spacing:.04em;
                 text-shadow:0 1px 4px rgba(0,0,0,.8)}
 </style>
-<div class="vol-label" style="background:#c9a84c;color:#2c1f12">FIXED — note固定サムネ（ダンディ神主ver・毎回使い回せる「顔」）</div>
+<div class="vol-label" style="background:#1a120a;color:#c9a84c">FIXED-B — 渋い系（真面目回・ロジック紹介・建立宣言向け）</div>
 <div class="preview-wrap">
 <div class="fixed-thumb">
   <div class="fixed-bg"></div>
@@ -460,7 +512,9 @@
 </div>
 
 <div class="guide" style="margin-top:40px">
-  <h2 style="font-size:16px;color:#ffd34d;margin-bottom:10px">📋 全9枚＋固定1枚、デザイン統一済み</h2>
+  <h2 style="font-size:16px;color:#ffd34d;margin-bottom:10px">📋 全9枚＋固定2パターン（A:かわいい系・B:渋い系）</h2>
+  <p style="margin-top:10px;color:#c9a84c">🌸 <b>FIXED-A</b>（黄色×ギーニョ）：的中報告／速報／土曜祝勝／みんなで喜びたい回</p>
+  <p style="color:#c9a84c">🎩 <b>FIXED-B</b>（黒×ダンディ）：建立宣言／ロジック紹介／重賞展望／本気を伝えたい回</p>
   <p>共通要素：草原ギーニョ × クリーム背景（神宮サイト準拠 #FBF7EE→#F0EADB） × 緑帯ヘッダー／フッター × 大数字 × バッジ2つ</p>
   <p>各vol で異なるのは：vol番号 / メイン数字 / タイトル / バッジ内容 / フッター文言</p>
   <p style="margin-top:14px;color:#c9a84c">🆕 VOL.8: ◎▲picks表示 ／ VOL.9: 🔥朱雀テーマカラー＋機能2x2グリッド</p>
