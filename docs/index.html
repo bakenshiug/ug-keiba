@@ -1444,8 +1444,11 @@ a{color:inherit;}
   <h2 class="section-title mincho">神 主 録</h2>
   <p class="section-subtitle">SHINJU-ROKU ─ 神主ニックの斎行記</p>
 
-  <div class="shinju-card">
-    <div class="shinju-week mincho">令和八年 皐月 第二週　斎行録（5/10 NHKマイル週）</div>
+  <details class="shinju-card shinju-fold">
+    <summary class="shinju-week mincho">
+      <span class="shinju-fold-icon">▶</span>
+      令和八年 皐月 第二週　斎行録（5/10 NHKマイル週）
+    </summary>
 
     <!-- 成績は御利益帳の動的集計に一本化（嘘のない実数表示） -->
     <div class="shinju-stats-cta">
@@ -1528,7 +1531,7 @@ a{color:inherit;}
     </div>
 
     <div class="shinju-attr mincho">⛩ 神主ニック ／ 御祭神 ギーニョ大神 ⛩</div>
-  </div>
+  </details>
 </section>
 
 <style>
@@ -1685,6 +1688,18 @@ a{color:inherit;}
 .shinju-attr{text-align:center;font-size:11px;color:var(--ink-soft);
              letter-spacing:.2em;margin-top:6px}
 
+/* ── 神主録 折りたたみ（5/11〜） ── */
+.shinju-fold{cursor:pointer}
+.shinju-fold > .shinju-week{cursor:pointer;list-style:none;
+                             user-select:none;
+                             display:flex;align-items:center;justify-content:center;gap:14px;
+                             padding:8px 12px;border-radius:6px;transition:background .2s}
+.shinju-fold > .shinju-week::-webkit-details-marker{display:none}
+.shinju-fold > .shinju-week:hover{background:rgba(155,45,48,.05)}
+.shinju-fold-icon{display:inline-block;font-size:14px;color:var(--shu);
+                  transition:transform .2s ease}
+.shinju-fold[open] .shinju-fold-icon{transform:rotate(90deg)}
+
 /* ── 神主録 v2 追加スタイル（5/10〜） ── */
 .ss-caption{text-align:center;font-size:10.5px;color:var(--ink-soft);
             margin-top:6px;letter-spacing:.06em}
@@ -1739,17 +1754,29 @@ a{color:inherit;}
   .mitate-block{grid-template-columns:36px 1fr;gap:10px}
   .mitate-icon{font-size:24px}
   .mitate-body{font-size:12.5px}
-  .juushou-table{font-size:11px}
-  .juushou-table th,.juushou-table td{padding:5px 3px}
-  .jt-comment{min-width:auto;font-size:11px}
+
+  /* スマホ：重賞回顧テーブルを縦カード化 */
+  .juushou-table thead{display:none}
+  .juushou-table,.juushou-table tbody,.juushou-table tr,.juushou-table td{display:block;width:100%}
+  .juushou-table tr{background:#fffbf2;border:1px solid #e9d6a6;border-radius:6px;
+                    padding:10px 12px;margin-bottom:10px}
+  .juushou-table td{padding:3px 0;border:none;font-size:12px;line-height:1.5}
+  .juushou-table td:empty{display:none}
+  .jt-mark{display:inline-block;font-size:20px;width:auto;margin-right:6px;vertical-align:middle}
+  .jt-name{display:inline;font-size:14px;min-width:0;font-weight:700}
+  .jt-kirin{font-size:11px}
+  .jt-hit{display:inline-block;color:var(--midori);font-weight:700;margin-left:8px}
+  .jt-fire{display:block;font-size:11px;margin-top:4px;color:#c0392b}
+  .jt-comment{display:block;font-size:11.5px;line-height:1.65;color:var(--ink-soft);
+              margin-top:6px;padding-top:6px;border-top:1px dotted #d4a85a;min-width:0;white-space:normal}
 }
 </style>
 
 <!-- ══ 二神の御加護 ══ -->
 <section class="section" id="shijin">
-  <h2 class="section-title mincho">三 神 の 御 加 護</h2>
-  <p class="section-subtitle">SANJIN ─ 言霊・騎手手綱・変、三柱の神徳</p>
-  <div class="shijin-grid" style="grid-template-columns:repeat(3,1fr);max-width:1140px;margin:0 auto">
+  <h2 class="section-title mincho">四 神 の 御 加 護</h2>
+  <p class="section-subtitle">SHIJIN ─ 言霊・騎手手綱・変・陣営、四柱の神徳</p>
+  <div class="shijin-grid" style="grid-template-columns:repeat(2,1fr);max-width:1140px;margin:0 auto;gap:18px">
     <div class="shijin-card seiryu">
       <div class="shijin-kamon">🐉</div>
       <div class="shijin-name mincho">青 龍</div>
@@ -1785,6 +1812,18 @@ a{color:inherit;}
       <div class="shijin-goriyaku">条件変更察知・一変激走捕捉</div>
       <div style="text-align:center;margin-top:14px;font-size:12px;color:var(--kin-deep);letter-spacing:.16em;font-weight:700">🧧 先週の大吉馬を見る ▶</div>
     </a>
+    <a href="genbu-board.html" class="shijin-card genbu" style="text-decoration:none;color:inherit;display:block">
+      <div class="shijin-kamon">🐢</div>
+      <div class="shijin-name mincho">玄 武</div>
+      <div class="shijin-direction">GENBU ─ 北 方 水</div>
+      <div class="shijin-miko">⛩ ニック・玄武・スティール（神主）</div>
+      <div class="shijin-factor">陣 営</div>
+      <div class="shijin-factor-en">JINEI / 外厩・厩舎・馬主の蔵</div>
+      <div class="shijin-weight">神徳 ×1.0</div>
+      <p class="shijin-desc">馬作りに携わる猛者たちの戦い。それが競馬だ。外厩・厩舎・馬主それぞれの戦略を紐解き、激走ロジックを射抜く北の神。直近3週の複勝率推移を読み、ノーザンF天栄・チャンピオンヒルズ・上原佑紀厩舎など「いま走る陣営」を機械的に炙り出す。白虎と等しく、穴の温床を別角度から照らす独立神。</p>
+      <div class="shijin-goriyaku">陣営本気度察知・好調勢力捕捉</div>
+      <div style="text-align:center;margin-top:14px;font-size:12px;color:var(--sumi,#1a120a);letter-spacing:.16em;font-weight:700">🐢 玄武殿堂を見る ▶</div>
+    </a>
   </div>
   <div class="shijin-grid-kirin">
     <div class="shijin-card kirin">
@@ -1794,9 +1833,9 @@ a{color:inherit;}
         <div class="shijin-direction">KIRIN ─ 中 央 土・レア降臨</div>
         <div class="shijin-miko">⛩ ヌシ・麒麟・クラウン</div>
         <div class="shijin-factor">総 合 神 託</div>
-        <div class="shijin-factor-en">SOGO SHINTAKU / 三神の託宣が揃いし時</div>
+        <div class="shijin-factor-en">SOGO SHINTAKU / 四神の託宣が揃いし時</div>
         <div class="shijin-weight">神徳 ×1.5（レア出現）</div>
-        <p class="shijin-desc">青龍・朱雀・白虎の託宣が完全に揃いし時のみ降臨する幻の神。言霊S × 騎手手綱S × 変シグナル＝★★★★★の最高位印が出た馬に降臨し、神宮鉄板を示す。出会えれば吉、出会えずとも構わぬ。神宮の頂、レアキャラ。</p>
+        <p class="shijin-desc">青龍・朱雀・白虎・玄武の託宣が完全に揃いし時のみ降臨する幻の神。言霊S × 騎手手綱S × 変シグナル × 陣営S＝★★★★★の最高位印が出た馬に降臨し、神宮鉄板を示す。出会えれば吉、出会えずとも構わぬ。神宮の頂、レアキャラ。</p>
         <div class="shijin-goriyaku">最高位神託・神宮鉄板</div>
       </div>
     </div>

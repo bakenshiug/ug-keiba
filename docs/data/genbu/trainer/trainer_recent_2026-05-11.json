@@ -1,0 +1,24 @@
+{
+  "version": "v1.0",
+  "snapshotDate": "2026-05-11",
+  "source": "http://www.jrdb.com/member/jrdv/joc/tn.php",
+  "filterCondition": "N >= 30（出走30以上）",
+  "totalCount": 190,
+  "hotList": {
+    "condition": "直近3週連続で複勝率25%超",
+    "count": 21,
+    "entries": [
+      {"rank": 14, "name": "上原佑紀",     "loc": "美浦", "N":  90, "winRate": 16.7, "showRate": 41.1, "w3":  50.0, "w2": 100.0, "w1": 42.9, "note": "上原博の息子・最近大爆発 🔥"},
+      {"rank":  1, "name": "杉山晴紀",     "loc": "栗東", "N": 138, "winRate": 18.1, "showRate": 44.9, "w3":  50.0, "w2":  80.0, "w1": 50.0},
+      {"rank":  9, "name": "宮田敬介",     "loc": "美浦", "N":  98, "winRate": 16.3, "showRate": 42.9, "w3":  50.0, "w2":  71.4, "w1": 50.0},
+      {"rank": 13, "name": "加藤士津八",   "loc": "美浦", "N":  99, "winRate": 15.2, "showRate": 42.4, "w3":  60.0, "w2":  50.0, "w1": 60.0},
+      {"rank": 11, "name": "大久保龍志",   "loc": "栗東", "N":  92, "winRate": 17.4, "showRate": 39.1, "w3":  50.0, "w2":  80.0, "w1": 33.3},
+      {"rank": 23, "name": "中舘英二",     "loc": "美浦", "N": 106, "winRate": 11.3, "showRate": 32.1, "w3":  33.3, "w2":  60.0, "w1": 60.0},
+      {"rank": 99, "name": "鈴木慎太郎",   "loc": "美浦", "N":  98, "winRate":  5.1, "showRate": 26.5, "w3":  42.9, "w2":  50.0, "w1": 50.0},
+      {"rank": 28, "name": "堀宣行",       "loc": "美浦", "N":  75, "winRate": 14.7, "showRate": 40.0, "w3":  50.0, "w2":  40.0, "w1": 50.0},
+      {"rank": 77, "name": "木村哲也",     "loc": "美浦", "N":  64, "winRate": 10.9, "showRate": 31.3, "w3":  66.7, "w2":  25.0, "w1": 33.3},
+      {"rank": 25, "name": "友道康夫",     "loc": "栗東", "N": 110, "winRate": 10.9}
+    ]
+  },
+  "note": "正確な情報は scripts/fetch_trainer_recent.py で再取得"
+}

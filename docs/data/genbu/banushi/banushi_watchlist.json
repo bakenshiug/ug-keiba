@@ -1,0 +1,29 @@
+{
+  "version": "v1.0",
+  "snapshotDate": "2026-05-11",
+  "curator": "ニック",
+  "purpose": "週次モニタリング対象の注目馬主リスト。直近成績を keibabook /db/banushi/{ownerId} から定期取得",
+  "totalCount": 19,
+  "urlTemplate": "https://p.keibabook.co.jp/db/banushi/{ownerId}",
+  "owners": [
+    {"ownerId": "4000", "name": "藤田　晋",                              "shortName": "藤田晋",        "url": "https://p.keibabook.co.jp/db/banushi/4000", "leadingRank": 1},
+    {"ownerId": "9410", "name": "(有)サンデーレーシング",                "shortName": "サンデーR",     "url": "https://p.keibabook.co.jp/db/banushi/9410", "leadingRank": 2},
+    {"ownerId": "9950", "name": "(有)キャロットファーム",                "shortName": "キャロットF",   "url": "https://p.keibabook.co.jp/db/banushi/9950", "leadingRank": 3},
+    {"ownerId": "9324", "name": "(株)社台レースホース",                  "shortName": "社台RH",        "url": "https://p.keibabook.co.jp/db/banushi/9324", "leadingRank": 4},
+    {"ownerId": "4850", "name": "吉田　勝己",                            "shortName": "吉田勝己",      "url": "https://p.keibabook.co.jp/db/banushi/4850", "leadingRank": 5},
+    {"ownerId": "9407", "name": "(有)シルクレーシング",                  "shortName": "シルクR",       "url": "https://p.keibabook.co.jp/db/banushi/9407", "leadingRank": 6},
+    {"ownerId": "9750", "name": "ゴドルフィン",                          "shortName": "ゴドルフィン",  "url": "https://p.keibabook.co.jp/db/banushi/9750", "leadingRank": 7},
+    {"ownerId": "1898", "name": "松本　好隆",                            "shortName": "松本好隆",      "url": "https://p.keibabook.co.jp/db/banushi/1898", "leadingRank": 8},
+    {"ownerId": "8917", "name": "里見　治",                              "shortName": "里見治",        "url": "https://p.keibabook.co.jp/db/banushi/8917", "leadingRank": 9},
+    {"ownerId": "9550", "name": "(株)ダノックス",                        "shortName": "ダノックス",    "url": "https://p.keibabook.co.jp/db/banushi/9550", "leadingRank": 10},
+    {"ownerId": "9671", "name": "(株)東京ホースレーシング",              "shortName": "東京HR",        "url": "https://p.keibabook.co.jp/db/banushi/9671", "leadingRank": 11},
+    {"ownerId": "9280", "name": "(株)ロードホースクラブ",                "shortName": "ロードHC",      "url": "https://p.keibabook.co.jp/db/banushi/9280", "leadingRank": 13},
+    {"ownerId": "9634", "name": "金子真人ホールディングス(株)",          "shortName": "金子真人HD",    "url": "https://p.keibabook.co.jp/db/banushi/9634", "leadingRank": 14},
+    {"ownerId": "9861", "name": "(株)ノルマンディーサラブレッドレーシング", "shortName": "ノルマンディーR", "url": "https://p.keibabook.co.jp/db/banushi/9861", "leadingRank": 15},
+    {"ownerId": "9421", "name": "(株)ノースヒルズ",                      "shortName": "ノースヒルズ",  "url": "https://p.keibabook.co.jp/db/banushi/9421", "leadingRank": 16},
+    {"ownerId": "8893", "name": "DMM",                                   "shortName": "DMM",           "url": "https://p.keibabook.co.jp/db/banushi/8893", "leadingRank": null},
+    {"ownerId": "4849", "name": "吉田　照哉",                            "shortName": "吉田照哉",      "url": "https://p.keibabook.co.jp/db/banushi/4849", "leadingRank": 17},
+    {"ownerId": "9006", "name": "(株)サラブレッドクラブ・ラフィアン",    "shortName": "ラフィアン",    "url": "https://p.keibabook.co.jp/db/banushi/9006", "leadingRank": 23},
+    {"ownerId": "9826", "name": "(株)ウイン",                            "shortName": "ウイン",        "url": "https://p.keibabook.co.jp/db/banushi/9826", "leadingRank": 29}
+  ]
+}

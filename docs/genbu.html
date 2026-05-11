@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>玄武・陣営神宮｜UG競馬神宮</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --shu:#9b2d30;
+    --shu-dk:#7a1e21;
+    --kin:#c9a84c;
+    --kin-deep:#a07b28;
+    --sumi:#1a120a;
+    --paper:#FBF7EE;
+    --paper-deep:#F0EADB;
+    --ink:#2c1f12;
+    --ink-soft:#6b5d4b;
+    --midori:#1F4D2E;
+    --mizu:#2c5572;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);
+       font-family:'Noto Sans JP','Shippori Mincho',serif;line-height:1.6;
+       background-image:radial-gradient(circle at 10% 20%,rgba(44,85,114,.05),transparent 40%),
+                        radial-gradient(circle at 90% 80%,rgba(26,18,10,.04),transparent 40%);}
+  .mincho{font-family:'Shippori Mincho',serif}
+
+  header{background:linear-gradient(135deg,#fff 0%,#eef2f6 100%);
+         border-bottom:3px solid var(--sumi);padding:50px 20px 40px;text-align:center;
+         box-shadow:0 4px 14px rgba(0,0,0,.05)}
+  .home-link{display:inline-block;margin-bottom:20px;color:var(--ink-soft);
+             text-decoration:none;font-size:13px;letter-spacing:.18em;
+             font-family:'Shippori Mincho',serif}
+  .home-link:hover{color:var(--mizu)}
+  .h-tortoise{font-size:80px;line-height:1;margin-bottom:16px;
+              filter:drop-shadow(2px 4px 8px rgba(0,0,0,.15))}
+  .h-title{font-family:'Shippori Mincho',serif;font-size:36px;font-weight:900;
+           color:var(--sumi);letter-spacing:.24em;padding-left:.24em;line-height:1.2}
+  .h-sub{font-size:14px;color:var(--ink-soft);letter-spacing:.2em;margin-top:14px;
+         font-family:'Shippori Mincho',serif}
+  .h-direction{font-size:11px;color:var(--mizu);letter-spacing:.4em;margin-top:8px;
+               font-family:'Shippori Mincho',serif;padding-left:.4em}
+
+  main{max-width:880px;margin:0 auto;padding:40px 20px 80px}
+
+  .torii-divider{text-align:center;font-size:24px;color:var(--sumi);margin:30px 0 20px;
+                 letter-spacing:.8em}
+
+  .section-h{font-family:'Shippori Mincho',serif;text-align:center;
+             font-size:22px;color:var(--sumi);font-weight:900;letter-spacing:.18em;
+             padding:20px 16px 12px;margin-bottom:8px}
+  .section-sub{text-align:center;font-size:13px;color:var(--ink-soft);
+               letter-spacing:.14em;margin-bottom:24px;
+               font-family:'Shippori Mincho',serif}
+
+  /* 3軸グリッド */
+  .three-axis{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:30px}
+  .axis-card{background:#fff;border:1.5px solid var(--sumi);border-radius:8px;
+             padding:22px 26px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+  .axis-h{font-family:'Shippori Mincho',serif;font-size:18px;color:var(--sumi);
+          font-weight:900;letter-spacing:.18em;padding-bottom:10px;
+          border-bottom:1.5px dashed var(--kin);margin-bottom:14px;
+          display:flex;align-items:center;gap:10px}
+  .axis-emoji{font-size:24px}
+  .axis-sub{font-size:12px;color:var(--ink-soft);letter-spacing:.12em;
+            font-family:'Shippori Mincho',serif;margin-bottom:14px}
+
+  .hot-list{display:flex;flex-direction:column;gap:10px}
+  .hot-row{display:flex;align-items:center;gap:14px;padding:8px 12px;
+           background:#f8f4e8;border-left:3px solid var(--kin);border-radius:4px;
+           font-family:'Shippori Mincho',serif}
+  .hot-name{font-weight:900;font-size:15px;color:var(--ink);flex-shrink:0}
+  .hot-stats{font-size:12px;color:var(--ink-soft);letter-spacing:.06em;flex:1;text-align:right}
+  .hot-note{font-size:11px;color:var(--mizu);font-weight:700;letter-spacing:.06em}
+
+  .summary{margin-top:30px;background:linear-gradient(135deg,#eef2f6 0%,#dbe5ed 100%);
+           border:2px solid var(--sumi);border-radius:8px;padding:22px;text-align:center}
+  .summary-line{font-family:'Shippori Mincho',serif;font-size:16px;color:var(--ink);
+                font-weight:700;letter-spacing:.1em;line-height:1.8}
+
+  .closing{text-align:center;font-family:'Shippori Mincho',serif;
+           font-size:14px;color:var(--ink-soft);letter-spacing:.18em;margin-top:40px;
+           padding:20px;border-top:1px solid var(--sumi)}
+
+  footer{text-align:center;padding:30px 20px;font-size:12px;color:var(--ink-soft);
+         border-top:1px solid #d4c8a8;font-family:'Shippori Mincho',serif;letter-spacing:.1em}
+  footer a{color:var(--mizu);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  @media(max-width:600px){
+    header{padding:36px 16px 28px}
+    .h-tortoise{font-size:60px}
+    .h-title{font-size:24px;letter-spacing:.18em;padding-left:.18em}
+    main{padding:30px 14px 60px}
+    .axis-card{padding:18px 16px}
+    .hot-name{font-size:14px}
+    .hot-stats{font-size:11px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+  <div class="h-tortoise">🐢</div>
+  <h1 class="h-title">玄 武 ・ 陣 営 神 宮</h1>
+  <div class="h-sub">GENBU JINGU</div>
+  <div class="h-direction">─ 北 方 水 ─</div>
+</header>
+
+<main>
+
+  <div class="torii-divider">⛩ ─ ⛩ ─ ⛩</div>
+
+  <h2 class="section-h mincho">🐢 馬作りに携わる猛者たちの戦い 🐢</h2>
+  <p class="section-sub">外 厩 ・ 厩 舎 ・ 馬 主 の 三 軸 で 激 走 を 射 抜 く</p>
+
+  <!-- 3軸HOTリスト -->
+  <div class="three-axis">
+
+    <!-- 外厩 -->
+    <div class="axis-card">
+      <div class="axis-h"><span class="axis-emoji">🌾</span>外厩 ─ 仕上げの蔵</div>
+      <div class="axis-sub">直近3週連続で複勝率25%超</div>
+      <div class="hot-list">
+        <div class="hot-row">
+          <div class="hot-name">ノーザンＦ天栄</div>
+          <div class="hot-stats">34.7 → 31.5 → <b>36.8%</b></div>
+          <div class="hot-note">🔥 唯一の30%三連発</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">チャンピオンヒルズ</div>
+          <div class="hot-stats">32.1 → 25.4 → <b>30.4%</b></div>
+          <div class="hot-note">非ノーザン本気</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">ノーザンＦしがらき</div>
+          <div class="hot-stats">25.5 → 26.2 → <b>27.9%</b></div>
+          <div class="hot-note">NFパッケージ</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">グリーンウッド</div>
+          <div class="hot-stats">30.8 → 46.2 → <b>30.8%</b></div>
+          <div class="hot-note">小サンプル要注意</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 厩舎 -->
+    <div class="axis-card">
+      <div class="axis-h"><span class="axis-emoji">🏛</span>厩舎 ─ 育成の蔵</div>
+      <div class="axis-sub">直近3週連続で複勝率25%超（21厩舎中の主要陣）</div>
+      <div class="hot-list">
+        <div class="hot-row">
+          <div class="hot-name">上原佑紀（美浦）</div>
+          <div class="hot-stats">50 → 100 → <b>42.9%</b></div>
+          <div class="hot-note">👨‍👦 父子継承</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">杉山晴紀（栗東）</div>
+          <div class="hot-stats">50 → 80 → <b>50%</b></div>
+          <div class="hot-note">リーディング1位</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">宮田敬介（美浦）</div>
+          <div class="hot-stats">50 → 71 → <b>50%</b></div>
+          <div class="hot-note">新興エース</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">加藤士津八（美浦）</div>
+          <div class="hot-stats">60 → 50 → <b>60%</b></div>
+          <div class="hot-note">驚異の安定感</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">中舘英二（美浦）</div>
+          <div class="hot-stats">33 → 60 → <b>60%</b></div>
+          <div class="hot-note">尻上がり</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">堀宣行（美浦）</div>
+          <div class="hot-stats">50 → 40 → <b>50%</b></div>
+          <div class="hot-note">名門復調</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">木村哲也（美浦）</div>
+          <div class="hot-stats">67 → 25 → <b>33%</b></div>
+          <div class="hot-note">戦略家ヒット</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 馬主 -->
+    <div class="axis-card">
+      <div class="axis-h"><span class="axis-emoji">💰</span>馬主 ─ 経営の蔵</div>
+      <div class="axis-sub">注目19馬主・週次モニタリング対象</div>
+      <div class="hot-list">
+        <div class="hot-row">
+          <div class="hot-name">(株)ノースヒルズ</div>
+          <div class="hot-stats">先週末 5/16 = <b>31.3%</b> 馬券圏内</div>
+          <div class="hot-note">🔥 急上昇中</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">(株)ダノックス</div>
+          <div class="hot-stats">通算勝率 <b>.180</b>（質型No.1）</div>
+          <div class="hot-note">少数精鋭</div>
+        </div>
+        <div class="hot-row">
+          <div class="hot-name">ゴドルフィン</div>
+          <div class="hot-stats">通算勝率 <b>.151</b>（海外大手）</div>
+          <div class="hot-note">出走自体がシグナル</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 集計 -->
+  <div class="summary">
+    <div class="summary-line mincho">
+      外厩・厩舎・馬主の三軸で<br>
+      <b>陣営本気度</b>を機械的に炙り出す
+    </div>
+    <div class="summary-line mincho" style="font-size:13px;margin-top:8px;color:var(--ink-soft)">
+      白虎と等しく、穴の温床を別角度から照らす独立神
+    </div>
+  </div>
+
+  <div class="torii-divider">⛩ ─ ⛩ ─ ⛩</div>
+
+  <p class="closing mincho">
+    北 方 の 神 、 ニ ッ ク ・ 玄 武 ・ ス テ ィ ー ル<br>
+    馬 作 り の 蔵 を 北 か ら 統 べ る 守 護 者
+  </p>
+
+</main>
+
+<footer>
+  最新予想は <a href="kotodama.html">⛩ 言霊神宮</a> ／
+  騎手は <a href="suzaku-board.html">🔥 騎手手綱神宮</a> ／
+  変は <a href="ippen-gekisou.html">🐅 一変激走神宮</a> ／
+  神宮トップ <a href="index.html">⛩ 戻る</a>
+</footer>
+
+</body>
+</html>

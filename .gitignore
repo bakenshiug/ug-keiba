@@ -3,7 +3,19 @@ local/
 # データキャッシュ（再生成可能なため git 管理外）
 scripts/stride_cache/
 scripts/yt_cache/
+scripts/__pycache__/
+scripts/tmp/
 
 # macOS
 .DS_Store
+
+# 解析作業中ファイル（巨大PDF・スクショ等。git管理しない）
+analysis/
+
+# 動画文字起こし（巨大JSON）
+yt-recordings/
+assets/Gemini_Generated_Image_*
+
+# IDE
+.claude/launch.json
 
