@@ -410,8 +410,61 @@
 </div>
 </div>
 
+<!-- ━━━━━━━━━━ 固定サムネ：UG競馬神宮（kononiwa風） ━━━━━━━━━━ -->
+<style>
+  .fixed-thumb{width:1200px;height:630px;position:relative;overflow:hidden;
+               background:linear-gradient(135deg,#FFF5C2 0%,#FFE89A 50%,#FFDA6E 100%);
+               border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.2);
+               display:flex;align-items:center;justify-content:center}
+  .fixed-thumb::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;
+                       background:radial-gradient(circle,#FFF0A8 0%,transparent 70%);
+                       top:-100px;right:-80px;z-index:0}
+  .fixed-thumb::after{content:'';position:absolute;width:240px;height:240px;border-radius:50%;
+                      background:radial-gradient(circle,#FFE070 0%,transparent 70%);
+                      bottom:-60px;left:80px;z-index:0}
+  .fixed-inner{position:relative;z-index:2;text-align:center;display:flex;align-items:center;gap:40px}
+  .fixed-chars{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .fixed-chars img{width:170px;height:170px;object-fit:contain;
+                   filter:drop-shadow(4px 4px 0 rgba(0,0,0,.08))}
+  .fixed-torii{font-size:80px;line-height:1;animation:gentle-float 3s ease-in-out infinite}
+  @keyframes gentle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .fixed-title-area{text-align:left}
+  .fixed-mini{font-family:'Shippori Mincho',serif;font-size:30px;color:#a44a3f;
+              font-weight:900;letter-spacing:.32em;margin-bottom:18px;
+              display:inline-block;background:#fff;padding:4px 18px;border-radius:30px;
+              box-shadow:2px 2px 0 #a44a3f}
+  .fixed-title{font-family:'Shippori Mincho',serif;font-size:158px;line-height:.95;
+               font-weight:900;color:#2c1f12;letter-spacing:.04em;
+               text-shadow:5px 5px 0 #fff,8px 8px 0 #a44a3f,14px 14px 30px rgba(0,0,0,.15)}
+  .fixed-title .accent{color:#a44a3f}
+  .fixed-sub{font-family:'Shippori Mincho',serif;font-size:32px;color:#2c1f12;
+             font-weight:700;letter-spacing:.18em;margin-top:24px;
+             background:#fff;display:inline-block;padding:8px 24px;border-radius:6px;
+             box-shadow:3px 3px 0 #a44a3f}
+  .fixed-credit{position:absolute;bottom:18px;right:24px;font-size:15px;color:#7a5c2e;
+                font-style:italic;font-weight:600;z-index:3}
+  .fixed-credit b{color:#a44a3f;font-style:normal;font-weight:900;letter-spacing:.04em}
+</style>
+<div class="vol-label" style="background:#c9a84c;color:#2c1f12">FIXED — note固定サムネ（毎回使い回せる「顔」）</div>
+<div class="preview-wrap">
+<div class="fixed-thumb">
+  <div class="fixed-inner">
+    <div class="fixed-chars">
+      <img src="slides/img/ginyo-meadow.png" alt="ギーニョ">
+      <div class="fixed-torii">⛩</div>
+    </div>
+    <div class="fixed-title-area">
+      <div class="fixed-mini">⛩ 神宮シリーズ</div>
+      <div class="fixed-title">UG競馬<br><span class="accent">神宮</span></div>
+      <div class="fixed-sub">⚡ Claude Code で全レース予想</div>
+    </div>
+  </div>
+  <div class="fixed-credit">Photo by <b>UG競馬神宮</b></div>
+</div>
+</div>
+
 <div class="guide" style="margin-top:40px">
-  <h2 style="font-size:16px;color:#ffd34d;margin-bottom:10px">📋 全9枚、デザイン統一済み</h2>
+  <h2 style="font-size:16px;color:#ffd34d;margin-bottom:10px">📋 全9枚＋固定1枚、デザイン統一済み</h2>
   <p>共通要素：草原ギーニョ × クリーム背景（神宮サイト準拠 #FBF7EE→#F0EADB） × 緑帯ヘッダー／フッター × 大数字 × バッジ2つ</p>
   <p>各vol で異なるのは：vol番号 / メイン数字 / タイトル / バッジ内容 / フッター文言</p>
   <p style="margin-top:14px;color:#c9a84c">🆕 VOL.8: ◎▲picks表示 ／ VOL.9: 🔥朱雀テーマカラー＋機能2x2グリッド</p>
