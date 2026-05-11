@@ -410,104 +410,81 @@
 </div>
 </div>
 
-<!-- ━━━━━━━━━━ 固定サムネ① かわいい系：ギーニョ黄色（軽い回・的中報告など） ━━━━━━━━━━ -->
+<!-- ━━━━━━━━━━ 固定サムネ① かわいい系（ヒラギノ・1色・洗練ver） ━━━━━━━━━━ -->
 <style>
+  /* テーマ色：1色（クリーム黄 #F5D769）で統一 */
+  .hira{font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W6',sans-serif}
   .cute-thumb{width:1200px;height:630px;position:relative;overflow:hidden;
-              background:linear-gradient(135deg,#FFF5C2 0%,#FFE89A 50%,#FFDA6E 100%);
-              border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.2);
+              background:#FFF7DC;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12);
               display:flex;align-items:center;justify-content:center}
-  .cute-thumb::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;
-                      background:radial-gradient(circle,#FFF0A8 0%,transparent 70%);
-                      top:-100px;right:-80px;z-index:0}
-  .cute-thumb::after{content:'';position:absolute;width:240px;height:240px;border-radius:50%;
-                     background:radial-gradient(circle,#FFE070 0%,transparent 70%);
-                     bottom:-60px;left:80px;z-index:0}
-  .cute-inner{position:relative;z-index:2;display:flex;align-items:center;gap:50px}
-  .cute-chars{display:flex;flex-direction:column;align-items:center;gap:14px}
-  .cute-chars img{width:180px;height:180px;object-fit:contain;
-                  filter:drop-shadow(4px 4px 0 rgba(0,0,0,.08))}
-  .cute-torii{font-size:80px;line-height:1;animation:gentle-float 3s ease-in-out infinite}
-  @keyframes gentle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .cute-inner{position:relative;z-index:2;display:flex;align-items:center;gap:64px}
+  .cute-chars{display:flex;flex-direction:column;align-items:center;gap:18px}
+  .cute-chars img{width:200px;height:200px;object-fit:contain}
+  .cute-torii{font-size:64px;line-height:1;color:#C29A2C}
   .cute-text{text-align:left}
-  .cute-mini{font-family:'Shippori Mincho',serif;font-size:28px;color:#a44a3f;
-             font-weight:900;letter-spacing:.32em;margin-bottom:18px;
-             display:inline-block;background:#fff;padding:4px 18px;border-radius:30px;
-             box-shadow:2px 2px 0 #a44a3f}
-  .cute-title{font-family:'Shippori Mincho',serif;font-size:144px;line-height:.95;
-              font-weight:900;color:#2c1f12;letter-spacing:.04em;
-              text-shadow:4px 4px 0 #fff,7px 7px 0 #a44a3f,12px 12px 24px rgba(0,0,0,.15)}
-  .cute-title .accent{color:#a44a3f}
-  .cute-sub{font-family:'Shippori Mincho',serif;font-size:28px;color:#2c1f12;
-            font-weight:700;letter-spacing:.18em;margin-top:24px;
-            background:#fff;display:inline-block;padding:8px 22px;border-radius:6px;
-            box-shadow:3px 3px 0 #a44a3f}
-  .cute-credit{position:absolute;bottom:18px;right:24px;font-size:15px;color:#7a5c2e;
-               font-style:italic;font-weight:600;z-index:3}
+  .cute-mini{font-size:24px;color:#C29A2C;font-weight:700;letter-spacing:.28em;
+             margin-bottom:24px;padding-left:.28em}
+  .cute-title{font-size:138px;line-height:1.0;font-weight:700;color:#2c1f12;
+              letter-spacing:.04em}
+  .cute-sub{font-size:26px;color:#2c1f12;font-weight:500;letter-spacing:.2em;
+            margin-top:32px;padding-left:.2em;opacity:.75}
+  .cute-credit{position:absolute;bottom:22px;right:28px;font-size:13px;color:#C29A2C;
+               font-weight:500;letter-spacing:.08em;z-index:3;font-family:'Inter',sans-serif}
+  .cute-line{position:absolute;bottom:0;left:0;right:0;height:6px;background:#C29A2C;z-index:3}
 </style>
 <div class="vol-label" style="background:#c9a84c;color:#2c1f12">FIXED-A — かわいい系（軽い回・的中報告・速報向け）</div>
 <div class="preview-wrap">
-<div class="cute-thumb">
+<div class="cute-thumb hira">
   <div class="cute-inner">
     <div class="cute-chars">
       <img src="slides/img/ginyo-meadow.png" alt="ギーニョ">
       <div class="cute-torii">⛩</div>
     </div>
     <div class="cute-text">
-      <div class="cute-mini">⛩ 神宮シリーズ</div>
-      <div class="cute-title">UG競馬<br><span class="accent">神宮</span></div>
-      <div class="cute-sub">⚡ Claude Code で全レース予想</div>
+      <div class="cute-mini">神 宮 シ リ ー ズ</div>
+      <div class="cute-title">UG競馬<br>神宮</div>
+      <div class="cute-sub">Claude Code で 全 レ ー ス 予 想</div>
     </div>
   </div>
-  <div class="cute-credit">Photo by <b style="color:#a44a3f;font-style:normal">UG競馬神宮</b></div>
+  <div class="cute-credit">UG KEIBA JINGU</div>
+  <div class="cute-line"></div>
 </div>
 </div>
 
-<!-- ━━━━━━━━━━ 固定サムネ② 渋い系：ダンディ神主（真面目回・ロジック紹介向け） ━━━━━━━━━━ -->
+<!-- ━━━━━━━━━━ 固定サムネ② 渋い系（ヒラギノ・1色・洗練ver） ━━━━━━━━━━ -->
 <style>
+  /* テーマ色：1色（金 #C29A2C）で統一・黒背景 */
   .fixed-thumb{width:1200px;height:630px;position:relative;overflow:hidden;
                border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.3);
                background:#1a120a}
   .fixed-bg{position:absolute;inset:0;background:url('slides/img/crown.png') center/cover no-repeat;
-            filter:grayscale(.1) contrast(1.05);z-index:0}
+            filter:grayscale(1) contrast(1.05) brightness(.85);z-index:0}
   .fixed-overlay{position:absolute;inset:0;
-                 background:linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.15) 35%,rgba(0,0,0,.55) 100%);
+                 background:linear-gradient(90deg,rgba(20,12,6,.65) 0%,rgba(20,12,6,.2) 40%,rgba(20,12,6,.65) 100%);
                  z-index:1}
-  .fixed-vignette{position:absolute;inset:0;
-                  background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.55) 100%);
-                  z-index:2;pointer-events:none}
   .fixed-content{position:absolute;inset:0;display:flex;flex-direction:column;
                  align-items:center;justify-content:center;z-index:3;text-align:center}
-  .fixed-mini{font-family:'Shippori Mincho',serif;font-size:24px;color:#c9a84c;
-              font-weight:900;letter-spacing:.42em;margin-bottom:24px;
-              text-shadow:0 2px 6px rgba(0,0,0,.8);
-              padding-left:.42em}
-  .fixed-mini-line{display:inline-block;width:60px;height:2px;background:#c9a84c;
-                   vertical-align:middle;margin:0 16px}
-  .fixed-title{font-family:'Shippori Mincho',serif;font-size:180px;line-height:.95;
-               font-weight:900;color:#FBF7EE;letter-spacing:.06em;
-               text-shadow:0 4px 12px rgba(0,0,0,.7),0 0 40px rgba(201,168,76,.4)}
-  .fixed-title .accent{color:#c9a84c}
-  .fixed-sub{font-family:'Shippori Mincho',serif;font-size:28px;color:#FBF7EE;
-             font-weight:700;letter-spacing:.22em;margin-top:32px;
-             padding:10px 32px;border:1.5px solid #c9a84c;
-             background:rgba(0,0,0,.4);
-             text-shadow:0 2px 4px rgba(0,0,0,.6)}
-  .fixed-credit{position:absolute;bottom:18px;right:28px;font-size:14px;color:#c9a84c;
-                font-style:italic;font-weight:600;z-index:4;letter-spacing:.04em;
-                text-shadow:0 1px 4px rgba(0,0,0,.8)}
+  .fixed-mini{font-size:22px;color:#C29A2C;font-weight:500;letter-spacing:.42em;
+              margin-bottom:32px;padding-left:.42em}
+  .fixed-title{font-size:172px;line-height:.95;font-weight:600;color:#F5E6BE;letter-spacing:.06em;padding-left:.06em}
+  .fixed-sub{font-size:24px;color:#F5E6BE;font-weight:400;letter-spacing:.28em;
+             margin-top:36px;opacity:.85;padding-left:.28em}
+  .fixed-credit{position:absolute;bottom:22px;right:28px;font-size:13px;color:#C29A2C;
+                font-weight:500;letter-spacing:.16em;z-index:4;font-family:'Inter',sans-serif}
+  .fixed-line{position:absolute;bottom:0;left:0;right:0;height:6px;background:#C29A2C;z-index:4}
 </style>
 <div class="vol-label" style="background:#1a120a;color:#c9a84c">FIXED-B — 渋い系（真面目回・ロジック紹介・建立宣言向け）</div>
 <div class="preview-wrap">
-<div class="fixed-thumb">
+<div class="fixed-thumb hira">
   <div class="fixed-bg"></div>
   <div class="fixed-overlay"></div>
-  <div class="fixed-vignette"></div>
   <div class="fixed-content">
-    <div class="fixed-mini"><span class="fixed-mini-line"></span>⛩ 神 宮 シ リ ー ズ ⛩<span class="fixed-mini-line"></span></div>
-    <div class="fixed-title">U G 競 馬<br><span class="accent">神 宮</span></div>
-    <div class="fixed-sub">⚡ Claude Code で全レース予想</div>
+    <div class="fixed-mini">神 宮 シ リ ー ズ</div>
+    <div class="fixed-title">UG競馬神宮</div>
+    <div class="fixed-sub">Claude Code で 全 レ ー ス 予 想</div>
   </div>
-  <div class="fixed-credit">⛩ U G K E I B A  J I N G U</div>
+  <div class="fixed-credit">UG KEIBA JINGU</div>
+  <div class="fixed-line"></div>
 </div>
 </div>
 
