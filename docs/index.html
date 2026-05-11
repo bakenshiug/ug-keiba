@@ -2121,18 +2121,14 @@ drawBtn.addEventListener('click', () => {
         }).join('');
       }
 
-      // 速報帯：高回収率 TOP5（流れるバナー）
-      const sorted = all.slice().sort((a,b) => b.result.betting.recovery - a.result.betting.recovery);
-      const tickerTop = sorted.slice(0,5);
+      // 速報帯：厳選2鞍（馬券道で実際に当てた的中レポート）
       const elTicker = document.getElementById('ticker-content');
-      if (elTicker && tickerTop.length){
-        const fmtFire = r2 => r2 >= 1000 ? '🔥🔥🔥' : r2 >= 500 ? '🔥🔥' : r2 >= 300 ? '🎯' : '⛩';
-        const items = tickerTop.map(r => {
-          const win = r.result.horses[0];
-          const r2 = r.result.betting.recovery;
-          return `<span class="fire">${fmtFire(r2)}</span>${r.venue}${r.raceNum} ${r.raceName||''} ／ <span class="gold">${win.name}</span>(${win.finalNinki}人気) ／ 回収率<span class="pct">${r2}%</span>`;
-        });
-        // 末尾に総合と次回予告
+      if (elTicker){
+        const items = [];
+        // 厳選的中レポート 2鞍
+        items.push(`<span class="fire">🔥🔥🎯</span><span class="gold">NHKマイルC</span> ◎アスクイキゴミ ▲ロデオドライブ ／ 馬単流マルチ ¥2,990 / ¥600 <span class="pct">498.3%的中</span>`);
+        items.push(`<span class="fire">🔥🎯</span><span class="gold">京都新聞杯</span> ○コンジェスタス △ベレシート ／ 馬単BOX ¥4,310 / ¥1,200 <span class="pct">359.2%的中</span>`);
+        // 総合
         items.push(`<span class="fire">⛩</span>言霊神宮 総合回収率<span class="pct">${rec.toFixed(1)}%</span>`);
         // 🔥 騎手手綱神宮 建立速報
         items.push(`<span class="fire">🔥</span><span class="gold">念願叶う！騎手手綱神宮 建立</span>🔥 全騎手データ網羅 ／ 人馬一体 ─ 我が神宮、好調騎手に光を照らす`);
