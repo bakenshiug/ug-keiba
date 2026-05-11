@@ -1,0 +1,913 @@
+{
+  "races": {
+    "kyoto-10r-mitsugihashi-s": {
+      "name": "観月橋S",
+      "horses": [
+        {
+          "uma": 1,
+          "name": "デルアヴァー",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak84.3",
+          "sp": [
+            77.9,
+            78.5,
+            83.3,
+            84.3,
+            82.6
+          ]
+        },
+        {
+          "uma": 2,
+          "name": "マイノワール",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak87.5",
+          "sp": [
+            73.5,
+            81.4,
+            87.5,
+            82.2,
+            85.1
+          ]
+        },
+        {
+          "uma": 3,
+          "name": "ペンナヴェローチェ",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak88.8",
+          "sp": [
+            84.0,
+            85.7,
+            88.8,
+            81.8,
+            84.2
+          ]
+        },
+        {
+          "uma": 4,
+          "name": "ピエマンソン",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak85.5",
+          "sp": [
+            83.1,
+            82.6,
+            85.5,
+            79.9,
+            78.9
+          ]
+        },
+        {
+          "uma": 5,
+          "name": "ショウサンジョージ",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak78.7",
+          "sp": [
+            74.9,
+            78.7,
+            76.3,
+            73.5,
+            77.6
+          ]
+        },
+        {
+          "uma": 6,
+          "name": "ケイアイメキラ",
+          "byakkoGrade": "B",
+          "byakkoReason": "前81.5",
+          "sp": [
+            69.2,
+            75.3,
+            75.6,
+            76.2,
+            81.5
+          ]
+        },
+        {
+          "uma": 7,
+          "name": "プルナチャンドラ",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak83.3",
+          "sp": [
+            80.8,
+            78.8,
+            80.9,
+            83.3,
+            73.7
+          ]
+        },
+        {
+          "uma": 8,
+          "name": "プロミシングスター",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak83.5",
+          "sp": [
+            81.0,
+            73.4,
+            83.5,
+            82.0,
+            77.0
+          ]
+        },
+        {
+          "uma": 9,
+          "name": "タガノマカシヤ",
+          "byakkoGrade": "S",
+          "byakkoReason": "前85.3avg85.1/前走ピーク+1",
+          "sp": [
+            83.5,
+            81.7,
+            84.9,
+            85.0,
+            85.3
+          ]
+        },
+        {
+          "uma": 10,
+          "name": "パシアンジャン",
+          "byakkoGrade": "S",
+          "byakkoReason": "前85.7avg83.8/前走ピーク+1",
+          "sp": [
+            84.9,
+            79.6,
+            80.9,
+            84.9,
+            85.7
+          ]
+        },
+        {
+          "uma": 11,
+          "name": "アラレタバシル",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak84.5",
+          "sp": [
+            80.4,
+            79.7,
+            84.5,
+            84.5,
+            83.8
+          ]
+        }
+      ]
+    },
+    "tokyo-10r-kamakura-s": {
+      "name": "鎌倉S",
+      "horses": [
+        {
+          "uma": 1,
+          "name": "ピックアップライン",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak78.8",
+          "sp": [
+            64.4,
+            77.2,
+            77.5,
+            77.0,
+            78.8
+          ]
+        },
+        {
+          "uma": 2,
+          "name": "クインズデネブ",
+          "byakkoGrade": "B",
+          "byakkoReason": "前81.6",
+          "sp": [
+            71.7,
+            78.9,
+            78.8,
+            79.2,
+            81.6
+          ]
+        },
+        {
+          "uma": 3,
+          "name": "ラストシャリナ",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak83.0",
+          "sp": [
+            46.4,
+            73.2,
+            70.3,
+            83.0,
+            73.9
+          ]
+        },
+        {
+          "uma": 4,
+          "name": "メイショウハチロー",
+          "byakkoGrade": "S",
+          "byakkoReason": "前86.2avg82.4/前走ピーク+1",
+          "sp": [
+            82.6,
+            73.8,
+            79.4,
+            81.7,
+            86.2
+          ]
+        },
+        {
+          "uma": 5,
+          "name": "ベンヌ",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak86.2",
+          "sp": [
+            85.9,
+            86.2,
+            82.6,
+            82.7,
+            73.0
+          ]
+        },
+        {
+          "uma": 6,
+          "name": "トクシーカイザー",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak84.4/前走ピーク+1",
+          "sp": [
+            81.4,
+            74.5,
+            78.2,
+            76.4,
+            84.4
+          ]
+        },
+        {
+          "uma": 7,
+          "name": "スプランドゥール",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak84.0",
+          "sp": [
+            73.8,
+            73.1,
+            84.0,
+            72.9,
+            74.2
+          ]
+        },
+        {
+          "uma": 8,
+          "name": "カネショウレジェン",
+          "byakkoGrade": "B",
+          "byakkoReason": "前80.9",
+          "sp": [
+            77.9,
+            73.6,
+            75.2,
+            76.4,
+            80.9
+          ]
+        },
+        {
+          "uma": 9,
+          "name": "エンセリオ",
+          "byakkoGrade": "B",
+          "byakkoReason": "前81.0",
+          "sp": [
+            77.2,
+            67.9,
+            66.8,
+            77.8,
+            81.0
+          ]
+        },
+        {
+          "uma": 10,
+          "name": "シャパリュ",
+          "byakkoGrade": "B",
+          "byakkoReason": "前81.4",
+          "sp": [
+            73.1,
+            52.6,
+            74.4,
+            79.7,
+            81.4
+          ]
+        },
+        {
+          "uma": 11,
+          "name": "レーウィン",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak84.9",
+          "sp": [
+            79.8,
+            75.4,
+            84.9,
+            84.2,
+            76.0
+          ]
+        },
+        {
+          "uma": 12,
+          "name": "フウセツ",
+          "byakkoGrade": "D",
+          "byakkoReason": "peak81.6/前走落ち-1",
+          "sp": [
+            81.6,
+            77.9,
+            79.5,
+            77.0,
+            69.4
+          ]
+        },
+        {
+          "uma": 13,
+          "name": "イノセントキャット",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak81.2",
+          "sp": [
+            78.9,
+            78.5,
+            81.2,
+            71.1,
+            77.9
+          ]
+        },
+        {
+          "uma": 14,
+          "name": "ワンダラー",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak85.4",
+          "sp": [
+            77.7,
+            80.1,
+            85.4,
+            77.6,
+            84.4
+          ]
+        },
+        {
+          "uma": 15,
+          "name": "ペイシャケイプ",
+          "byakkoGrade": "B",
+          "byakkoReason": "前82.2",
+          "sp": [
+            80.5,
+            68.4,
+            82.1,
+            81.7,
+            82.2
+          ]
+        }
+      ]
+    },
+    "fukushima-11r-fct-cup": {
+      "name": "福島中央テレビ杯",
+      "horses": [
+        {
+          "uma": 1,
+          "name": "ジェネラーレ",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak83.4/前走落ち-1",
+          "sp": [
+            62.4,
+            81.1,
+            83.4,
+            58.4,
+            72.9
+          ]
+        },
+        {
+          "uma": 2,
+          "name": "イマージョン",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak78.5",
+          "sp": [
+            75.3,
+            72.3,
+            70.0,
+            74.0,
+            78.5
+          ]
+        },
+        {
+          "uma": 3,
+          "name": "キタノソワレ",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak84.1",
+          "sp": [
+            78.1,
+            78.0,
+            84.1,
+            81.9,
+            83.3
+          ]
+        },
+        {
+          "uma": 4,
+          "name": "スノーサイレンス",
+          "byakkoGrade": "D",
+          "byakkoReason": "peak80.7/前走落ち-1",
+          "sp": [
+            76.0,
+            80.7,
+            79.7,
+            73.9,
+            69.6
+          ]
+        },
+        {
+          "uma": 5,
+          "name": "ビルカール",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak84.2/前走ピーク+1",
+          "sp": [
+            75.6,
+            73.9,
+            78.9,
+            76.5,
+            84.2
+          ]
+        },
+        {
+          "uma": 6,
+          "name": "ワークソング",
+          "byakkoGrade": "D",
+          "byakkoReason": "peak79.9/前走落ち-1",
+          "sp": [
+            73.1,
+            77.3,
+            79.9,
+            76.8,
+            62.3
+          ]
+        },
+        {
+          "uma": 7,
+          "name": "ゴールドハンマー",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak80.4",
+          "sp": [
+            80.4,
+            76.2,
+            71.5,
+            76.1,
+            78.5
+          ]
+        },
+        {
+          "uma": 8,
+          "name": "プレゼンティーア",
+          "byakkoGrade": "B",
+          "byakkoReason": "前81.0",
+          "sp": [
+            72.3,
+            65.2,
+            73.8,
+            76.4,
+            81.0
+          ]
+        },
+        {
+          "uma": 9,
+          "name": "サザンエルフ",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak82.2",
+          "sp": [
+            75.5,
+            60.3,
+            82.2,
+            79.2,
+            77.6
+          ]
+        },
+        {
+          "uma": 10,
+          "name": "シャカシャカシー",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak85.7",
+          "sp": [
+            85.7,
+            69.4,
+            68.7,
+            74.4,
+            65.0
+          ]
+        },
+        {
+          "uma": 11,
+          "name": "ルージュアズライト",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak79.2",
+          "sp": [
+            79.2,
+            75.1,
+            78.7,
+            78.6,
+            70.6
+          ]
+        },
+        {
+          "uma": 12,
+          "name": "カウスリップ",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak80.1",
+          "sp": [
+            78.1,
+            77.9,
+            79.2,
+            80.1,
+            72.9
+          ]
+        }
+      ]
+    },
+    "kyoto-11r-tenouzan-s": {
+      "name": "天王山S",
+      "horses": [
+        {
+          "uma": 1,
+          "name": "ケイアイアニラ",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak89.7",
+          "sp": [
+            77.9,
+            70.6,
+            78.8,
+            89.7,
+            85.5
+          ]
+        },
+        {
+          "uma": 2,
+          "name": "ジュンウィンダム",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak87.3",
+          "sp": [
+            87.3,
+            82.5,
+            81.5,
+            78.5,
+            80.9
+          ]
+        },
+        {
+          "uma": 3,
+          "name": "ペプチドヤマト",
+          "byakkoGrade": "S",
+          "byakkoReason": "peak91.8",
+          "sp": [
+            83.1,
+            91.8,
+            86.6,
+            82.9,
+            86.4
+          ]
+        },
+        {
+          "uma": 4,
+          "name": "オーブルクール",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak87.7/前走落ち-1",
+          "sp": [
+            79.7,
+            83.1,
+            83.1,
+            87.7,
+            67.3
+          ]
+        },
+        {
+          "uma": 5,
+          "name": "メイショウホウレン",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak92.9/前走落ち-1",
+          "sp": [
+            82.3,
+            89.6,
+            90.7,
+            92.9,
+            74.9
+          ]
+        },
+        {
+          "uma": 6,
+          "name": "ヒルノドゴール",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak86.6",
+          "sp": [
+            82.9,
+            82.6,
+            81.8,
+            86.6,
+            80.9
+          ]
+        },
+        {
+          "uma": 7,
+          "name": "ジョーローリット",
+          "byakkoGrade": "S",
+          "byakkoReason": "peak91.9",
+          "sp": [
+            87.1,
+            85.4,
+            91.9,
+            89.1,
+            82.7
+          ]
+        },
+        {
+          "uma": 8,
+          "name": "ケイアイシェルビー",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak85.3",
+          "sp": [
+            83.2,
+            81.8,
+            null,
+            85.3,
+            77.1
+          ]
+        },
+        {
+          "uma": 9,
+          "name": "カズゴルティス",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak88.1/前走落ち-1",
+          "sp": [
+            7.5,
+            84.8,
+            85.4,
+            88.1,
+            71.7
+          ]
+        },
+        {
+          "uma": 10,
+          "name": "ゲッティヴィラ",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak86.3",
+          "sp": [
+            81.9,
+            75.0,
+            84.7,
+            86.3,
+            81.6
+          ]
+        },
+        {
+          "uma": 11,
+          "name": "ドンアミティエ",
+          "byakkoGrade": "S",
+          "byakkoReason": "peak92.1",
+          "sp": [
+            92.1,
+            89.0,
+            null,
+            72.5,
+            null
+          ]
+        },
+        {
+          "uma": 12,
+          "name": "ファムエレガンテ",
+          "byakkoGrade": "B",
+          "byakkoReason": "peak89.0/前走落ち-1",
+          "sp": [
+            80.1,
+            82.0,
+            78.6,
+            89.0,
+            66.5
+          ]
+        }
+      ]
+    },
+    "tokyo-11r-aobasho": {
+      "name": "青葉賞",
+      "horses": [
+        {
+          "uma": 1,
+          "name": "トゥーナスタディ",
+          "byakkoGrade": "D",
+          "byakkoReason": "SPデータ不足",
+          "sp": [
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "uma": 2,
+          "name": "カットソロ",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak78.8",
+          "sp": [
+            null,
+            75.4,
+            69.7,
+            75.9,
+            78.8
+          ]
+        },
+        {
+          "uma": 3,
+          "name": "パラディオン",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak83.2/前走ピーク+1",
+          "sp": [
+            null,
+            null,
+            null,
+            76.1,
+            83.2
+          ]
+        },
+        {
+          "uma": 4,
+          "name": "ブラックオリンピア",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak83.2/前走ピーク+1",
+          "sp": [
+            null,
+            76.0,
+            74.2,
+            76.0,
+            83.2
+          ]
+        },
+        {
+          "uma": 5,
+          "name": "ミッキーファルコン",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak79.9",
+          "sp": [
+            null,
+            null,
+            null,
+            75.7,
+            79.9
+          ]
+        },
+        {
+          "uma": 6,
+          "name": "テルヒコウ",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak88.1",
+          "sp": [
+            null,
+            74.8,
+            88.1,
+            72.6,
+            83.2
+          ]
+        },
+        {
+          "uma": 7,
+          "name": "タイダルロック",
+          "byakkoGrade": "S",
+          "byakkoReason": "peak91.4",
+          "sp": [
+            null,
+            77.0,
+            86.2,
+            91.4,
+            87.4
+          ]
+        },
+        {
+          "uma": 8,
+          "name": "ラストスマイル",
+          "byakkoGrade": "S",
+          "byakkoReason": "peak90.4",
+          "sp": [
+            73.4,
+            75.9,
+            87.0,
+            83.2,
+            90.4
+          ]
+        },
+        {
+          "uma": 9,
+          "name": "ヒシアムルーズ",
+          "byakkoGrade": "D",
+          "byakkoReason": "peak82.3/前走落ち-1",
+          "sp": [
+            null,
+            null,
+            74.7,
+            82.3,
+            68.5
+          ]
+        },
+        {
+          "uma": 10,
+          "name": "アッカン",
+          "byakkoGrade": "S",
+          "byakkoReason": "前85.3avg83.2/前走ピーク+1",
+          "sp": [
+            76.4,
+            63.4,
+            83.7,
+            80.5,
+            85.3
+          ]
+        },
+        {
+          "uma": 11,
+          "name": "ノチェセラーダ",
+          "byakkoGrade": "S",
+          "byakkoReason": "前86.9avg85.0/前走ピーク+1",
+          "sp": [
+            71.1,
+            76.4,
+            83.9,
+            84.2,
+            86.9
+          ]
+        },
+        {
+          "uma": 12,
+          "name": "サガルマータ",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak76.4",
+          "sp": [
+            null,
+            null,
+            null,
+            72.1,
+            76.4
+          ]
+        },
+        {
+          "uma": 13,
+          "name": "コスモギガンティア",
+          "byakkoGrade": "S",
+          "byakkoReason": "前86.6avg86.6/前走ピーク+1",
+          "sp": [
+            81.2,
+            null,
+            null,
+            86.6,
+            86.6
+          ]
+        },
+        {
+          "uma": 14,
+          "name": "ヨカオウ",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak75.8",
+          "sp": [
+            63.6,
+            68.2,
+            72.5,
+            74.9,
+            75.8
+          ]
+        },
+        {
+          "uma": 15,
+          "name": "ノーブルサヴェージ",
+          "byakkoGrade": "B",
+          "byakkoReason": "前81.5",
+          "sp": [
+            null,
+            null,
+            null,
+            75.9,
+            81.5
+          ]
+        },
+        {
+          "uma": 16,
+          "name": "ゴーイントゥスカイ",
+          "byakkoGrade": "S",
+          "byakkoReason": "peak90.3",
+          "sp": [
+            null,
+            null,
+            75.2,
+            87.7,
+            90.3
+          ]
+        },
+        {
+          "uma": 17,
+          "name": "シャドウマスター",
+          "byakkoGrade": "C",
+          "byakkoReason": "peak79.4",
+          "sp": [
+            null,
+            null,
+            74.4,
+            79.4,
+            78.2
+          ]
+        },
+        {
+          "uma": 18,
+          "name": "ケントン",
+          "byakkoGrade": "A",
+          "byakkoReason": "peak83.7/前走ピーク+1",
+          "sp": [
+            76.3,
+            null,
+            73.8,
+            52.2,
+            83.7
+          ]
+        }
+      ]
+    }
+  }
+}
