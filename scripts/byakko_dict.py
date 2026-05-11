@@ -3,10 +3,14 @@
 「変」を司る西方金の神 ─ 陣営の物理的・意志的な変化を検出
 
 データソース合議:
-  Layer 1: JRDB n_live ─ 公式申告（初B/再B/B外）
-  Layer 2: keibabook 出馬表 ─ CSS class .kigou.blink で初B検出
+  Layer 1: keibabook 出馬表 ─ CSS class .kigou.blink で初B検出（★メインソース）
+  Layer 2: JRDB n_live     ─ 公式申告チェック（補助・漏れあり注意）
   Layer 3: keibabook 短評   ─ 装具・条件「変」キーワード
   Layer 4: 陣営フィルター   ─ 関西→関東遠征／戦略家厩舎／外国人騎手
+
+⚠ ニック確認（2026-05-11）：
+  - 競馬ブック .kigou.blink が信頼ソース。JRDBは時々漏れる
+  - 例：5/9東京1R デアトゥバトル → ブックは初B扱い、JRDBはBのみ
 
 スコア階層:
   >= 5.0 : ⚡⚡⚡ 白虎降臨（穴絶対採用）
