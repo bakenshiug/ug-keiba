@@ -1980,7 +1980,8 @@ a{color:inherit;}
       <div class="saisen-col">
         <div class="saisen-col-h mincho">単複4頭購入＆4頭BOX購入</div>
         <div class="saisen">
-          <div class="saisen-item">
+          <!-- 奉納金は内部値として保持（非表示・JS集計互換維持） -->
+          <div class="saisen-item" style="display:none">
             <div class="saisen-label mincho">今週の奉納金</div>
             <div class="saisen-value mincho" id="saisen-invest">計測中</div>
             <div class="saisen-note" id="saisen-invest-note">読み込み中…</div>
@@ -1997,7 +1998,8 @@ a{color:inherit;}
       <div class="saisen-col axis">
         <div class="saisen-col-h mincho">★単複◎1点購入＆◎軸流し購入</div>
         <div class="saisen">
-          <div class="saisen-item axis">
+          <!-- 奉納金は内部値として保持（非表示） -->
+          <div class="saisen-item axis" style="display:none">
             <div class="saisen-label mincho">今週の奉納金</div>
             <div class="saisen-value mincho" id="saisen-invest-a">計測中</div>
             <div class="saisen-note" id="saisen-invest-note-a">読み込み中…</div>
