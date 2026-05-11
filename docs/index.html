@@ -1447,15 +1447,12 @@ a{color:inherit;}
   <div class="shinju-card">
     <div class="shinju-week mincho">令和八年 皐月 第二週　斎行録（5/10 NHKマイル週）</div>
 
-    <!-- 自動：成績ハイライト（先週日曜も含めた合算トータル回収率） -->
-    <div class="shinju-stats">
-      <div class="ss-row">
-        <div class="ss-cell ss-good"><div class="ss-num">222.3%</div><div class="ss-lbl">🐢 新潟</div></div>
-        <div class="ss-cell"><div class="ss-num">56.6%</div><div class="ss-lbl">⛩ 京都</div></div>
-        <div class="ss-cell ss-bad"><div class="ss-num">25.4%</div><div class="ss-lbl">🌪 東京</div></div>
-        <div class="ss-cell ss-total"><div class="ss-num">101.5%</div><div class="ss-lbl">合算トータル</div></div>
-      </div>
-      <div class="ss-caption">※ 先週日曜も含めた合算トータル回収率</div>
+    <!-- 成績は御利益帳の動的集計に一本化（嘘のない実数表示） -->
+    <div class="shinju-stats-cta">
+      <a href="goriyaku-cho.html" class="stats-cta-link mincho">
+        🧧 累計成績は <b>御利益帳</b> にて随時更新中 ▶
+      </a>
+      <div class="ss-caption">場別・週別・券種別の実数を全公開（5/3起点〜累計）</div>
     </div>
 
     <!-- 神主の見立て -->
@@ -1732,6 +1729,14 @@ a{color:inherit;}
 /* ── 神主録 v2 追加スタイル（5/10〜） ── */
 .ss-caption{text-align:center;font-size:10.5px;color:var(--ink-soft);
             margin-top:6px;letter-spacing:.06em}
+.shinju-stats-cta{text-align:center;margin:14px 0 22px;padding:16px;
+                  background:linear-gradient(135deg,#fffbe6 0%,#fff4d0 100%);
+                  border:1.5px solid #d4a017;border-radius:8px}
+.stats-cta-link{display:inline-block;font-size:14px;color:#7A4F00;
+                text-decoration:none;letter-spacing:.08em;
+                padding:6px 16px;transition:transform .15s ease}
+.stats-cta-link:hover{transform:translateY(-1px);color:var(--shu)}
+.stats-cta-link b{color:var(--shu);font-weight:700}
 .mitate-block-wide{display:block;padding:14px 18px;
                    background:rgba(155,45,48,.04);border-left:3px solid var(--shu);
                    border-radius:6px;margin-bottom:14px}
