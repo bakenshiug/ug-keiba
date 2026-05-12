@@ -45,8 +45,7 @@
   /* ── KPIサマリー ── */
   .kpi-board{background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
              border:2px solid var(--shu);border-radius:10px;padding:22px;margin-bottom:8px}
-  .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media(min-width:600px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
+  .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:480px;margin:0 auto}
   .kpi-card{background:#fff;border:1px solid var(--border);border-radius:8px;
             padding:14px 10px;text-align:center}
   .kpi-card.hi{border-color:var(--gold);box-shadow:0 0 12px rgba(212,175,55,.2)}
@@ -140,6 +139,100 @@
 
 <main>
 
+  <!-- ━━━━━━━━━━ 神宮が単勝と馬単を極める理由（トップ配置） ━━━━━━━━━━ -->
+  <h2 class="sec-title mincho" style="margin-top:18px">神 宮 が 単 勝 と 馬 単 を 極 め る 理 由</h2>
+  <p class="sec-sub mincho">WHY TANSHOU & UMATAN ─ 数字が物語る、神宮の選択</p>
+
+  <div class="reason-board">
+    <div class="reason-intro">
+      <div class="reason-quote mincho">「我が神宮、馬単を馬券の極意とせり」</div>
+      <p class="reason-quote-sub mincho">順序を読む者、配当を制す ／ 神宮の本懐は馬単に宿る</p>
+    </div>
+
+    <div class="reason-grid">
+      <div class="reason-card pillar">
+        <div class="reason-h">☀ 単勝◎ ─ 神宮の守護</div>
+        <div class="reason-stat">
+          <span class="reason-stat-num win">106.6%</span>
+          <span class="reason-stat-lbl">単複◎1点購入の累計回収率</span>
+        </div>
+        <ul class="reason-list">
+          <li><b>唯一プラス収支の安定軸</b>（七券種で唯一）</li>
+          <li>神宮ロジックの最も純粋な印</li>
+          <li>1Rあたり <b>¥100</b> の小投資</li>
+          <li>当てた瞬間、神宮の信頼が確信に変わる</li>
+        </ul>
+      </div>
+      <div class="reason-card pillar pillar-strong">
+        <div class="reason-h">🎯 馬単 ─ 神宮の主戦</div>
+        <div class="reason-stat">
+          <span class="reason-stat-num win">99.1%</span>
+          <span class="reason-stat-lbl">◎軸流しマルチの累計回収率</span>
+        </div>
+        <ul class="reason-list">
+          <li>的中率と配当の<b>バランス最良</b></li>
+          <li>単勝より配当が大きい</li>
+          <li>3連単より遥かに当たる（8.3% → 16.7%）</li>
+          <li><b>1着と2着を順序で読む</b>＝神宮の本質</li>
+          <li>四神合議が最大限に効く券種</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reason-cut">
+      <div class="reason-cut-h mincho">📉 他券種を切る理由</div>
+      <div class="reason-cut-grid">
+        <div class="reason-cut-item"><b>複勝</b>：当たりやすいが配当低・回収率73.7%</div>
+        <div class="reason-cut-item"><b>ワイド・馬連</b>：中間的で特化なし</div>
+        <div class="reason-cut-item"><b>3連複・3連単</b>：当てにくく投資効率悪い</div>
+      </div>
+    </div>
+
+    <div class="reason-conclusion mincho">
+      <p>神宮は「<b>読み</b>」を尊ぶ場所。<br>
+         <b>単勝で守り、馬単で攻める</b> ─ それが二段構えの極意。</p>
+    </div>
+  </div>
+
+  <style>
+    .reason-board{background:linear-gradient(135deg,#fff8e8 0%,#fff 50%,#fff5dc 100%);
+                  border:2px solid var(--gold);border-radius:12px;padding:24px 20px;
+                  margin-bottom:8px;box-shadow:0 4px 16px rgba(201,168,76,.18)}
+    .reason-intro{text-align:center;padding-bottom:18px;border-bottom:1px dashed var(--gold);margin-bottom:20px}
+    .reason-quote{font-size:24px;color:var(--shu);font-weight:900;letter-spacing:.1em;line-height:1.5}
+    .reason-quote-sub{font-size:12px;color:var(--ink-soft);margin-top:8px;letter-spacing:.14em}
+    .reason-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:20px}
+    @media(min-width:680px){.reason-grid{grid-template-columns:1fr 1fr}}
+    .reason-card{background:#fff;border:1.5px solid var(--gold);border-radius:10px;padding:18px 20px}
+    .reason-card.pillar-strong{border-color:var(--shu);box-shadow:0 4px 12px rgba(164,74,63,.15)}
+    .reason-h{font-family:'Shippori Mincho',serif;font-size:16px;color:var(--shu);
+              font-weight:900;letter-spacing:.12em;padding-bottom:10px;
+              border-bottom:1.5px dashed var(--gold);margin-bottom:12px}
+    .reason-stat{text-align:center;padding:10px 0;margin-bottom:12px;
+                 background:rgba(212,175,55,.08);border-radius:6px}
+    .reason-stat-num{display:block;font-family:'Inter',sans-serif;font-size:32px;
+                     font-weight:900;color:var(--ok);line-height:1}
+    .reason-stat-lbl{display:block;font-size:11px;color:var(--ink-soft);margin-top:6px;letter-spacing:.06em}
+    .reason-list{list-style:none;padding:0}
+    .reason-list li{font-size:12.5px;color:var(--ink);line-height:1.7;padding:4px 0 4px 18px;
+                    position:relative;border-bottom:1px dotted rgba(0,0,0,.08)}
+    .reason-list li:last-child{border-bottom:none}
+    .reason-list li::before{content:'⛩';position:absolute;left:0;color:var(--gold-dk);font-size:11px}
+    .reason-list li b{color:var(--shu);font-weight:700}
+    .reason-cut{background:rgba(0,0,0,.03);border:1px dashed var(--ink-soft);border-radius:8px;
+                padding:14px 16px;margin-bottom:16px}
+    .reason-cut-h{font-size:13px;color:var(--ink-soft);font-weight:700;letter-spacing:.12em;margin-bottom:10px}
+    .reason-cut-grid{display:grid;grid-template-columns:1fr;gap:8px}
+    @media(min-width:680px){.reason-cut-grid{grid-template-columns:repeat(3,1fr)}}
+    .reason-cut-item{font-size:11.5px;color:var(--ink-soft);line-height:1.7;
+                     padding:8px 12px;background:#fff;border-radius:4px}
+    .reason-cut-item b{color:var(--shu);font-weight:700;display:inline-block;margin-right:4px}
+    .reason-conclusion{text-align:center;padding:16px;
+                       background:linear-gradient(135deg,var(--shu),var(--shu-dk));color:#fff;
+                       border-radius:8px;font-size:14px;line-height:1.8;letter-spacing:.08em}
+    .reason-conclusion b{color:#ffd34d;font-weight:900}
+  </style>
+
   <!-- KPIサマリー -->
   <h2 class="sec-title mincho">神 恩 倍 率　累 計</h2>
   <p class="sec-sub mincho">CUMULATIVE STATS ─ 二戦略 並列比較</p>
@@ -159,16 +252,21 @@
             <div class="kpi-value" id="kpi-hitrate">—</div>
             <div class="kpi-detail" id="kpi-hitrate-d">複勝以上の的中</div>
           </div>
-          <div class="kpi-card">
+          <!-- 累計投資・払戻は非表示（金額が将来肥大化するため）
+          <div class="kpi-card" style="display:none">
             <div class="kpi-label">累計投資</div>
             <div class="kpi-value" id="kpi-invest" style="color:var(--ink)">—</div>
-            <div class="kpi-detail">七券種BOX</div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="display:none">
             <div class="kpi-label">累計払戻</div>
             <div class="kpi-value" id="kpi-payout" style="color:var(--ink)">—</div>
             <div class="kpi-detail" id="kpi-net">—</div>
           </div>
+          -->
+          <!-- 内部参照用ダミー（JS互換維持） -->
+          <span style="display:none" id="kpi-invest"></span>
+          <span style="display:none" id="kpi-payout"></span>
+          <span style="display:none" id="kpi-net"></span>
         </div>
       </div>
     </div>
@@ -187,16 +285,19 @@
             <div class="kpi-value" id="kpi-hitrate-a">—</div>
             <div class="kpi-detail" id="kpi-hitrate-ad">複勝以上の的中</div>
           </div>
-          <div class="kpi-card">
+          <!-- 累計投資・払戻は非表示
+          <div class="kpi-card" style="display:none">
             <div class="kpi-label">累計投資</div>
             <div class="kpi-value" id="kpi-invest-a" style="color:var(--ink)">—</div>
-            <div class="kpi-detail">◎軸流し（35点）</div>
           </div>
-          <div class="kpi-card">
+          <div class="kpi-card" style="display:none">
             <div class="kpi-label">累計払戻</div>
             <div class="kpi-value" id="kpi-payout-a" style="color:var(--ink)">—</div>
-            <div class="kpi-detail" id="kpi-net-a">—</div>
           </div>
+          -->
+          <span style="display:none" id="kpi-invest-a"></span>
+          <span style="display:none" id="kpi-payout-a"></span>
+          <span style="display:none" id="kpi-net-a"></span>
         </div>
       </div>
     </div>
@@ -229,116 +330,6 @@
       </div>
     </div>
   </div>
-
-  <!-- ━━━━━━━━━━ 神宮が単勝と馬単を極める理由 ━━━━━━━━━━ -->
-  <h2 class="sec-title mincho">神 宮 が 単 勝 と 馬 単 を 極 め る 理 由</h2>
-  <p class="sec-sub mincho">WHY TANSHOU & UMATAN ─ 数字が物語る、神宮の選択</p>
-
-  <div class="reason-board">
-    <div class="reason-intro">
-      <div class="reason-quote mincho">「我が神宮、馬単を馬券の極意とせり」</div>
-      <p class="reason-quote-sub mincho">順序を読む者、配当を制す ／ 神宮の本懐は馬単に宿る</p>
-    </div>
-
-    <div class="reason-grid">
-
-      <!-- 単勝 -->
-      <div class="reason-card pillar">
-        <div class="reason-h">☀ 単勝◎ ─ 神宮の守護</div>
-        <div class="reason-stat">
-          <span class="reason-stat-num win">106.6%</span>
-          <span class="reason-stat-lbl">単複◎1点購入の累計回収率</span>
-        </div>
-        <ul class="reason-list">
-          <li><b>唯一プラス収支の安定軸</b>（七券種で唯一）</li>
-          <li>神宮ロジックの最も純粋な印</li>
-          <li>1Rあたり <b>¥100</b> の小投資</li>
-          <li>当てた瞬間、神宮の信頼が確信に変わる</li>
-        </ul>
-      </div>
-
-      <!-- 馬単 -->
-      <div class="reason-card pillar pillar-strong">
-        <div class="reason-h">🎯 馬単 ─ 神宮の主戦</div>
-        <div class="reason-stat">
-          <span class="reason-stat-num win">99.1%</span>
-          <span class="reason-stat-lbl">◎軸流しマルチの累計回収率</span>
-        </div>
-        <ul class="reason-list">
-          <li>的中率と配当の<b>バランス最良</b></li>
-          <li>単勝より配当が大きい</li>
-          <li>3連単より遥かに当たる（8.3% → 16.7%）</li>
-          <li><b>1着と2着を順序で読む</b>＝神宮の本質</li>
-          <li>四神合議が最大限に効く券種</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- 他券種を切る理由 -->
-    <div class="reason-cut">
-      <div class="reason-cut-h mincho">📉 他券種を切る理由</div>
-      <div class="reason-cut-grid">
-        <div class="reason-cut-item">
-          <b>複勝</b>：当たりやすいが配当低・回収率73.7%
-        </div>
-        <div class="reason-cut-item">
-          <b>ワイド・馬連</b>：中間的で特化なし
-        </div>
-        <div class="reason-cut-item">
-          <b>3連複・3連単</b>：当てにくく投資効率悪い
-        </div>
-      </div>
-    </div>
-
-    <!-- 結論 -->
-    <div class="reason-conclusion mincho">
-      <p>神宮は「<b>読み</b>」を尊ぶ場所。<br>
-         <b>単勝で守り、馬単で攻める</b> ─ それが二段構えの極意。</p>
-    </div>
-  </div>
-
-  <style>
-    .reason-board{background:linear-gradient(135deg,#fff8e8 0%,#fff 50%,#fff5dc 100%);
-                  border:2px solid var(--gold);border-radius:12px;padding:24px 20px;
-                  margin-bottom:8px;box-shadow:0 4px 16px rgba(201,168,76,.18)}
-    .reason-intro{text-align:center;padding-bottom:18px;border-bottom:1px dashed var(--gold);margin-bottom:20px}
-    .reason-quote{font-size:24px;color:var(--shu);font-weight:900;letter-spacing:.1em;line-height:1.5}
-    .reason-quote-sub{font-size:12px;color:var(--ink-soft);margin-top:8px;letter-spacing:.14em}
-    .reason-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:20px}
-    @media(min-width:680px){.reason-grid{grid-template-columns:1fr 1fr}}
-    .reason-card{background:#fff;border:1.5px solid var(--gold);border-radius:10px;
-                 padding:18px 20px}
-    .reason-card.pillar-strong{border-color:var(--shu);
-                               box-shadow:0 4px 12px rgba(164,74,63,.15)}
-    .reason-h{font-family:'Shippori Mincho',serif;font-size:16px;color:var(--shu);
-              font-weight:900;letter-spacing:.12em;padding-bottom:10px;
-              border-bottom:1.5px dashed var(--gold);margin-bottom:12px}
-    .reason-stat{text-align:center;padding:10px 0;margin-bottom:12px;
-                 background:rgba(212,175,55,.08);border-radius:6px}
-    .reason-stat-num{display:block;font-family:'Inter',sans-serif;font-size:32px;
-                     font-weight:900;color:var(--ok);line-height:1}
-    .reason-stat-lbl{display:block;font-size:11px;color:var(--ink-soft);margin-top:6px;letter-spacing:.06em}
-    .reason-list{list-style:none;padding:0}
-    .reason-list li{font-size:12.5px;color:var(--ink);line-height:1.7;padding:4px 0 4px 18px;
-                    position:relative;border-bottom:1px dotted rgba(0,0,0,.08)}
-    .reason-list li:last-child{border-bottom:none}
-    .reason-list li::before{content:'⛩';position:absolute;left:0;color:var(--gold-dk);font-size:11px}
-    .reason-list li b{color:var(--shu);font-weight:700}
-    .reason-cut{background:rgba(0,0,0,.03);border:1px dashed var(--ink-soft);border-radius:8px;
-                padding:14px 16px;margin-bottom:16px}
-    .reason-cut-h{font-size:13px;color:var(--ink-soft);font-weight:700;letter-spacing:.12em;
-                  margin-bottom:10px}
-    .reason-cut-grid{display:grid;grid-template-columns:1fr;gap:8px}
-    @media(min-width:680px){.reason-cut-grid{grid-template-columns:repeat(3,1fr)}}
-    .reason-cut-item{font-size:11.5px;color:var(--ink-soft);line-height:1.7;
-                     padding:8px 12px;background:#fff;border-radius:4px}
-    .reason-cut-item b{color:var(--shu);font-weight:700;display:inline-block;margin-right:4px}
-    .reason-conclusion{text-align:center;padding:16px;
-                       background:linear-gradient(135deg,var(--shu),var(--shu-dk));color:#fff;
-                       border-radius:8px;font-size:14px;line-height:1.8;letter-spacing:.08em}
-    .reason-conclusion b{color:#ffd34d;font-weight:900}
-  </style>
 
   <!-- 場別 / 週別 -->
   <h2 class="sec-title mincho">場 別 ・ 週 別</h2>
