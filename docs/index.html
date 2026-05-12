@@ -1975,41 +1975,52 @@ a{color:inherit;}
     <h2 class="section-title mincho">賽 銭 と 神 恩</h2>
     <p class="section-subtitle" id="saisen-period">OFFERING & BLESSING RATIO ─ 二戦略 並列比較</p>
 
+    <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.14em;margin-bottom:12px;font-family:'Shippori Mincho',serif">
+      ☀ 単勝 ＆ 🎯 馬単 ─ 神宮が極める二券種の神恩倍率
+    </p>
+
     <div class="saisen-strategy-grid">
       <!-- BOX道 -->
       <div class="saisen-col">
         <div class="saisen-col-h mincho">単複4頭購入＆4頭BOX購入</div>
-        <div class="saisen">
-          <!-- 奉納金は内部値として保持（非表示・JS集計互換維持） -->
-          <div class="saisen-item" style="display:none">
-            <div class="saisen-label mincho">今週の奉納金</div>
-            <div class="saisen-value mincho" id="saisen-invest">計測中</div>
-            <div class="saisen-note" id="saisen-invest-note">読み込み中…</div>
+        <div class="saisen" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="saisen-item">
+            <div class="saisen-label mincho">☀ 単勝 回収率</div>
+            <div class="saisen-value mincho" id="saisen-tan-box">計測中</div>
+            <div class="saisen-note" id="saisen-tan-box-note">読み込み中…</div>
           </div>
           <div class="saisen-item">
-            <div class="saisen-label mincho">神恩倍率（トータル回収率）</div>
-            <div class="saisen-value mincho" id="saisen-recovery">計測中</div>
-            <div class="saisen-note" id="saisen-recovery-note">読み込み中…</div>
+            <div class="saisen-label mincho">🎯 馬単 回収率</div>
+            <div class="saisen-value mincho" id="saisen-umatan-box">計測中</div>
+            <div class="saisen-note" id="saisen-umatan-box-note">読み込み中…</div>
           </div>
         </div>
+        <!-- 旧総合（互換維持・非表示） -->
+        <span style="display:none" id="saisen-invest"></span>
+        <span style="display:none" id="saisen-invest-note"></span>
+        <span style="display:none" id="saisen-recovery"></span>
+        <span style="display:none" id="saisen-recovery-note"></span>
       </div>
 
       <!-- ◎軸流し道 -->
       <div class="saisen-col axis">
         <div class="saisen-col-h mincho">★単複◎1点購入＆◎軸流し購入</div>
-        <div class="saisen">
-          <!-- 奉納金は内部値として保持（非表示） -->
-          <div class="saisen-item axis" style="display:none">
-            <div class="saisen-label mincho">今週の奉納金</div>
-            <div class="saisen-value mincho" id="saisen-invest-a">計測中</div>
-            <div class="saisen-note" id="saisen-invest-note-a">読み込み中…</div>
+        <div class="saisen" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="saisen-item axis">
+            <div class="saisen-label mincho">☀ 単勝◎ 回収率</div>
+            <div class="saisen-value mincho" id="saisen-tan-axis">計測中</div>
+            <div class="saisen-note" id="saisen-tan-axis-note">読み込み中…</div>
           </div>
           <div class="saisen-item axis">
-            <div class="saisen-label mincho">神恩倍率（トータル回収率）</div>
-            <div class="saisen-value mincho" id="saisen-recovery-a">計測中</div>
-            <div class="saisen-note" id="saisen-recovery-note-a">読み込み中…</div>
+            <div class="saisen-label mincho">🎯 馬単マ 回収率</div>
+            <div class="saisen-value mincho" id="saisen-umatan-axis">計測中</div>
+            <div class="saisen-note" id="saisen-umatan-axis-note">読み込み中…</div>
           </div>
         </div>
+        <span style="display:none" id="saisen-invest-a"></span>
+        <span style="display:none" id="saisen-invest-note-a"></span>
+        <span style="display:none" id="saisen-recovery-a"></span>
+        <span style="display:none" id="saisen-recovery-note-a"></span>
       </div>
     </div>
   </div>
@@ -2304,6 +2315,63 @@ drawBtn.addEventListener('click', () => {
         if (axisRec >= 100) elRecA.style.color = '#ffd34d';
       }
       if (elRecNA) elRecNA.textContent = `払戻 ¥${axisPay.toLocaleString()} ／ 投資 ¥${axisInv.toLocaleString()}`;
+
+      // ─── 単勝＆馬単のみの集計（BOX道） ───
+      let tanInvBox=0, tanPayBox=0, umatanInvBox=0, umatanPayBox=0;
+      all.forEach(r => {
+        const b = r.result.betting;
+        if (b.invest && b.payout) {
+          tanInvBox += (b.invest.tan||0);
+          tanPayBox += (b.payout.tan||0);
+          umatanInvBox += (b.invest.umatan||0);
+          umatanPayBox += (b.payout.umatan||0);
+        }
+      });
+      const tanRecBox = tanInvBox ? (tanPayBox/tanInvBox*100) : 0;
+      const umatanRecBox = umatanInvBox ? (umatanPayBox/umatanInvBox*100) : 0;
+
+      const setVal = (id, val, isWin) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.textContent = val.toFixed(1) + '%';
+          if (isWin) el.style.color = '#d4af37';
+        }
+      };
+      setVal('saisen-tan-box', tanRecBox, tanRecBox >= 100);
+      setVal('saisen-umatan-box', umatanRecBox, umatanRecBox >= 100);
+      const elTanBoxN = document.getElementById('saisen-tan-box-note');
+      const elUmaBoxN = document.getElementById('saisen-umatan-box-note');
+      if (elTanBoxN) elTanBoxN.textContent = `${all.length}鞍×¥400`;
+      if (elUmaBoxN) elUmaBoxN.textContent = `${all.length}鞍×¥1,200`;
+
+      // ─── 単勝＆馬単のみの集計（◎軸流し道） ───
+      let tanInvA=0, tanPayA=0, umatanInvA=0, umatanPayA=0;
+      all.forEach(r => {
+        const picks = r.picks || [];
+        const payouts = r.result && r.result.payouts;
+        if (picks.length<4 || !payouts) return;
+        const axis = String(parseInt(picks[0].num,10));
+        const aite = picks.slice(1,4).map(p => String(parseInt(p.num,10)));
+        // 単勝◎ = 100/R
+        tanInvA += 100;
+        (payouts.tan||[]).forEach(p => { if ((p.combo||[]).includes(axis)) tanPayA += p.amount||0; });
+        // 馬単◎流マ = 600/R（6点）
+        umatanInvA += 600;
+        (payouts.umatan||[]).forEach(p => {
+          const c=p.combo||[]; if (c.length<2 || !c.includes(axis)) return;
+          const other = c.filter(x => x!==axis);
+          if (other.some(o => aite.includes(o))) umatanPayA += p.amount||0;
+        });
+      });
+      const tanRecA = tanInvA ? (tanPayA/tanInvA*100) : 0;
+      const umatanRecA = umatanInvA ? (umatanPayA/umatanInvA*100) : 0;
+
+      setVal('saisen-tan-axis', tanRecA, tanRecA >= 100);
+      setVal('saisen-umatan-axis', umatanRecA, umatanRecA >= 100);
+      const elTanAN = document.getElementById('saisen-tan-axis-note');
+      const elUmaAN = document.getElementById('saisen-umatan-axis-note');
+      if (elTanAN) elTanAN.textContent = `${all.length}鞍×¥100`;
+      if (elUmaAN) elUmaAN.textContent = `${all.length}鞍×¥600（6点）`;
     });
 })();
 </script>
