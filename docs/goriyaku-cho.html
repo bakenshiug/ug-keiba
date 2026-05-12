@@ -333,7 +333,7 @@
 
   <!-- 場別 / 週別 -->
   <h2 class="sec-title mincho">場 別 ・ 週 別</h2>
-  <p class="sec-sub mincho">BY VENUE & WEEK</p>
+  <p class="sec-sub mincho">BY VENUE & WEEK ─ 単勝 ＆ 馬単 限定集計</p>
   <div class="strategy-grid">
     <div class="strategy-col">
       <div class="strategy-h mincho">単複4頭購入＆4頭BOX購入</div>
@@ -467,14 +467,17 @@
           if (inv>0) perKind[k].races++;
           if (pay>0) perKind[k].hit++;
         });
+        // 場別・週別は「単勝＋馬単のみ」で集計（神宮の馬券道に統一）
         const v = r.venue;
+        const tu_inv = (b.invest.tan||0) + (b.invest.umatan||0);
+        const tu_pay = (b.payout.tan||0) + (b.payout.umatan||0);
         perVenue[v] = perVenue[v] || {inv:0,pay:0,races:0,hit:0};
-        perVenue[v].inv += b.investTotal; perVenue[v].pay += b.payoutTotal;
-        perVenue[v].races++; if (b.payoutTotal>0) perVenue[v].hit++;
+        perVenue[v].inv += tu_inv; perVenue[v].pay += tu_pay;
+        perVenue[v].races++; if (tu_pay>0) perVenue[v].hit++;
         const wk = r.date;
         perWeek[wk] = perWeek[wk] || {inv:0,pay:0,races:0,hit:0};
-        perWeek[wk].inv += b.investTotal; perWeek[wk].pay += b.payoutTotal;
-        perWeek[wk].races++; if (b.payoutTotal>0) perWeek[wk].hit++;
+        perWeek[wk].inv += tu_inv; perWeek[wk].pay += tu_pay;
+        perWeek[wk].races++; if (tu_pay>0) perWeek[wk].hit++;
 
         // ◎軸流し
         const a = calcAxis(r);
@@ -487,12 +490,15 @@
           if (inv>0) perKindA[k].races++;
           if (pay>0) perKindA[k].hit++;
         });
+        // 軸流し側も単勝＋馬単のみで集計
+        const tu_inv_a = (a.invest.tan||0) + (a.invest.umatan||0);
+        const tu_pay_a = (a.payout.tan||0) + (a.payout.umatan||0);
         perVenueA[v] = perVenueA[v] || {inv:0,pay:0,races:0,hit:0};
-        perVenueA[v].inv += a.investTotal; perVenueA[v].pay += a.payoutTotal;
-        perVenueA[v].races++; if (a.payoutTotal>0) perVenueA[v].hit++;
+        perVenueA[v].inv += tu_inv_a; perVenueA[v].pay += tu_pay_a;
+        perVenueA[v].races++; if (tu_pay_a>0) perVenueA[v].hit++;
         perWeekA[wk] = perWeekA[wk] || {inv:0,pay:0,races:0,hit:0};
-        perWeekA[wk].inv += a.investTotal; perWeekA[wk].pay += a.payoutTotal;
-        perWeekA[wk].races++; if (a.payoutTotal>0) perWeekA[wk].hit++;
+        perWeekA[wk].inv += tu_inv_a; perWeekA[wk].pay += tu_pay_a;
+        perWeekA[wk].races++; if (tu_pay_a>0) perWeekA[wk].hit++;
       });
 
       const totRec = totInv ? (totPay/totInv*100) : 0;
