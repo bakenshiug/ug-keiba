@@ -1128,7 +1128,7 @@ function render(){
         const axisBet = calcAxis(r);
         const axisHTML = axisBet ? `
           <div class="race-betting axis">
-            <div class="rb-head">単複◎1点購入＆◎軸流し購入</div>
+            <div class="rb-head">単勝◎1点購入＆◎軸流し購入</div>
             ${Object.entries(axisBet.invest).map(([k,inv])=>{
               const pay = axisBet.payout[k]||0;
               const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
