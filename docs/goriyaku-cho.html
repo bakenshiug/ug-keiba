@@ -239,7 +239,7 @@
 
   <div class="strategy-grid">
     <div class="strategy-col">
-      <div class="strategy-h mincho">単複4頭購入＆4頭BOX購入</div>
+      <div class="strategy-h mincho">🌕 穴軸単勝穴1点購入＆穴軸流し購入</div>
       <div class="kpi-board">
         <div class="kpi-grid">
           <div class="kpi-card hi">
@@ -272,7 +272,7 @@
     </div>
 
     <div class="strategy-col axis">
-      <div class="strategy-h mincho">★単勝◎1点購入＆◎軸流し購入</div>
+      <div class="strategy-h mincho">⛩️ 単勝◎1点購入＆◎軸流し購入</div>
       <div class="kpi-board axis-board">
         <div class="kpi-grid">
           <div class="kpi-card hi">
@@ -308,7 +308,7 @@
   <p class="sec-sub mincho">BY BET TYPE</p>
   <div class="strategy-grid">
     <div class="strategy-col">
-      <div class="strategy-h mincho">単複4頭購入＆4頭BOX購入</div>
+      <div class="strategy-h mincho">🌕 穴軸単勝穴1点購入＆穴軸流し購入</div>
       <div class="kind-board">
         <table class="kind-table" id="kind-table">
           <thead>
@@ -319,7 +319,7 @@
       </div>
     </div>
     <div class="strategy-col axis">
-      <div class="strategy-h mincho">★単勝◎1点購入＆◎軸流し購入</div>
+      <div class="strategy-h mincho">⛩️ 単勝◎1点購入＆◎軸流し購入</div>
       <div class="kind-board axis-board">
         <table class="kind-table">
           <thead>
@@ -336,7 +336,7 @@
   <p class="sec-sub mincho">BY VENUE & WEEK ─ 単勝 ＆ 馬単 限定集計</p>
   <div class="strategy-grid">
     <div class="strategy-col">
-      <div class="strategy-h mincho">単複4頭購入＆4頭BOX購入</div>
+      <div class="strategy-h mincho">🌕 穴軸単勝穴1点購入＆穴軸流し購入</div>
       <div class="by-grid">
         <div class="by-card">
           <div class="by-h mincho">場 別 回 収 率</div>
@@ -349,7 +349,7 @@
       </div>
     </div>
     <div class="strategy-col axis">
-      <div class="strategy-h mincho">★単勝◎1点購入＆◎軸流し購入</div>
+      <div class="strategy-h mincho">⛩️ 単勝◎1点購入＆◎軸流し購入</div>
       <div class="by-grid">
         <div class="by-card axis-card">
           <div class="by-h mincho">場 別 回 収 率</div>
@@ -384,9 +384,10 @@
     'data/kotodama-test/2026-05-09-10.json',
     // 来週以降ここに追加
   ];
+  // 🌕 穴軸ラベル（picks[3]を軸とした流し）
   const KIND_LABEL = {
-    tan:'単勝', fuku:'複勝', wide:'ワイドBOX', umaren:'馬連BOX',
-    umatan:'馬単BOX', sanrenpuku:'3連複BOX', sanrentan:'3連単BOX'
+    tan:'単勝穴', fuku:'複勝穴', wide:'ワイド穴流', umaren:'馬連穴流',
+    umatan:'馬単穴マ', sanrenpuku:'3連複穴流', sanrentan:'3連単穴マ'
   };
   const AXIS_KIND_LABEL = {
     tan:'単勝◎', fuku:'複勝◎', wide:'ワイド流', umaren:'馬連流',
@@ -435,6 +436,44 @@
     return {invest,payout,investTotal:inv,payoutTotal:pay,recovery:inv?pay/inv*100:0};
   }
 
+  // 🌕 穴軸流し計算（picks[3]= 白虎/玄武の穴枠を軸）
+  function calcAna(race){
+    const picks = race.picks || [];
+    const payouts = race.result && race.result.payouts;
+    if (picks.length<4 || !payouts) return null;
+    const ana = String(parseInt(picks[3].num,10));
+    const aite = picks.slice(0,3).map(p => String(parseInt(p.num,10)));
+    const invest = {...AXIS_INVEST};
+    const payout = {tan:0,fuku:0,wide:0,umaren:0,umatan:0,sanrenpuku:0,sanrentan:0};
+    (payouts.tan||[]).forEach(p => { if ((p.combo||[]).includes(ana)) payout.tan += p.amount||0; });
+    (payouts.fuku||[]).forEach(p => { if ((p.combo||[]).includes(ana)) payout.fuku += p.amount||0; });
+    ['wide','umaren'].forEach(k => {
+      (payouts[k]||[]).forEach(p => {
+        const c=p.combo||[]; if (!c.includes(ana)) return;
+        const other = c.filter(x => x!==ana);
+        if (other.some(o => aite.includes(o))) payout[k] += p.amount||0;
+      });
+    });
+    (payouts.umatan||[]).forEach(p => {
+      const c=p.combo||[]; if (c.length<2 || !c.includes(ana)) return;
+      const other = c.filter(x => x!==ana);
+      if (other.some(o => aite.includes(o))) payout.umatan += p.amount||0;
+    });
+    (payouts.sanrenpuku||[]).forEach(p => {
+      const c=p.combo||[]; if (!c.includes(ana)) return;
+      const other = c.filter(x => x!==ana);
+      if (other.length>=2 && aite.includes(other[0]) && aite.includes(other[1])) payout.sanrenpuku += p.amount||0;
+    });
+    (payouts.sanrentan||[]).forEach(p => {
+      const c=p.combo||[]; if (c.length<3 || !c.includes(ana)) return;
+      const other = c.filter(x => x!==ana);
+      if (other.length>=2 && aite.includes(other[0]) && aite.includes(other[1])) payout.sanrentan += p.amount||0;
+    });
+    const inv = Object.values(invest).reduce((a,b)=>a+b,0);
+    const pay = Object.values(payout).reduce((a,b)=>a+b,0);
+    return {invest,payout,investTotal:inv,payoutTotal:pay,recovery:inv?pay/inv*100:0};
+  }
+
   Promise.all(FILES.map(f => fetch(f+'?_='+Date.now()).then(r => r.ok ? r.json() : null).catch(()=>null)))
     .then(arr => {
       const all = [];
@@ -458,26 +497,29 @@
       const perWeekA = {};
 
       all.forEach(r => {
-        const b = r.result.betting;
-        totInv += b.investTotal; totPay += b.payoutTotal;
-        if (b.payoutTotal > 0) hit++;
-        KINDS.forEach(k => {
-          const inv = b.invest[k]||0, pay = b.payout[k]||0;
-          perKind[k].inv += inv; perKind[k].pay += pay;
-          if (inv>0) perKind[k].races++;
-          if (pay>0) perKind[k].hit++;
-        });
-        // 場別・週別は「単勝＋馬単のみ」で集計（神宮の馬券道に統一）
+        // 🌕 穴軸（picks[3]）で計算
+        const ana = calcAna(r);
         const v = r.venue;
-        const tu_inv = (b.invest.tan||0) + (b.invest.umatan||0);
-        const tu_pay = (b.payout.tan||0) + (b.payout.umatan||0);
-        perVenue[v] = perVenue[v] || {inv:0,pay:0,races:0,hit:0};
-        perVenue[v].inv += tu_inv; perVenue[v].pay += tu_pay;
-        perVenue[v].races++; if (tu_pay>0) perVenue[v].hit++;
         const wk = r.date;
-        perWeek[wk] = perWeek[wk] || {inv:0,pay:0,races:0,hit:0};
-        perWeek[wk].inv += tu_inv; perWeek[wk].pay += tu_pay;
-        perWeek[wk].races++; if (tu_pay>0) perWeek[wk].hit++;
+        if (ana) {
+          totInv += ana.investTotal; totPay += ana.payoutTotal;
+          if (ana.payoutTotal > 0) hit++;
+          KINDS.forEach(k => {
+            const inv = ana.invest[k]||0, pay = ana.payout[k]||0;
+            perKind[k].inv += inv; perKind[k].pay += pay;
+            if (inv>0) perKind[k].races++;
+            if (pay>0) perKind[k].hit++;
+          });
+          // 場別・週別は単勝＋馬単のみで集計
+          const tu_inv = (ana.invest.tan||0) + (ana.invest.umatan||0);
+          const tu_pay = (ana.payout.tan||0) + (ana.payout.umatan||0);
+          perVenue[v] = perVenue[v] || {inv:0,pay:0,races:0,hit:0};
+          perVenue[v].inv += tu_inv; perVenue[v].pay += tu_pay;
+          perVenue[v].races++; if (tu_pay>0) perVenue[v].hit++;
+          perWeek[wk] = perWeek[wk] || {inv:0,pay:0,races:0,hit:0};
+          perWeek[wk].inv += tu_inv; perWeek[wk].pay += tu_pay;
+          perWeek[wk].races++; if (tu_pay>0) perWeek[wk].hit++;
+        }
 
         // ◎軸流し
         const a = calcAxis(r);
