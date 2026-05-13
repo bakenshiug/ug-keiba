@@ -1980,31 +1980,9 @@ a{color:inherit;}
     </p>
 
     <div class="saisen-strategy-grid">
-      <!-- BOX道 -->
-      <div class="saisen-col">
-        <div class="saisen-col-h mincho">単複4頭購入＆4頭BOX購入</div>
-        <div class="saisen" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-          <div class="saisen-item">
-            <div class="saisen-label mincho">☀ 単勝 回収率</div>
-            <div class="saisen-value mincho" id="saisen-tan-box">計測中</div>
-            <div class="saisen-note" id="saisen-tan-box-note">読み込み中…</div>
-          </div>
-          <div class="saisen-item">
-            <div class="saisen-label mincho">🎯 馬単 回収率</div>
-            <div class="saisen-value mincho" id="saisen-umatan-box">計測中</div>
-            <div class="saisen-note" id="saisen-umatan-box-note">読み込み中…</div>
-          </div>
-        </div>
-        <!-- 旧総合（互換維持・非表示） -->
-        <span style="display:none" id="saisen-invest"></span>
-        <span style="display:none" id="saisen-invest-note"></span>
-        <span style="display:none" id="saisen-recovery"></span>
-        <span style="display:none" id="saisen-recovery-note"></span>
-      </div>
-
-      <!-- ◎軸流し道 -->
+      <!-- ◎軸流し道（鉄板） -->
       <div class="saisen-col axis">
-        <div class="saisen-col-h mincho">★単勝◎1点購入＆◎軸流し購入</div>
+        <div class="saisen-col-h mincho">⛩️ 単勝◎1点購入 ＆ ◎軸流し購入</div>
         <div class="saisen" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
           <div class="saisen-item axis">
             <div class="saisen-label mincho">☀ 単勝◎ 回収率</div>
@@ -2021,6 +1999,32 @@ a{color:inherit;}
         <span style="display:none" id="saisen-invest-note-a"></span>
         <span style="display:none" id="saisen-recovery-a"></span>
         <span style="display:none" id="saisen-recovery-note-a"></span>
+      </div>
+
+      <!-- 穴軸流し道（白虎/玄武の穴枠実証） -->
+      <div class="saisen-col">
+        <div class="saisen-col-h mincho">🌕 穴軸単勝穴1点購入 ＆ 穴軸流し購入</div>
+        <div class="saisen" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="saisen-item">
+            <div class="saisen-label mincho">☀ 単勝穴 回収率</div>
+            <div class="saisen-value mincho" id="saisen-tan-ana">計測中</div>
+            <div class="saisen-note" id="saisen-tan-ana-note">読み込み中…</div>
+          </div>
+          <div class="saisen-item">
+            <div class="saisen-label mincho">🎯 馬単穴マ 回収率</div>
+            <div class="saisen-value mincho" id="saisen-umatan-ana">計測中</div>
+            <div class="saisen-note" id="saisen-umatan-ana-note">読み込み中…</div>
+          </div>
+        </div>
+        <!-- 旧BOX互換維持 -->
+        <span style="display:none" id="saisen-invest"></span>
+        <span style="display:none" id="saisen-invest-note"></span>
+        <span style="display:none" id="saisen-recovery"></span>
+        <span style="display:none" id="saisen-recovery-note"></span>
+        <span style="display:none" id="saisen-tan-box"></span>
+        <span style="display:none" id="saisen-tan-box-note"></span>
+        <span style="display:none" id="saisen-umatan-box"></span>
+        <span style="display:none" id="saisen-umatan-box-note"></span>
       </div>
     </div>
   </div>
@@ -2372,6 +2376,36 @@ drawBtn.addEventListener('click', () => {
       const elUmaAN = document.getElementById('saisen-umatan-axis-note');
       if (elTanAN) elTanAN.textContent = `${all.length}鞍×¥100`;
       if (elUmaAN) elUmaAN.textContent = `${all.length}鞍×¥600（6点）`;
+
+      // ─── 穴軸（picks[3]= 白虎/玄武穴枠）の集計 ───
+      let tanInvAna=0, tanPayAna=0, umatanInvAna=0, umatanPayAna=0;
+      all.forEach(r => {
+        const picks = r.picks || [];
+        const payouts = r.result && r.result.payouts;
+        if (picks.length<4 || !payouts) return;
+        const ana = String(parseInt(picks[3].num,10));
+        // 穴軸の相手 = ◎○▲（picks[0,1,2]）
+        const aite = picks.slice(0,3).map(p => String(parseInt(p.num,10)));
+        // 単勝穴 = 1点（穴1着的中）
+        tanInvAna += 100;
+        (payouts.tan||[]).forEach(p => { if ((p.combo||[]).includes(ana)) tanPayAna += p.amount||0; });
+        // 馬単穴マ = 6点（穴⇔相手3 表裏）
+        umatanInvAna += 600;
+        (payouts.umatan||[]).forEach(p => {
+          const c=p.combo||[]; if (c.length<2 || !c.includes(ana)) return;
+          const other = c.filter(x => x!==ana);
+          if (other.some(o => aite.includes(o))) umatanPayAna += p.amount||0;
+        });
+      });
+      const tanRecAna = tanInvAna ? (tanPayAna/tanInvAna*100) : 0;
+      const umatanRecAna = umatanInvAna ? (umatanPayAna/umatanInvAna*100) : 0;
+
+      setVal('saisen-tan-ana', tanRecAna, tanRecAna >= 100);
+      setVal('saisen-umatan-ana', umatanRecAna, umatanRecAna >= 100);
+      const elTanAnaN = document.getElementById('saisen-tan-ana-note');
+      const elUmaAnaN = document.getElementById('saisen-umatan-ana-note');
+      if (elTanAnaN) elTanAnaN.textContent = `${all.length}鞍×¥100`;
+      if (elUmaAnaN) elUmaAnaN.textContent = `${all.length}鞍×¥600（6点）`;
     });
 })();
 </script>
