@@ -123,20 +123,44 @@ def process(date_str: str, dry_run: bool):
             p["suzakuAvg"]   = sz["avg"]
             suzaku_added += 1
 
-        # ② タイブレーク検出（表示のみ・印変更なし）
+        # ② タイブレーク — 言霊同grade内で朱雀スコア降順に印を再割当
         main_picks = [p for p in picks if p.get("mark") != "激"]
+        激_picks   = [p for p in picks if p.get("mark") == "激"]
         if len(main_picks) >= 2:
             top_grade = max(grade_pts(p.get("kotodamaGrade","D")) for p in main_picks)
             top_group = [p for p in main_picks if grade_pts(p.get("kotodamaGrade","D")) == top_grade]
-            if len(top_group) >= 2:
-                # 同grade馬が複数いる → タイブレーク候補
-                r["tiebreakActive"] = True
-                tie_races.append(label)
-                sorted_top = sorted(top_group, key=lambda p: -p.get("suzakuScore",0))
-                print(f"  🔀 タイブレーク候補 [{label}] (言霊{['S+','S','A+','A','B+','B','B-','C','D'][8-top_grade]}×{len(top_group)}頭):")
-                for p in sorted_top:
-                    sz_str = f"朱雀{p['suzakuGrade'] or '?'}({p['suzakuAvg'] or '-'}%)"
-                    print(f"     {p['mark']} {p['num']}番{p['name']} {sz_str}")
+
+            # 全員suzakuScore=0（騎手データなし）の場合はスキップ
+            has_sz_data = any(p.get("suzakuScore",0) > 0 for p in main_picks)
+
+            if len(top_group) >= 2 and has_sz_data:
+                # ◎○▲の順でsuzakuScore降順に並べ直す（非top_groupはその後ろ）
+                non_top = [p for p in main_picks if grade_pts(p.get("kotodamaGrade","D")) < top_grade]
+                sorted_top  = sorted(top_group,  key=lambda p: -p.get("suzakuScore",0))
+                new_main = sorted_top + non_top  # top優先、残りはそのまま
+
+                marks = ["◎","○","▲"]
+                changed_marks = []
+                for i, p in enumerate(new_main[:3]):
+                    old_m = p.get("mark")
+                    new_m = marks[i]
+                    if old_m != new_m:
+                        p["mark"] = new_m
+                        changed_marks.append(f"{old_m}→{new_m} {p['num']}番{p['name']}")
+
+                r["picks"] = new_main + 激_picks
+                picks = r["picks"]  # 後続処理用に更新
+
+                if changed_marks:
+                    r["tiebreakActive"] = True
+                    tie_races.append(label)
+                    print(f"  🔀 タイブレーク実行 [{label}] (言霊同grade×{len(top_group)}頭):")
+                    for p in sorted_top:
+                        sz_str = f"朱雀{p.get('suzakuGrade') or '?'}({p.get('suzakuAvg') or '-'}%)"
+                        print(f"     {p['mark']} {p['num']}番{p['name']} {sz_str}")
+                    print(f"     変更: {' / '.join(changed_marks)}")
+                else:
+                    r.pop("tiebreakActive", None)
             else:
                 r.pop("tiebreakActive", None)
 
