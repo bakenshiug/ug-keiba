@@ -326,7 +326,7 @@ fetch('data/juushou/2026-05-16-17.json?_='+Date.now())
                   <div class="pc-head">
                     <span class="pc-tag">${tagText}</span>
                     <span class="pc-name">${h.name}</span>
-                    <span class="pc-meta"><b>${h.sex}</b> ／ ${h.kg}kg ／ ${h.jockey}騎手 / ${h.trainer}${h.pop?` ／ <b>想定${h.pop}人気</b> / ${h.odds}倍`:''}</span>
+                    <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b> ／ ${h.odds}倍`:''}</span>
                     <span class="pc-summary">${h.summary || ''}</span>
                   </div>
                   <div class="pc-view">${h.shrine_view}</div>
