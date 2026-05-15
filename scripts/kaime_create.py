@@ -30,6 +30,12 @@ def extract_danwa_body(danwa: str) -> str:
     """印 馬名【担当者】本文 → 本文を返す"""
     if not danwa:
         return ""
+    # SVG/CSSコードを除去（.st0{fill:none;...} 等）
+    danwa = re.sub(r"\.[a-z]+\d*\{[^}]*\}", "", danwa)
+    danwa = re.sub(r"<style[^>]*>.*?</style>", "", danwa, flags=re.DOTALL)
+    danwa = danwa.strip()
+    if not danwa:
+        return ""
     m = re.search(r"】(.+)$", danwa, re.DOTALL)
     if m:
         return m.group(1).strip()
@@ -149,7 +155,7 @@ def build_comment(horse: dict, mark: str) -> str:
     # ─── 激走: 変化シグナルを先頭に挿入 ───
     if mark == "激":
         if hatsu_bri:
-            sentences.insert(0, "今回から装着する新ブリンカーで集中力の向上に期待。")
+            sentences.insert(0, "今回から装着する初ブリンカーで集中力の向上に期待。")
         elif "一変" in gekisou_note or "変わり身" in gekisou_note:
             sentences.insert(0, "陣営が語る変わり身が今回のテーマ。")
         elif "距離" in gekisou_note:
