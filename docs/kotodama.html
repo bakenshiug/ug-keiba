@@ -139,6 +139,8 @@
   .mark{font-size:22px;font-weight:700;color:var(--shu);width:36px;text-align:center;vertical-align:middle}
   .mark.dou{color:#b8902f}
   .mark.byakko{color:#c9a227;text-shadow:0 0 6px rgba(201,162,39,.45);font-size:20px}
+  /* 救済バナー */
+  .rescue-banner{background:linear-gradient(135deg,#1a1a2e,#2d1b4e);color:#ff9fd4;border:1px solid #7b2d8b;border-radius:6px;padding:6px 12px;font-size:12px;margin-bottom:8px;letter-spacing:.03em}
   /* 朱雀バッジ */
   .suzaku-badge{display:inline-block;font-size:11px;padding:1px 4px;border-radius:3px;margin-left:3px;vertical-align:middle;font-weight:700;letter-spacing:0}
   .suzaku-S{background:#e85d00;color:#fff}
@@ -497,14 +499,25 @@ function fireScoreNum(s){
   const m = s.match(/([+-]?\d+\.?\d*)/);
   return m ? parseFloat(m[1]) : 0;
 }
-// 第1ソート：言霊グレード降順、第2ソート（タイブレーク）：🔥スコア降順
+// 第1ソート：言霊グレード降順
+// 第2ソート（タイブレーク）：朱雀スコア降順（suzakuScore がある場合優先）
+// 第3ソート（旧来）：🔥スコア降順
 function reorderPicksByTiebreaker(picks){
-  return [...picks].sort((a,b) => {
+  // 激枠は末尾固定、◎○▲は言霊→朱雀→🔥の3段ソート
+  const main = picks.filter(p => p.mark !== '激');
+  const激 = picks.filter(p => p.mark === '激');
+  main.sort((a,b) => {
     const ga = kotodamaScore(a.kotodamaGrade);
     const gb = kotodamaScore(b.kotodamaGrade);
     if (ga !== gb) return gb - ga;
+    // タイブレーク①: 朱雀スコア（Pythonが付与したsuzakuScore）
+    const sa = a.suzakuScore ?? 0;
+    const sb = b.suzakuScore ?? 0;
+    if (sa !== sb) return sb - sa;
+    // タイブレーク②: 旧🔥スコア（後方互換）
     return fireScoreNum(b.gaikyuGrade) - fireScoreNum(a.gaikyuGrade);
   });
+  return [...main, ...激];
 }
 
 // 曜日表示
@@ -1053,6 +1066,9 @@ function render(){
     // 🦒出現バッジ（picks内に麒麟レベル1以上の馬が1頭でもいれば）
     const hasKirin = (r.picks||[]).some(p => calcKirinLevel(p) > 0);
     const kirinAppear = hasKirin ? `<span class="kirin-appear">🦒出現</span>` : '';
+    // 🚨救済候補バナー（全picks言霊C/D → 朱雀S/A馬が昇格候補）
+    const rescueBanner = r.rescueCandidate
+      ? `<div class="rescue-banner">🚨 救済候補 — ${r.rescueNote||''}</div>` : '';
     // 的中判定（pickの中で1-3着が居れば🎯マーク）
     const raceHit = (r.picks || []).some(p => {
       const rk = p.finalRank ? Number(p.finalRank) : null;
@@ -1095,6 +1111,7 @@ function render(){
         <span class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
       </summary>
       <div class="race-body">
+        ${rescueBanner}
         ${crossJump}
       <table class="picks-table">
         <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>${r.date >= '2026-05-10' ? '上昇🔥' : '外厩'}</th><th>言霊評価</th></tr>
