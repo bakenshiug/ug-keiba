@@ -146,7 +146,7 @@ def process(date_str: str, dry_run: bool):
             if len(top_group) >= 2 and has_sz_data:
                 # ◎○▲の順でsuzakuScore降順に並べ直す（非top_groupはその後ろ）
                 non_top = [p for p in main_picks if grade_pts(p.get("kotodamaGrade","D")) < top_grade]
-                sorted_top  = sorted(top_group,  key=lambda p: -p.get("suzakuScore",0))
+                sorted_top  = sorted(top_group,  key=lambda p: (-p.get("suzakuScore",0), -(p.get("suzakuAvg") or 0)))
                 new_main = sorted_top + non_top  # top優先、残りはそのまま
 
                 marks = ["◎","○","▲"]

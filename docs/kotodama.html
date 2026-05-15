@@ -510,11 +510,15 @@ function reorderPicksByTiebreaker(picks){
     const ga = kotodamaScore(a.kotodamaGrade);
     const gb = kotodamaScore(b.kotodamaGrade);
     if (ga !== gb) return gb - ga;
-    // タイブレーク①: 朱雀スコア（Pythonが付与したsuzakuScore）
+    // タイブレーク①: 朱雀スコア（グレードバケツ）
     const sa = a.suzakuScore ?? 0;
     const sb = b.suzakuScore ?? 0;
     if (sa !== sb) return sb - sa;
-    // タイブレーク②: 旧🔥スコア（後方互換）
+    // タイブレーク②: 朱雀Avg実数値（同グレード内の微差を拾う）
+    const aa = a.suzakuAvg ?? 0;
+    const ab = b.suzakuAvg ?? 0;
+    if (aa !== ab) return ab - aa;
+    // タイブレーク③: 旧🔥スコア（後方互換）
     return fireScoreNum(b.gaikyuGrade) - fireScoreNum(a.gaikyuGrade);
   });
   return [...main, ...geki];
