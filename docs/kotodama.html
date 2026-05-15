@@ -1142,18 +1142,31 @@ function render(){
           const popBadge = ninkiDisplay ? `<span class="pop">${ninkiDisplay}</span>` : '';
           // 外厩/上昇🔥バッジ
           const gaikyu = p.gaikyuGrade || '';
-          let ggClass;
-          if (gaikyu.includes('🔥')) {
+          // 外厩名 → 🔥ランクマッピング
+          const GAIKYU_FIRE = {
+            'NF天栄':'🔥🔥🔥','NFしがらき':'🔥🔥🔥','ノーザンF天栄':'🔥🔥🔥','ノーザンFしがらき':'🔥🔥🔥',
+            'チャンピオンヒルズ':'🔥🔥','エスティ':'🔥🔥','チャンピオンH':'🔥🔥',
+            '山元TC':'🔥','宇治田原':'🔥','山元トレセン':'🔥','阿見TC':'🔥',
+          };
+          const fireLabel = GAIKYU_FIRE[gaikyu];
+          let ggClass, ggDisplay;
+          if (fireLabel) {
+            const fc = (fireLabel.match(/🔥/g)||[]).length;
+            ggClass = fc>=3?'gg-fire3':fc>=2?'gg-fire2':'gg-fire1';
+            ggDisplay = fireLabel + ' ' + gaikyu;
+          } else if (gaikyu.includes('🔥')) {
             const fc = (gaikyu.match(/🔥/g)||[]).length;
             ggClass = fc>=3?'gg-fire3':fc>=2?'gg-fire2':'gg-fire1';
+            ggDisplay = gaikyu;
           } else if (gaikyu.startsWith('↘')) {
-            ggClass = 'gg-down';
+            ggClass = 'gg-down'; ggDisplay = gaikyu;
           } else if (gaikyu.startsWith('→')) {
-            ggClass = 'gg-flat';
+            ggClass = 'gg-flat'; ggDisplay = gaikyu;
           } else {
             const ggMatch = gaikyu.match(/^(S|A|B|在厩)/);
             const ggBase = ggMatch ? ggMatch[1] : '';
             ggClass = ggBase==='S'?'gg-s':ggBase==='A'?'gg-a':ggBase==='B'?'gg-b':'gg-zai';
+            ggDisplay = gaikyu || '-';
           }
           const trCls = inMoney ? 'hit-row' : '';
           const kirinLv = calcKirinLevel(p);
@@ -1176,7 +1189,7 @@ function render(){
           </td>
           <td class="jockey-c">${p.jockey}${(()=>{const sz=suzakuGradeFor(p.jockey);return sz?`<span class="suzaku-badge suzaku-${sz.grade}">${SUZAKU_BADGE_LABEL[sz.grade]||sz.grade}</span>`:''})()}</td>
           <td class="trainer-c">${p.trainer}</td>
-          <td class="gaikyu-c"><span class="gg-badge ${ggClass}">${gaikyu||'-'}</span></td>
+          <td class="gaikyu-c"><span class="gg-badge ${ggClass}">${ggDisplay}</span></td>
           <td class="comment">${p.comment}</td>
         </tr>`;
         }).join('')}
