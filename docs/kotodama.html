@@ -296,6 +296,12 @@
   .kirin-lv2{font-size:14px;filter:drop-shadow(0 0 3px rgba(60,180,60,.5))}
   .kirin-lv1{font-size:13px;opacity:.85}
   .kirin-row td{background:rgba(60,150,60,.04)}
+  /* 陣形バッジ */
+  .jinkei-badge{display:inline-block;margin-left:6px;padding:1px 7px;
+    font-size:10px;font-weight:700;border-radius:3px;vertical-align:middle;letter-spacing:.05em}
+  .jinkei-1{background:linear-gradient(135deg,#8b0000,#c0392b);color:#fff}
+  .jinkei-2{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff}
+  .jinkei-mix{background:linear-gradient(135deg,#4a235a,#7d3c98);color:#fff}
   /* 勝負鞍バッジ */
   .shobu-badge{display:inline-block;margin-left:6px;font-size:14px;vertical-align:middle;
     animation:shobupulse 1.8s ease-in-out infinite}
@@ -1045,6 +1051,17 @@ function calcKirinLevel(pick){
   if(grade === 'A+' && fire >= 3.0) return 1;
   return 0;
 }
+function calcJinkei(race){
+  // 陣形判定: ◎-○差 / ○-▲差 で1強/2強/接戦を返す
+  const picks = (race.picks||[]);
+  const s = m => { const p = picks.find(p=>p.mark===m); return p ? (p.totalScore||0) : null; };
+  const s1=s('◎'), s2=s('○'), s3=s('▲');
+  if(s1==null||s2==null||s3==null) return null;
+  const g12=s1-s2, g23=s2-s3;
+  if(g12>1.0) return '1強戦';
+  if(g12<=1.0 && g23>0.8) return '2強戦';
+  return '接戦';
+}
 function calcShobuLevel(race){
   const honmei = (race.picks||[]).find(p => p.mark==='◎');
   if(!honmei) return 0;
@@ -1085,6 +1102,10 @@ function render(){
         shobuBadge = `<span class="shobu-badge">${'🧧'.repeat(shobuLevel)}</span><span class="shobu-label">勝負鞍</span>`;
       }
     }
+    // 陣形バッジ（1強戦/2強戦/接戦）
+    const jinkei = calcJinkei(r);
+    const jinkeiClass = jinkei==='1強戦'?'jinkei-1':jinkei==='2強戦'?'jinkei-2':'jinkei-mix';
+    const jinkeiBadge = jinkei ? `<span class="jinkei-badge ${jinkeiClass}">${jinkei}</span>` : '';
     // 🦒出現バッジ（picks内に麒麟レベル1以上の馬が1頭でもいれば）
     const hasKirin = (r.picks||[]).some(p => calcKirinLevel(p) > 0);
     const kirinAppear = hasKirin ? `<span class="kirin-appear">🦒出現</span>` : '';
@@ -1129,7 +1150,7 @@ function render(){
     <details class="race ${raceWin?'race-win':''}" data-rnum="${r.raceNum}">
       <summary class="race-summary">
         <span class="race-fold-icon">▶</span>
-        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}${kirinAppear}</span>
+        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}${jinkeiBadge}${kirinAppear}</span>
         <span class="race-meta">${r.surface==='ダ'?'ダート':r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
       </summary>
       <div class="race-body">
