@@ -1103,7 +1103,7 @@ function render(){
         <summary class="race-summary">
           <span class="race-fold-icon">🔒</span>
           <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}</span>
-          <span class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
+          <span class="race-meta">${r.surface==='ダ'?'ダート':r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
         </summary>
         <div class="race-body locked-body">
           <div class="lock-card">
@@ -1125,7 +1125,7 @@ function render(){
       <summary class="race-summary">
         <span class="race-fold-icon">▶</span>
         <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}${kirinAppear}</span>
-        <span class="race-meta">${r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
+        <span class="race-meta">${r.surface==='ダ'?'ダート':r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
       </summary>
       <div class="race-body">
         ${rescueBanner}
@@ -1142,7 +1142,7 @@ function render(){
             ? `<span class="finish ${rkCls}">${rk}着${inMoney?'<span class="hit-mark">🎯</span>':''}</span>`
             : '';
           // 想定人気（finalNinkiが結果、ninkiPredが想定）
-          const ninkiDisplay = p.finalNinki ? `${p.finalNinki}人気` : (p.ninkiPred ? `想定${p.ninkiPred}人気` : '');
+          const ninkiDisplay = p.finalNinki ? `${p.finalNinki}人気` : (p.ninkiPred ? `${p.ninkiPred}人気` : '');
           const popBadge = ninkiDisplay ? `<span class="pop">${ninkiDisplay}</span>` : '';
           // 外厩/上昇🔥バッジ
           const gaikyu = p.gaikyuGrade || '';
