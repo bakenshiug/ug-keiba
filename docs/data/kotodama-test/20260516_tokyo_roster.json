@@ -16,7 +16,10 @@
     "kotodamaGrade",
     "kotodamaScore",
     "kotodamaRank",
-    "kotodamaNotes"
+    "kotodamaNotes",
+    "suzakuScore",
+    "suzakuTrend",
+    "suzakuNote"
   ],
   "races": [
     {
@@ -37,7 +40,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.7,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | ⬇-0.5[ひと息] | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | ⬇-0.5[ひと息] | 前走４着(+0.20)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9"
         },
         {
           "waku": "1",
@@ -53,7 +59,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "2",
@@ -69,7 +78,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.5,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[次につながる] | 前走５着(+0.00)"
+          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[次につながる] | 前走５着(+0.00)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "2",
@@ -85,7 +97,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "柴田大知 | 全体SH7.1×0.7補完 | 直近4.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -101,7 +116,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         },
         {
           "waku": "3",
@@ -117,7 +135,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "4",
@@ -133,7 +154,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.8,
           "kotodamaRank": 1,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待] | 前走３着(+0.80)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待] | 前走３着(+0.80)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "4",
@@ -149,7 +173,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "小林凌大 | 全体SH4.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "5",
@@ -165,7 +192,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0"
         },
         {
           "waku": "5",
@@ -181,7 +211,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "6",
@@ -197,7 +230,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 13,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.53,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53"
         },
         {
           "waku": "6",
@@ -213,7 +249,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 3.5,
           "kotodamaRank": 16,
-          "kotodamaNotes": "△印(-0.5) | ⬇-0.5[ひと息] | ⬇-0.5[使いつつ]"
+          "kotodamaNotes": "△印(-0.5) | ⬇-0.5[ひと息] | ⬇-0.5[使いつつ]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原田和真 | 全体SH4.9×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -229,7 +268,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 5.5,
           "kotodamaRank": 15,
-          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[ひと息]"
+          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[ひと息]",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "7",
@@ -245,7 +287,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[ここを目標]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[ここを目標]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "8",
@@ -261,7 +306,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 3,
-          "kotodamaNotes": "◎印(+2.0)"
+          "kotodamaNotes": "◎印(+2.0)",
+          "suzakuScore": 3.75,
+          "suzakuTrend": "🔥",
+          "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75"
         },
         {
           "waku": "8",
@@ -277,7 +325,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 14,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0"
         }
       ]
     },
@@ -299,7 +350,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "1",
@@ -315,7 +369,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.53,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53"
         },
         {
           "waku": "2",
@@ -331,7 +388,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "2",
@@ -347,7 +407,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45"
         },
         {
           "waku": "3",
@@ -363,7 +426,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.8,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | 前走３着(+0.80)"
+          "kotodamaNotes": "○印(+1.0) | 前走３着(+0.80)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "3",
@@ -379,7 +445,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "DB未登録(±0)"
         },
         {
           "waku": "4",
@@ -395,7 +464,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 5.0,
           "kotodamaRank": 15,
-          "kotodamaNotes": "△印(-0.5) | 🔵+0.5[変わり身が]"
+          "kotodamaNotes": "△印(-0.5) | 🔵+0.5[変わり身が]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "水沼元輝 | 全体SH7.4×0.7補完 | 直近33.3%→(0.90x) → 0.0"
         },
         {
           "waku": "4",
@@ -411,7 +483,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -427,7 +502,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 16,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "小林凌大 | 全体SH4.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "5",
@@ -443,7 +521,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "6",
@@ -459,7 +540,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         },
         {
           "waku": "6",
@@ -475,7 +559,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -491,7 +578,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "江田照男 | 全体SH7.7×0.7補完 | 直近3.3%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -507,7 +597,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "○印(+1.0) | 前走２着(+1.50)"
+          "kotodamaNotes": "○印(+1.0) | 前走２着(+1.50)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "8",
@@ -523,7 +616,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 13,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "8",
@@ -539,7 +635,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 5.5,
           "kotodamaRank": 14,
-          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[どこまで]"
+          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[どこまで]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "柴田大知 | 全体SH7.1×0.7補完 | 直近4.2%↘︎(0.75x) → 0.0"
         }
       ]
     },
@@ -561,7 +660,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.5,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[上積みは]"
+          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[上積みは]",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         },
         {
           "waku": "1",
@@ -577,7 +679,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "黛弘人 | 全体SH4.9×0.7補完 | 直近5.6%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "2",
@@ -593,7 +698,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "2",
@@ -609,7 +717,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -625,7 +736,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 13,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "3",
@@ -641,7 +755,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "小林脩斗 | 全体SH1.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "4",
@@ -657,7 +774,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 14,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "4",
@@ -673,7 +793,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.7,
           "kotodamaRank": 2,
-          "kotodamaNotes": "◎印(+2.0) | 🔵+0.5[次につながる] | 前走４着(+0.20)"
+          "kotodamaNotes": "◎印(+2.0) | 🔵+0.5[次につながる] | 前走４着(+0.20)",
+          "suzakuScore": 3.75,
+          "suzakuTrend": "🔥",
+          "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75"
         },
         {
           "waku": "5",
@@ -689,7 +812,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -705,7 +831,10 @@
           "kotodamaGrade": "S",
           "kotodamaScore": 9.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[順番が回って] | 前走２着(+1.50)"
+          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[順番が回って] | 前走２着(+1.50)",
+          "suzakuScore": 0.53,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53"
         },
         {
           "waku": "6",
@@ -721,7 +850,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "6",
@@ -737,7 +869,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -753,7 +888,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "水沼元輝 | 全体SH7.4×0.7補完 | 直近33.3%→(0.90x) → 0.0"
         },
         {
           "waku": "7",
@@ -769,7 +907,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 15,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "8",
@@ -785,7 +926,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 16,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "DB未登録(±0)"
         },
         {
           "waku": "8",
@@ -801,7 +945,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 5.5,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0) | 前走７着(-0.50)"
+          "kotodamaNotes": "○印(+1.0) | 前走７着(-0.50)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         }
       ]
     },
@@ -823,7 +970,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "DB未登録(±0)"
         },
         {
           "waku": "2",
@@ -839,7 +989,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "柴田大知 | 全体SH7.1×0.7補完 | 直近4.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -855,7 +1008,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "4",
@@ -871,7 +1027,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 3.75,
+          "suzakuTrend": "🔥",
+          "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75"
         },
         {
           "waku": "4",
@@ -887,7 +1046,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "5",
@@ -903,7 +1065,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -919,7 +1084,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.53,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53"
         },
         {
           "waku": "6",
@@ -935,7 +1103,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "◎印(+2.0) | 前走２着(+1.50)"
+          "kotodamaNotes": "◎印(+2.0) | 前走２着(+1.50)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0"
         },
         {
           "waku": "6",
@@ -951,7 +1122,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -967,7 +1141,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -983,7 +1160,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.0,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待] | 🔵+0.5[上積みは] | 🔵+0.5[使った上積み]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待] | 🔵+0.5[上積みは] | 🔵+0.5[使った上積み]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "8",
@@ -999,7 +1179,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.2,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待] | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待] | 前走４着(+0.20)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         },
         {
           "waku": "8",
@@ -1015,7 +1198,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 13,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         }
       ]
     },
@@ -1037,7 +1223,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45"
         },
         {
           "waku": "1",
@@ -1053,7 +1242,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 5.2,
           "kotodamaRank": 17,
-          "kotodamaNotes": "○印(+1.0) | 前走９着(-0.80)"
+          "kotodamaNotes": "○印(+1.0) | 前走９着(-0.80)",
+          "suzakuScore": 3.75,
+          "suzakuTrend": "🔥",
+          "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75"
         },
         {
           "waku": "2",
@@ -1069,7 +1261,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "水沼元輝 | 全体SH7.4×0.7補完 | 直近33.3%→(0.90x) → 0.0"
         },
         {
           "waku": "2",
@@ -1085,7 +1280,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松岡正海 | 全体SH12.9×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -1101,7 +1299,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "黛弘人 | 全体SH4.9×0.7補完 | 直近5.6%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -1117,7 +1318,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 18,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "小林凌大 | 全体SH4.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "4",
@@ -1133,7 +1337,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "柴田大知 | 全体SH7.1×0.7補完 | 直近4.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "4",
@@ -1149,7 +1356,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -1165,7 +1375,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -1181,7 +1394,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9"
         },
         {
           "waku": "6",
@@ -1197,7 +1413,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待] | 前走１２着(-1.00)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待] | 前走１２着(-1.00)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "6",
@@ -1213,7 +1432,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "○印(+1.0) | 前走２着(+1.50)"
+          "kotodamaNotes": "○印(+1.0) | 前走２着(+1.50)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         },
         {
           "waku": "7",
@@ -1229,7 +1451,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "7",
@@ -1245,7 +1470,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 13,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -1261,7 +1489,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 14,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原田和真 | 全体SH4.9×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "8",
@@ -1277,7 +1508,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 15,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "DB未登録(±0)"
         },
         {
           "waku": "8",
@@ -1293,7 +1527,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.8,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | 前走３着(+0.80)"
+          "kotodamaNotes": "○印(+1.0) | 前走３着(+0.80)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "8",
@@ -1309,7 +1546,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 16,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "的場勇人 | 東京SH0.0%(n=0) | 直近0.0%—(1.00x) → 0.0"
         }
       ]
     },
@@ -1331,7 +1571,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45"
         },
         {
           "waku": "2",
@@ -1347,7 +1590,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.5,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | 前走１着(+2.50)"
+          "kotodamaNotes": "○印(+1.0) | 前走１着(+2.50)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -1363,7 +1609,10 @@
           "kotodamaGrade": "S",
           "kotodamaScore": 9.5,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 前走１着(+2.50)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 前走１着(+2.50)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "4",
@@ -1379,7 +1628,10 @@
           "kotodamaGrade": "S",
           "kotodamaScore": 10.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[楽しみ] | 前走１着(+2.50)"
+          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[楽しみ] | 前走１着(+2.50)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -1395,7 +1647,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "6",
@@ -1411,7 +1666,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 8,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -1427,7 +1685,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.8,
           "kotodamaRank": 4,
-          "kotodamaNotes": "◎印(+2.0) | 前走３着(+0.80)"
+          "kotodamaNotes": "◎印(+2.0) | 前走３着(+0.80)",
+          "suzakuScore": 3.75,
+          "suzakuTrend": "🔥",
+          "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75"
         },
         {
           "waku": "8",
@@ -1443,7 +1704,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)"
+          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         }
       ]
     },
@@ -1465,7 +1729,10 @@
           "kotodamaGrade": "S",
           "kotodamaScore": 10.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 🟢+1.0[期待] | 前走１着(+2.50)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 🟢+1.0[期待] | 前走１着(+2.50)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "1",
@@ -1481,7 +1748,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         },
         {
           "waku": "2",
@@ -1497,7 +1767,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         },
         {
           "waku": "2",
@@ -1513,7 +1786,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.53,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53"
         },
         {
           "waku": "3",
@@ -1529,7 +1805,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -1545,7 +1824,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.0,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[どこまで] | 前走１着(+2.50)"
+          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[どこまで] | 前走１着(+2.50)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "4",
@@ -1561,7 +1843,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 15,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "4",
@@ -1577,7 +1862,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "5",
@@ -1593,7 +1881,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "5",
@@ -1609,7 +1900,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "DB未登録(±0)"
         },
         {
           "waku": "6",
@@ -1625,7 +1919,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 5.5,
           "kotodamaRank": 14,
-          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[ひと息]"
+          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[ひと息]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "6",
@@ -1641,7 +1938,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.5,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[どこまで] | ⬇-0.5[ひと息] | 前走１着(+2.50)"
+          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[どこまで] | ⬇-0.5[ひと息] | 前走１着(+2.50)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -1657,7 +1957,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.5,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0) | 前走２着(+1.50)"
+          "kotodamaNotes": "○印(+1.0) | 前走２着(+1.50)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9"
         },
         {
           "waku": "7",
@@ -1673,7 +1976,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0"
         },
         {
           "waku": "8",
@@ -1689,7 +1995,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 13,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "8",
@@ -1705,7 +2014,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 16,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0"
         }
       ]
     },
@@ -1727,7 +2039,10 @@
           "kotodamaGrade": "S",
           "kotodamaScore": 9.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[楽しみ] | 前走２着(+1.50)"
+          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[楽しみ] | 前走２着(+1.50)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "DB未登録(±0)"
         },
         {
           "waku": "1",
@@ -1743,7 +2058,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "2",
@@ -1759,7 +2077,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[どうかですが] | 前走２着(+1.50)"
+          "kotodamaNotes": "○印(+1.0) | ⬇-0.5[どうかですが] | 前走２着(+1.50)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "2",
@@ -1775,7 +2096,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.5,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[上積みは]"
+          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[上積みは]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "江田照男 | 全体SH7.7×0.7補完 | 直近3.3%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -1791,7 +2115,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -1807,7 +2134,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)"
+          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45"
         },
         {
           "waku": "4",
@@ -1823,7 +2153,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "4",
@@ -1839,7 +2172,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松岡正海 | 全体SH12.9×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -1855,7 +2191,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 15,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -1871,7 +2210,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         },
         {
           "waku": "6",
@@ -1887,7 +2229,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "6",
@@ -1903,7 +2248,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "7",
@@ -1919,7 +2267,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 13,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "7",
@@ -1935,7 +2286,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 14,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         },
         {
           "waku": "8",
@@ -1951,7 +2305,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.8,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0) | 前走３着(+0.80)"
+          "kotodamaNotes": "○印(+1.0) | 前走３着(+0.80)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0"
         },
         {
           "waku": "8",
@@ -1967,7 +2324,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 16,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "水沼元輝 | 全体SH7.4×0.7補完 | 直近33.3%→(0.90x) → 0.0"
         }
       ]
     },
@@ -1989,7 +2349,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "2",
@@ -2005,7 +2368,10 @@
           "kotodamaGrade": "S",
           "kotodamaScore": 9.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 前走１着(+2.50)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 前走１着(+2.50)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45"
         },
         {
           "waku": "3",
@@ -2021,7 +2387,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.5,
           "kotodamaRank": 2,
-          "kotodamaNotes": "前走１着(+2.50)"
+          "kotodamaNotes": "前走１着(+2.50)",
+          "suzakuScore": 3.75,
+          "suzakuTrend": "🔥",
+          "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75"
         },
         {
           "waku": "4",
@@ -2037,7 +2406,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -2053,7 +2425,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松岡正海 | 全体SH12.9×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "6",
@@ -2069,7 +2444,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9"
         },
         {
           "waku": "7",
@@ -2085,7 +2463,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "8",
@@ -2101,7 +2482,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         },
         {
           "waku": "8",
@@ -2117,7 +2501,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         }
       ]
     },
@@ -2139,7 +2526,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)"
+          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "2",
@@ -2155,7 +2545,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "3",
@@ -2171,7 +2564,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "4",
@@ -2187,7 +2583,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -2203,7 +2602,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         },
         {
           "waku": "5",
@@ -2219,7 +2621,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.7,
           "kotodamaRank": 3,
-          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[期待] | 🔵+0.5[叩いて] | 前走４着(+0.20)"
+          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[期待] | 🔵+0.5[叩いて] | 前走４着(+0.20)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "6",
@@ -2235,7 +2640,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)"
+          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "6",
@@ -2251,7 +2659,10 @@
           "kotodamaGrade": "S",
           "kotodamaScore": 10.5,
           "kotodamaRank": 1,
-          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[楽しみ] | 前走１着(+2.50)"
+          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[楽しみ] | 前走１着(+2.50)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45"
         },
         {
           "waku": "7",
@@ -2267,7 +2678,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.53,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53"
         },
         {
           "waku": "7",
@@ -2283,7 +2697,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         },
         {
           "waku": "8",
@@ -2299,7 +2716,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.8,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 前走３着(+0.80)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 前走３着(+0.80)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9"
         },
         {
           "waku": "8",
@@ -2315,7 +2735,10 @@
           "kotodamaGrade": "S",
           "kotodamaScore": 9.5,
           "kotodamaRank": 2,
-          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[楽しみ] | 前走２着(+1.50)"
+          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[楽しみ] | 前走２着(+1.50)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         }
       ]
     },
@@ -2337,7 +2760,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[変わり身が] | 🔵+0.5[叩いて]"
+          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[変わり身が] | 🔵+0.5[叩いて]",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "2",
@@ -2353,7 +2779,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.8,
           "kotodamaRank": 1,
-          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[期待] | 前走３着(+0.80)"
+          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[期待] | 前走３着(+0.80)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "2",
@@ -2369,7 +2798,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)"
+          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "松岡正海 | 全体SH12.9×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -2385,7 +2817,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9"
         },
         {
           "waku": "3",
@@ -2401,7 +2836,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.53,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53"
         },
         {
           "waku": "4",
@@ -2417,7 +2855,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.5,
           "kotodamaRank": 7,
-          "kotodamaNotes": "前走２着(+1.50)"
+          "kotodamaNotes": "前走２着(+1.50)",
+          "suzakuScore": 3.75,
+          "suzakuTrend": "🔥",
+          "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75"
         },
         {
           "waku": "4",
@@ -2433,7 +2874,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -2449,7 +2893,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 6.8,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0) | 前走３着(+0.80)"
+          "kotodamaNotes": "○印(+1.0) | 前走３着(+0.80)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45"
         },
         {
           "waku": "5",
@@ -2465,7 +2912,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.0,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[メドが立] | 🔵+0.5[上積みは] | 🔵+0.5[使った上積み]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[メドが立] | 🔵+0.5[上積みは] | 🔵+0.5[使った上積み]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0"
         },
         {
           "waku": "6",
@@ -2481,7 +2931,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.5,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 前走２着(+1.50)"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ] | 前走２着(+1.50)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         },
         {
           "waku": "6",
@@ -2497,7 +2950,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -2513,7 +2969,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 13,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "7",
@@ -2529,7 +2988,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 14,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45"
         },
         {
           "waku": "8",
@@ -2545,7 +3007,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 15,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "8",
@@ -2561,7 +3026,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[上積みは] | 🔵+0.5[使った上積み]"
+          "kotodamaNotes": "○印(+1.0) | 🔵+0.5[上積みは] | 🔵+0.5[使った上積み]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0"
         }
       ]
     },
@@ -2583,7 +3051,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 5.0,
           "kotodamaRank": 12,
-          "kotodamaNotes": "○印(+1.0) | 前走１３着(-1.00)"
+          "kotodamaNotes": "○印(+1.0) | 前走１３着(-1.00)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "2",
@@ -2599,7 +3070,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 7,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "3",
@@ -2615,7 +3089,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 8,
-          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)"
+          "kotodamaNotes": "○印(+1.0) | 前走５着(+0.00)",
+          "suzakuScore": 0.38,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38"
         },
         {
           "waku": "3",
@@ -2631,7 +3108,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 4,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.53,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53"
         },
         {
           "waku": "4",
@@ -2647,7 +3127,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 5,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 0.45,
+          "suzakuTrend": "→",
+          "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45"
         },
         {
           "waku": "4",
@@ -2663,7 +3146,10 @@
           "kotodamaGrade": "A",
           "kotodamaScore": 8.0,
           "kotodamaRank": 1,
-          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[期待]"
+          "kotodamaNotes": "◎印(+2.0) | 🟢+1.0[期待]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原田和真 | 全体SH4.9×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "5",
@@ -2679,7 +3165,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 13,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "→",
+          "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0"
         },
         {
           "waku": "5",
@@ -2695,7 +3184,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 9,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "江田照男 | 全体SH7.7×0.7補完 | 直近3.3%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "6",
@@ -2711,7 +3203,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.2,
           "kotodamaRank": 6,
-          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)"
+          "kotodamaNotes": "○印(+1.0) | 前走４着(+0.20)",
+          "suzakuScore": 2.62,
+          "suzakuTrend": "↗︎",
+          "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62"
         },
         {
           "waku": "6",
@@ -2727,7 +3222,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 2,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[楽しみ]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "黛弘人 | 全体SH4.9×0.7補完 | 直近5.6%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "7",
@@ -2743,7 +3241,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 10,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.9,
+          "suzakuTrend": "→",
+          "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9"
         },
         {
           "waku": "7",
@@ -2759,7 +3260,10 @@
           "kotodamaGrade": "C",
           "kotodamaScore": 6.0,
           "kotodamaRank": 11,
-          "kotodamaNotes": "○印(+1.0)"
+          "kotodamaNotes": "○印(+1.0)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "↘︎",
+          "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0"
         },
         {
           "waku": "8",
@@ -2775,7 +3279,10 @@
           "kotodamaGrade": "B",
           "kotodamaScore": 7.0,
           "kotodamaRank": 3,
-          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]"
+          "kotodamaNotes": "○印(+1.0) | 🟢+1.0[期待]",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "DB未登録(±0)"
         },
         {
           "waku": "8",
@@ -2791,7 +3298,10 @@
           "kotodamaGrade": "D",
           "kotodamaScore": 4.5,
           "kotodamaRank": 14,
-          "kotodamaNotes": "△印(-0.5)"
+          "kotodamaNotes": "△印(-0.5)",
+          "suzakuScore": 0.0,
+          "suzakuTrend": "—",
+          "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0"
         }
       ]
     }
