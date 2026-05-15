@@ -22,7 +22,10 @@
     "suzakuNote",
     "genbuScore",
     "genbuTrend",
-    "genbuNote"
+    "genbuNote",
+    "totalScore",
+    "pickMark",
+    "pickRank"
   ],
   "races": [
     {
@@ -49,7 +52,10 @@
           "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(菊沢隆) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(菊沢隆) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
+          "totalScore": 7.3,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "1",
@@ -71,7 +77,10 @@
           "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(小笠倫) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(小笠倫) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.19,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -93,7 +102,10 @@
           "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(嘉藤貴) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(嘉藤貴) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -115,7 +127,10 @@
           "suzakuNote": "柴田大知 | 全体SH7.1×0.7補完 | 直近4.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(畠山吉) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(畠山吉) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
+          "totalScore": 6.15,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -137,7 +152,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(森一誠) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(森一誠) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.675,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -159,7 +177,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(池上和) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(池上和) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 6.75,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -181,7 +202,10 @@
           "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎伊藤大士[D](0.3) | 外厩DB未登録(外厩なし) → 0.3"
+          "genbuNote": "厩舎伊藤大士[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
+          "totalScore": 8.08,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "4",
@@ -203,7 +227,10 @@
           "suzakuNote": "小林凌大 | 全体SH4.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 0.8,
           "genbuTrend": "—",
-          "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.8"
+          "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.8",
+          "totalScore": 6.24,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -225,7 +252,10 @@
           "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(松山将) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(松山将) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -247,7 +277,10 @@
           "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎高木登[B](1.0) | 外厩DB未登録(外厩なし) → 1.0"
+          "genbuNote": "厩舎高木登[B](1.0) | 外厩DB未登録(外厩なし) → 1.0",
+          "totalScore": 6.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -269,7 +302,10 @@
           "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(尾関知) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(尾関知) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 7.015,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -291,7 +327,10 @@
           "suzakuNote": "原田和真 | 全体SH4.9×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(上原博) | 外厩DB未登録(西山牧場阿見分場) → 0.0"
+          "genbuNote": "厩舎DB未登録(上原博) | 外厩DB未登録(西山牧場阿見分場) → 0.0",
+          "totalScore": 3.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -313,7 +352,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎田島俊明[B](1.0) | 外厩阿見トレセン[SH19.7%](0.5) → 1.5"
+          "genbuNote": "厩舎田島俊明[B](1.0) | 外厩阿見トレセン[SH19.7%](0.5) → 1.5",
+          "totalScore": 7.26,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -335,7 +377,10 @@
           "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎藤野健太[E](0.0) | 外厩宇治田原優駿Ｓ[SH21.5%](1.0) → 1.0"
+          "genbuNote": "厩舎藤野健太[E](0.0) | 外厩宇治田原優駿Ｓ[SH21.5%](1.0) → 1.0",
+          "totalScore": 7.3,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "8",
@@ -357,7 +402,10 @@
           "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(奥村武) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(奥村武) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 9.625,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "8",
@@ -379,7 +427,10 @@
           "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(粕谷昌) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(粕谷昌) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -407,7 +458,10 @@
           "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎武市康男[E](0.0) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎武市康男[E](0.0) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "1",
@@ -429,7 +483,10 @@
           "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53",
           "genbuScore": 3.5,
           "genbuTrend": "🔥",
-          "genbuNote": "厩舎栗田徹[B](1.0) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 3.5"
+          "genbuNote": "厩舎栗田徹[B](1.0) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 3.5",
+          "totalScore": 7.315,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "2",
@@ -451,7 +508,10 @@
           "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎斎藤誠[B](1.0) | 外厩エスティＦ小見川[SH19.6%](0.5) → 1.5"
+          "genbuNote": "厩舎斎藤誠[B](1.0) | 外厩エスティＦ小見川[SH19.6%](0.5) → 1.5",
+          "totalScore": 6.45,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -473,7 +533,10 @@
           "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45",
           "genbuScore": 2.8,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎金成貴史[D](0.3) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.8"
+          "genbuNote": "厩舎金成貴史[D](0.3) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.8",
+          "totalScore": 7.065,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -495,7 +558,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 8.11,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "3",
@@ -517,7 +583,10 @@
           "suzakuNote": "DB未登録(±0)",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(伊坂重) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(伊坂重) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -539,7 +608,10 @@
           "suzakuNote": "水沼元輝 | 全体SH7.4×0.7補完 | 直近33.3%→(0.90x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(清水英) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(清水英) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 5.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -561,7 +633,10 @@
           "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(的場均) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(的場均) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -583,7 +658,10 @@
           "suzakuNote": "小林凌大 | 全体SH4.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(田中勝) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(田中勝) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 4.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -605,7 +683,10 @@
           "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(小野次) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(小野次) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.19,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -627,7 +708,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
+          "totalScore": 6.6,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -649,7 +733,10 @@
           "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(和田雄) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(和田雄) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -671,7 +758,10 @@
           "suzakuNote": "江田照男 | 全体SH7.7×0.7補完 | 直近3.3%↘︎(0.75x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(矢野英) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(矢野英) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
+          "totalScore": 6.15,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -693,7 +783,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(鈴木慎) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(鈴木慎) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 7.5,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "8",
@@ -715,7 +808,10 @@
           "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 6.75,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -737,7 +833,10 @@
           "suzakuNote": "柴田大知 | 全体SH7.1×0.7補完 | 直近4.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(松山将) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(松山将) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
+          "totalScore": 5.65,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -765,7 +864,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎西田雄一郎[B](1.0) | 外厩DB未登録(小野瀬ファーム) → 1.0"
+          "genbuNote": "厩舎西田雄一郎[B](1.0) | 外厩DB未登録(小野瀬ファーム) → 1.0",
+          "totalScore": 7.25,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "1",
@@ -787,7 +889,10 @@
           "suzakuNote": "黛弘人 | 全体SH4.9×0.7補完 | 直近5.6%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎青木孝文[E](0.0) | 外厩DB未登録(西山牧場阿見分場) → 0.0"
+          "genbuNote": "厩舎青木孝文[E](0.0) | 外厩DB未登録(西山牧場阿見分場) → 0.0",
+          "totalScore": 7.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -809,7 +914,10 @@
           "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎田島俊明[B](1.0) | 外厩松風馬事センター[SH12.5%](0.0) → 1.0"
+          "genbuNote": "厩舎田島俊明[B](1.0) | 外厩松風馬事センター[SH12.5%](0.0) → 1.0",
+          "totalScore": 7.3,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -831,7 +939,10 @@
           "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎牧光二[C](0.5) | 外厩阿見トレセン[SH19.7%](0.5) → 1.0"
+          "genbuNote": "厩舎牧光二[C](0.5) | 外厩阿見トレセン[SH19.7%](0.5) → 1.0",
+          "totalScore": 6.3,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -853,7 +964,10 @@
           "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(田中勝) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(田中勝) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 4.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -875,7 +989,10 @@
           "suzakuNote": "小林脩斗 | 全体SH1.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(嘉藤貴) | 外厩DB未登録(ブルーステーブル) → 0.0"
+          "genbuNote": "厩舎DB未登録(嘉藤貴) | 外厩DB未登録(ブルーステーブル) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -897,7 +1014,10 @@
           "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(松山将) | 外厩DB未登録(西山牧場阿見分場) → 0.0"
+          "genbuNote": "厩舎DB未登録(松山将) | 外厩DB未登録(西山牧場阿見分場) → 0.0",
+          "totalScore": 4.69,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -919,7 +1039,10 @@
           "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(室井潔) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(室井潔) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 9.575,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "5",
@@ -941,7 +1064,10 @@
           "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎金成貴史[D](0.3) | 外厩DB未登録(Ｔｏｍｏｒｒｏｗ　Ｆａｒｍ) → 0.3"
+          "genbuNote": "厩舎金成貴史[D](0.3) | 外厩DB未登録(Ｔｏｍｏｒｒｏｗ　Ｆａｒｍ) → 0.3",
+          "totalScore": 6.29,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -963,7 +1089,10 @@
           "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(加藤士) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(加藤士) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 9.765,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "6",
@@ -985,7 +1114,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(尾関知) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(尾関知) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 8.06,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "6",
@@ -1007,7 +1139,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -1029,7 +1164,10 @@
           "suzakuNote": "水沼元輝 | 全体SH7.4×0.7補完 | 直近33.3%→(0.90x) → 0.0",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎西田雄一郎[B](1.0) | 外厩DB未登録(Ｔｏｍｏｒｒｏｗ　Ｆａｒｍ) → 1.0"
+          "genbuNote": "厩舎西田雄一郎[B](1.0) | 外厩DB未登録(Ｔｏｍｏｒｒｏｗ　Ｆａｒｍ) → 1.0",
+          "totalScore": 6.3,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -1051,7 +1189,10 @@
           "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(鈴木伸) | 外厩DB未登録(ブルーステーブル) → 0.0"
+          "genbuNote": "厩舎DB未登録(鈴木伸) | 外厩DB未登録(ブルーステーブル) → 0.0",
+          "totalScore": 4.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -1073,7 +1214,10 @@
           "suzakuNote": "DB未登録(±0)",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎武市康男[E](0.0) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5"
+          "genbuNote": "厩舎武市康男[E](0.0) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
+          "totalScore": 4.65,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -1095,7 +1239,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(高柳瑞) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(高柳瑞) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 5.725,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -1123,7 +1270,10 @@
           "suzakuNote": "DB未登録(±0)",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.45,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -1145,7 +1295,10 @@
           "suzakuNote": "柴田大知 | 全体SH7.1×0.7補完 | 直近4.2%↘︎(0.75x) → 0.0",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎西田雄一郎[B](1.0) | 外厩DB未登録(外厩なし) → 1.0"
+          "genbuNote": "厩舎西田雄一郎[B](1.0) | 外厩DB未登録(外厩なし) → 1.0",
+          "totalScore": 6.3,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -1167,7 +1320,10 @@
           "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(矢野英) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(矢野英) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -1189,7 +1345,10 @@
           "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(堀宣行) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0"
+          "genbuNote": "厩舎DB未登録(堀宣行) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
+          "totalScore": 8.475,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "4",
@@ -1211,7 +1370,10 @@
           "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(松永康) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(松永康) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.19,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -1233,7 +1395,10 @@
           "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(小笠倫) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(小笠倫) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -1255,7 +1420,10 @@
           "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(小笠倫) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(小笠倫) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.265,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -1277,7 +1445,10 @@
           "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0",
           "genbuScore": 0.8,
           "genbuTrend": "—",
-          "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.8"
+          "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.8",
+          "totalScore": 8.74,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "6",
@@ -1299,7 +1470,10 @@
           "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(浅利英) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(浅利英) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
+          "totalScore": 6.15,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -1321,7 +1495,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(蛯名正) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(蛯名正) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -1343,7 +1520,10 @@
           "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎田村康仁[C](0.5) | 外厩DB未登録(外厩なし) → 0.5"
+          "genbuNote": "厩舎田村康仁[C](0.5) | 外厩DB未登録(外厩なし) → 0.5",
+          "totalScore": 8.15,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "8",
@@ -1365,7 +1545,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎相沢郁[D](0.3) | 外厩DB未登録(外厩なし) → 0.3"
+          "genbuNote": "厩舎相沢郁[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
+          "totalScore": 7.74,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -1387,7 +1570,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(大竹正) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.0"
+          "genbuNote": "厩舎DB未登録(大竹正) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.0",
+          "totalScore": 6.825,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -1415,7 +1601,10 @@
           "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45",
           "genbuScore": 2.3,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎伊藤大士[D](0.3) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.3"
+          "genbuNote": "厩舎伊藤大士[D](0.3) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.3",
+          "totalScore": 6.915,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "1",
@@ -1437,7 +1626,10 @@
           "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 7.825,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "2",
@@ -1459,7 +1651,10 @@
           "suzakuNote": "水沼元輝 | 全体SH7.4×0.7補完 | 直近33.3%→(0.90x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(石栗龍) | 外厩DB未登録(栗山育成牧場) → 0.0"
+          "genbuNote": "厩舎DB未登録(石栗龍) | 外厩DB未登録(栗山育成牧場) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -1481,7 +1676,10 @@
           "suzakuNote": "松岡正海 | 全体SH12.9×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎水野貴広[D](0.3) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.3"
+          "genbuNote": "厩舎水野貴広[D](0.3) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.3",
+          "totalScore": 6.09,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -1503,7 +1701,10 @@
           "suzakuNote": "黛弘人 | 全体SH4.9×0.7補完 | 直近5.6%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(高柳瑞) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(高柳瑞) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.2,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -1525,7 +1726,10 @@
           "suzakuNote": "小林凌大 | 全体SH4.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎尾形和幸[D](0.3) | 外厩吉澤Ｓ－ＥＡＳＴ[SH14.2%](0.0) → 0.3"
+          "genbuNote": "厩舎尾形和幸[D](0.3) | 外厩吉澤Ｓ－ＥＡＳＴ[SH14.2%](0.0) → 0.3",
+          "totalScore": 4.59,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -1547,7 +1751,10 @@
           "suzakuNote": "柴田大知 | 全体SH7.1×0.7補完 | 直近4.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(畠山吉) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.0"
+          "genbuNote": "厩舎DB未登録(畠山吉) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -1569,7 +1776,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(蛯名正) | 外厩ミッドウェイＦ[SH27.6%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(蛯名正) | 外厩ミッドウェイＦ[SH27.6%](1.5) → 1.5",
+          "totalScore": 6.45,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -1591,7 +1801,10 @@
           "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎牧光二[C](0.5) | 外厩DB未登録(外厩なし) → 0.5"
+          "genbuNote": "厩舎牧光二[C](0.5) | 外厩DB未登録(外厩なし) → 0.5",
+          "totalScore": 6.15,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -1613,7 +1826,10 @@
           "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(宮田敬) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(宮田敬) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.9,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -1635,7 +1851,10 @@
           "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38",
           "genbuScore": 2.3,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎伊藤大士[D](0.3) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.3"
+          "genbuNote": "厩舎伊藤大士[D](0.3) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.3",
+          "totalScore": 6.88,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -1657,7 +1876,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(鈴木慎) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(鈴木慎) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 7.725,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "7",
@@ -1679,7 +1901,10 @@
           "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(矢野英) | 外厩松風馬事センター[SH12.5%](0.0) → 0.0"
+          "genbuNote": "厩舎DB未登録(矢野英) | 外厩松風馬事センター[SH12.5%](0.0) → 0.0",
+          "totalScore": 6.19,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -1701,7 +1926,10 @@
           "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎岩戸孝樹[A](1.5) | 外厩エスティＦ小見川[SH19.6%](0.5) → 2.0"
+          "genbuNote": "厩舎岩戸孝樹[A](1.5) | 外厩エスティＦ小見川[SH19.6%](0.5) → 2.0",
+          "totalScore": 6.6,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -1723,7 +1951,10 @@
           "suzakuNote": "原田和真 | 全体SH4.9×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(萱野浩) | 外厩DB未登録(大東牧場) → 0.0"
+          "genbuNote": "厩舎DB未登録(萱野浩) | 外厩DB未登録(大東牧場) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -1745,7 +1976,10 @@
           "suzakuNote": "DB未登録(±0)",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(畠山吉) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(畠山吉) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -1767,7 +2001,10 @@
           "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(勢司和) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(勢司和) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.8,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -1789,7 +2026,10 @@
           "suzakuNote": "的場勇人 | 東京SH0.0%(n=0) | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(的場均) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(的場均) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
+          "totalScore": 6.15,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -1817,7 +2057,10 @@
           "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45",
           "genbuScore": 3.0,
           "genbuTrend": "🔥",
-          "genbuNote": "厩舎田村康仁[C](0.5) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 3.0"
+          "genbuNote": "厩舎田村康仁[C](0.5) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 3.0",
+          "totalScore": 7.125,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -1839,7 +2082,10 @@
           "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(大久龍) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(大久龍) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 8.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -1861,7 +2107,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 1.8,
           "genbuTrend": "→",
-          "genbuNote": "厩舎友道康夫[A](1.5)🔥 | 外厩DB未登録(外厩なし) → 1.8"
+          "genbuNote": "厩舎友道康夫[A](1.5)🔥 | 外厩DB未登録(外厩なし) → 1.8",
+          "totalScore": 11.35,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "4",
@@ -1883,7 +2132,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(矢野英) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(矢野英) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 10.5,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "5",
@@ -1905,7 +2157,10 @@
           "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(加藤公) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0"
+          "genbuNote": "厩舎DB未登録(加藤公) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
+          "totalScore": 6.6,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -1927,7 +2182,10 @@
           "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(和田雄) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(和田雄) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 4.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -1949,7 +2207,10 @@
           "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 10.425,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "8",
@@ -1971,7 +2232,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(林　徹) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(林　徹) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.9,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -1999,7 +2263,10 @@
           "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(武藤善) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(武藤善) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 10.5,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "1",
@@ -2021,7 +2288,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎西園翔太[B](1.0) | 外厩宇治田原優駿Ｓ[SH21.5%](1.0) → 2.0"
+          "genbuNote": "厩舎西園翔太[B](1.0) | 外厩宇治田原優駿Ｓ[SH21.5%](1.0) → 2.0",
+          "totalScore": 7.825,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -2043,7 +2313,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(林　徹) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(林　徹) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.9,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -2065,7 +2338,10 @@
           "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(大竹正) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(大竹正) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.915,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -2087,7 +2363,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩吉澤Ｓ－ＥＡＳＴ[SH14.2%](0.0) → 0.0"
+          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩吉澤Ｓ－ＥＡＳＴ[SH14.2%](0.0) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -2109,7 +2388,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(武幸四) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(武幸四) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 9.31,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "4",
@@ -2131,7 +2413,10 @@
           "suzakuNote": "石橋脩 | 全体SH12.3×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(石栗龍) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(石栗龍) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 4.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -2153,7 +2438,10 @@
           "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎伊藤圭三[B](1.0) | 外厩松風馬事センター[SH12.5%](0.0) → 1.0"
+          "genbuNote": "厩舎伊藤圭三[B](1.0) | 外厩松風馬事センター[SH12.5%](0.0) → 1.0",
+          "totalScore": 6.49,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -2175,7 +2463,10 @@
           "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(鈴木伸) | 外厩DB未登録(ブルーステーブル) → 0.0"
+          "genbuNote": "厩舎DB未登録(鈴木伸) | 外厩DB未登録(ブルーステーブル) → 0.0",
+          "totalScore": 6.39,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -2197,7 +2488,10 @@
           "suzakuNote": "DB未登録(±0)",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎小栗実[D](0.3) | 外厩DB未登録(外厩なし) → 0.3"
+          "genbuNote": "厩舎小栗実[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
+          "totalScore": 6.09,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -2219,7 +2513,10 @@
           "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(蛯名正) | 外厩DB未登録(テンコートレーニングセンター) → 0.0"
+          "genbuNote": "厩舎DB未登録(蛯名正) | 外厩DB未登録(テンコートレーニングセンター) → 0.0",
+          "totalScore": 5.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -2241,7 +2538,10 @@
           "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(竹内正) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(竹内正) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 7.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -2263,7 +2563,10 @@
           "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎森秀行[B](1.0) | 外厩DB未登録(外厩なし) → 1.0"
+          "genbuNote": "厩舎森秀行[B](1.0) | 外厩DB未登録(外厩なし) → 1.0",
+          "totalScore": 8.25,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "7",
@@ -2285,7 +2588,10 @@
           "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎斎藤誠[B](1.0) | 外厩エスティＦ小見川[SH19.6%](0.5) → 1.5"
+          "genbuNote": "厩舎斎藤誠[B](1.0) | 外厩エスティＦ小見川[SH19.6%](0.5) → 1.5",
+          "totalScore": 6.45,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -2307,7 +2613,10 @@
           "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎岩戸孝樹[A](1.5) | 外厩DB未登録(外厩なし) → 1.5"
+          "genbuNote": "厩舎岩戸孝樹[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
+          "totalScore": 6.64,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -2329,7 +2638,10 @@
           "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(畠山吉) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(畠山吉) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
+          "totalScore": 4.65,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -2357,7 +2669,10 @@
           "suzakuNote": "DB未登録(±0)",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(鈴木慎) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(鈴木慎) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 9.5,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "1",
@@ -2379,7 +2694,10 @@
           "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(高橋文) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(高橋文) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.2,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -2401,7 +2719,10 @@
           "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38",
           "genbuScore": 1.0,
           "genbuTrend": "→",
-          "genbuNote": "厩舎西園翔太[B](1.0) | 外厩DB未登録(外厩なし) → 1.0"
+          "genbuNote": "厩舎西園翔太[B](1.0) | 外厩DB未登録(外厩なし) → 1.0",
+          "totalScore": 7.49,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "2",
@@ -2423,7 +2744,10 @@
           "suzakuNote": "江田照男 | 全体SH7.7×0.7補完 | 直近3.3%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(竹内正) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(竹内正) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -2445,7 +2769,10 @@
           "suzakuNote": "木幡初也 | 全体SH10.4×0.7補完 | 直近6.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(室井潔) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(室井潔) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -2467,7 +2794,10 @@
           "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(平岩大) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(平岩大) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.225,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -2489,7 +2819,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(大和田) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(大和田) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -2511,7 +2844,10 @@
           "suzakuNote": "松岡正海 | 全体SH12.9×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -2533,7 +2869,10 @@
           "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(松永康) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(松永康) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 4.5,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -2555,7 +2894,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(新開幸) | 外厩DB未登録(オークヒルファーム) → 0.0"
+          "genbuNote": "厩舎DB未登録(新開幸) | 外厩DB未登録(オークヒルファーム) → 0.0",
+          "totalScore": 6.225,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -2577,7 +2919,10 @@
           "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38",
           "genbuScore": 0.8,
           "genbuTrend": "—",
-          "genbuNote": "厩舎相沢郁[D](0.3) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.8"
+          "genbuNote": "厩舎相沢郁[D](0.3) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.8",
+          "totalScore": 7.43,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -2599,7 +2944,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(武幸四) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(武幸四) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 7.51,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "7",
@@ -2621,7 +2969,10 @@
           "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(勢司和) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(勢司和) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.19,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -2643,7 +2994,10 @@
           "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(高橋文) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(高橋文) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 6.75,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -2665,7 +3019,10 @@
           "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(松山将) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(松山将) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.8,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -2687,7 +3044,10 @@
           "suzakuNote": "水沼元輝 | 全体SH7.4×0.7補完 | 直近33.3%→(0.90x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(加藤和) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(加藤和) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 4.5,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -2715,7 +3075,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(松尾卓) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0"
+          "genbuNote": "厩舎DB未登録(松尾卓) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
+          "totalScore": 7.91,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "2",
@@ -2737,7 +3100,10 @@
           "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎藤原英昭[A](1.5) | 外厩DB未登録(外厩なし) → 1.5"
+          "genbuNote": "厩舎藤原英昭[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
+          "totalScore": 10.175,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "3",
@@ -2759,7 +3125,10 @@
           "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(奥村武) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(奥村武) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 10.125,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "4",
@@ -2781,7 +3150,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(柄崎将) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.0"
+          "genbuNote": "厩舎DB未登録(柄崎将) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -2803,7 +3175,10 @@
           "suzakuNote": "松岡正海 | 全体SH12.9×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 1.8,
           "genbuTrend": "→",
-          "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩山元トレセン[SH26.4%](1.5) → 1.8"
+          "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩山元トレセン[SH26.4%](1.5) → 1.8",
+          "totalScore": 6.74,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -2825,7 +3200,10 @@
           "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎須貝尚介[C](0.5) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.5"
+          "genbuNote": "厩舎須貝尚介[C](0.5) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.5",
+          "totalScore": 7.4,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -2847,7 +3225,10 @@
           "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(村田一) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(村田一) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.19,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -2869,7 +3250,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎鈴木孝志[D](0.3) | 外厩DB未登録(外厩なし) → 0.3"
+          "genbuNote": "厩舎鈴木孝志[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
+          "totalScore": 6.315,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -2891,7 +3275,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(手塚徳) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(手塚徳) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.45,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -2919,7 +3306,10 @@
           "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(萩原清) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(萩原清) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -2941,7 +3331,10 @@
           "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎高木登[B](1.0) | 外厩阿見トレセン[SH19.7%](0.5) → 1.5"
+          "genbuNote": "厩舎高木登[B](1.0) | 外厩阿見トレセン[SH19.7%](0.5) → 1.5",
+          "totalScore": 6.64,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -2963,7 +3356,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(伊坂重) | 外厩DB未登録(小野瀬ファーム) → 0.0"
+          "genbuNote": "厩舎DB未登録(伊坂重) | 外厩DB未登録(小野瀬ファーム) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -2985,7 +3381,10 @@
           "suzakuNote": "松本大輝 | 全体SH11.7×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(高橋亮) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(高橋亮) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -3007,7 +3406,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(鈴木伸) | 外厩DB未登録(ブルーステーブル) → 0.0"
+          "genbuNote": "厩舎DB未登録(鈴木伸) | 外厩DB未登録(ブルーステーブル) → 0.0",
+          "totalScore": 7.45,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -3029,7 +3431,10 @@
           "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎伊藤大士[D](0.3) | 外厩DB未登録(外厩なし) → 0.3"
+          "genbuNote": "厩舎伊藤大士[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
+          "totalScore": 8.98,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "6",
@@ -3051,7 +3456,10 @@
           "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎栗田徹[B](1.0) | 外厩エスティＦ小見川[SH19.6%](0.5) → 1.5"
+          "genbuNote": "厩舎栗田徹[B](1.0) | 外厩エスティＦ小見川[SH19.6%](0.5) → 1.5",
+          "totalScore": 6.64,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -3073,7 +3481,10 @@
           "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(加藤征) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(加藤征) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
+          "totalScore": 10.875,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "7",
@@ -3095,7 +3506,10 @@
           "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(高柳瑞) | 外厩ミッドウェイＦ[SH27.6%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(高柳瑞) | 外厩ミッドウェイＦ[SH27.6%](1.5) → 1.5",
+          "totalScore": 6.715,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -3117,7 +3531,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(小笠倫) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(小笠倫) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.675,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -3139,7 +3556,10 @@
           "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(和田勇) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(和田勇) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 8.25,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -3161,7 +3581,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(高橋一) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(高橋一) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 10.81,
+          "pickMark": "○",
+          "pickRank": 2
         }
       ]
     },
@@ -3189,7 +3612,10 @@
           "suzakuNote": "田辺裕信 | 東京SH23.1%(n=68) | 直近18.6%↘︎(0.75x) → 0.38",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎宮本博[E](0.0) | 外厩社台ファーム鈴鹿[SH26.5%](1.5) → 1.5"
+          "genbuNote": "厩舎宮本博[E](0.0) | 外厩社台ファーム鈴鹿[SH26.5%](1.5) → 1.5",
+          "totalScore": 7.64,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -3211,7 +3637,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩DB未登録(Ｔｏｍｏｒｒｏｗ　Ｆａｒｍ) → 0.0"
+          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩DB未登録(Ｔｏｍｏｒｒｏｗ　Ｆａｒｍ) → 0.0",
+          "totalScore": 10.11,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "2",
@@ -3233,7 +3662,10 @@
           "suzakuNote": "松岡正海 | 全体SH12.9×0.7補完 | 直近16.7%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -3255,7 +3687,10 @@
           "suzakuNote": "横山武史 | 東京SH28.6%(n=92) | 直近23.7%→(0.90x) → 0.9",
           "genbuScore": 2.3,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎武井亮[D](0.3) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.3"
+          "genbuNote": "厩舎武井亮[D](0.3) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.3",
+          "totalScore": 7.14,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -3277,7 +3712,10 @@
           "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(長谷川) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.0"
+          "genbuNote": "厩舎DB未登録(長谷川) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.0",
+          "totalScore": 6.865,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -3299,7 +3737,10 @@
           "suzakuNote": "Ｄ．レーン | 東京SH71.4%(n=37) | 直近54.7%🔥(1.25x) → 3.75",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 9.125,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "4",
@@ -3321,7 +3762,10 @@
           "suzakuNote": "吉田豊 | 全体SH12.3×0.7補完 | 直近12.5%↘︎(0.75x) → 0.0",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎矢作芳人[A](1.5) | 外厩DB未登録(外厩なし) → 1.5"
+          "genbuNote": "厩舎矢作芳人[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
+          "totalScore": 6.45,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -3343,7 +3787,10 @@
           "suzakuNote": "佐々木大輔 | 東京SH24.6%(n=101) | 直近22.3%→(0.90x) → 0.45",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(藤岡健) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0"
+          "genbuNote": "厩舎DB未登録(藤岡健) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
+          "totalScore": 7.625,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -3365,7 +3812,10 @@
           "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(稲垣幸) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(稲垣幸) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 8.75,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -3387,7 +3837,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(宮田敬) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(宮田敬) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 8.95,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "6",
@@ -3409,7 +3862,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎佐藤悠太[C](0.5) | 外厩DB未登録(外厩なし) → 0.5"
+          "genbuNote": "厩舎佐藤悠太[C](0.5) | 外厩DB未登録(外厩なし) → 0.5",
+          "totalScore": 6.15,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -3431,7 +3887,10 @@
           "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(林　徹) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(林　徹) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 6.94,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -3453,7 +3912,10 @@
           "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45",
           "genbuScore": 3.0,
           "genbuTrend": "🔥",
-          "genbuNote": "厩舎藤原英昭[A](1.5) | 外厩社台ファーム鈴鹿[SH26.5%](1.5) → 3.0"
+          "genbuNote": "厩舎藤原英昭[A](1.5) | 外厩社台ファーム鈴鹿[SH26.5%](1.5) → 3.0",
+          "totalScore": 7.125,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -3475,7 +3937,10 @@
           "suzakuNote": "横山和生 | 東京SH27.9%(n=75) | 直近18.7%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.19,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -3497,7 +3962,10 @@
           "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎矢作芳人[A](1.5) | 外厩DB未登録(外厩なし) → 1.5"
+          "genbuNote": "厩舎矢作芳人[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
+          "totalScore": 7.45,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     },
@@ -3525,7 +3993,10 @@
           "suzakuNote": "丸田恭介 | 全体SH7.1×0.7補完 | 直近8.9%↘︎(0.75x) → 0.0",
           "genbuScore": 0.3,
           "genbuTrend": "—",
-          "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩DB未登録(外厩なし) → 0.3"
+          "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
+          "totalScore": 5.09,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "2",
@@ -3547,7 +4018,10 @@
           "suzakuNote": "佐藤翔馬 | 全体SH7.0×0.7補完 | 直近15.5%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(菊沢隆) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(菊沢隆) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 6.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -3569,7 +4043,10 @@
           "suzakuNote": "菅原明良 | 東京SH23.8%(n=71) | 直近12.2%↘︎(0.75x) → 0.38",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(大竹正) | 外厩松風馬事センター[SH12.5%](0.0) → 0.0"
+          "genbuNote": "厩舎DB未登録(大竹正) | 外厩松風馬事センター[SH12.5%](0.0) → 0.0",
+          "totalScore": 6.19,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "3",
@@ -3591,7 +4068,10 @@
           "suzakuNote": "三浦皇成 | 東京SH27.8%(n=73) | 直近36.6%↗︎(1.05x) → 0.53",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎鹿戸雄一[A](1.5) | 外厩DB未登録(外厩なし) → 1.5"
+          "genbuNote": "厩舎鹿戸雄一[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
+          "totalScore": 6.915,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -3613,7 +4093,10 @@
           "suzakuNote": "Ｍ．ディー | 東京SH26.1%(n=44) | 直近23.6%→(0.90x) → 0.45",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(嘉藤貴) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(嘉藤貴) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.875,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "4",
@@ -3635,7 +4118,10 @@
           "suzakuNote": "原田和真 | 全体SH4.9×0.7補完 | 直近11.1%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(松山将) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(松山将) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 8.0,
+          "pickMark": "○",
+          "pickRank": 2
         },
         {
           "waku": "5",
@@ -3657,7 +4143,10 @@
           "suzakuNote": "大野拓弥 | 全体SH17.7×0.7補完 | 直近30.4%→(0.90x) → 0.0",
           "genbuScore": 0.8,
           "genbuTrend": "—",
-          "genbuNote": "厩舎水野貴広[D](0.3) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.8"
+          "genbuNote": "厩舎水野貴広[D](0.3) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.8",
+          "totalScore": 4.74,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "5",
@@ -3679,7 +4168,10 @@
           "suzakuNote": "江田照男 | 全体SH7.7×0.7補完 | 直近3.3%↘︎(0.75x) → 0.0",
           "genbuScore": 0.5,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(林　徹) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.5"
+          "genbuNote": "厩舎DB未登録(林　徹) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.5",
+          "totalScore": 6.15,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "6",
@@ -3701,7 +4193,10 @@
           "suzakuNote": "戸崎圭太 | 東京SH50.0%(n=63) | 直近46.4%↗︎(1.05x) → 2.62",
           "genbuScore": 1.8,
           "genbuTrend": "→",
-          "genbuNote": "厩舎中舘英二[A](1.5)🔥 | 外厩DB未登録(外厩なし) → 1.8"
+          "genbuNote": "厩舎中舘英二[A](1.5)🔥 | 外厩DB未登録(外厩なし) → 1.8",
+          "totalScore": 8.05,
+          "pickMark": "◎",
+          "pickRank": 1
         },
         {
           "waku": "6",
@@ -3723,7 +4218,10 @@
           "suzakuNote": "黛弘人 | 全体SH4.9×0.7補完 | 直近5.6%↘︎(0.75x) → 0.0",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(柄崎将) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(柄崎将) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 7.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "7",
@@ -3745,7 +4243,10 @@
           "suzakuNote": "津村明秀 | 東京SH34.7%(n=89) | 直近29.0%→(0.90x) → 0.9",
           "genbuScore": 2.0,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(林　徹) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.0"
+          "genbuNote": "厩舎DB未登録(林　徹) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.0",
+          "totalScore": 7.05,
+          "pickMark": "▲",
+          "pickRank": 3
         },
         {
           "waku": "7",
@@ -3767,7 +4268,10 @@
           "suzakuNote": "原優介 | 東京SH17.6%(n=82) | 直近16.2%↘︎(0.75x) → 0.0",
           "genbuScore": 1.5,
           "genbuTrend": "→",
-          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩山元トレセン[SH26.4%](1.5) → 1.5"
+          "genbuNote": "厩舎DB未登録(古賀慎) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
+          "totalScore": 6.45,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -3789,7 +4293,10 @@
           "suzakuNote": "DB未登録(±0)",
           "genbuScore": 0.0,
           "genbuTrend": "—",
-          "genbuNote": "厩舎DB未登録(佐藤吉) | 外厩DB未登録(外厩なし) → 0.0"
+          "genbuNote": "厩舎DB未登録(佐藤吉) | 外厩DB未登録(外厩なし) → 0.0",
+          "totalScore": 7.0,
+          "pickMark": "",
+          "pickRank": 0
         },
         {
           "waku": "8",
@@ -3811,7 +4318,10 @@
           "suzakuNote": "北村宏司 | 全体SH6.3×0.7補完 | 直近0.0%—(1.00x) → 0.0",
           "genbuScore": 2.5,
           "genbuTrend": "↗︎",
-          "genbuNote": "厩舎DB未登録(宮田敬) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5"
+          "genbuNote": "厩舎DB未登録(宮田敬) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
+          "totalScore": 5.25,
+          "pickMark": "",
+          "pickRank": 0
         }
       ]
     }
