@@ -65,7 +65,7 @@ def extract_suzaku_context(note: str, score: float) -> str:
         return ""
     m = re.search(r"([東京都|京都|新潟]\w{1,5}SH[\d.]+%\(n=\d+\))", note)
     if m:
-        return f"当舞台での複勝率{m.group(1)}が示す騎手の信頼。"
+        return "コース巧者騎手。"
     if score >= 2.0:
         return "鞍上の当舞台適性が数値で裏付けられている。"
     return ""
