@@ -473,11 +473,11 @@
 
 <script>
 const FILES = ['data/kotodama-test/2026-05-09-10.json'];
-const MARK_CLASS = {'◎':'mark','○':'mark','▲':'mark dou','△':'mark dou','穴':'mark byakko'};
-// 5/17本番から4頭目は「穴」（白虎枠）。それ以前は △ 維持（先週データ保護）
+const MARK_CLASS = {'◎':'mark','○':'mark','▲':'mark dou','△':'mark dou','穴':'mark byakko','激':'mark byakko'};
+// 5/17本番から4頭目は「激」（白虎枠・激走軸）。それ以前は △ 維持（先週データ保護）
 const BYAKKO_DEBUT = '2026-05-16';
 function markOrderFor(date){
-  return (date && date >= BYAKKO_DEBUT) ? ['◎','○','▲','穴'] : ['◎','○','▲','△'];
+  return (date && date >= BYAKKO_DEBUT) ? ['◎','○','▲','激'] : ['◎','○','▲','△'];
 }
 const MARK_ORDER = ['◎','○','▲','△']; // 既定（後方互換用）
 
@@ -1053,7 +1053,7 @@ function render(){
         <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>${r.date >= '2026-05-10' ? '上昇🔥' : '外厩'}</th><th>言霊評価</th></tr>
         ${reorderPicksByTiebreaker(r.picks).map((p, i) => {
           const order = markOrderFor(r.date);
-          const dynMark = (p.mark === '穴') ? '穴' : (order[i] ?? p.mark);
+          const dynMark = (p.mark === '激') ? '激' : (p.mark === '穴') ? '激' : (order[i] ?? p.mark);
           const rk = p.finalRank ? Number(p.finalRank) : null;
           const inMoney = rk && rk>=1 && rk<=3;
           const rkCls = rk===1?'r1':rk===2?'r2':rk===3?'r3':'';
