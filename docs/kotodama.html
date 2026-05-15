@@ -507,22 +507,27 @@ function fireScoreNum(s){
 // 第2ソート（タイブレーク）：朱雀スコア降順（suzakuScore がある場合優先）
 // 第3ソート（旧来）：🔥スコア降順
 function reorderPicksByTiebreaker(picks){
-  // 激枠は末尾固定、◎○▲は言霊→朱雀→🔥の3段ソート
+  // 激枠は末尾固定
+  // ◎○▲は totalScore 降順（2026-05-10以降の三術ピック順を正とする）
+  // totalScore未設定の旧データは言霊→朱雀→🔥にフォールバック
+  const MARK_ORDER_IDX = {'◎':0,'○':1,'▲':2,'穴':3};
   const main = picks.filter(p => p.mark !== '激');
   const geki = picks.filter(p => p.mark === '激');
   main.sort((a,b) => {
+    // 新データ: totalScore で厳密ソート
+    const ta = a.totalScore ?? null;
+    const tb = b.totalScore ?? null;
+    if (ta != null && tb != null && ta !== tb) return tb - ta;
+    // 旧データフォールバック: 言霊グレード
     const ga = kotodamaScore(a.kotodamaGrade);
     const gb = kotodamaScore(b.kotodamaGrade);
     if (ga !== gb) return gb - ga;
-    // タイブレーク①: 朱雀スコア（グレードバケツ）
     const sa = a.suzakuScore ?? 0;
     const sb = b.suzakuScore ?? 0;
     if (sa !== sb) return sb - sa;
-    // タイブレーク②: 朱雀Avg実数値（同グレード内の微差を拾う）
     const aa = a.suzakuAvg ?? 0;
     const ab = b.suzakuAvg ?? 0;
     if (aa !== ab) return ab - aa;
-    // タイブレーク③: 旧🔥スコア（後方互換）
     return fireScoreNum(b.gaikyuGrade) - fireScoreNum(a.gaikyuGrade);
   });
   return [...main, ...geki];
