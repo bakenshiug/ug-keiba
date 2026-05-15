@@ -1,0 +1,226 @@
+{
+  "experimentName": "言霊のみ予想実験",
+  "version": "v2",
+  "startDate": "2026-05-16",
+  "paidDay": false,
+  "rule": "競馬ブック前走コメント＋厩舎の話のみ。言霊×外厩★マトリクス。4頭picks。1-3R無料/4R以降ロック",
+  "races": [
+    {
+      "raceId": "202605020701",
+      "keibabookId": "202602040701",
+      "date": "2026-05-16",
+      "venue": "東京",
+      "raceNum": "1R",
+      "raceName": "3歳未勝利",
+      "category": "未勝利",
+      "surface": "ダ",
+      "distance": 1400,
+      "numHorses": 16,
+      "startTime": "09:50",
+      "keibabookMemo": "混戦模様",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 14,
+          "name": "ムルーデ",
+          "jockey": "石橋脩",
+          "trainer": "栗東藤野",
+          "kotodamaGrade": "S",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★★",
+          "comment": "陣営「左回りが合っているので、放牧を挟んでここを目標に調整」← 目標明言！前走コメントも「左回りだと末脚確実」と二重証言🔥",
+          "byakkoNote": ""
+        },
+        {
+          "mark": "○",
+          "num": 10,
+          "name": "カーボフリオ",
+          "jockey": "佐藤翔",
+          "trainer": "美浦高木",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★",
+          "comment": "騎手「距離延長で内容は良くなった。先につながる好内容」陣営「段々と競馬を覚えてきた」← 成長を両者が実感💪",
+          "byakkoNote": ""
+        },
+        {
+          "mark": "▲",
+          "num": 5,
+          "name": "トリエンナーレ",
+          "jockey": "佐々木大",
+          "trainer": "美浦森一",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★",
+          "comment": "陣営「東京なら上位争いも可能」← 強気宣言！前走1200mで良化確認、東京で距離延長↑",
+          "byakkoNote": "チークピーシズ装着中"
+        },
+        {
+          "mark": "穴",
+          "num": 15,
+          "name": "フォワードシャッセ",
+          "jockey": "レーン",
+          "trainer": "美浦奥村武",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★（妙味枠）",
+          "comment": "陣営◎印！「ブリンカーで行きっぷり良化・精神的成長が大きかった。全体に上がってきています」← 大変化証言⚡ レーン騎手✕変化馬",
+          "byakkoNote": "⚡ブリンカー2戦目（前走初装着→効果確認済み）"
+        }
+      ],
+      "watchList": [
+        {"num": 1, "name": "オーシャンステラ", "note": "「東京で距離延びれば楽しみ」B級。ダート適性が鍵"},
+        {"num": 4, "name": "フェスティヴハート", "note": "⚡厩舎「チークピーシズを着ける予定」← 初チーク白虎変化！体減り問題あるが注意"}
+      ],
+      "fatalWords": [
+        {"num": 8, "name": "ニューハイ", "word": "「体質が弱く体もないので攻め切れない」← 致命"},
+        {"num": 12, "name": "オルナータス", "word": "△印「終いがもうひと息……」← △消極"}
+      ]
+    },
+    {
+      "raceId": "202608030701",
+      "keibabookId": "202603000701",
+      "date": "2026-05-16",
+      "venue": "京都",
+      "raceNum": "1R",
+      "raceName": "3歳未勝利",
+      "category": "未勝利",
+      "surface": "ダ",
+      "distance": 1400,
+      "numHorses": 16,
+      "startTime": "09:45",
+      "keibabookMemo": "高配含み",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 8,
+          "name": "プリンセスアツコ",
+          "jockey": "鮫島良",
+          "trainer": "栗東河嶋",
+          "kotodamaGrade": "S",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★★",
+          "comment": "前走2着「もう順番待ち」← 最強ワード！厩舎◎印「レースぶりは安定。状態キープ」← 二重鉄板🏆",
+          "byakkoNote": ""
+        },
+        {
+          "mark": "○",
+          "num": 5,
+          "name": "ルージュバロン",
+          "jockey": "坂井瑠星",
+          "trainer": "栗東福永",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★",
+          "comment": "陣営「今回はいい感じ。ダートの走りがいいから、立ち気味の肩や繋の感じからも適性を感じる」← ダート初出走で陣営確信💡",
+          "byakkoNote": ""
+        },
+        {
+          "mark": "▲",
+          "num": 7,
+          "name": "シャンパンスター",
+          "jockey": "国分恭介",
+          "trainer": "栗東緒方",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★",
+          "comment": "前走3着「徐々に力をつけてきた」陣営「精神面が安定して内容も良く、動きも更に良くなっています」← 上昇曲線明確📈",
+          "byakkoNote": ""
+        },
+        {
+          "mark": "穴",
+          "num": 4,
+          "name": "エイユーサクラ",
+          "jockey": "秋山稔樹",
+          "trainer": "栗東高橋忠",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★（妙味枠）",
+          "comment": "陣営「体力がついてパワフルになってきた。ブリンカーを着けます」← 初ブリ白虎変化⚡ 前走「上積み見込める」と騎手も証言",
+          "byakkoNote": "⚡初ブリンカー装着（白虎変化）"
+        }
+      ],
+      "watchList": [
+        {"num": 12, "name": "シャドウルーラー", "note": "「初戦時のような前進気勢が出てきた。前走より動けても」← B級だが復調気配"},
+        {"num": 15, "name": "カツラコマチ", "note": "「順調に仕上がれた。1400mが合いそう」← 初出走B級"}
+      ],
+      "fatalWords": [
+        {"num": 1, "name": "メイショウルビー", "word": "16着前走。「体が増えてこない。きっかけを掴みたい」← D"},
+        {"num": 10, "name": "バーニングラン", "word": "△印「そう変わっていませんね。きっかけが欲しいところですが……」← △D消去"}
+      ]
+    },
+    {
+      "raceId": "202604010501",
+      "keibabookId": "202601070501",
+      "date": "2026-05-16",
+      "venue": "新潟",
+      "raceNum": "1R",
+      "raceName": "3歳未勝利",
+      "category": "未勝利",
+      "surface": "ダ",
+      "distance": 1800,
+      "numHorses": 15,
+      "startTime": "10:05",
+      "keibabookMemo": "実力伯仲",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": 8,
+          "name": "ストロングボーイ",
+          "jockey": "西塚洸二",
+          "trainer": "栗東野中",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★",
+          "comment": "陣営「今までで一番いい内容。馬も良くなっているし少しずつ動けてきている」← 自己最高値更新宣言！前走不利ありで3着、その悔しさを胸に🔥",
+          "byakkoNote": ""
+        },
+        {
+          "mark": "○",
+          "num": 5,
+          "name": "クレセントゼファー",
+          "jockey": "小崎綾乃",
+          "trainer": "栗東高橋一",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★",
+          "comment": "陣営「緩さが解消して体がしっかり。一変してもおかしくありません」← 陣営自ら「一変」宣言⚡ 激走フラグ最高级",
+          "byakkoNote": ""
+        },
+        {
+          "mark": "▲",
+          "num": 3,
+          "name": "ウェイヴムーン",
+          "jockey": "舟山瑠雄",
+          "trainer": "栗東石坂",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★",
+          "comment": "騎手「長丁場のレースが合っている感じ」陣営「一戦毎に内容は良くなっている。馬具を工夫する予定」← 距離適性＋変化札📈",
+          "byakkoNote": "馬具変化予定あり"
+        },
+        {
+          "mark": "穴",
+          "num": 7,
+          "name": "クリムゾンリーフ",
+          "jockey": "ゴンサルベス",
+          "trainer": "美浦伊藤",
+          "kotodamaGrade": "A",
+          "gaikyuGrade": "在厩",
+          "shrineStar": "★★★★（妙味枠）",
+          "comment": "陣営「追い切り強度を上げられている。動きもいい。今回はブリンカーを試してみる」← 初ブリ白虎変化⚡ 外国人騎手×変化馬",
+          "byakkoNote": "⚡初ブリンカー装着（白虎変化）"
+        }
+      ],
+      "watchList": [
+        {"num": 1, "name": "ロジキセキ", "note": "「前走2100mは長かった。動きは良くなっている」← B級。距離短縮↓有利"},
+        {"num": 15, "name": "オオアバレ", "note": "「センスの良さは見せた。コンディションは崩れていない」← B級。2走目の変化に注目"}
+      ],
+      "fatalWords": [
+        {"num": 6, "name": "ユイアンゴロー", "word": "△印「スピードがもうひとつ。速い決着になると厳しく」← △D消去"},
+        {"num": 9, "name": "タイガーゲイト", "word": "△印「気持ちの問題ですね。メドを」← △D消去"},
+        {"num": 10, "name": "カモンレイル", "word": "△印「もうちょっと真面目に走ってくれるといい」← △D消去"}
+      ]
+    }
+  ]
+}
