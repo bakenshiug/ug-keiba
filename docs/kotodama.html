@@ -481,7 +481,7 @@
 <footer class="mincho">⛩ UG 競馬神宮 ／ 言霊実験室 ⛩</footer>
 
 <script>
-const FILES = ['data/kotodama-test/2026-05-09-10.json'];
+const FILES = ['data/kotodama-test/2026-05-16.json'];
 const MARK_CLASS = {'◎':'mark','○':'mark','▲':'mark dou','△':'mark dou','穴':'mark byakko','激':'mark byakko'};
 // 5/17本番から4頭目は「激」（白虎枠・激走軸）。それ以前は △ 維持（先週データ保護）
 const BYAKKO_DEBUT = '2026-05-16';
@@ -751,8 +751,8 @@ function renderSummaryAxis(){
   }).map(([v,rs]) => [v, aggregateAxis(rs)]);
 
   // 土日別の◎軸集計
-  const satRaces = races.filter(r => r.date === '2026-05-09');
-  const sunRaces = races.filter(r => r.date === '2026-05-10');
+  const satRaces = races.filter(r => r.date === '2026-05-16');
+  const sunRaces = races.filter(r => r.date === '2026-05-17');
   const sat = aggregateAxis(satRaces);
   const sun = aggregateAxis(sunRaces);
   const tri = `
