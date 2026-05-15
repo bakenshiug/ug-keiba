@@ -53,15 +53,25 @@ def load_jockey_map(path: Path) -> dict:
         return {}
     d = json.loads(path.read_text("utf-8"))
     jmap = {}
+    import re
     for j in d.get("jockeys", {}).values():
         name = (j.get("name") or "").strip()
         if not name:
             continue
         jmap[name] = j
+        # 前方一致プリフィックス（JRDB 3文字名対応）
         for ln in (4, 3, 2):
             key = name[:ln]
             if key not in jmap:
                 jmap[key] = j
+        # 外国人騎手: "Ｃ．ルメール" → カタカナ部分 "ルメール" も登録
+        kata = re.sub(r'^[Ａ-Ｚ]．', '', name)
+        if kata != name:
+            jmap[kata] = j
+            for ln in (4, 3, 2):
+                key = kata[:ln]
+                if key not in jmap:
+                    jmap[key] = j
     return jmap
 
 

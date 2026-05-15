@@ -548,6 +548,15 @@ async function loadJockeyMaster() {
         const key = name.slice(0, len);
         if (!JOCKEY_MAP[key]) JOCKEY_MAP[key] = j; // 先着優先
       }
+      // 外国人騎手: "Ｃ．ルメール" → カタカナ部分 "ルメール" も登録
+      const kata = name.replace(/^[Ａ-Ｚ]．/, '');
+      if (kata !== name) {
+        if (!JOCKEY_MAP[kata]) JOCKEY_MAP[kata] = j;
+        for (let len = 2; len <= 4; len++) {
+          const key = kata.slice(0, len);
+          if (!JOCKEY_MAP[key]) JOCKEY_MAP[key] = j;
+        }
+      }
     }
     console.log('🔥朱雀マスター読み込み:', Object.keys(d.jockeys||{}).length, '騎手');
   } catch(e) { console.warn('朱雀マスター読み込み失敗', e); }
