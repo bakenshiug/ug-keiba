@@ -742,6 +742,24 @@ function aggregateV2(races){
 }
 
 function venueBoardV2(name, s){
+  const bk = s.byKind;
+  // ◎軸合計
+  const hInv = (bk.honmei_tan?.invest||0)+(bk.honmei_umatan?.invest||0);
+  const hPay = (bk.honmei_tan?.payout||0)+(bk.honmei_umatan?.payout||0);
+  const hRec = hInv ? Math.round(hPay/hInv*1000)/10 : 0;
+  // 激軸合計
+  const aInv = (bk.ana_tan?.invest||0)+(bk.ana_umatan?.invest||0);
+  const aPay = (bk.ana_tan?.payout||0)+(bk.ana_umatan?.payout||0);
+  const aRec = aInv ? Math.round(aPay/aInv*1000)/10 : 0;
+
+  function kindRow(k){
+    const v = bk[k]||{hit:0,races:0,recovery:0};
+    return `<tr>
+      <td>${V2_KIND_LABEL[k]}</td>
+      <td class="v-hit ${v.hitRate>=50?'win':''}">${v.hit}/${v.races} (${v.hitRate}%)</td>
+      <td class="v-rec ${v.recovery>=100?'win':''}">${v.recovery}%</td>
+    </tr>`;
+  }
   return `
     <div class="vb">
       <div class="vb-h mincho">${name}</div>
@@ -750,13 +768,25 @@ function venueBoardV2(name, s){
       </div>
       <div class="vb-meta">${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</div>
       <table class="vb-table">
+        <tr><th colspan="3" style="background:rgba(164,74,63,.08);letter-spacing:.1em">⛩️ 単勝◎¥100 + 馬単マルチ¥600</th></tr>
         <tr><th>券種</th><th style="text-align:right">的中率</th><th style="text-align:right">回収率</th></tr>
-        ${V2_KINDS.map(k=>{const v=s.byKind[k];return`
-          <tr>
-            <td>${V2_KIND_LABEL[k]}</td>
-            <td class="v-hit ${v.hitRate>=50?'win':''}">${v.hit}/${v.races} (${v.hitRate}%)</td>
-            <td class="v-rec ${v.recovery>=100?'win':''}">${v.recovery}%</td>
-          </tr>`;}).join('')}
+        ${kindRow('honmei_tan')}
+        ${kindRow('honmei_umatan')}
+        <tr style="border-top:1px solid var(--border)">
+          <td style="font-size:10px;color:var(--ink-soft)">◎軸合計</td>
+          <td></td>
+          <td class="v-rec ${hRec>=100?'win':''}" style="font-weight:700">${hRec}%</td>
+        </tr>
+        ${aInv>0?`
+        <tr><th colspan="3" style="background:rgba(164,74,63,.08);letter-spacing:.1em;padding-top:8px">🌕 単勝激¥100 + 馬単マルチ¥600</th></tr>
+        <tr><th>券種</th><th style="text-align:right">的中率</th><th style="text-align:right">回収率</th></tr>
+        ${kindRow('ana_tan')}
+        ${kindRow('ana_umatan')}
+        <tr style="border-top:1px solid var(--border)">
+          <td style="font-size:10px;color:var(--ink-soft)">激軸合計</td>
+          <td></td>
+          <td class="v-rec ${aRec>=100?'win':''}" style="font-weight:700">${aRec}%</td>
+        </tr>`:''}
       </table>
     </div>`;
 }
@@ -923,74 +953,9 @@ function venueBoardAxis(name, s){
 }
 
 function renderSummaryAxis(){
+  // 旧7券種BOXボード → 新買い方V2ボードに統一のため非表示
   const el = document.getElementById('summary-board-axis');
-  if (!el) return;
-  const races = ALL_RACES.filter(r => r.result && r.result.payouts);
-  if (!races.length) { el.innerHTML = ''; return; }
-  // 全体
-  const all = aggregateAxis(races);
-  // 場別
-  const venueOrder = ['東京','京都','新潟','中山','阪神','中京','福島','小倉','札幌','函館'];
-  const byV = {};
-  races.forEach(r => { (byV[r.venue]=byV[r.venue]||[]).push(r); });
-  const venues = Object.entries(byV).sort((a,b)=>{
-    const ai=venueOrder.indexOf(a[0]), bi=venueOrder.indexOf(b[0]);
-    return (ai<0?99:ai)-(bi<0?99:bi);
-  }).map(([v,rs]) => [v, aggregateAxis(rs)]);
-
-  // 土日別の◎軸集計
-  const satRaces = races.filter(r => r.date === '2026-05-16');
-  const sunRaces = races.filter(r => r.date === '2026-05-17');
-  const sat = aggregateAxis(satRaces);
-  const sun = aggregateAxis(sunRaces);
-  const tri = `
-    <div class="sb-tri">
-      <div class="sb-tri-cell ${sat.totalRecovery>=100?'win':''}">
-        <div class="sb-tri-day">土曜</div>
-        <div class="sb-tri-num">${sat.totalRecovery}%</div>
-        <div class="sb-tri-meta">${sat.racesHit}/${sat.racesWithResult}R的中</div>
-      </div>
-      <div class="sb-tri-cell ${sun.totalRecovery>=100?'win':''}">
-        <div class="sb-tri-day">日曜</div>
-        <div class="sb-tri-num">${sun.totalRecovery}%</div>
-        <div class="sb-tri-meta">${sun.racesHit}/${sun.racesWithResult}R的中</div>
-      </div>
-      <div class="sb-tri-cell sb-tri-total ${all.totalRecovery>=100?'win':''}">
-        <div class="sb-tri-day">土日トータル</div>
-        <div class="sb-tri-num">${all.totalRecovery}%</div>
-        <div class="sb-tri-meta">${all.racesHit}/${all.racesWithResult}R的中</div>
-      </div>
-    </div>`;
-
-  el.innerHTML = `
-    <details class="summary-board neon sb-fold">
-      <summary class="sb-fold-summary">
-        <div class="sb-title mincho">⛩ 言霊神宮 土日72R 集計　単勝/複勝◎1点購入&◎1頭軸流しの場合</div>
-        ${tri}
-        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開（全72R合算）</div>
-      </summary>
-      <div class="sb-total-detail ${all.totalRecovery>=100?'win':''}">
-        <small>${all.racesHit}/${all.racesWithResult}R的中 (${all.raceHitRate}%) ／ 投資¥${all.totalInvest.toLocaleString()} 払戻¥${all.totalPayout.toLocaleString()}</small>
-      </div>
-      <div class="sb-meta">単勝◎/複勝◎/ワイド・馬連・3連複は◎軸→相手3頭流し／馬単・3連単はマルチ（1Rあたり35点 ¥3,500）</div>
-      <div class="sb-kinds">
-        ${Object.entries(all.byKind).map(([k,v])=>`
-          <div class="sb-kind">
-            <div class="k-name">${AXIS_KIND_LABEL[k]||k}</div>
-            <div class="k-rec ${v.recovery>=100?'win':''}">${v.recovery}%</div>
-            <div class="k-hit ${v.hitRate>=50?'win':''}">的中${v.hit}/${v.races} (${v.hitRate}%)</div>
-            <div class="k-amt">¥${v.payout.toLocaleString()} / ¥${v.invest.toLocaleString()}</div>
-          </div>
-        `).join('')}
-      </div>
-      <details class="summary-d" open>
-        <summary>場別 集計（東京 / 京都 / 新潟）</summary>
-        <div class="venue-boards">
-          ${venues.map(([v,sv])=>venueBoardAxis(v,sv)).join('')}
-        </div>
-      </details>
-      <div class="sb-learn">🔬 ベスト馬券種分析学習中... ／ ◎軸流しは投資効率重視型</div>
-    </details>`;
+  if (el) el.innerHTML = '';
 }
 
 function venueBoard(name, s){
