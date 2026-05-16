@@ -33,7 +33,8 @@ def calc_total(horse: dict) -> float:
     k = horse.get("kotodamaScore", 0.0) or 0.0
     s = horse.get("suzakuScore",   0.0) or 0.0
     g = horse.get("genbuScore",    0.0) or 0.0
-    return round(k * W_KOTODAMA + s * W_SUZAKU + g * W_GENBU, 3)
+    b = horse.get("hatsuBriBonus", 0.0) or 0.0  # 初ブリボーナス（ダート+初B / 矢作厩舎+初B）
+    return round(k * W_KOTODAMA + s * W_SUZAKU + g * W_GENBU + b, 3)
 
 
 def process_roster(venue: str, path: Path):

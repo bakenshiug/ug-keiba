@@ -10,21 +10,26 @@ picks を新データで完全差し替え。
 
 import json
 import re
+import sys as _sys
 from pathlib import Path
+
+_date_arg = (_sys.argv[1] if len(_sys.argv) > 1 else "2026-05-17")
+_date = _date_arg.replace("-", "")
+_date_hyphen = _date_arg if "-" in _date_arg else f"{_date[:4]}-{_date[4:6]}-{_date[6:]}"
 
 BASE = Path("/Users/buntawakase/Desktop/ug-keiba")
 
 # 入力
-TARGET_JSON = BASE / "docs/data/kotodama-test/2026-05-16.json"   # 上書き先
+TARGET_JSON = BASE / f"docs/data/kotodama-test/{_date_hyphen}.json"   # 上書き先
 KAIME_FILES = {
-    "東京": BASE / "docs/data/kotodama-test/20260516_tokyo_kaime.json",
-    "京都": BASE / "docs/data/kotodama-test/20260516_kyoto_kaime.json",
-    "新潟": BASE / "docs/data/kotodama-test/20260516_niigata_kaime.json",
+    "東京": BASE / f"docs/data/kotodama-test/{_date}_tokyo_kaime.json",
+    "京都": BASE / f"docs/data/kotodama-test/{_date}_kyoto_kaime.json",
+    "新潟": BASE / f"docs/data/kotodama-test/{_date}_niigata_kaime.json",
 }
 ROSTER_FILES = {
-    "東京": BASE / "docs/data/kotodama-test/20260516_tokyo_roster.json",
-    "京都": BASE / "docs/data/kotodama-test/20260516_kyoto_roster.json",
-    "新潟": BASE / "docs/data/kotodama-test/20260516_niigata_roster.json",
+    "東京": BASE / f"docs/data/kotodama-test/{_date}_tokyo_roster.json",
+    "京都": BASE / f"docs/data/kotodama-test/{_date}_kyoto_roster.json",
+    "新潟": BASE / f"docs/data/kotodama-test/{_date}_niigata_roster.json",
 }
 
 # 朱雀スコア → Grade変換

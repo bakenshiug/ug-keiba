@@ -17,13 +17,16 @@ gekisouScore = ①〜⑥⑦ 合算
 """
 
 import json
+import sys as _sys
 from pathlib import Path
+
+_date = (_sys.argv[1] if len(_sys.argv) > 1 else "2026-05-17").replace("-", "")
 
 BASE = Path("/Users/buntawakase/Desktop/ug-keiba")
 ROSTER_FILES = {
-    "東京": BASE / "docs/data/kotodama-test/20260516_tokyo_roster.json",
-    "京都": BASE / "docs/data/kotodama-test/20260516_kyoto_roster.json",
-    "新潟": BASE / "docs/data/kotodama-test/20260516_niigata_roster.json",
+    "東京": BASE / f"docs/data/kotodama-test/{_date}_tokyo_roster.json",
+    "京都": BASE / f"docs/data/kotodama-test/{_date}_kyoto_roster.json",
+    "新潟": BASE / f"docs/data/kotodama-test/{_date}_niigata_roster.json",
 }
 
 # ──────────────────────────────────────────────

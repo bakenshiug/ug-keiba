@@ -9,12 +9,16 @@ APIレスポンス例:
 """
 
 import json
+import sys as _sys
 import time
 import urllib.request
 from pathlib import Path
 
+_date_arg = (_sys.argv[1] if len(_sys.argv) > 1 else "2026-05-17")
+_date_hyphen = _date_arg if "-" in _date_arg else f"{_date_arg[:4]}-{_date_arg[4:6]}-{_date_arg[6:]}"
+
 BASE = Path("/Users/buntawakase/Desktop/ug-keiba")
-TARGET_JSON = BASE / "docs/data/kotodama-test/2026-05-16.json"
+TARGET_JSON = BASE / f"docs/data/kotodama-test/{_date_hyphen}.json"
 
 ODDS_API = (
     "https://race.netkeiba.com/api/api_get_jra_odds.html"

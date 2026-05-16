@@ -24,7 +24,10 @@
     "genbuNote",
     "totalScore",
     "pickMark",
-    "pickRank"
+    "pickRank",
+    "gekisouScore",
+    "gekisouMark",
+    "gekisouNote"
   ],
   "races": [
     {
@@ -56,7 +59,10 @@
           "genbuNote": "厩舎武井亮[D](0.3) | 外厩DB未登録(北総牧場) → 0.3",
           "totalScore": 6.09,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.12,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.12)"
         },
         {
           "num": "2",
@@ -82,7 +88,10 @@
           "genbuNote": "厩舎渡辺薫彦[B](1.0) | 外厩DB未登録(アカデミー牧場) → 1.0",
           "totalScore": 6.925,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "3",
@@ -108,7 +117,10 @@
           "genbuNote": "厩舎DB未登録(小野次) | 外厩高橋ＴＣ[SH14.5%](0.0) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "4",
@@ -134,7 +146,10 @@
           "genbuNote": "厩舎DB未登録(粕谷昌) | 外厩DB未登録(ノルマンディーファーム小野町) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "5",
@@ -160,7 +175,10 @@
           "genbuNote": "厩舎DB未登録(田中剛) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
           "totalScore": 6.34,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "6",
@@ -186,7 +204,10 @@
           "genbuNote": "厩舎DB未登録(高橋忠) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.2,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "7",
@@ -212,7 +233,10 @@
           "genbuNote": "厩舎DB未登録(手塚徳) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
           "totalScore": 7.75,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "8",
@@ -238,7 +262,10 @@
           "genbuNote": "厩舎DB未登録(大和田) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
           "totalScore": 6.75,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.0,
+          "gekisouMark": "激",
+          "gekisouNote": "🐢玄武×0.4(+1.00)"
         },
         {
           "num": "9",
@@ -264,7 +291,10 @@
           "genbuNote": "厩舎栗田徹[B](1.0) | 外厩DB未登録(外厩なし) → 1.0",
           "totalScore": 5.99,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.4,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.40)"
         },
         {
           "num": "10",
@@ -290,7 +320,10 @@
           "genbuNote": "厩舎平田修[E](0.0) | 外厩吉澤Ｓ－ＷＥＳＴ[SH19.2%](0.5) → 0.5",
           "totalScore": 7.15,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "11",
@@ -316,7 +349,10 @@
           "genbuNote": "厩舎DB未登録(小島茂) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
           "totalScore": 6.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "12",
@@ -342,7 +378,10 @@
           "genbuNote": "厩舎DB未登録(吉田直) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "13",
@@ -368,7 +407,10 @@
           "genbuNote": "厩舎DB未登録(加藤和) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.2,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "14",
@@ -394,7 +436,10 @@
           "genbuNote": "厩舎DB未登録(池上和) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
           "totalScore": 6.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         }
       ]
     },
@@ -427,7 +472,10 @@
           "genbuNote": "厩舎寺島良[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
           "totalScore": 6.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.6,
+          "gekisouMark": "激",
+          "gekisouNote": "🐢玄武×0.4(+0.60)"
         },
         {
           "num": "2",
@@ -453,7 +501,10 @@
           "genbuNote": "厩舎畑端省吾[C](0.5) | 外厩宇治田原優駿Ｓ[SH21.5%](1.0) → 1.5",
           "totalScore": 6.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.6,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.60)"
         },
         {
           "num": "3",
@@ -479,7 +530,10 @@
           "genbuNote": "厩舎西園翔太[B](1.0) | 外厩宇治田原優駿Ｓ[SH21.5%](1.0) → 2.0",
           "totalScore": 7.05,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "4",
@@ -505,7 +559,10 @@
           "genbuNote": "厩舎DB未登録(的場均) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "5",
@@ -531,7 +588,10 @@
           "genbuNote": "厩舎武市康男[E](0.0) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
           "totalScore": 6.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "6",
@@ -557,7 +617,10 @@
           "genbuNote": "厩舎高木登[B](1.0) | 外厩DB未登録(外厩なし) → 1.0",
           "totalScore": 11.11,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "7",
@@ -583,7 +646,10 @@
           "genbuNote": "厩舎金成貴史[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 9.115,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "8",
@@ -609,7 +675,10 @@
           "genbuNote": "厩舎DB未登録(今野貞) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "9",
@@ -635,7 +704,10 @@
           "genbuNote": "厩舎中竹和也[C](0.5) | 外厩DB未登録(外厩なし) → 0.5",
           "totalScore": 6.35,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         }
       ]
     },
@@ -668,7 +740,10 @@
           "genbuNote": "厩舎DB未登録(中川公) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "2",
@@ -694,7 +769,10 @@
           "genbuNote": "厩舎DB未登録(柄崎将) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 7.575,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "3",
@@ -720,7 +798,10 @@
           "genbuNote": "厩舎DB未登録(本間忍) | 外厩DB未登録(秋本牧場) → 0.0",
           "totalScore": 4.5,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.5,
+          "gekisouMark": "",
+          "gekisouNote": "🔄条件変更['ダートから'](+1.5)"
         },
         {
           "num": "4",
@@ -746,7 +827,10 @@
           "genbuNote": "厩舎DB未登録(石栗龍) | 外厩松風馬事センター[SH12.5%](0.0) → 0.0",
           "totalScore": 6.375,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "5",
@@ -772,7 +856,10 @@
           "genbuNote": "厩舎DB未登録(吉岡辰) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
           "totalScore": 6.825,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.8,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.80)"
         },
         {
           "num": "6",
@@ -798,7 +885,10 @@
           "genbuNote": "厩舎佐藤悠太[C](0.5) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.5",
           "totalScore": 7.775,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "7",
@@ -824,7 +914,10 @@
           "genbuNote": "厩舎DB未登録(小手川) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
           "totalScore": 6.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "8",
@@ -850,7 +943,10 @@
           "genbuNote": "厩舎堀内岳志[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 6.09,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.12,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.12)"
         },
         {
           "num": "9",
@@ -876,7 +972,10 @@
           "genbuNote": "厩舎DB未登録(上原博) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.375,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "10",
@@ -902,7 +1001,10 @@
           "genbuNote": "厩舎深山雅史[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 6.615,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.62,
+          "gekisouMark": "",
+          "gekisouNote": "🔩装具微調[チークＰ](+0.5) | 🐢玄武×0.4(+0.12)"
         },
         {
           "num": "11",
@@ -928,7 +1030,10 @@
           "genbuNote": "厩舎DB未登録(高橋文) | 外厩DB未登録(小野瀬ファーム) → 0.0",
           "totalScore": 4.5,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "12",
@@ -954,7 +1059,10 @@
           "genbuNote": "厩舎斎藤誠[B](1.0) | 外厩エスティＦ小見川[SH19.6%](0.5) → 1.5",
           "totalScore": 9.4,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "13",
@@ -980,7 +1088,10 @@
           "genbuNote": "厩舎尾形和幸[D](0.3) | 外厩松風馬事センター[SH12.5%](0.0) → 0.3",
           "totalScore": 4.59,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.62,
+          "gekisouMark": "激",
+          "gekisouNote": "🔄条件変更['短い距離'](+1.5) | 🐢玄武×0.4(+0.12)"
         },
         {
           "num": "14",
@@ -1006,7 +1117,10 @@
           "genbuNote": "厩舎浜田多実雄[B](1.0) | 外厩吉澤Ｓ－ＷＥＳＴ[SH19.2%](0.5) → 1.5",
           "totalScore": 6.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.6,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.60)"
         },
         {
           "num": "15",
@@ -1032,7 +1146,10 @@
           "genbuNote": "厩舎矢作芳人[A](1.5) | 外厩宇治田原優駿Ｓ[SH21.5%](1.0) → 2.5",
           "totalScore": 6.75,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.0,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.00)"
         }
       ]
     },
@@ -1065,7 +1182,10 @@
           "genbuNote": "厩舎DB未登録(柄崎将) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
           "totalScore": 7.25,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "2",
@@ -1091,7 +1211,10 @@
           "genbuNote": "厩舎DB未登録(小島茂) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
           "totalScore": 4.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.2,
+          "gekisouMark": "",
+          "gekisouNote": "🌀一変[一変](+2.0) | 🐢玄武×0.4(+0.20)"
         },
         {
           "num": "3",
@@ -1117,7 +1240,10 @@
           "genbuNote": "厩舎DB未登録(天間昭) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "4",
@@ -1143,7 +1269,10 @@
           "genbuNote": "厩舎伊藤圭三[B](1.0) | 外厩DB未登録(オークヒルファーム) → 1.0",
           "totalScore": 6.49,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.4,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.40)"
         },
         {
           "num": "5",
@@ -1169,7 +1298,10 @@
           "genbuNote": "厩舎DB未登録(小笠倫) | 外厩DB未登録(北総牧場) → 0.0",
           "totalScore": 4.5,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "6",
@@ -1195,7 +1327,10 @@
           "genbuNote": "厩舎DB未登録(高柳大) | 外厩グリーンウッド[SH22.9%](1.0)🔥 → 1.5",
           "totalScore": 6.64,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.6,
+          "gekisouMark": "激",
+          "gekisouNote": "🔧馬具変更[ブリンカーを](+2.0) | 🐢玄武×0.4(+0.60)"
         },
         {
           "num": "7",
@@ -1221,7 +1356,10 @@
           "genbuNote": "厩舎高橋康之[C](0.5) | 外厩DB未登録(ドラゴンファーム) → 0.5",
           "totalScore": 5.875,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "8",
@@ -1247,7 +1385,10 @@
           "genbuNote": "厩舎田村康仁[C](0.5) | 外厩山元トレセン[SH26.4%](1.5) → 2.0",
           "totalScore": 6.6,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.8,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.80)"
         },
         {
           "num": "9",
@@ -1273,7 +1414,10 @@
           "genbuNote": "厩舎金成貴史[D](0.3) | 外厩DB未登録(Ｔｏｍｏｒｒｏｗ　Ｆａｒｍ) → 0.3",
           "totalScore": 6.09,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.12,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.12)"
         },
         {
           "num": "10",
@@ -1299,7 +1443,10 @@
           "genbuNote": "厩舎DB未登録(蛯名利) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 7.5,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "11",
@@ -1325,7 +1472,10 @@
           "genbuNote": "厩舎DB未登録(安田翔) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "12",
@@ -1351,7 +1501,10 @@
           "genbuNote": "厩舎DB未登録(和田雄) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 7.0,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "13",
@@ -1377,7 +1530,10 @@
           "genbuNote": "厩舎DB未登録(的場均) | 外厩DB未登録(北総牧場) → 0.0",
           "totalScore": 4.5,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "14",
@@ -1403,7 +1559,10 @@
           "genbuNote": "厩舎DB未登録(室井潔) | 外厩DB未登録(ノルマンディーファーム小野町) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         }
       ]
     },
@@ -1436,7 +1595,10 @@
           "genbuNote": "厩舎DB未登録(矢嶋大) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 8.875,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "2",
@@ -1462,7 +1624,10 @@
           "genbuNote": "厩舎青木孝文[E](0.0) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
           "totalScore": 6.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "3",
@@ -1488,7 +1653,10 @@
           "genbuNote": "厩舎DB未登録(池上和) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
           "totalScore": 5.25,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.0,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.00)"
         },
         {
           "num": "4",
@@ -1514,7 +1682,10 @@
           "genbuNote": "厩舎小栗実[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 6.29,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.62,
+          "gekisouMark": "",
+          "gekisouNote": "🔄条件変更['距離延長'](+1.5) | 🐢玄武×0.4(+0.12)"
         },
         {
           "num": "5",
@@ -1540,7 +1711,10 @@
           "genbuNote": "厩舎深山雅史[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 8.59,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "6",
@@ -1566,7 +1740,10 @@
           "genbuNote": "厩舎杉山晴紀[S](2.0)🔥 | 外厩グリーンウッド[SH22.9%](1.0)🔥 → 3.8",
           "totalScore": 6.64,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.52,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.52)"
         },
         {
           "num": "7",
@@ -1592,7 +1769,10 @@
           "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "8",
@@ -1618,7 +1798,10 @@
           "genbuNote": "厩舎DB未登録(竹内正) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
           "totalScore": 7.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 4.1,
+          "gekisouMark": "激",
+          "gekisouNote": "⚡初ブリ(+3.0) | 🐢玄武×0.4(+0.60) | 🐉高言霊7.0(+0.5)"
         },
         {
           "num": "9",
@@ -1644,7 +1827,10 @@
           "genbuNote": "厩舎DB未登録(蛯名利) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "10",
@@ -1670,7 +1856,10 @@
           "genbuNote": "厩舎DB未登録(加藤士) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 3.0,
+          "gekisouMark": "",
+          "gekisouNote": "⚡初ブリ(+3.0)"
         },
         {
           "num": "11",
@@ -1696,7 +1885,10 @@
           "genbuNote": "厩舎DB未登録(嘉藤貴) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.0",
           "totalScore": 6.5,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "12",
@@ -1722,7 +1914,10 @@
           "genbuNote": "厩舎友道康夫[A](1.5)🔥 | 外厩DB未登録(外厩なし) → 1.8",
           "totalScore": 4.54,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.22,
+          "gekisouMark": "",
+          "gekisouNote": "🔄条件変更['距離延長'](+1.5) | 🐢玄武×0.4(+0.72)"
         },
         {
           "num": "13",
@@ -1748,7 +1943,10 @@
           "genbuNote": "厩舎渡辺薫彦[B](1.0) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 3.0",
           "totalScore": 8.475,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "14",
@@ -1774,7 +1972,10 @@
           "genbuNote": "厩舎水野貴広[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 6.09,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.12,
+          "gekisouMark": "",
+          "gekisouNote": "🔧馬具変更[メンコを外](+2.0) | 🐢玄武×0.4(+0.12)"
         },
         {
           "num": "15",
@@ -1800,7 +2001,10 @@
           "genbuNote": "厩舎DB未登録(松山将) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
           "totalScore": 5.96,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.7,
+          "gekisouMark": "",
+          "gekisouNote": "🔄条件変更['距離延長'](+1.5) | 🐢玄武×0.4(+0.20)"
         },
         {
           "num": "16",
@@ -1826,7 +2030,10 @@
           "genbuNote": "厩舎羽月友彦[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 6.09,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.12,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.12)"
         }
       ]
     },
@@ -1859,7 +2066,10 @@
           "genbuNote": "厩舎DB未登録(菊川正) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
           "totalScore": 7.975,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "2",
@@ -1885,7 +2095,10 @@
           "genbuNote": "厩舎牧浦充徳[B](1.0) | 外厩DB未登録(外厩なし) → 1.0",
           "totalScore": 6.875,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.4,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.40)"
         },
         {
           "num": "3",
@@ -1911,7 +2124,10 @@
           "genbuNote": "厩舎宮地貴稔[C](0.5) | 外厩DB未登録(外厩なし) → 0.5",
           "totalScore": 7.65,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "4",
@@ -1937,7 +2153,10 @@
           "genbuNote": "厩舎DB未登録(高橋忠) | 外厩DB未登録(ヒイラギステーブル（ａｗａｊｉ）) → 0.0",
           "totalScore": 6.19,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "5",
@@ -1963,7 +2182,10 @@
           "genbuNote": "厩舎DB未登録(勢司和) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.7,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "6",
@@ -1989,7 +2211,10 @@
           "genbuNote": "厩舎DB未登録(千葉直) | 外厩DB未登録(大東牧場) → 0.0",
           "totalScore": 6.225,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "7",
@@ -2015,7 +2240,10 @@
           "genbuNote": "厩舎DB未登録(松永康) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.2,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "8",
@@ -2041,7 +2269,10 @@
           "genbuNote": "厩舎松永幹夫[A](1.5) | 外厩社台ファーム鈴鹿[SH26.5%](1.5) → 3.0",
           "totalScore": 7.4,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "9",
@@ -2067,7 +2298,10 @@
           "genbuNote": "厩舎DB未登録(辻野泰) | 外厩吉澤Ｓ－ＷＥＳＴ[SH19.2%](0.5) → 0.5",
           "totalScore": 6.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "10",
@@ -2093,7 +2327,10 @@
           "genbuNote": "厩舎DB未登録(高柳大) | 外厩社台ファーム鈴鹿[SH26.5%](1.5) → 1.5",
           "totalScore": 6.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.1,
+          "gekisouMark": "激",
+          "gekisouNote": "🔄条件変更['距離延長'](+1.5) | 🐢玄武×0.4(+0.60)"
         },
         {
           "num": "11",
@@ -2119,7 +2356,10 @@
           "genbuNote": "厩舎尾形和幸[D](0.3) | 外厩高橋ＴＣ[SH14.5%](0.0) → 0.3",
           "totalScore": 6.09,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.12,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.12)"
         },
         {
           "num": "12",
@@ -2145,7 +2385,10 @@
           "genbuNote": "厩舎DB未登録(笹田和) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "13",
@@ -2171,7 +2414,10 @@
           "genbuNote": "厩舎DB未登録(林　徹) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         }
       ]
     },
@@ -2204,7 +2450,10 @@
           "genbuNote": "厩舎DB未登録(伊藤伸) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.7,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "2",
@@ -2230,7 +2479,10 @@
           "genbuNote": "厩舎DB未登録(加藤士) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.225,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "3",
@@ -2256,7 +2508,10 @@
           "genbuNote": "厩舎DB未登録(村田一) | 外厩高橋ＴＣ[SH14.5%](0.0) → 0.0",
           "totalScore": 4.5,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "4",
@@ -2282,7 +2537,10 @@
           "genbuNote": "厩舎相沢郁[D](0.3) | 外厩ビッグレッドＦ鉾田[SH14.5%](0.0) → 0.3",
           "totalScore": 7.315,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "5",
@@ -2308,7 +2566,10 @@
           "genbuNote": "厩舎DB未登録(黒岩陽) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
           "totalScore": 8.125,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "6",
@@ -2334,7 +2595,10 @@
           "genbuNote": "厩舎DB未登録(本間忍) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
           "totalScore": 4.65,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "7",
@@ -2360,7 +2624,10 @@
           "genbuNote": "厩舎DB未登録(小島茂) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 5.5,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "8",
@@ -2386,7 +2653,10 @@
           "genbuNote": "厩舎鹿戸雄一[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
           "totalScore": 6.875,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.6,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.60)"
         },
         {
           "num": "9",
@@ -2412,7 +2682,10 @@
           "genbuNote": "厩舎DB未登録(高橋文) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
           "totalScore": 6.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "10",
@@ -2438,7 +2711,10 @@
           "genbuNote": "厩舎斉藤崇史[B](1.0) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 3.0",
           "totalScore": 6.6,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.20)"
         },
         {
           "num": "11",
@@ -2464,7 +2740,10 @@
           "genbuNote": "厩舎水野貴広[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 7.09,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.12,
+          "gekisouMark": "激",
+          "gekisouNote": "🔄条件変更['左回りは合'](+1.5) | 🐢玄武×0.4(+0.12) | 🐉高言霊7.0(+0.5)"
         },
         {
           "num": "12",
@@ -2490,7 +2769,10 @@
           "genbuNote": "厩舎橋口慎介[B](1.0) | 外厩グリーンウッド[SH22.9%](1.0)🔥 → 2.5",
           "totalScore": 12.325,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "13",
@@ -2516,7 +2798,10 @@
           "genbuNote": "厩舎DB未登録(大和田) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
           "totalScore": 4.525,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         }
       ]
     },
@@ -2549,7 +2834,10 @@
           "genbuNote": "厩舎DB未登録(和田雄) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "2",
@@ -2575,7 +2863,10 @@
           "genbuNote": "厩舎DB未登録(藤岡健) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.8,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "3",
@@ -2601,7 +2892,10 @@
           "genbuNote": "厩舎DB未登録(畠山吉) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 4.875,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "4",
@@ -2627,7 +2921,10 @@
           "genbuNote": "厩舎DB未登録(大久龍) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 2.0",
           "totalScore": 6.1,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.8,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.80)"
         },
         {
           "num": "5",
@@ -2653,7 +2950,10 @@
           "genbuNote": "厩舎松下武士[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
           "totalScore": 6.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.6,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.60)"
         },
         {
           "num": "6",
@@ -2679,7 +2979,10 @@
           "genbuNote": "厩舎DB未登録(的場均) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.375,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "7",
@@ -2705,7 +3008,10 @@
           "genbuNote": "厩舎DB未登録(坂口智) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 7.45,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "8",
@@ -2731,7 +3037,10 @@
           "genbuNote": "厩舎DB未登録(鈴木慎) | 外厩エスティＦ小見川[SH19.6%](0.5) → 0.5",
           "totalScore": 7.15,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "9",
@@ -2757,7 +3066,10 @@
           "genbuNote": "厩舎DB未登録(和田一) | 外厩DB未登録(和田牧場（千葉県）) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 3.0,
+          "gekisouMark": "激",
+          "gekisouNote": "⚡初ブリ(+3.0)"
         },
         {
           "num": "10",
@@ -2783,7 +3095,10 @@
           "genbuNote": "厩舎DB未登録(加藤公) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
           "totalScore": 8.375,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         }
       ]
     },
@@ -2816,7 +3131,10 @@
           "genbuNote": "厩舎千田輝彦[C](0.5) | 外厩DB未登録(外厩なし) → 0.5",
           "totalScore": 7.725,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "2",
@@ -2842,7 +3160,10 @@
           "genbuNote": "厩舎DB未登録(鈴木慎) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.225,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "3",
@@ -2868,7 +3189,10 @@
           "genbuNote": "厩舎DB未登録(伊藤伸) | 外厩高橋ＴＣ[SH14.5%](0.0) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "4",
@@ -2894,7 +3218,10 @@
           "genbuNote": "厩舎小崎憲[B](1.0) | 外厩DB未登録(外厩なし) → 1.0",
           "totalScore": 7.8,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.9,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.40) | 🐉高言霊7.5(+0.5)"
         },
         {
           "num": "5",
@@ -2920,7 +3247,10 @@
           "genbuNote": "厩舎DB未登録(秋本大) | 外厩DB未登録(若草牧場) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 3.0,
+          "gekisouMark": "激",
+          "gekisouNote": "⚡初ブリ(+3.0)"
         },
         {
           "num": "6",
@@ -2946,7 +3276,10 @@
           "genbuNote": "厩舎橋口慎介[B](1.0) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 3.0",
           "totalScore": 6.9,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.20)"
         },
         {
           "num": "7",
@@ -2972,7 +3305,10 @@
           "genbuNote": "厩舎DB未登録(吉村圭) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "8",
@@ -2998,7 +3334,10 @@
           "genbuNote": "厩舎DB未登録(粕谷昌) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.575,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "9",
@@ -3024,7 +3363,10 @@
           "genbuNote": "厩舎DB未登録(中川公) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.19,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "10",
@@ -3050,7 +3392,10 @@
           "genbuNote": "厩舎中舘英二[A](1.5)🔥 | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 2.3",
           "totalScore": 7.915,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "11",
@@ -3076,7 +3421,10 @@
           "genbuNote": "厩舎小林真也[C](0.5) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.5",
           "totalScore": 6.75,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.0,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.00)"
         },
         {
           "num": "12",
@@ -3102,7 +3450,10 @@
           "genbuNote": "厩舎宮本博[E](0.0) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 7.8,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "13",
@@ -3128,7 +3479,10 @@
           "genbuNote": "厩舎DB未登録(堀宣行) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
           "totalScore": 8.175,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "14",
@@ -3154,7 +3508,10 @@
           "genbuNote": "厩舎DB未登録(和田雄) | 外厩DB未登録(和田牧場（千葉県）) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.0,
+          "gekisouMark": "",
+          "gekisouNote": "🌀一変[変わり身](+2.0)"
         },
         {
           "num": "15",
@@ -3180,7 +3537,10 @@
           "genbuNote": "厩舎DB未登録(菊沢隆) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.375,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "16",
@@ -3206,7 +3566,10 @@
           "genbuNote": "厩舎DB未登録(田中勝) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 7.8,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.5,
+          "gekisouMark": "",
+          "gekisouNote": "🐉高言霊7.8(+0.5)"
         }
       ]
     },
@@ -3239,7 +3602,10 @@
           "genbuNote": "厩舎松永幹夫[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
           "totalScore": 8.175,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "2",
@@ -3265,7 +3631,10 @@
           "genbuNote": "厩舎中舘英二[A](1.5)🔥 | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 4.3",
           "totalScore": 7.48,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.72,
+          "gekisouMark": "激",
+          "gekisouNote": "🐢玄武×0.4(+1.72)"
         },
         {
           "num": "3",
@@ -3291,7 +3660,10 @@
           "genbuNote": "厩舎DB未登録(清水英) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.225,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "4",
@@ -3317,7 +3689,10 @@
           "genbuNote": "厩舎DB未登録(奥村武) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.8,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "5",
@@ -3343,7 +3718,10 @@
           "genbuNote": "厩舎DB未登録(池添学) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
           "totalScore": 6.6,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.8,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.80)"
         },
         {
           "num": "6",
@@ -3369,7 +3747,10 @@
           "genbuNote": "厩舎DB未登録(粕谷昌) | 外厩DB未登録(ムラセファーム) → 0.0",
           "totalScore": 7.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.5,
+          "gekisouMark": "",
+          "gekisouNote": "🐉高言霊7.0(+0.5)"
         },
         {
           "num": "7",
@@ -3395,7 +3776,10 @@
           "genbuNote": "厩舎DB未登録(尾関知) | 外厩ＫＳトレーニングＣ[SH15.9%](0.5) → 0.5",
           "totalScore": 5.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "8",
@@ -3421,7 +3805,10 @@
           "genbuNote": "厩舎森田直行[E](0.0) | 外厩DB未登録(ヒイラギステーブル（ａｗａｊｉ）) → 0.0",
           "totalScore": 6.375,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "9",
@@ -3447,7 +3834,10 @@
           "genbuNote": "厩舎DB未登録(戸田博) | 外厩DB未登録(ムラセファーム) → 0.0",
           "totalScore": 8.2,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "10",
@@ -3473,7 +3863,10 @@
           "genbuNote": "厩舎青木孝文[E](0.0) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 7.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.5,
+          "gekisouMark": "",
+          "gekisouNote": "🐉高言霊7.0(+0.5)"
         },
         {
           "num": "11",
@@ -3499,7 +3892,10 @@
           "genbuNote": "厩舎矢作芳人[A](1.5) | 外厩社台ファーム鈴鹿[SH26.5%](1.5) → 3.0",
           "totalScore": 6.9,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.20)"
         },
         {
           "num": "12",
@@ -3525,7 +3921,10 @@
           "genbuNote": "厩舎DB未登録(勢司和) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.375,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "13",
@@ -3551,7 +3950,10 @@
           "genbuNote": "厩舎栗田徹[B](1.0) | 外厩山元トレセン[SH26.4%](1.5) → 2.5",
           "totalScore": 6.975,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.0,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.00)"
         },
         {
           "num": "14",
@@ -3577,7 +3979,10 @@
           "genbuNote": "厩舎DB未登録(田中博) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 2.5",
           "totalScore": 12.825,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "15",
@@ -3603,7 +4008,10 @@
           "genbuNote": "厩舎DB未登録(久保田) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
           "totalScore": 6.9,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.6,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.60)"
         },
         {
           "num": "16",
@@ -3629,7 +4037,10 @@
           "genbuNote": "厩舎武市康男[E](0.0) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 8.075,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         }
       ]
     },
@@ -3662,7 +4073,10 @@
           "genbuNote": "厩舎鹿戸雄一[A](1.5) | 外厩山元トレセン[SH26.4%](1.5) → 3.0",
           "totalScore": 7.125,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.20)"
         },
         {
           "num": "2",
@@ -3688,7 +4102,10 @@
           "genbuNote": "厩舎DB未登録(矢野英) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
           "totalScore": 6.525,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.2,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.20)"
         },
         {
           "num": "3",
@@ -3714,7 +4131,10 @@
           "genbuNote": "厩舎藤原英昭[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
           "totalScore": 7.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.1,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.60) | 🐉高言霊7.0(+0.5)"
         },
         {
           "num": "4",
@@ -3740,7 +4160,10 @@
           "genbuNote": "厩舎DB未登録(和田一) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
           "totalScore": 7.775,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "5",
@@ -3766,7 +4189,10 @@
           "genbuNote": "厩舎清水久詞[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 7.665,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.12,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.12)"
         },
         {
           "num": "6",
@@ -3792,7 +4218,10 @@
           "genbuNote": "厩舎DB未登録(高柳瑞) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
           "totalScore": 7.675,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "7",
@@ -3818,7 +4247,10 @@
           "genbuNote": "厩舎DB未登録(福永祐) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
           "totalScore": 7.05,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.8,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.80)"
         },
         {
           "num": "8",
@@ -3844,7 +4276,10 @@
           "genbuNote": "厩舎DB未登録(上村洋) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.8,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "9",
@@ -3870,7 +4305,10 @@
           "genbuNote": "厩舎奥村豊[A](1.5) | 外厩チャンピオンヒルズ[SH28.2%](1.5)🔥 → 3.5",
           "totalScore": 7.05,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.4,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+1.40)"
         },
         {
           "num": "10",
@@ -3896,7 +4334,10 @@
           "genbuNote": "厩舎DB未登録(武藤善) | 外厩阿見トレセン[SH19.7%](0.5) → 0.5",
           "totalScore": 7.15,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.2,
+          "gekisouMark": "",
+          "gekisouNote": "🔄条件変更['外回りで'](+1.5) | 🐢玄武×0.4(+0.20) | 🐉高言霊7.0(+0.5)"
         },
         {
           "num": "11",
@@ -3922,7 +4363,10 @@
           "genbuNote": "厩舎DB未登録(藤岡健) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.375,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "12",
@@ -3948,7 +4392,10 @@
           "genbuNote": "厩舎DB未登録(畠山吉) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 8.5,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "13",
@@ -3974,7 +4421,10 @@
           "genbuNote": "厩舎DB未登録(大竹正) | 外厩松風馬事センター[SH12.5%](0.0) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "14",
@@ -4000,7 +4450,10 @@
           "genbuNote": "厩舎DB未登録(池江寿) | 外厩ノーザンＦしがらき[SH29.4%](1.5)🔥 → 2.0",
           "totalScore": 6.8,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.3,
+          "gekisouMark": "",
+          "gekisouNote": "🔄条件変更['外回りで'](+1.5) | 🐢玄武×0.4(+0.80)"
         },
         {
           "num": "15",
@@ -4026,7 +4479,10 @@
           "genbuNote": "厩舎尾形和幸[D](0.3) | 外厩DB未登録(外厩なし) → 0.3",
           "totalScore": 6.28,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.12,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.12)"
         },
         {
           "num": "16",
@@ -4052,7 +4508,10 @@
           "genbuNote": "厩舎DB未登録(千葉直) | 外厩山元トレセン[SH26.4%](1.5) → 1.5",
           "totalScore": 6.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 2.6,
+          "gekisouMark": "激",
+          "gekisouNote": "🌀一変[変わり身](+2.0) | 🐢玄武×0.4(+0.60)"
         }
       ]
     },
@@ -4085,7 +4544,10 @@
           "genbuNote": "厩舎中村直也[C](0.5) | 外厩DB未登録(外厩なし) → 0.5",
           "totalScore": 7.725,
           "pickMark": "◎",
-          "pickRank": 1
+          "pickRank": 1,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "2",
@@ -4111,7 +4573,10 @@
           "genbuNote": "厩舎DB未登録(池上和) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "3",
@@ -4137,7 +4602,10 @@
           "genbuNote": "厩舎寺島良[A](1.5) | 外厩DB未登録(外厩なし) → 1.5",
           "totalScore": 6.45,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.6,
+          "gekisouMark": "",
+          "gekisouNote": "🐢玄武×0.4(+0.60)"
         },
         {
           "num": "4",
@@ -4163,7 +4631,10 @@
           "genbuNote": "厩舎DB未登録(千葉直) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.65,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "5",
@@ -4189,7 +4660,10 @@
           "genbuNote": "厩舎西村真幸[C](0.5) | 外厩DB未登録(外厩なし) → 0.5",
           "totalScore": 7.46,
           "pickMark": "▲",
-          "pickRank": 3
+          "pickRank": 3,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "6",
@@ -4215,7 +4689,10 @@
           "genbuNote": "厩舎DB未登録(本間忍) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "7",
@@ -4241,7 +4718,10 @@
           "genbuNote": "厩舎鹿戸雄一[A](1.5) | 外厩ノーザンＦ天栄[SH31.5%](2.0)🔥 → 4.0",
           "totalScore": 7.425,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 1.6,
+          "gekisouMark": "激",
+          "gekisouNote": "🐢玄武×0.4(+1.60)"
         },
         {
           "num": "8",
@@ -4267,7 +4747,10 @@
           "genbuNote": "厩舎DB未登録(的場均) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.375,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "9",
@@ -4293,7 +4776,10 @@
           "genbuNote": "厩舎DB未登録(林　徹) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 6.0,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         },
         {
           "num": "10",
@@ -4319,7 +4805,10 @@
           "genbuNote": "厩舎DB未登録(菊沢隆) | 外厩DB未登録(外厩なし) → 0.0",
           "totalScore": 7.575,
           "pickMark": "○",
-          "pickRank": 2
+          "pickRank": 2,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": ""
         },
         {
           "num": "11",
@@ -4345,7 +4834,10 @@
           "genbuNote": "厩舎DB未登録(和田一) | 外厩DB未登録(和田牧場（千葉県）) → 0.0",
           "totalScore": 4.5,
           "pickMark": "",
-          "pickRank": 0
+          "pickRank": 0,
+          "gekisouScore": 0.0,
+          "gekisouMark": "",
+          "gekisouNote": "シグナルなし"
         }
       ]
     }
