@@ -1282,8 +1282,8 @@ function render(){
         shobuBadge = `<span class="shobu-badge">${'🧧'.repeat(shobuLevel)}</span><span class="shobu-label">勝負鞍</span>`;
       }
     }
-    // 陣形バッジ（1強戦/2強戦/接戦）
-    const jinkei = calcJinkei(r);
+    // 陣形バッジ（1強戦/2強戦/接戦）override対応
+    const jinkei = r.jinkeiOverride || calcJinkei(r);
     const jinkeiClass = jinkei==='1強戦'?'jinkei-1':jinkei==='2強戦'?'jinkei-2':'jinkei-mix';
     const jinkeiBadge = jinkei ? `<span class="jinkei-badge ${jinkeiClass}">${jinkei}</span>` : '';
     // 🦒出現バッジ（picks内に麒麟レベル1以上の馬が1頭でもいれば）
