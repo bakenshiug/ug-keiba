@@ -30,7 +30,7 @@ OUTPUT_FILES = {
 # ──────────────────────────────────────────────
 
 def extract_danwa_body(danwa: str) -> str:
-    """印 馬名【担当者】本文 → 本文を返す"""
+    """印 馬名【担当者】本文 → 本文を返す（師――/助手――形式も対応）"""
     if not danwa:
         return ""
     # SVG/CSSコードを除去（.st0{fill:none;...} 等）
@@ -39,7 +39,12 @@ def extract_danwa_body(danwa: str) -> str:
     danwa = danwa.strip()
     if not danwa:
         return ""
+    # 【担当者】本文 形式
     m = re.search(r"】(.+)$", danwa, re.DOTALL)
+    if m:
+        return m.group(1).strip()
+    # 師――/助手―― 形式: 「加藤征師――本文」「山崎助手――本文」
+    m = re.search(r"[^\s]{1,8}(?:師|助手)――(.+)$", danwa, re.DOTALL)
     if m:
         return m.group(1).strip()
     # 【】なしの場合は先頭印・馬名を取り除く
