@@ -1304,6 +1304,20 @@ a{color:inherit;}
   </a>
 </section>
 
+<!-- ══ 初ブリンカー神宮バナー（白虎）══ -->
+<section class="section" id="ippen-jinja-banner" style="margin-bottom:14px">
+  <a href="ippen-gekisou.html" class="kotodama-banner byakko-style">
+    <div class="kj-icon mincho">🐅</div>
+    <div class="kj-body">
+      <div class="kj-title mincho">初　ブ　リ　ン　カ　ー　神　宮</div>
+      <div class="kj-sub mincho">我、馬具の変化に一変激走の兆しを見る</div>
+      <div class="kj-sub2 mincho">西方の神 ─ 初ブリンカー全馬記録・単勝回収率公開中</div>
+      <div class="kj-cta mincho">▶ 今週の初ブリ馬 公開中</div>
+    </div>
+    <div class="kj-arrow mincho">🐅</div>
+  </a>
+</section>
+
 <!-- ══ 騎手手綱神宮バナー（NEW・朱雀）══ -->
 <section class="section" id="kishu-tazuna-banner" style="margin-bottom:14px">
   <a href="suzaku-board.html" class="kotodama-banner suzaku-style">
@@ -1356,6 +1370,30 @@ a{color:inherit;}
 .kotodama-banner.note-style .kj-icon,
 .kotodama-banner.note-style .kj-arrow{color:#2b6cb0}
 .kotodama-banner.note-style .kj-cta{background:#2b6cb0;color:#fff;font-weight:700}
+
+/* 白虎 (初ブリンカー神宮) — 虎金グラデ */
+.kotodama-banner.byakko-style{
+  border-color:#a07b28;
+  background:linear-gradient(135deg,#fffbf0 0%,#fff8e0 50%,#fdf3cc 100%);
+  box-shadow:0 2px 12px rgba(160,123,40,.2);
+}
+.kotodama-banner.byakko-style .kj-sub2{
+  font-size:12px;color:#7a6030;margin-top:2px;letter-spacing:.06em;font-style:italic;opacity:.85
+}
+.kotodama-banner.byakko-style:hover{
+  border-color:#c9a84c;
+  box-shadow:0 6px 22px rgba(160,123,40,.35);
+}
+.kotodama-banner.byakko-style .kj-icon,
+.kotodama-banner.byakko-style .kj-arrow{
+  color:#a07b28;animation:byakkoGlow 2.4s ease-in-out infinite
+}
+.kotodama-banner.byakko-style .kj-cta{background:#a07b28;color:#fff;font-weight:700}
+.kotodama-banner.byakko-style .kj-title{color:#7a5c10}
+@keyframes byakkoGlow{
+  0%,100%{filter:drop-shadow(0 0 4px rgba(201,168,76,.4))}
+  50%{filter:drop-shadow(0 0 12px rgba(201,168,76,.9))}
+}
 
 /* 朱雀 (騎手手綱神宮) — 朱赤グラデ */
 .kotodama-banner.suzaku-style{
