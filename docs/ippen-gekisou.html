@@ -122,6 +122,19 @@
   .hc-payouts b{color:var(--ink);font-weight:700}
   .hc-ninki{font-size:11px;color:var(--ink-soft);margin-top:2px}
 
+  /* ── タブ ── */
+  .tab-wrap{display:flex;gap:0;margin-bottom:28px;border-radius:8px;overflow:hidden;
+            border:1.5px solid var(--kin);box-shadow:0 2px 10px rgba(0,0,0,.06)}
+  .tab-btn{flex:1;padding:14px 8px;font-family:'Shippori Mincho',serif;
+           font-size:15px;font-weight:900;letter-spacing:.2em;cursor:pointer;
+           border:none;background:#fff;color:var(--ink-soft);transition:all .2s}
+  .tab-btn:first-child{border-right:1.5px solid var(--kin)}
+  .tab-btn.active{background:linear-gradient(135deg,#2c1f12,#3d2b18);
+                  color:var(--kin);box-shadow:inset 0 2px 8px rgba(0,0,0,.2)}
+  .tab-btn:hover:not(.active){background:var(--paper-deep);color:var(--ink)}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+
   .closing{text-align:center;font-family:'Shippori Mincho',serif;
            font-size:14px;color:var(--ink-soft);letter-spacing:.18em;margin-top:40px;
            padding:20px;border-top:1px solid var(--kin)}
@@ -143,6 +156,7 @@
     .hc-rank{font-size:17px}
     .summary-line{font-size:15px}
     .summary-line .big{font-size:26px}
+    .tab-btn{font-size:13px;padding:12px 6px}
   }
 </style>
 </head>
@@ -168,6 +182,15 @@
 
   <h2 class="section-h mincho">🧧 今週の初ブリンカー全馬記録 🧧</h2>
   <p class="section-sub">新 潟 大 賞 典 週 ／ 全 3 場 r o s t e r 完 全 対 応 版</p>
+
+  <!-- ── タブ ── -->
+  <div class="tab-wrap">
+    <button class="tab-btn active mincho" onclick="switchTab('sat',this)">🐅 土 曜　2026-05-16</button>
+    <button class="tab-btn mincho" onclick="switchTab('sun',this)">🐅 日 曜　2026-05-17</button>
+  </div>
+
+  <!-- ── 土曜パネル ── -->
+  <div id="panel-sat" class="tab-panel active">
 
   <!-- ── 集計カード ── -->
   <div class="stats-board">
@@ -522,16 +545,52 @@
       </div>
     </div>
 
-  </div><!-- /day-board -->
+  </div><!-- /day-board 土曜 -->
 
-  <!-- 日曜 プレースホルダー -->
-  <div class="day-board" style="opacity:.7">
-    <div class="day-h">日 曜　2026-05-17　─ 更 新 予 定</div>
-    <div style="text-align:center;padding:18px 0;font-size:13px;color:var(--ink-soft);
-                font-family:'Shippori Mincho',serif;letter-spacing:.1em">
-      ⛩ ヴィクトリアマイル週 ─ 日曜分は結果後に更新
+  </div><!-- /panel-sat -->
+
+  <!-- ── 日曜パネル ── -->
+  <div id="panel-sun" class="tab-panel">
+
+    <!-- 日曜 集計カード（結果後に更新） -->
+    <div class="stats-board">
+      <div class="stats-title mincho">⛩ 2026-05-17 日曜 ／ 初ブリンカー 集計 ─ 更新予定</div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-label">勝 率</div>
+          <div class="stat-val" style="color:rgba(201,168,76,.4);font-size:18px">─</div>
+          <div class="stat-sub">結果後に更新</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">複勝率</div>
+          <div class="stat-val" style="color:rgba(201,168,76,.4);font-size:18px">─</div>
+          <div class="stat-sub">結果後に更新</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">単勝回収率</div>
+          <div class="stat-val" style="color:rgba(201,168,76,.4);font-size:18px">─</div>
+          <div class="stat-sub">結果後に更新</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">複勝回収率</div>
+          <div class="stat-val" style="color:rgba(201,168,76,.4);font-size:18px">─</div>
+          <div class="stat-sub">結果後に更新</div>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <!-- 日曜 馬カード（結果後に更新） -->
+    <div class="day-board" style="opacity:.7">
+      <div class="day-h">日 曜　2026-05-17　─ ヴ ィ ク ト リ ア マ イ ル 週</div>
+      <div style="text-align:center;padding:30px 0;font-size:14px;color:var(--ink-soft);
+                  font-family:'Shippori Mincho',serif;letter-spacing:.15em;line-height:2.2">
+        🐅 初ブリンカー全馬<br>
+        結果が出次第アップします<br>
+        <span style="font-size:11px;color:var(--kin-deep)">全3場roster完全対応版</span>
+      </div>
+    </div>
+
+  </div><!-- /panel-sun -->
 
   <div class="torii-divider">⛩ ─ ⛩ ─ ⛩</div>
 
@@ -549,5 +608,14 @@
   神宮トップ <a href="index.html">⛩ 戻る</a>
 </footer>
 
+<script>
+function switchTab(day, btn) {
+  // パネル切替
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + day).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
 </body>
 </html>
