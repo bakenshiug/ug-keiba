@@ -254,10 +254,12 @@ def print_summary(roster: dict):
 # メイン
 # ──────────────────────────────────────────────
 BASE = Path("/Users/buntawakase/Desktop/ug-keiba/docs/data/kotodama-test")
+import sys as _sys
+_date = (_sys.argv[1] if len(_sys.argv) > 1 else "2026-05-17").replace("-", "")
 FILES = [
-    BASE / "20260516_tokyo_roster.json",
-    BASE / "20260516_kyoto_roster.json",
-    BASE / "20260516_niigata_roster.json",
+    BASE / f"{_date}_tokyo_roster.json",
+    BASE / f"{_date}_kyoto_roster.json",
+    BASE / f"{_date}_niigata_roster.json",
 ]
 
 grand_total = 0

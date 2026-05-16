@@ -1,3 +1,5 @@
+import sys as _sys
+_date = (_sys.argv[1] if len(_sys.argv) > 1 else "2026-05-17").replace("-", "")
 #!/usr/bin/env python3
 """
 玄武スコアリング v1.0
@@ -18,9 +20,9 @@ TRAINER_RECENT_PATH = BASE / "docs/data/genbu/trainer/trainer_recent_2026-05-11.
 GAIKYU_RECENT_PATH  = BASE / "docs/data/genbu/gaikyu/gaikyu_recent_2026-05-11.json"
 
 ROSTER_FILES = {
-    "東京": BASE / "docs/data/kotodama-test/20260516_tokyo_roster.json",
-    "京都": BASE / "docs/data/kotodama-test/20260516_kyoto_roster.json",
-    "新潟": BASE / "docs/data/kotodama-test/20260516_niigata_roster.json",
+    "東京": BASE / f"docs/data/kotodama-test/{_date}_tokyo_roster.json",
+    "京都": BASE / f"docs/data/kotodama-test/{_date}_kyoto_roster.json",
+    "新潟": BASE / f"docs/data/kotodama-test/{_date}_niigata_roster.json",
 }
 
 # ──────────────────────────────────────────────
