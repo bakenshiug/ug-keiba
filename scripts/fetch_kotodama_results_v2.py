@@ -51,7 +51,7 @@ def parse_horses(html: str) -> list:
 
 
 def parse_payouts(html: str) -> dict:
-    PAYOUT_KEY_MAP = {'Tansho': 'tan', 'Umatan': 'umatan'}
+    PAYOUT_KEY_MAP = {'Tansho': 'tan', 'Fukusho': 'fuku', 'Umatan': 'umatan'}
     out = {}
     for tbl in re.findall(r'<table[^>]*class="Payout_Detail_Table"[^>]*>(.*?)</table>', html, re.S):
         for cls, body in re.findall(r'<tr class="(\w+)"[^>]*>(.*?)</tr>', tbl, re.S):

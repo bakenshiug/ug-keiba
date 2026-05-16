@@ -82,6 +82,46 @@
                 font-weight:900;letter-spacing:.1em;line-height:1.8}
   .summary-line .big{font-size:32px;color:var(--shu);margin:0 6px}
 
+  /* ── 集計カード ── */
+  .stats-board{background:linear-gradient(135deg,#2c1f12 0%,#3d2b18 100%);
+               border:2px solid var(--kin);border-radius:10px;
+               padding:22px 24px;margin-bottom:28px;
+               box-shadow:0 4px 18px rgba(0,0,0,.18)}
+  .stats-title{font-family:'Shippori Mincho',serif;font-size:13px;
+               color:rgba(201,168,76,.7);letter-spacing:.3em;
+               text-align:center;margin-bottom:14px}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .stat-item{text-align:center}
+  .stat-label{font-size:10px;color:rgba(201,168,76,.65);letter-spacing:.15em;
+              font-family:'Shippori Mincho',serif;margin-bottom:4px}
+  .stat-val{font-size:22px;font-weight:900;color:var(--kin);font-family:'Inter',sans-serif;
+            letter-spacing:.02em}
+  .stat-val.win{color:#ffd34d;text-shadow:0 0 8px rgba(255,211,77,.5)}
+  .stat-sub{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px}
+
+  /* ── 馬カード ── */
+  .horse-card{background:#fff;border:1.5px solid rgba(201,168,76,.35);
+              border-radius:8px;padding:14px 16px;margin-bottom:10px;
+              display:grid;grid-template-columns:1fr auto;
+              gap:8px;align-items:start;
+              box-shadow:0 1px 6px rgba(0,0,0,.04)}
+  .horse-card.hit-1{border-color:var(--kin);background:linear-gradient(135deg,#fffbee,#fff8d0)}
+  .horse-card.hit-23{border-color:rgba(31,77,46,.4);background:linear-gradient(135deg,#f2fbf4,#e8f7ec)}
+  .horse-card.chushi{opacity:.55}
+  .hc-race{font-size:11px;color:var(--ink-soft);letter-spacing:.06em;
+           font-family:'Shippori Mincho',serif;margin-bottom:5px}
+  .hc-name{font-size:17px;font-weight:900;color:var(--shu);
+           font-family:'Shippori Mincho',serif;letter-spacing:.04em}
+  .hc-staff{font-size:11px;color:var(--ink-soft);margin-top:2px;letter-spacing:.04em}
+  .hc-result{text-align:right;min-width:90px}
+  .hc-rank{font-size:20px;font-weight:900;font-family:'Shippori Mincho',serif}
+  .hc-rank.r1{color:var(--kin-deep)}
+  .hc-rank.r23{color:var(--midori)}
+  .hc-rank.rx{color:#bbb}
+  .hc-payouts{font-size:11px;color:var(--ink-soft);margin-top:4px;text-align:right}
+  .hc-payouts b{color:var(--ink);font-weight:700}
+  .hc-ninki{font-size:11px;color:var(--ink-soft);margin-top:2px}
+
   .closing{text-align:center;font-family:'Shippori Mincho',serif;
            font-size:14px;color:var(--ink-soft);letter-spacing:.18em;margin-top:40px;
            padding:20px;border-top:1px solid var(--kin)}
@@ -96,9 +136,11 @@
     .h-tiger{font-size:60px}
     .h-title{font-size:26px;letter-spacing:.18em;padding-left:.18em}
     main{padding:30px 14px 60px}
-    .day-board{padding:18px 16px}
-    .horse-line{font-size:14px;gap:8px}
-    .horse-name{font-size:16px}
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .stat-val{font-size:18px}
+    .horse-card{padding:12px 12px}
+    .hc-name{font-size:15px}
+    .hc-rank{font-size:17px}
     .summary-line{font-size:15px}
     .summary-line .big{font-size:26px}
   }
@@ -124,76 +166,258 @@
 
   <div class="torii-divider">⛩ ─ ⛩ ─ ⛩</div>
 
-  <h2 class="section-h mincho">🧧 今週の初ブリンカー大吉馬 🧧</h2>
+  <h2 class="section-h mincho">🧧 今週の初ブリンカー全馬記録 🧧</h2>
   <p class="section-sub">新 潟 大 賞 典 週 ／ 馬 具 変 … 侮 る な か れ</p>
 
-  <!-- 土曜 -->
-  <div class="day-board">
-    <div class="day-h">土 曜　2026-05-16</div>
-
-    <div class="race-block">
-      <div class="race-info">東京11R　六社ステークス・芝2400m</div>
-      <div class="horse-line">
-        <span class="horse-name">キングスコール</span>
-        <span class="pop">5人気</span>
-        <span class="finish">1着</span>
-        <span class="odds-flag">単14.9倍</span>
+  <!-- ── 集計カード ── -->
+  <div class="stats-board">
+    <div class="stats-title mincho">⛩ 2026-05-16 土曜 ／ 初ブリンカー 15頭 集計</div>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-label">勝 率</div>
+        <div class="stat-val win">13.3%</div>
+        <div class="stat-sub">2 / 15頭</div>
       </div>
-    </div>
-
-    <div class="race-block">
-      <div class="race-info">京都1R　3歳未勝利・ダ1400m</div>
-      <div class="horse-line">
-        <span class="horse-name">エイユーサクラ</span>
-        <span class="pop">5人気</span>
-        <span class="finish">3着</span>
+      <div class="stat-item">
+        <div class="stat-label">複勝率</div>
+        <div class="stat-val win">35.7%</div>
+        <div class="stat-sub">5 / 14頭（中止除く）</div>
       </div>
-    </div>
-
-    <div class="race-block">
-      <div class="race-info">京都2R　3歳未勝利・ダ1800m</div>
-      <div class="horse-line">
-        <span class="horse-name">ゴールドコット</span>
-        <span class="pop">7人気</span>
-        <span class="finish">1着</span>
-        <span class="odds-flag">単25.7倍</span>
+      <div class="stat-item">
+        <div class="stat-label">単勝回収率</div>
+        <div class="stat-val win">270.7%</div>
+        <div class="stat-sub">払¥4,060 / 投¥1,500</div>
       </div>
-    </div>
-
-    <div class="race-block">
-      <div class="race-info">新潟2R　3歳未勝利・ダ1200m</div>
-      <div class="horse-line">
-        <span class="horse-name">ナムラロダン</span>
-        <span class="pop">2人気</span>
-        <span class="finish">2着</span>
-      </div>
-    </div>
-
-    <div class="race-block">
-      <div class="race-info">新潟4R　3歳未勝利・ダ1800m</div>
-      <div class="horse-line">
-        <span class="horse-name">テリコス</span>
-        <span class="pop">5人気</span>
-        <span class="finish">2着</span>
+      <div class="stat-item">
+        <div class="stat-label">複勝回収率</div>
+        <div class="stat-val win">103.6%</div>
+        <div class="stat-sub">払¥1,450 / 投¥1,400</div>
       </div>
     </div>
   </div>
 
-  <!-- 日曜 -->
+  <!-- ── 土曜 全15頭 ── -->
   <div class="day-board">
+    <div class="day-h">土 曜　2026-05-16　全 15 頭</div>
+
+    <!-- 東京2R -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">東京2R　3歳未勝利・ダ1600m</div>
+        <div class="hc-name">トロフィーポーズ</div>
+        <div class="hc-staff">北村宏司　／　黒岩陽一</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">16着</div>
+        <div class="hc-ninki">6人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 東京5R -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">東京5R　3歳未勝利・芝1400m</div>
+        <div class="hc-name">ムーンシェイド</div>
+        <div class="hc-staff">石橋脩　／　牧光二</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">13着</div>
+        <div class="hc-ninki">9人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 東京7R -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">東京7R　3歳1勝クラス・ダ1400m</div>
+        <div class="hc-name">タイキブリッツェン</div>
+        <div class="hc-staff">田辺裕信　／　伊藤圭三</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">4着</div>
+        <div class="hc-ninki">3人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 東京11R ★1着 -->
+    <div class="horse-card hit-1">
+      <div>
+        <div class="hc-race">東京11R　六社ステークス・芝2400m</div>
+        <div class="hc-name">キングスコール</div>
+        <div class="hc-staff">吉田豊　／　矢作芳人</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank r1">🥇 1着</div>
+        <div class="hc-ninki">5人気</div>
+        <div class="hc-payouts">単 <b>¥1,490</b> ／ 複 <b>¥750</b></div>
+      </div>
+    </div>
+
+    <!-- 東京12R -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">東京12R　4歳以上1勝クラス牝・ダ1600m</div>
+        <div class="hc-name">ミセスリリー</div>
+        <div class="hc-staff">北村宏司　／　宮田敬介</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">13着</div>
+        <div class="hc-ninki">12人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 京都1R ★3着 -->
+    <div class="horse-card hit-23">
+      <div>
+        <div class="hc-race">京都1R　3歳未勝利・ダ1400m</div>
+        <div class="hc-name">エイユーサクラ</div>
+        <div class="hc-staff">秋山稔樹　／　高橋義忠</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank r23">🥉 3着</div>
+        <div class="hc-ninki">5人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 <b>¥180</b></div>
+      </div>
+    </div>
+
+    <!-- 京都2R ★1着 -->
+    <div class="horse-card hit-1">
+      <div>
+        <div class="hc-race">京都2R　3歳未勝利・ダ1800m</div>
+        <div class="hc-name">ゴールドコット</div>
+        <div class="hc-staff">角田大和　／　田中克典</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank r1">🥇 1着</div>
+        <div class="hc-ninki">7人気</div>
+        <div class="hc-payouts">単 <b>¥2,570</b> ／ 複 <b>¥280</b></div>
+      </div>
+    </div>
+
+    <!-- 京都3R -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">京都3R　3歳未勝利・芝1400m</div>
+        <div class="hc-name">マイシドニー</div>
+        <div class="hc-staff">田山旺佑　／　新谷功一</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">16着</div>
+        <div class="hc-ninki">5人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 京都6R -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">京都6R　4歳以上1勝クラス・ダ1200m</div>
+        <div class="hc-name">エブライト</div>
+        <div class="hc-staff">田山旺佑　／　橋口慎介</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">6着</div>
+        <div class="hc-ninki">5人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 京都11R -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">京都11R　鞍馬ステークス・芝1200m</div>
+        <div class="hc-name">フロムダスク</div>
+        <div class="hc-staff">松若風馬　／　森秀行</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">5着</div>
+        <div class="hc-ninki">8人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 新潟1R -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">新潟1R　3歳未勝利・ダ1800m</div>
+        <div class="hc-name">ウェイヴムーン</div>
+        <div class="hc-staff">舟山瑠泉　／　石坂公一</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">4着</div>
+        <div class="hc-ninki">3人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 新潟2R ★2着 -->
+    <div class="horse-card hit-23">
+      <div>
+        <div class="hc-race">新潟2R　3歳未勝利・ダ1200m</div>
+        <div class="hc-name">ナムラロダン</div>
+        <div class="hc-staff">西村淳也　／　長谷川浩大</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank r23">🥈 2着</div>
+        <div class="hc-ninki">2人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 <b>¥110</b></div>
+      </div>
+    </div>
+
+    <!-- 新潟4R アンデルストープ -->
+    <div class="horse-card">
+      <div>
+        <div class="hc-race">新潟4R　3歳未勝利・ダ1800m</div>
+        <div class="hc-name">アンデルストープ</div>
+        <div class="hc-staff">石田拓郎　／　伊坂重信</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">7着</div>
+        <div class="hc-ninki">9人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 ─</div>
+      </div>
+    </div>
+
+    <!-- 新潟4R テリコス ★2着 -->
+    <div class="horse-card hit-23">
+      <div>
+        <div class="hc-race">新潟4R　3歳未勝利・ダ1800m</div>
+        <div class="hc-name">テリコス</div>
+        <div class="hc-staff">岩田康誠　／　四位洋文</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank r23">🥈 2着</div>
+        <div class="hc-ninki">5人気</div>
+        <div class="hc-payouts">単 ─ ／ 複 <b>¥130</b></div>
+      </div>
+    </div>
+
+    <!-- 新潟6R クールフィールド 中止 -->
+    <div class="horse-card chushi">
+      <div>
+        <div class="hc-race">新潟6R　3歳未勝利・芝1000m</div>
+        <div class="hc-name">クールフィールド</div>
+        <div class="hc-staff">荻野極　／　矢野英一</div>
+      </div>
+      <div class="hc-result">
+        <div class="hc-rank rx">競走中止</div>
+        <div class="hc-ninki">4人気</div>
+        <div class="hc-payouts">─</div>
+      </div>
+    </div>
+
+  </div><!-- /day-board -->
+
+  <!-- 日曜 プレースホルダー -->
+  <div class="day-board" style="opacity:.7">
     <div class="day-h">日 曜　2026-05-17　─ 更 新 予 定</div>
-    <div class="race-block" style="text-align:center;padding:20px 0">
-      <div class="race-info" style="font-size:14px">⛩ ヴィクトリアマイル週 ─ 日曜分は結果後に更新</div>
-    </div>
-  </div>
-
-  <!-- 集計 -->
-  <div class="summary">
-    <div class="summary-line mincho">
-      土曜 <span class="big">5</span> 頭　馬券圏内
-    </div>
-    <div class="summary-line mincho" style="font-size:14px;margin-top:8px;color:var(--ink-soft)">
-      うち 1着 2頭（キングスコール・ゴールドコット） ／ 計15頭登録
+    <div style="text-align:center;padding:18px 0;font-size:13px;color:var(--ink-soft);
+                font-family:'Shippori Mincho',serif;letter-spacing:.1em">
+      ⛩ ヴィクトリアマイル週 ─ 日曜分は結果後に更新
     </div>
   </div>
 
