@@ -1286,13 +1286,11 @@ function render(){
     // 🚨救済候補バナー（全picks言霊C/D → 朱雀S/A馬が昇格候補）
     const rescueBanner = r.rescueCandidate
       ? `<div class="rescue-banner">🚨 救済候補 — ${r.rescueNote||''}</div>` : '';
-    // 的中判定（pickの中で1-3着が居れば🎯マーク）
-    const raceHit = (r.picks || []).some(p => {
-      const rk = p.finalRank ? Number(p.finalRank) : null;
-      return rk && rk>=1 && rk<=3;
-    });
-    // 勝ちレース判定（新買い方v2で回収率100%超 → 金グロー）
+    // 新買い方v2で計算（◎軸+激軸の実際の払戻ベースで判定）
     const v2BetCheck = calcV2(r);
+    // 的中判定：実際に払戻があったレースのみ🎯（旧: picks内1-3着判定は削除）
+    const raceHit = v2BetCheck ? v2BetCheck.payoutTotal > 0 : false;
+    // 勝ちレース判定（回収率100%超 → 金グロー）
     const raceWin = v2BetCheck ? v2BetCheck.recovery >= 100 : false;
     // 🔒 有料ロック表示
     if (r._paidLocked) {
@@ -1334,7 +1332,9 @@ function render(){
           const order = markOrderFor(r.date);
           const dynMark = (p.mark === '激') ? '激' : (p.mark === '穴') ? '激' : (order[i] ?? p.mark);
           const rk = p.finalRank ? Number(p.finalRank) : null;
-          const inMoney = rk && rk>=1 && rk<=3;
+          // 🎯は◎または激（実際に賭けた軸馬）が1〜3着のときのみ
+          const isAxis = (p.mark === '◎' || p.mark === '激');
+          const inMoney = isAxis && rk && rk>=1 && rk<=3;
           const rkCls = rk===1?'r1':rk===2?'r2':rk===3?'r3':'';
           const finBadge = rk
             ? `<span class="finish ${rkCls}">${rk}着${inMoney?'<span class="hit-mark">🎯</span>':''}</span>`
