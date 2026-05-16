@@ -828,17 +828,14 @@ function triRow(label, sat, sun, tot){
         <div class="sb-tri-cell ${sat.totalRecovery>=100?'win':''}">
           <div class="sb-tri-day">土曜</div>
           <div class="sb-tri-num">${fmt(sat)}</div>
-          <div class="sb-tri-meta">${sat.racesHit}/${sat.racesWithResult}R的中</div>
         </div>
         <div class="sb-tri-cell ${sun.totalRecovery>=100?'win':''}">
           <div class="sb-tri-day">日曜</div>
           <div class="sb-tri-num">${fmt(sun)}</div>
-          <div class="sb-tri-meta">${sun.racesHit}/${sun.racesWithResult}R的中</div>
         </div>
         <div class="sb-tri-cell sb-tri-total ${tot.totalRecovery>=100?'win':''}">
           <div class="sb-tri-day">土日トータル</div>
           <div class="sb-tri-num">${fmt(tot)}</div>
-          <div class="sb-tri-meta">${tot.racesHit}/${tot.racesWithResult}R的中</div>
         </div>
       </div>
     </div>`;
@@ -1038,17 +1035,14 @@ function renderSummary(){
       <div class="sb-tri-cell ${sat.totalRecovery>=100?'win':''}">
         <div class="sb-tri-day">土曜</div>
         <div class="sb-tri-num">${sat.totalRecovery}%</div>
-        <div class="sb-tri-meta">${sat.racesHit}/${sat.racesWithResult}R的中</div>
       </div>
       <div class="sb-tri-cell ${sun.totalRecovery>=100?'win':''}">
         <div class="sb-tri-day">日曜</div>
         <div class="sb-tri-num">${sun.totalRecovery}%</div>
-        <div class="sb-tri-meta">${sun.racesHit}/${sun.racesWithResult}R的中</div>
       </div>
       <div class="sb-tri-cell sb-tri-total ${tot.totalRecovery>=100?'win':''}">
         <div class="sb-tri-day">土日トータル</div>
         <div class="sb-tri-num">${tot.totalRecovery}%</div>
-        <div class="sb-tri-meta">${tot.racesHit}/${tot.racesWithResult}R的中</div>
       </div>
     </div>` : `<div class="sb-total ${s.totalRecovery>=100?'win':''}">総合回収率 ${s.totalRecovery}%</div>`;
   el.innerHTML = `
