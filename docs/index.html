@@ -2151,7 +2151,7 @@ drawBtn.addEventListener('click', () => {
 (function(){
   // 週ごとの kotodama-test JSON ファイル（毎週末追加）
   const KOTODAMA_FILES = [
-    'data/kotodama-test/2026-05-09-10.json',
+    'data/kotodama-test/2026-05-16.json',
   ];
 
   function fireMark(rec){
@@ -2225,13 +2225,10 @@ drawBtn.addEventListener('click', () => {
       if (elTicker){
         const items = [];
         // 厳選的中レポート 2鞍
-        items.push(`<span class="fire">🔥🔥🎯</span><span class="gold">NHKマイルC</span> ◎アスクイキゴミ ▲ロデオドライブ ／ 馬単流マルチ ¥2,990 / ¥600 <span class="pct">498.3%的中</span>`);
-        items.push(`<span class="fire">🔥🎯</span><span class="gold">京都新聞杯</span> ○コンジェスタス △ベレシート ／ 馬単BOX ¥4,310 / ¥1,200 <span class="pct">359.2%的中</span>`);
-        // 総合
-        items.push(`<span class="fire">⛩</span>言霊神宮 総合回収率<span class="pct">${rec.toFixed(1)}%</span>`);
-        // 🔥 騎手手綱神宮 建立速報
-        items.push(`<span class="fire">🔥</span><span class="gold">念願叶う！騎手手綱神宮 建立</span>🔥 全騎手データ網羅 ／ 人馬一体 ─ 我が神宮、好調騎手に光を照らす`);
-        items.push(`<span class="fire">📅</span>次回 5/17週 ─ 言霊 × 騎手手綱 × 一変激走 三軸新運用`);
+        items.push(`<span class="fire">🔥🔥🔥</span><span class="gold">東京8R</span> ◎ノアヴィヴァーチェ ／ 単勝390円＋馬単マルチ44,260円 <span class="pct">6350.7%爆発！</span>`);
+        items.push(`<span class="fire">🔥🔥</span><span class="gold">05/16土曜全36R</span> 言霊神宮 総合回収率<span class="pct">${rec.toFixed(1)}%</span>`);
+        items.push(`<span class="fire">⛩</span><span class="gold">新潟大賞典週</span> 土曜36R集計 ─ 14点¥1,400/R ／ ◎軸205.9% ／ 激軸193.3%`);
+        items.push(`<span class="fire">📅</span>5/17日曜 ─ ヴィクトリアマイル◎チェルビニア 言霊神宮 本命投入`);
         // ループで途切れない様に2回繰り返し
         const html = items.join('<span class="sep">⛩</span>') + '<span class="sep">⛩</span>' + items.join('<span class="sep">⛩</span>');
         elTicker.innerHTML = html;
@@ -2253,7 +2250,7 @@ drawBtn.addEventListener('click', () => {
       const elInv = document.getElementById('saisen-invest');
       const elInvN = document.getElementById('saisen-invest-note');
       if (elInv) elInv.textContent = '¥' + totInv.toLocaleString();
-      if (elInvN) elInvN.textContent = `${all.length}鞍 × ¥6,000（七券種BOX）`;
+      if (elInvN) elInvN.textContent = `${all.length}鞍 × ¥1,400（単勝◎＋馬単マルチ◎軸 ／ 単勝激＋馬単マルチ激軸）`;
 
       const elRec = document.getElementById('saisen-recovery');
       const elRecN = document.getElementById('saisen-recovery-note');
