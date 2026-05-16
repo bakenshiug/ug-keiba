@@ -64,12 +64,12 @@ def fetch_race_meta(race_id: str) -> dict:
     tm = re.search(r'(\d{2}:\d{2})発走', block)
     result["startTime"] = tm.group(1) if tm else ""
 
-    # 芝/ダート/障害 + 距離
+    # 芝/ダート/障害 + 距離（距離はm付けない・HTMLテンプレが追加するため）
     sd = re.search(r'([ダ芝障])(\d{3,4})m', block)
     if sd:
         abbr = sd.group(1)
-        result["surface"]  = SURFACE_MAP.get(abbr, abbr)
-        result["distance"] = sd.group(2) + "m"
+        result["surface"]  = abbr          # 'ダ'/'芝'/'障' の略称で保存
+        result["distance"] = int(sd.group(2))  # 数値のみ（例: 1400）
     else:
         result["surface"]  = ""
         result["distance"] = ""
