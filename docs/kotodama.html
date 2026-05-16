@@ -156,8 +156,11 @@
   .suzaku-B{background:#a89000;color:#fff}
   .suzaku-C{background:#888;color:#fff;opacity:.7}
   .suzaku-D{background:#ccc;color:#666;opacity:.6}
-  /* 初ブリバッジ */
+  /* 初ブリバッジ（馬名セル用） */
   .hatsubri-badge{display:inline-block;padding:2px 6px;background:linear-gradient(135deg,#e85d00,#ff7b00);color:#fff;font-size:10px;font-weight:700;border-radius:3px;letter-spacing:.03em;vertical-align:middle;box-shadow:0 1px 3px rgba(232,93,0,.35)}
+  /* 初ブリ レースバッジ（レース名横） */
+  .ippen-bri-race-badge{display:inline-block;margin-left:5px;padding:1px 7px;font-size:10px;font-weight:700;border-radius:3px;vertical-align:middle;background:linear-gradient(135deg,#e85d00,#ff7b00);color:#fff;letter-spacing:.04em;box-shadow:0 1px 3px rgba(232,93,0,.30);animation:ippenpulse 2.2s ease-in-out infinite}
+  @keyframes ippenpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.75;transform:scale(1.07)}}
   /* 外厩gg-up */
   .gg-badge.gg-up{background:linear-gradient(135deg,#3a8c3f,#5ab860);color:#fff;border:1px solid #2a6e2e}
   .name{font-weight:700;color:var(--ink);min-width:220px;width:220px}
@@ -1286,6 +1289,9 @@ function render(){
     // 🦒出現バッジ（picks内に麒麟レベル1以上の馬が1頭でもいれば）
     const hasKirin = (r.picks||[]).some(p => calcKirinLevel(p) > 0);
     const kirinAppear = hasKirin ? `<span class="kirin-appear">🦒出現</span>` : '';
+    // ⚡初ブリバッジ（picks内にhatsuBri===1の馬が1頭でもいれば）
+    const hasIppenBri = (r.picks||[]).some(p => p.hatsuBri === 1);
+    const ippenBriBadge = hasIppenBri ? `<span class="ippen-bri-race-badge">⚡初ブリ</span>` : '';
     // 🚨救済候補バナー（全picks言霊C/D → 朱雀S/A馬が昇格候補）
     const rescueBanner = r.rescueCandidate
       ? `<div class="rescue-banner">🚨 救済候補 — ${r.rescueNote||''}</div>` : '';
@@ -1323,7 +1329,7 @@ function render(){
     <details class="race ${raceWin?'race-win':''}" data-rnum="${r.raceNum}">
       <summary class="race-summary">
         <span class="race-fold-icon">▶</span>
-        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}${jinkeiBadge}${kirinAppear}</span>
+        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}${jinkeiBadge}${kirinAppear}${ippenBriBadge}</span>
         <span class="race-meta">${r.surface==='ダ'?'ダート':r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
       </summary>
       <div class="race-body">
