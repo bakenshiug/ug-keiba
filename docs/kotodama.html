@@ -106,6 +106,14 @@
     .sb-tri{grid-template-columns:1fr;gap:8px}
     .sb-tri-num{font-size:28px}
   }
+  /* v2サマリー 3段ラベル行 */
+  .sb-v2-row{margin-bottom:4px}
+  .sb-v2-row .sb-tri{margin:4px 0 8px}
+  .sb-v2-label{font-size:12px;font-weight:700;color:var(--shu);letter-spacing:.08em;
+               padding:6px 8px 0;text-align:center}
+  .sb-v2-total{border-top:1px dashed var(--border);padding-top:6px;margin-top:2px}
+  .sb-v2-total .sb-tri-num{font-size:26px;color:var(--ink-soft)}
+  .sb-v2-total .sb-tri-cell.win .sb-tri-num{color:#b8901f}
   .race-header{display:flex;justify-content:space-between;align-items:baseline;
                border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:14px;
                flex-wrap:wrap;gap:8px}
@@ -791,35 +799,67 @@ function venueBoardV2(name, s){
     </div>`;
 }
 
+// セクション別集計（◎軸 or 激軸 の2券種のみ）
+function calcSectionStats(races, kinds){
+  let inv=0, pay=0, hit=0, n=0;
+  races.forEach(r => {
+    const b = calcV2(r); if (!b) return;
+    n++;
+    const sInv = kinds.reduce((s,k)=>s+(b.invest[k]||0),0);
+    const sPay = kinds.reduce((s,k)=>s+(b.payout[k]||0),0);
+    inv += sInv; pay += sPay;
+    if (sPay>0) hit++;
+  });
+  return {
+    racesWithResult:n, racesHit:hit,
+    raceHitRate: n ? Math.round(hit/n*1000)/10 : 0,
+    totalInvest:inv, totalPayout:pay,
+    totalRecovery: inv ? Math.round(pay/inv*1000)/10 : 0,
+  };
+}
+
+// 3列トリ（土曜/日曜/土日トータル）1段分
+function triRow(label, sat, sun, tot){
+  const fmt = s => s.racesWithResult>0 ? s.totalRecovery+'%' : '—';
+  return `
+    <div class="sb-v2-row">
+      <div class="sb-v2-label mincho">${label}</div>
+      <div class="sb-tri">
+        <div class="sb-tri-cell ${sat.totalRecovery>=100?'win':''}">
+          <div class="sb-tri-day">土曜</div>
+          <div class="sb-tri-num">${fmt(sat)}</div>
+          <div class="sb-tri-meta">${sat.racesHit}/${sat.racesWithResult}R的中</div>
+        </div>
+        <div class="sb-tri-cell ${sun.totalRecovery>=100?'win':''}">
+          <div class="sb-tri-day">日曜</div>
+          <div class="sb-tri-num">${fmt(sun)}</div>
+          <div class="sb-tri-meta">${sun.racesHit}/${sun.racesWithResult}R的中</div>
+        </div>
+        <div class="sb-tri-cell sb-tri-total ${tot.totalRecovery>=100?'win':''}">
+          <div class="sb-tri-day">土日トータル</div>
+          <div class="sb-tri-num">${fmt(tot)}</div>
+          <div class="sb-tri-meta">${tot.racesHit}/${tot.racesWithResult}R的中</div>
+        </div>
+      </div>
+    </div>`;
+}
+
 function renderSummaryV2(){
   const el = document.getElementById('summary-board-v2');
   if (!el) return;
   const races = ALL_RACES.filter(r => r.result && r.result.payouts);
   if (!races.length) { el.innerHTML = ''; return; }
-  const all = aggregateV2(races);
-  // 土日別
+
   const satRaces = races.filter(r => r.date === '2026-05-16');
   const sunRaces = races.filter(r => r.date === '2026-05-17');
-  const sat = aggregateV2(satRaces);
-  const sun = aggregateV2(sunRaces);
-  const tri = `
-    <div class="sb-tri">
-      <div class="sb-tri-cell ${sat.totalRecovery>=100?'win':''}">
-        <div class="sb-tri-day">土曜</div>
-        <div class="sb-tri-num">${sat.racesWithResult>0?sat.totalRecovery+'%':'—'}</div>
-        <div class="sb-tri-meta">${sat.racesHit}/${sat.racesWithResult}R的中</div>
-      </div>
-      <div class="sb-tri-cell ${sun.totalRecovery>=100?'win':''}">
-        <div class="sb-tri-day">日曜</div>
-        <div class="sb-tri-num">${sun.racesWithResult>0?sun.totalRecovery+'%':'—'}</div>
-        <div class="sb-tri-meta">${sun.racesHit}/${sun.racesWithResult}R的中</div>
-      </div>
-      <div class="sb-tri-cell sb-tri-total ${all.totalRecovery>=100?'win':''}">
-        <div class="sb-tri-day">土日トータル</div>
-        <div class="sb-tri-num">${all.totalRecovery}%</div>
-        <div class="sb-tri-meta">${all.racesHit}/${all.racesWithResult}R的中</div>
-      </div>
-    </div>`;
+  const HONMEI = ['honmei_tan','honmei_umatan'];
+  const ANA    = ['ana_tan','ana_umatan'];
+
+  // 各セクション × 各日程で集計
+  const hSat=calcSectionStats(satRaces,HONMEI), hSun=calcSectionStats(sunRaces,HONMEI), hTot=calcSectionStats(races,HONMEI);
+  const aSat=calcSectionStats(satRaces,ANA),    aSun=calcSectionStats(sunRaces,ANA),    aTot=calcSectionStats(races,ANA);
+  const tSat=aggregateV2(satRaces), tSun=aggregateV2(sunRaces), tTot=aggregateV2(races);
+
   // 場別
   const venueOrder = ['東京','京都','新潟','中山','阪神','中京','福島','小倉','札幌','函館'];
   const byV = {};
@@ -832,23 +872,32 @@ function renderSummaryV2(){
   el.innerHTML = `
     <details class="summary-board neon sb-fold">
       <summary class="sb-fold-summary">
-        <div class="sb-title mincho">⛩ 言霊神宮 土日72R 集計　⛩️ 単勝◎1点 & 馬単◎軸マルチ（6点）／ 🌕 激軸単勝穴1点 & 激軸馬単マルチ（6点）</div>
-        ${tri}
-        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開（全72R合算）</div>
+        <div class="sb-title mincho">⛩ 言霊神宮 土日72R 集計</div>
+        ${triRow('⛩️ 単勝◎1点 & 馬単◎軸マルチ（6点）', hSat, hSun, hTot)}
+        ${triRow('🌕 激軸単勝穴1点 & 激軸馬単マルチ（6点）', aSat, aSun, aTot)}
+        <div class="sb-v2-row sb-v2-total">
+          <div class="sb-v2-label mincho" style="font-size:11px;color:var(--ink-soft)">合計（¥1,400/R）</div>
+          <div class="sb-tri">
+            <div class="sb-tri-cell sb-tri-total ${tSat.totalRecovery>=100?'win':''}">
+              <div class="sb-tri-day">土曜</div>
+              <div class="sb-tri-num">${tSat.racesWithResult>0?tSat.totalRecovery+'%':'—'}</div>
+              <div class="sb-tri-meta">${tSat.racesHit}/${tSat.racesWithResult}R的中</div>
+            </div>
+            <div class="sb-tri-cell sb-tri-total ${tSun.totalRecovery>=100?'win':''}">
+              <div class="sb-tri-day">日曜</div>
+              <div class="sb-tri-num">${tSun.racesWithResult>0?tSun.totalRecovery+'%':'—'}</div>
+              <div class="sb-tri-meta">${tSun.racesHit}/${tSun.racesWithResult}R的中</div>
+            </div>
+            <div class="sb-tri-cell sb-tri-total ${tTot.totalRecovery>=100?'win':''}">
+              <div class="sb-tri-day">土日トータル</div>
+              <div class="sb-tri-num">${tTot.racesWithResult>0?tTot.totalRecovery+'%':'—'}</div>
+              <div class="sb-tri-meta">${tTot.racesHit}/${tTot.racesWithResult}R的中</div>
+            </div>
+          </div>
+        </div>
+        <div class="sb-fold-hint mincho">▼ クリックで場別詳細を展開</div>
       </summary>
-      <div class="sb-total-detail ${all.totalRecovery>=100?'win':''}">
-        <small>${all.racesHit}/${all.racesWithResult}R的中 (${all.raceHitRate}%) ／ 投資¥${all.totalInvest.toLocaleString()} 払戻¥${all.totalPayout.toLocaleString()}</small>
-      </div>
-      <div class="sb-meta">⛩️ 単勝◎¥100 + 馬単マルチ◎軸¥600 ／ 🌕 単勝激¥100 + 馬単マルチ激軸¥600（1Rあたり14点 ¥1,400）</div>
-      <div class="sb-kinds">
-        ${V2_KINDS.map(k=>{const v=all.byKind[k];return`
-          <div class="sb-kind">
-            <div class="k-name">${V2_KIND_LABEL[k]}</div>
-            <div class="k-rec ${v.recovery>=100?'win':''}">${v.recovery}%</div>
-            <div class="k-hit ${v.hitRate>=50?'win':''}">的中${v.hit}/${v.races} (${v.hitRate}%)</div>
-            <div class="k-amt">¥${v.payout.toLocaleString()} / ¥${v.invest.toLocaleString()}</div>
-          </div>`;}).join('')}
-      </div>
+      <div class="sb-meta" style="padding-top:12px">⛩️ 単勝◎¥100 + 馬単マルチ◎軸¥600 ／ 🌕 単勝激¥100 + 馬単マルチ激軸¥600（1Rあたり14点 ¥1,400）</div>
       <details class="summary-d" open>
         <summary>場別 集計（東京 / 京都 / 新潟）</summary>
         <div class="venue-boards">
