@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>言霊神宮アーカイブ 2026-05-16（新潟大賞典週・土曜） ｜ UG競馬神宮</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAFA;--bg-soft:#F5F2EB;--paper:#FBF7EE;--paper-deep:#F0EADB;
+    --ink:#2c1f12;--ink-soft:#5a4a3a;--shu:#a44a3f;--gold:#c9a84c;
+    --border:rgba(164,74,63,.25);--ok:#5fa85c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+       font-family:'Noto Sans JP',sans-serif;line-height:1.7}
+  .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.05em}
+  header{padding:32px 16px 24px;text-align:center;
+         background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
+         border-bottom:1px solid var(--border)}
+  .h-title{font-size:28px;color:var(--shu);font-weight:700;letter-spacing:.4em}
+  .h-sub{font-size:13px;color:var(--ink-soft);margin-top:8px;letter-spacing:.15em}
+  .h-rule{font-size:13px;color:var(--shu);margin-top:12px;font-weight:700}
+  .home-link{display:inline-block;margin-top:14px;padding:6px 16px;
+             border:1px solid var(--shu);color:var(--shu);text-decoration:none;
+             font-size:12px;letter-spacing:.2em;border-radius:4px}
+  .home-link:hover{background:var(--shu);color:#fff}
+  main{max-width:920px;margin:0 auto;padding:24px 16px}
+  .race{margin-bottom:14px;padding:0;border:1px solid var(--border);
+        background:var(--paper);border-radius:8px;
+        box-shadow:0 1px 6px rgba(164,74,63,.08);overflow:hidden}
+  .race[open]{margin-bottom:24px}
+  .race.race-win{border-color:var(--gold);
+                 box-shadow:0 0 16px rgba(201,168,76,.4),0 1px 6px rgba(164,74,63,.08);
+                 animation:racePulse 2.6s ease-in-out infinite}
+  @keyframes racePulse{
+    0%,100%{box-shadow:0 0 16px rgba(201,168,76,.4),0 1px 6px rgba(164,74,63,.08)}
+    50%   {box-shadow:0 0 26px rgba(201,168,76,.65),0 1px 6px rgba(164,74,63,.12)}
+  }
+  .race-summary{padding:14px 18px;cursor:pointer;list-style:none;
+                display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+                background:var(--paper);transition:background .15s ease}
+  .race-summary:hover{background:var(--paper-deep)}
+  .race-summary::-webkit-details-marker{display:none}
+  .race-fold-icon{color:var(--shu);font-size:13px;transition:transform .2s ease;flex-shrink:0}
+  .race[open] .race-fold-icon{transform:rotate(90deg)}
+  .race-summary .race-name{font-size:16px;color:var(--shu);font-weight:700;flex:1;min-width:0}
+  .race-summary .race-meta{font-size:11px;color:var(--ink-soft);width:100%;padding-left:22px;margin-top:2px}
+  .race-hit-mark{display:inline-block;font-size:18px;margin-left:6px;
+                 animation:bounce 1.4s ease-in-out infinite;vertical-align:middle}
+  .race.race-win .race-summary{background:linear-gradient(135deg,rgba(212,175,55,.22) 0%,rgba(212,175,55,.08) 50%,rgba(212,175,55,.18) 100%)}
+  .race.race-win .race-summary:hover{background:linear-gradient(135deg,rgba(212,175,55,.3) 0%,rgba(212,175,55,.12) 50%,rgba(212,175,55,.25) 100%)}
+  .race.race-win .race-summary .race-name{color:var(--shu-dk,#7A1E1E)}
+  .race.race-win .race-fold-icon{color:var(--gold-dk,#b8860b)}
+  /* 🔒 有料ロック表示 */
+  .race.race-locked{border-color:#2b6cb0;border-style:dashed;opacity:.95}
+  .race.race-locked .race-summary{background:linear-gradient(135deg,rgba(43,108,176,.08) 0%,rgba(43,108,176,.03) 100%)}
+  .race.race-locked .race-fold-icon{color:#2b6cb0;font-size:18px}
+  .race.race-locked .race-name{color:#2b6cb0}
+  .lock-card{text-align:center;padding:28px 20px;background:linear-gradient(135deg,#fbf7ee 0%,#e8f0f8 100%);border-radius:8px}
+  .lock-icon{font-size:42px;margin-bottom:8px}
+  .lock-title{font-size:18px;font-weight:700;color:#2b6cb0;margin-bottom:12px}
+  .lock-desc{font-size:13px;color:var(--ink-soft);margin-bottom:14px;line-height:1.7}
+  .lock-price{font-size:15px;font-weight:700;color:var(--shu);margin-bottom:14px}
+  .lock-cta{display:inline-block;padding:12px 32px;background:#2b6cb0;color:#fff;
+            text-decoration:none;border-radius:6px;font-size:15px;font-weight:700;
+            transition:all .2s ease;letter-spacing:.05em}
+  .lock-cta:hover{background:#1e4d80;transform:translateY(-2px);box-shadow:0 4px 12px rgba(43,108,176,.3)}
+  .lock-note{font-size:11px;color:var(--ink-soft);margin-top:12px}
+  .race-body{padding:18px 20px 20px}
+  .race-body .race-betting-pair,.race-body .picks-table{margin-top:0}
+  /* 折り畳みサマリー（神宮ボード）*/
+  .summary-board.sb-fold{padding:0;overflow:hidden}
+  .summary-board.sb-fold > .sb-fold-summary{padding:18px;cursor:pointer;list-style:none;
+                                             text-align:center;transition:background .15s ease}
+  .summary-board.sb-fold > .sb-fold-summary::-webkit-details-marker{display:none}
+  .summary-board.sb-fold > .sb-fold-summary:hover{background:rgba(164,74,63,.04)}
+  .summary-board.sb-fold > *:not(.sb-fold-summary){padding-left:18px;padding-right:18px}
+  .summary-board.sb-fold > *:last-child{padding-bottom:18px}
+  .sb-fold-hint{font-size:11px;color:var(--ink-soft);letter-spacing:.2em;margin-top:6px;
+                opacity:.7;transition:opacity .2s ease}
+  .summary-board.sb-fold[open] .sb-fold-hint{opacity:0;height:0;margin:0;overflow:hidden}
+  .sb-total-detail{text-align:center;font-size:12px;color:var(--ink-soft);margin-bottom:10px}
+  .sb-total-detail.win{color:var(--ok)}
+  .sb-total-detail small{font-size:12px}
+  /* 土曜/日曜/トータル 3カラム */
+  .sb-tri{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:12px;margin:14px 0 10px;
+          padding:0 8px}
+  .sb-tri-cell{text-align:center;padding:14px 6px;border:1px solid var(--border);border-radius:8px;
+               background:rgba(255,255,255,.5);transition:transform .2s ease}
+  .sb-tri-cell:hover{transform:translateY(-2px)}
+  .sb-tri-cell.win{background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(244,204,79,.18));
+                   border-color:#d4af37;box-shadow:0 0 14px rgba(212,175,55,.25)}
+  .sb-tri-total{background:rgba(196,84,49,.06);border-color:rgba(196,84,49,.3)}
+  .sb-tri-total.win{background:linear-gradient(135deg,rgba(212,175,55,.18),rgba(244,204,79,.28));
+                    border-color:#d4af37;box-shadow:0 0 18px rgba(212,175,55,.4)}
+  .sb-tri-day{font-size:13px;color:var(--ink-soft);font-weight:700;letter-spacing:.15em;margin-bottom:4px;
+              font-family:'Shippori Mincho',serif}
+  .sb-tri-num{font-size:32px;font-weight:900;color:var(--shu);line-height:1.1;
+              font-family:'Inter',sans-serif}
+  .sb-tri-cell.win .sb-tri-num{color:#b8901f;text-shadow:0 0 8px rgba(212,175,55,.4)}
+  .sb-tri-meta{font-size:11px;color:var(--ink-soft);margin-top:4px;letter-spacing:.05em}
+  @media (max-width:560px){
+    .sb-tri{grid-template-columns:1fr;gap:8px}
+    .sb-tri-num{font-size:28px}
+  }
+  .race-header{display:flex;justify-content:space-between;align-items:baseline;
+               border-bottom:1px dashed var(--border);padding-bottom:10px;margin-bottom:14px;
+               flex-wrap:wrap;gap:8px}
+  .race-name{font-size:18px;color:var(--shu);font-weight:700}
+  .race-meta{font-size:12px;color:var(--ink-soft)}
+  /* 他場ジャンプ */
+  .cross-jump{display:flex;gap:6px;flex-wrap:wrap;width:100%;margin-top:4px}
+  .cross-jump-label{font-size:10px;color:var(--ink-soft);letter-spacing:.1em;align-self:center;margin-right:4px}
+  .cj-btn{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;
+          background:#fff;border:1px solid var(--border);border-radius:4px;
+          font-size:11px;color:var(--shu);cursor:pointer;letter-spacing:.05em;
+          font-family:'Shippori Mincho',serif;text-decoration:none;transition:all .15s ease}
+  .cj-btn:hover{background:var(--shu);color:#fff;border-color:var(--shu)}
+  .picks-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+  .picks-table th{background:var(--paper-deep);padding:8px;text-align:left;
+                  color:var(--shu);border-bottom:1px solid var(--border);font-weight:700}
+  .picks-table td{padding:12px 8px;border-bottom:1px dashed var(--border);
+                  vertical-align:middle;color:var(--ink)}
+  .picks-table td.jockey-c,.picks-table td.trainer-c{font-size:12px;color:var(--ink-soft);width:58px;white-space:nowrap}
+  .picks-table td.gaikyu-c{font-size:11px;width:80px;text-align:center}
+  .gg-badge{display:inline-block;padding:2px 6px;border-radius:3px;font-weight:700;font-size:10px;letter-spacing:.03em;line-height:1.4}
+  .gg-badge.gg-s{background:linear-gradient(135deg,#d4af37,#f4cc4f);color:#3a2c0a;border:1px solid #b8901f}
+  .gg-badge.gg-a{background:linear-gradient(135deg,#c0c0c0,#e0e0e0);color:#333;border:1px solid #888}
+  .gg-badge.gg-b{background:linear-gradient(135deg,#cd7f32,#e09a4d);color:#fff;border:1px solid #8b5a1c}
+  .gg-badge.gg-zai{background:#f5f2eb;color:var(--ink-soft);border:1px solid var(--border)}
+  .gg-badge.gg-fire3{background:linear-gradient(135deg,#ff4500,#ff6b00);color:#fff;border:1px solid #cc3300}
+  .gg-badge.gg-fire2{background:linear-gradient(135deg,#ff7b00,#ffaa00);color:#fff;border:1px solid #cc6000}
+  .gg-badge.gg-fire1{background:linear-gradient(135deg,#ffb800,#ffd44f);color:#333;border:1px solid #cc8800}
+  .gg-badge.gg-flat{background:#e8e8e8;color:#666;border:1px solid #bbb}
+  .gg-badge.gg-down{background:linear-gradient(135deg,#cc3333,#e05555);color:#fff;border:1px solid #aa1111}
+  .mark{font-size:22px;font-weight:700;color:var(--shu);width:36px;text-align:center;vertical-align:middle}
+  .mark.dou{color:#b8902f}
+  .mark.byakko{color:#c9a227;text-shadow:0 0 6px rgba(201,162,39,.45);font-size:20px}
+  /* 救済バナー */
+  .rescue-banner{background:linear-gradient(135deg,#1a1a2e,#2d1b4e);color:#ff9fd4;border:1px solid #7b2d8b;border-radius:6px;padding:6px 12px;font-size:12px;margin-bottom:8px;letter-spacing:.03em}
+  /* 朱雀バッジ */
+  .suzaku-badge{display:inline-block;font-size:11px;padding:1px 4px;border-radius:3px;margin-left:3px;vertical-align:middle;font-weight:700;letter-spacing:0}
+  .suzaku-S{background:#e85d00;color:#fff}
+  .suzaku-A{background:#c47a00;color:#fff}
+  .suzaku-B{background:#a89000;color:#fff}
+  .suzaku-C{background:#888;color:#fff;opacity:.7}
+  .suzaku-D{background:#ccc;color:#666;opacity:.6}
+  /* 初ブリバッジ */
+  .hatsubri-badge{display:inline-block;padding:2px 6px;background:linear-gradient(135deg,#e85d00,#ff7b00);color:#fff;font-size:10px;font-weight:700;border-radius:3px;letter-spacing:.03em;vertical-align:middle;box-shadow:0 1px 3px rgba(232,93,0,.35)}
+  /* 外厩gg-up */
+  .gg-badge.gg-up{background:linear-gradient(135deg,#3a8c3f,#5ab860);color:#fff;border:1px solid #2a6e2e}
+  .name{font-weight:700;color:var(--ink);min-width:220px;width:220px}
+  .name-row1{display:flex;align-items:center;gap:6px;flex-wrap:nowrap;line-height:1.3}
+  .name-num{display:inline-block;min-width:28px;padding:2px 6px;background:#fff;
+            border:1px solid var(--border);border-radius:3px;font-size:11px;
+            color:var(--ink-soft);font-weight:700;text-align:center}
+  .name-text{font-size:14px;font-weight:700;color:var(--ink)}
+  .name-row2{display:flex;align-items:center;gap:5px;margin-top:6px;flex-wrap:wrap}
+  .grade{display:inline-block;padding:2px 7px;background:var(--shu);color:#fff;
+         font-weight:700;font-size:10px;border-radius:3px;letter-spacing:.05em}
+  .comment{color:var(--ink-soft);font-size:12px;line-height:1.65}
+  details{margin-top:14px;padding:10px;background:var(--bg-soft);border-radius:4px;
+          border:1px solid var(--border)}
+  summary{cursor:pointer;color:var(--shu);font-size:12px;letter-spacing:.1em;font-weight:700}
+  details ul{margin:8px 0 0;padding-left:18px;font-size:12px;color:var(--ink-soft)}
+  .fatal{margin-top:10px;padding:10px;background:rgba(164,74,63,.08);
+         border-left:3px solid var(--shu);font-size:12px;color:var(--ink)}
+  .fatal-h{color:var(--shu);font-weight:700;margin-bottom:6px}
+  .result{margin-top:14px;padding:12px;background:rgba(95,168,92,.1);
+          border-left:3px solid var(--ok);font-size:13px;color:#2d5530;font-weight:700}
+  .pending{color:var(--ink-soft);font-style:italic;font-weight:400;
+           background:var(--bg-soft);border-left-color:var(--border)}
+  footer{text-align:center;padding:24px;color:var(--ink-soft);font-size:11px;
+         border-top:1px solid var(--border);margin-top:24px;background:var(--paper-deep)}
+  /* タブ */
+  .kotowaza{text-align:center;padding:10px 20px;margin:8px 16px 0;
+    font-size:13px;color:var(--ink-soft);letter-spacing:.06em;line-height:1.7;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+        max-width:920px;margin:24px auto 0;padding:0 16px}
+  .tab{padding:10px 20px;background:var(--paper);color:var(--ink-soft);
+       border:1px solid var(--border);border-radius:6px;cursor:pointer;
+       font-family:'Shippori Mincho',serif;font-size:13px;letter-spacing:.12em;
+       transition:all .2s ease}
+  .tab:hover{border-color:var(--shu);color:var(--shu)}
+  .tab.active{background:var(--shu);color:#fff;border-color:var(--shu);font-weight:700}
+  .tab-count{font-size:11px;opacity:.85;margin-left:6px}
+  .tabs-day-sep{width:100%;text-align:center;font-size:12px;font-weight:700;color:var(--shu);letter-spacing:.08em;padding:4px 0 2px;opacity:.85}
+  .tabs-day-sep:first-child{padding-top:0}
+
+  /* ════════ スマホ版（≤700px）：テーブル → カード型レイアウト ════════ */
+  @media (max-width:700px){
+    .race{padding:14px}
+    .race-name{font-size:15px}
+    .race-meta{font-size:11px}
+    /* テーブルをブロック化 */
+    .picks-table,.picks-table tbody{display:block;width:100%}
+    .picks-table thead{display:none}
+    /* テーブルヘッダ行（<tr><th>印</th>...）をモバイルで非表示 */
+    .picks-table tr:has(th){display:none !important}
+    /* 馬券絡み行の金サイドバー削除（モバイルではグリッドレイアウトで不要） */
+    .picks-table tr.hit-row td.name{padding-left:0 !important}
+    .picks-table tr.hit-row td.name::before{display:none !important}
+    .picks-table tr{
+      display:grid;
+      grid-template-columns:42px 1fr;
+      column-gap:10px;
+      background:#fff;border:1px solid var(--border);border-radius:8px;
+      padding:10px 12px;margin-bottom:10px;
+      align-items:start;
+    }
+    .picks-table tr.hit-row{
+      background:linear-gradient(90deg,rgba(212,175,55,.10),rgba(212,175,55,.02));
+      border-color:var(--gold);
+    }
+    .picks-table td{
+      display:block;border:none !important;padding:0 !important;
+      background:transparent !important
+    }
+    /* マーク：左列、上下中央 */
+    .picks-table td.mark{
+      grid-column:1;grid-row:1/span 3;
+      font-size:26px;text-align:center;align-self:center;
+      width:auto;
+    }
+    /* 名前：右列1段目 */
+    .picks-table td.name{
+      grid-column:2;grid-row:1;width:auto;min-width:0;
+    }
+    /* 騎手：右列2段目 */
+    .picks-table td.jockey-c{
+      grid-column:2;grid-row:2;
+      font-size:11px;color:var(--ink-soft);width:auto;
+    }
+    .picks-table td.jockey-c::before{content:'騎 ';color:var(--shu);font-weight:700;margin-right:3px}
+    /* 厩舎：右列3段目 */
+    .picks-table td.trainer-c{
+      grid-column:2;grid-row:3;
+      font-size:11px;color:var(--ink-soft);width:auto;
+      margin-bottom:4px;
+    }
+    .picks-table td.trainer-c::before{content:'厩 ';color:var(--shu);font-weight:700;margin-right:3px}
+    /* 外厩バッジ：右列4段目 */
+    .picks-table td.gaikyu-c{
+      grid-column:2;grid-row:4;
+      margin-bottom:4px;
+    }
+    /* コメント：全幅・最下段・朱左バー */
+    .picks-table td.comment{
+      grid-column:1/span 2;grid-row:5;
+      font-size:12.5px;line-height:1.75;
+      padding:10px 12px !important;
+      background:var(--bg-soft) !important;
+      border-radius:6px;
+      border-left:3px solid var(--shu) !important;
+      margin-top:6px;
+      overflow-wrap:break-word;word-break:break-word;
+    }
+    /* マーク行スパン拡張 */
+    .picks-table td.mark{grid-row:1/span 4 !important}
+    .name-text{font-size:15px}
+    .name-row1{flex-wrap:wrap}
+    .name-row2{margin-top:5px}
+    .race-betting{font-size:11px}
+  }
+  /* 結果反映 */
+  .pop{display:inline-block;padding:2px 7px;background:#eee;color:#555;
+       font-size:10px;border-radius:3px;font-weight:600}
+  /* 着外：薄いアウトラインで「絡まなかった」感を表現 */
+  .finish{display:inline-flex;align-items:center;gap:3px;padding:2px 9px;font-weight:600;font-size:11px;
+          border-radius:5px;color:#888;background:#fff;border:1px dashed #ccc;letter-spacing:.03em}
+  .finish.r1{background:linear-gradient(135deg,#fff4b8 0%,#f4d03f 35%,#d4af37 70%,#b8860b 100%);
+             box-shadow:0 0 14px rgba(212,175,55,.8),inset 0 1px 0 rgba(255,255,255,.5);
+             color:#3a2a00;text-shadow:0 1px 0 rgba(255,255,255,.5);border:none;
+             font-weight:700;font-size:12px;padding:3px 10px;
+             animation:pulseGold 1.6s ease-in-out infinite}
+  .finish.r2{background:linear-gradient(135deg,#fafafa 0%,#c8d4dc 40%,#8ea0ac 100%);
+             box-shadow:0 0 10px rgba(142,160,172,.7),inset 0 1px 0 rgba(255,255,255,.6);
+             color:#1a2530;text-shadow:0 1px 0 rgba(255,255,255,.5);border:none;
+             font-weight:700;font-size:12px;padding:3px 10px}
+  .finish.r3{background:linear-gradient(135deg,#f5b78a 0%,#d49a6a 40%,#a16235 100%);
+             box-shadow:0 0 10px rgba(168,117,68,.7),inset 0 1px 0 rgba(255,255,255,.4);
+             color:#3a1f00;text-shadow:0 1px 0 rgba(255,220,180,.4);border:none;
+             font-weight:700;font-size:12px;padding:3px 10px}
+  @keyframes pulseGold{
+    0%,100%{box-shadow:0 0 12px rgba(212,175,55,.7),inset 0 1px 0 rgba(255,255,255,.4)}
+    50%   {box-shadow:0 0 22px rgba(212,175,55,1),inset 0 1px 0 rgba(255,255,255,.5)}
+  }
+  /* 麒麟バッジ */
+  .kirin-badge{display:inline-block;margin-left:4px;vertical-align:middle;
+    font-size:13px;line-height:1}
+  .kirin-lv3{font-size:15px;filter:drop-shadow(0 0 4px rgba(60,180,60,.8))}
+  .kirin-lv2{font-size:14px;filter:drop-shadow(0 0 3px rgba(60,180,60,.5))}
+  .kirin-lv1{font-size:13px;opacity:.85}
+  .kirin-row td{background:rgba(60,150,60,.04)}
+  /* 陣形バッジ */
+  .jinkei-badge{display:inline-block;margin-left:6px;padding:1px 7px;
+    font-size:10px;font-weight:700;border-radius:3px;vertical-align:middle;letter-spacing:.05em}
+  .jinkei-1{background:linear-gradient(135deg,#8b0000,#c0392b);color:#fff}
+  .jinkei-2{background:linear-gradient(135deg,#1a5276,#2980b9);color:#fff}
+  .jinkei-mix{background:linear-gradient(135deg,#4a235a,#7d3c98);color:#fff}
+  /* 勝負鞍バッジ */
+  .shobu-badge{display:inline-block;margin-left:6px;font-size:14px;vertical-align:middle;
+    animation:shobupulse 1.8s ease-in-out infinite}
+  .shobu-label{display:inline-block;margin-left:3px;padding:1px 6px;
+    background:var(--shu);color:#fff;font-size:11px;font-weight:700;
+    border-radius:3px;vertical-align:middle;letter-spacing:.05em}
+  .kirin-appear{display:inline-block;margin-left:6px;padding:1px 7px;
+    background:linear-gradient(135deg,#2d6a2d,#4a9e4a);color:#fff;
+    font-size:11px;font-weight:700;border-radius:3px;vertical-align:middle;
+    letter-spacing:.05em}
+  @keyframes shobupulse{
+    0%,100%{transform:scale(1);opacity:1}
+    50%{transform:scale(1.15);opacity:.85}
+  }
+  .hit-mark{display:inline-block;font-size:14px;animation:bounce 1.4s ease-in-out infinite}
+  @keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%   {transform:translateY(-2px)}
+  }
+  /* 馬券絡み行のハイライト */
+  tr.hit-row td{background:linear-gradient(90deg,rgba(212,175,55,.12) 0%,rgba(212,175,55,.02) 100%)}
+  tr.hit-row td.name{position:relative;padding-left:14px}
+  tr.hit-row td.name::before{content:'';position:absolute;left:4px;top:12px;bottom:12px;
+                              width:3px;background:linear-gradient(180deg,var(--gold) 0%,#b8860b 100%);
+                              border-radius:2px}
+  /* 回収率ボード */
+  .summary-board{max-width:920px;margin:0 auto 20px;padding:18px;
+                 background:linear-gradient(135deg,var(--paper) 0%,var(--paper-deep) 100%);
+                 border:2px solid var(--shu);border-radius:8px}
+  /* ◎軸流し版：BOX版と同じデザイン、囲み枠だけ金色＋ネオングロー */
+  .summary-board.neon{
+    border:2px solid var(--gold);
+    box-shadow:0 0 18px rgba(201,168,76,.45),0 0 36px rgba(201,168,76,.18);
+    position:relative;
+  }
+  .summary-board.neon .sb-title{color:var(--gold-dk,#b8860b);
+                                text-shadow:0 0 8px rgba(201,168,76,.5)}
+  .summary-board.neon .sb-total{color:var(--gold-dk,#b8860b)}
+  .summary-board.neon .sb-total.win{color:var(--ok)}
+  @keyframes neonPulse{
+    0%,100%{box-shadow:0 0 18px rgba(201,168,76,.45),0 0 36px rgba(201,168,76,.18)}
+    50%   {box-shadow:0 0 24px rgba(201,168,76,.7),0 0 48px rgba(201,168,76,.3)}
+  }
+  .summary-board.neon{animation:neonPulse 2.4s ease-in-out infinite}
+  .sb-title{font-size:14px;color:var(--shu);font-weight:700;letter-spacing:.2em;
+            text-align:center;margin-bottom:10px}
+  .sb-total{text-align:center;font-size:28px;color:var(--shu);font-weight:700;margin:6px 0}
+  .sb-total small{font-size:12px;color:var(--ink-soft);font-weight:400;margin-left:8px}
+  .sb-meta{text-align:center;font-size:11px;color:var(--ink-soft);margin-bottom:12px}
+  .sb-kinds{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+  .sb-kind{background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px;
+           text-align:center;font-size:11px}
+  .sb-kind .k-name{color:var(--ink-soft);font-size:10px;letter-spacing:.1em}
+  .sb-kind .k-rec{font-size:18px;color:var(--shu);font-weight:700;margin-top:2px}
+  .sb-kind .k-rec.win{color:var(--ok)}
+  .sb-kind .k-amt{color:var(--ink-soft);font-size:10px;margin-top:2px}
+  .sb-kind .k-hit{color:var(--ink-soft);font-size:10px;margin-top:2px}
+  .sb-kind .k-hit.win{color:var(--ok);font-weight:700}
+  .venue-boards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:14px}
+  .vb{background:#fff;border:1px solid var(--border);border-radius:6px;padding:10px}
+  .vb-h{font-size:13px;color:var(--shu);font-weight:700;text-align:center;
+        padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:8px;letter-spacing:.15em}
+  .vb-total{text-align:center;font-size:18px;color:var(--shu);font-weight:700;margin:4px 0}
+  .vb-total.win{color:var(--ok)}
+  .vb-meta{text-align:center;font-size:10px;color:var(--ink-soft);margin-bottom:6px}
+  .vb-table{width:100%;font-size:10.5px;border-collapse:collapse}
+  .vb-table th{text-align:left;color:var(--ink-soft);font-weight:400;padding:2px 3px;border-bottom:1px dashed var(--border)}
+  .vb-table td{padding:3px;border-bottom:1px dashed var(--border)}
+  .vb-table .v-rec{text-align:right;font-weight:700;color:var(--shu)}
+  .vb-table .v-rec.win{color:var(--ok)}
+  .vb-table .v-hit{text-align:right;color:var(--ink-soft);font-size:10px}
+  .vb-table .v-hit.win{color:var(--ok);font-weight:700}
+  details.summary-d{margin-top:14px}
+  details.summary-d summary{padding:8px;background:var(--paper-deep);border-radius:4px;
+                            color:var(--shu);font-weight:700;font-size:12px;letter-spacing:.15em}
+  /* ご祝儀レース */
+  .goshugi-empty{text-align:center;color:var(--ink-soft);font-size:13px;
+                 padding:18px;font-style:italic;letter-spacing:.05em}
+  /* 🔥来週の朱雀騎手 */
+  .suzaku-board{margin:18px auto;max-width:920px;background:linear-gradient(135deg,#fff5f0,#fbeae0);
+                border:2px solid #c95c3a;border-radius:8px;padding:18px;
+                box-shadow:0 4px 16px rgba(196,84,49,.15)}
+  /* 折りたたみ */
+  .suzaku-fold{padding:0;overflow:hidden}
+  .suzaku-fold > .suzaku-fold-summary{padding:18px;cursor:pointer;list-style:none;
+                                       transition:background .2s ease}
+  .suzaku-fold > .suzaku-fold-summary::-webkit-details-marker{display:none}
+  .suzaku-fold > .suzaku-fold-summary:hover{background:rgba(196,84,49,.04)}
+  .suzaku-fold > *:not(.suzaku-fold-summary){padding-left:18px;padding-right:18px}
+  .suzaku-fold > .suzaku-grid{padding-top:6px}
+  .suzaku-fold > .suzaku-foot{padding-bottom:18px;padding-top:8px}
+  .suzaku-fold-hint{font-size:11px;color:#7a5448;letter-spacing:.18em;margin-top:8px;
+                    text-align:center;opacity:.75;transition:opacity .2s ease}
+  .suzaku-fold[open] .suzaku-fold-hint{opacity:0;height:0;margin:0;overflow:hidden}
+  .suzaku-h{font-size:18px;font-weight:900;color:#a44a3f;text-align:center;letter-spacing:.1em;
+            margin-bottom:6px;font-family:'Shippori Mincho',serif}
+  .suzaku-sub{text-align:center;font-size:12px;color:#7a5448;margin-bottom:14px;letter-spacing:.05em}
+  .suzaku-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  /* 縦：競馬場ごと */
+  .suzaku-venues{display:flex;flex-direction:column;gap:18px}
+  .suzaku-venue-group{}
+  .suzaku-venue-h{font-size:18px;font-weight:900;color:#a44a3f;text-align:center;
+                  letter-spacing:.3em;padding:8px 0;margin-bottom:8px;
+                  border-top:1px dashed rgba(196,84,49,.4);
+                  border-bottom:1px dashed rgba(196,84,49,.4);
+                  background:rgba(255,255,255,.4)}
+  .suzaku-venue-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:560px){
+    .suzaku-venue-row{grid-template-columns:1fr}
+  }
+  .suzaku-cell{background:#fff;border:1px solid rgba(196,84,49,.3);border-radius:6px;padding:10px 12px}
+  .suzaku-venue{font-size:14px;font-weight:900;color:#a44a3f;border-bottom:1px solid rgba(196,84,49,.2);
+                padding-bottom:5px;margin-bottom:7px;font-family:'Shippori Mincho',serif;
+                letter-spacing:.08em;display:flex;align-items:center;gap:6px}
+  .suzaku-venue .venue-fire{font-size:13px}
+  .suzaku-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;
+              font-size:13px;border-bottom:1px dashed rgba(0,0,0,.05);gap:6px}
+  .suzaku-row:last-child{border-bottom:none}
+  .suzaku-rank{width:18px;color:#a44a3f;font-weight:900;flex-shrink:0}
+  .suzaku-name{flex:1;color:#2c1f12;font-weight:700;min-width:0}
+  .suzaku-stats{display:flex;flex-direction:column;align-items:flex-end;gap:1px;flex-shrink:0}
+  .suzaku-rate{color:#a44a3f;font-weight:900;font-family:'Inter',sans-serif;font-size:13px}
+  .suzaku-recent{color:#1F4D2E;font-weight:700;font-size:11px;font-family:'Inter',sans-serif;
+                 letter-spacing:.02em}
+  .suzaku-trend{margin-left:2px}
+  .suzaku-n{color:#999;font-size:10px;margin-left:3px}
+  .suzaku-inactive{margin-top:8px;padding:5px 8px;background:rgba(0,0,0,.03);border-radius:3px;
+                   font-size:10px;color:#888;letter-spacing:.05em;font-style:italic}
+  .suzaku-tag{display:inline-block;padding:2px 8px;background:#a44a3f;color:#fff;font-size:10px;
+              border-radius:3px;margin-right:6px;vertical-align:middle;font-weight:700;letter-spacing:.1em}
+  .suzaku-foot{text-align:center;font-size:11px;color:#7a5448;margin-top:10px;letter-spacing:.05em;
+               font-style:italic}
+  .goshugi{margin-top:14px;padding:14px;background:linear-gradient(135deg,#fff6e8 0%,#fff0d0 100%);
+           border:2px solid var(--gold);border-radius:8px;
+           box-shadow:0 2px 10px rgba(201,168,76,.3)}
+  .goshugi-h{text-align:center;color:#b8860b;font-weight:700;font-size:14px;
+             letter-spacing:.2em;margin-bottom:10px;
+             text-shadow:0 1px 0 rgba(255,255,255,.5)}
+  .goshugi-list{display:grid;gap:8px}
+  .goshugi-row{display:grid;grid-template-columns:36px 1fr auto auto;gap:10px;
+               align-items:center;padding:10px 12px;background:#fff;
+               border:1px solid rgba(212,175,55,.4);border-radius:6px}
+  .goshugi-rank{font-size:22px;text-align:center}
+  .goshugi-name{font-weight:700;color:var(--ink);font-size:13px}
+  .goshugi-name .gn-meta{color:var(--ink-soft);font-size:11px;font-weight:400;margin-left:6px}
+  .goshugi-rec{font-size:18px;font-weight:700;color:#b8860b;
+               text-shadow:0 1px 0 rgba(255,255,255,.4)}
+  .goshugi-pay{font-size:11px;color:var(--ink-soft)}
+  .sb-learn{text-align:center;margin-top:14px;padding:8px;background:var(--bg-soft);
+            border-radius:4px;color:var(--ink-soft);font-size:11px;font-style:italic}
+  /* 各レース結果（2カラム並列） */
+  .race-betting-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  @media (max-width:700px){.race-betting-pair{grid-template-columns:1fr}}
+  .race-betting{padding:10px;background:#fff;
+                border:1px dashed var(--border);border-radius:6px;font-size:12px}
+  .race-betting.axis{border:2px solid var(--gold);
+                     background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 100%);
+                     box-shadow:0 0 10px rgba(201,168,76,.2)}
+  .rb-head{font-family:'Shippori Mincho',serif;font-size:11px;color:var(--shu);
+           font-weight:700;letter-spacing:.08em;
+           padding-bottom:6px;margin-bottom:6px;border-bottom:1px dashed var(--border);text-align:center}
+  .race-betting.axis .rb-head{color:#b8860b}
+  .race-betting.axis .rb-head::before{content:'★ '}
+  .rb-row{display:flex;justify-content:space-between;align-items:center;
+          padding:3px 0;color:var(--ink-soft)}
+  .rb-row .rb-amt{color:var(--ink);font-weight:700}
+  .rb-row.hit .rb-amt{color:var(--ok)}
+  .rb-total{margin-top:6px;padding-top:6px;border-top:1px solid var(--border);
+            font-weight:700;color:var(--shu);font-size:13px}
+  .race-betting.axis .rb-total{color:#b8860b;border-top-color:rgba(201,168,76,.5)}
+</style>
+</head>
+<body>
+<div style="background:linear-gradient(135deg,#f5f2eb,#fbf7ee);border-bottom:2px solid #8a7a3a;
+            padding:14px 20px;text-align:center;font-family:'Shippori Mincho',serif;letter-spacing:.05em">
+  📜 <b style="color:#7A1E1E">言霊神宮アーカイブ</b>
+  ｜ 2026-05-16（新潟大賞典週・土曜）
+  ｜ <a href="kotodama.html" style="color:#a44a3f;font-weight:700;text-decoration:underline">最新週へ戻る ▶</a>
+  ｜ <a href="kotodama-archive.html" style="color:#a44a3f;font-weight:700;text-decoration:underline">アーカイブ一覧 📚</a>
+</div>
+<header>
+  <div class="h-title mincho">言　霊　神　宮</div>
+  <div class="h-sub mincho">⛩ ギーニョ・青龍・クロード（神主）</div>
+  <div class="h-rule">全レース予想公開中</div>
+  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+  <a class="home-link mincho" href="kotodama-archive.html" style="margin-left:8px">📚 アーカイブ</a>
+</header>
+<div id="summary-board"></div>
+<div id="summary-board-axis"></div>
+<div id="suzaku-board"></div>
+<div id="kotowaza-board"></div>
+<div class="tabs" id="tabs"></div>
+<main id="races"></main>
+<footer class="mincho">⛩ UG 競馬神宮 ／ 言霊実験室 ⛩</footer>
+
+<script>
+const FILES = ['data/kotodama-test/2026-05-16.json'];
+const MARK_CLASS = {'◎':'mark','○':'mark','▲':'mark dou','△':'mark dou','穴':'mark byakko','激':'mark byakko'};
+// 5/17本番から4頭目は「激」（白虎枠・激走軸）。それ以前は △ 維持（先週データ保護）
+const BYAKKO_DEBUT = '2026-05-16';
+function markOrderFor(date){
+  return (date && date >= BYAKKO_DEBUT) ? ['◎','○','▲','激'] : ['◎','○','▲','△'];
+}
+const MARK_ORDER = ['◎','○','▲','△']; // 既定（後方互換用）
+
+// タイブレーク用スコア（言霊グレード→🔥スコアの2段階ソート）
+const GRADE_PTS = {'S+':8,'S':7,'A+':6,'A':5,'B+':4,'B':3,'B-':2,'C':1,'D':0};
+function kotodamaScore(g){ return GRADE_PTS[g] ?? 0; }
+function fireScoreNum(s){
+  if(!s) return 0;
+  if(s.includes('new')) return 0.5;
+  const m = s.match(/([+-]?\d+\.?\d*)/);
+  return m ? parseFloat(m[1]) : 0;
+}
+// 第1ソート：言霊グレード降順
+// 第2ソート（タイブレーク）：朱雀スコア降順（suzakuScore がある場合優先）
+// 第3ソート（旧来）：🔥スコア降順
+function reorderPicksByTiebreaker(picks){
+  // 激枠は末尾固定
+  // ◎○▲は totalScore 降順（2026-05-10以降の三術ピック順を正とする）
+  // totalScore未設定の旧データは言霊→朱雀→🔥にフォールバック
+  const MARK_ORDER_IDX = {'◎':0,'○':1,'▲':2,'穴':3};
+  const main = picks.filter(p => p.mark !== '激');
+  const geki = picks.filter(p => p.mark === '激');
+  main.sort((a,b) => {
+    // 新データ: totalScore で厳密ソート
+    const ta = a.totalScore ?? null;
+    const tb = b.totalScore ?? null;
+    if (ta != null && tb != null && ta !== tb) return tb - ta;
+    // 旧データフォールバック: 言霊グレード
+    const ga = kotodamaScore(a.kotodamaGrade);
+    const gb = kotodamaScore(b.kotodamaGrade);
+    if (ga !== gb) return gb - ga;
+    const sa = a.suzakuScore ?? 0;
+    const sb = b.suzakuScore ?? 0;
+    if (sa !== sb) return sb - sa;
+    const aa = a.suzakuAvg ?? 0;
+    const ab = b.suzakuAvg ?? 0;
+    if (aa !== ab) return ab - aa;
+    return fireScoreNum(b.gaikyuGrade) - fireScoreNum(a.gaikyuGrade);
+  });
+  return [...main, ...geki];
+}
+
+// 曜日表示
+const DOW = ['日','月','火','水','木','金','土'];
+function fmtDate(dateStr){
+  const d = new Date(dateStr);
+  return `${d.getMonth()+1}/${d.getDate()}(${DOW[d.getDay()]})`;
+}
+
+let ALL_RACES = [];
+let SUMMARY = null;
+
+// ── 朱雀（騎手）マスター ──────────────────────────
+// 週次更新: data/jockey/YYYY-MM-DD_master149.json
+const JOCKEY_MASTER_FILE = 'data/jockey/2026-05-11_master149.json';
+let JOCKEY_MAP = {}; // fullName & 3-char prefix → jockeyData
+
+async function loadJockeyMaster() {
+  try {
+    const r = await fetch(JOCKEY_MASTER_FILE + '?_=' + Date.now());
+    const d = await r.json();
+    for (const j of Object.values(d.jockeys || {})) {
+      const name = (j.name || '').trim();
+      if (!name) continue;
+      JOCKEY_MAP[name] = j;
+      // JRDB kisyu3m は最大3文字 → 前方一致のプリフィックスも登録
+      for (let len = 2; len <= 4; len++) {
+        const key = name.slice(0, len);
+        if (!JOCKEY_MAP[key]) JOCKEY_MAP[key] = j; // 先着優先
+      }
+      // 外国人騎手: "Ｃ．ルメール" → カタカナ部分 "ルメール" も登録
+      const kata = name.replace(/^[Ａ-Ｚ]．/, '');
+      if (kata !== name) {
+        if (!JOCKEY_MAP[kata]) JOCKEY_MAP[kata] = j;
+        for (let len = 2; len <= 4; len++) {
+          const key = kata.slice(0, len);
+          if (!JOCKEY_MAP[key]) JOCKEY_MAP[key] = j;
+        }
+      }
+    }
+    console.log('🔥朱雀マスター読み込み:', Object.keys(d.jockeys||{}).length, '騎手');
+  } catch(e) { console.warn('朱雀マスター読み込み失敗', e); }
+}
+
+// 朱雀グレード判定（recent.avg = 直近3週複勝率平均）
+const SUZAKU_LEVELS = [[55,'S'],[42,'A'],[28,'B'],[16,'C'],[0,'D']];
+function suzakuGradeFor(jockeyName) {
+  if (!jockeyName || !Object.keys(JOCKEY_MAP).length) return null;
+  const j = JOCKEY_MAP[jockeyName]
+         || JOCKEY_MAP[(jockeyName).slice(0,4)]
+         || JOCKEY_MAP[(jockeyName).slice(0,3)]
+         || JOCKEY_MAP[(jockeyName).slice(0,2)];
+  if (!j?.recent || j.recent.active === false) return null;
+  const avg = j.recent.avg ?? 0;
+  const grade = (SUZAKU_LEVELS.find(([t]) => avg >= t) || ['D'])[1];
+  return { grade, avg };
+}
+const SUZAKU_BADGE_LABEL = {S:'🔥S',A:'🔥A',B:'🔥B',C:'C',D:'↘'};
+// ─────────────────────────────────────────────────────
+let SUMMARY_SAT = null;
+let SUMMARY_SUN = null;
+let SUMMARY_TOTAL = null;
+let CURRENT_TAB = '';
+
+const KIND_LABEL = {
+  tan:'単勝', fuku:'複勝', wide:'ワイドBOX', umaren:'馬連BOX',
+  umatan:'馬単BOX', sanrenpuku:'3連複BOX', sanrentan:'3連単BOX'
+};
+
+async function load(){
+  await loadJockeyMaster(); // 朱雀マスター先読み
+  for (const f of FILES){
+    try{
+      const r = await fetch(f+'?_='+Date.now());
+      const d = await r.json();
+      const paidDay = false; /* アーカイブ：全公開 */
+      d.races.forEach(race => {
+        if (paidDay) {
+          const rn = parseInt(String(race.raceNum).replace('R',''), 10);
+          // 1-3R は無料、4R以降はロック
+          race._paidLocked = rn >= 4;
+        }
+        ALL_RACES.push(race);
+      });
+      if (d.summary) SUMMARY = d.summary;
+      if (d.summaryV2) SUMMARY_V2 = d.summaryV2;
+      if (d.summarySaturday) SUMMARY_SAT = d.summarySaturday;
+      if (d.summarySunday) SUMMARY_SUN = d.summarySunday;
+      if (d.summaryTotal) SUMMARY_TOTAL = d.summaryTotal;
+    }catch(e){console.error(e)}
+  }
+  renderSummary();
+  renderSummaryAxis();
+  renderSuzaku();
+  renderKotowaza();
+  buildTabs();
+  render();
+}
+
+const KOTOWAZA = [
+  '先週の借りは今日返す。それが神宮の流儀だ。',
+  '人気は感情、言霊は真実。',
+  '10番人気の陣営が「期待していた」と言う日が、最も美味しい。',
+  '外厩が語る。騎手が語る。陣営が語る。三つ揃えば鉄板だ。',
+  '◎が外れた日こそ、ロジックを疑わず己を疑え。',
+  '馬券は買う前が一番楽しい。だから真剣に選ぶ。',
+  'チャンピオンヒルズが動いた日は、神宮も動く。',
+  '致命ワードを見逃した者が、痛い目を見る。',
+  '言霊Sは◎に値する。それ以外は全部言い訳だ。',
+  '人気の盲点に、神宮の旗を立てる。',
+  '陣営が「楽しみ」と言った馬を、笑って切る者がいる。その馬券を拾うのが我々だ。',
+  '勝負鞍🧧が点灯した日、財布の口を開ける準備をしろ。',
+  '麒麟🦒は一日に何度も現れない。現れた時に迷うな。',
+  '前走の敗因が消えた時、その馬の本当の評価が始まる。',
+  '外厩ノーザン×言霊S。これ以上の根拠が必要か？',
+];
+
+function renderKotowaza(){
+  const el = document.getElementById('kotowaza-board');
+  if(!el) return;
+  const q = KOTOWAZA[Math.floor(Math.random() * KOTOWAZA.length)];
+  el.innerHTML = `<div class="kotowaza mincho">⛩ ${q}</div>`;
+}
+
+
+// ─── v2 サマリー（新買い方: 単勝◎+馬単◎軸 / 単勝激+馬単激軸）───
+const V2_KIND_LABEL = {
+  honmei_tan:    '⛩️ 単勝◎',
+  honmei_umatan: '⛩️ 馬単◎軸マルチ',
+  ana_tan:       '🌕 単勝激',
+  ana_umatan:    '🌕 馬単激軸マルチ',
+};
+
+function venueBoardV2(name, s){
+  return `
+    <div class="vb">
+      <div class="vb-h mincho">${name}</div>
+      <div class="vb-total ${s.totalRecovery>=100?'win':''}"><span style="font-size:12px;font-weight:400;letter-spacing:.1em;margin-right:6px">回収率</span>${s.totalRecovery}%</div>
+      <div class="vb-meta">${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</div>
+      <table class="vb-table">
+        <tr><th>券種</th><th style="text-align:right">的中率</th><th style="text-align:right">回収率</th></tr>
+        ${Object.entries(s.byKind).map(([k,v])=>`
+          <tr>
+            <td>${V2_KIND_LABEL[k]||k}</td>
+            <td class="v-hit ${v.hitRate>=50?'win':''}">${v.hit}/${v.races} (${v.hitRate}%)</td>
+            <td class="v-rec ${v.recovery>=100?'win':''}">${v.recovery}%</td>
+          </tr>`).join('')}
+      </table>
+    </div>`;
+}
+
+function renderSummaryAxis(){
+  const el = document.getElementById('summary-board-axis');
+  if (!el) return;
+  if (!SUMMARY_V2) { el.innerHTML = ''; return; }
+  const s = SUMMARY_V2;
+  const venueOrder = ['東京','京都','新潟','中山','阪神','中京','福島','小倉','札幌','函館'];
+  const venues = Object.entries(s.byVenue || {}).sort((a,b)=>{
+    const ai=venueOrder.indexOf(a[0]), bi=venueOrder.indexOf(b[0]);
+    return (ai<0?99:ai)-(bi<0?99:bi);
+  });
+
+  el.innerHTML = `
+    <details class="summary-board neon sb-fold">
+      <summary class="sb-fold-summary">
+        <div class="sb-title mincho">⛩ 言霊神宮 土曜全36R 集計　単勝◎1点購入 & ◎馬単軸マルチ（6点）購入 / 激走穴同様</div>
+        <div class="sb-total ${s.totalRecovery>=100?'win':''}">
+          総合回収率 ${s.totalRecovery}%
+        </div>
+        <div class="sb-fold-hint mincho">▼ クリックで詳細を展開</div>
+      </summary>
+      <div class="sb-total-detail ${s.totalRecovery>=100?'win':''}">
+        <small>${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</small>
+      </div>
+      <div class="sb-meta">⛩️ 単勝◎¥100 + 馬単マルチ◎軸¥600 ／ 🌕 単勝激¥100 + 馬単マルチ激軸¥600 （1Rあたり14点 ¥1,400）</div>
+      <div class="sb-kinds">
+        ${Object.entries(s.byKind).map(([k,v])=>`
+          <div class="sb-kind">
+            <div class="k-name">${V2_KIND_LABEL[k]||k}</div>
+            <div class="k-rec ${v.recovery>=100?'win':''}">${v.recovery}%</div>
+            <div class="k-hit ${v.hitRate>=50?'win':''}">的中${v.hit}/${v.races} (${v.hitRate}%)</div>
+            <div class="k-amt">¥${v.payout.toLocaleString()} / ¥${v.invest.toLocaleString()}</div>
+          </div>
+        `).join('')}
+      </div>
+      <details class="summary-d" open>
+        <summary>場別 集計（東京 / 京都 / 新潟）</summary>
+        <div class="venue-boards">
+          ${venues.map(([v,sv])=>venueBoardV2(v,sv)).join('')}
+        </div>
+      </details>
+      <div class="sb-learn">🔬 神宮の本命軸 & 激走穴軸の回収率 ／ 1Rあたり¥1,400の投資効率型</div>
+    </details>`;
+}
+
+
+function venueBoard(name, s){
+  return `
+    <div class="vb">
+      <div class="vb-h mincho">${name}</div>
+      <div class="vb-total ${s.totalRecovery>=100?'win':''}"><span style="font-size:12px;color:var(--ink-soft);font-weight:400;letter-spacing:.1em;margin-right:6px">回収率</span>${s.totalRecovery}%</div>
+      <div class="vb-meta">${s.racesHit}/${s.racesWithResult}R的中 (${s.raceHitRate}%) ／ 投資¥${s.totalInvest.toLocaleString()} 払戻¥${s.totalPayout.toLocaleString()}</div>
+      <table class="vb-table">
+        <tr><th>券種</th><th style="text-align:right">的中率</th><th style="text-align:right">回収率</th></tr>
+        ${Object.entries(s.byKind).map(([k,v])=>`
+          <tr>
+            <td>${KIND_LABEL[k]||k}</td>
+            <td class="v-hit ${v.hitRate>=50?'win':''}">${v.hit}/${v.races} (${v.hitRate}%)</td>
+            <td class="v-rec ${v.recovery>=100?'win':''}">${v.recovery}%</td>
+          </tr>`).join('')}
+      </table>
+    </div>`;
+}
+
+function renderSummary(){
+  const el = document.getElementById('summary-board');
+  if (el) el.innerHTML = '';
+}
+
+async function renderSuzaku(){
+  const el = document.getElementById('suzaku-board');
+  if (!el) return;
+  try {
+    const r = await fetch('data/jockey/2026-05-11_venue_top5_enriched.json?_='+Date.now());
+    const d = await r.json();
+    // 競馬場ごとにグループ化（東京 / 京都 / 新潟）→ 各場で芝・ダ横並び
+    const venueGroups = [
+      {name:'東京', surfaces:['東京芝','東京ダ']},
+      {name:'京都', surfaces:['京都芝','京都ダ']},
+      {name:'新潟', surfaces:['新潟芝','新潟ダ']},
+    ];
+    const cells = venueGroups.map(g => {
+      const surfaceCells = g.surfaces.map(v => {
+        const list = d.venues[v] || [];
+        const rows = list.map((j, i) => {
+          const trendBadge = j.trend ? `<span class="suzaku-trend">${j.trend}</span>` : '';
+          return `
+          <div class="suzaku-row">
+            <span class="suzaku-rank">${i+1}</span>
+            <span class="suzaku-name">${j.name}</span>
+            <span class="suzaku-stats">
+              <span class="suzaku-rate">通算 ${j.shRate}%<span class="suzaku-n">(n${j.n})</span></span>
+              <span class="suzaku-recent">直近 ${j.recentAvg}% ${trendBadge}</span>
+            </span>
+          </div>`;
+        }).join('');
+        const isFire = list[0] && list[0].shRate >= 50;
+        return `
+          <div class="suzaku-cell">
+            <div class="suzaku-venue">
+              ${isFire ? '<span class="venue-fire">🔥</span>' : ''}
+              ${v}
+            </div>
+            ${rows}
+          </div>`;
+      }).join('');
+      return `
+        <div class="suzaku-venue-group">
+          <div class="suzaku-venue-h mincho">${g.name}</div>
+          <div class="suzaku-venue-row">${surfaceCells}</div>
+        </div>`;
+    }).join('');
+    el.innerHTML = `
+      <details class="suzaku-board suzaku-fold" id="suzaku-board">
+        <summary class="suzaku-fold-summary">
+          <div class="suzaku-h"><span class="suzaku-tag">朱雀</span>騎手手綱神宮 ─ 🔥騎手</div>
+          <div class="suzaku-sub">UG競馬神宮｜競馬場別×芝ダート別 複勝率TOP5（n≥10）</div>
+          <div class="suzaku-fold-hint">▼ クリックで競馬場別ランキング展開</div>
+        </summary>
+        <div class="suzaku-venues">${cells}</div>
+        <div class="suzaku-foot">コンディション × 馬場読み × コース適性 ／ 朱雀の眼</div>
+      </details>`;
+  } catch(e) {
+    console.error('suzaku render error', e);
+  }
+}
+
+function renderGoshugi(){
+  const RANK_EMOJI = ['🥇','🥈','🥉','🎖','🎖','🎖','🎖','🎖','🎖'];
+  const dayLabel = (date) => {
+    const d = new Date(date);
+    return ['日','月','火','水','木','金','土'][d.getDay()] + '曜日';
+  };
+  const collect = (date) => ALL_RACES
+    .filter(r => r.date === date && r.result && r.result.betting && r.result.betting.recovery >= 200)
+    .map(r => ({
+      venue: r.venue, raceNum: r.raceNum, raceName: r.raceName,
+      rec: r.result.betting.recovery,
+      pay: r.result.betting.payoutTotal,
+      inv: r.result.betting.investTotal,
+    }))
+    .sort((a,b) => b.rec - a.rec);
+  const dates = [...new Set(ALL_RACES.map(r => r.date))].sort();
+  const blocks = dates.map(date => {
+    const hits = collect(date);
+    if (!hits.length) {
+      return `
+        <div class="goshugi">
+          <div class="goshugi-h mincho">🧧 ${dayLabel(date)}のご祝儀レース 🧧</div>
+          <div class="goshugi-empty">該当レースなし（200%超）</div>
+        </div>`;
+    }
+    return `
+      <div class="goshugi">
+        <div class="goshugi-h mincho">🧧 ${dayLabel(date)}のご祝儀レース 🧧</div>
+        <div class="goshugi-list">
+          ${hits.map((h,i) => `
+            <div class="goshugi-row">
+              <div class="goshugi-rank">${RANK_EMOJI[i]||'🎖'}</div>
+              <div class="goshugi-name">
+                ${h.venue}${h.raceNum} ${h.raceName}
+                <span class="gn-meta">投資¥${h.inv.toLocaleString()} → 払戻¥${h.pay.toLocaleString()}</span>
+              </div>
+              <div class="goshugi-rec">${h.rec}%</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+  }).join('');
+  return blocks;
+}
+
+function buildTabs(){
+  // 日付×場でグルーピング
+  const groups = new Map();
+  ALL_RACES.forEach(r => {
+    const key = `${r.date}|${r.venue}`;
+    if (!groups.has(key)) groups.set(key, {date:r.date,venue:r.venue,count:0});
+    groups.get(key).count++;
+  });
+  // 日付降順（日曜が上）、同日は挿入順を維持
+  const allTabs = [...groups.values()].sort((a,b) => b.date.localeCompare(a.date));
+  if (allTabs.length === 0) return;
+  CURRENT_TAB = `${allTabs[0].date}|${allTabs[0].venue}`;
+  const tabsEl = document.getElementById('tabs');
+  // 日付ごとにセパレータ行を挿入して改行
+  const datesSeen = [];
+  let html = '';
+  allTabs.forEach(t => {
+    if (!datesSeen.includes(t.date)) {
+      datesSeen.push(t.date);
+      html += `<div class="tabs-day-sep">${fmtDate(t.date)}</div>`;
+    }
+    const key = `${t.date}|${t.venue}`;
+    const active = key === CURRENT_TAB ? 'active' : '';
+    html += `<button class="tab ${active}" data-key="${key}">${t.venue}<span class="tab-count">${t.count}R</span></button>`;
+  });
+  tabsEl.innerHTML = html;
+  tabsEl.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      CURRENT_TAB = btn.dataset.key;
+      tabsEl.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.key === CURRENT_TAB));
+      render();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+}
+
+function calcKirinLevel(pick){
+  // 麒麟v2: 言霊grade × 🔥スコアで判定（外厩依存を撤廃）
+  const grade = pick.kotodamaGrade || '';
+  const fire = fireScoreNum(pick.gaikyuGrade || '');
+  if(grade === 'S+' || grade === 'S') return 3;
+  if(grade === 'A+' && fire >= 6.0) return 3;
+  if(grade === 'A+' && fire >= 5.0) return 2;
+  if(grade === 'A+' && fire >= 3.0) return 1;
+  return 0;
+}
+function calcJinkei(race){
+  // 陣形判定: ◎-○差 / ○-▲差 で1強/2強/接戦を返す
+  const picks = (race.picks||[]);
+  const s = m => { const p = picks.find(p=>p.mark===m); return p ? (p.totalScore||0) : null; };
+  const s1=s('◎'), s2=s('○'), s3=s('▲');
+  if(s1==null||s2==null||s3==null) return null;
+  const g12=s1-s2, g23=s2-s3;
+  if(g12>1.0) return '1強戦';
+  if(g12<=1.0 && g23>0.8) return '2強戦';
+  return '接戦';
+}
+function calcShobuLevel(race){
+  const honmei = (race.picks||[]).find(p => p.mark==='◎');
+  if(!honmei) return 0;
+  const hg = honmei.kotodamaGrade;
+  const topStable = /ノーザン|チャンピオン|社台ファーム鈴鹿/.test(honmei.gaikyuGrade||'');
+  // ◎が外厩S級（ノーザン/CH/社台鈴鹿）= 勝負鞍🧧 最低条件
+  if(!topStable) return 0;
+  // 🧧🧧🧧 / 🧧🧧 は ◎=S かつ 他のpicksにA+以上が2/3頭
+  if(hg === 'S'){
+    const othersHigh = (race.picks||[]).filter(p => p.mark!=='◎' && ['S','A+'].includes(p.kotodamaGrade)).length;
+    if(othersHigh >= 3) return 3;
+    if(othersHigh >= 2) return 2;
+  }
+  return 1;
+}
+
+function render(){
+  const races = ALL_RACES.filter(r => `${r.date}|${r.venue}` === CURRENT_TAB);
+
+  const root = document.getElementById('races');
+  root.innerHTML = races.map(r => {
+    // 他場の同じR
+    const others = ALL_RACES.filter(x =>
+      x.date === r.date && x.venue !== r.venue && x.raceNum === r.raceNum
+    );
+    const crossJump = others.length ? `
+      <div class="cross-jump">
+        <span class="cross-jump-label mincho">同${r.raceNum} ▶</span>
+        ${others.map(o => `<button class="cj-btn" data-jump-key="${o.date}|${o.venue}" data-jump-rnum="${o.raceNum}">${o.venue}${o.raceNum}</button>`).join('')}
+      </div>` : '';
+    // 勝負鞍バッジ（JSON shobuMark優先 → なければ自動判定）
+    let shobuBadge = '';
+    if (r.shobuMark) {
+      shobuBadge = `<span class="shobu-badge">${r.shobuMark}</span>`;
+    } else {
+      const shobuLevel = calcShobuLevel(r);
+      if (shobuLevel > 0) {
+        shobuBadge = `<span class="shobu-badge">${'🧧'.repeat(shobuLevel)}</span><span class="shobu-label">勝負鞍</span>`;
+      }
+    }
+    // 陣形バッジ（1強戦/2強戦/接戦）
+    const jinkei = calcJinkei(r);
+    const jinkeiClass = jinkei==='1強戦'?'jinkei-1':jinkei==='2強戦'?'jinkei-2':'jinkei-mix';
+    const jinkeiBadge = jinkei ? `<span class="jinkei-badge ${jinkeiClass}">${jinkei}</span>` : '';
+    // 🦒出現バッジ（picks内に麒麟レベル1以上の馬が1頭でもいれば）
+    const hasKirin = (r.picks||[]).some(p => calcKirinLevel(p) > 0);
+    const kirinAppear = hasKirin ? `<span class="kirin-appear">🦒出現</span>` : '';
+    // 🚨救済候補バナー（全picks言霊C/D → 朱雀S/A馬が昇格候補）
+    const rescueBanner = r.rescueCandidate
+      ? `<div class="rescue-banner">🚨 救済候補 — ${r.rescueNote||''}</div>` : '';
+    // 的中判定（pickの中で1-3着が居れば🎯マーク）
+    const raceHit = (r.picks || []).some(p => {
+      const rk = p.finalRank ? Number(p.finalRank) : null;
+      return rk && rk>=1 && rk<=3;
+    });
+    // 勝ちレース判定（BOXまたは◎軸流しのどちらかで回収率100%超 → 金グロー）
+    const boxRec = (r.result && r.result.betting) ? r.result.betting.recovery : 0;
+    const axisBetCheck = calcAxis(r);
+    const axisRec = axisBetCheck ? axisBetCheck.recovery : 0;
+    const raceWin = boxRec >= 100 || axisRec >= 100;
+    // 🔒 有料ロック表示
+    if (r._paidLocked) {
+      return `
+      <details class="race race-locked" data-rnum="${r.raceNum}">
+        <summary class="race-summary">
+          <span class="race-fold-icon">🔒</span>
+          <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}</span>
+          <span class="race-meta">${r.surface==='ダ'?'ダート':r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
+        </summary>
+        <div class="race-body locked-body">
+          <div class="lock-card">
+            <div class="lock-icon">📜</div>
+            <div class="lock-title mincho">このレースは神宮NOTEパックで公開中</div>
+            <div class="lock-desc">
+              4R〜12Rは <b>${r.venue}競馬場パック</b> をご購入のお客様向けです。<br>
+              全12R picks＋推奨買い目（5券種）＋致命ワード検出馬リスト付き。
+            </div>
+            <div class="lock-price mincho">🎉 ローンチキャンペーン ¥200／場（通常 ¥800）</div>
+            <a href="https://note.com/gaikyukeiba_ace" target="_blank" rel="noopener" class="lock-cta mincho">▶ NOTE で購入する</a>
+            <div class="lock-note">📺 結果速報は X @acekeiba_gaikyu でリアタイ更新</div>
+          </div>
+        </div>
+      </details>`;
+    }
+    return `
+    <details class="race ${raceWin?'race-win':''}" data-rnum="${r.raceNum}">
+      <summary class="race-summary">
+        <span class="race-fold-icon">▶</span>
+        <span class="race-name mincho">${r.date} ${r.venue}${r.raceNum} ${r.raceName}${raceHit?' <span class="race-hit-mark">🎯</span>':''}${shobuBadge}${jinkeiBadge}${kirinAppear}</span>
+        <span class="race-meta">${r.surface==='ダ'?'ダート':r.surface}${r.distance}m / ${r.numHorses}頭 / 発走${r.startTime}</span>
+      </summary>
+      <div class="race-body">
+        ${rescueBanner}
+        ${crossJump}
+      <table class="picks-table">
+        <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>外厩🔥</th><th>言霊評価</th></tr>
+        ${reorderPicksByTiebreaker(r.picks).map((p, i) => {
+          const order = markOrderFor(r.date);
+          const dynMark = (p.mark === '激') ? '激' : (p.mark === '穴') ? '激' : (order[i] ?? p.mark);
+          const rk = p.finalRank ? Number(p.finalRank) : null;
+          const inMoney = rk && rk>=1 && rk<=3;
+          const rkCls = rk===1?'r1':rk===2?'r2':rk===3?'r3':'';
+          const finBadge = rk
+            ? `<span class="finish ${rkCls}">${rk}着${inMoney?'<span class="hit-mark">🎯</span>':''}</span>`
+            : '';
+          // 想定人気（finalNinkiが結果、ninkiPredが想定）
+          const ninkiDisplay = p.finalNinki ? `${p.finalNinki}人気` : (p.ninkiPred ? `${p.ninkiPred}人気` : '');
+          const popBadge = ninkiDisplay ? `<span class="pop">${ninkiDisplay}</span>` : '';
+          // 外厩/上昇🔥バッジ
+          const gaikyu = p.gaikyuGrade || '';
+          // 外厩名 → 🔥ランクマッピング
+          const GAIKYU_FIRE = {
+            'NF天栄':'🔥🔥🔥','NFしがらき':'🔥🔥🔥','ノーザンF天栄':'🔥🔥🔥','ノーザンFしがらき':'🔥🔥🔥',
+            'チャンピオンヒルズ':'🔥🔥','エスティ':'🔥🔥','チャンピオンH':'🔥🔥',
+            '山元TC':'🔥','宇治田原':'🔥','山元トレセン':'🔥','阿見TC':'🔥',
+          };
+          const fireLabel = GAIKYU_FIRE[gaikyu];
+          let ggClass, ggDisplay;
+          if (fireLabel) {
+            const fc = (fireLabel.match(/🔥/g)||[]).length;
+            ggClass = fc>=3?'gg-fire3':fc>=2?'gg-fire2':'gg-fire1';
+            ggDisplay = fireLabel + ' ' + gaikyu;
+          } else if (gaikyu.includes('🔥')) {
+            const fc = (gaikyu.match(/🔥/g)||[]).length;
+            ggClass = fc>=3?'gg-fire3':fc>=2?'gg-fire2':'gg-fire1';
+            ggDisplay = gaikyu;
+          } else if (gaikyu.startsWith('↘')) {
+            ggClass = 'gg-down'; ggDisplay = gaikyu;
+          } else if (gaikyu.startsWith('↗')) {
+            ggClass = 'gg-up'; ggDisplay = gaikyu;
+          } else if (gaikyu.startsWith('→')) {
+            ggClass = 'gg-flat'; ggDisplay = gaikyu;
+          } else {
+            const ggMatch = gaikyu.match(/^(S|A|B|在厩)/);
+            const ggBase = ggMatch ? ggMatch[1] : '';
+            ggClass = ggBase==='S'?'gg-s':ggBase==='A'?'gg-a':ggBase==='B'?'gg-b':'gg-zai';
+            ggDisplay = gaikyu || '-';
+          }
+          const trCls = inMoney ? 'hit-row' : '';
+          const kirinLv = calcKirinLevel(p);
+          const kirinEmoji = ['','🦒','🦒🦒','🦒🦒🦒'][kirinLv] || '';
+          const kirinBadge = kirinLv > 0 ? `<span class="kirin-badge kirin-lv${kirinLv}">${kirinEmoji}</span>` : '';
+          return `
+        <tr class="${trCls}${kirinLv>0?' kirin-row':''}">
+          <td class="${MARK_CLASS[dynMark]||'mark'}">${dynMark}</td>
+          <td class="name">
+            <div class="name-row1">
+              <span class="name-num">${p.num}</span>
+              <span class="name-text">${p.name}</span>
+            </div>
+            <div class="name-row2">
+              <span class="grade">言霊${p.kotodamaGrade}</span>
+              ${kirinBadge}
+              ${(p.hatsuBri == 1) ? '<span class="hatsubri-badge">初ブリ</span>' : ''}
+              ${popBadge}
+              ${finBadge}
+            </div>
+          </td>
+          <td class="jockey-c">${p.jockey}${(()=>{const sz=suzakuGradeFor(p.jockey);return sz?`<span class="suzaku-badge suzaku-${sz.grade}">${SUZAKU_BADGE_LABEL[sz.grade]||sz.grade}</span>`:''})()}</td>
+          <td class="trainer-c">${p.trainer}</td>
+          <td class="gaikyu-c" title="${p.gaikyuFull||p.gaikyuGrade||''}"><span class="gg-badge ${ggClass}">${ggDisplay}</span></td>
+          <td class="comment">${p.comment}</td>
+        </tr>`;
+        }).join('')}
+      </table>
+      <!-- 致命ワード検出・監視リストは2026-05-09週から非表示（4頭picks専念） -->
+      <!-- データはJSONに保持・将来全頭出馬表形式採用時に再活用予定 -->
+      ${r.result ? `
+      <div class="result">
+        <strong>結果</strong>: ${r.result.summary || ''}
+      </div>
+      ${r.result.betting ? (() => {
+        // 旧BOX
+        const boxBet = r.result.betting;
+        const boxHTML = `
+          <div class="race-betting">
+            <div class="rb-head">単複4頭購入＆4頭BOX購入</div>
+            ${Object.entries(boxBet.invest).map(([k,inv])=>{
+              const pay = boxBet.payout[k]||0;
+              const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
+              const hit = pay>0 ? 'hit' : '';
+              return `<div class="rb-row ${hit}"><span>${KIND_LABEL[k]||k}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
+            }).join('')}
+            <div class="rb-row rb-total"><span>合計</span><span>¥${boxBet.payoutTotal.toLocaleString()} / ¥${boxBet.investTotal.toLocaleString()} (${boxBet.recovery}%)</span></div>
+          </div>`;
+        // 新◎軸流し
+        const axisBet = calcAxis(r);
+        const axisHTML = axisBet ? `
+          <div class="race-betting axis">
+            <div class="rb-head">単勝◎1点購入＆◎軸流し購入</div>
+            ${Object.entries(axisBet.invest).map(([k,inv])=>{
+              const pay = axisBet.payout[k]||0;
+              const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
+              const hit = pay>0 ? 'hit' : '';
+              return `<div class="rb-row ${hit}"><span>${AXIS_KIND_LABEL[k]||k}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
+            }).join('')}
+            <div class="rb-row rb-total"><span>合計</span><span>¥${axisBet.payoutTotal.toLocaleString()} / ¥${axisBet.investTotal.toLocaleString()} (${axisBet.recovery}%)</span></div>
+          </div>` : '';
+        return `<div class="race-betting-pair">${boxHTML}${axisHTML}</div>`;
+      })() : ''}` : '<div class="result pending">結果待ち</div>'}
+      </div>
+    </details>
+  `;
+  }).join('');
+
+  // 他場ジャンプ ボタンのイベント
+  root.querySelectorAll('.cj-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault(); e.stopPropagation();
+      const key = btn.dataset.jumpKey;
+      const rnum = btn.dataset.jumpRnum;
+      CURRENT_TAB = key;
+      const tabsEl = document.getElementById('tabs');
+      tabsEl.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.key === CURRENT_TAB));
+      render();
+      // 同じR番号にスクロール＆展開
+      requestAnimationFrame(() => {
+        const target = document.querySelector(`.race[data-rnum="${rnum}"]`);
+        if (target) {
+          target.open = true;
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  });
+}
+load();
+</script>
+</body>
+</html>
