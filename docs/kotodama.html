@@ -1286,11 +1286,9 @@ function render(){
       const rk = p.finalRank ? Number(p.finalRank) : null;
       return rk && rk>=1 && rk<=3;
     });
-    // 勝ちレース判定（BOXまたは◎軸流しのどちらかで回収率100%超 → 金グロー）
-    const boxRec = (r.result && r.result.betting) ? r.result.betting.recovery : 0;
-    const axisBetCheck = calcAxis(r);
-    const axisRec = axisBetCheck ? axisBetCheck.recovery : 0;
-    const raceWin = boxRec >= 100 || axisRec >= 100;
+    // 勝ちレース判定（新買い方v2で回収率100%超 → 金グロー）
+    const v2BetCheck = calcV2(r);
+    const raceWin = v2BetCheck ? v2BetCheck.recovery >= 100 : false;
     // 🔒 有料ロック表示
     if (r._paidLocked) {
       return `
@@ -1402,35 +1400,41 @@ function render(){
       <div class="result">
         <strong>結果</strong>: ${r.result.summary || ''}
       </div>
-      ${r.result.betting ? (() => {
-        // 旧BOX
-        const boxBet = r.result.betting;
-        const boxHTML = `
+      ${(() => {
+        const v2 = calcV2(r);
+        if (!v2) return '';
+        // ⛩️ ◎軸パネル
+        const honmeiKinds = ['honmei_tan','honmei_umatan'];
+        const honmeiInv = honmeiKinds.reduce((s,k)=>s+(v2.invest[k]||0),0);
+        const honmeiPay = honmeiKinds.reduce((s,k)=>s+(v2.payout[k]||0),0);
+        const honmeiRec = honmeiInv ? Math.round(honmeiPay/honmeiInv*1000)/10 : 0;
+        const honmeiHTML = `
           <div class="race-betting">
-            <div class="rb-head">単複4頭購入＆4頭BOX購入</div>
-            ${Object.entries(boxBet.invest).map(([k,inv])=>{
-              const pay = boxBet.payout[k]||0;
-              const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
-              const hit = pay>0 ? 'hit' : '';
-              return `<div class="rb-row ${hit}"><span>${KIND_LABEL[k]||k}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
+            <div class="rb-head">⛩️ 単勝◎1点購入 & ◎馬単軸マルチ（6点）購入</div>
+            ${honmeiKinds.map(k=>{
+              const inv=v2.invest[k]||0, pay=v2.payout[k]||0;
+              const rec=inv?Math.round(pay/inv*1000)/10:0;
+              return `<div class="rb-row ${pay>0?'hit':''}"><span>${V2_KIND_LABEL[k]}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
             }).join('')}
-            <div class="rb-row rb-total"><span>合計</span><span>¥${boxBet.payoutTotal.toLocaleString()} / ¥${boxBet.investTotal.toLocaleString()} (${boxBet.recovery}%)</span></div>
+            <div class="rb-row rb-total"><span>合計</span><span class="${honmeiPay>0?'rb-amt':''}" style="color:${honmeiPay>0?'var(--ok)':'var(--shu)'}">¥${honmeiPay.toLocaleString()} / ¥${honmeiInv.toLocaleString()} (${honmeiRec}%)</span></div>
           </div>`;
-        // 新◎軸流し
-        const axisBet = calcAxis(r);
-        const axisHTML = axisBet ? `
+        // 🌕 激軸パネル
+        const anaKinds = ['ana_tan','ana_umatan'];
+        const anaInv = anaKinds.reduce((s,k)=>s+(v2.invest[k]||0),0);
+        const anaPay = anaKinds.reduce((s,k)=>s+(v2.payout[k]||0),0);
+        const anaRec = anaInv ? Math.round(anaPay/anaInv*1000)/10 : 0;
+        const anaHTML = anaInv > 0 ? `
           <div class="race-betting axis">
-            <div class="rb-head">単勝◎1点購入＆◎軸流し購入</div>
-            ${Object.entries(axisBet.invest).map(([k,inv])=>{
-              const pay = axisBet.payout[k]||0;
-              const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
-              const hit = pay>0 ? 'hit' : '';
-              return `<div class="rb-row ${hit}"><span>${AXIS_KIND_LABEL[k]||k}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
+            <div class="rb-head">🌕 激軸単勝穴1点購入 & 激軸馬単マルチ（6点）購入</div>
+            ${anaKinds.map(k=>{
+              const inv=v2.invest[k]||0, pay=v2.payout[k]||0;
+              const rec=inv?Math.round(pay/inv*1000)/10:0;
+              return `<div class="rb-row ${pay>0?'hit':''}"><span>${V2_KIND_LABEL[k]}</span><span class="rb-amt">¥${pay.toLocaleString()} / ¥${inv.toLocaleString()} (${rec}%)</span></div>`;
             }).join('')}
-            <div class="rb-row rb-total"><span>合計</span><span>¥${axisBet.payoutTotal.toLocaleString()} / ¥${axisBet.investTotal.toLocaleString()} (${axisBet.recovery}%)</span></div>
+            <div class="rb-row rb-total"><span>合計</span><span class="${anaPay>0?'rb-amt':''}" style="color:${anaPay>0?'var(--ok)':'#b8860b'}">¥${anaPay.toLocaleString()} / ¥${anaInv.toLocaleString()} (${anaRec}%)</span></div>
           </div>` : '';
-        return `<div class="race-betting-pair">${boxHTML}${axisHTML}</div>`;
-      })() : ''}` : '<div class="result pending">結果待ち</div>'}
+        return `<div class="race-betting-pair">${honmeiHTML}${anaHTML}</div>`;
+      })()}` : '<div class="result pending">結果待ち</div>'}
       </div>
     </details>
   `;
