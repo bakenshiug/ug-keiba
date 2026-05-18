@@ -382,12 +382,15 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
               ${r.previewHorses.map(h => {
                 const cat = h.jingu_category || '';
                 const isBakuana = h.summary && h.summary.includes('爆穴');
+                const isAnaUma = h.jingu_uma && cat === '消し';
                 let cardCls = isBakuana ? 'bakuana'
+                            : isAnaUma ? 'bakuana'
                             : cat === '勝利候補' ? 'win-cand'
                             : cat === '相手候補' ? 'place-cand'
                             : cat === '消し' ? 'note-cand'
                             : (h.sex && h.sex.startsWith('牝') ? 'mare' : '');
                 let tagText = isBakuana ? '💥 穴'
+                            : isAnaUma ? '🔥 穴馬候補'
                             : cat === '勝利候補' ? '🏆 勝利候補'
                             : cat === '相手候補' ? '🎯 相手候補'
                             : cat === '消し' ? '👁 見送り候補'
