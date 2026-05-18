@@ -265,8 +265,15 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
           <td>🥉 ${h.third.num} ${h.third.name} (${h.third.pop}人気)</td>
         </tr>`).join('');
 
-      // トレンド
+      // 制覇馬トレンド
       const trendCards = r.trends.map(t => `
+        <div class="trend-card ${t.weight}">
+          <div class="trend-label">${t.label}</div>
+          <div class="trend-value">${t.value}</div>
+        </div>`).join('');
+
+      // 馬券圏内トレンド（2・3着分析）
+      const hakenCards = (r.trendsHaken || []).map(t => `
         <div class="trend-card ${t.weight}">
           <div class="trend-label">${t.label}</div>
           <div class="trend-value">${t.value}</div>
@@ -292,8 +299,12 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
           </summary>
           <div class="race-body">
 
-            <h3 class="sec-h mincho">📊 過去10年トレンド</h3>
+            <h3 class="sec-h mincho">🏆 制覇馬分析（過去10年トレンド）</h3>
             <div class="trend-grid">${trendCards}</div>
+
+            ${hakenCards ? `
+            <h3 class="sec-h mincho">🎫 馬券圏内分析（2・3着傾向）</h3>
+            <div class="trend-grid">${hakenCards}</div>` : ''}
 
             <h3 class="sec-h mincho">📜 過去10年 1〜3着馬</h3>
             <div class="history-overflow">
