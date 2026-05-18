@@ -193,6 +193,21 @@
   .pc-buy b{color:#2e7d32;margin-right:5px}
   .pc-concern{background:#fdf3f0;border-left:3px solid #ef5350}
   .pc-concern b{color:#c62828;margin-right:5px}
+  /* ⛩️ 神宮馬バッジ */
+  .jingu-uma-badge{
+    display:inline-flex;align-items:center;gap:4px;
+    padding:3px 10px;border-radius:20px;font-size:11px;font-weight:900;
+    letter-spacing:.12em;font-family:'Shippori Mincho',serif;
+    background:linear-gradient(135deg,#7a1e1e 0%,#a44a3f 50%,#c9a84c 100%);
+    color:#fff;border:1px solid rgba(255,255,255,.3);
+    box-shadow:0 0 8px rgba(164,74,63,.5),0 2px 6px rgba(201,168,76,.3);
+    animation:jinguPulse 2.8s ease-in-out infinite;
+    vertical-align:middle;margin-left:6px
+  }
+  @keyframes jinguPulse{
+    0%,100%{box-shadow:0 0 8px rgba(164,74,63,.5),0 2px 6px rgba(201,168,76,.3)}
+    50%    {box-shadow:0 0 16px rgba(164,74,63,.8),0 2px 10px rgba(201,168,76,.6)}
+  }
   .pc-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
            padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed var(--border)}
   .pc-name{font-family:'Shippori Mincho',serif;font-size:17px;color:var(--shu);font-weight:700;letter-spacing:.05em}
@@ -381,7 +396,7 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
                 <div class="preview-card ${cardCls}">
                   <div class="pc-head">
                     <span class="pc-tag">${tagText}</span>
-                    <span class="pc-name">${h.name}</span>
+                    <span class="pc-name">${h.name}${h.jingu_uma ? '<span class="jingu-uma-badge">⛩️ 神宮馬 ⛩️</span>' : ''}</span>
                     <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b>`:''}</span>
                     <span class="pc-summary">${h.summary || ''}</span>
                   </div>
