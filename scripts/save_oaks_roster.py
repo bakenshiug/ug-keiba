@@ -1,0 +1,59 @@
+import json
+from pathlib import Path
+
+# ============================================================
+# 優駿牝馬 2026-05-24 東京11R 全22頭 特別登録データ
+# JRDB: n_live_20260524_05262a11 + netkeiba特集ページより
+# ============================================================
+
+RACE = {
+    "raceId":     "202605021011",
+    "jrdbCode":   "05262a11",
+    "date":       "2026-05-24",
+    "venue":      "東京",
+    "raceNum":    "11R",
+    "raceName":   "優駿牝馬",
+    "grade":      "G1",
+    "course":     "芝2400m",
+    "numHorses":  22,
+    "status":     "特別登録（22頭→抽選でフルゲート18頭）",
+    "horses": [
+        # idx, name, jockey, trainer, belong, gaikyu, gaikyuRank, nyukyu, kyakushitsu, rotation, ninkiPred, hatsuBri
+        {"idx":1,  "name":"エンネ",          "jockey":"坂井瑠星", "trainer":"吉岡辰弥", "belong":"栗東", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"追込", "rotation":"3",  "ninkiPred":5,  "hatsuBri":0},
+        {"idx":2,  "name":"ソルパッサーレ",  "jockey":"浜中俊",   "trainer":"四位洋文", "belong":"栗東", "gaikyu":"チャンピオンヒルズ",          "gaikyuRank":2, "nyukyu":"20260507", "kyakushitsu":"差し", "rotation":"5",  "ninkiPred":13, "hatsuBri":0},
+        {"idx":3,  "name":"バースデイフライト","jockey":"菅原明良", "trainer":"新谷功一", "belong":"栗東", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"差し", "rotation":"5",  "ninkiPred":18, "hatsuBri":0},
+        {"idx":4,  "name":"ジュウリョクピエロ","jockey":"今村聖奈", "trainer":"寺島良",   "belong":"栗東", "gaikyu":"宇治田原優駿ステーブル",      "gaikyuRank":3, "nyukyu":"20260501", "kyakushitsu":"追込", "rotation":"3",  "ninkiPred":6,  "hatsuBri":0},
+        {"idx":5,  "name":"ウィズクィーン",  "jockey":"",         "trainer":"上村洋行", "belong":"栗東", "gaikyu":"チャンピオンヒルズ",          "gaikyuRank":2, "nyukyu":"20260506", "kyakushitsu":"差し", "rotation":"5",  "ninkiPred":20, "hatsuBri":0},
+        {"idx":6,  "name":"トリニティ",      "jockey":"西村淳也", "trainer":"安田翔伍", "belong":"栗東", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"先行", "rotation":"2",  "ninkiPred":8,  "hatsuBri":0},
+        {"idx":7,  "name":"エンジョイドアスク","jockey":"佐々木大輔","trainer":"堀宣行",  "belong":"美浦", "gaikyu":"山元トレーニングセンター",    "gaikyuRank":1, "nyukyu":"20260429", "kyakushitsu":"差し", "rotation":"7",  "ninkiPred":10, "hatsuBri":0},
+        {"idx":8,  "name":"ロザーンジュ",    "jockey":"田辺裕信", "trainer":"寺島良",   "belong":"栗東", "gaikyu":"吉澤ステーブルWEST",          "gaikyuRank":2, "nyukyu":"20260508", "kyakushitsu":"差し", "rotation":"4",  "ninkiPred":21, "hatsuBri":0},
+        {"idx":9,  "name":"アンジュドジョワ","jockey":"岩田望来", "trainer":"福永祐一", "belong":"栗東", "gaikyu":"社台ファーム鈴鹿",            "gaikyuRank":1, "nyukyu":"20260429", "kyakushitsu":"先行", "rotation":"7",  "ninkiPred":7,  "hatsuBri":0},
+        {"idx":10, "name":"レイクラシック",  "jockey":"C.デムーロ","trainer":"新谷功一","belong":"栗東", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"先行", "rotation":"2",  "ninkiPred":12, "hatsuBri":0},
+        {"idx":11, "name":"スウィートハピネス","jockey":"高杉吏",  "trainer":"北出成人", "belong":"栗東", "gaikyu":"大山ヒルズ",                  "gaikyuRank":2, "nyukyu":"20260506", "kyakushitsu":"追込", "rotation":"5",  "ninkiPred":14, "hatsuBri":0},
+        {"idx":12, "name":"ミツカネベネラ",  "jockey":"",         "trainer":"鈴木伸尋", "belong":"美浦", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"逃げ", "rotation":"2",  "ninkiPred":17, "hatsuBri":0},
+        {"idx":13, "name":"リアライズルミナス","jockey":"津村明秀", "trainer":"橋口慎介", "belong":"栗東", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"逃げ", "rotation":"3",  "ninkiPred":16, "hatsuBri":0},
+        {"idx":14, "name":"ロンギングセリーヌ","jockey":"石橋脩",  "trainer":"竹内正洋", "belong":"美浦", "gaikyu":"山元トレーニングセンター",    "gaikyuRank":1, "nyukyu":"20260506", "kyakushitsu":"逃げ", "rotation":"5",  "ninkiPred":15, "hatsuBri":0},
+        {"idx":15, "name":"アメティスタ",    "jockey":"横山武史", "trainer":"牧浦充徳", "belong":"栗東", "gaikyu":"チャンピオンヒルズ",          "gaikyuRank":2, "nyukyu":"20260424", "kyakushitsu":"先行", "rotation":"8",  "ninkiPred":11, "hatsuBri":0},
+        {"idx":16, "name":"スタニングレディ", "jockey":"三浦皇成", "trainer":"高木登",   "belong":"美浦", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"逃げ", "rotation":"3",  "ninkiPred":22, "hatsuBri":0},
+        {"idx":17, "name":"スターアニス",    "jockey":"松山弘平", "trainer":"高野友和", "belong":"栗東", "gaikyu":"ノーザンファームしがらき",    "gaikyuRank":1, "nyukyu":"20260501", "kyakushitsu":"差し", "rotation":"5",  "ninkiPred":1,  "hatsuBri":0},
+        {"idx":18, "name":"ロングトールサリー","jockey":"戸崎圭太", "trainer":"福永祐一", "belong":"栗東", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"先行", "rotation":"2",  "ninkiPred":19, "hatsuBri":0},
+        {"idx":19, "name":"アランカール",    "jockey":"武　豊",   "trainer":"斉藤崇史", "belong":"栗東", "gaikyu":"ノーザンファームしがらき",    "gaikyuRank":1, "nyukyu":"20260430", "kyakushitsu":"追込", "rotation":"5",  "ninkiPred":3,  "hatsuBri":0},
+        {"idx":20, "name":"スマートプリエール","jockey":"原優介",  "trainer":"大久龍志", "belong":"栗東", "gaikyu":"ノーザンファームしがらき",    "gaikyuRank":1, "nyukyu":"20260421", "kyakushitsu":"先行", "rotation":"8",  "ninkiPred":9,  "hatsuBri":0},
+        {"idx":21, "name":"ドリームコア",    "jockey":"C.ルメール","trainer":"萩原清",  "belong":"美浦", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"差し", "rotation":"5",  "ninkiPred":4,  "hatsuBri":0},
+        {"idx":22, "name":"ラフターラインズ", "jockey":"J.モレイラ","trainer":"小笠倫弘", "belong":"美浦", "gaikyu":"",                          "gaikyuRank":4, "nyukyu":"",         "kyakushitsu":"追込", "rotation":"3",  "ninkiPred":2,  "hatsuBri":0},
+    ]
+}
+
+out = Path("docs/data/kotodama-test/2026-05-24-roster.json")
+out.write_text(json.dumps([RACE], ensure_ascii=False, indent=2), encoding="utf-8")
+print(f"✅ 保存: {out}")
+print(f"   総頭数: {len(RACE['horses'])} / レース: {RACE['venue']}{RACE['raceNum']} {RACE['raceName']}")
+
+# NF系まとめ
+nf = [h for h in RACE['horses'] if h['gaikyu'] in ['ノーザンファームしがらき','ノーザンファーム天栄']]
+ch = [h for h in RACE['horses'] if h['gaikyu'] == 'チャンピオンヒルズ']
+yama = [h for h in RACE['horses'] if '山元' in h['gaikyu']]
+print(f"\n🔥🔥🔥 NF系（rank1）: {[h['name'] for h in nf]}")
+print(f"🔥🔥  CH（rank2）: {[h['name'] for h in ch]}")
+print(f"🔥   山元TC（rank1）: {[h['name'] for h in yama]}")
+print(f"\n💥 初ブリ: {[h['name'] for h in RACE['horses'] if h['hatsuBri']]  or ['なし']}")
