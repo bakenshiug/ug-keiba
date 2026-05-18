@@ -80,6 +80,20 @@
   .sec-h{font-family:'Shippori Mincho',serif;font-size:16px;color:var(--shu);
          font-weight:700;letter-spacing:.15em;margin:18px 0 12px;
          padding-left:12px;border-left:4px solid var(--gold)}
+  /* 折りたたみ */
+  .sec-details{margin:14px 0}
+  .sec-details>summary{
+    list-style:none;cursor:pointer;user-select:none;
+    font-family:'Shippori Mincho',serif;font-size:16px;color:var(--shu);
+    font-weight:700;letter-spacing:.15em;margin:0 0 12px;
+    padding:8px 12px;border-left:4px solid var(--gold);
+    display:flex;align-items:center;justify-content:space-between;
+    border-radius:0 4px 4px 0;background:rgba(201,168,76,.06);
+  }
+  .sec-details>summary::-webkit-details-marker{display:none}
+  .sec-details>summary::after{content:'▼';font-size:10px;color:var(--gold);transition:transform .25s;flex-shrink:0}
+  .sec-details[open]>summary::after{transform:rotate(180deg)}
+  .sec-details>summary:hover{background:rgba(201,168,76,.12)}
   .trend-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   @media(max-width:600px){.trend-grid{grid-template-columns:1fr}}
   .trend-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:12px 14px}
@@ -360,22 +374,27 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
           </summary>
           <div class="race-body">
 
-            <h3 class="sec-h mincho">🏆 制覇馬分析（過去10年トレンド）</h3>
-            <div class="trend-grid">${trendCards}</div>
+            <details class="sec-details" open>
+              <summary>🏆 制覇馬分析（過去10年トレンド）</summary>
+              <div class="trend-grid">${trendCards}</div>
+              ${hakenCards ? `
+              <details class="sec-details" open style="margin-top:4px">
+                <summary>🎫 馬券圏内分析（2・3着傾向）</summary>
+                <div class="trend-grid">${hakenCards}</div>
+              </details>` : ''}
+            </details>
 
-            ${hakenCards ? `
-            <h3 class="sec-h mincho">🎫 馬券圏内分析（2・3着傾向）</h3>
-            <div class="trend-grid">${hakenCards}</div>` : ''}
-
-            <h3 class="sec-h mincho">📜 過去10年 1〜3着馬</h3>
-            <div class="history-overflow">
-              <table class="history-table">
-                <thead>
-                  <tr><th>年</th><th>1着</th><th>2着</th><th>3着</th></tr>
-                </thead>
-                <tbody>${podiumRows}</tbody>
-              </table>
-            </div>
+            <details class="sec-details" open>
+              <summary>📜 過去10年 1〜3着馬</summary>
+              <div class="history-overflow">
+                <table class="history-table">
+                  <thead>
+                    <tr><th>年</th><th>1着</th><th>2着</th><th>3着</th></tr>
+                  </thead>
+                  <tbody>${podiumRows}</tbody>
+                </table>
+              </div>
+            </details>
 
             ${shobu && r.shobu_note ? `
             <div class="shobu-note">
@@ -384,7 +403,8 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
             </div>` : ''}
 
             ${r.previewHorses && r.previewHorses.length ? `
-            <h3 class="sec-h mincho">📜 有力馬の神宮見立て</h3>
+            <details class="sec-details" open>
+            <summary>📜 有力馬の神宮見立て</summary>
             <div class="preview-banner mincho">
               神宮独自の視点で再構成（出馬登録・動向は変動の可能性）
             </div>
@@ -425,7 +445,8 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
                   ${h.watchpoint ? `<div class="pc-watch"><b>👁 注目点</b>${h.watchpoint}</div>` : ''}
                 </div>`;
               }).join('')}
-            </div>` : ''}
+            </div>
+            </details>` : ''}
 
           </div>
         </details>`;
