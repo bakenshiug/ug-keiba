@@ -193,6 +193,18 @@
   .pc-buy b{color:#2e7d32;margin-right:5px}
   .pc-concern{background:#fdf3f0;border-left:3px solid #ef5350}
   .pc-concern b{color:#c62828;margin-right:5px}
+  /* ⚡💪 ラップ適性バッジ */
+  .lap-badge{
+    display:inline-flex;align-items:center;gap:3px;
+    padding:2px 8px;border-radius:12px;font-size:10px;font-weight:800;
+    letter-spacing:.08em;vertical-align:middle;margin-left:5px;
+  }
+  .lap-badge.syunpatsu{background:linear-gradient(135deg,#1565c0,#42a5f5);color:#fff;
+    box-shadow:0 0 6px rgba(66,165,245,.5)}
+  .lap-badge.jizoku{background:linear-gradient(135deg,#2e7d32,#66bb6a);color:#fff;
+    box-shadow:0 0 6px rgba(102,187,106,.5)}
+  .lap-badge.ryoto{background:linear-gradient(135deg,#6a1b9a,#ab47bc);color:#fff;
+    box-shadow:0 0 6px rgba(171,71,188,.5)}
   /* ⛩️ 神宮馬バッジ */
   .jingu-uma-badge{
     display:inline-flex;align-items:center;gap:4px;
@@ -399,7 +411,7 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
                 <div class="preview-card ${cardCls}">
                   <div class="pc-head">
                     <span class="pc-tag">${tagText}</span>
-                    <span class="pc-name">${h.name}${h.jingu_uma ? '<span class="jingu-uma-badge">⛩️ 神宮馬 ⛩️</span>' : ''}</span>
+                    <span class="pc-name">${h.name}${h.jingu_uma ? '<span class="jingu-uma-badge">⛩️ 神宮馬 ⛩️</span>' : ''}${h.lapType === '瞬発' ? '<span class="lap-badge syunpatsu">⚡ 瞬発</span>' : h.lapType === '持続' ? '<span class="lap-badge jizoku">💪 持続</span>' : h.lapType === '両刀' ? '<span class="lap-badge ryoto">🔄 両刀</span>' : ''}</span>
                     <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b>`:''}</span>
                     <span class="pc-summary">${h.summary || ''}</span>
                   </div>
