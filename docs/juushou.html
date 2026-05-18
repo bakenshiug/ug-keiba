@@ -157,6 +157,42 @@
     letter-spacing:.15em;font-family:'Shippori Mincho',serif;
     box-shadow:0 2px 8px rgba(164,74,63,.4)
   }
+  /* 🏆 勝利候補 */
+  .preview-card.win-cand{border:2px solid var(--gold-dk);
+                          background:linear-gradient(135deg,#fffbea 0%,#fff8dc 100%);
+                          box-shadow:0 0 14px rgba(201,168,76,.35),0 2px 8px rgba(201,168,76,.15);
+                          position:relative}
+  .preview-card.win-cand .pc-tag{background:linear-gradient(135deg,#c9a84c,#b8860b);color:#fff}
+  .preview-card.win-cand .pc-name{color:var(--gold-dk)}
+  .preview-card.win-cand::before{
+    content:'🏆 勝利候補';position:absolute;top:-11px;right:14px;
+    background:linear-gradient(135deg,#c9a84c,#b8860b);color:#fff;
+    padding:3px 12px;border-radius:4px;font-size:11px;font-weight:900;
+    letter-spacing:.15em;font-family:'Shippori Mincho',serif;
+    box-shadow:0 2px 8px rgba(201,168,76,.4)
+  }
+  /* 🎯 相手候補 */
+  .preview-card.place-cand{border:2px solid #7a8fa6;
+                            background:linear-gradient(135deg,#f4f8fc 0%,#fff 100%);
+                            position:relative}
+  .preview-card.place-cand .pc-tag{background:#5a7fa0;color:#fff}
+  .preview-card.place-cand .pc-name{color:#2d5a84}
+  .preview-card.place-cand::before{
+    content:'🎯 相手候補';position:absolute;top:-11px;right:14px;
+    background:#5a7fa0;color:#fff;
+    padding:3px 12px;border-radius:4px;font-size:11px;font-weight:900;
+    letter-spacing:.15em;font-family:'Shippori Mincho',serif;
+  }
+  /* 👁 注意/消し */
+  .preview-card.note-cand{border:1px solid #c0b8aa;
+                           background:#faf9f6;opacity:.92}
+  .preview-card.note-cand .pc-tag{background:#8a8070;color:#fff}
+  /* 買い/懸念 */
+  .pc-buy,.pc-concern{margin-top:7px;padding:7px 12px;border-radius:5px;font-size:12.5px;line-height:1.75}
+  .pc-buy{background:#edf7ed;border-left:3px solid #4caf50}
+  .pc-buy b{color:#2e7d32;margin-right:5px}
+  .pc-concern{background:#fdf3f0;border-left:3px solid #ef5350}
+  .pc-concern b{color:#c62828;margin-right:5px}
   .pc-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
            padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed var(--border)}
   .pc-name{font-family:'Shippori Mincho',serif;font-size:17px;color:var(--shu);font-weight:700;letter-spacing:.05em}
@@ -329,19 +365,29 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
             </div>
             <div class="preview-grid">
               ${r.previewHorses.map(h => {
-                const isMare = h.sex && h.sex.startsWith('牝');
+                const cat = h.jingu_category || '';
                 const isBakuana = h.summary && h.summary.includes('爆穴');
-                const cardCls = isBakuana ? 'bakuana' : (isMare ? 'mare' : '');
-                const tagText = isBakuana ? '💥 穴' : (isMare ? '🌸 牝馬' : '有力');
+                let cardCls = isBakuana ? 'bakuana'
+                            : cat === '勝利候補' ? 'win-cand'
+                            : cat === '相手候補' ? 'place-cand'
+                            : cat === '消し' ? 'note-cand'
+                            : (h.sex && h.sex.startsWith('牝') ? 'mare' : '');
+                let tagText = isBakuana ? '💥 穴'
+                            : cat === '勝利候補' ? '🏆 勝利候補'
+                            : cat === '相手候補' ? '🎯 相手候補'
+                            : cat === '消し' ? '👁 消し注意'
+                            : '有力';
                 return `
                 <div class="preview-card ${cardCls}">
                   <div class="pc-head">
                     <span class="pc-tag">${tagText}</span>
                     <span class="pc-name">${h.name}</span>
-                    <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b> ／ ${h.odds}倍`:''}</span>
+                    <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b>`:''}</span>
                     <span class="pc-summary">${h.summary || ''}</span>
                   </div>
-                  <div class="pc-view">${h.shrine_view}</div>
+                  ${h.shrine_view ? `<div class="pc-view">${h.shrine_view}</div>` : ''}
+                  ${h.buy ? `<div class="pc-buy"><b>🟢 買い</b>${h.buy}</div>` : ''}
+                  ${h.concern ? `<div class="pc-concern"><b>🔴 懸念</b>${h.concern}</div>` : ''}
                   ${h.watchpoint ? `<div class="pc-watch"><b>👁 注目点</b>${h.watchpoint}</div>` : ''}
                 </div>`;
               }).join('')}
