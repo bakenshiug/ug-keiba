@@ -242,6 +242,10 @@
           font-family:'Shippori Mincho',serif}
   .preview-card.mare .pc-tag{background:#d4528a;color:#fff}
   .pc-summary{font-size:12px;color:var(--ink-soft);margin-left:auto;font-weight:700}
+  .pc-lastrap{display:block;width:100%;font-size:11px;color:var(--ink-soft);margin-top:2px;font-family:'Inter',sans-serif}
+  .lr-chakujun{color:var(--shu);font-size:13px;font-family:'Inter',sans-serif}
+  .lr-rote{display:inline-block;padding:1px 6px;background:#e8f4e8;color:#2e7d32;border-radius:3px;font-size:10px;font-weight:700}
+  .lr-kyaku{display:inline-block;padding:1px 6px;background:#e8eaf6;color:#283593;border-radius:3px;font-size:10px;font-weight:700}
   .pc-view{font-size:13px;line-height:1.85;color:var(--ink)}
   .pc-watch{margin-top:8px;padding:8px 12px;background:var(--bg-soft);border-radius:4px;
             font-size:11.5px;color:var(--ink-soft);border-left:3px solid var(--gold)}
@@ -437,6 +441,7 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
                     <span class="pc-tag">${tagText}</span>
                     <span class="pc-name">${h.name}${h.jingu_uma ? '<span class="jingu-uma-badge">⛩️ 神宮馬 ⛩️</span>' : ''}${(h.lapType === '瞬発' || h.lapType === '両刀' ? '<span class="lap-badge syunpatsu">⚡ 瞬発</span>' : '') + (h.lapType === '持続' || h.lapType === '両刀' ? '<span class="lap-badge jizoku">💪 持続</span>' : '')}</span>
                     <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b>`:''}</span>
+                    ${(h.lastRaceName||h.rotation) ? `<span class="pc-lastrap">${h.lastRaceResult!=null?`<b class="lr-chakujun">${h.lastRaceResult}着</b> `:''}${h.lastRaceName?`${h.lastRaceName}（${h.lastRaceVenue||''}）`:''}${h.rotation?` <span class="lr-rote">${h.rotation}</span>`:''}${h.kyakushitsu?` <span class="lr-kyaku">${h.kyakushitsu}</span>`:''}</span>` : ''}
                     <span class="pc-summary">${h.summary || ''}</span>
                   </div>
                   ${h.shrine_view ? `<div class="pc-view">${h.shrine_view}</div>` : ''}
