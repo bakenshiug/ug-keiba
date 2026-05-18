@@ -389,7 +389,13 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
               神宮独自の視点で再構成（出馬登録・動向は変動の可能性）
             </div>
             <div class="preview-grid">
-              ${r.previewHorses.map(h => {
+              ${[...r.previewHorses].sort((a,b) => {
+                const order = {'勝利候補':0,'相手候補':1,'消し':2};
+                const catA = order[a.jingu_category] ?? 3;
+                const catB = order[b.jingu_category] ?? 3;
+                if (catA !== catB) return catA - catB;
+                return (b.lapScore || 0) - (a.lapScore || 0);
+              }).map(h => {
                 const cat = h.jingu_category || '';
                 const isBakuana = h.summary && h.summary.includes('爆穴');
                 const isAnaUma = h.jingu_uma && cat === '消し';
