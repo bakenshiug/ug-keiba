@@ -339,9 +339,9 @@ fetch('data/juushou/2026-05-23-24.json?_='+Date.now())
       const podiumRows = r.history.map(h => `
         <tr>
           <td class="ht-year">${h.year}</td>
-          <td>🥇 <b>${h.first.num}</b> ${h.first.name} (${h.first.pop}人気)</td>
-          <td>🥈 ${h.second.num} ${h.second.name} (${h.second.pop}人気)</td>
-          <td>🥉 ${h.third.num} ${h.third.name} (${h.third.pop}人気)</td>
+          <td>🥇 <b>${h.first.num}</b> ${h.first.name} (${h.first.pop}人気)${h.first.ana ? ' 🔥' : ''}</td>
+          <td>🥈 ${h.second.num} ${h.second.name} (${h.second.pop}人気)${h.second.ana ? ' 🔥' : ''}</td>
+          <td>🥉 ${h.third.num} ${h.third.name} (${h.third.pop}人気)${h.third.ana ? ' 🔥' : ''}</td>
         </tr>`).join('');
 
       // 制覇馬トレンド
