@@ -1086,6 +1086,77 @@ function renderSummary(){
 async function renderSuzaku(){
   const el = document.getElementById('suzaku-board');
   if (!el) return;
+  // ── オークス週 特設バナー ──
+  el.innerHTML = `
+    <div style="
+      max-width:920px;margin:0 auto 24px;
+      background:linear-gradient(135deg,#1a0a00 0%,#3d1a0a 40%,#1a0a00 100%);
+      border:1px solid rgba(201,168,76,.45);
+      border-radius:12px;overflow:hidden;
+      box-shadow:0 4px 24px rgba(164,74,63,.35);
+      position:relative;
+    ">
+      <div style="
+        position:absolute;inset:0;
+        background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.18),transparent 65%);
+        pointer-events:none
+      "></div>
+      <div style="padding:28px 24px;text-align:center;position:relative">
+        <div style="
+          font-size:11px;letter-spacing:.45em;color:rgba(201,168,76,.7);
+          font-family:'Shippori Mincho',serif;margin-bottom:14px
+        ">⛩ OAKS 2026 ⛩</div>
+        <div style="
+          font-family:'Shippori Mincho',serif;
+          font-size:clamp(26px,5vw,40px);
+          font-weight:700;
+          letter-spacing:.35em;
+          color:#fff;
+          text-shadow:0 0 32px rgba(201,168,76,.8),0 2px 4px rgba(0,0,0,.8);
+          padding-left:.35em;
+          line-height:1.2;
+          margin-bottom:10px
+        ">オークス一本勝負</div>
+        <div style="
+          width:120px;height:1px;
+          background:linear-gradient(90deg,transparent,rgba(201,168,76,.8),transparent);
+          margin:14px auto
+        "></div>
+        <div style="
+          font-family:'Shippori Mincho',serif;
+          font-size:13px;letter-spacing:.2em;
+          color:rgba(201,168,76,.85);
+          margin-bottom:18px
+        ">東京11R 第87回優駿牝馬（GI）芝2400m</div>
+        <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+          <div style="
+            padding:6px 18px;
+            background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);
+            border-radius:20px;font-size:13px;color:#f5e6c0;
+            font-family:'Shippori Mincho',serif;letter-spacing:.12em
+          ">◎ 18 ラフターラインズ</div>
+          <div style="
+            padding:6px 18px;
+            background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
+            border-radius:20px;font-size:13px;color:#e8dcc8;
+            font-family:'Shippori Mincho',serif;letter-spacing:.12em
+          ">○ 13 エンネ</div>
+          <div style="
+            padding:6px 18px;
+            background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);
+            border-radius:20px;font-size:13px;color:#d4c4a8;
+            font-family:'Shippori Mincho',serif;letter-spacing:.12em
+          ">▲ 15 アンジュドジョワ</div>
+          <div style="
+            padding:6px 18px;
+            background:rgba(164,74,63,.25);border:1px solid rgba(164,74,63,.5);
+            border-radius:20px;font-size:13px;color:#f5c0a0;
+            font-family:'Shippori Mincho',serif;letter-spacing:.12em
+          ">激 16 ジュウリョクピエロ</div>
+        </div>
+      </div>
+    </div>`;
+  return; // 以下の朱雀ボードはオークス週スキップ
   try {
     const r = await fetch('data/jockey/2026-05-11_venue_top5_enriched.json?_='+Date.now());
     const d = await r.json();
@@ -1190,8 +1261,9 @@ function buildTabs(){
   const groups = new Map();
   ALL_RACES.forEach(r => {
     const key = `${r.date}|${r.venue}`;
-    if (!groups.has(key)) groups.set(key, {date:r.date,venue:r.venue,count:0});
+    if (!groups.has(key)) groups.set(key, {date:r.date,venue:r.venue,count:0,raceNums:[]});
     groups.get(key).count++;
+    groups.get(key).raceNums.push(r.raceNum);
   });
   // 日付降順（日曜が上）、同日は挿入順を維持
   const allTabs = [...groups.values()].sort((a,b) => b.date.localeCompare(a.date));
@@ -1208,7 +1280,8 @@ function buildTabs(){
     }
     const key = `${t.date}|${t.venue}`;
     const active = key === CURRENT_TAB ? 'active' : '';
-    html += `<button class="tab ${active}" data-key="${key}">${t.venue}<span class="tab-count">${t.count}R</span></button>`;
+    const tabLabel = t.count === 1 ? t.raceNums[0] : `${t.count}R`;
+    html += `<button class="tab ${active}" data-key="${key}">${t.venue}<span class="tab-count">${tabLabel}</span></button>`;
   });
   tabsEl.innerHTML = html;
   tabsEl.querySelectorAll('.tab').forEach(btn => {
