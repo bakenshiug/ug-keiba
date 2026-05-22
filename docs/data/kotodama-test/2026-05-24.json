@@ -20,7 +20,7 @@
       "keibabookMemo": "言霊×重賞天満宮合議。10年連続1〜4人気圏内が勝利。差し脚質26年17勝・逃げ壊滅。外国人騎手10年7勝の独壇場。フローラS1着ルートは4/4連対。",
       "picks": [
         {
-          "mark": "◎",
+          "mark": "○",
           "num": "13",
           "name": "エンネ",
           "jockey": "坂井瑠星",
@@ -45,7 +45,7 @@
           "ninkiPred": 5
         },
         {
-          "mark": "○",
+          "mark": "◎",
           "num": "18",
           "name": "ラフターラインズ",
           "jockey": "J.モレイラ",
@@ -142,13 +142,13 @@
         "total_points": 14,
         "total_investment": 1400,
         "bets": [
-          {"type": "単勝", "nums": ["13"], "note": "◎エンネ", "points": 1, "amount": 100},
-          {"type": "馬単マルチ", "nums": ["13", "18"], "note": "◎↔○", "points": 2, "amount": 200},
-          {"type": "馬単マルチ", "nums": ["13", "15"], "note": "◎↔▲", "points": 2, "amount": 200},
-          {"type": "馬単マルチ", "nums": ["13", "16"], "note": "◎↔激", "points": 2, "amount": 200},
+          {"type": "単勝", "nums": ["18"], "note": "◎ラフターラインズ", "points": 1, "amount": 100},
+          {"type": "馬単マルチ", "nums": ["18", "13"], "note": "◎↔○", "points": 2, "amount": 200},
+          {"type": "馬単マルチ", "nums": ["18", "15"], "note": "◎↔▲", "points": 2, "amount": 200},
+          {"type": "馬単マルチ", "nums": ["18", "16"], "note": "◎↔激", "points": 2, "amount": 200},
           {"type": "単勝", "nums": ["16"], "note": "激ジュウリョクピエロ", "points": 1, "amount": 100},
-          {"type": "馬単マルチ", "nums": ["16", "13"], "note": "激↔◎", "points": 2, "amount": 200},
-          {"type": "馬単マルチ", "nums": ["16", "18"], "note": "激↔○", "points": 2, "amount": 200},
+          {"type": "馬単マルチ", "nums": ["16", "18"], "note": "激↔◎", "points": 2, "amount": 200},
+          {"type": "馬単マルチ", "nums": ["16", "13"], "note": "激↔○", "points": 2, "amount": 200},
           {"type": "馬単マルチ", "nums": ["16", "15"], "note": "激↔▲", "points": 2, "amount": 200}
         ],
         "note": "◎→激・激→◎は馬単マルチ内で重複。実質12通り中2通り共通。"
