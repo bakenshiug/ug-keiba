@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>一変激走神宮アーカイブ 2026-05-16-17 ｜ ヴィクトリアマイル週</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --shu:#9b2d30;
+    --shu-dk:#7a1e21;
+    --kin:#c9a84c;
+    --kin-deep:#a07b28;
+    --paper:#FBF7EE;
+    --paper-deep:#F0EADB;
+    --ink:#2c1f12;
+    --ink-soft:#6b5d4b;
+    --midori:#1F4D2E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);
+       font-family:'Noto Sans JP','Shippori Mincho',serif;line-height:1.6;
+       background-image:radial-gradient(circle at 10% 20%,rgba(201,168,76,.06),transparent 40%),
+                        radial-gradient(circle at 90% 80%,rgba(155,45,48,.05),transparent 40%);}
+  .mincho{font-family:'Shippori Mincho',serif}
+
+  .archive-banner{background:linear-gradient(135deg,#f5f2eb,#fbf7ee);
+                  border-bottom:2px solid var(--kin);
+                  padding:12px 20px;text-align:center;
+                  font-family:'Shippori Mincho',serif;letter-spacing:.05em;font-size:13px}
+  .archive-banner b{color:#7A1E1E}
+  .archive-banner a{color:#a44a3f;font-weight:700;text-decoration:underline}
+
+  header{background:linear-gradient(135deg,#fff 0%,#f8f4e8 100%);
+         border-bottom:3px solid var(--kin);padding:50px 20px 40px;text-align:center;
+         box-shadow:0 4px 14px rgba(0,0,0,.05)}
+  .home-link{display:inline-block;margin-bottom:20px;color:var(--ink-soft);
+             text-decoration:none;font-size:13px;letter-spacing:.18em;
+             font-family:'Shippori Mincho',serif}
+  .home-link:hover{color:var(--shu)}
+  .h-tiger{font-size:80px;line-height:1;margin-bottom:16px;
+           filter:drop-shadow(2px 4px 8px rgba(0,0,0,.15))}
+  .h-title{font-family:'Shippori Mincho',serif;font-size:36px;font-weight:900;
+           color:var(--shu);letter-spacing:.24em;padding-left:.24em;line-height:1.2}
+  .h-sub{font-size:14px;color:var(--ink-soft);letter-spacing:.2em;margin-top:14px;
+         font-family:'Shippori Mincho',serif}
+  .h-direction{font-size:11px;color:var(--kin-deep);letter-spacing:.4em;margin-top:8px;
+               font-family:'Shippori Mincho',serif;padding-left:.4em}
+
+  main{max-width:780px;margin:0 auto;padding:40px 20px 80px}
+
+  .torii-divider{text-align:center;font-size:24px;color:var(--kin);margin:30px 0 20px;
+                 letter-spacing:.8em}
+
+  .section-h{font-family:'Shippori Mincho',serif;text-align:center;
+             font-size:22px;color:var(--shu);font-weight:900;letter-spacing:.18em;
+             padding:20px 16px 12px;margin-bottom:8px}
+  .section-sub{text-align:center;font-size:13px;color:var(--ink-soft);
+               letter-spacing:.14em;margin-bottom:24px;
+               font-family:'Shippori Mincho',serif}
+
+  .day-board{background:#fff;border:1.5px solid var(--kin);border-radius:8px;
+             padding:24px 28px;margin-bottom:22px;
+             box-shadow:0 2px 12px rgba(0,0,0,.04)}
+  .day-h{font-family:'Shippori Mincho',serif;font-size:18px;color:var(--shu-dk);
+         font-weight:900;letter-spacing:.18em;padding-bottom:10px;
+         border-bottom:1.5px dashed var(--kin);margin-bottom:14px}
+  .day-stats{font-size:12px;color:var(--ink-soft);margin-bottom:14px;
+             font-family:'Shippori Mincho',serif;letter-spacing:.06em;
+             background:var(--paper-deep);padding:8px 12px;border-radius:4px}
+  .day-stats b{color:var(--shu)}
+  .race-block{padding:12px 0;border-bottom:1px dotted #d6c8a0}
+  .race-block:last-child{border-bottom:none;padding-bottom:0}
+  .race-block:first-child{padding-top:6px}
+  .race-info{font-size:13px;color:var(--ink-soft);letter-spacing:.06em;
+             font-family:'Shippori Mincho',serif;margin-bottom:6px}
+  .horse-line{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:.04em;
+              display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+              font-family:'Shippori Mincho',serif}
+  .horse-name{font-size:18px;color:var(--shu);font-weight:900}
+  .pop{font-size:13px;color:var(--ink-soft);font-weight:500;letter-spacing:.05em}
+  .finish{font-size:13px;color:var(--midori);font-weight:900;letter-spacing:.08em}
+  .odds-flag{font-size:12px;color:#c0392b;font-weight:900;letter-spacing:.06em;
+             background:#fff8d0;padding:2px 10px;border-radius:14px;
+             border:1px solid #d4a017}
+  .payout{font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .payout b{color:var(--ink)}
+
+  .summary{margin-top:30px;background:linear-gradient(135deg,#fff8d0 0%,#fbf2c0 100%);
+           border:2px solid var(--kin);border-radius:8px;padding:22px;text-align:center}
+  .summary-line{font-family:'Shippori Mincho',serif;font-size:18px;color:var(--ink);
+                font-weight:900;letter-spacing:.1em;line-height:1.8}
+  .summary-line .big{font-size:32px;color:var(--shu);margin:0 6px}
+  .summary-line .highlight{font-size:22px;color:var(--kin-deep);margin:0 4px}
+
+  footer{text-align:center;padding:30px 20px;font-size:12px;color:var(--ink-soft);
+         border-top:1px solid #e3d7b6;font-family:'Shippori Mincho',serif;letter-spacing:.1em}
+  footer a{color:var(--shu);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  @media(max-width:600px){
+    header{padding:36px 16px 28px}
+    .h-tiger{font-size:60px}
+    .h-title{font-size:26px;letter-spacing:.18em;padding-left:.18em}
+    main{padding:30px 14px 60px}
+    .day-board{padding:18px 16px}
+    .horse-line{font-size:14px;gap:8px}
+    .horse-name{font-size:16px}
+    .summary-line{font-size:15px}
+    .summary-line .big{font-size:26px}
+  }
+</style>
+</head>
+<body>
+
+<div class="archive-banner">
+  📜 <b>一変激走神宮アーカイブ</b>
+  ｜ 2026-05-16-17（ヴィクトリアマイル週）
+  ｜ <a href="ippen-gekisou.html">最新週へ戻る ▶</a>
+  ｜ <a href="ippen-gekisou-archive.html">アーカイブ一覧 📚</a>
+</div>
+
+<header>
+  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+  <div class="h-tiger">🐅</div>
+  <h1 class="h-title">一 変 激 走 神 宮</h1>
+  <div class="h-sub">IPPEN GEKISOU JINGU</div>
+  <div class="h-direction">─ 西 方 金 ─</div>
+</header>
+
+<main>
+
+  <div class="torii-divider">⛩ ─ ⛩ ─ ⛩</div>
+
+  <h2 class="section-h mincho">🧧 初ブリンカー大吉馬 🧧</h2>
+  <p class="section-sub">ヴィクトリアマイル週 ／ 馬 具 変 … 侮 る な か れ</p>
+
+  <!-- 土曜 -->
+  <div class="day-board">
+    <div class="day-h">土 曜　2026-05-16　全 23 頭</div>
+    <div class="day-stats">
+      単勝回収率 <b>828.3%</b> ／ 複勝回収率 <b>219.1%</b> ／ 複勝率 <b>36.4%</b>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">東京2R　3歳未勝利・ダ1600m</div>
+      <div class="horse-line">
+        <span class="horse-name">ターフクリスタル</span>
+        <span class="finish">🥇 1着</span>
+        <span class="odds-flag">単¥14,990</span>
+        <span class="payout">複 <b>¥1,650</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">東京11R　六社ステークス・芝2400m</div>
+      <div class="horse-line">
+        <span class="horse-name">キングスコール</span>
+        <span class="finish">🥇 1着</span>
+        <span class="payout">単 <b>¥1,490</b> ／ 複 <b>¥750</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">京都1R　3歳未勝利・ダ1400m</div>
+      <div class="horse-line">
+        <span class="horse-name">エイユーサクラ</span>
+        <span class="finish">🥉 3着</span>
+        <span class="payout">複 <b>¥180</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">京都2R　3歳未勝利・ダ1800m</div>
+      <div class="horse-line">
+        <span class="horse-name">ゴールドコット</span>
+        <span class="finish">🥇 1着</span>
+        <span class="payout">単 <b>¥2,570</b> ／ 複 <b>¥280</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">新潟1R　3歳未勝利・ダ1800m</div>
+      <div class="horse-line">
+        <span class="horse-name">クリムゾンリーフ</span>
+        <span class="finish">🥈 複勝圏</span>
+        <span class="payout">複 <b>¥210</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">新潟2R　3歳未勝利・ダ1200m</div>
+      <div class="horse-line">
+        <span class="horse-name">ナムラロダン</span>
+        <span class="finish">🥈 2着</span>
+        <span class="payout">複 <b>¥110</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">新潟4R　3歳未勝利・ダ1800m</div>
+      <div class="horse-line">
+        <span class="horse-name">テリコス</span>
+        <span class="finish">🥈 2着</span>
+        <span class="payout">複 <b>¥130</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">新潟6R　3歳未勝利・芝1000m</div>
+      <div class="horse-line">
+        <span class="horse-name">リュウセイコウテイ</span>
+        <span class="finish">🥉 複勝圏</span>
+        <span class="payout">複 <b>¥1,510</b></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 日曜 -->
+  <div class="day-board">
+    <div class="day-h">日 曜　2026-05-17　全 21 頭</div>
+    <div class="day-stats">
+      単勝回収率 <b>73.3%</b> ／ 複勝回収率 <b>113.8%</b> ／ 複勝率 <b>33.3%</b>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">東京1R　3歳未勝利</div>
+      <div class="horse-line">
+        <span class="horse-name">ミライヘノティアラ</span>
+        <span class="finish">🥇 1着</span>
+        <span class="payout">単 <b>¥630</b> ／ 複 <b>¥230</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">東京1R　3歳未勝利</div>
+      <div class="horse-line">
+        <span class="horse-name">ビレッジルイーザ</span>
+        <span class="finish">🥈 2着</span>
+        <span class="payout">複 <b>¥230</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">京都3R　3歳未勝利</div>
+      <div class="horse-line">
+        <span class="horse-name">ヒラボクソライア</span>
+        <span class="finish">🥇 1着</span>
+        <span class="payout">単 <b>¥910</b> ／ 複 <b>¥260</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">京都7R　4歳以上1勝クラス</div>
+      <div class="horse-line">
+        <span class="horse-name">ラブカ</span>
+        <span class="finish">🥈 2着</span>
+        <span class="payout">複 <b>¥180</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">京都9R　白川特別</div>
+      <div class="horse-line">
+        <span class="horse-name">サトノソティラス</span>
+        <span class="finish">🥉 3着</span>
+        <span class="payout">複 <b>¥130</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">新潟5R　3歳未勝利</div>
+      <div class="horse-line">
+        <span class="horse-name">コスモアミュレット</span>
+        <span class="finish">🥈 複勝圏</span>
+        <span class="payout">複 <b>¥160</b></span>
+      </div>
+    </div>
+
+    <div class="race-block">
+      <div class="race-info">新潟9R　飛竜特別</div>
+      <div class="horse-line">
+        <span class="horse-name">グランプレジール</span>
+        <span class="finish">🥉 3着</span>
+        <span class="payout">複 <b>¥1,200</b></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 集計 -->
+  <div class="summary">
+    <div class="summary-line mincho">
+      土曜 <span class="big">8</span> 頭 ／ 日曜 <span class="big">7</span> 頭　馬券圏内
+    </div>
+    <div class="summary-line mincho" style="font-size:15px;margin-top:10px;color:var(--ink-soft)">
+      土曜単勝回収率 <span class="highlight">828.3%</span> ／ 複勝回収率 <span class="highlight">219.1%</span>
+    </div>
+    <div class="summary-line mincho" style="font-size:15px;margin-top:4px;color:var(--ink-soft)">
+      🐅 ターフクリスタル 1着（単¥14,990）が土曜を爆発させた
+    </div>
+    <div class="summary-line mincho" style="font-size:14px;margin-top:8px;color:var(--ink-soft)">
+      土日総合回収率 <span class="highlight">530.4%</span>
+    </div>
+  </div>
+
+  <div class="torii-divider">⛩ ─ ⛩ ─ ⛩</div>
+
+</main>
+
+<footer>
+  最新予想は <a href="kotodama.html">⛩ 言霊神宮</a> ／
+  一変激走 <a href="ippen-gekisou.html">🐅 最新週</a> ／
+  アーカイブ <a href="ippen-gekisou-archive.html">📚 一覧</a> ／
+  神宮トップ <a href="index.html">⛩ 戻る</a>
+</footer>
+
+</body>
+</html>
