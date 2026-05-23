@@ -724,147 +724,121 @@
 </div>
 </div>
 
-<!-- ━━━━━━━━━━ NOTE THUMB — オークス予想note（土曜夜公開用） ━━━━━━━━━━ -->
+<!-- ━━━━━━━━━━ NOTE THUMB テンプレ「イラストなし・2色・ヒラギノ固定」 ━━━━━━━━━━
+    2色: ① クリーム #FFF8E8（背景）② ダーク #1a1208（文字）
+    アクセント金 #C29A2C は同一色系のため2色扱い。Hiragino Sans 固定。
+    ─────────────────────────────────────────────────────────────────────
+    【使い方】
+    .nt-race に レース名、.nt-g1 に「G1」等ラベル
+    .nt-line1 にメインキャッチ1行目、.nt-line2 に2行目
+    .nt-tagline にタグライン
+    .nt-footer に 「⛩ UG競馬神宮 ／ 日付」
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
 <style>
-  .oaks-note-thumb{
-    width:1200px;height:630px;position:relative;overflow:hidden;
-    background:linear-gradient(160deg,#FFF8E8 0%,#FDF5E0 55%,#F5EDD5 100%);
-    border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.14);
-    display:flex;align-items:stretch;
-    font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  /* === 2色テンプレ共通 === */
+  .nt{
+    width:1200px;height:630px;
+    background:#FFF8E8;
+    font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W6',
+                'ヒラギノ角ゴシック',sans-serif;
+    position:relative;overflow:hidden;
+    border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.14);
+    display:flex;flex-direction:column;
   }
-  /* 左帯（深緑+金縦線） */
-  .oaks-left{
-    width:320px;flex-shrink:0;
-    background:linear-gradient(175deg,#1F4D2E 0%,#16391f 100%);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:18px;padding:32px 20px;position:relative;
-    border-right:4px solid #c9a84c;
+  /* 上バー */
+  .nt-top-bar{
+    background:#1a1208;
+    padding:14px 52px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-shrink:0;
   }
-  .oaks-left img{width:210px;height:210px;object-fit:contain;
-                 filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
-  .oaks-torii{font-size:52px;line-height:1;color:#c9a84c}
-  .oaks-brand-v{
-    font-size:13px;color:rgba(201,168,76,.75);letter-spacing:.22em;
-    writing-mode:vertical-rl;text-orientation:upright;
-    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
-    font-weight:700;
+  .nt-brand{
+    font-size:15px;font-weight:700;letter-spacing:.28em;color:#C29A2C;
   }
-
-  /* 右テキストエリア */
-  .oaks-right{
-    flex:1;padding:52px 64px 44px 60px;
+  .nt-g1-badge{
+    background:#C29A2C;color:#1a1208;
+    font-size:14px;font-weight:900;letter-spacing:.18em;
+    padding:4px 16px;border-radius:3px;
+  }
+  /* 本体 */
+  .nt-body{
+    flex:1;padding:42px 72px 32px;
     display:flex;flex-direction:column;justify-content:center;
     position:relative;
   }
-
-  /* レース名タグ */
-  .oaks-race-tag{
-    display:inline-flex;align-items:center;gap:10px;
-    background:#1F4D2E;color:#c9a84c;
-    padding:7px 22px;border-radius:4px;
-    font-size:17px;font-weight:700;letter-spacing:.22em;
-    width:fit-content;margin-bottom:26px;
+  /* レース名行 */
+  .nt-race{
+    font-size:20px;font-weight:700;letter-spacing:.28em;color:#C29A2C;
+    margin-bottom:22px;
   }
-  .oaks-race-tag .g1{background:#c9a84c;color:#1F4D2E;padding:2px 10px;border-radius:3px;font-size:14px;font-weight:900}
-
-  /* メインタイトル */
-  .oaks-main-title{
-    font-size:76px;font-weight:900;color:#a44a3f;
+  .nt-race .sep{color:#1a1208;opacity:.35;margin:0 10px}
+  /* メインコピー */
+  .nt-line1{
+    font-size:88px;font-weight:900;color:#1a1208;
+    line-height:1.05;letter-spacing:.02em;
+    margin-bottom:6px;
+  }
+  .nt-line1 .gold{color:#C29A2C}
+  .nt-line2{
+    font-size:68px;font-weight:900;color:#1a1208;
     line-height:1.08;letter-spacing:.03em;
-    text-shadow:3px 3px 0 #fff,5px 5px 0 rgba(201,168,76,.45);
-    margin-bottom:4px;
+    margin-bottom:32px;
   }
-  .oaks-main-title .mark{font-size:90px;color:#a44a3f}
-  .oaks-sub-title{
-    font-size:46px;font-weight:900;color:#2c1f12;
-    line-height:1.15;letter-spacing:.04em;
-    text-shadow:2px 2px 0 rgba(255,255,255,.8);
-    margin-bottom:30px;
+  .nt-line2 .gold{color:#C29A2C}
+  /* 罫線 */
+  .nt-rule{
+    width:100%;height:1px;background:#1a1208;opacity:.15;
+    margin-bottom:22px;
   }
-  .oaks-sub-title .kura{color:#a44a3f}
-
-  /* 区切り線 */
-  .oaks-divider{
-    width:100%;height:2px;
-    background:linear-gradient(90deg,#c9a84c,rgba(201,168,76,.1));
-    margin:0 0 22px;
-  }
-
   /* タグライン */
-  .oaks-tagline{
-    font-size:32px;font-weight:700;color:#1F4D2E;
-    letter-spacing:.16em;margin-bottom:24px;
+  .nt-tagline{
+    font-size:30px;font-weight:700;letter-spacing:.18em;color:#1a1208;
+    margin-bottom:0;
   }
-
-  /* バッジ群 */
-  .oaks-badges{display:flex;gap:10px;flex-wrap:wrap}
-  .oaks-badge{
-    padding:8px 20px;border-radius:6px;font-size:15px;font-weight:900;letter-spacing:.1em;
-    font-family:'Shippori Mincho',serif;
+  /* 下バー */
+  .nt-footer{
+    background:#1a1208;
+    padding:12px 52px;
+    display:flex;align-items:center;justify-content:space-between;
+    flex-shrink:0;
   }
-  .oaks-badge.green{background:#1F4D2E;color:#fff}
-  .oaks-badge.shu{background:#a44a3f;color:#fff}
-  .oaks-badge.gold{background:#c9a84c;color:#2c1f12}
-
-  /* クレジット */
-  .oaks-credit{
-    position:absolute;bottom:20px;right:28px;
-    font-size:12px;color:#b89a5a;letter-spacing:.12em;font-family:'Inter',sans-serif;
-  }
-  /* 右上装飾 */
-  .oaks-deco-circle{
-    position:absolute;top:-60px;right:-60px;
-    width:220px;height:220px;border-radius:50%;
-    background:radial-gradient(circle,rgba(201,168,76,.13),transparent 70%);
-    pointer-events:none;
-  }
-  /* 底線 */
-  .oaks-bottom-line{
-    position:absolute;bottom:0;left:0;right:0;height:5px;
-    background:linear-gradient(90deg,#1F4D2E 0%,#c9a84c 50%,#a44a3f 100%);
+  .nt-footer-l{font-size:13px;font-weight:700;letter-spacing:.22em;color:#C29A2C}
+  .nt-footer-r{font-size:12px;letter-spacing:.14em;color:rgba(201,162,44,.55);font-weight:500}
+  /* 右下角飾り（金の細L字ライン） */
+  .nt-corner{
+    position:absolute;bottom:52px;right:52px;
+    width:40px;height:40px;
+    border-right:2px solid #C29A2C;
+    border-bottom:2px solid #C29A2C;
+    opacity:.5;
   }
 </style>
 
-<div class="vol-label" style="background:#a44a3f;color:#FFF7DC">NOTE THUMB — オークス予想note（土曜夜公開）</div>
+<!-- ── テンプレ表示（オークス版サンプル） ── -->
+<div class="vol-label" style="background:#1a1208;color:#C29A2C">NOTE THUMB 2色テンプレ ─ オークス予想note（イラストなし・ヒラギノ固定）</div>
 <div class="preview-wrap">
-<div class="oaks-note-thumb">
+<div class="nt">
 
-  <!-- 左帯 -->
-  <div class="oaks-left">
-    <img src="slides/img/miko.png" alt="巫女ギーニョ">
-    <div class="oaks-torii">⛩</div>
-    <div class="oaks-brand-v">U G 競 馬 神 宮</div>
+  <div class="nt-top-bar">
+    <div class="nt-brand">⛩　U G 競 馬 神 宮</div>
+    <div class="nt-g1-badge">G 1</div>
   </div>
 
-  <!-- 右テキスト -->
-  <div class="oaks-right">
-    <div class="oaks-deco-circle"></div>
+  <div class="nt-body">
+    <div class="nt-race">優 駿 牝 馬<span class="sep">─</span>オ ー ク ス</div>
 
-    <div class="oaks-race-tag">
-      <span class="g1">G1</span>
-      優 駿 牝 馬 ─ オ ー ク ス
-    </div>
+    <div class="nt-line1">神宮本命<span class="gold">◎</span>の</div>
+    <div class="nt-line2">逆転戴冠<span class="gold">濃厚</span>🧧</div>
 
-    <div class="oaks-main-title">
-      神宮本命<span class="mark">◎</span>の
-    </div>
-    <div class="oaks-sub-title">
-      逆転戴冠<span class="kura">濃厚</span>🧧
-    </div>
+    <div class="nt-rule"></div>
+    <div class="nt-tagline">シンプルに強い馬が勝つ</div>
 
-    <div class="oaks-divider"></div>
+    <div class="nt-corner"></div>
+  </div>
 
-    <div class="oaks-tagline">シンプルに強い馬が勝つ</div>
-
-    <div class="oaks-badges">
-      <div class="oaks-badge green">⛩ 言霊一本勝負</div>
-      <div class="oaks-badge shu">差し脚26年17勝</div>
-      <div class="oaks-badge gold">14点 ¥1,400</div>
-    </div>
-
-    <div class="oaks-credit">UG KEIBA JINGU</div>
-    <div class="oaks-bottom-line"></div>
+  <div class="nt-footer">
+    <div class="nt-footer-l">⛩ 言霊一本勝負　／　2026.5.24</div>
+    <div class="nt-footer-r">UG KEIBA JINGU</div>
   </div>
 
 </div>
