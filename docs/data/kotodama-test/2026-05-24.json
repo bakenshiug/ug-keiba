@@ -148,78 +148,56 @@
         "bets": [
           {
             "type": "単勝",
-            "nums": [
-              "18"
-            ],
-            "note": "◎ラフターラインズ",
+            "nums": ["13"],
+            "note": "◎エンネ",
             "points": 1,
             "amount": 100
           },
           {
             "type": "馬単マルチ",
-            "nums": [
-              "18",
-              "13"
-            ],
+            "nums": ["13", "18"],
             "note": "◎↔○",
             "points": 2,
             "amount": 200
           },
           {
             "type": "馬単マルチ",
-            "nums": [
-              "18",
-              "15"
-            ],
-            "note": "◎↔▲",
-            "points": 2,
-            "amount": 200
-          },
-          {
-            "type": "馬単マルチ",
-            "nums": [
-              "18",
-              "16"
-            ],
+            "nums": ["13", "15"],
             "note": "◎↔激",
             "points": 2,
             "amount": 200
           },
           {
+            "type": "馬単マルチ",
+            "nums": ["13", "16"],
+            "note": "◎↔▲",
+            "points": 2,
+            "amount": 200
+          },
+          {
             "type": "単勝",
-            "nums": [
-              "16"
-            ],
-            "note": "激ジュウリョクピエロ",
+            "nums": ["15"],
+            "note": "激アンジュドジョワ",
             "points": 1,
             "amount": 100
           },
           {
             "type": "馬単マルチ",
-            "nums": [
-              "16",
-              "18"
-            ],
+            "nums": ["15", "13"],
             "note": "激↔◎",
             "points": 2,
             "amount": 200
           },
           {
             "type": "馬単マルチ",
-            "nums": [
-              "16",
-              "13"
-            ],
+            "nums": ["15", "18"],
             "note": "激↔○",
             "points": 2,
             "amount": 200
           },
           {
             "type": "馬単マルチ",
-            "nums": [
-              "16",
-              "15"
-            ],
+            "nums": ["15", "16"],
             "note": "激↔▲",
             "points": 2,
             "amount": 200
@@ -237,10 +215,8 @@
         "rank1": "16 ジュウリョクピエロ (5人気)",
         "rank2": "12 ドリームコア (3人気)",
         "rank3": "18 ラフターラインズ (2人気)",
-        "tan16": 1090,
-        "tan18": 0,
-        "payoutTotal": 1090,
-        "hitBets": ["単勝16番 ¥1,090"],
+        "payoutTotal": 0,
+        "hitBets": [],
         "horses": [
           {"rank": "1", "num": "16", "name": "ジュウリョクピエロ", "ninki": "5", "tan": "10.9"},
           {"rank": "2", "num": "12", "name": "ドリームコア", "ninki": "3", "tan": "5.2"},
@@ -252,7 +228,7 @@
   "summary": {
     "totalRaces": 1,
     "totalInvestment": 1400,
-    "totalReturn": 1090,
-    "returnRate": 77.9
+    "totalReturn": 0,
+    "returnRate": 0.0
   }
 }
