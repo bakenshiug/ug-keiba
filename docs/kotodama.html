@@ -1135,19 +1135,19 @@ async function renderSuzaku(){
             background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);
             border-radius:20px;font-size:13px;color:#f5e6c0;
             font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">◎ 11 リアライズシリウス</div>
+          ">◎ 14 ゴーイントゥスカイ</div>
           <div style="
             padding:6px 18px;
             background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
             border-radius:20px;font-size:13px;color:#e8dcc8;
             font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">○ 9 アウダーシア</div>
+          ">○ 11 リアライズシリウス</div>
           <div style="
             padding:6px 18px;
             background:rgba(184,144,47,.18);border:1px solid rgba(184,144,47,.45);
             border-radius:20px;font-size:13px;color:#e8d28c;
             font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">▲ 14 ゴーイントゥスカイ</div>
+          ">▲ 9 アウダーシア</div>
           <div style="
             padding:6px 18px;
             background:rgba(184,144,47,.12);border:1px solid rgba(184,144,47,.35);
@@ -1431,7 +1431,8 @@ function render(){
       <table class="picks-table">
         <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>外厩🔥</th><th>言霊評価</th></tr>
         ${reorderPicksByTiebreaker(r.picks).map((p, i) => {
-          const order = markOrderFor(r.date);
+          const mainCnt = (r.picks||[]).filter(x => x.mark !== '激' && x.mark !== '穴').length;
+          const order = mainCnt >= 4 ? ['◎','○','▲','△'] : markOrderFor(r.date);
           const dynMark = (p.mark === '激') ? '激' : (p.mark === '穴') ? '激' : (order[i] ?? p.mark);
           const rk = p.finalRank ? Number(p.finalRank) : null;
           // 🎯は◎または激（実際に賭けた軸馬）が1〜3着のときのみ
