@@ -3,7 +3,7 @@
   "version": "v2",
   "startDate": "2026-05-31",
   "paidDay": false,
-  "rule": "言霊×外厩★マトリクス。4頭picks。重賞天満宮データ合議。",
+  "rule": "言霊×外厩★マトリクス。ダービー特別6頭picks（激2頭）。重賞天満宮データ合議。",
   "races": [
     {
       "raceId": "202605021211",
@@ -153,6 +153,33 @@
           "finalNinki": "",
           "ninkiPred": 12,
           "odds": 0
+        },
+        {
+          "mark": "激",
+          "num": "04",
+          "name": "アルトラムス",
+          "jockey": "横山武史",
+          "trainer": "野中賢二",
+          "kotodamaGrade": "D",
+          "kotodamaScore": -4.0,
+          "totalScore": -4.0,
+          "gaikyuGrade": "🔥🔥🔥 社台鈴鹿",
+          "gaikyuFull": "社台ファーム鈴鹿",
+          "suzakuGrade": "",
+          "suzakuScore": 0,
+          "suzakuAvg": 0,
+          "genbuScore": 0,
+          "genbuTrend": "—",
+          "gekisouScore": 0,
+          "gekisouNote": "",
+          "hatsuBri": 0,
+          "zensou": "皐月賞(G1) 18着",
+          "comment": "前走皐月賞18着は度外視できる一戦だった。神宮が最大警戒するのは2走前の毎日杯── ハイパフォーマンスを記録しており、前半スローで流れれば本馬の瞬発力が一気に生きる構造だ。社台ファーム鈴鹿仕上げという最高ランク外厩の本気度も警戒の根拠で、言霊Dの低評価をひっくり返す一発を秘める穴の二の矢だ。",
+          "byakkoNote": "社台ファーム鈴鹿🔥🔥🔥・2走前毎日杯Hパフォーマンス・前半スロー流れで瞬発力",
+          "finalRank": "",
+          "finalNinki": "",
+          "ninkiPred": 13,
+          "odds": 0
         }
       ],
       "watchList": [
@@ -174,109 +201,30 @@
         }
       ],
       "kaime": {
-        "total_points": 18,
-        "total_investment": 1800,
-        "bets": [
+        "special": true,
+        "total_points": 30,
+        "total_investment": 3000,
+        "groups": [
           {
-            "type": "単勝",
-            "nums": [
-              "14"
+            "title": "馬単 2着固定流し（○リアライズシリウス 2着固定）",
+            "lines": [
+              "◎14 ／ ▲9 ／ △6 ／ 激15 ／ 激4　➡　○11 リアライズシリウス"
             ],
-            "note": "◎ゴーイントゥスカイ",
-            "points": 1,
-            "amount": 100
+            "points": "10点 ¥1,000",
+            "logic": "ダービーの2着は先行馬が10年中6回台頭する。先行力のある2番人気リアライズシリウスを2着に固定し、上位5頭を1着に流す。これが神宮の分析結果だ。"
           },
           {
-            "type": "馬単マルチ",
-            "nums": [
-              "14",
-              "11"
+            "title": "3連単 フォーメーション（○リアライズシリウス 2着固定）",
+            "lines": [
+              "1着 ── 14 ／ 9 ／ 6 ／ 15 ／ 4",
+              "2着 ── ○11 リアライズシリウス（固定）",
+              "3着 ── 14 ／ 9 ／ 6 ／ 15 ／ 4"
             ],
-            "note": "◎↔○",
-            "points": 2,
-            "amount": 200
-          },
-          {
-            "type": "馬単マルチ",
-            "nums": [
-              "14",
-              "09"
-            ],
-            "note": "◎↔▲",
-            "points": 2,
-            "amount": 200
-          },
-          {
-            "type": "馬単マルチ",
-            "nums": [
-              "14",
-              "06"
-            ],
-            "note": "◎↔△",
-            "points": 2,
-            "amount": 200
-          },
-          {
-            "type": "馬単マルチ",
-            "nums": [
-              "14",
-              "15"
-            ],
-            "note": "◎↔激",
-            "points": 2,
-            "amount": 200
-          },
-          {
-            "type": "単勝",
-            "nums": [
-              "15"
-            ],
-            "note": "激フォルテアンジェロ",
-            "points": 1,
-            "amount": 100
-          },
-          {
-            "type": "馬単マルチ",
-            "nums": [
-              "15",
-              "14"
-            ],
-            "note": "激↔◎",
-            "points": 2,
-            "amount": 200
-          },
-          {
-            "type": "馬単マルチ",
-            "nums": [
-              "15",
-              "11"
-            ],
-            "note": "激↔○",
-            "points": 2,
-            "amount": 200
-          },
-          {
-            "type": "馬単マルチ",
-            "nums": [
-              "15",
-              "09"
-            ],
-            "note": "激↔▲",
-            "points": 2,
-            "amount": 200
-          },
-          {
-            "type": "馬単マルチ",
-            "nums": [
-              "15",
-              "06"
-            ],
-            "note": "激↔△",
-            "points": 2,
-            "amount": 200
+            "points": "20点 ¥2,000",
+            "logic": "リアライズシリウス2着固定。先行2着トレンドを軸に、◎ゴーイントゥスカイ筆頭の実力上位5頭で1・3着を構成する。神宮の本線だ。"
           }
         ],
-        "note": "日本ダービー特別5頭仕様。◎ゴーイントゥスカイ軸×4相手＋激フォルテアンジェロ軸×4相手。18点¥1,800。"
+        "note": "日本ダービー特別仕様。馬単2着固定流し10点＋3連単フォーメーション20点＝計30点¥3,000。"
       },
       "fatalWords": [],
       "result": {
@@ -288,7 +236,7 @@
   ],
   "summary": {
     "totalRaces": 1,
-    "totalInvestment": 1800,
+    "totalInvestment": 3000,
     "totalReturn": 0,
     "returnRate": 0.0
   }

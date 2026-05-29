@@ -483,6 +483,15 @@
   .rb-total{margin-top:6px;padding-top:6px;border-top:1px solid var(--border);
             font-weight:700;color:var(--shu);font-size:13px}
   .race-betting.axis .rb-total{color:#b8860b;border-top-color:rgba(201,168,76,.5)}
+  /* ダービー特別買い目パネル */
+  .buy-box{background:linear-gradient(135deg,#2c1f12,#3d2b18);border:1.5px solid var(--gold);border-radius:10px;padding:16px 18px;margin-top:14px;color:#f0e6d2}
+  .buy-title{font-size:15px;color:var(--gold);letter-spacing:.1em;margin-bottom:12px;text-align:center;font-weight:700}
+  .buy-group{margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed rgba(201,168,76,.3)}
+  .buy-group:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+  .buy-g-head{font-size:13px;font-weight:700;color:#f5e6c0;margin-bottom:6px}
+  .buy-pts{font-size:11px;color:#1a1208;background:var(--gold);border-radius:10px;padding:1px 9px;margin-left:6px;font-weight:700}
+  .buy-line{font-size:14px;font-family:'Shippori Mincho',serif;color:#fff;padding:3px 0;letter-spacing:.05em}
+  .buy-logic{font-size:11px;color:rgba(240,230,210,.72);margin-top:7px;line-height:1.7}
 </style>
 </head>
 <body>
@@ -1160,6 +1169,12 @@ async function renderSuzaku(){
             border-radius:20px;font-size:13px;color:#f5c0a0;
             font-family:'Shippori Mincho',serif;letter-spacing:.12em
           ">激 15 フォルテアンジェロ</div>
+          <div style="
+            padding:6px 18px;
+            background:rgba(164,74,63,.25);border:1px solid rgba(164,74,63,.5);
+            border-radius:20px;font-size:13px;color:#f5c0a0;
+            font-family:'Shippori Mincho',serif;letter-spacing:.12em
+          ">激 4 アルトラムス</div>
         </div>
       </div>
     </div>`;
@@ -1503,6 +1518,16 @@ function render(){
         }).join('')}
       </table>
       `}
+      ${(r.kaime && r.kaime.groups) ? `
+      <div class="buy-box">
+        <div class="buy-title mincho">🎯 神宮の買い目 ── ダービー特別 ／ 計 ¥${(r.kaime.total_investment||0).toLocaleString()}</div>
+        ${r.kaime.groups.map(g=>`
+          <div class="buy-group">
+            <div class="buy-g-head">${g.title}<span class="buy-pts">${g.points}</span></div>
+            ${g.lines.map(l=>`<div class="buy-line">${l}</div>`).join('')}
+            ${g.logic?`<div class="buy-logic">${g.logic}</div>`:''}
+          </div>`).join('')}
+      </div>` : ''}
       <!-- 致命ワード検出・監視リストは2026-05-09週から非表示（4頭picks専念） -->
       <!-- データはJSONに保持・将来全頭出馬表形式採用時に再活用予定 -->
       ${r.result ? `
