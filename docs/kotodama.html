@@ -1131,29 +1131,11 @@ async function renderSuzaku(){
         ">東京11R 第93回東京優駿（GI）芝2400m</div>
         <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:6px">
           <div style="
-            padding:6px 18px;
-            background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);
-            border-radius:20px;font-size:13px;color:#f5e6c0;
-            font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">◎ 1 ライヒスアドラー</div>
-          <div style="
-            padding:6px 18px;
-            background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
-            border-radius:20px;font-size:13px;color:#e8dcc8;
-            font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">○ 11 リアライズシリウス</div>
-          <div style="
-            padding:6px 18px;
-            background:rgba(164,74,63,.25);border:1px solid rgba(164,74,63,.5);
-            border-radius:20px;font-size:13px;color:#f5c0a0;
-            font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">激 15 フォルテアンジェロ</div>
-          <div style="
-            padding:6px 18px;
-            background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);
-            border-radius:20px;font-size:13px;color:#d4c4a8;
-            font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">▲ 13 パントルナイーフ</div>
+            padding:8px 28px;
+            background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.3);
+            border-radius:20px;font-size:14px;color:rgba(201,168,76,.8);
+            font-family:'Shippori Mincho',serif;letter-spacing:.2em
+          ">⚙️ 言 霊 解 析 中 ...</div>
         </div>
       </div>
     </div>`;
@@ -1409,6 +1391,19 @@ function render(){
       <div class="race-body">
         ${rescueBanner}
         ${crossJump}
+      ${r.status === 'analyzing' ? `
+        <div style="
+          text-align:center;padding:36px 20px;
+          font-family:'Shippori Mincho',serif;
+          font-size:16px;letter-spacing:.3em;
+          color:rgba(201,168,76,.75);
+        ">
+          ⚙️ 言 霊 解 析 中 ...<br>
+          <span style="font-size:11px;letter-spacing:.15em;opacity:.6;display:block;margin-top:10px">
+            競馬ブック確認後・予想公開予定
+          </span>
+        </div>
+      ` : `
       <table class="picks-table">
         <tr><th>印</th><th>馬名</th><th>騎手</th><th>厩舎</th><th>外厩🔥</th><th>言霊評価</th></tr>
         ${reorderPicksByTiebreaker(r.picks).map((p, i) => {
@@ -1482,6 +1477,7 @@ function render(){
         </tr>`;
         }).join('')}
       </table>
+      `}
       <!-- 致命ワード検出・監視リストは2026-05-09週から非表示（4頭picks専念） -->
       <!-- データはJSONに保持・将来全頭出馬表形式採用時に再活用予定 -->
       ${r.result ? `
