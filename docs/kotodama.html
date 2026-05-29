@@ -134,7 +134,7 @@
                   vertical-align:middle;color:var(--ink)}
   .picks-table td.jockey-c,.picks-table td.trainer-c{font-size:12px;color:var(--ink-soft);width:58px;white-space:nowrap}
   .picks-table td.gaikyu-c{font-size:11px;width:80px;text-align:center}
-  .gg-badge{display:inline-block;padding:2px 6px;border-radius:3px;font-weight:700;font-size:10px;letter-spacing:.03em;line-height:1.4}
+  .gg-badge{display:inline-block;padding:2px 6px;border-radius:3px;font-weight:700;font-size:10px;letter-spacing:.03em;line-height:1.35;text-align:center}
   .gg-badge.gg-s{background:linear-gradient(135deg,#d4af37,#f4cc4f);color:#3a2c0a;border:1px solid #b8901f}
   .gg-badge.gg-a{background:linear-gradient(135deg,#c0c0c0,#e0e0e0);color:#333;border:1px solid #888}
   .gg-badge.gg-b{background:linear-gradient(135deg,#cd7f32,#e09a4d);color:#fff;border:1px solid #8b5a1c}
@@ -1473,11 +1473,11 @@ function render(){
           if (fireLabel) {
             const fc = (fireLabel.match(/🔥/g)||[]).length;
             ggClass = fc>=3?'gg-fire3':fc>=2?'gg-fire2':'gg-fire1';
-            ggDisplay = fireLabel + ' ' + gaikyu;
+            ggDisplay = fireLabel + '<br>' + gaikyu;
           } else if (gaikyu.includes('🔥')) {
             const fc = (gaikyu.match(/🔥/g)||[]).length;
             ggClass = fc>=3?'gg-fire3':fc>=2?'gg-fire2':'gg-fire1';
-            ggDisplay = gaikyu;
+            ggDisplay = gaikyu.replace(/^(🔥+)\s*/, '$1<br>');
           } else if (gaikyu.startsWith('↘')) {
             ggClass = 'gg-down'; ggDisplay = gaikyu;
           } else if (gaikyu.startsWith('↗')) {
