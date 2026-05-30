@@ -1479,8 +1479,10 @@ function render(){
           const finBadge = rk
             ? `<span class="finish ${rkCls}">${rk}着${inMoney?'<span class="hit-mark">🎯</span>':''}</span>`
             : '';
-          // 想定人気（finalNinkiが結果、ninkiPredが想定）
-          const ninkiDisplay = p.finalNinki ? `${p.finalNinki}人気` : (p.ninkiPred ? `${p.ninkiPred}人気` : '');
+          // 想定人気＋オッズ（finalNinkiが結果、ninkiPredが想定）
+          const ninkiOnly = p.finalNinki ? `${p.finalNinki}人気` : (p.ninkiPred ? `${p.ninkiPred}人気` : '');
+          const oddsTxt = (p.odds && p.odds > 0) ? `単勝 ${p.odds}倍` : '';
+          const ninkiDisplay = [ninkiOnly, oddsTxt].filter(Boolean).join(' ／ ');
           const popBadge = ninkiDisplay ? `<span class="pop">${ninkiDisplay}</span>` : '';
           // 外厩/上昇🔥バッジ
           const gaikyu = p.gaikyuGrade || '';
