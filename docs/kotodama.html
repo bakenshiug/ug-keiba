@@ -1144,19 +1144,19 @@ async function renderSuzaku(){
             background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);
             border-radius:20px;font-size:13px;color:#f5e6c0;
             font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">◎ 14 ゴーイントゥスカイ</div>
+          ">◎ 9 アウダーシア</div>
           <div style="
             padding:6px 18px;
             background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);
             border-radius:20px;font-size:13px;color:#e8dcc8;
             font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">○ 11 リアライズシリウス</div>
+          ">○ 14 ゴーイントゥスカイ</div>
           <div style="
             padding:6px 18px;
             background:rgba(184,144,47,.18);border:1px solid rgba(184,144,47,.45);
             border-radius:20px;font-size:13px;color:#e8d28c;
             font-family:'Shippori Mincho',serif;letter-spacing:.12em
-          ">▲ 9 アウダーシア</div>
+          ">▲ 11 リアライズシリウス</div>
           <div style="
             padding:6px 18px;
             background:rgba(184,144,47,.12);border:1px solid rgba(184,144,47,.35);
@@ -1543,6 +1543,13 @@ function render(){
       </table>
       `}
       ${(r.kaime && r.kaime.groups) ? `
+      ${r.kaime.changeNotice ? `
+      <div style="background:linear-gradient(135deg,#7A1E1E,#a44a3f);border:2px solid var(--gold);border-radius:10px;padding:14px 18px;margin-top:14px;color:#fff5e1;animation:pulse 2.5s ease-in-out infinite">
+        <div style="font-family:'Shippori Mincho',serif;font-size:15px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin-bottom:10px;text-align:center">${r.kaime.changeNotice.title}</div>
+        <ul style="margin:0;padding:0 0 0 1.2em;font-size:13px;line-height:1.85">
+          ${r.kaime.changeNotice.reasons.map(rs=>`<li style="margin-bottom:4px">${rs}</li>`).join('')}
+        </ul>
+      </div>` : ''}
       <div class="buy-box">
         <div class="buy-title mincho">🎯 神宮の買い目 ── ダービー特別 ／ 計 ¥${(r.kaime.total_investment||0).toLocaleString()}</div>
         ${r.kaime.groups.map(g=>`
