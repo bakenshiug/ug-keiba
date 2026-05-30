@@ -1317,7 +1317,7 @@ function buildTabs(){
     const key = `${t.date}|${t.venue}`;
     const active = key === CURRENT_TAB ? 'active' : '';
     // 重賞ピックの日はレース名併記、平場は従来通り
-    const namedRaces = t.races.filter(r => r.raceName && /賞|記念|杯|ステークス|ダービー|オークス|JC/.test(r.raceName));
+    const namedRaces = t.races.filter(r => r.raceName && /賞|記念|杯|ステークス|ダービー|オークス|優駿|JC|チャレンジカップ/.test(r.raceName));
     let tabLabel;
     if (namedRaces.length > 0 && namedRaces.length === t.count) {
       // 全レースに重賞名あり → レース名併記
