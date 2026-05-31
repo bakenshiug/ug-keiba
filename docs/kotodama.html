@@ -1096,8 +1096,32 @@ function renderSummary(){
 async function renderSuzaku(){
   const el = document.getElementById('suzaku-board');
   if (!el) return;
+  // ── 当日トータル回収率（kaime.groups特別買い目用） ──
+  const races = ALL_RACES.filter(r => r.kaime && (r.kaime.groups || r.kaime.special));
+  let totalInv = 0, totalPay = 0, raceRecaps = [];
+  races.forEach(r => {
+    const inv = r.kaime.total_investment || 0;
+    const pay = (r.result && r.result.payoutTotal) || 0;
+    totalInv += inv; totalPay += pay;
+    if (r.result) {
+      raceRecaps.push({name: `${r.venue}${r.raceNum} ${r.raceName||''}`.slice(0,30), inv, pay, rec: inv?Math.round(pay/inv*1000)/10:0});
+    }
+  });
+  const totalRec = totalInv ? Math.round(totalPay/totalInv*1000)/10 : 0;
+  const totalBannerHTML = raceRecaps.length ? `
+    <div style="max-width:920px;margin:0 auto 14px;background:linear-gradient(135deg,#1a0a00,#3d1a0a);border:2px solid ${totalRec>=100?'#5fa85c':'#c9a84c'};border-radius:12px;padding:14px 20px;color:#f5e6c0;box-shadow:0 0 24px ${totalRec>=100?'rgba(95,168,92,.45)':'rgba(201,168,76,.35)'}">
+      <div style="font-family:'Shippori Mincho',serif;font-size:14px;letter-spacing:.15em;text-align:center;color:${totalRec>=100?'#a8e6a3':'#ffd966'};margin-bottom:12px;font-weight:700">⛩ 神宮の本日成績 ⛩</div>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;margin-bottom:12px">
+        ${raceRecaps.map(rr => `<div style="display:flex;justify-content:space-between;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px"><span style="opacity:.85">${rr.name}</span><span style="color:${rr.rec>=100?'#5fe65c':rr.pay>0?'#ffd966':'#aaa'};font-weight:700">¥${rr.pay.toLocaleString()} / ¥${rr.inv.toLocaleString()} (${rr.rec}%)</span></div>`).join('')}
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;border-top:1.5px solid rgba(201,168,76,.3);padding-top:10px">
+        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">投資合計</div><div style="font-size:16px;font-weight:700">¥${totalInv.toLocaleString()}</div></div>
+        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">回収合計</div><div style="font-size:16px;font-weight:700;color:#ffd966">¥${totalPay.toLocaleString()}</div></div>
+        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">トータル回収率</div><div style="font-size:18px;font-weight:900;color:${totalRec>=100?'#5fe65c':'#f5c0a0'}">${totalRec}%</div></div>
+      </div>
+    </div>` : '';
   // ── オークス週 特設バナー ──
-  el.innerHTML = `
+  el.innerHTML = totalBannerHTML + `
     <div class="haran-banner" style="
       max-width:920px;margin:0 auto 16px;
       background:linear-gradient(110deg,#7A1E1E 0%,#c9a84c 30%,#fff5e1 50%,#c9a84c 70%,#7A1E1E 100%);
@@ -1592,9 +1616,33 @@ function render(){
       <!-- 致命ワード検出・監視リストは2026-05-09週から非表示（4頭picks専念） -->
       <!-- データはJSONに保持・将来全頭出馬表形式採用時に再活用予定 -->
       ${r.result ? `
+      ${(r.kaime && (r.kaime.groups || r.kaime.special) && r.result.payoutTotal !== undefined) ? (() => {
+        const inv = r.kaime.total_investment || 0;
+        const pay = r.result.payoutTotal || 0;
+        const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
+        const isWin = rec >= 100;
+        const isHit = pay > 0;
+        const top3 = [r.result.rank1, r.result.rank2, r.result.rank3].filter(Boolean);
+        return `
+        <div style="background:linear-gradient(135deg,#1a0a00,#3d1a0a);border:2px solid ${isWin?'#5fa85c':isHit?'#c9a84c':'#7A1E1E'};border-radius:10px;padding:14px 18px;margin-top:14px;color:#f5e6c0;box-shadow:0 0 18px ${isWin?'rgba(95,168,92,.4)':isHit?'rgba(201,168,76,.35)':'rgba(122,30,30,.4)'}">
+          <div style="font-family:'Shippori Mincho',serif;font-size:14px;color:${isWin?'#a8e6a3':isHit?'#ffd966':'#f5c0a0'};letter-spacing:.12em;margin-bottom:8px;text-align:center;font-weight:700">
+            🏁 レース結果 ／ 神宮の結末
+          </div>
+          <div style="font-size:13px;line-height:1.85;text-align:center;margin-bottom:10px">
+            ${top3.map((t,i)=>`<div>${['🥇','🥈','🥉'][i]} ${t}</div>`).join('')}
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:12px;text-align:center;border-top:1px solid rgba(201,168,76,.25);padding-top:10px">
+            <div><div style="opacity:.7;font-size:10px;letter-spacing:.1em">投資</div><div style="font-size:15px;font-weight:700">¥${inv.toLocaleString()}</div></div>
+            <div><div style="opacity:.7;font-size:10px;letter-spacing:.1em">回収</div><div style="font-size:15px;font-weight:700;color:${isHit?'#ffd966':'#aaa'}">¥${pay.toLocaleString()}</div></div>
+            <div><div style="opacity:.7;font-size:10px;letter-spacing:.1em">回収率</div><div style="font-size:15px;font-weight:700;color:${isWin?'#5fe65c':isHit?'#ffd966':'#f5c0a0'}">${rec}%</div></div>
+          </div>
+          ${(r.result.hitBets && r.result.hitBets.length) ? `<div style="margin-top:10px;padding-top:8px;border-top:1px dashed rgba(201,168,76,.25);font-size:11px;text-align:center;color:#ffd966">✓ 的中: ${r.result.hitBets.join(' ／ ')}</div>` : ''}
+        </div>`;
+      })() : ''}
       <div class="result">
         <strong>結果</strong>: ${r.result.summary || ''}
       </div>
+      ${(r.kaime && r.kaime.groups) ? '' : `
       ${(() => {
         const v2 = calcV2(r);
         if (!v2) return '';
@@ -1629,7 +1677,9 @@ function render(){
             <div class="rb-row rb-total"><span>合計</span><span class="${anaPay>0?'rb-amt':''}" style="color:${anaPay>0?'var(--ok)':'#b8860b'}">¥${anaPay.toLocaleString()} / ¥${anaInv.toLocaleString()} (${anaRec}%)</span></div>
           </div>` : '';
         return `<div class="race-betting-pair">${honmeiHTML}${anaHTML}</div>`;
-      })()}` : '<div class="result pending">結果待ち</div>'}
+      })()}
+      `}
+      ` : '<div class="result pending">結果待ち</div>'}
       </div>
     </details>
   `;
