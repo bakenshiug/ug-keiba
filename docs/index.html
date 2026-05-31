@@ -2013,6 +2013,17 @@ a{color:inherit;}
     <h2 class="section-title mincho">賽 銭 と 神 恩</h2>
     <p class="section-subtitle" id="saisen-period">OFFERING & BLESSING RATIO ─ 二戦略 並列比較</p>
 
+    <!-- ⛩ 重賞集計サマリー（特別買い目・kaime.groups版） -->
+    <div id="jusho-summary" style="max-width:1100px;margin:0 auto 28px;background:linear-gradient(135deg,#1a0a00,#3d1a0a);border:2px solid #c9a84c;border-radius:12px;padding:18px 24px;color:#f5e6c0;box-shadow:0 0 22px rgba(201,168,76,.35)">
+      <div style="font-family:'Shippori Mincho',serif;font-size:15px;letter-spacing:.18em;text-align:center;color:#ffd966;margin-bottom:14px;font-weight:700">⛩ 重賞 言霊神宮 累計成績 ⛩</div>
+      <div id="jusho-rows" style="display:flex;flex-direction:column;gap:6px;font-size:13px;margin-bottom:14px"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;text-align:center;border-top:1.5px solid rgba(201,168,76,.3);padding-top:12px">
+        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">投資合計</div><div id="jusho-inv-tot" style="font-size:18px;font-weight:700">¥0</div></div>
+        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">回収合計</div><div id="jusho-pay-tot" style="font-size:18px;font-weight:700;color:#ffd966">¥0</div></div>
+        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">トータル回収率</div><div id="jusho-rec-tot" style="font-size:22px;font-weight:900;color:#f5c0a0">0%</div></div>
+      </div>
+    </div>
+
     <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.14em;margin-bottom:12px;font-family:'Shippori Mincho',serif">
       ☀ 単勝 ＆ 🎯 馬単 ─ 神宮が極める二券種の神恩倍率
     </p>
@@ -2185,10 +2196,51 @@ drawBtn.addEventListener('click', () => {
 </script>
 
 <script>
+/* ── 重賞集計サマリー（kaime.groups特別買い目版） ── */
+(async function(){
+  const JUSHO_FILES = [
+    'data/kotodama-test/2026-05-31.json',
+    'data/kotodama-test/2026-05-24.json',
+  ];
+  const rows = [];
+  let totInv = 0, totPay = 0;
+  for (const f of JUSHO_FILES) {
+    try {
+      const r = await fetch(f + '?_=' + Date.now());
+      const d = await r.json();
+      d.races.forEach(race => {
+        if (!race.kaime || !(race.kaime.groups || race.kaime.special)) return;
+        const inv = race.kaime.total_investment || 0;
+        const pay = (race.result && race.result.payoutTotal) || 0;
+        totInv += inv; totPay += pay;
+        const dt = race.date ? race.date.slice(5).replace('-','/') : '';
+        const label = `${dt} ${race.venue}${race.raceNum} ${(race.raceName||'').replace(/^第\d+回/,'').trim()}`;
+        const rec = inv ? Math.round(pay/inv*1000)/10 : 0;
+        rows.push({label, inv, pay, rec, hit: pay>0});
+      });
+    } catch(e) { console.error('jusho fetch error:', f, e); }
+  }
+  const elRows = document.getElementById('jusho-rows');
+  if (elRows) {
+    elRows.innerHTML = rows.map(r => `
+      <div style="display:flex;justify-content:space-between;padding:6px 10px;background:rgba(255,255,255,.04);border-radius:6px;border-left:3px solid ${r.rec>=100?'#5fa85c':r.hit?'#c9a84c':'#7A1E1E'}">
+        <span style="opacity:.9">${r.label}</span>
+        <span style="color:${r.rec>=100?'#5fe65c':r.hit?'#ffd966':'#aaa'};font-weight:700">¥${r.pay.toLocaleString()} / ¥${r.inv.toLocaleString()} (${r.rec}%)</span>
+      </div>`).join('');
+  }
+  const totRec = totInv ? Math.round(totPay/totInv*1000)/10 : 0;
+  const setTxt = (id, t, c) => { const el = document.getElementById(id); if (el) { el.textContent = t; if (c) el.style.color = c; } };
+  setTxt('jusho-inv-tot', '¥' + totInv.toLocaleString());
+  setTxt('jusho-pay-tot', '¥' + totPay.toLocaleString(), '#ffd966');
+  setTxt('jusho-rec-tot', totRec + '%', totRec >= 100 ? '#5fe65c' : totRec > 0 ? '#ffd966' : '#f5c0a0');
+})();
+
 /* ── 奉納歌 動的生成（言霊神宮 TOP3） ── */
 (function(){
   // 週ごとの kotodama-test JSON ファイル（毎週末追加）
   const KOTODAMA_FILES = [
+    'data/kotodama-test/2026-05-31.json',
+    'data/kotodama-test/2026-05-24.json',
     'data/kotodama-test/2026-05-17.json',
     'data/kotodama-test/2026-05-16.json',
   ];
