@@ -165,7 +165,7 @@
   .preview-card.bakuana .pc-tag{background:linear-gradient(135deg,#a44a3f,#7A1E1E);color:#fff}
   .preview-card.bakuana .pc-name{color:var(--shu-dk)}
   .preview-card.bakuana::before{
-    content:'💥 爆穴';position:absolute;top:-10px;right:14px;
+    content:'';display:none;position:absolute;top:-10px;right:14px;
     background:linear-gradient(135deg,#a44a3f,#7A1E1E);color:#fff;
     padding:4px 12px;border-radius:4px;font-size:11px;font-weight:900;
     letter-spacing:.15em;font-family:'Shippori Mincho',serif;
@@ -179,7 +179,7 @@
   .preview-card.win-cand .pc-tag{background:linear-gradient(135deg,#c9a84c,#b8860b);color:#fff}
   .preview-card.win-cand .pc-name{color:var(--gold-dk)}
   .preview-card.win-cand::before{
-    content:'🏆 勝利候補';position:absolute;top:-11px;right:14px;
+    content:'';display:none;position:absolute;top:-11px;right:14px;
     background:linear-gradient(135deg,#c9a84c,#b8860b);color:#fff;
     padding:3px 12px;border-radius:4px;font-size:11px;font-weight:900;
     letter-spacing:.15em;font-family:'Shippori Mincho',serif;
@@ -192,7 +192,7 @@
   .preview-card.place-cand .pc-tag{background:#5a7fa0;color:#fff}
   .preview-card.place-cand .pc-name{color:#2d5a84}
   .preview-card.place-cand::before{
-    content:'🎯 相手候補';position:absolute;top:-11px;right:14px;
+    content:'';display:none;position:absolute;top:-11px;right:14px;
     background:#5a7fa0;color:#fff;
     padding:3px 12px;border-radius:4px;font-size:11px;font-weight:900;
     letter-spacing:.15em;font-family:'Shippori Mincho',serif;
@@ -452,22 +452,16 @@ fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
                 const cat = h.jingu_category || '';
                 const isBakuana = h.summary && h.summary.includes('爆穴');
                 const isAnaUma = h.jingu_uma && cat === '消し';
-                let cardCls = isBakuana ? 'bakuana'
-                            : isAnaUma ? 'bakuana'
-                            : cat === '勝利候補' ? 'win-cand'
-                            : cat === '相手候補' ? 'place-cand'
-                            : cat === '消し' ? 'note-cand'
-                            : (h.sex && h.sex.startsWith('牝') ? 'mare' : '');
-                let tagText = isBakuana ? '💥 穴'
-                            : isAnaUma ? '🔥 穴馬候補'
-                            : cat === '勝利候補' ? '🏆 勝利候補'
-                            : cat === '相手候補' ? '🎯 相手候補'
-                            : cat === '消し' ? '👁 見送り候補'
-                            : '有力';
+                // 神宮人気バンドで色分け: 1-3=金/4-6=青/7-9=えんじ/10+=灰
+                const nin = h.jinguNinki || 99;
+                let cardCls = nin <= 3 ? 'win-cand'
+                            : nin <= 6 ? 'place-cand'
+                            : nin <= 9 ? 'bakuana'
+                            : 'note-cand';
+                let tagText = '';  // 旧バッジ廃止（神宮人気バッジに統一）
                 return `
                 <div class="preview-card ${cardCls}">
                   <div class="pc-head">
-                    <span class="pc-tag">${tagText}</span>
                     <span class="pc-name">${h.name}${h.jinguNinki ? `<span class="jingu-ninki-badge r${h.jinguNinki<=3?h.jinguNinki:'X'}">⛩ 神宮${h.jinguNinki}番人気</span>` : ''}${h.jingu_uma ? '<span class="jingu-uma-badge">⛩️ 神宮馬 ⛩️</span>' : ''}${(h.lapType === '瞬発' || h.lapType === '両刀' ? '<span class="lap-badge syunpatsu">⚡ 瞬発</span>' : '') + (h.lapType === '持続' || h.lapType === '両刀' ? '<span class="lap-badge jizoku">💪 持続</span>' : '')}</span>
                     <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b>`:''}</span>
                     ${(h.lastRaceName||h.rotation) ? `<span class="pc-lastrap">${h.lastRaceResult!=null?`<b class="lr-chakujun">${h.lastRaceResult}着</b> `:''}${h.lastRaceName?`${h.lastRaceName}（${h.lastRaceVenue||''}）`:''}${h.rotation?` <span class="lr-rote">${h.rotation}</span>`:''}${h.kyakushitsu?` <span class="lr-kyaku">${h.kyakushitsu}</span>`:''}</span>` : ''}
