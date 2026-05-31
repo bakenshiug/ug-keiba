@@ -1574,10 +1574,10 @@ function render(){
       `}
       ${(r.kaime && r.kaime.groups) ? `
       ${r.kaime.changeNotice ? `
-      <div style="background:linear-gradient(135deg,#7A1E1E,#a44a3f);border:2px solid var(--gold);border-radius:10px;padding:14px 18px;margin-top:14px;color:#fff5e1;animation:pulse 2.5s ease-in-out infinite">
-        <div style="font-family:'Shippori Mincho',serif;font-size:15px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin-bottom:10px;text-align:center">${r.kaime.changeNotice.title}</div>
-        <ul style="margin:0;padding:0 0 0 1.2em;font-size:13px;line-height:1.85">
-          ${r.kaime.changeNotice.reasons.map(rs=>`<li style="margin-bottom:4px">${rs}</li>`).join('')}
+      <div style="background:linear-gradient(135deg,#7A1E1E,#a44a3f);border:2px solid var(--gold);border-radius:10px;padding:14px 18px;margin-top:14px;color:#ffffff;animation:pulse 2.5s ease-in-out infinite">
+        <div style="font-family:'Shippori Mincho',serif;font-size:15px;font-weight:700;color:#ffd966;letter-spacing:.1em;margin-bottom:10px;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.4)">${r.kaime.changeNotice.title}</div>
+        <ul style="margin:0;padding:0 0 0 1.2em;font-size:13px;line-height:1.85;color:#ffffff">
+          ${r.kaime.changeNotice.reasons.map(rs=>`<li style="margin-bottom:4px;color:#ffffff">${rs}</li>`).join('')}
         </ul>
       </div>` : ''}
       <div class="buy-box">
