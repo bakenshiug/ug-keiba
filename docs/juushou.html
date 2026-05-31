@@ -443,10 +443,10 @@ fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
             </div>
             <div class="preview-grid">
               ${[...r.previewHorses].sort((a,b) => {
-                const order = {'勝利候補':0,'相手候補':1,'消し':2};
-                const catA = order[a.jingu_category] ?? 3;
-                const catB = order[b.jingu_category] ?? 3;
-                if (catA !== catB) return catA - catB;
+                // 神宮人気順（kotodamaScore降順）。jinguNinki未設定は最後尾
+                const na = a.jinguNinki || 999;
+                const nb = b.jinguNinki || 999;
+                if (na !== nb) return na - nb;
                 return (b.lapScore || 0) - (a.lapScore || 0);
               }).map(h => {
                 const cat = h.jingu_category || '';
