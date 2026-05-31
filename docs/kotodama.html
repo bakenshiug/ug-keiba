@@ -1098,6 +1098,24 @@ async function renderSuzaku(){
   if (!el) return;
   // ── オークス週 特設バナー ──
   el.innerHTML = `
+    <div class="haran-banner" style="
+      max-width:920px;margin:0 auto 16px;
+      background:linear-gradient(110deg,#7A1E1E 0%,#c9a84c 30%,#fff5e1 50%,#c9a84c 70%,#7A1E1E 100%);
+      background-size:200% 100%;
+      animation:haranShine 3.2s linear infinite, haranPulse 1.8s ease-in-out infinite;
+      border:2px solid #ffd700;border-radius:14px;
+      padding:14px 18px;text-align:center;
+      font-family:'Shippori Mincho',serif;
+      font-size:clamp(18px,3.5vw,26px);font-weight:900;
+      letter-spacing:.18em;color:#1a0a00;
+      text-shadow:0 1px 0 rgba(255,245,225,.7),0 0 12px rgba(255,215,0,.5);
+      box-shadow:0 0 22px rgba(255,215,0,.55),0 4px 18px rgba(122,30,30,.5);
+      position:relative;overflow:hidden;
+    ">🧧 波 乱 度 S S S ／ 高 配 当 獲 得 鞍 🧧</div>
+    <style>
+      @keyframes haranShine{0%{background-position:200% 0}100%{background-position:-200% 0}}
+      @keyframes haranPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+    </style>
     <div style="
       max-width:920px;margin:0 auto 24px;
       background:linear-gradient(135deg,#1a0a00 0%,#3d1a0a 40%,#1a0a00 100%);
