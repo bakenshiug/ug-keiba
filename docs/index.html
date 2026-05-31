@@ -2332,9 +2332,8 @@ drawBtn.addEventListener('click', () => {
         const d = new Date(ds);
         return `${+m[1]}/${+m[2]}(${dow[d.getDay()]})`;
       };
-      const periodText = dateList.length === 1
-        ? `今週は ${fmtDate(dateList[0])} のみ`
-        : `${fmtDate(dateList[0])} 〜 ${fmtDate(dateList[dateList.length-1])} 集計`;
+      // 起点固定（2026-05-16）〜現在の累計集計
+      const periodText = `2026/5/16(土) 〜 集計`;
       const elPeriod = document.getElementById('saisen-period');
       if (elPeriod) elPeriod.textContent = `OFFERING & BLESSING RATIO ─ ${periodText}`;
 
