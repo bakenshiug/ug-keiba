@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>重賞天満宮｜UG競馬神宮</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>【保管】重賞天満宮 5/30-31 ｜UG競馬神宮</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -80,20 +80,6 @@
   .sec-h{font-family:'Shippori Mincho',serif;font-size:16px;color:var(--shu);
          font-weight:700;letter-spacing:.15em;margin:18px 0 12px;
          padding-left:12px;border-left:4px solid var(--gold)}
-  /* 折りたたみ */
-  .sec-details{margin:14px 0}
-  .sec-details>summary{
-    list-style:none;cursor:pointer;user-select:none;
-    font-family:'Shippori Mincho',serif;font-size:16px;color:var(--shu);
-    font-weight:700;letter-spacing:.15em;margin:0 0 12px;
-    padding:8px 12px;border-left:4px solid var(--gold);
-    display:flex;align-items:center;justify-content:space-between;
-    border-radius:0 4px 4px 0;background:rgba(201,168,76,.06);
-  }
-  .sec-details>summary::-webkit-details-marker{display:none}
-  .sec-details>summary::after{content:'▼';font-size:10px;color:var(--gold);transition:transform .25s;flex-shrink:0}
-  .sec-details[open]>summary::after{transform:rotate(180deg)}
-  .sec-details>summary:hover{background:rgba(201,168,76,.12)}
   .trend-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   @media(max-width:600px){.trend-grid{grid-template-columns:1fr}}
   .trend-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:12px 14px}
@@ -171,67 +157,6 @@
     letter-spacing:.15em;font-family:'Shippori Mincho',serif;
     box-shadow:0 2px 8px rgba(164,74,63,.4)
   }
-  /* 🏆 勝利候補 */
-  .preview-card.win-cand{border:2px solid var(--gold-dk);
-                          background:linear-gradient(135deg,#fffbea 0%,#fff8dc 100%);
-                          box-shadow:0 0 14px rgba(201,168,76,.35),0 2px 8px rgba(201,168,76,.15);
-                          position:relative}
-  .preview-card.win-cand .pc-tag{background:linear-gradient(135deg,#c9a84c,#b8860b);color:#fff}
-  .preview-card.win-cand .pc-name{color:var(--gold-dk)}
-  .preview-card.win-cand::before{
-    content:'🏆 勝利候補';position:absolute;top:-11px;right:14px;
-    background:linear-gradient(135deg,#c9a84c,#b8860b);color:#fff;
-    padding:3px 12px;border-radius:4px;font-size:11px;font-weight:900;
-    letter-spacing:.15em;font-family:'Shippori Mincho',serif;
-    box-shadow:0 2px 8px rgba(201,168,76,.4)
-  }
-  /* 🎯 相手候補 */
-  .preview-card.place-cand{border:2px solid #7a8fa6;
-                            background:linear-gradient(135deg,#f4f8fc 0%,#fff 100%);
-                            position:relative}
-  .preview-card.place-cand .pc-tag{background:#5a7fa0;color:#fff}
-  .preview-card.place-cand .pc-name{color:#2d5a84}
-  .preview-card.place-cand::before{
-    content:'🎯 相手候補';position:absolute;top:-11px;right:14px;
-    background:#5a7fa0;color:#fff;
-    padding:3px 12px;border-radius:4px;font-size:11px;font-weight:900;
-    letter-spacing:.15em;font-family:'Shippori Mincho',serif;
-  }
-  /* 👁 注意/消し */
-  .preview-card.note-cand{border:1px solid #c0b8aa;
-                           background:#faf9f6;opacity:.92}
-  .preview-card.note-cand .pc-tag{background:#8a8070;color:#fff}
-  /* 買い/懸念 */
-  .pc-buy,.pc-concern{margin-top:7px;padding:7px 12px;border-radius:5px;font-size:12.5px;line-height:1.75}
-  .pc-buy{background:#edf7ed;border-left:3px solid #4caf50}
-  .pc-buy b{color:#2e7d32;margin-right:5px}
-  .pc-concern{background:#fdf3f0;border-left:3px solid #ef5350}
-  .pc-concern b{color:#c62828;margin-right:5px}
-  /* ⚡💪 ラップ適性バッジ */
-  .lap-badge{
-    display:inline-flex;align-items:center;gap:3px;
-    padding:2px 8px;border-radius:12px;font-size:10px;font-weight:800;
-    letter-spacing:.08em;vertical-align:middle;margin-left:5px;
-  }
-  .lap-badge.syunpatsu{background:linear-gradient(135deg,#1565c0,#42a5f5);color:#fff;
-    box-shadow:0 0 6px rgba(66,165,245,.5)}
-  .lap-badge.jizoku{background:linear-gradient(135deg,#2e7d32,#66bb6a);color:#fff;
-    box-shadow:0 0 6px rgba(102,187,106,.5)}
-  /* ⛩️ 神宮馬バッジ */
-  .jingu-uma-badge{
-    display:inline-flex;align-items:center;gap:4px;
-    padding:3px 10px;border-radius:20px;font-size:11px;font-weight:900;
-    letter-spacing:.12em;font-family:'Shippori Mincho',serif;
-    background:linear-gradient(135deg,#7a1e1e 0%,#a44a3f 50%,#c9a84c 100%);
-    color:#fff;border:1px solid rgba(255,255,255,.3);
-    box-shadow:0 0 8px rgba(164,74,63,.5),0 2px 6px rgba(201,168,76,.3);
-    animation:jinguPulse 2.8s ease-in-out infinite;
-    vertical-align:middle;margin-left:6px
-  }
-  @keyframes jinguPulse{
-    0%,100%{box-shadow:0 0 8px rgba(164,74,63,.5),0 2px 6px rgba(201,168,76,.3)}
-    50%    {box-shadow:0 0 16px rgba(164,74,63,.8),0 2px 10px rgba(201,168,76,.6)}
-  }
   .pc-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
            padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed var(--border)}
   .pc-name{font-family:'Shippori Mincho',serif;font-size:17px;color:var(--shu);font-weight:700;letter-spacing:.05em}
@@ -242,10 +167,6 @@
           font-family:'Shippori Mincho',serif}
   .preview-card.mare .pc-tag{background:#d4528a;color:#fff}
   .pc-summary{font-size:12px;color:var(--ink-soft);margin-left:auto;font-weight:700}
-  .pc-lastrap{display:block;width:100%;font-size:11px;color:var(--ink-soft);margin-top:2px;font-family:'Inter',sans-serif}
-  .lr-chakujun{color:var(--shu);font-size:13px;font-family:'Inter',sans-serif}
-  .lr-rote{display:inline-block;padding:1px 6px;background:#e8f4e8;color:#2e7d32;border-radius:3px;font-size:10px;font-weight:700}
-  .lr-kyaku{display:inline-block;padding:1px 6px;background:#e8eaf6;color:#283593;border-radius:3px;font-size:10px;font-weight:700}
   .pc-view{font-size:13px;line-height:1.85;color:var(--ink)}
   .pc-watch{margin-top:8px;padding:8px 12px;background:var(--bg-soft);border-radius:4px;
             font-size:11.5px;color:var(--ink-soft);border-left:3px solid var(--gold)}
@@ -276,27 +197,11 @@
   <div class="h-title mincho">重　賞　天　満　宮</div>
   <div class="h-sub mincho">JUUSHOU TENMANGU ─ 我、今週末の重賞を展望す</div>
   <div class="h-rule" id="weekend-label">読み込み中…</div>
-  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+  <a class="home-link mincho" href="../index.html">⛩ 神宮に戻る</a>
+  <div style="background:#7A1E1E;color:#fff;text-align:center;padding:8px;font-size:13px;letter-spacing:.1em;margin-top:10px;border-radius:4px">
+    📜 これは <b>2026-05-16(土)〜17(日)</b> の保管版です。最新は <a href="../juushou.html" style="color:#ffd34d">⛩ 重賞天満宮（最新）</a>
+  </div>
 </header>
-
-<div style="max-width:920px;margin:20px auto 0;padding:0 16px">
-  <a href="kotodama.html" style="
-    display:flex;align-items:center;justify-content:center;gap:10px;
-    padding:16px 24px;
-    background:linear-gradient(135deg,#7A1E1E 0%,#a44a3f 50%,#c9a84c 100%);
-    color:#fff;text-decoration:none;border-radius:10px;
-    font-family:'Shippori Mincho',serif;font-size:17px;font-weight:700;
-    letter-spacing:.2em;
-    box-shadow:0 4px 18px rgba(164,74,63,.45);
-    transition:all .2s ease;
-    border:1px solid rgba(255,255,255,.2)
-  " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(164,74,63,.6)'"
-     onmouseout="this.style.transform='';this.style.boxShadow='0 4px 18px rgba(164,74,63,.45)'">
-    <span style="font-size:22px">⛩</span>
-    <span>日本ダービー 最終結論はこちら</span>
-    <span style="font-size:18px;opacity:.85">▶</span>
-  </a>
-</div>
 
 <main id="main">
   <nav class="race-nav" id="race-nav"></nav>
@@ -304,18 +209,11 @@
 </main>
 
 <footer>
-  最終予想は <a href="kotodama.html">⛩ 言霊神宮</a> ／ 馬券道は <a href="how-to-buy.html">📋 通ずる道</a>
-  <div style="margin-top:14px;font-size:12px;color:#888">
-    📜 過去の重賞展望：
-    <a href="archive/juushou-2026-05-30-31.html" style="margin-right:10px">5/30-31（日本ダービー/目黒記念）</a>
-    <a href="archive/juushou-2026-05-23-24.html" style="margin-right:10px">5/23-24（オークス）</a>
-    <a href="archive/juushou-2026-05-16-17.html" style="margin-right:10px">5/16-17（京都ハイジャンプ/新潟大賞典/ヴィクトリアマイル）</a>
-    <a href="archive/juushou-2026-05-09-10.html">5/9-10（NHKマイル/京都新聞杯/京王杯SC/エプソムC）</a>
-  </div>
+  最終予想は <a href="../kotodama.html">⛩ 言霊神宮</a> ／ 馬券道は <a href="../how-to-buy.html">📋 通ずる道</a>
 </footer>
 
 <script>
-fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
+fetch('../data/juushou/_archive_2026-05-30-31.json?_='+Date.now())
   .then(r => r.json())
   .then(d => {
     document.getElementById('weekend-label').textContent = `${d.weekend}（土日）の重賞展望`;
@@ -360,20 +258,13 @@ fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
       const podiumRows = r.history.map(h => `
         <tr>
           <td class="ht-year">${h.year}</td>
-          <td>🥇 <b>${h.first.num}</b> ${h.first.name} (${h.first.pop}人気)${h.first.ana ? ' 🔥' : ''}</td>
-          <td>🥈 ${h.second.num} ${h.second.name} (${h.second.pop}人気)${h.second.ana ? ' 🔥' : ''}</td>
-          <td>🥉 ${h.third.num} ${h.third.name} (${h.third.pop}人気)${h.third.ana ? ' 🔥' : ''}</td>
+          <td>🥇 <b>${h.first.num}</b> ${h.first.name} (${h.first.pop}人気)</td>
+          <td>🥈 ${h.second.num} ${h.second.name} (${h.second.pop}人気)</td>
+          <td>🥉 ${h.third.num} ${h.third.name} (${h.third.pop}人気)</td>
         </tr>`).join('');
 
-      // 制覇馬トレンド
+      // トレンド
       const trendCards = r.trends.map(t => `
-        <div class="trend-card ${t.weight}">
-          <div class="trend-label">${t.label}</div>
-          <div class="trend-value">${t.value}</div>
-        </div>`).join('');
-
-      // 馬券圏内トレンド（2・3着分析）
-      const hakenCards = (r.trendsHaken || []).map(t => `
         <div class="trend-card ${t.weight}">
           <div class="trend-label">${t.label}</div>
           <div class="trend-value">${t.value}</div>
@@ -399,27 +290,18 @@ fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
           </summary>
           <div class="race-body">
 
-            <details class="sec-details" open>
-              <summary>🏆 制覇馬分析（過去10年トレンド）</summary>
-              <div class="trend-grid">${trendCards}</div>
-              ${hakenCards ? `
-              <details class="sec-details" open style="margin-top:4px">
-                <summary>🎫 馬券圏内分析（2・3着傾向）</summary>
-                <div class="trend-grid">${hakenCards}</div>
-              </details>` : ''}
-            </details>
+            <h3 class="sec-h mincho">📊 過去10年トレンド</h3>
+            <div class="trend-grid">${trendCards}</div>
 
-            <details class="sec-details" open>
-              <summary>📜 過去10年 1〜3着馬</summary>
-              <div class="history-overflow">
-                <table class="history-table">
-                  <thead>
-                    <tr><th>年</th><th>1着</th><th>2着</th><th>3着</th></tr>
-                  </thead>
-                  <tbody>${podiumRows}</tbody>
-                </table>
-              </div>
-            </details>
+            <h3 class="sec-h mincho">📜 過去10年 1〜3着馬</h3>
+            <div class="history-overflow">
+              <table class="history-table">
+                <thead>
+                  <tr><th>年</th><th>1着</th><th>2着</th><th>3着</th></tr>
+                </thead>
+                <tbody>${podiumRows}</tbody>
+              </table>
+            </div>
 
             ${shobu && r.shobu_note ? `
             <div class="shobu-note">
@@ -428,51 +310,29 @@ fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
             </div>` : ''}
 
             ${r.previewHorses && r.previewHorses.length ? `
-            <details class="sec-details" open>
-            <summary>📜 有力馬の神宮見立て</summary>
+            <h3 class="sec-h mincho">📜 有力馬の神宮見立て</h3>
             <div class="preview-banner mincho">
               神宮独自の視点で再構成（出馬登録・動向は変動の可能性）
             </div>
             <div class="preview-grid">
-              ${[...r.previewHorses].sort((a,b) => {
-                const order = {'勝利候補':0,'相手候補':1,'消し':2};
-                const catA = order[a.jingu_category] ?? 3;
-                const catB = order[b.jingu_category] ?? 3;
-                if (catA !== catB) return catA - catB;
-                return (b.lapScore || 0) - (a.lapScore || 0);
-              }).map(h => {
-                const cat = h.jingu_category || '';
+              ${r.previewHorses.map(h => {
+                const isMare = h.sex && h.sex.startsWith('牝');
                 const isBakuana = h.summary && h.summary.includes('爆穴');
-                const isAnaUma = h.jingu_uma && cat === '消し';
-                let cardCls = isBakuana ? 'bakuana'
-                            : isAnaUma ? 'bakuana'
-                            : cat === '勝利候補' ? 'win-cand'
-                            : cat === '相手候補' ? 'place-cand'
-                            : cat === '消し' ? 'note-cand'
-                            : (h.sex && h.sex.startsWith('牝') ? 'mare' : '');
-                let tagText = isBakuana ? '💥 穴'
-                            : isAnaUma ? '🔥 穴馬候補'
-                            : cat === '勝利候補' ? '🏆 勝利候補'
-                            : cat === '相手候補' ? '🎯 相手候補'
-                            : cat === '消し' ? '👁 見送り候補'
-                            : '有力';
+                const cardCls = isBakuana ? 'bakuana' : (isMare ? 'mare' : '');
+                const tagText = isBakuana ? '💥 穴' : (isMare ? '🌸 牝馬' : '有力');
                 return `
                 <div class="preview-card ${cardCls}">
                   <div class="pc-head">
                     <span class="pc-tag">${tagText}</span>
-                    <span class="pc-name">${h.name}${h.jingu_uma ? '<span class="jingu-uma-badge">⛩️ 神宮馬 ⛩️</span>' : ''}${(h.lapType === '瞬発' || h.lapType === '両刀' ? '<span class="lap-badge syunpatsu">⚡ 瞬発</span>' : '') + (h.lapType === '持続' || h.lapType === '両刀' ? '<span class="lap-badge jizoku">💪 持続</span>' : '')}</span>
-                    <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b>`:''}</span>
-                    ${(h.lastRaceName||h.rotation) ? `<span class="pc-lastrap">${h.lastRaceResult!=null?`<b class="lr-chakujun">${h.lastRaceResult}着</b> `:''}${h.lastRaceName?`${h.lastRaceName}（${h.lastRaceVenue||''}）`:''}${h.rotation?` <span class="lr-rote">${h.rotation}</span>`:''}${h.kyakushitsu?` <span class="lr-kyaku">${h.kyakushitsu}</span>`:''}</span>` : ''}
+                    <span class="pc-name">${h.name}</span>
+                    <span class="pc-meta"><b>${h.sex}</b> ／ ${h.kg}kg ／ ${h.jockey}騎手 / ${h.trainer}${h.pop?` ／ <b>想定${h.pop}人気</b> / ${h.odds}倍`:''}</span>
                     <span class="pc-summary">${h.summary || ''}</span>
                   </div>
-                  ${h.shrine_view ? `<div class="pc-view">${h.shrine_view}</div>` : ''}
-                  ${h.buy ? `<div class="pc-buy"><b>🟢 買い</b>${h.buy}</div>` : ''}
-                  ${h.concern ? `<div class="pc-concern"><b>🔴 懸念</b>${h.concern}</div>` : ''}
+                  <div class="pc-view">${h.shrine_view}</div>
                   ${h.watchpoint ? `<div class="pc-watch"><b>👁 注目点</b>${h.watchpoint}</div>` : ''}
                 </div>`;
               }).join('')}
-            </div>
-            </details>` : ''}
+            </div>` : ''}
 
           </div>
         </details>`;
