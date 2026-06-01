@@ -247,6 +247,53 @@
   .lr-rote{display:inline-block;padding:1px 6px;background:#e8f4e8;color:#2e7d32;border-radius:3px;font-size:10px;font-weight:700}
   .lr-kyaku{display:inline-block;padding:1px 6px;background:#e8eaf6;color:#283593;border-radius:3px;font-size:10px;font-weight:700}
   .pc-view{font-size:13px;line-height:1.85;color:var(--ink)}
+
+  /* 乖離バッジ（馬名横） */
+  .kairi-badge{display:inline-block;margin-left:6px;padding:2px 8px;
+    border-radius:10px;font-size:11px;font-weight:900;letter-spacing:.05em;
+    font-family:'Inter','Shippori Mincho',sans-serif;
+    vertical-align:middle;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+  .kairi-badge.up-big{background:linear-gradient(135deg,#2e7d32,#1b5e20);color:#fff;
+    animation:kairiUpPulse 2.2s ease-in-out infinite}
+  .kairi-badge.up-mid{background:#4caf50;color:#fff}
+  .kairi-badge.up-sml{background:#a5d6a7;color:#1b5e20}
+  .kairi-badge.dn-big{background:linear-gradient(135deg,#c62828,#8e0000);color:#fff;
+    animation:kairiDnPulse 2.2s ease-in-out infinite}
+  .kairi-badge.dn-mid{background:#ef5350;color:#fff}
+  .kairi-badge.dn-sml{background:#ffcdd2;color:#b71c1c}
+  .kairi-badge.eq{background:#e0e0e0;color:#555}
+  @keyframes kairiUpPulse{
+    0%,100%{box-shadow:0 0 0 rgba(46,125,50,0)}
+    50%{box-shadow:0 0 12px rgba(46,125,50,.7)}
+  }
+  @keyframes kairiDnPulse{
+    0%,100%{box-shadow:0 0 0 rgba(198,40,40,0)}
+    50%{box-shadow:0 0 12px rgba(198,40,40,.7)}
+  }
+
+  /* 乖離ダッシュボード */
+  .kairi-board{margin:20px 0 24px;padding:18px 22px;
+    background:linear-gradient(135deg,#fffbea 0%,#fff5d6 100%);
+    border:2px solid var(--gold-dk);border-radius:8px;
+    box-shadow:0 3px 12px rgba(201,168,76,.25)}
+  .kairi-board h3{margin:0 0 14px;font-family:'Shippori Mincho',serif;
+    font-size:16px;color:var(--gold-dk);letter-spacing:.1em;text-align:center;
+    border-bottom:1px dashed var(--gold);padding-bottom:10px}
+  .kairi-board-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.kairi-board-cols{grid-template-columns:1fr}}
+  .kairi-col h4{margin:0 0 10px;font-size:13px;font-family:'Shippori Mincho',serif;
+    letter-spacing:.08em;padding:4px 10px;border-radius:4px}
+  .kairi-col.treasure h4{background:#e8f5e9;color:#1b5e20;border-left:4px solid #2e7d32}
+  .kairi-col.trap h4{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+  .kairi-row{display:flex;align-items:center;gap:8px;padding:6px 4px;
+    font-size:12.5px;border-bottom:1px dotted #d8c898}
+  .kairi-row:last-child{border-bottom:none}
+  .kairi-row .k-icon{font-size:14px;flex-shrink:0}
+  .kairi-row .k-name{font-weight:700;color:var(--ink);min-width:100px}
+  .kairi-row .k-trans{font-size:11px;color:var(--ink-soft);font-family:'Inter',sans-serif}
+  .kairi-row .k-delta{margin-left:auto;font-weight:900;font-family:'Inter',sans-serif}
+  .kairi-row.up .k-delta{color:#1b5e20}
+  .kairi-row.dn .k-delta{color:#b71c1c}
   /* 神宮人気コーナーリボン（カード左上） */
   .preview-card{position:relative}
   .jingu-ninki-corner{
@@ -458,6 +505,32 @@ fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
             <div class="preview-banner mincho">
               神宮独自の視点で再構成（出馬登録・動向は変動の可能性）
             </div>
+            ${(() => {
+              const withK = r.previewHorses.filter(h => typeof h.kairi === 'number');
+              if (withK.length === 0) return '';
+              const ups = [...withK].filter(h=>h.kairi>=3).sort((a,b)=>b.kairi-a.kairi).slice(0,5);
+              const dns = [...withK].filter(h=>h.kairi<=-3).sort((a,b)=>a.kairi-b.kairi).slice(0,5);
+              const fmt = (h, sign) => `<div class="kairi-row ${sign>0?'up':'dn'}">
+                <span class="k-icon">${sign>0?'📈':'📉'}</span>
+                <span class="k-name">${h.name}</span>
+                <span class="k-trans">市場${h.marketNinki}人気→神宮${h.jinguNinki}人気</span>
+                <span class="k-delta">${sign>0?'+':''}${h.kairi}</span>
+              </div>`;
+              return `
+              <div class="kairi-board">
+                <h3>🎯 神宮オッズ vs 市場オッズ 乖離ダッシュボード</h3>
+                <div class="kairi-board-cols">
+                  <div class="kairi-col treasure">
+                    <h4>💎 神宮の宝（市場が見過ごす過小評価）</h4>
+                    ${ups.length? ups.map(h=>fmt(h,1)).join('') : '<div class="kairi-row"><span class="k-trans">該当馬なし</span></div>'}
+                  </div>
+                  <div class="kairi-col trap">
+                    <h4>⚠ 市場の罠（買いすぎの過剰評価）</h4>
+                    ${dns.length? dns.map(h=>fmt(h,-1)).join('') : '<div class="kairi-row"><span class="k-trans">該当馬なし</span></div>'}
+                  </div>
+                </div>
+              </div>`;
+            })()}
             <div class="preview-grid">
               ${[...r.previewHorses].sort((a,b) => {
                 // 神宮人気順（kotodamaScore降順）。jinguNinki未設定は最後尾
@@ -480,7 +553,19 @@ fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
                 <div class="preview-card ${cardCls}">
                   ${h.jinguNinki ? `<span class="jingu-ninki-corner r${h.jinguNinki<=3?h.jinguNinki:'X'}">⛩ 神宮${h.jinguNinki}番人気</span>` : ''}
                   <div class="pc-head">
-                    <span class="pc-name">${h.name}${h.jingu_uma ? '<span class="jingu-uma-badge">⛩️ 神宮馬 ⛩️</span>' : ''}${(h.lapType === '瞬発' || h.lapType === '両刀' ? '<span class="lap-badge syunpatsu">⚡ 瞬発</span>' : '') + (h.lapType === '持続' || h.lapType === '両刀' ? '<span class="lap-badge jizoku">💪 持続</span>' : '')}</span>
+                    <span class="pc-name">${h.name}${(() => {
+                      if (typeof h.kairi !== 'number') return '';
+                      const k = h.kairi;
+                      let cls, icon;
+                      if (k >= 7) {cls='up-big'; icon='📈';}
+                      else if (k >= 3) {cls='up-mid'; icon='📈';}
+                      else if (k >= 1) {cls='up-sml'; icon='📈';}
+                      else if (k <= -7) {cls='dn-big'; icon='📉';}
+                      else if (k <= -3) {cls='dn-mid'; icon='📉';}
+                      else if (k <= -1) {cls='dn-sml'; icon='📉';}
+                      else {cls='eq'; icon='＝';}
+                      return `<span class="kairi-badge ${cls}" title="市場${h.marketNinki}人気→神宮${h.jinguNinki}人気">${icon}${k>0?'+':''}${k}</span>`;
+                    })()}${h.jingu_uma ? '<span class="jingu-uma-badge">⛩️ 神宮馬 ⛩️</span>' : ''}${(h.lapType === '瞬発' || h.lapType === '両刀' ? '<span class="lap-badge syunpatsu">⚡ 瞬発</span>' : '') + (h.lapType === '持続' || h.lapType === '両刀' ? '<span class="lap-badge jizoku">💪 持続</span>' : '')}</span>
                     <span class="pc-meta">${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${h.jockey?h.jockey+'騎手 ／ ':''}${h.trainer||''}${h.pop?` ／ <b>想定${h.pop}人気</b>`:''}</span>
                     ${(h.lastRaceName||h.rotation) ? `<span class="pc-lastrap">${h.lastRaceResult!=null?`<b class="lr-chakujun">${h.lastRaceResult}着</b> `:''}${h.lastRaceName?`${h.lastRaceName}（${h.lastRaceVenue||''}）`:''}${h.rotation?` <span class="lr-rote">${h.rotation}</span>`:''}${h.kyakushitsu?` <span class="lr-kyaku">${h.kyakushitsu}</span>`:''}</span>` : ''}
                     <span class="pc-summary">${h.summary || ''}</span>
