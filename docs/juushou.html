@@ -542,12 +542,11 @@ fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
                 const cat = h.jingu_category || '';
                 const isBakuana = h.summary && h.summary.includes('爆穴');
                 const isAnaUma = h.jingu_uma && cat === '消し';
-                // 神宮人気バンドで色分け: 1-3=金/4-6=青/7-9=えんじ/10+=灰
-                const nin = h.jinguNinki || 99;
-                let cardCls = nin <= 3 ? 'win-cand'
-                            : nin <= 6 ? 'place-cand'
-                            : nin <= 9 ? 'bakuana'
-                            : 'note-cand';
+                // 乖離(kairi)で色分け: +3以上=えんじ(神宮の宝)/-3以下=ブルー(市場の罠)/中間=クリーム
+                const k = typeof h.kairi === 'number' ? h.kairi : 0;
+                let cardCls = k >= 3 ? 'bakuana'
+                            : k <= -3 ? 'place-cand'
+                            : 'win-cand';
                 let tagText = '';  // 旧バッジ廃止（神宮人気バッジに統一）
                 return `
                 <div class="preview-card ${cardCls}">
