@@ -269,7 +269,7 @@ function trendSvg(w3, w2, w1) {
 
 // === 場別TOP5 ===
 async function renderRanking(){
-  const r = await fetch('data/jockey/2026-05-11_venue_top5_enriched.json?_='+Date.now());
+  const r = await fetch('data/jockey/2026-06-01_venue_top5_enriched.json?_='+Date.now());
   DATA_VENUES = await r.json();
   const groups = [
     {name:'東 京', surfaces:['東京芝','東京ダ']},
@@ -313,7 +313,7 @@ async function renderRanking(){
 // === マスター読込 ===
 async function loadMaster(){
   if (DATA_MASTER) return DATA_MASTER;
-  const r = await fetch('data/jockey/2026-05-11_master149.json?_='+Date.now());
+  const r = await fetch('data/jockey/2026-06-01_master149.json?_='+Date.now());
   DATA_MASTER = await r.json();
   return DATA_MASTER;
 }
