@@ -1753,10 +1753,10 @@ function render(){
       ` : (() => {
         const sp = [...(r.picks||[])].sort((a,b)=>({'◎':0,'○':1,'▲':2,'激':3}[a.mark]??9)-({'◎':0,'○':1,'▲':2,'激':3}[b.mark]??9));
         const h = sp.find(p=>p.mark==='◎');
-        const aite = (r.aite5 && r.aite5.length)
-          ? r.aite5.map(a=>`${parseInt(a.num,10)} ${a.name}`).join('　/　')
-          : sp.filter(p=>p.mark!=='◎').map(p=>`${p.mark}${parseInt(p.num,10)}`).join(' ');
-        const recHTML = h ? `<div class="buy-rec"><span class="buy-rec-t">🎯 推奨買い目</span><b>◎${parseInt(h.num,10)} ${h.name}</b> 軸の<b class="umatan">馬単マルチ</b>（${(r.aite5||[]).length||3}点）<div class="buy-rec-aite">相手 ${aite}</div></div>` : '';
+        const aiteP = sp.filter(p=>p.mark!=='◎');
+        const aite = aiteP.map(p=>`${p.mark}${parseInt(p.num,10)} ${p.name}`).join('　/　');
+        const pts = aiteP.length*2;  // 馬単マルチ 軸1×相手N = 2N点
+        const recHTML = h ? `<div class="buy-rec"><span class="buy-rec-t">🎯 推奨買い目</span><b>◎${parseInt(h.num,10)} ${h.name}</b> 軸の<b class="umatan">馬単マルチ</b>（${pts}点）${aite?`<div class="buy-rec-aite">相手 ${aite}</div>`:''}</div>` : '';
         return recHTML + '<div class="result pending">結果待ち</div>';
       })()}
       </div>
