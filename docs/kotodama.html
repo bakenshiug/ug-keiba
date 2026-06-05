@@ -199,6 +199,43 @@
   .tab:hover{border-color:var(--shu);color:var(--shu)}
   .tab.active{background:var(--shu);color:#fff;border-color:var(--shu);font-weight:700}
   .tab-count{font-size:11px;opacity:.85;margin-left:6px}
+
+  /* ── 神宮WIN5予想カラム ── */
+  .win5-column{max-width:920px;margin:0 auto 24px;
+    background:linear-gradient(135deg,#1a0a00 0%,#3d1a0a 45%,#1a0a00 100%);
+    border:2px solid #c9a84c;border-radius:14px;padding:18px 20px;
+    box-shadow:0 0 26px rgba(201,168,76,.35)}
+  .win5-head{text-align:center;margin-bottom:14px;border-bottom:1px dashed rgba(201,168,76,.4);padding-bottom:10px}
+  .win5-title{display:block;font-size:clamp(18px,3.5vw,24px);font-weight:900;
+    color:#ffd966;letter-spacing:.14em;text-shadow:0 0 14px rgba(255,215,0,.5)}
+  .win5-sub{font-size:11px;color:rgba(201,168,76,.8);letter-spacing:.14em}
+  .win5-cards{display:flex;flex-direction:column;gap:8px}
+  .win5-card{display:flex;align-items:center;gap:12px;
+    background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;
+    border-left:3px solid #c9a84c}
+  .win5-no{flex-shrink:0;width:44px;text-align:center;font-family:'Shippori Mincho',serif;
+    font-size:9px;color:rgba(201,168,76,.85);letter-spacing:.08em;line-height:1.1}
+  .win5-no span{display:block;font-size:20px;font-weight:900;color:#ffd966}
+  .win5-main{flex:1;min-width:0}
+  .win5-race{font-size:12px;color:rgba(245,230,192,.75);font-family:'Shippori Mincho',serif;letter-spacing:.06em;margin-bottom:3px}
+  .win5-honmei{font-size:15px;font-weight:700;color:#fff}
+  .win5-honmei b{color:#ffd966;font-size:17px;margin:0 2px}
+  .win5-jk{font-size:11px;color:rgba(201,168,76,.8);margin-left:8px}
+  .win5-aites{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
+  .w5-aite{font-size:11px;color:#e8dcc8;background:rgba(255,255,255,.06);
+    border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:2px 9px}
+  .win5-foot{text-align:center;margin-top:14px;padding-top:10px;
+    border-top:1px dashed rgba(201,168,76,.4);font-size:13px;color:#f5e6c0;letter-spacing:.06em}
+  .win5-foot b{color:#ffd966}
+
+  /* 推奨買い目（結果前） */
+  .buy-rec{margin-top:12px;padding:10px 14px;border-radius:8px;
+    background:linear-gradient(135deg,#fffbea,#fff5dc);border:1.5px solid var(--gold);
+    font-size:13px;color:var(--ink);line-height:1.7}
+  .buy-rec .buy-rec-t{display:inline-block;font-weight:700;color:var(--gold-dk,#b8860b);margin-right:8px;font-family:'Shippori Mincho',serif}
+  .buy-rec b{color:var(--shu);font-size:14px}
+  .buy-rec b.umatan{color:var(--gold-dk,#b8860b)}
+  .buy-rec .buy-rec-aite{display:inline-block;margin-left:10px;font-size:11px;color:var(--ink-soft)}
   .tabs-day-sep{width:100%;text-align:center;font-size:12px;font-weight:700;color:var(--shu);letter-spacing:.08em;padding:4px 0 2px;opacity:.85}
   .tabs-day-sep:first-child{padding-top:0}
 
@@ -1094,6 +1131,34 @@ function renderSummary(){
     </details>`;
 }
 
+function renderWin5Column(races){
+  if (!races || races.length === 0) return '';
+  const cards = races.map(r => {
+    const sp = [...(r.picks||[])].sort((a,b)=>({'◎':0,'○':1,'▲':2,'激':3}[a.mark]??9)-({'◎':0,'○':1,'▲':2,'激':3}[b.mark]??9));
+    const honmei = sp.find(p=>p.mark==='◎');
+    const aite = sp.filter(p=>p.mark!=='◎');
+    const aiteHTML = aite.map(p=>`<span class="w5-aite">${p.mark}${parseInt(p.num,10)} ${p.name}</span>`).join('');
+    return `
+    <div class="w5-card">
+      <div class="w5-no">WIN5<span>${r.win5Order||''}</span></div>
+      <div class="w5-main">
+        <div class="w5-race">${r.venue}${r.raceNum}　${r.raceName||''}</div>
+        <div class="w5-honmei">◎<b>${honmei?parseInt(honmei.num,10):''}</b> ${honmei?honmei.name:''}<span class="w5-jk">${honmei?honmei.jockey:''}</span></div>
+        <div class="w5-aites">${aiteHTML}</div>
+      </div>
+    </div>`;
+  }).join('');
+  return `
+    <div class="win5-column">
+      <div class="win5-head">
+        <span class="win5-title mincho">🎯 神宮WIN5予想</span>
+        <span class="win5-sub">突出度メソッド × 馬場傾向</span>
+      </div>
+      <div class="win5-cards">${cards}</div>
+      <div class="win5-foot">買い目は各レース <b>◎軸の馬単マルチ</b> 推奨</div>
+    </div>`;
+}
+
 async function renderSuzaku(){
   const el = document.getElementById('suzaku-board');
   if (!el) return;
@@ -1109,20 +1174,12 @@ async function renderSuzaku(){
     }
   });
   const totalRec = totalInv ? Math.round(totalPay/totalInv*1000)/10 : 0;
-  const totalBannerHTML = raceRecaps.length ? `
-    <div style="max-width:920px;margin:0 auto 14px;background:linear-gradient(135deg,#1a0a00,#3d1a0a);border:2px solid ${totalRec>=100?'#5fa85c':'#c9a84c'};border-radius:12px;padding:14px 20px;color:#f5e6c0;box-shadow:0 0 24px ${totalRec>=100?'rgba(95,168,92,.45)':'rgba(201,168,76,.35)'}">
-      <div style="font-family:'Shippori Mincho',serif;font-size:14px;letter-spacing:.15em;text-align:center;color:${totalRec>=100?'#a8e6a3':'#ffd966'};margin-bottom:12px;font-weight:700">⛩ 神宮の本日成績 ⛩</div>
-      <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;margin-bottom:12px">
-        ${raceRecaps.map(rr => `<div style="display:flex;justify-content:space-between;padding:4px 8px;background:rgba(255,255,255,.04);border-radius:6px"><span style="opacity:.85">${rr.name}</span><span style="color:${rr.rec>=100?'#5fe65c':rr.pay>0?'#ffd966':'#aaa'};font-weight:700">¥${rr.pay.toLocaleString()} / ¥${rr.inv.toLocaleString()} (${rr.rec}%)</span></div>`).join('')}
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;border-top:1.5px solid rgba(201,168,76,.3);padding-top:10px">
-        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">投資合計</div><div style="font-size:16px;font-weight:700">¥${totalInv.toLocaleString()}</div></div>
-        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">回収合計</div><div style="font-size:16px;font-weight:700;color:#ffd966">¥${totalPay.toLocaleString()}</div></div>
-        <div><div style="opacity:.7;font-size:10px;letter-spacing:.12em">トータル回収率</div><div style="font-size:18px;font-weight:900;color:${totalRec>=100?'#5fe65c':'#f5c0a0'}">${totalRec}%</div></div>
-      </div>
-    </div>` : '';
-  // ── オークス週 特設バナー ──
-  el.innerHTML = totalBannerHTML + `
+  // ── WIN5予想カラム（当週のwin5フラグ付きレースから生成） ──
+  const win5Races = ALL_RACES.filter(r => r.win5).sort((a,b)=>(a.win5Order||9)-(b.win5Order||9));
+  el.innerHTML = renderWin5Column(win5Races);
+  return;
+  // eslint-disable-next-line no-unreachable
+  el.innerHTML = `
     <div class="haran-banner" style="
       max-width:920px;margin:0 auto 16px;
       background:linear-gradient(110deg,#7A1E1E 0%,#c9a84c 30%,#fff5e1 50%,#c9a84c 70%,#7A1E1E 100%);
@@ -1378,7 +1435,7 @@ function buildTabs(){
       // 全レースに重賞名あり → レース名併記
       tabLabel = namedRaces.map(r => shortenRaceName(r.raceName)).join('＋');
     } else {
-      tabLabel = t.count === 1 ? t.raceNums[0] : `${t.count}R`;
+      tabLabel = t.count === 1 ? t.raceNums[0] : `${t.count}鞍`;
     }
     html += `<button class="tab ${active}" data-key="${key}">${t.venue}<span class="tab-count">${tabLabel}</span></button>`;
   });
@@ -1680,7 +1737,13 @@ function render(){
         return `<div class="race-betting-pair">${honmeiHTML}${anaHTML}</div>`;
       })()}
       `}
-      ` : '<div class="result pending">結果待ち</div>'}
+      ` : (() => {
+        const sp = [...(r.picks||[])].sort((a,b)=>({'◎':0,'○':1,'▲':2,'激':3}[a.mark]??9)-({'◎':0,'○':1,'▲':2,'激':3}[b.mark]??9));
+        const h = sp.find(p=>p.mark==='◎');
+        const aite = sp.filter(p=>p.mark!=='◎').map(p=>`${p.mark}${parseInt(p.num,10)}`).join(' ');
+        const recHTML = h ? `<div class="buy-rec"><span class="buy-rec-t">🎯 推奨買い目</span><b>◎${parseInt(h.num,10)} ${h.name}</b> 軸の<b class="umatan">馬単マルチ</b>${aite?`<span class="buy-rec-aite">相手 ${aite}</span>`:''}</div>` : '';
+        return recHTML + '<div class="result pending">結果待ち</div>';
+      })()}
       </div>
     </details>
   `;
