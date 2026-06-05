@@ -238,7 +238,8 @@
   .buy-rec .buy-rec-t{display:inline-block;font-weight:700;color:var(--gold-dk,#b8860b);margin-right:8px;font-family:'Shippori Mincho',serif}
   .buy-rec b{color:var(--shu);font-size:14px}
   .buy-rec b.umatan{color:var(--gold-dk,#b8860b)}
-  .buy-rec .buy-rec-aite{display:inline-block;margin-left:10px;font-size:11px;color:var(--ink-soft)}
+  .buy-rec .buy-rec-aite{display:block;margin-top:6px;font-size:12px;color:var(--ink);line-height:1.7}
+  .buy-rec .buy-rec-aite::before{content:'';display:inline}
   .tabs-day-sep{width:100%;text-align:center;font-size:12px;font-weight:700;color:var(--shu);letter-spacing:.08em;padding:4px 0 2px;opacity:.85}
   .tabs-day-sep:first-child{padding-top:0}
 
@@ -1752,8 +1753,10 @@ function render(){
       ` : (() => {
         const sp = [...(r.picks||[])].sort((a,b)=>({'◎':0,'○':1,'▲':2,'激':3}[a.mark]??9)-({'◎':0,'○':1,'▲':2,'激':3}[b.mark]??9));
         const h = sp.find(p=>p.mark==='◎');
-        const aite = sp.filter(p=>p.mark!=='◎').map(p=>`${p.mark}${parseInt(p.num,10)}`).join(' ');
-        const recHTML = h ? `<div class="buy-rec"><span class="buy-rec-t">🎯 推奨買い目</span><b>◎${parseInt(h.num,10)} ${h.name}</b> 軸の<b class="umatan">馬単マルチ</b>${aite?`<span class="buy-rec-aite">相手 ${aite}</span>`:''}</div>` : '';
+        const aite = (r.aite5 && r.aite5.length)
+          ? r.aite5.map(a=>`${parseInt(a.num,10)} ${a.name}`).join('　/　')
+          : sp.filter(p=>p.mark!=='◎').map(p=>`${p.mark}${parseInt(p.num,10)}`).join(' ');
+        const recHTML = h ? `<div class="buy-rec"><span class="buy-rec-t">🎯 推奨買い目</span><b>◎${parseInt(h.num,10)} ${h.name}</b> 軸の<b class="umatan">馬単マルチ</b>（${(r.aite5||[]).length||3}点）<div class="buy-rec-aite">相手 ${aite}</div></div>` : '';
         return recHTML + '<div class="result pending">結果待ち</div>';
       })()}
       </div>
