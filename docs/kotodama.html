@@ -220,13 +220,14 @@
   .w5-race{font-size:12px;color:rgba(245,230,192,.7);font-family:'Shippori Mincho',serif;letter-spacing:.06em;margin-bottom:7px;display:flex;align-items:center;gap:8px}
   .w5-pts{display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:900;
     color:#1a0a00;background:#ffd966;border-radius:10px;padding:1px 9px;letter-spacing:.02em}
-  .w5-buys{display:flex;flex-wrap:wrap;gap:7px}
-  .w5-buy{display:inline-flex;align-items:baseline;gap:3px;font-size:14px;font-weight:700;color:#fff;
-    background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.35);border-radius:8px;padding:5px 11px}
+  .w5-buys{display:flex;flex-wrap:wrap;gap:8px}
+  .w5-buy{display:flex;align-items:center;gap:8px;flex:1 1 300px;min-width:0;
+    background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.35);border-radius:8px;padding:8px 12px}
   .w5-buy.axis{background:rgba(201,168,76,.18);border-color:#c9a84c}
-  .w5-buy b{color:#ffd966;font-size:16px;margin:0 1px}
-  .w5-jk{font-size:10px;color:rgba(201,168,76,.8);margin-left:5px;font-weight:400}
-  .w5-odds{display:block;width:100%;font-size:11px;font-weight:700;color:#ffd966;margin-top:3px;font-family:'Inter',sans-serif}
+  .w5-mn{font-size:14px;font-weight:700;color:#fff;white-space:nowrap;flex-shrink:0}
+  .w5-mn b{color:#ffd966;font-size:16px;margin:0 2px}
+  .w5-jk{font-size:10px;color:rgba(201,168,76,.75);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .w5-odds{margin-left:auto;font-size:12.5px;font-weight:700;color:#ffd966;white-space:nowrap;font-family:'Inter',sans-serif;flex-shrink:0}
   .win5-note{text-align:center;margin-top:14px;padding-top:10px;
     border-top:1px dashed rgba(201,168,76,.4);font-size:11.5px;color:rgba(245,230,192,.85);letter-spacing:.04em;line-height:1.6}
 
@@ -1144,7 +1145,11 @@ function renderWin5Column(races){
     const buy = sp.slice(0, nPts);   // WIN5で実際に買う馬（◎○▲順でN頭）
     const buyHTML = buy.map((p,i)=>{
       const oddsTxt = p.ninkiPred ? `<span class="w5-odds">${p.ninkiPred}人気${p.odds?' / '+p.odds+'倍':''}</span>` : '';
-      return `<span class="w5-buy ${i===0?'axis':''}">${p.mark}<b>${parseInt(p.num,10)}</b> ${p.name}<span class="w5-jk">${p.jockey}</span>${oddsTxt}</span>`;
+      return `<div class="w5-buy ${i===0?'axis':''}">
+        <span class="w5-mn">${p.mark}<b>${parseInt(p.num,10)}</b> ${p.name}</span>
+        <span class="w5-jk">${p.jockey}</span>
+        ${oddsTxt}
+      </div>`;
     }).join('');
     return `
     <div class="w5-card">
