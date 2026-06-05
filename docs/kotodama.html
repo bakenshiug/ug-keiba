@@ -226,6 +226,7 @@
   .w5-buy.axis{background:rgba(201,168,76,.18);border-color:#c9a84c}
   .w5-buy b{color:#ffd966;font-size:16px;margin:0 1px}
   .w5-jk{font-size:10px;color:rgba(201,168,76,.8);margin-left:5px;font-weight:400}
+  .w5-odds{display:block;width:100%;font-size:11px;font-weight:700;color:#ffd966;margin-top:3px;font-family:'Inter',sans-serif}
   .win5-note{text-align:center;margin-top:14px;padding-top:10px;
     border-top:1px dashed rgba(201,168,76,.4);font-size:11.5px;color:rgba(245,230,192,.85);letter-spacing:.04em;line-height:1.6}
 
@@ -1141,7 +1142,10 @@ function renderWin5Column(races){
     const nPts = r.win5Points || 1;
     totalPts *= nPts;
     const buy = sp.slice(0, nPts);   // WIN5で実際に買う馬（◎○▲順でN頭）
-    const buyHTML = buy.map((p,i)=>`<span class="w5-buy ${i===0?'axis':''}">${p.mark}<b>${parseInt(p.num,10)}</b> ${p.name}<span class="w5-jk">${p.jockey}</span></span>`).join('');
+    const buyHTML = buy.map((p,i)=>{
+      const oddsTxt = p.ninkiPred ? `<span class="w5-odds">${p.ninkiPred}人気${p.odds?' / '+p.odds+'倍':''}</span>` : '';
+      return `<span class="w5-buy ${i===0?'axis':''}">${p.mark}<b>${parseInt(p.num,10)}</b> ${p.name}<span class="w5-jk">${p.jockey}</span>${oddsTxt}</span>`;
+    }).join('');
     return `
     <div class="w5-card">
       <div class="w5-no">WIN5<span>${r.win5Order||''}</span></div>
