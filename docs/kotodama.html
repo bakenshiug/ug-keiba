@@ -217,16 +217,17 @@
     font-size:9px;color:rgba(201,168,76,.85);letter-spacing:.08em;line-height:1.1}
   .w5-no span{display:block;font-size:20px;font-weight:900;color:#ffd966}
   .w5-main{flex:1;min-width:0}
-  .w5-race{font-size:12px;color:rgba(245,230,192,.75);font-family:'Shippori Mincho',serif;letter-spacing:.06em;margin-bottom:3px}
-  .w5-honmei{font-size:15px;font-weight:700;color:#fff}
-  .w5-honmei b{color:#ffd966;font-size:17px;margin:0 2px}
-  .w5-jk{font-size:11px;color:rgba(201,168,76,.8);margin-left:8px}
-  .w5-aites{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px}
-  .w5-aite{font-size:11px;color:#e8dcc8;background:rgba(255,255,255,.06);
-    border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:2px 9px}
-  .win5-foot{text-align:center;margin-top:14px;padding-top:10px;
-    border-top:1px dashed rgba(201,168,76,.4);font-size:13px;color:#f5e6c0;letter-spacing:.06em}
-  .win5-foot b{color:#ffd966}
+  .w5-race{font-size:12px;color:rgba(245,230,192,.7);font-family:'Shippori Mincho',serif;letter-spacing:.06em;margin-bottom:7px;display:flex;align-items:center;gap:8px}
+  .w5-pts{display:inline-block;font-family:'Inter',sans-serif;font-size:11px;font-weight:900;
+    color:#1a0a00;background:#ffd966;border-radius:10px;padding:1px 9px;letter-spacing:.02em}
+  .w5-buys{display:flex;flex-wrap:wrap;gap:7px}
+  .w5-buy{display:inline-flex;align-items:baseline;gap:3px;font-size:14px;font-weight:700;color:#fff;
+    background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.35);border-radius:8px;padding:5px 11px}
+  .w5-buy.axis{background:rgba(201,168,76,.18);border-color:#c9a84c}
+  .w5-buy b{color:#ffd966;font-size:16px;margin:0 1px}
+  .w5-jk{font-size:10px;color:rgba(201,168,76,.8);margin-left:5px;font-weight:400}
+  .win5-note{text-align:center;margin-top:14px;padding-top:10px;
+    border-top:1px dashed rgba(201,168,76,.4);font-size:11.5px;color:rgba(245,230,192,.85);letter-spacing:.04em;line-height:1.6}
 
   /* 推奨買い目（結果前） */
   .buy-rec{margin-top:12px;padding:10px 14px;border-radius:8px;
@@ -1133,18 +1134,20 @@ function renderSummary(){
 
 function renderWin5Column(races){
   if (!races || races.length === 0) return '';
+  let totalPts = 1;
   const cards = races.map(r => {
-    const sp = [...(r.picks||[])].sort((a,b)=>({'◎':0,'○':1,'▲':2,'激':3}[a.mark]??9)-({'◎':0,'○':1,'▲':2,'激':3}[b.mark]??9));
-    const honmei = sp.find(p=>p.mark==='◎');
-    const aite = sp.filter(p=>p.mark!=='◎');
-    const aiteHTML = aite.map(p=>`<span class="w5-aite">${p.mark}${parseInt(p.num,10)} ${p.name}</span>`).join('');
+    const ord = {'◎':0,'○':1,'▲':2,'激':3};
+    const sp = [...(r.picks||[])].sort((a,b)=>(ord[a.mark]??9)-(ord[b.mark]??9));
+    const nPts = r.win5Points || 1;
+    totalPts *= nPts;
+    const buy = sp.slice(0, nPts);   // WIN5で実際に買う馬（◎○▲順でN頭）
+    const buyHTML = buy.map((p,i)=>`<span class="w5-buy ${i===0?'axis':''}">${p.mark}<b>${parseInt(p.num,10)}</b> ${p.name}<span class="w5-jk">${p.jockey}</span></span>`).join('');
     return `
     <div class="w5-card">
       <div class="w5-no">WIN5<span>${r.win5Order||''}</span></div>
       <div class="w5-main">
-        <div class="w5-race">${r.venue}${r.raceNum}　${r.raceName||''}</div>
-        <div class="w5-honmei">◎<b>${honmei?parseInt(honmei.num,10):''}</b> ${honmei?honmei.name:''}<span class="w5-jk">${honmei?honmei.jockey:''}</span></div>
-        <div class="w5-aites">${aiteHTML}</div>
+        <div class="w5-race">${r.venue}${r.raceNum}　${r.raceName||''}<span class="w5-pts">${nPts}点</span></div>
+        <div class="w5-buys">${buyHTML}</div>
       </div>
     </div>`;
   }).join('');
@@ -1152,9 +1155,10 @@ function renderWin5Column(races){
     <div class="win5-column">
       <div class="win5-head">
         <span class="win5-title mincho">🎯 神宮WIN5予想</span>
-        <span class="win5-sub">突出度メソッド × 馬場傾向</span>
+        <span class="win5-sub">突出度メソッド × 馬場傾向　／　計 ${totalPts}点</span>
       </div>
       <div class="win5-cards">${cards}</div>
+      <div class="win5-note">★ 上記の馬を各レース買い目に組む（${races.map(r=>r.win5Points||1).join('×')}＝${totalPts}点）。通常馬券は各レースの◎軸馬単マルチで。</div>
     </div>`;
 }
 
