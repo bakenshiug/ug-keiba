@@ -513,6 +513,7 @@
 
 <script>
 const FILES = [
+  'data/kotodama-test/2026-06-06.json',
   'data/kotodama-test/2026-05-31.json',
   'data/kotodama-test/2026-05-24.json',
   'data/kotodama-test/2026-05-23.json',
@@ -576,7 +577,7 @@ let SUMMARY = null;
 
 // ── 朱雀（騎手）マスター ──────────────────────────
 // 週次更新: data/jockey/YYYY-MM-DD_master149.json
-const JOCKEY_MASTER_FILE = 'data/jockey/2026-05-11_master149.json';
+const JOCKEY_MASTER_FILE = 'data/jockey/2026-06-01_master149.json';
 let JOCKEY_MAP = {}; // fullName & 3-char prefix → jockeyData
 
 async function loadJockeyMaster() {
@@ -1234,7 +1235,7 @@ async function renderSuzaku(){
     </div>`;
   return; // 以下の朱雀ボードはオークス週スキップ
   try {
-    const r = await fetch('data/jockey/2026-05-11_venue_top5_enriched.json?_='+Date.now());
+    const r = await fetch('data/jockey/2026-06-01_venue_top5_enriched.json?_='+Date.now());
     const d = await r.json();
     // 競馬場ごとにグループ化（東京 / 京都 / 新潟）→ 各場で芝・ダ横並び
     const venueGroups = [
