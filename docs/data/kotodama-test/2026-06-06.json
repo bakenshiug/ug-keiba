@@ -41,8 +41,8 @@
           "zensou": "",
           "comment": "多角適性評価で初戦向き・仕上がり・出脚すべて最上位。レーン騎乗で陣営の本気がうかがえる。陣営評価は控えめだが、神宮としては総合力断トツのこの一頭を本命に推す。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "4",
+          "finalNinki": "4",
           "ninkiPred": 4,
           "odds": 5.0
         },
@@ -68,8 +68,8 @@
           "zensou": "",
           "comment": "ゲートが速く時計面の評価も高い。多角ファクターで最多の好印を集めた堅実型。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "2",
+          "finalNinki": "1",
           "ninkiPred": 1,
           "odds": 2.5
         },
@@ -95,8 +95,8 @@
           "zensou": "",
           "comment": "陣営が初戦から力を発揮できると明言。癖がなく完成度の高さが武器だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "3",
+          "finalNinki": "2",
           "ninkiPred": 3,
           "odds": 4.8
         },
@@ -122,8 +122,8 @@
           "zensou": "",
           "comment": "陣営の前評判は出走馬中最も強気で素軽い動き。市場では人気を落としそうで、言霊妙味の激走枠に据える。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "6",
+          "finalNinki": "5",
           "ninkiPred": 5,
           "odds": 6.2
         }
@@ -152,7 +152,91 @@
         "special": false
       },
       "fatalWords": [],
-      "win5": false
+      "win5": false,
+      "result": {
+        "fetched": "2026-06-07T08:27:50",
+        "netkeibaRaceId": "202605030104",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "2",
+            "name": "ラードンチェイス",
+            "finalNinki": "3"
+          },
+          {
+            "rank": "2",
+            "num": "4",
+            "name": "リリカルフレア",
+            "finalNinki": "1"
+          },
+          {
+            "rank": "3",
+            "num": "5",
+            "name": "オオセイケイ",
+            "finalNinki": "2"
+          },
+          {
+            "rank": "4",
+            "num": "6",
+            "name": "ニューロファイター",
+            "finalNinki": "4"
+          },
+          {
+            "rank": "5",
+            "num": "7",
+            "name": "ベアアミーチ",
+            "finalNinki": "6"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "2"
+              ],
+              "amount": 390
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "2",
+                "4"
+              ],
+              "amount": 170
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "2",
+                "4"
+              ],
+              "amount": 1250
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "honmei_tan": 100,
+            "honmei_umatan": 600,
+            "ana_tan": 100,
+            "ana_umatan": 600
+          },
+          "payout": {
+            "honmei_tan": 0,
+            "honmei_umatan": 0,
+            "ana_tan": 0,
+            "ana_umatan": 0
+          },
+          "investTotal": 1400,
+          "payoutTotal": 0,
+          "recovery": 0.0,
+          "honmei": "6",
+          "ana": "3"
+        },
+        "summary": "1着 2番 ラードンチェイス (3人気) | 回収率 0.0%"
+      }
     },
     {
       "raceId": "202605030105",
@@ -190,8 +274,8 @@
           "zensou": "",
           "comment": "走ることに真面目でフットワーク大きく東京コース向き。陣営評価・多角適性評価ともに断トツの本命格。ルメール騎乗で死角は見当たらない。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "1",
+          "finalNinki": "1",
           "ninkiPred": 1,
           "odds": 1.3
         },
@@ -217,8 +301,8 @@
           "zensou": "",
           "comment": "陣営は血統面に保留を残すが、多角適性評価では初戦向き・仕上がり・出脚がすべて最上位。神宮としては言霊だけでは拾えないこの隠れ穴を強く警戒する。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "2",
+          "finalNinki": "3",
           "ninkiPred": 3,
           "odds": 8.4
         },
@@ -244,8 +328,8 @@
           "zensou": "",
           "comment": "牝馬としてどっしりしてメンタルが安定。先々も含めて楽しみと陣営。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "3",
+          "finalNinki": "2",
           "ninkiPred": 2,
           "odds": 4.5
         },
@@ -271,8 +355,8 @@
           "zensou": "",
           "comment": "調教でしっかり動き従順で前向き。ゲート練習も入念で出脚に妙味。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "7",
+          "finalNinki": "4",
           "ninkiPred": 4,
           "odds": 14.4
         }
@@ -301,7 +385,92 @@
         "special": false
       },
       "fatalWords": [],
-      "win5": false
+      "win5": false,
+      "result": {
+        "fetched": "2026-06-07T08:27:50",
+        "netkeibaRaceId": "202605030105",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "2",
+            "name": "フィリオソラーレ",
+            "finalNinki": "1"
+          },
+          {
+            "rank": "2",
+            "num": "1",
+            "name": "ウィンターブリーズ",
+            "finalNinki": "3"
+          },
+          {
+            "rank": "3",
+            "num": "6",
+            "name": "クシェドゥソレイユ",
+            "finalNinki": "2"
+          },
+          {
+            "rank": "4",
+            "num": "4",
+            "name": "アテナブレイブ",
+            "finalNinki": "5"
+          },
+          {
+            "rank": "5",
+            "num": "5",
+            "name": "スクリプトール",
+            "finalNinki": "6"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "2"
+              ],
+              "amount": 130
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "2",
+                "1",
+                "6"
+              ],
+              "amount": 110
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "2",
+                "1"
+              ],
+              "amount": 340
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "honmei_tan": 100,
+            "honmei_umatan": 600,
+            "ana_tan": 100,
+            "ana_umatan": 600
+          },
+          "payout": {
+            "honmei_tan": 130,
+            "honmei_umatan": 340,
+            "ana_tan": 0,
+            "ana_umatan": 0
+          },
+          "investTotal": 1400,
+          "payoutTotal": 470,
+          "recovery": 33.6,
+          "honmei": "2",
+          "ana": "9"
+        },
+        "summary": "1着 2番 フィリオソラーレ (1人気) | 回収率 33.6%"
+      }
     },
     {
       "raceId": "202609030105",
@@ -339,8 +508,8 @@
           "zensou": "",
           "comment": "追い日に本馬場で十分な動きを見せ陣営も期待を口にする。川田騎乗で出脚・血統・時計の多角評価も高水準。言霊の本命格だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "2",
+          "finalNinki": "1",
           "ninkiPred": 2,
           "odds": 2.5
         },
@@ -366,8 +535,8 @@
           "zensou": "",
           "comment": "体力をつけて帰厩しいい動き・前向きな性格。多角適性評価では初戦向き最上位でこちらを本命に推す声もある。神宮の対抗。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "1",
+          "finalNinki": "2",
           "ninkiPred": 1,
           "odds": 2.4
         },
@@ -393,8 +562,8 @@
           "zensou": "",
           "comment": "古馬の良血馬と併せ馬で食らいつき能力の片鱗。調教通りなら。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "6",
+          "finalNinki": "3",
           "ninkiPred": 3,
           "odds": 4.8
         },
@@ -420,8 +589,8 @@
           "zensou": "",
           "comment": "小柄だが仕上がりの評価が高く初戦から力を出せる。人気を落とすなら妙味。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "5",
+          "finalNinki": "6",
           "ninkiPred": 6,
           "odds": 13.6
         }
@@ -450,7 +619,91 @@
         "special": false
       },
       "fatalWords": [],
-      "win5": false
+      "win5": false,
+      "result": {
+        "fetched": "2026-06-07T08:27:50",
+        "netkeibaRaceId": "202609030105",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "5",
+            "name": "ジーティーサクラ",
+            "finalNinki": "2"
+          },
+          {
+            "rank": "2",
+            "num": "3",
+            "name": "ロジクラウン",
+            "finalNinki": "1"
+          },
+          {
+            "rank": "3",
+            "num": "6",
+            "name": "エコロラーダ",
+            "finalNinki": "5"
+          },
+          {
+            "rank": "4",
+            "num": "4",
+            "name": "シャインラブ",
+            "finalNinki": "4"
+          },
+          {
+            "rank": "5",
+            "num": "2",
+            "name": "シャプシュ",
+            "finalNinki": "6"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "5"
+              ],
+              "amount": 270
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "5",
+                "3"
+              ],
+              "amount": 120
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "5",
+                "3"
+              ],
+              "amount": 600
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "honmei_tan": 100,
+            "honmei_umatan": 600,
+            "ana_tan": 100,
+            "ana_umatan": 600
+          },
+          "payout": {
+            "honmei_tan": 0,
+            "honmei_umatan": 600,
+            "ana_tan": 0,
+            "ana_umatan": 0
+          },
+          "investTotal": 1400,
+          "payoutTotal": 600,
+          "recovery": 42.9,
+          "honmei": "3",
+          "ana": "2"
+        },
+        "summary": "1着 5番 ジーティーサクラ (2人気) | 回収率 42.9%"
+      }
     },
     {
       "raceId": "202605030109",
@@ -488,8 +741,8 @@
           "zensou": "NF天栄仕上げ",
           "comment": "神宮速力指数が出走馬中で断トツに突出し、ルメール×差し脚質で『差し追込有利・大外差し決まる』馬場傾向にドンピシャ。突出軸と馬場が一致した今週最有力級の本命だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "2",
+          "finalNinki": "1",
           "ninkiPred": 1,
           "odds": 2.7
         },
@@ -515,8 +768,8 @@
           "zensou": "",
           "comment": "前走不利で不当に評価を下げた一頭と神宮メモが指摘。妙味は出走馬最上位クラスで、差し決着なら浮上。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "9",
+          "finalNinki": "4",
           "ninkiPred": 4,
           "odds": 12.2
         },
@@ -542,8 +795,8 @@
           "zensou": "",
           "comment": "終い性能の想定が出走馬トップ。差し追込有利の馬場で末脚が活きる。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "5",
+          "finalNinki": "3",
           "ninkiPred": 3,
           "odds": 5.0
         },
@@ -569,8 +822,8 @@
           "zensou": "",
           "comment": "白虎激走印×朱雀バイタル印のダブル印に妙味最上位。差し脚質で一発を秘める。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "6",
+          "finalNinki": "5",
           "ninkiPred": 6,
           "odds": 13.9
         }
@@ -601,7 +854,92 @@
       "fatalWords": [],
       "win5": true,
       "win5Order": 1,
-      "win5Points": 1
+      "win5Points": 1,
+      "result": {
+        "fetched": "2026-06-07T08:27:50",
+        "netkeibaRaceId": "202605030109",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "8",
+            "name": "エリプティクカーブ",
+            "finalNinki": "2"
+          },
+          {
+            "rank": "2",
+            "num": "10",
+            "name": "ウップヘリーア",
+            "finalNinki": "1"
+          },
+          {
+            "rank": "3",
+            "num": "9",
+            "name": "サンセットビュー",
+            "finalNinki": "6"
+          },
+          {
+            "rank": "4",
+            "num": "5",
+            "name": "ゲンジ",
+            "finalNinki": "7"
+          },
+          {
+            "rank": "5",
+            "num": "12",
+            "name": "イブキ",
+            "finalNinki": "3"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "8"
+              ],
+              "amount": 370
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "8",
+                "10",
+                "9"
+              ],
+              "amount": 160
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "8",
+                "10"
+              ],
+              "amount": 960
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "honmei_tan": 100,
+            "honmei_umatan": 600,
+            "ana_tan": 100,
+            "ana_umatan": 600
+          },
+          "payout": {
+            "honmei_tan": 0,
+            "honmei_umatan": 0,
+            "ana_tan": 0,
+            "ana_umatan": 0
+          },
+          "investTotal": 1400,
+          "payoutTotal": 0,
+          "recovery": 0.0,
+          "honmei": "10",
+          "ana": "3"
+        },
+        "summary": "1着 8番 エリプティクカーブ (2人気) | 回収率 0.0%"
+      }
     },
     {
       "raceId": "202605030110",
@@ -639,8 +977,8 @@
           "zensou": "NF天栄仕上げ",
           "comment": "神宮速力指数が突出しNF天栄仕上げ＝陣営本気。ワンターン1400mは流れが合う。気性面に課題は残るが、内枠から立ち回れれば古馬相手でも能力上位だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "2",
+          "finalNinki": "1",
           "ninkiPred": 1,
           "odds": 1.8
         },
@@ -666,8 +1004,8 @@
           "zensou": "",
           "comment": "前走不利で不当に評価を下げた一頭と神宮メモが名指し。仕上指数が突出し調教も好調、馬体に柔らかみがあり状態は上々。1400mもこなせる。神宮としては◎と僅差の評価だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "1",
+          "finalNinki": "3",
           "ninkiPred": 5,
           "odds": 15.5
         },
@@ -693,8 +1031,8 @@
           "zensou": "",
           "comment": "終い性能の想定が出走馬1位。差し追込有利の馬場で末脚が活きる。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "7",
+          "finalNinki": "4",
           "ninkiPred": 4,
           "odds": 10.6
         },
@@ -720,8 +1058,8 @@
           "zensou": "",
           "comment": "去勢でメンタルが安定し白虎激走印×朱雀バイタル印。妙味最上位で距離延長も対応可能。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "8",
+          "finalNinki": "6",
           "ninkiPred": 6,
           "odds": 16.2
         }
@@ -752,7 +1090,92 @@
       "fatalWords": [],
       "win5": true,
       "win5Order": 3,
-      "win5Points": 3
+      "win5Points": 3,
+      "result": {
+        "fetched": "2026-06-07T08:27:50",
+        "netkeibaRaceId": "202605030110",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "6",
+            "name": "ロジケープ",
+            "finalNinki": "3"
+          },
+          {
+            "rank": "2",
+            "num": "4",
+            "name": "クレパスキュラー",
+            "finalNinki": "1"
+          },
+          {
+            "rank": "3",
+            "num": "2",
+            "name": "ユキノエミリオ",
+            "finalNinki": "16"
+          },
+          {
+            "rank": "4",
+            "num": "1",
+            "name": "サンタアニタ",
+            "finalNinki": "8"
+          },
+          {
+            "rank": "5",
+            "num": "16",
+            "name": "イゾラフェリーチェ",
+            "finalNinki": "7"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "6"
+              ],
+              "amount": 1120
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "6",
+                "4",
+                "2"
+              ],
+              "amount": 260
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "6",
+                "4"
+              ],
+              "amount": 2960
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "honmei_tan": 100,
+            "honmei_umatan": 600,
+            "ana_tan": 100,
+            "ana_umatan": 600
+          },
+          "payout": {
+            "honmei_tan": 0,
+            "honmei_umatan": 2960,
+            "ana_tan": 0,
+            "ana_umatan": 0
+          },
+          "investTotal": 1400,
+          "payoutTotal": 2960,
+          "recovery": 211.4,
+          "honmei": "4",
+          "ana": "9"
+        },
+        "summary": "1着 6番 ロジケープ (3人気) | 回収率 211.4%"
+      }
     },
     {
       "raceId": "202605030111",
@@ -790,8 +1213,8 @@
           "zensou": "昇級初戦",
           "comment": "前走の勝ち方が強く総合評価トップ、終い性能の想定も1位。陣営は二走ボケを警戒するが、内伸び馬場の中枠から能力的には十分通用する。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "1",
+          "finalNinki": "2",
           "ninkiPred": 2,
           "odds": 3.1
         },
@@ -817,8 +1240,8 @@
           "zensou": "",
           "comment": "決め手はこのクラスでも上位でルメール継続騎乗。終い性能想定2位、内枠で内伸び馬場に合致する。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "10",
+          "finalNinki": "3",
           "ninkiPred": 3,
           "odds": 7.9
         },
@@ -844,8 +1267,8 @@
           "zensou": "",
           "comment": "仕上指数が突出し朱雀バイタル印に妙味最上位。前走快勝で1400mの安定感は出走馬屈指だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "5",
+          "finalNinki": "4",
           "ninkiPred": 4,
           "odds": 12.0
         },
@@ -871,8 +1294,8 @@
           "zensou": "",
           "comment": "白虎激走印に妙味最上位。走り慣れた1400m左回りで力通りなら浮上。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "3",
+          "finalNinki": "6",
           "ninkiPred": 9,
           "odds": 24.3
         }
@@ -903,7 +1326,92 @@
       "fatalWords": [],
       "win5": true,
       "win5Order": 5,
-      "win5Points": 2
+      "win5Points": 2,
+      "result": {
+        "fetched": "2026-06-07T08:27:51",
+        "netkeibaRaceId": "202605030111",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "9",
+            "name": "メリディアンスター",
+            "finalNinki": "2"
+          },
+          {
+            "rank": "2",
+            "num": "12",
+            "name": "スナッピードレッサ",
+            "finalNinki": "1"
+          },
+          {
+            "rank": "3",
+            "num": "8",
+            "name": "ピエマンソン",
+            "finalNinki": "6"
+          },
+          {
+            "rank": "4",
+            "num": "15",
+            "name": "メイショウツヨキ",
+            "finalNinki": "9"
+          },
+          {
+            "rank": "5",
+            "num": "5",
+            "name": "モーニングマジック",
+            "finalNinki": "4"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "9"
+              ],
+              "amount": 320
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "9",
+                "12",
+                "8"
+              ],
+              "amount": 130
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "9",
+                "12"
+              ],
+              "amount": 620
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "honmei_tan": 100,
+            "honmei_umatan": 600,
+            "ana_tan": 100,
+            "ana_umatan": 600
+          },
+          "payout": {
+            "honmei_tan": 320,
+            "honmei_umatan": 0,
+            "ana_tan": 0,
+            "ana_umatan": 0
+          },
+          "investTotal": 1400,
+          "payoutTotal": 320,
+          "recovery": 22.9,
+          "honmei": "9",
+          "ana": "8"
+        },
+        "summary": "1着 9番 メリディアンスター (2人気) | 回収率 22.9%"
+      }
     },
     {
       "raceId": "202609030110",
@@ -941,8 +1449,8 @@
           "zensou": "本気仕上げ",
           "comment": "神宮速力指数が出走馬を圧倒する超突出（差51）。川田×先行脚質で『逃げ先行有利・先行力追走力重要』の馬場傾向にドンピシャ。突出×馬場×鞍上の三重一致で今週最強の鉄板軸だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "5",
+          "finalNinki": "1",
           "ninkiPred": 1,
           "odds": 1.5
         },
@@ -968,8 +1476,8 @@
           "zensou": "",
           "comment": "武豊騎乗の先行型。低速底力タイプで馬場傾向に合致し、人気でも軽視できない。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "6",
+          "finalNinki": "3",
           "ninkiPred": 2,
           "odds": 6.0
         },
@@ -995,8 +1503,8 @@
           "zensou": "",
           "comment": "先行力・追走力の想定が上位で逃げ先行有利の馬場に合致。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "1",
+          "finalNinki": "2",
           "ninkiPred": 3,
           "odds": 10.3
         },
@@ -1022,8 +1530,8 @@
           "zensou": "",
           "comment": "朱雀バイタル印に妙味最上位。先行力を活かせれば。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "4",
+          "finalNinki": "5",
           "ninkiPred": 4,
           "odds": 15.9
         }
@@ -1054,7 +1562,92 @@
       "fatalWords": [],
       "win5": true,
       "win5Order": 2,
-      "win5Points": 1
+      "win5Points": 1,
+      "result": {
+        "fetched": "2026-06-07T08:27:51",
+        "netkeibaRaceId": "202609030110",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "4",
+            "name": "バトンインディ",
+            "finalNinki": "2"
+          },
+          {
+            "rank": "2",
+            "num": "9",
+            "name": "プライベートアイズ",
+            "finalNinki": "4"
+          },
+          {
+            "rank": "3",
+            "num": "2",
+            "name": "タカサンフェイス",
+            "finalNinki": "7"
+          },
+          {
+            "rank": "4",
+            "num": "1",
+            "name": "クリノフィガロ",
+            "finalNinki": "5"
+          },
+          {
+            "rank": "5",
+            "num": "6",
+            "name": "ボクマダネムイヨ",
+            "finalNinki": "1"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "4"
+              ],
+              "amount": 460
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "4",
+                "9",
+                "2"
+              ],
+              "amount": 280
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "4",
+                "9"
+              ],
+              "amount": 7110
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "honmei_tan": 100,
+            "honmei_umatan": 600,
+            "ana_tan": 100,
+            "ana_umatan": 600
+          },
+          "payout": {
+            "honmei_tan": 0,
+            "honmei_umatan": 0,
+            "ana_tan": 0,
+            "ana_umatan": 0
+          },
+          "investTotal": 1400,
+          "payoutTotal": 0,
+          "recovery": 0.0,
+          "honmei": "6",
+          "ana": "1"
+        },
+        "summary": "1着 4番 バトンインディ (2人気) | 回収率 0.0%"
+      }
     },
     {
       "raceId": "202609030111",
@@ -1092,8 +1685,8 @@
           "zensou": "",
           "comment": "神宮速力指数が出走馬トップで、いい位置で運べる先行力が『逃げ好位有利・先行力追走力重要』の馬場傾向に合致。混戦を制する最有力の本命だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "2",
+          "finalNinki": "1",
           "ninkiPred": 2,
           "odds": 4.8
         },
@@ -1119,8 +1712,8 @@
           "zensou": "",
           "comment": "白虎激走印×朱雀バイタル印×スタート印×厩舎印の四重印で神宮メモが激推し、前走不利の不当評価も指摘。陣営も速い時計対応と折り合い進境を明言し調子は上向き。印が射抜く穴の本命格だ。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "5",
+          "finalNinki": "4",
           "ninkiPred": 6,
           "odds": 8.5
         },
@@ -1146,8 +1739,8 @@
           "zensou": "",
           "comment": "中山より阪神が向き動きはしっかり。クラス2走目で前進が見込める。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "4",
+          "finalNinki": "3",
           "ninkiPred": 5,
           "odds": 6.8
         },
@@ -1173,8 +1766,8 @@
           "zensou": "",
           "comment": "前走不利で不当に評価を下げた一頭と神宮メモが指摘。白虎激走印で距離延長に妙味。",
           "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
+          "finalRank": "6",
+          "finalNinki": "6",
           "ninkiPred": 3,
           "odds": 5.8
         }
@@ -1205,7 +1798,92 @@
       "fatalWords": [],
       "win5": true,
       "win5Order": 4,
-      "win5Points": 3
+      "win5Points": 3,
+      "result": {
+        "fetched": "2026-06-07T08:27:51",
+        "netkeibaRaceId": "202609030111",
+        "horses": [
+          {
+            "rank": "1",
+            "num": "2",
+            "name": "ジーティーダーリン",
+            "finalNinki": "7"
+          },
+          {
+            "rank": "2",
+            "num": "1",
+            "name": "ミュージシャン",
+            "finalNinki": "1"
+          },
+          {
+            "rank": "3",
+            "num": "6",
+            "name": "バッデレイト",
+            "finalNinki": "2"
+          },
+          {
+            "rank": "4",
+            "num": "4",
+            "name": "クルミナーレ",
+            "finalNinki": "3"
+          },
+          {
+            "rank": "5",
+            "num": "3",
+            "name": "キャントウェイト",
+            "finalNinki": "4"
+          }
+        ],
+        "payouts": {
+          "tan": [
+            {
+              "combo": [
+                "2"
+              ],
+              "amount": 2020
+            }
+          ],
+          "fuku": [
+            {
+              "combo": [
+                "2",
+                "1",
+                "6"
+              ],
+              "amount": 380
+            }
+          ],
+          "umatan": [
+            {
+              "combo": [
+                "2",
+                "1"
+              ],
+              "amount": 6240
+            }
+          ]
+        },
+        "betting": {
+          "invest": {
+            "honmei_tan": 100,
+            "honmei_umatan": 600,
+            "ana_tan": 100,
+            "ana_umatan": 600
+          },
+          "payout": {
+            "honmei_tan": 0,
+            "honmei_umatan": 0,
+            "ana_tan": 0,
+            "ana_umatan": 0
+          },
+          "investTotal": 1400,
+          "payoutTotal": 0,
+          "recovery": 0.0,
+          "honmei": "1",
+          "ana": "8"
+        },
+        "summary": "1着 2番 ジーティーダーリン (7人気) | 回収率 0.0%"
+      }
     }
   ],
   "summary": {
@@ -1213,5 +1891,134 @@
     "totalInvestment": 8000,
     "totalReturn": 0,
     "returnRate": 0.0
+  },
+  "summaryV2": {
+    "racesWithResult": 8,
+    "racesHit": 4,
+    "raceHitRate": 50.0,
+    "totalInvest": 11200,
+    "totalPayout": 4350,
+    "totalRecovery": 38.8,
+    "byKind": {
+      "honmei_tan": {
+        "invest": 800,
+        "payout": 450,
+        "recovery": 56.2,
+        "hit": 2,
+        "races": 8,
+        "hitRate": 25.0
+      },
+      "honmei_umatan": {
+        "invest": 4800,
+        "payout": 3900,
+        "recovery": 81.2,
+        "hit": 3,
+        "races": 8,
+        "hitRate": 37.5
+      },
+      "ana_tan": {
+        "invest": 800,
+        "payout": 0,
+        "recovery": 0.0,
+        "hit": 0,
+        "races": 8,
+        "hitRate": 0.0
+      },
+      "ana_umatan": {
+        "invest": 4800,
+        "payout": 0,
+        "recovery": 0.0,
+        "hit": 0,
+        "races": 8,
+        "hitRate": 0.0
+      }
+    },
+    "updated": "2026-06-07T08:27:51",
+    "byVenue": {
+      "東京": {
+        "racesWithResult": 5,
+        "racesHit": 3,
+        "raceHitRate": 60.0,
+        "totalInvest": 7000,
+        "totalPayout": 3750,
+        "totalRecovery": 53.6,
+        "byKind": {
+          "honmei_tan": {
+            "invest": 500,
+            "payout": 450,
+            "recovery": 90.0,
+            "hit": 2,
+            "races": 5,
+            "hitRate": 40.0
+          },
+          "honmei_umatan": {
+            "invest": 3000,
+            "payout": 3300,
+            "recovery": 110.0,
+            "hit": 2,
+            "races": 5,
+            "hitRate": 40.0
+          },
+          "ana_tan": {
+            "invest": 500,
+            "payout": 0,
+            "recovery": 0.0,
+            "hit": 0,
+            "races": 5,
+            "hitRate": 0.0
+          },
+          "ana_umatan": {
+            "invest": 3000,
+            "payout": 0,
+            "recovery": 0.0,
+            "hit": 0,
+            "races": 5,
+            "hitRate": 0.0
+          }
+        }
+      },
+      "阪神": {
+        "racesWithResult": 3,
+        "racesHit": 1,
+        "raceHitRate": 33.3,
+        "totalInvest": 4200,
+        "totalPayout": 600,
+        "totalRecovery": 14.3,
+        "byKind": {
+          "honmei_tan": {
+            "invest": 300,
+            "payout": 0,
+            "recovery": 0.0,
+            "hit": 0,
+            "races": 3,
+            "hitRate": 0.0
+          },
+          "honmei_umatan": {
+            "invest": 1800,
+            "payout": 600,
+            "recovery": 33.3,
+            "hit": 1,
+            "races": 3,
+            "hitRate": 33.3
+          },
+          "ana_tan": {
+            "invest": 300,
+            "payout": 0,
+            "recovery": 0.0,
+            "hit": 0,
+            "races": 3,
+            "hitRate": 0.0
+          },
+          "ana_umatan": {
+            "invest": 1800,
+            "payout": 0,
+            "recovery": 0.0,
+            "hit": 0,
+            "races": 3,
+            "hitRate": 0.0
+          }
+        }
+      }
+    }
   }
 }
