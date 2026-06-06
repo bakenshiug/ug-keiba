@@ -530,7 +530,7 @@
       "picks": [
         {
           "mark": "◎",
-          "num": "06",
+          "num": "05",
           "name": "エバーグルーヴ",
           "jockey": "西村淳也",
           "trainer": "藤岡健一",
@@ -557,7 +557,7 @@
         },
         {
           "mark": "○",
-          "num": "05",
+          "num": "06",
           "name": "ジョイエッロ",
           "jockey": "川田将雅",
           "trainer": "池江泰寿",
@@ -667,8 +667,8 @@
           {
             "type": "馬単マルチ",
             "nums": [
-              "06",
               "05",
+              "06",
               "08",
               "03"
             ],
@@ -898,33 +898,6 @@
           "odds": 3.9
         },
         {
-          "mark": "激",
-          "num": "04",
-          "name": "フリームファクシ",
-          "jockey": "酒井学",
-          "trainer": "須貝尚介",
-          "kotodamaGrade": "",
-          "kotodamaScore": 0,
-          "totalScore": 0,
-          "gaikyuGrade": "🔥🔥🔥 ノーザンＦしがらき",
-          "gaikyuFull": "ノーザンＦしがらき",
-          "suzakuGrade": "",
-          "suzakuScore": 0,
-          "suzakuAvg": 0,
-          "genbuScore": 0,
-          "genbuTrend": "—",
-          "gekisouScore": 0,
-          "gekisouNote": "",
-          "hatsuBri": 0,
-          "zensou": "",
-          "comment": "このレース唯一のノーザン外厩（NFしがらき）×重賞級の地力。陣営は『ダートで変身を』と狙い澄ます。市場が見過ごす神宮の宝で、ダート変身が嵌まれば一発の大穴だ。",
-          "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
-          "ninkiPred": 11,
-          "odds": 27.4
-        },
-        {
           "mark": "△",
           "num": "03",
           "name": "プレゼンティーア",
@@ -986,29 +959,24 @@
           "name": "アンズアメ"
         },
         {
-          "num": "4",
-          "name": "フリームファクシ"
-        },
-        {
           "num": "3",
           "name": "プレゼンティーア"
         }
       ],
       "kaime": {
-        "total_points": 6,
-        "total_investment": 600,
+        "total_points": 4,
+        "total_investment": 400,
         "bets": [
           {
             "type": "馬単マルチ",
             "nums": [
               "15",
               "06",
-              "04",
               "03"
             ],
             "note": "◎軸×相手",
-            "points": 6,
-            "amount": 600
+            "points": 4,
+            "amount": 400
           }
         ],
         "note": "馬単マルチ ◎軸×相手5",
@@ -1017,7 +985,7 @@
       "fatalWords": [],
       "win5": true,
       "win5Order": 4,
-      "win5Points": 4
+      "win5Points": 3
     },
     {
       "raceId": "202605030211",
@@ -1088,33 +1056,6 @@
           "odds": 0
         },
         {
-          "mark": "▲",
-          "num": "13",
-          "name": "セイウンハーデス",
-          "jockey": "幸英明",
-          "trainer": "橋口慎介",
-          "kotodamaGrade": "",
-          "kotodamaScore": 0,
-          "totalScore": 0,
-          "gaikyuGrade": "🔥🔥 チャンピオンヒルズ",
-          "gaikyuFull": "チャンピオンヒルズ",
-          "suzakuGrade": "",
-          "suzakuScore": 0,
-          "suzakuAvg": 0,
-          "genbuScore": 0,
-          "genbuTrend": "—",
-          "gekisouScore": 0,
-          "gekisouNote": "",
-          "hatsuBri": 0,
-          "zensou": "",
-          "comment": "CH預託＝陣営本気の直行ローテ。神宮指数も上位評価で、距離も時計も対応可能と陣営強気の市場6番人気は妙味十分だ。",
-          "byakkoNote": "",
-          "finalRank": "",
-          "finalNinki": "",
-          "ninkiPred": 6,
-          "odds": 0
-        },
-        {
           "mark": "◎",
           "num": "11",
           "name": "ワールズエンド",
@@ -1176,38 +1117,29 @@
           "name": "レーベンスティール"
         },
         {
-          "num": "13",
-          "name": "セイウンハーデス"
-        },
-        {
           "num": "14",
           "name": "ガイアフォース"
         },
         {
           "num": "16",
           "name": "パンジャタワー"
-        },
-        {
-          "num": "17",
-          "name": "トロヴァトーレ"
         }
       ],
       "kaime": {
-        "total_points": 8,
-        "total_investment": 800,
+        "total_points": 6,
+        "total_investment": 600,
         "bets": [
           {
             "type": "馬単マルチ",
             "nums": [
               "11",
               "01",
-              "13",
               "14",
               "16"
             ],
             "note": "◎軸×相手",
-            "points": 8,
-            "amount": 800
+            "points": 6,
+            "amount": 600
           }
         ],
         "note": "馬単マルチ ◎軸×相手",
@@ -1216,7 +1148,7 @@
       "fatalWords": [],
       "win5": true,
       "win5Order": 5,
-      "win5Points": 5
+      "win5Points": 4
     }
   ],
   "summary": {
