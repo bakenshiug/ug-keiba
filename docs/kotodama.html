@@ -209,6 +209,20 @@
   .win5-title{display:block;font-size:clamp(18px,3.5vw,24px);font-weight:900;
     color:#ffd966;letter-spacing:.14em;text-shadow:0 0 14px rgba(255,215,0,.5)}
   .win5-sub{font-size:11px;color:rgba(201,168,76,.8);letter-spacing:.14em}
+  .win5-date{display:inline-block;margin-left:10px;font-size:13px;color:#ffd966;
+    background:rgba(201,168,76,.18);border:1px solid rgba(201,168,76,.4);border-radius:10px;padding:1px 10px;vertical-align:middle}
+  /* 過去日のWIN5（折りたたみ） */
+  .win5-archive{max-width:920px;margin:0 auto 20px}
+  .win5-archive>summary{list-style:none;cursor:pointer;
+    background:linear-gradient(135deg,#241608,#3a2410);border:1.5px solid rgba(201,168,76,.5);
+    border-radius:10px;padding:13px 18px;color:#e8d9b0;font-family:'Shippori Mincho',serif;
+    font-size:14px;letter-spacing:.06em;text-align:center;transition:background .15s}
+  .win5-archive>summary::-webkit-details-marker{display:none}
+  .win5-archive>summary::before{content:'▶ ';color:var(--gold,#c9a84c);font-size:11px}
+  .win5-archive[open]>summary::before{content:'▼ '}
+  .win5-archive>summary:hover{background:linear-gradient(135deg,#2e1d0c,#46300f)}
+  .win5-archive .win5-column{margin-top:10px;opacity:.92}
+  .win5-archive .win5-column-archive{filter:saturate(.85)}
   .win5-cards{display:flex;flex-direction:column;gap:8px}
   .w5-card{display:flex;align-items:center;gap:12px;
     background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;
@@ -1136,15 +1150,14 @@ function renderSummary(){
     </details>`;
 }
 
-function renderWin5Column(races){
-  if (!races || races.length === 0) return '';
+function renderWin5Block(races){
   let totalPts = 1;
   const cards = races.map(r => {
     const ord = {'◎':0,'○':1,'▲':2,'激':3};
     const sp = [...(r.picks||[])].sort((a,b)=>(ord[a.mark]??9)-(ord[b.mark]??9));
     const nPts = r.win5Points || 1;
     totalPts *= nPts;
-    const buy = sp.slice(0, nPts);   // WIN5で実際に買う馬（◎○▲順でN頭）
+    const buy = sp.slice(0, nPts);
     const buyHTML = buy.map((p,i)=>{
       const oddsTxt = p.ninkiPred ? `<span class="w5-odds">${p.ninkiPred}人気${p.odds?' / '+p.odds+'倍':''}</span>` : '';
       return `<div class="w5-buy ${i===0?'axis':''}">
@@ -1162,15 +1175,37 @@ function renderWin5Column(races){
       </div>
     </div>`;
   }).join('');
-  return `
-    <div class="win5-column">
+  const parts = races.map(r=>r.win5Points||1);
+  return {cards, totalPts, parts};
+}
+
+function renderWin5Column(allRaces){
+  if (!allRaces || allRaces.length === 0) return '';
+  // 日付ごとにグループ化（新しい順）
+  const byDate = {};
+  allRaces.forEach(r => { (byDate[r.date] = byDate[r.date] || []).push(r); });
+  const dates = Object.keys(byDate).sort((a,b) => b.localeCompare(a));
+  return dates.map((d, i) => {
+    const races = byDate[d].sort((a,b)=>(a.win5Order||9)-(b.win5Order||9));
+    const {cards, totalPts, parts} = renderWin5Block(races);
+    const label = (typeof fmtDate==='function') ? fmtDate(d) : d;
+    const inner = `
       <div class="win5-head">
-        <span class="win5-title mincho">🎯 神宮WIN5予想</span>
+        <span class="win5-title mincho">🎯 神宮WIN5予想<span class="win5-date">${label}</span></span>
         <span class="win5-sub">突出度メソッド × 馬場傾向　／　計 ${totalPts}点</span>
       </div>
       <div class="win5-cards">${cards}</div>
-      <div class="win5-note">★ 上記の馬を各レース買い目に組む（${races.map(r=>r.win5Points||1).join('×')}＝${totalPts}点）。通常馬券は各レースの◎軸馬単マルチで。</div>
-    </div>`;
+      <div class="win5-note">★ ${parts.join('×')}＝${totalPts}点。通常馬券は各レースの◎軸馬単マルチで。</div>`;
+    if (i === 0) {
+      // 最新日：展開表示
+      return `<div class="win5-column">${inner}</div>`;
+    }
+    // 過去日：折りたたみ
+    return `<details class="win5-archive">
+      <summary>📁 ${label} の神宮WIN5（計${totalPts}点）— タップで展開</summary>
+      <div class="win5-column win5-column-archive">${inner}</div>
+    </details>`;
+  }).join('');
 }
 
 async function renderSuzaku(){
