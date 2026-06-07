@@ -1,0 +1,651 @@
+{
+  "weekend": "2026-06-13 / 6-14",
+  "races": [
+    {
+      "id": "takarazuka-kinen",
+      "name": "第67回 宝塚記念",
+      "grade": "GⅠ",
+      "date": "2026-06-14",
+      "weekday": "日",
+      "venue": "阪神",
+      "course": "芝2200m",
+      "category": "3歳以上オープン",
+      "shoubuKurani": true,
+      "shobu_note": "出馬表確定後に神宮の最終見解を投入する。",
+      "trends": [
+        {
+          "label": "4・5歳の充実世代が中心",
+          "value": "過去27年で4歳14勝・5歳10勝。6歳以降は計3勝のみと世代の壁が明確だ。働き盛りの4・5歳を主軸に据えるのが定石となる。",
+          "weight": "extreme"
+        },
+        {
+          "label": "差し優勢、渋れば前残り",
+          "value": "脚質は差しが12勝で最多。ただし2025メイショウタバル・2022タイトルホルダーのように、流れを単騎で運べる逃げ・先行はそのまま粘り込む。馬場と展開の見極めが鍵だ。",
+          "weight": "extreme"
+        },
+        {
+          "label": "外の8枠が最多10勝",
+          "value": "枠順は8枠が10勝と傑出。揉まれず外を回せた馬が浮上しやすい。内の1枠も複勝圏は多く、両極の傾向となる。",
+          "weight": "high"
+        },
+        {
+          "label": "1番人気は複勝率64%、だが伏兵も",
+          "value": "1番人気は[8,8,2]で複勝率64%と信頼度が高い。一方で2025・2016・2010と7番人気以上の伏兵が制す年も定期的にある。",
+          "weight": "high"
+        },
+        {
+          "label": "阪神内回り2200mの消耗戦",
+          "value": "小回りでの立ち回りと、上り坂を含む消耗戦への対応が問われる。スタミナと立ち回りの両立が必須となる。",
+          "weight": "caution"
+        }
+      ],
+      "trendsHaken": [
+        {
+          "label": "2着は5歳が台頭",
+          "value": "2着には5歳馬が最多。地力上位が崩れても5歳が2着に粘るパターンが目立つ。",
+          "weight": "high"
+        },
+        {
+          "label": "3着は人気薄の強襲",
+          "value": "3着には10番人気級の追込・差しが突っ込む年が多い。展開が向いた差し馬の一発に注意だ。",
+          "weight": "middle"
+        }
+      ],
+      "history": [
+        {
+          "year": 2025,
+          "date": "6/15",
+          "venue": "阪神",
+          "going": "速稍",
+          "first": {
+            "num": 12,
+            "name": "メイショウタバル",
+            "sex": "牡4",
+            "jockey": "武豊",
+            "trainer": "石橋守",
+            "pop": 7,
+            "time": "2.11.1",
+            "weight": 58,
+            "ana": true
+          },
+          "second": {
+            "num": 1,
+            "name": "ベラジオオペラ",
+            "pop": 1
+          },
+          "third": {
+            "num": 7,
+            "name": "ジャスティンパレス",
+            "pop": 10,
+            "ana": true
+          }
+        },
+        {
+          "year": 2024,
+          "date": "6/23",
+          "venue": "京都",
+          "going": "速重",
+          "first": {
+            "num": 12,
+            "name": "ブローザホーン",
+            "sex": "牡5",
+            "jockey": "菅原明",
+            "trainer": "吉岡辰",
+            "pop": 3,
+            "time": "2.12.0",
+            "weight": 58
+          },
+          "second": {
+            "num": 9,
+            "name": "ソールオリエンス",
+            "pop": 7,
+            "ana": true
+          },
+          "third": {
+            "num": 3,
+            "name": "ベラジオオペラ",
+            "pop": 5
+          }
+        },
+        {
+          "year": 2023,
+          "date": "6/25",
+          "venue": "阪神",
+          "going": "速良",
+          "first": {
+            "num": 5,
+            "name": "イクイノックス",
+            "sex": "牡4",
+            "jockey": "ルメール",
+            "trainer": "木村哲",
+            "pop": 1,
+            "time": "2.11.2",
+            "weight": 58
+          },
+          "second": {
+            "num": 6,
+            "name": "スルーセブンシーズ",
+            "pop": 10,
+            "ana": true
+          },
+          "third": {
+            "num": 9,
+            "name": "ジャスティンパレス",
+            "pop": 2
+          }
+        },
+        {
+          "year": 2022,
+          "date": "6/26",
+          "venue": "阪神",
+          "going": "速良",
+          "first": {
+            "num": 6,
+            "name": "タイトルホルダー",
+            "sex": "牡4",
+            "jockey": "横山和",
+            "trainer": "栗田徹",
+            "pop": 2,
+            "time": "2.09.7",
+            "weight": 58
+          },
+          "second": {
+            "num": 10,
+            "name": "ヒシイグアス",
+            "pop": 5
+          },
+          "third": {
+            "num": 7,
+            "name": "デアリングタクト",
+            "pop": 4
+          }
+        },
+        {
+          "year": 2021,
+          "date": "6/27",
+          "venue": "阪神",
+          "going": "良",
+          "first": {
+            "num": 7,
+            "name": "クロノジェネシス",
+            "sex": "牝5",
+            "jockey": "ルメール",
+            "trainer": "斉藤崇",
+            "pop": 1,
+            "time": "2.10.9",
+            "weight": 56
+          },
+          "second": {
+            "num": 1,
+            "name": "ユニコーンライオン",
+            "pop": 7,
+            "ana": true
+          },
+          "third": {
+            "num": 2,
+            "name": "レイパパレ",
+            "pop": 2
+          }
+        },
+        {
+          "year": 2020,
+          "date": "6/28",
+          "venue": "阪神",
+          "going": "遅稍",
+          "first": {
+            "num": 16,
+            "name": "クロノジェネシス",
+            "sex": "牝4",
+            "jockey": "北村友",
+            "trainer": "斉藤崇",
+            "pop": 2,
+            "time": "2.13.5",
+            "weight": 56
+          },
+          "second": {
+            "num": 14,
+            "name": "キセキ",
+            "pop": 6
+          },
+          "third": {
+            "num": 12,
+            "name": "モズベッロ",
+            "pop": 12,
+            "ana": true
+          }
+        },
+        {
+          "year": 2019,
+          "date": "6/23",
+          "venue": "阪神",
+          "going": "速良",
+          "first": {
+            "num": 12,
+            "name": "リスグラシュー",
+            "sex": "牝5",
+            "jockey": "レーン",
+            "trainer": "矢作芳",
+            "pop": 3,
+            "time": "2.10.8",
+            "weight": 56
+          },
+          "second": {
+            "num": 1,
+            "name": "キセキ",
+            "pop": 1
+          },
+          "third": {
+            "num": 11,
+            "name": "スワーヴリチャード",
+            "pop": 6
+          }
+        },
+        {
+          "year": 2018,
+          "date": "6/24",
+          "venue": "阪神",
+          "going": "稍重",
+          "first": {
+            "num": 4,
+            "name": "ミッキーロケット",
+            "sex": "牡5",
+            "jockey": "和田竜",
+            "trainer": "音無秀",
+            "pop": 7,
+            "time": "2.11.6",
+            "weight": 58,
+            "ana": true
+          },
+          "second": {
+            "num": 13,
+            "name": "ワーザー",
+            "pop": 10,
+            "ana": true
+          },
+          "third": {
+            "num": 2,
+            "name": "ノーブルマーズ",
+            "pop": 12,
+            "ana": true
+          }
+        },
+        {
+          "year": 2017,
+          "date": "6/25",
+          "venue": "阪神",
+          "going": "速稍",
+          "first": {
+            "num": 11,
+            "name": "サトノクラウン",
+            "sex": "牡5",
+            "jockey": "Mデムーロ",
+            "trainer": "堀宣行",
+            "pop": 3,
+            "time": "2.11.4",
+            "weight": 58
+          },
+          "second": {
+            "num": 2,
+            "name": "ゴールドアクター",
+            "pop": 5
+          },
+          "third": {
+            "num": 8,
+            "name": "ミッキークイーン",
+            "pop": 4
+          }
+        },
+        {
+          "year": 2016,
+          "date": "6/26",
+          "venue": "阪神",
+          "going": "稍重",
+          "first": {
+            "num": 16,
+            "name": "マリアライト",
+            "sex": "牝5",
+            "jockey": "蛯名正",
+            "trainer": "久保田",
+            "pop": 8,
+            "time": "2.12.8",
+            "weight": 56,
+            "ana": true
+          },
+          "second": {
+            "num": 9,
+            "name": "ドゥラメンテ",
+            "pop": 1
+          },
+          "third": {
+            "num": 3,
+            "name": "キタサンブラック",
+            "pop": 2
+          }
+        }
+      ],
+      "previewHorses": []
+    },
+    {
+      "id": "hakodate-ss",
+      "name": "第33回 函館スプリントステークス",
+      "grade": "GⅢ",
+      "date": "2026-06-13",
+      "weekday": "土",
+      "venue": "函館",
+      "course": "芝1200m",
+      "category": "3歳以上オープン",
+      "shoubuKurani": false,
+      "shobu_note": "出馬表確定後に神宮の最終見解を投入する。",
+      "trends": [
+        {
+          "label": "逃げ・先行が圧倒的",
+          "value": "過去27年で逃げ9勝・先行8勝。開幕週の高速洋芝で前残りが基本だ。前半3F32〜33秒の超ハイペースでも、前で運んだ馬がそのまま押し切る。",
+          "weight": "extreme"
+        },
+        {
+          "label": "5歳中心＋3歳の軽斤量爆発",
+          "value": "馬齢は5歳が10勝で最多。加えて2022ナムラクレア・2017ジューヌエコール・2016ソルヴェイグと、斤量50kg級の3歳牝馬が大駆けする舞台でもある。",
+          "weight": "extreme"
+        },
+        {
+          "label": "内〜中枠が有利、5枠は不振",
+          "value": "枠順は3枠5勝・7枠5勝を筆頭に内〜中枠が優勢。逆に5枠は1勝と苦戦が目立つ。",
+          "weight": "high"
+        },
+        {
+          "label": "上位人気堅実、乾けば大穴",
+          "value": "2番人気が7勝と手堅い一方、馬場が乾き切ると2016ソルヴェイグ12番人気のような大波乱も発生する。",
+          "weight": "high"
+        },
+        {
+          "label": "函館1200mはスピード最優先",
+          "value": "スピードと先行力が最優先で、差し・追込は展開待ちとなる。位置取りとテンの速さが生命線だ。",
+          "weight": "caution"
+        }
+      ],
+      "trendsHaken": [
+        {
+          "label": "2着は6歳のベテランも",
+          "value": "2着には6歳馬の好走が目立つ。スピードの完成した古豪が前々で粘り込む。",
+          "weight": "high"
+        },
+        {
+          "label": "3着なら差し・追込も",
+          "value": "3着には展開が向いた差し・追込が届く。前崩れの年は一気の脚に警戒だ。",
+          "weight": "middle"
+        }
+      ],
+      "history": [
+        {
+          "year": 2025,
+          "date": "6/14",
+          "venue": "函館",
+          "going": "速良",
+          "first": {
+            "num": 4,
+            "name": "カピリナ",
+            "sex": "牝4",
+            "jockey": "戸崎圭",
+            "trainer": "田島俊",
+            "pop": 2,
+            "time": "1.06.6",
+            "weight": 55
+          },
+          "second": {
+            "num": 1,
+            "name": "ジューンブレア",
+            "pop": 3
+          },
+          "third": {
+            "num": 5,
+            "name": "ドンアミティエ",
+            "pop": 10,
+            "ana": true
+          }
+        },
+        {
+          "year": 2024,
+          "date": "6/9",
+          "venue": "函館",
+          "going": "速稍",
+          "first": {
+            "num": 4,
+            "name": "サトノレーヴ",
+            "sex": "牡5",
+            "jockey": "浜中俊",
+            "trainer": "堀宣行",
+            "pop": 2,
+            "time": "1.08.4",
+            "weight": 57
+          },
+          "second": {
+            "num": 10,
+            "name": "ウイングレイテスト",
+            "pop": 5
+          },
+          "third": {
+            "num": 13,
+            "name": "ビッグシーザー",
+            "pop": 3
+          }
+        },
+        {
+          "year": 2023,
+          "date": "6/11",
+          "venue": "函館",
+          "going": "速良",
+          "first": {
+            "num": 15,
+            "name": "キミワクイーン",
+            "sex": "牝4",
+            "jockey": "横山武",
+            "trainer": "奥村武",
+            "pop": 3,
+            "time": "1.08.2",
+            "weight": 55
+          },
+          "second": {
+            "num": 7,
+            "name": "ジュビリーヘッド",
+            "pop": 5
+          },
+          "third": {
+            "num": 1,
+            "name": "トウシンマカオ",
+            "pop": 1
+          }
+        },
+        {
+          "year": 2022,
+          "date": "6/12",
+          "venue": "函館",
+          "going": "速良",
+          "first": {
+            "num": 7,
+            "name": "ナムラクレア",
+            "sex": "牝3",
+            "jockey": "浜中俊",
+            "trainer": "長谷川",
+            "pop": 1,
+            "time": "1.07.2",
+            "weight": 50
+          },
+          "second": {
+            "num": 11,
+            "name": "ジュビリーヘッド",
+            "pop": 7,
+            "ana": true
+          },
+          "third": {
+            "num": 5,
+            "name": "タイセイアベニール",
+            "pop": 13,
+            "ana": true
+          }
+        },
+        {
+          "year": 2021,
+          "date": "6/13",
+          "venue": "札幌",
+          "going": "速良",
+          "first": {
+            "num": 14,
+            "name": "ビアンフェ",
+            "sex": "セ4",
+            "jockey": "藤岡佑",
+            "trainer": "中竹和",
+            "pop": 5,
+            "time": "1.07.6",
+            "weight": 56
+          },
+          "second": {
+            "num": 16,
+            "name": "カレンモエ",
+            "pop": 1
+          },
+          "third": {
+            "num": 7,
+            "name": "ミッキーブリランテ",
+            "pop": 4
+          }
+        },
+        {
+          "year": 2020,
+          "date": "6/21",
+          "venue": "函館",
+          "going": "速良",
+          "first": {
+            "num": 6,
+            "name": "ダイアトニック",
+            "sex": "牡5",
+            "jockey": "武豊",
+            "trainer": "安田隆",
+            "pop": 1,
+            "time": "1.07.5",
+            "weight": 58
+          },
+          "second": {
+            "num": 16,
+            "name": "ダイメイフジ",
+            "pop": 10,
+            "ana": true
+          },
+          "third": {
+            "num": 10,
+            "name": "ジョーマンデリン",
+            "pop": 3
+          }
+        },
+        {
+          "year": 2019,
+          "date": "6/16",
+          "venue": "函館",
+          "going": "速稍",
+          "first": {
+            "num": 10,
+            "name": "カイザーメランジェ",
+            "sex": "牡4",
+            "jockey": "江田照",
+            "trainer": "中野栄",
+            "pop": 5,
+            "time": "1.08.4",
+            "weight": 56
+          },
+          "second": {
+            "num": 11,
+            "name": "アスターペガサス",
+            "pop": 2
+          },
+          "third": {
+            "num": 13,
+            "name": "タワーオブロンドン",
+            "pop": 1
+          }
+        },
+        {
+          "year": 2018,
+          "date": "6/17",
+          "venue": "函館",
+          "going": "速良",
+          "first": {
+            "num": 1,
+            "name": "セイウンコウセイ",
+            "sex": "牡5",
+            "jockey": "池添謙",
+            "trainer": "上原博",
+            "pop": 3,
+            "time": "1.07.6",
+            "weight": 57
+          },
+          "second": {
+            "num": 9,
+            "name": "ヒルノデイバロー",
+            "pop": 10,
+            "ana": true
+          },
+          "third": {
+            "num": 7,
+            "name": "ナックビーナス",
+            "pop": 1
+          }
+        },
+        {
+          "year": 2017,
+          "date": "6/18",
+          "venue": "函館",
+          "going": "速良",
+          "first": {
+            "num": 8,
+            "name": "ジューヌエコール",
+            "sex": "牝3",
+            "jockey": "北村友",
+            "trainer": "安田隆",
+            "pop": 3,
+            "time": "1.06.8",
+            "weight": 50
+          },
+          "second": {
+            "num": 3,
+            "name": "キングハート",
+            "pop": 4
+          },
+          "third": {
+            "num": 4,
+            "name": "エポワス",
+            "pop": 7,
+            "ana": true
+          }
+        },
+        {
+          "year": 2016,
+          "date": "6/19",
+          "venue": "函館",
+          "going": "速良",
+          "first": {
+            "num": 16,
+            "name": "ソルヴェイグ",
+            "sex": "牝3",
+            "jockey": "丸田恭",
+            "trainer": "鮫島一",
+            "pop": 12,
+            "time": "1.07.8",
+            "weight": 50,
+            "ana": true
+          },
+          "second": {
+            "num": 3,
+            "name": "シュウジ",
+            "pop": 2
+          },
+          "third": {
+            "num": 1,
+            "name": "レッツゴードンキ",
+            "pop": 7,
+            "ana": true
+          }
+        }
+      ],
+      "previewHorses": []
+    }
+  ]
+}
