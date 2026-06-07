@@ -207,6 +207,8 @@
   .pc-buy b{color:#2e7d32;margin-right:5px}
   .pc-concern{background:#fdf3f0;border-left:3px solid #ef5350}
   .pc-concern b{color:#c62828;margin-right:5px}
+  .pc-chokyo{margin-top:7px;padding:7px 12px;border-radius:5px;font-size:12.5px;line-height:1.75;background:#eef3fb;border-left:3px solid #5b8def}
+  .pc-chokyo b{color:#2a5db0;margin-right:5px}
   /* ⚡💪 ラップ適性バッジ */
   .lap-badge{
     display:inline-flex;align-items:center;gap:3px;
@@ -650,6 +652,7 @@ fetch('data/juushou/2026-06-13-14.json?_='+Date.now())
                   </div>
                   ${h.shrine_view ? `<div class="pc-view">${h.shrine_view}</div>` : ''}
                   ${h.buy ? `<div class="pc-buy"><b>🟢 買い</b>${h.buy}</div>` : ''}
+                  ${h.chokyoView ? `<div class="pc-chokyo"><b>🏋 1週前調教</b>${h.chokyoView}</div>` : ''}
                   ${h.concern ? `<div class="pc-concern"><b>🔴 懸念</b>${h.concern}</div>` : ''}
                   ${h.watchpoint ? `<div class="pc-watch"><b>👁 注目点</b>${h.watchpoint}</div>` : ''}
                 </div>`;
