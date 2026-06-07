@@ -180,6 +180,32 @@
   .payout-tbl th{font-family:'Shippori Mincho',serif;color:#ffe9a8;font-size:12px}
   .payout-tbl td.amt{text-align:right;font-family:'Inter',sans-serif;font-weight:900;color:#ffe9a8}
 
+  /* 神宮ランキング全頭一覧 */
+  .rank-board{margin:18px 0;padding:16px 18px;background:#fff;border:1.5px solid var(--gold);border-radius:10px;box-shadow:0 2px 10px rgba(201,168,76,.15)}
+  .rank-board h3{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--gold-dk);text-align:center;margin-bottom:6px;letter-spacing:.08em}
+  .rank-board .rank-hint{text-align:center;font-size:10.5px;color:var(--ink-soft);margin-bottom:10px}
+  .rank-list{display:flex;flex-direction:column;gap:2px}
+  .rank-row{display:grid;grid-template-columns:30px 1fr 74px 42px 52px;align-items:center;gap:7px;padding:5px 8px;border-radius:5px;font-size:12.5px}
+  .rank-row:nth-child(even){background:rgba(201,168,76,.05)}
+  .rank-row.axis{background:linear-gradient(90deg,rgba(244,208,63,.32),rgba(244,208,63,.06));border:1px solid var(--gold-dk)}
+  .rank-row.star{background:linear-gradient(90deg,rgba(244,208,63,.18),transparent)}
+  .rank-row.kaihi{opacity:.5}
+  .rk-pos{font-family:'Inter',sans-serif;font-weight:900;text-align:center;color:var(--shu);background:#f5ede0;border-radius:5px;padding:2px 0;font-size:12px}
+  .rank-row.axis .rk-pos,.rank-row.star .rk-pos{background:linear-gradient(135deg,#f4d03f,#b8860b);color:#3a2a00}
+  .rk-name{font-weight:700;font-family:'Shippori Mincho',serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rk-market{font-size:10.5px;color:var(--ink-soft);font-family:'Inter',sans-serif;text-align:right}
+  .rk-kairi{font-family:'Inter',sans-serif;font-weight:900;text-align:right}
+  .rk-kairi.up{color:#1b5e20}.rk-kairi.dn{color:#b71c1c}.rk-kairi.eq{color:#aaa}
+  .rk-res{font-size:9.5px;font-weight:900;text-align:center;padding:2px 3px;border-radius:6px;font-family:'Inter',sans-serif}
+  .rk-res.win{background:linear-gradient(135deg,#f4d03f,#b8860b);color:#3a2a00}
+  .rk-res.place{background:#cfd8dc;color:#37474f}
+  .rk-res.lose{background:#efe7d8;color:#8d7860}
+  .rk-res.kaihi{background:#607d8b;color:#fff}
+  @media(max-width:600px){
+    .rank-row{grid-template-columns:26px 1fr 60px 36px 46px;gap:5px;font-size:11.5px}
+    .rk-market{font-size:9.5px}
+  }
+
   .divider{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:36px 0 8px}
 
   footer{text-align:center;padding:24px;color:var(--ink-soft);font-size:11px;
@@ -269,10 +295,53 @@ function resShort(h){
 }
 
 // 乖離ダッシュボード生成
+// 神宮ランキング全頭一覧（1位〜最下位をパッと一覧）
+function rankingTable(horses, mode){
+  const isPost = mode==='post';
+  const rankKey = isPost?'confirmedRank':'preNinki';
+  const mkKey   = isPost?'finalMarket':'preMarket';
+  const kKey    = isPost?'finalKairi':'preKairi';
+  let list = isPost ? horses.filter(h=>!h.kaihi) : [...horses];
+  list = list.sort((a,b)=>(a[rankKey]||999)-(b[rankKey]||999));
+  // 軸馬＝乖離+3以上の神宮最上位（post時）
+  let axisName=null;
+  if(isPost){
+    const tr=list.filter(h=>typeof h[kKey]==='number'&&h[kKey]>=3).sort((a,b)=>a[rankKey]-b[rankKey]);
+    if(tr.length) axisName=tr[0].name;
+  }
+  const rows = list.map(h=>{
+    const k=h[kKey];
+    const kcls = typeof k!=='number'?'eq':(k>0?'up':k<0?'dn':'eq');
+    const ksign= typeof k!=='number'?'—':(k>0?'+'+k:''+k);
+    const isAxis = isPost && h.name===axisName;
+    const cls = isAxis?'axis':(isPost&&h.treasureStar?'star':'');
+    const tag = isAxis?' ◎':(isPost&&h.treasureStar?' ⭐':'');
+    const res = (isPost&&h.resultRank!=null)
+      ? `<span class="rk-res ${resClass(h.resultRank)}">${h.resultNote||h.resultRank+'着'}</span>`
+      : '<span></span>';
+    return `<div class="rank-row ${cls}">
+      <span class="rk-pos">${h[rankKey]}</span>
+      <span class="rk-name">${h.name}${tag}</span>
+      <span class="rk-market">市場${h[mkKey]}人気</span>
+      <span class="rk-kairi ${kcls}">${ksign}</span>
+      ${res}
+    </div>`;
+  }).join('');
+  const hint = isPost
+    ? '神宮オッズ順位（出走馬のみ再ランキング）／ ◎＝軸（乖離+3の神宮最上位）⭐＝本命級の宝'
+    : '神宮オッズ順位（全頭・回避前）';
+  return `<div class="rank-board">
+    <h3>⛩ 神宮オッズ ランキング（${isPost?'出走'+list.length+'頭':'全'+list.length+'頭'}）</h3>
+    <div class="rank-hint">${hint}</div>
+    <div class="rank-list">${rows}</div>
+  </div>`;
+}
+
 function dashboard(horses, kairiKey, opts){
   const withK = horses.filter(h => (opts.includeKaihi || !h.kaihi) && typeof h[kairiKey] === 'number');
-  const ups = withK.filter(h=>h[kairiKey]>=3).sort((a,b)=>b[kairiKey]-a[kairiKey]).slice(0,6);
-  const dns = withK.filter(h=>h[kairiKey]<=-3).sort((a,b)=>a[kairiKey]-b[kairiKey]).slice(0,6);
+  // 神宮順位順（上位ほど上）に並べる → ワールズエンド・シックスペンス等の本命級が上に来る
+  const ups = withK.filter(h=>h[kairiKey]>=3).sort((a,b)=>(a[opts.rankKey]||999)-(b[opts.rankKey]||999)).slice(0,6);
+  const dns = withK.filter(h=>h[kairiKey]<=-3).sort((a,b)=>(a[opts.rankKey]||999)-(b[opts.rankKey]||999)).slice(0,6);
   const rankKey = opts.rankKey, marketKey = opts.marketKey, showRes = opts.showRes;
   const row = (h, sign) => {
     const star = (showRes && h.treasureStar);
@@ -360,6 +429,7 @@ fetch('data/juushou/yasuda-2026-guide.json?_='+Date.now())
     <div style="text-align:center"><span class="phase-tag pre">STEP 1-2　出馬表確定前</span></div>
     <div class="sec-title">出馬表確定前の神宮オッズ</div>
     <div class="sec-lead">週明け、回避・除外の前。全${H.length}頭を神宮独自で格付けし、想定人気との乖離を見る段階</div>
+    ${rankingTable(H, 'pre')}
     ${dashboard(H, 'preKairi', {rankKey:'preNinki', marketKey:'preMarket', showRes:false, final:false, includeKaihi:true})}
     <div class="preview-grid">
       ${preSorted.map(h=>horseCard(h,'pre')).join('')}
@@ -369,6 +439,7 @@ fetch('data/juushou/yasuda-2026-guide.json?_='+Date.now())
     <div style="text-align:center"><span class="phase-tag post">STEP 3-4　出馬表確定後（最終版）</span></div>
     <div class="sec-title">出馬表確定後の神宮オッズ × 最終乖離</div>
     <div class="sec-lead">回避${d.kaihiCount}頭を除外し、出走${d.runnersCount}頭のみで神宮オッズを再ランキング。前日の最終人気と再乖離して軸を確定する</div>
+    ${rankingTable(H, 'post')}
     ${dashboard(H, 'finalKairi', {rankKey:'confirmedRank', marketKey:'finalMarket', showRes:true, final:true})}
     <div class="preview-grid">
       ${postSorted.map(h=>horseCard(h,'post')).join('')}
