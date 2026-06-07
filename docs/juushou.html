@@ -546,8 +546,9 @@ fetch('data/juushou/2026-06-13-14.json?_='+Date.now())
             ${(() => {
               const withK = r.previewHorses.filter(h => typeof h.kairi === 'number');
               if (withK.length === 0) return '';
-              const ups = [...withK].filter(h=>h.kairi>=3).sort((a,b)=>b.kairi-a.kairi).slice(0,5);
-              const dns = [...withK].filter(h=>h.kairi<=-3).sort((a,b)=>a.kairi-b.kairi).slice(0,5);
+              // 神宮スコア順（jinguNinki昇順）で表示 → 神宮上位の宝が上に来る
+              const ups = [...withK].filter(h=>h.kairi>=3).sort((a,b)=>(a.jinguNinki||999)-(b.jinguNinki||999)).slice(0,6);
+              const dns = [...withK].filter(h=>h.kairi<=-3).sort((a,b)=>(a.jinguNinki||999)-(b.jinguNinki||999)).slice(0,6);
               const fmt = (h, sign) => `<div class="kairi-row ${sign>0?'up':'dn'}">
                 <span class="k-icon">${sign>0?'📈':'📉'}</span>
                 <span class="k-name">${h.name}</span>
@@ -556,7 +557,7 @@ fetch('data/juushou/2026-06-13-14.json?_='+Date.now())
               </div>`;
               return `
               <div class="kairi-board">
-                <h3>🎯 神宮オッズ vs 市場オッズ 乖離ダッシュボード</h3>
+                <h3>🎯 神宮スコア vs 市場オッズ 乖離ダッシュボード</h3>
                 <div class="kairi-board-cols">
                   <div class="kairi-col treasure">
                     <h4>💎 神宮の宝（市場が見過ごす過小評価）</h4>
