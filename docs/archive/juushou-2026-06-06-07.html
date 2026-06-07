@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>重賞天満宮｜UG競馬神宮</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>【保管】重賞天満宮 6/6-7（安田記念）｜UG競馬神宮</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -368,11 +368,11 @@
   <div class="h-title mincho">重　賞　天　満　宮</div>
   <div class="h-sub mincho">JUUSHOU TENMANGU ─ 我、今週末の重賞を展望す</div>
   <div class="h-rule" id="weekend-label">読み込み中…</div>
-  <a class="home-link mincho" href="index.html">⛩ 神宮に戻る</a>
+  <a class="home-link mincho" href="../index.html">⛩ 神宮に戻る</a>
 </header>
 
 <div style="max-width:920px;margin:20px auto 0;padding:0 16px">
-  <a href="kotodama.html" style="
+  <a href="../archive-2026-06-07.html" style="
     display:flex;align-items:center;justify-content:center;gap:10px;
     padding:16px 24px;
     background:linear-gradient(135deg,#7A1E1E 0%,#a44a3f 50%,#c9a84c 100%);
@@ -389,7 +389,7 @@
     <span style="font-size:18px;opacity:.85">▶</span>
   </a>
 
-  <a href="juushou-guide.html" style="
+  <a href="../juushou-guide.html" style="
     display:flex;align-items:center;justify-content:center;gap:10px;
     margin-top:12px;padding:14px 24px;
     background:linear-gradient(135deg,#fffbea 0%,#fff5d6 100%);
@@ -413,19 +413,18 @@
 </main>
 
 <footer>
-  最終予想は <a href="kotodama.html">⛩ 言霊神宮</a> ／ 馬券道は <a href="how-to-buy.html">📋 通ずる道</a>
+  最終予想は <a href="../kotodama.html">⛩ 言霊神宮</a> ／ 馬券道は <a href="../how-to-buy.html">📋 通ずる道</a>
   <div style="margin-top:14px;font-size:12px;color:#888">
     📜 過去の重賞展望：
-    <a href="archive/juushou-2026-06-06-07.html" style="margin-right:10px">6/6-7（安田記念）</a>
-    <a href="archive/juushou-2026-05-30-31.html" style="margin-right:10px">5/30-31（日本ダービー/目黒記念）</a>
-    <a href="archive/juushou-2026-05-23-24.html" style="margin-right:10px">5/23-24（オークス）</a>
-    <a href="archive/juushou-2026-05-16-17.html" style="margin-right:10px">5/16-17（京都ハイジャンプ/新潟大賞典/ヴィクトリアマイル）</a>
-    <a href="archive/juushou-2026-05-09-10.html">5/9-10（NHKマイル/京都新聞杯/京王杯SC/エプソムC）</a>
+    <a href="juushou-2026-05-30-31.html" style="margin-right:10px">5/30-31（日本ダービー/目黒記念）</a>
+    <a href="juushou-2026-05-23-24.html" style="margin-right:10px">5/23-24（オークス）</a>
+    <a href="juushou-2026-05-16-17.html" style="margin-right:10px">5/16-17（京都ハイジャンプ/新潟大賞典/ヴィクトリアマイル）</a>
+    <a href="juushou-2026-05-09-10.html">5/9-10（NHKマイル/京都新聞杯/京王杯SC/エプソムC）</a>
   </div>
 </footer>
 
 <script>
-fetch('data/juushou/2026-06-06-07.json?_='+Date.now())
+fetch('../data/juushou/_archive_2026-06-06-07.json?_='+Date.now())
   .then(r => r.json())
   .then(d => {
     document.getElementById('weekend-label').textContent = `${d.weekend}（土日）の重賞展望`;
