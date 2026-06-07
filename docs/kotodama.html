@@ -920,8 +920,8 @@ function renderSummaryV2(){
   const races = ALL_RACES.filter(r => r.result && r.result.payouts);
   if (!races.length) { el.innerHTML = ''; return; }
 
-  const satRaces = races.filter(r => r.date === '2026-05-23');
-  const sunRaces = races.filter(r => r.date === '2026-05-24');
+  const satRaces = races.filter(r => r.date === '2026-06-06');
+  const sunRaces = races.filter(r => r.date === '2026-06-07');
   const HONMEI = ['honmei_tan','honmei_umatan'];
   const ANA    = ['ana_tan','ana_umatan'];
 
