@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>重賞天満宮の使い方｜UG競馬神宮</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#FAFAFA; --bg-soft:#F5F2EB; --paper:#FBF7EE; --paper-deep:#F0EADB;
+    --ink:#2c1f12; --ink-soft:#5a4a3a;
+    --shu:#a44a3f; --shu-dk:#7A1E1E;
+    --gold:#c9a84c; --gold-dk:#b8860b;
+    --ok:#5fa85c; --border:rgba(164,74,63,.25);
+  }
+  body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;line-height:1.7;min-height:100vh}
+  .mincho{font-family:'Shippori Mincho',serif;letter-spacing:.05em}
+  .num{font-family:'Inter',sans-serif;font-weight:900}
+
+  header{padding:32px 16px 24px;text-align:center;
+         background:linear-gradient(135deg,#fff8e8 0%,#fff5dc 50%,#fff8e8 100%);
+         border-bottom:2px solid var(--gold)}
+  .h-title{font-size:30px;color:var(--gold-dk);font-weight:700;letter-spacing:.3em}
+  .h-sub{font-size:13px;color:var(--ink-soft);margin-top:8px;letter-spacing:.15em}
+  .h-rule{font-size:13px;color:var(--gold-dk);margin-top:12px;font-weight:700;letter-spacing:.12em}
+  .home-link{display:inline-block;margin-top:14px;padding:6px 16px;
+             border:1px solid var(--gold-dk);color:var(--gold-dk);text-decoration:none;
+             font-size:12px;letter-spacing:.2em;border-radius:4px}
+  .home-link:hover{background:var(--gold-dk);color:#fff}
+
+  main{max-width:920px;margin:0 auto;padding:24px 16px}
+
+  /* セクション見出し */
+  .sec-title{font-family:'Shippori Mincho',serif;font-size:22px;color:var(--shu);
+    font-weight:800;letter-spacing:.1em;text-align:center;margin:40px 0 6px}
+  .sec-lead{text-align:center;font-size:13px;color:var(--ink-soft);margin-bottom:20px;letter-spacing:.05em}
+  .phase-tag{display:inline-block;padding:5px 18px;border-radius:999px;
+    font-family:'Shippori Mincho',serif;font-weight:800;font-size:13px;letter-spacing:.15em;margin-bottom:6px}
+  .phase-tag.pre{background:#eceff1;color:#546e7a;border:1.5px solid #90a4ae}
+  .phase-tag.post{background:linear-gradient(135deg,#fff3a8,#f4d03f);color:#5a4a00;
+    border:1.5px solid var(--gold-dk);box-shadow:0 0 12px rgba(212,175,55,.4)}
+
+  /* イントロ */
+  .intro{background:var(--paper);border:2px solid var(--gold);border-radius:14px;
+    padding:22px 26px;box-shadow:0 4px 20px rgba(201,168,76,.18);margin-bottom:10px}
+  .intro h2{font-family:'Shippori Mincho',serif;font-size:18px;color:var(--shu);
+    letter-spacing:.1em;margin-bottom:12px;text-align:center}
+  .intro p{font-size:13.5px;color:var(--ink-soft);margin-bottom:8px}
+  .intro .race-line{text-align:center;font-family:'Shippori Mincho',serif;font-size:16px;
+    color:var(--gold-dk);font-weight:700;margin:10px 0;letter-spacing:.08em}
+
+  /* 4ステップフロー */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0 6px}
+  @media(max-width:680px){.flow{grid-template-columns:1fr 1fr}}
+  .flow-step{background:#fff;border:1.5px solid var(--gold);border-radius:10px;
+    padding:14px 12px;position:relative;text-align:center}
+  .flow-step .fs-no{display:inline-block;width:26px;height:26px;line-height:26px;
+    border-radius:50%;background:var(--shu);color:#fff;font-weight:900;font-family:'Inter',sans-serif;margin-bottom:8px}
+  .flow-step .fs-ttl{font-family:'Shippori Mincho',serif;font-size:13px;font-weight:700;color:var(--shu);
+    letter-spacing:.05em;margin-bottom:6px;line-height:1.5}
+  .flow-step .fs-desc{font-size:11px;color:var(--ink-soft);line-height:1.6}
+  .flow-step.hot{border-color:var(--gold-dk);background:linear-gradient(135deg,#fffbea,#fff5d6);
+    box-shadow:0 0 12px rgba(201,168,76,.3)}
+
+  /* 乖離ダッシュボード */
+  .kairi-board{margin:18px 0 24px;padding:18px 22px;
+    background:linear-gradient(135deg,#fffbea 0%,#fff5d6 100%);
+    border:2px solid var(--gold-dk);border-radius:8px;box-shadow:0 3px 12px rgba(201,168,76,.25)}
+  .kairi-board.final{border-width:3px;box-shadow:0 0 22px rgba(201,168,76,.4),0 3px 12px rgba(201,168,76,.25)}
+  .kairi-board h3{margin:0 0 14px;font-family:'Shippori Mincho',serif;
+    font-size:16px;color:var(--gold-dk);letter-spacing:.1em;text-align:center;
+    border-bottom:1px dashed var(--gold);padding-bottom:10px}
+  .kairi-board-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.kairi-board-cols{grid-template-columns:1fr}}
+  .kairi-col h4{margin:0 0 10px;font-size:13px;font-family:'Shippori Mincho',serif;
+    letter-spacing:.08em;padding:4px 10px;border-radius:4px}
+  .kairi-col.treasure h4{background:#e8f5e9;color:#1b5e20;border-left:4px solid #2e7d32}
+  .kairi-col.trap h4{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+  .kairi-row{display:flex;align-items:center;gap:8px;padding:7px 4px;
+    font-size:12.5px;border-bottom:1px dotted #d8c898}
+  .kairi-row:last-child{border-bottom:none}
+  .kairi-row.star{background:linear-gradient(90deg,rgba(244,208,63,.25),transparent);
+    border-radius:6px;padding:8px 8px;border-bottom:1px solid rgba(212,175,55,.4)}
+  .kairi-row .k-icon{font-size:14px;flex-shrink:0}
+  .kairi-row .k-name{font-weight:700;color:var(--ink);min-width:96px}
+  .kairi-row .k-trans{font-size:10.5px;color:var(--ink-soft);font-family:'Inter',sans-serif}
+  .kairi-row .k-delta{margin-left:auto;font-weight:900;font-family:'Inter',sans-serif;flex-shrink:0}
+  .kairi-row.up .k-delta{color:#1b5e20}
+  .kairi-row.dn .k-delta{color:#b71c1c}
+  .kairi-row .k-res{font-size:10px;font-weight:900;padding:1px 6px;border-radius:8px;flex-shrink:0;font-family:'Inter',sans-serif}
+  .k-res.win{background:linear-gradient(135deg,#f4d03f,#b8860b);color:#3a2a00}
+  .k-res.place{background:#cfd8dc;color:#37474f}
+  .k-res.lose{background:#efe7d8;color:#8d7860}
+
+  /* 乖離バッジ */
+  .kairi-badge{display:inline-block;margin-left:6px;padding:2px 8px;
+    border-radius:10px;font-size:11px;font-weight:900;letter-spacing:.05em;
+    font-family:'Inter','Shippori Mincho',sans-serif;vertical-align:middle;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+  .kairi-badge.up-big{background:linear-gradient(135deg,#2e7d32,#1b5e20);color:#fff;animation:kUp 2.2s ease-in-out infinite}
+  .kairi-badge.up-mid{background:#4caf50;color:#fff}
+  .kairi-badge.up-sml{background:#a5d6a7;color:#1b5e20}
+  .kairi-badge.dn-big{background:linear-gradient(135deg,#c62828,#8e0000);color:#fff;animation:kDn 2.2s ease-in-out infinite}
+  .kairi-badge.dn-mid{background:#ef5350;color:#fff}
+  .kairi-badge.dn-sml{background:#ffcdd2;color:#b71c1c}
+  .kairi-badge.eq{background:#e0e0e0;color:#555}
+  @keyframes kUp{0%,100%{box-shadow:0 0 0 rgba(46,125,50,0)}50%{box-shadow:0 0 12px rgba(46,125,50,.7)}}
+  @keyframes kDn{0%,100%{box-shadow:0 0 0 rgba(198,40,40,0)}50%{box-shadow:0 0 12px rgba(198,40,40,.7)}}
+
+  /* プレビューカード */
+  .preview-grid{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+  .preview-card{position:relative;background:#fff;border:1.5px solid var(--border);
+    border-radius:10px;padding:18px 18px 14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .preview-card.bakuana{border-color:#b8860b;background:linear-gradient(135deg,#fffaf0,#fff4e0)}
+  .preview-card.place-cand{border-color:#5b8def;background:linear-gradient(135deg,#f4f8ff,#eaf1ff)}
+  .preview-card.win-cand{border-color:var(--border)}
+  .preview-card.star{border:2.5px solid var(--gold-dk);
+    background:linear-gradient(135deg,#fffbe8,#fff2cc);
+    box-shadow:0 0 18px rgba(212,175,55,.45)}
+  .preview-card.kaihi{opacity:.72;border-style:dashed;background:repeating-linear-gradient(135deg,#f7f4ee,#f7f4ee 10px,#f1ece2 10px,#f1ece2 20px)}
+  .pc-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .pc-name{font-family:'Shippori Mincho',serif;font-size:18px;font-weight:800;color:var(--ink)}
+  .pc-meta{font-size:11.5px;color:var(--ink-soft);width:100%;margin-top:2px}
+  .pc-meta b{color:var(--ink)}
+  .pc-lastrap{display:block;width:100%;font-size:11px;color:var(--ink-soft);margin-top:3px;font-family:'Inter',sans-serif}
+  .lr-chakujun{color:var(--shu);font-size:13px;font-weight:900}
+  .lr-rote{display:inline-block;padding:1px 6px;background:#e8f4e8;color:#2e7d32;border-radius:3px;font-size:10px;font-weight:700}
+  .lr-kyaku{display:inline-block;padding:1px 6px;background:#e8eaf6;color:#283593;border-radius:3px;font-size:10px;font-weight:700}
+  .pc-summary{font-size:12px;color:var(--ink-soft);font-weight:700}
+  .pc-view{font-size:12.5px;line-height:1.85;color:var(--ink);margin-top:10px}
+  .pc-buy{font-size:12px;margin-top:8px;padding:7px 11px;background:#eafaf0;border-radius:5px;border-left:3px solid #2e7d32;color:#1b5e20}
+  .pc-concern{font-size:12px;margin-top:6px;padding:7px 11px;background:#fdeeee;border-radius:5px;border-left:3px solid #c62828;color:#8e0000}
+  .pc-buy b,.pc-concern b{margin-right:5px}
+
+  /* 神宮人気リボン（ホログラム） */
+  .jingu-ninki-corner{position:absolute;top:-13px;right:-4px;z-index:5;padding:6px 16px;
+    border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.1em;
+    font-family:'Shippori Mincho',serif;color:#2a1a4a;
+    background:linear-gradient(135deg,#ffd1e8 0%,#d1c4ff 18%,#a8e6ff 36%,#c4ffe0 54%,#fff3a8 72%,#ffc4a8 90%,#ffd1e8 100%);
+    background-size:300% 300%;
+    box-shadow:0 3px 12px rgba(180,140,220,.45),0 0 0 2px rgba(255,255,255,.75) inset,0 0 8px rgba(255,255,255,.6);
+    text-shadow:0 0 4px rgba(255,255,255,.8);white-space:nowrap;animation:holo 4s ease-in-out infinite}
+  @keyframes holo{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .jingu-ninki-corner.r1{padding:7px 20px;font-size:13px;
+    background:linear-gradient(135deg,#ff9ec7 0%,#c0a8ff 14%,#8edcff 28%,#a8ffd6 42%,#fff58a 56%,#ffb88a 70%,#ff9ec7 84%,#c0a8ff 100%);
+    background-size:400% 400%;box-shadow:0 4px 18px rgba(200,140,255,.7),0 0 0 2px rgba(255,255,255,.9) inset,0 0 20px rgba(255,200,255,.7);
+    animation:holo 3s ease-in-out infinite,halo 2.4s ease-in-out infinite}
+  @keyframes halo{0%,100%{box-shadow:0 4px 18px rgba(200,140,255,.7),0 0 0 2px rgba(255,255,255,.9) inset,0 0 20px rgba(255,200,255,.7)}
+    50%{box-shadow:0 6px 26px rgba(200,140,255,1),0 0 0 2px rgba(255,255,255,1) inset,0 0 32px rgba(255,220,255,1)}}
+
+  /* バッジ各種 */
+  .jingu-uma-badge{display:inline-block;margin-left:6px;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:900;
+    background:linear-gradient(135deg,#f4d03f,#b8860b);color:#3a2a00;letter-spacing:.05em}
+  .star-badge{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:6px;font-size:10.5px;font-weight:900;
+    background:linear-gradient(135deg,#ff7eb3,#b8860b);color:#fff;letter-spacing:.05em;box-shadow:0 0 8px rgba(212,175,55,.6)}
+  .kaihi-badge{display:inline-block;margin-left:6px;padding:3px 11px;border-radius:6px;font-size:11px;font-weight:900;
+    background:#607d8b;color:#fff;letter-spacing:.1em}
+  .jogai-badge{display:inline-block;margin-left:6px;padding:3px 11px;border-radius:6px;font-size:11px;font-weight:900;
+    background:#9e9e9e;color:#fff;letter-spacing:.1em}
+  .result-badge{display:inline-block;margin-left:auto;padding:3px 12px;border-radius:8px;font-size:12px;font-weight:900;
+    font-family:'Inter',sans-serif;flex-shrink:0}
+  .result-badge.win{background:linear-gradient(135deg,#f4d03f,#b8860b);color:#3a2a00;box-shadow:0 0 8px rgba(212,175,55,.5)}
+  .result-badge.place{background:#cfd8dc;color:#37474f}
+  .result-badge.lose{background:#efe7d8;color:#8d7860}
+
+  /* 結果照合 */
+  .verdict{background:linear-gradient(135deg,#7A1E1E,#a44a3f);color:#fff;border-radius:14px;
+    padding:24px 26px;margin:20px 0;box-shadow:0 6px 24px rgba(122,30,30,.4)}
+  .verdict h3{font-family:'Shippori Mincho',serif;font-size:19px;text-align:center;letter-spacing:.1em;margin-bottom:16px}
+  .verdict .vrow{display:flex;align-items:center;gap:10px;padding:11px 14px;margin-bottom:8px;
+    background:rgba(255,255,255,.12);border-radius:8px;font-size:13px}
+  .verdict .vrow .vh{font-family:'Shippori Mincho',serif;font-weight:800;font-size:15px;min-width:120px}
+  .verdict .vrow .vd{font-size:11.5px;opacity:.92}
+  .verdict .vrow .vres{margin-left:auto;font-weight:900;font-family:'Inter',sans-serif;
+    background:linear-gradient(135deg,#f4d03f,#b8860b);color:#3a2a00;padding:3px 12px;border-radius:8px;flex-shrink:0}
+  .payout-tbl{width:100%;border-collapse:collapse;margin-top:14px;font-size:12.5px}
+  .payout-tbl th,.payout-tbl td{padding:9px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,.2)}
+  .payout-tbl th{font-family:'Shippori Mincho',serif;color:#ffe9a8;font-size:12px}
+  .payout-tbl td.amt{text-align:right;font-family:'Inter',sans-serif;font-weight:900;color:#ffe9a8}
+
+  .divider{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:36px 0 8px}
+
+  footer{text-align:center;padding:24px;color:var(--ink-soft);font-size:11px;
+         border-top:1px solid var(--border);margin-top:36px;background:var(--paper-deep)}
+  footer a{color:var(--shu);text-decoration:none;font-weight:700;margin:0 8px}
+  .loading{text-align:center;color:var(--ink-soft);padding:40px;font-style:italic}
+  .cta-final{display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 24px;margin:24px 0;
+    background:linear-gradient(135deg,#7A1E1E 0%,#a44a3f 50%,#c9a84c 100%);
+    color:#fff;text-decoration:none;border-radius:10px;
+    font-family:'Shippori Mincho',serif;font-size:16px;font-weight:700;letter-spacing:.15em;
+    box-shadow:0 4px 18px rgba(164,74,63,.45)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-title mincho">重賞天満宮の使い方</div>
+  <div class="h-sub mincho">HOW TO USE ─ 神宮オッズ×乖離で軸を射抜く四つの神技</div>
+  <div class="h-rule">⛩ 実証ドキュメント：第76回 安田記念（GⅠ）2026</div>
+  <a class="home-link mincho" href="juushou.html">⛩ 重賞天満宮に戻る</a>
+</header>
+
+<main>
+  <div class="intro">
+    <h2>⛩ 神宮の予想は「市場が見過ごす宝」を四段階で射抜く</h2>
+    <p>重賞天満宮は、市場オッズを完全に無視し、神宮独自の評価で全頭を格付けする。その評価順位を<b>「神宮オッズ」</b>と呼び、市場の人気順との差を<b>「乖離」</b>として可視化する。乖離が大きいほど、市場が見過ごした妙味馬＝<b>💎神宮の宝</b>である。</p>
+    <p class="race-line">第76回 安田記念（GⅠ）── ⭐本命級の宝が 1着・2着 を独占</p>
+    <p style="text-align:center;font-size:12px;color:var(--ink-soft)">以下、実際の安田記念の流れで「出馬表確定前」→「出馬表確定後（最終版）」の使い方を解説する。</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="fs-no">1</div>
+        <div class="fs-ttl">週明け重賞分析</div>
+        <div class="fs-desc">回避・除外馬も含めた全頭の神宮見立てを作る</div>
+      </div>
+      <div class="flow-step hot">
+        <div class="fs-no">2</div>
+        <div class="fs-ttl">神宮オッズ作成<br>→乖離チェック</div>
+        <div class="fs-desc">神宮順位と想定人気の乖離で💎宝／⚠罠を炙り出す</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-no">3</div>
+        <div class="fs-ttl">金曜 出馬表確定</div>
+        <div class="fs-desc">回避・乗替が確定。出走馬のみで神宮オッズ再ランキング</div>
+      </div>
+      <div class="flow-step hot">
+        <div class="fs-no">4</div>
+        <div class="fs-ttl">最終乖離×称号</div>
+        <div class="fs-desc">確定後オッズと前日人気の再乖離で軸を確定</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content"><div class="loading">⛩ 実証データ読み込み中…</div></div>
+
+  <a class="cta-final" href="juushou.html">⛩ 今週の重賞天満宮を見る ▶</a>
+</main>
+
+<footer>
+  最終予想は <a href="kotodama.html">⛩ 言霊神宮</a> ／ 重賞展望は <a href="juushou.html">📜 重賞天満宮</a>
+  <div style="margin-top:8px;opacity:.7">UG競馬神宮 ─ 我、市場のオッズに惑わされず</div>
+</footer>
+
+<script>
+function kairiBadge(k){
+  if (typeof k !== 'number') return '';
+  let cls, icon;
+  if (k>=7){cls='up-big';icon='📈';} else if (k>=3){cls='up-mid';icon='📈';}
+  else if (k>=1){cls='up-sml';icon='📈';} else if (k<=-7){cls='dn-big';icon='📉';}
+  else if (k<=-3){cls='dn-mid';icon='📉';} else if (k<=-1){cls='dn-sml';icon='📉';}
+  else {cls='eq';icon='＝';}
+  return `<span class="kairi-badge ${cls}">${icon}${k>0?'+':''}${k}</span>`;
+}
+function resultBadge(h){
+  if (h.kaihi) return '';
+  const r = h.resultRank;
+  if (r == null) return '';
+  const label = h.resultNote || (r+'着');
+  const cls = r===1 ? 'win' : (r<=3 ? 'place' : 'lose');
+  return `<span class="result-badge ${cls}">${r===1?'🥇':r<=3?'🥈':''}${label}</span>`;
+}
+function resClass(r){ return r===1?'win':(r!=null&&r<=3?'place':'lose'); }
+function resShort(h){
+  if (h.resultRank==null) return '';
+  return `<span class="k-res ${resClass(h.resultRank)}">${h.resultNote||h.resultRank+'着'}</span>`;
+}
+
+// 乖離ダッシュボード生成
+function dashboard(horses, kairiKey, opts){
+  const withK = horses.filter(h => (opts.includeKaihi || !h.kaihi) && typeof h[kairiKey] === 'number');
+  const ups = withK.filter(h=>h[kairiKey]>=3).sort((a,b)=>b[kairiKey]-a[kairiKey]).slice(0,6);
+  const dns = withK.filter(h=>h[kairiKey]<=-3).sort((a,b)=>a[kairiKey]-b[kairiKey]).slice(0,6);
+  const rankKey = opts.rankKey, marketKey = opts.marketKey, showRes = opts.showRes;
+  const row = (h, sign) => {
+    const star = (showRes && h.treasureStar);
+    return `<div class="kairi-row ${sign>0?'up':'dn'} ${star?'star':''}">
+      <span class="k-icon">${star?'⭐':(sign>0?'📈':'📉')}</span>
+      <span class="k-name">${h.name}</span>
+      <span class="k-trans">神宮${h[rankKey]}位 / 市場${h[marketKey]}人気</span>
+      ${showRes?resShort(h):''}
+      <span class="k-delta">${h[kairiKey]>0?'+':''}${h[kairiKey]}</span>
+    </div>`;
+  };
+  return `<div class="kairi-board ${opts.final?'final':''}">
+    <h3>🎯 神宮オッズ vs 市場オッズ 乖離ダッシュボード${opts.final?'【最終版】':''}</h3>
+    <div class="kairi-board-cols">
+      <div class="kairi-col treasure">
+        <h4>💎 神宮の宝（市場が見過ごす過小評価）${showRes?'　⭐＝本命級の宝':''}</h4>
+        ${ups.length? ups.map(h=>row(h,1)).join('') : '<div class="kairi-row"><span class="k-trans">該当馬なし</span></div>'}
+      </div>
+      <div class="kairi-col trap">
+        <h4>⚠ 市場の罠（買いすぎの過剰評価）</h4>
+        ${dns.length? dns.map(h=>row(h,-1)).join('') : '<div class="kairi-row"><span class="k-trans">該当馬なし</span></div>'}
+      </div>
+    </div>
+  </div>`;
+}
+
+// 馬カード生成
+function horseCard(h, mode){
+  // mode: 'pre' or 'post'
+  const rank = mode==='pre' ? h.preNinki : h.confirmedRank;
+  const market = mode==='pre' ? h.preMarket : h.finalMarket;
+  const kairi = mode==='pre' ? h.preKairi : h.finalKairi;
+  const isKaihi = h.kaihi && mode==='post';
+  let cardCls = 'win-cand';
+  if (!isKaihi){
+    cardCls = (mode==='post' && h.treasureStar) ? 'star'
+            : (typeof kairi==='number' && kairi>=3) ? 'bakuana'
+            : (typeof kairi==='number' && kairi<=-3) ? 'place-cand' : 'win-cand';
+  } else cardCls = 'kaihi';
+
+  const ribbon = isKaihi
+    ? ''
+    : `<span class="jingu-ninki-corner r${rank<=3?rank:'X'}">⛩ 神宮${rank}番人気</span>`;
+
+  const nameBadges = isKaihi
+    ? `<span class="kaihi-badge">回避</span>`
+    : `${kairiBadge(kairi)}${(mode==='post'&&h.treasureStar)?'<span class="star-badge">⭐ 本命級の宝</span>':((typeof kairi==='number'&&kairi>=5)?'<span class="jingu-uma-badge">⛩️ 神宮馬</span>':'')}`;
+
+  const jk = h.jockey || h.jockeyPre || '';
+  const meta = `${h.sex?`<b>${h.sex}</b> ／ `:''}${h.kg!=null?h.kg+'kg ／ ':''}${jk?jk+'騎手 ／ ':''}${h.trainer||''}`
+    + (isKaihi ? '' : ` ／ <b>市場${market}人気</b>`);
+
+  const lastrap = (h.lastRaceName||h.rotation) ? `<span class="pc-lastrap">${h.lastRaceResult!=null?`<b class="lr-chakujun">${h.lastRaceResult}着</b> `:''}${h.lastRaceName?`${h.lastRaceName}（${h.lastRaceVenue||''}）`:''}${h.rotation?` <span class="lr-rote">${h.rotation}</span>`:''}${h.kyakushitsu?` <span class="lr-kyaku">${h.kyakushitsu}</span>`:''}</span>` : '';
+
+  return `<div class="preview-card ${cardCls}">
+    ${ribbon}
+    <div class="pc-head">
+      <span class="pc-name">${h.name}</span>
+      ${nameBadges}
+      ${mode==='post'?resultBadge(h):''}
+      <span class="pc-meta">${meta}</span>
+      ${lastrap}
+    </div>
+    ${h.shrine_view?`<div class="pc-view">${h.shrine_view}</div>`:''}
+    ${h.buy?`<div class="pc-buy"><b>🟢 買い</b>${h.buy}</div>`:''}
+    ${h.concern?`<div class="pc-concern"><b>🔴 懸念</b>${h.concern}</div>`:''}
+  </div>`;
+}
+
+fetch('data/juushou/yasuda-2026-guide.json?_='+Date.now())
+  .then(r=>r.json())
+  .then(d=>{
+    const H = d.horses;
+    // 確定前：神宮オッズ順（preNinki）。回避馬も含む（preNinkiで並ぶ）
+    const preSorted = [...H].sort((a,b)=>(a.preNinki||999)-(b.preNinki||999));
+    // 確定後：confirmedRank順。回避馬は末尾
+    const postSorted = [...H].sort((a,b)=>{
+      if (a.kaihi && !b.kaihi) return 1;
+      if (!a.kaihi && b.kaihi) return -1;
+      return (a.confirmedRank||999)-(b.confirmedRank||999);
+    });
+
+    const html = `
+    <div class="divider"></div>
+    <div style="text-align:center"><span class="phase-tag pre">STEP 1-2　出馬表確定前</span></div>
+    <div class="sec-title">出馬表確定前の神宮オッズ</div>
+    <div class="sec-lead">週明け、回避・除外の前。全${H.length}頭を神宮独自で格付けし、想定人気との乖離を見る段階</div>
+    ${dashboard(H, 'preKairi', {rankKey:'preNinki', marketKey:'preMarket', showRes:false, final:false, includeKaihi:true})}
+    <div class="preview-grid">
+      ${preSorted.map(h=>horseCard(h,'pre')).join('')}
+    </div>
+
+    <div class="divider"></div>
+    <div style="text-align:center"><span class="phase-tag post">STEP 3-4　出馬表確定後（最終版）</span></div>
+    <div class="sec-title">出馬表確定後の神宮オッズ × 最終乖離</div>
+    <div class="sec-lead">回避${d.kaihiCount}頭を除外し、出走${d.runnersCount}頭のみで神宮オッズを再ランキング。前日の最終人気と再乖離して軸を確定する</div>
+    ${dashboard(H, 'finalKairi', {rankKey:'confirmedRank', marketKey:'finalMarket', showRes:true, final:true})}
+    <div class="preview-grid">
+      ${postSorted.map(h=>horseCard(h,'post')).join('')}
+    </div>
+
+    <div class="divider"></div>
+    <div class="verdict">
+      <h3>⛩ 結果照合 ── ⭐本命級の宝が 1着・2着 独占</h3>
+      <div class="vrow">
+        <span class="vh">⭐ シックスペンス</span>
+        <span class="vd">神宮5位 × 市場8人気 ＝ 乖離+3 ／ 回避したアドマイヤズームの武豊が乗替</span>
+        <span class="vres">🥇 1着</span>
+      </div>
+      <div class="vrow">
+        <span class="vh">⭐ ワールズエンド</span>
+        <span class="vd">神宮2位 × 市場7人気 ＝ 乖離+5 ／ 神宮の宝筆頭格「不当な過小評価と断言」</span>
+        <span class="vres">🥈 2着</span>
+      </div>
+      <div class="vrow">
+        <span class="vh">⚠ ガイアフォース</span>
+        <span class="vd">神宮8位 × 市場1人気 ＝ 乖離−9 ／ 市場の罠判定も、1人気の地力で粘る</span>
+        <span class="vres">2着同着</span>
+      </div>
+      <p style="margin-top:14px;font-size:12.5px;opacity:.92;line-height:1.8">
+        神宮の上位評価3頭が、1着・2着・2着同着の<b>3枠を独占</b>。<br>
+        「<b>神宮オッズ上位 × 乖離+大</b>」のクロス＝⭐本命級の宝（ワールズエンド・シックスペンス）を軸に据えれば、市場で7・8番人気だった2頭から馬連・三連複が獲れていた。
+      </p>
+      <table class="payout-tbl">
+        <thead><tr><th>馬券（ワールズエンド軸）</th><th>的中</th><th style="text-align:right">配当</th></tr></thead>
+        <tbody>
+          <tr><td>馬連 軸流し（相手 シックス＋ガイア）</td><td>同着で2本</td><td class="amt">8,820円</td></tr>
+          <tr><td>ワイド 軸流し</td><td>2本</td><td class="amt">5,310円</td></tr>
+          <tr><td>三連複 1点（宝＋勝利候補＋相手候補）</td><td>4-11-14</td><td class="amt">16,210円</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:12px;font-size:11.5px;opacity:.8">
+        💡 この【乖離ダッシュボード最終版】の「💎神宮の宝」上位＝⭐本命級の宝を軸に、相手は神宮上位の💎宝＋⚠罠でも市場1人気の地力馬を1点ケアする。これがそのまま最終予想になる。
+      </p>
+    </div>`;
+
+    document.getElementById('content').innerHTML = html;
+  })
+  .catch(e=>{
+    document.getElementById('content').innerHTML='<div class="loading">⚠ データ読み込みに失敗しました</div>';
+    console.error(e);
+  });
+</script>
+</body>
+</html>
