@@ -1,0 +1,143 @@
+{
+  "date": "2026-06-13",
+  "weekend": "2026-06-13 / 6-14",
+  "races": [
+    {
+      "raceId": "202602010111",
+      "keibabookId": "202601090111",
+      "date": "2026-06-13",
+      "venue": "函館",
+      "raceNum": "11R",
+      "raceName": "函館スプリントステークス",
+      "category": "GⅢ",
+      "surface": "芝",
+      "distance": 1200,
+      "numHorses": 13,
+      "startTime": "15:45",
+      "keibabookMemo": "馬場 晴・良／先行有利",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": "11",
+          "name": "インビンシブルパパ",
+          "jockey": "佐々木大",
+          "trainer": "伊藤大",
+          "kotodamaGrade": "S",
+          "kotodamaScore": 9.78,
+          "totalScore": 9.78,
+          "gaikyuGrade": "🔥🔥 CH",
+          "gaikyuFull": "チャンピオンヒルズ",
+          "hatsuBri": 0,
+          "comment": "神宮スコア1位。先行力と二の脚で開幕週の前残りを呼び込む逃げ馬。陣営も昨年好走の舞台と強気で仕上がり良好。馬場「先行有利」に合致する本命。",
+          "finalRank": null,
+          "finalNinki": null,
+          "ninkiPred": 2
+        },
+        {
+          "mark": "○",
+          "num": "09",
+          "name": "クラスペディア",
+          "jockey": "小崎綾",
+          "trainer": "河嶋",
+          "kotodamaGrade": "S",
+          "kotodamaScore": 9.72,
+          "totalScore": 9.72,
+          "gaikyuGrade": "在厩",
+          "gaikyuFull": "在厩",
+          "hatsuBri": 0,
+          "comment": "神宮スコア2位×市場7番人気の💎神宮の宝。函館向きの持ち味が全頭最多の逃げ馬で、前走春雷S完勝。スピードと小回り適性で前残りの本線。",
+          "finalRank": null,
+          "finalNinki": null,
+          "ninkiPred": 7
+        },
+        {
+          "mark": "▲",
+          "num": "03",
+          "name": "レイピア",
+          "jockey": "横山武",
+          "trainer": "高野友",
+          "kotodamaGrade": "S",
+          "kotodamaScore": 9.1,
+          "totalScore": 9.1,
+          "gaikyuGrade": "🔥🔥 大山ヒルズ",
+          "gaikyuFull": "大山ヒルズ",
+          "hatsuBri": 0,
+          "comment": "神宮スコア3位。G1で掲示板の地力上位だが差し脚質で、先行有利の開幕週馬場は展開待ち。地力で押し切れるか。",
+          "finalRank": null,
+          "finalNinki": null,
+          "ninkiPred": 1
+        },
+        {
+          "mark": "激",
+          "num": "04",
+          "name": "カルプスペルシュ",
+          "jockey": "丹内",
+          "trainer": "石坂公",
+          "kotodamaGrade": "A",
+          "kotodamaScore": 8.52,
+          "totalScore": 8.52,
+          "gaikyuGrade": "🔥🔥🔥 NFしがらき",
+          "gaikyuFull": "ノーザンファームしがらき",
+          "hatsuBri": 1,
+          "comment": "函館3-0-0-1の巧者が距離1200替わり×初ブリンカー着用で変わり身。先行力もあり陣営も改めて期待。神宮最大の穴。",
+          "finalRank": null,
+          "finalNinki": null,
+          "ninkiPred": 5
+        }
+      ],
+      "watchList": [],
+      "kaime": {
+        "total_points": 14,
+        "total_investment": 1400,
+        "bets": [
+          {
+            "type": "単勝",
+            "nums": [
+              "11"
+            ],
+            "note": "◎本命",
+            "points": 1,
+            "amount": 100
+          },
+          {
+            "type": "馬単マルチ",
+            "nums": [
+              "11",
+              "09",
+              "03",
+              "04"
+            ],
+            "note": "◎軸×相手（○▲激）",
+            "points": 6,
+            "amount": 600
+          },
+          {
+            "type": "単勝",
+            "nums": [
+              "04"
+            ],
+            "note": "激穴",
+            "points": 1,
+            "amount": 100
+          },
+          {
+            "type": "馬単マルチ",
+            "nums": [
+              "04",
+              "11",
+              "09",
+              "03"
+            ],
+            "note": "激軸×相手（◎○▲）",
+            "points": 6,
+            "amount": 600
+          }
+        ],
+        "note": "単勝◎激2点＋馬単マルチ◎軸6点＋激軸6点＝14点¥1,400",
+        "special": true
+      },
+      "fatalWords": [],
+      "win5": false
+    }
+  ]
+}
