@@ -1,0 +1,143 @@
+{
+  "date": "2026-06-14",
+  "weekend": "2026-06-13 / 6-14",
+  "races": [
+    {
+      "raceId": "202609030411",
+      "keibabookId": "202603010411",
+      "date": "2026-06-14",
+      "venue": "阪神",
+      "raceNum": "11R",
+      "raceName": "宝塚記念",
+      "category": "GⅠ",
+      "surface": "芝",
+      "distance": 2200,
+      "numHorses": 18,
+      "startTime": "15:40",
+      "keibabookMemo": "馬場 良／上位拮抗",
+      "picks": [
+        {
+          "mark": "◎",
+          "num": "05",
+          "name": "クロワデュノール",
+          "jockey": "北村友",
+          "trainer": "斉藤崇",
+          "kotodamaGrade": "S",
+          "kotodamaScore": 12.4,
+          "totalScore": 12.4,
+          "gaikyuGrade": "🔥🔥🔥 NFしがらき",
+          "gaikyuFull": "ノーザンファームしがらき",
+          "hatsuBri": 0,
+          "comment": "神宮スコア1位×市場1番人気＝鉄板の本命。大阪杯・天皇賞を連勝した4歳で立ち回りとスタミナが阪神内回りに最適。陣営は当週やっと活気が戻ったとの弁で状態の最終確認が鍵。",
+          "finalRank": null,
+          "finalNinki": null,
+          "ninkiPred": 1
+        },
+        {
+          "mark": "○",
+          "num": "04",
+          "name": "ミクニインスパイア",
+          "jockey": "丹内",
+          "trainer": "林",
+          "kotodamaGrade": "S",
+          "kotodamaScore": 11.74,
+          "totalScore": 11.74,
+          "gaikyuGrade": "🔥🔥🔥 山元TC",
+          "gaikyuFull": "山元トレーニングセンター",
+          "hatsuBri": 0,
+          "comment": "神宮スコア2位×市場8番人気＝💎神宮の宝の筆頭(乖離+6)。宝塚向きの特記が全頭最多級で前進気勢も良化、1角まで距離あるこの条件は競馬しやすいと陣営強気。",
+          "finalRank": null,
+          "finalNinki": null,
+          "ninkiPred": 8
+        },
+        {
+          "mark": "▲",
+          "num": "02",
+          "name": "ミュージアムマイル",
+          "jockey": "レーン",
+          "trainer": "高柳大",
+          "kotodamaGrade": "S",
+          "kotodamaScore": 11.64,
+          "totalScore": 11.64,
+          "gaikyuGrade": "🔥🔥🔥 NFしがらき",
+          "gaikyuFull": "ノーザンファームしがらき",
+          "hatsuBri": 0,
+          "comment": "神宮スコア3位。有馬記念をG1制覇した中山巧者で右回り2200は合うと陣営。半年ぶりだがひと追い毎に良化、本領発揮なら上位。",
+          "finalRank": null,
+          "finalNinki": null,
+          "ninkiPred": 3
+        },
+        {
+          "mark": "激",
+          "num": "13",
+          "name": "シェイクユアハート",
+          "jockey": "古川吉",
+          "trainer": "宮",
+          "kotodamaGrade": "S",
+          "kotodamaScore": 10.19,
+          "totalScore": 10.19,
+          "gaikyuGrade": "🔥🔥🔥 社台鈴鹿",
+          "gaikyuFull": "社台ファーム鈴鹿",
+          "hatsuBri": 0,
+          "comment": "神宮スコア7位×市場12番人気＝乖離+5の最人気薄の💎宝。出走馬最速級の末脚を持ち時計勝負・速いペースを歓迎と陣営。前が崩れれば一気の穴。",
+          "finalRank": null,
+          "finalNinki": null,
+          "ninkiPred": 12
+        }
+      ],
+      "watchList": [],
+      "kaime": {
+        "total_points": 14,
+        "total_investment": 1400,
+        "bets": [
+          {
+            "type": "単勝",
+            "nums": [
+              "05"
+            ],
+            "note": "◎本命",
+            "points": 1,
+            "amount": 100
+          },
+          {
+            "type": "馬単マルチ",
+            "nums": [
+              "05",
+              "04",
+              "02",
+              "13"
+            ],
+            "note": "◎軸×相手（○▲激）",
+            "points": 6,
+            "amount": 600
+          },
+          {
+            "type": "単勝",
+            "nums": [
+              "13"
+            ],
+            "note": "激穴",
+            "points": 1,
+            "amount": 100
+          },
+          {
+            "type": "馬単マルチ",
+            "nums": [
+              "13",
+              "05",
+              "04",
+              "02"
+            ],
+            "note": "激軸×相手（◎○▲）",
+            "points": 6,
+            "amount": 600
+          }
+        ],
+        "note": "単勝◎激2点＋馬単マルチ◎軸6点＋激軸6点＝14点¥1,400",
+        "special": true
+      },
+      "fatalWords": [],
+      "win5": false
+    }
+  ]
+}
